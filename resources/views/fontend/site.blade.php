@@ -27,7 +27,7 @@
                             </div>
                         </a></li>
                     <li><a href="">
-                            <div class="text">GỚI THIỆU</div>
+                            <div class="text">GIỚI THIỆU</div>
                         </a></li>
                     <li><a href="">
                             <div class="text">CHƯƠNG TRÌNH</div>
