@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="{{asset('detaildonate/listdonate.css')}}">
 
 
-    <div class="nav"><h3>List</h3></div>
+    <div class="container-fluid" style="padding: 0;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav3">
+                    <h3>List</h3>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="tableform mt-4">
             <table class="table">
-                <thead class="text-center" >
+                <thead class="text-center">
                     <tr>
                         <th>Name</th>
                         <th>Project</th>

@@ -1,6 +1,6 @@
 .margin-navbar {
     margin-top: 60px;
-    background:  linear-gradient(to bottom, #FFEDD1, #FF914D );
+    background:  linear-gradient(to bottom, #FFFFFF, #ED5656 );
     height: 45px;
     display: flex;
     align-items: center;
@@ -35,13 +35,14 @@
 }
 
 .donate_link a {
-    padding: 5px;
-    background-color:red;
-    width: 120px;
+    padding: 10px;
+    background:  linear-gradient(to right, #0097B2, #7ED957 );
+    width: 150px;
     font-size: 20px;
     color: white;
     text-align: center;
     text-decoration: none;
+    border-radius: 20px;
 }
 
 
@@ -61,7 +62,7 @@
 .btn-search-1 {
     position: relative;
     padding: 10px 0 0 20px;
-    width: 80%;
+    width: 95%;
 }
 .btn-search-1 input{
     width: 100%;
@@ -97,7 +98,8 @@
 }
 
 .nav-bar-right ul li:hover {
-    background-color: #2772d4;
+    background: linear-gradient(to right, #CDFFD8, #94B9FF);
+    color: black;
 }
 .nav-bar-right ul li a {
     text-decoration: none;

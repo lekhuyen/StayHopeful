@@ -1,5 +1,5 @@
 body{
-    background: #1F794D;
+    background: linear-gradient(to bottom ,#1F794D, #7ED957);
     overflow-x: hidden;
 }
 
@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    padding-top: 8px;
 }
 .container2{
     display: flex;
@@ -22,6 +22,7 @@ body{
     height: 100vh;
     justify-content: center;
 }
+
 
 .textform{
     margin-top: 20px;

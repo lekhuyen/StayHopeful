@@ -67,8 +67,8 @@
                 </div>
                 <div class="project">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success setinput" style="width: 100%; border-radius: 20px"
-                            name="redirect">Gửi</button>
+                        <button type="submit" class="btn btn-success setinput" style="width: 30%; border-radius: 20px"
+                            name="redirect">Xác nhận</button>
 
                     </div>
                 </div>
