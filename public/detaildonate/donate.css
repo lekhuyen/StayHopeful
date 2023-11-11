@@ -1,0 +1,75 @@
+body{
+    background: #1F794D;
+    overflow-x: hidden;
+}
+
+.nav3{
+    margin-top: 60px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom ,#ffffff, #7ED957);
+    color: #1F794D;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.container2{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+
+.textform{
+    margin-top: 20px;
+    text-align: center;
+    color: #cccccc;
+    font-size: 28px;
+    font-weight: 600;
+}
+.formall{
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    height: 100%;
+    background-color: aliceblue;
+    justify-content: center;
+}
+
+.textandanh3{
+    color: #1F794D;
+    font-size: 20px;
+    font-weight: 700;
+}
+.project{
+    width: 80%;
+    height: 40px;
+    margin: -20px 0;
+}
+.p2{
+    margin-top: -50px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+.formall h2{
+    display: flex;
+    align-items: center;
+    color: #cccccc;
+    font-weight: 600;
+    height: 50px;
+}
+.setinput{
+    height: 100%;
+}
+.textten{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.textten2{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

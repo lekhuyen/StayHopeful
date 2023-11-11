@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/detail',[DetailPostController::class,'index'])->name('detail.index');
+
+//donatedetail
+Route::get('/donate',[detaildonateController::class,'index'])->name('detail.donate');
+Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
