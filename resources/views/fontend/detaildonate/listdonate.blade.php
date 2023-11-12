@@ -35,37 +35,75 @@
     </div>
     <div class="container">
         <div class="tableform mt-4">
-            <table class="table">
-                <thead class="text-center">
-                    <tr>
-                        <th>Name</th>
-                        <th>Project</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center ">
-                    <tr class="align-top" style="border-radius: 20px; background-color: #A3D48F; ">
-                        <td>Username</td>
-                        <td>Project Name</td>
-                        <td>$$$$$</td>
-                        <td>DD/MM/YY</td>
-                    </tr>
-                    <tr style="border-radius: 20px; background-color: #A3D48F">
-                        <td>Username</td>
-                        <td>Project Name</td>
-                        <td>$$$$$</td>
-                        <td>DD/MM/YY</td>
-                    </tr>
-                    <tr style="border-radius: 20px; background-color: #A3D48F">
-                        <td>Username</td>
-                        <td>Project Name</td>
-                        <td>$$$$$</td>
-                        <td>DD/MM/YY</td>
-                    </tr>
-
-                </tbody>
-            </table>
+            <ul class="responsive-table">
+                <li class="table-header">
+                  <div class="col col-1">Name</div>
+                  <div class="col col-2">Project</div>
+                  <div class="col col-3">Amount</div>
+                  <div class="col col-4">Date</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                <li class="table-row">
+                  <div class="col col-1" data-label="name">Phong</div>
+                  <div class="col col-2" data-label="project">Hello what ur name</div>
+                  <div class="col col-3" data-label="Amount">$350</div>
+                  <div class="col col-4" data-label="date">22-26-2015</div>
+                </li>
+                
+              </ul>
         </div>
     </div>
     <script src="{{ asset('js/listdonate.js') }}"></script>
