@@ -15,7 +15,7 @@
         </div>
                     <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{asset('home/img/vv.jpg')}}" alt="Los Angeles" class="d-block carosel_heigth">
+                <img src="{{asset('img/tramanh1.jpg')}}" alt="Los Angeles" class="d-block carosel_heigth">
                 <div class="carousel-caption">
                 <h3>Los Angeles</h3>
                 <p>We had such a great time in LA!</p>

@@ -1,6 +1,7 @@
 
 
 .nav3{
+    display: flex;
     margin-top: 60px;
     margin-bottom: 20px;
     width: 100%;
@@ -8,9 +9,7 @@
     background: linear-gradient(to bottom ,#ffffff, #7ED957);
     color: #1F794D;
     font-size: 18px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* justify-content: space-around; */
     padding-top: 8px;
 }
 .container{
@@ -48,4 +47,17 @@
 .table td:nth-child(4){
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+.setinput2{
+    padding-left: 30px;
+    width: 30%;
+}
+.textnav3{
+    width: 80%;
+
+    /* height: 100%; */
+    text-align: center;
+    background-color: transparent;
+    text-align: center;
+    padding-right: 30%;
 }
