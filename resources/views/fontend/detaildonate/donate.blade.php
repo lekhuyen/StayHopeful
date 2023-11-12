@@ -1,5 +1,7 @@
 @extends('fontend.site')
 @section('main')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="{{ asset('detaildonate/donate.css') }}">
     <div class="container-fluid" style="padding: 0;">
         <div class="row">
@@ -18,10 +20,10 @@
                 <h2 class="mt-4 ">Donate Details</h2>
                 <div class="project p2">
                     <div class="form-check form-switch">
-                        <div class="textandanh2"><input class="form-check-input" type="checkbox"
-                             id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
-                        <div class="textandanh3"><label class="form-check-label" 
-                            for="flexSwitchCheckDefault">DONATE ẨN DANH</label></div>
+                        <div class="textandanh2"><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                name="andanh" value="Andanh"></div>
+                        <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">DONATE ẨN
+                                DANH</label></div>
                     </div>
                 </div>
                 <div class="project">
@@ -35,17 +37,29 @@
                 </div>
                 <div class="project">
                     <select class="form-select setinput" aria-label="Default select example" name="bank"
+                        style="border-radius: 20px; background-color: #E8EAEB" id="methodpay">
+                        <option selected>Chọn Phương Thức Thanh Toán</option>
+                        <option value="Bank">Bank</option>
+                        <option value="Momo">Momo</option>
+                        <option value="Paypal">Paypal</option>
+                    </select>
+                </div>
+                <div class="project" id="bankDropdown" style="display: none;">
+                    <select class="form-select setinput" aria-label="Default select example" name="bank"
                         style="border-radius: 20px; background-color: #E8EAEB">
-                        <option selected>Chọn ngân hàng</option>
-                        <option value="NCB">NCB</option>
+                        <option selected>Chọn Ngân Hàng</option>
                         <option value="VIB">VIB</option>
                         <option value="BIDV">BIDV</option>
+                        <option value="SCB">SCB</option>
+                        <option value="ACB">ACB</option>
+                        <option value="OCB">OCB</option>
                     </select>
                 </div>
                 <div class="project">
                     <div class="input-group setinput">
                         <div class="input-group-prepend">
-                            <span class="input-group-text textten" id="inputGroup-sizing-default" style="padding: 8px;">Tên của bạn: </span>
+                            <span class="input-group-text textten" id="inputGroup-sizing-default" style="padding: 8px;">Tên
+                                của bạn: </span>
                         </div>
                         <input type="text" class="form-control textten2" aria-label="Default" name="name"
                             aria-describedby="inputGroup-sizing-default" style="background-color: #E8EAEB"
@@ -54,7 +68,7 @@
                 </div>
                 <div class="project">
                     <div class="input-group setinput">
-                        <div class="input-group-prepend" >
+                        <div class="input-group-prepend">
                             <span class="input-group-text textten" style="padding: 8px">VND</span>
                         </div>
                         <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
@@ -63,7 +77,7 @@
                             <span class="input-group-text textten2" style="padding: 8px">.000</span>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="project">
                     <div class="text-center">
@@ -75,4 +89,16 @@
             </div>
         </div>
     </form>
+    <script>
+        $(document).ready(function() {
+            $("#methodpay").change(function() {
+                if ($(this).val() === "Bank") {
+                    $('#bankDropdown').show();
+                } else {
+                    $('#bankDropdown').hide();
+
+                }
+            })
+        });
+    </script>
 @endsection()
