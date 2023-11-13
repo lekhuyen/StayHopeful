@@ -23,5 +23,8 @@ Route::get('/detail',[DetailPostController::class,'index'])->name('detail.index'
 
 //donatedetail
 Route::get('/donate',[detaildonateController::class,'index'])->name('detail.donate');
-Route::post('/donate',[detaildonateController::class,'thanhtoanvnpay'])->name('detail.thanhtoan');
+Route::post('/donate',[detaildonateController::class,'thanhtoan'])->name('detail.thanhtoan');
+Route::post('/save-payment', [detaildonateController::class, 'savePayment']);
+
+//listdonate
 Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
