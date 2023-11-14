@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav_bar">
-                    <li><a href="">
+                    <li><a href="{{route('detail.index')}}">
                         <div class="text">
                                 <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;"> 
                                 HOME
@@ -40,8 +40,8 @@
                     <li><a href="">
                             <div class="text">CHƯƠNG TRÌNH</div>
                         </a></li>
-                    <li><a href="">
-                            <div class="text">ĐÓNG GÓP</div>
+                    <li><a href="{{route('detail.donate')}}">
+                            <div class="text">ỦNG HỘ</div>
                         </a></li>
                     <li><a href="">
                             <div class="text">TIN TỨC</div>

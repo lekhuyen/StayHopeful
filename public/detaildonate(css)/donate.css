@@ -83,5 +83,12 @@ body{
     text-decoration: none;
 }
 .dd-option-image, .dd-selected-image{
-    max-width: 45px;
+    max-width: 50px;
+}
+.dd-selected-text:hover, .dd-selected:hover{
+    color: black;
+}
+.dd-option{
+    text-align: center;
+    height: 50px;
 }

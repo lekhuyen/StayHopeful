@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="form-table">
-                <table class="table table-striped">
+                <table class="table table-dark table-hover">
                     <thead>
                         <tr>
                             <td>ID</td>

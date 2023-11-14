@@ -25,7 +25,6 @@ Route::get('/detail',[DetailPostController::class,'index'])->name('detail.index'
 //donatedetail
 Route::get('/donate',[detaildonateController::class,'index'])->name('detail.donate');
 Route::post('/donate',[detaildonateController::class,'thanhtoan'])->name('detail.thanhtoan');
-Route::post('/save-payment', [detaildonateController::class, 'savePayment']);
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
 Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->name('admin.dashboard');

@@ -1,6 +1,6 @@
     @extends('fontend.site')
     @section('main')
-        <link rel="stylesheet" href="{{ asset('detaildonate/donate.css') }}">
+        <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
         <div class="container-fluid" style="padding: 0;">
             <div class="row">
                 <div class="col-lg-12">
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ route('detail.thanhtoan') }}" autocomplete="off">
+        <form method="POST" action="{{ route('detail.thanhtoan') }}" >
             <div class="container2">
                 @csrf
                 <div class="formall">
@@ -57,8 +57,8 @@
                         <select class="form-select setinput" aria-label="Default select example" name="momoSelect"
                             style="border-radius: 20px; background-color: #E8EAEB" id="momoSelect">
                             <option selected>Chọn Phương Thức</option>
-                            <option value="momoqr" data-imagesrc="{{ asset('img/MoMo_Logo.png') }}">Momo QR</option>
-                            <option value="momocard" data-imagesrc="{{ asset('img/MoMo_Logo.png') }}">Momo Card</option>
+                            <option value="momoqr" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo QR</option>
+                            <option value="momocard" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo Card</option>
                             <input type="hidden" name="selectedMomo" id="selectedMomo" value="">
 
                         </select>
