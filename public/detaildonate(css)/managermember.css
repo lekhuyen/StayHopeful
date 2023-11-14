@@ -1,0 +1,30 @@
+.textusers{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+}
+.textusers p{
+    font-size: 23px;
+    font-weight: 600;
+}
+.btn-search{
+    padding: 10px;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #29B6F6;
+    border-style: none;
+}
+.textusers input{
+    border-style: none;
+    border-style: none;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-indent: 20px;
+}
+.form-table{
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 50px;
+}
