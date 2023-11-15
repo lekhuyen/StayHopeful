@@ -59,5 +59,5 @@ modalInner.addEventListener('click', ()=> {
 $('.item').click(function(){
     $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
     $(this).find('.sub-menu').slideToggle();
-    $(this).find('.dropdown').toggleClass('rotate');
+    $(this).find('.dropdown').toggleClass('rotate-slide');
 })

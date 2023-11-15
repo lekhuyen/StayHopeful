@@ -93,14 +93,29 @@
 
 .menu-bar .item {
     position: relative;
-    cursor: pointer;
     border-bottom: 3px solid #CDFFD8;
     cursor: pointer;
     transition: all .3s;
+    cursor: pointer;
 }
 
 .nav-bar-right ul li:hover {
     background-color: #2772d4;
+}
+.menu-title-a {
+    text-decoration: none;
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+}
+.menu-title-a:hover{
+    color: white;
+}
+.item i {
+    color: white;
+}
+.sub-menu {
+    display: none;
 }
 .sub-menu a {
     display: block;
@@ -120,7 +135,9 @@
     color: white;
     background-color:  #08cad1;
 }
-
+.rotate-slide {
+    transform: rotate(90deg);
+}
 /* ----- */
 .post_related{
     display: flex;
