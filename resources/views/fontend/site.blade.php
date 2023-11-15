@@ -42,7 +42,7 @@
                     <li><a href="">
                             <div class="text">CHƯƠNG TRÌNH</div>
                         </a></li>
-                    {{-- <li><a href="{{route('detail.donate')}}"> --}}
+                    <li><a href="">
                             <div class="text">ỦNG HỘ</div>
                         </a></li>
                     <li><a href="">
