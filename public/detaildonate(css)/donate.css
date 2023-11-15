@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(to bottom ,#245abe, #53b7f1);
+    background: white;
     overflow-x: hidden;
 }
 
@@ -27,7 +27,7 @@ body{
 .textform{
     margin-top: 20px;
     text-align: center;
-    color: #cccccc;
+    color: white;
     font-size: 28px;
     font-weight: 600;
 }
@@ -37,12 +37,12 @@ body{
     width: 45%;
     height: 700px;
     max-height: fit-content;
-    background-color: aliceblue;
+    background-color: #50a0ef;
     justify-content: center;
 }
 
 .textandanh3{
-    color: #245abe;
+    color: WHITE;
     font-size: 20px;
     font-weight: 700;
 }
@@ -60,7 +60,7 @@ body{
 .formall h2{
     display: flex;
     align-items: center;
-    color: #cccccc;
+    color: white;
     font-weight: 600;
     height: 50px;
 }

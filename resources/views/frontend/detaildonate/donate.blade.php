@@ -19,7 +19,7 @@
                         <div class="form-check form-switch">
                             <div class="textandanh2"><input class="form-check-input" type="checkbox"
                                     id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
-                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">DONATE ẨN
+                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">ẨN
                                     DANH</label></div>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
                     <div class="project" id="bankButton">
                         <div class="text-center">
                             <button type="submit" class="btn btn-success setinput"
-                                style="width: 100%; border-radius: 20px; background: #3169d0" name="redirect" id="confirmBtnbank">Quyên Góp
-                                Bank</button>
+                                style="width: 100%; border-radius: 20px; background: #0c6efd" name="redirect" id="confirmBtnbank">QUYÊN GÓP
+                                </button>
                         </div>
                     </div>
                     {{-- button momo --}}
