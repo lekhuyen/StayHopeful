@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav_bar">
-                    <li><a href="">
+                    <li><a href="{{route('detail.index')}}">
                         <div class="text">
-                                <img class="logo" src="./img/Logo.jpg" alt="" style="margin-left: 0;"> 
+                                <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;"> 
                                 HOME
                             </div>
                         </a></li>
@@ -42,8 +42,8 @@
                     <li><a href="">
                             <div class="text">CHƯƠNG TRÌNH</div>
                         </a></li>
-                    <li><a href="">
-                            <div class="text">ĐÓNG GÓP</div>
+                    <li><a href="{{route('detail.donate')}}">
+                            <div class="text">ỦNG HỘ</div>
                         </a></li>
                     <li><a href="">
                             <div class="text">TIN TỨC</div>
@@ -62,14 +62,14 @@
     @yield('main')
 
 {{-- footer --}}
-    <div class="container-fluid" style="background-color: #38B6FF; margin-top: 150px;">
+    <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
                         <h2>VỀ CHÚNG TÔI</h2>
                         <span>Quỹ Từ thiện Stay Hopeful được thành lập theo Quyết định số: 
-                            24/QĐ-BNV ngày 5 tháng 1 năm 2018. Quỹ Bông Sen là phiên bản 
+                            24/QĐ-BNV ngày 5 tháng 1 năm 2018. Stay Hopeful là phiên bản 
                             mở rộng của Quỹ Từ thiện Tình Thương thành phố Hồ Chí Minh. 
                             Quỹ có phạm vi hoạt động toàn quốc.
                         </span>
@@ -106,7 +106,7 @@
                             <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1, TP.Hồ Chí Minh.</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
-                            <li>Email: contact@quybongsen.org</li>
+                            <li>Email: contact@StayHopeful.org</li>
                         </ul>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-end">
-                        <h6>©2017 QUỸ TỪ THIỆN STAY HOPEFUL. All rights reserved. Serviced by Easyweb.vn</h6>
+                        <h6>©2023 QUỸ TỪ THIỆN STAY HOPEFUL. All rights reserved. Serviced by Easyweb.vn</h6>
                         <div class="media-icon">
                             <a href=""><i class="fa-brands fa-square-facebook" style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
                             <a href=""><i class="fa-brands fa-square-youtube" style="cursor: pointer; background-color: #e22b26; color: white;"></i></a>

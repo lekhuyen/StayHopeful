@@ -1,0 +1,51 @@
+body {
+  background: #eee;
+}
+
+#side_nav {
+  background: #000;
+  min-width: 250px;
+  max-width: 250px;
+  transition: all 0.3s;
+}
+
+.content {
+  min-height: 100vh;
+  width: 100%;
+}
+
+hr.h-color {
+  background: #eee;
+}
+
+.sidebar li:hover {
+  color: black;
+  border-radius: 8px;
+}
+
+.sidebar li:hover {
+  background-color: #fff;
+}
+
+
+.sidebar li a {
+  color: #fff;
+}
+.sidebar li a:hover {
+  color: black;
+
+}
+
+@media(max-width: 767px) {
+  #side_nav {
+    margin-left: -250px;
+    position: absolute;
+    min-height: 100vh;
+    z-index: 1;
+
+  }
+
+  #side_nav.active {
+    margin-left: 0;
+  }
+}

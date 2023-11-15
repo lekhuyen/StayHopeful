@@ -1,5 +1,5 @@
 body{
-    background: #1F794D;
+    background: linear-gradient(to bottom ,#1F794D, #7ED957);
     overflow-x: hidden;
 }
 
@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    padding-top: 8px;
 }
 .container2{
     display: flex;
@@ -22,6 +22,7 @@ body{
     height: 100vh;
     justify-content: center;
 }
+
 
 .textform{
     margin-top: 20px;
@@ -34,7 +35,8 @@ body{
     display: flex;
     flex-wrap: wrap;
     width: 45%;
-    height: 100%;
+    height: 700px;
+    max-height: fit-content;
     background-color: aliceblue;
     justify-content: center;
 }
@@ -72,4 +74,21 @@ body{
 .textten2{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+.dd-selected{
+    height: 50px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.dd-option-image, .dd-selected-image{
+    max-width: 50px;
+}
+.dd-selected-text:hover, .dd-selected:hover{
+    color: black;
+}
+.dd-option{
+    text-align: center;
+    height: 50px;
 }
