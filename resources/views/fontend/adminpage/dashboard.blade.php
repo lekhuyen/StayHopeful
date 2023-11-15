@@ -1,7 +1,10 @@
 @extends('fontend.adminpage.adminindex')
 @section('admin_content')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="{{asset('detaildonate(css)/dashboardlayout.css')}}">
+
     <div class="container">
+        <h1 style="font-weight: 700">DashBoard</h1>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-6 mt-5">
                 <div class="card" style="width: 14rem; background: #039BE5;">
@@ -60,6 +63,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mt-3">
+                <canvas id="chartone"></canvas>
+            </div>
+            <div class="col-lg-6 mt-3">
+                <canvas id="charttwo"></canvas>
             </div>
         </div>
         <div class="row">
@@ -137,4 +148,5 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('js/chart.js')}}"></script>
 @endsection

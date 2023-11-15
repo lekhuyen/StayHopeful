@@ -15,4 +15,10 @@ class AdminPageController extends Controller
     public function viewmanagermember(){
         return view('fontend.adminpage.managermember');
     }
+    public function viewmanagerdesign(){
+        return view('fontend.adminpage.managerdesign');
+    }
+    public function viewlistuser(){
+        return view('fontend.adminpage.listuser');
+    }
 }
