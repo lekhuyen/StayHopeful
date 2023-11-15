@@ -85,7 +85,7 @@
                             <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
                                 name="vnd" style="background-color: #E8EAEB">
                             <div class="input-group-append">
-                                <span class="input-group-text textten2" tyle="padding: 8px">.000</span>
+                                <span class="input-group-text textten2" style="padding: 8px">.000</span>
                             </div>
                         </div>
                     </div>

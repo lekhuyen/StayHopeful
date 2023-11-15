@@ -29,5 +29,7 @@ Route::post('/donate',[detaildonateController::class,'thanhtoan'])->name('detail
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
 Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->name('admin.dashboard');
 Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
+Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
+Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 //listdonate
 Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
