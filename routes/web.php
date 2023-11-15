@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +37,7 @@ Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name(
 Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
 
 //login
-
 Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
+
+//blog
+Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
