@@ -19,7 +19,7 @@
                 <div class="project p2">
                     <div class="form-check form-switch">
                         <div class="textandanh2"><input class="form-check-input" type="checkbox"
-                             id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
+                            id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
                         <div class="textandanh3"><label class="form-check-label" 
                             for="flexSwitchCheckDefault">DONATE ẨN DANH</label></div>
                     </div>

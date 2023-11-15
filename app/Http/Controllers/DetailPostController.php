@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DetailPostController extends Controller
 {
     public function index(){
-        return view('fontend.detailPost.index');
+        return view('fontend.detailpost.detail');
     }
 }
