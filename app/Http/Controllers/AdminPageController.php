@@ -21,4 +21,5 @@ class AdminPageController extends Controller
     public function viewlistuser(){
         return view('fontend.adminpage.listuser');
     }
+
 }

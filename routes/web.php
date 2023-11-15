@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,7 @@ Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 //listdonate
 Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
+
+//login
+
+Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
