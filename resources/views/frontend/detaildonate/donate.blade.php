@@ -1,4 +1,4 @@
-    @extends('fontend.site')
+    @extends('frontend.site')
     @section('main')
         <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
         <div class="container-fluid" style="padding: 0;">
@@ -27,8 +27,8 @@
                         <select class="form-select setinput" aria-label="Default select example" name="project"
                             style="border-radius: 20px; background-color: #E8EAEB">
                             <option selected>Chọn Dự Án Muốn Ủng Hộ</option>
-                            <option value="Quỷ Từ Thiện">Quỷ từ thiện</option>
-                            <option value="Quỷ giúp đỡ thú cưng">Quỷ giúp đỡ thú cưng</option>
+                            <option value="Quỷ Từ Thiện">Quỹ từ thiện</option>
+                            <option value="Quỷ giúp đỡ thú cưng">Quỹ giúp đỡ thú cưng</option>
                             <option value="Đố bạn biết đấy">Đố bạn biết đấy</option>
                         </select>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="project" id="bankButton">
                         <div class="text-center">
                             <button type="submit" class="btn btn-success setinput"
-                                style="width: 100%; border-radius: 20px" name="redirect" id="confirmBtnbank">Quyên Góp
+                                style="width: 100%; border-radius: 20px; background: #3169d0" name="redirect" id="confirmBtnbank">Quyên Góp
                                 Bank</button>
                         </div>
                     </div>

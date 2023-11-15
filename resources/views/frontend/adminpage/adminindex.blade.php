@@ -50,7 +50,7 @@
                 <div class="d-flex justify-content-between d-md-none d-block">
                     <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
                     <a class="navbar-brand fs-4" href="#"><span
-                            class="bg-dark rounded px-2 py-0 text-white">StayHopeFul</span></a>
+                            class="bg-dark rounded px-2 py-0 text-white">StayHopeful</span></a>
 
                 </div>
                 <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"

@@ -9,12 +9,12 @@ class detaildonateController extends Controller
 {
     public function index()
     {
-        return view('fontend.detaildonate.donate');
+        return view('frontend.detaildonate.donate');
     }
 
     public function viewlistdonate()
     {
-        return view('fontend.detaildonate.listdonate');
+        return view('frontend.detaildonate.listdonate');
     }
     public function thanhtoan(Request $request)
     {

@@ -1,4 +1,4 @@
-@extends('fontend.adminpage.adminindex')
+@extends('frontend.adminpage.adminindex')
 @section('admin_content')
 <link rel="stylesheet" href="{{asset('detaildonate(css)/managermember.css')}}">
 <div class="container">

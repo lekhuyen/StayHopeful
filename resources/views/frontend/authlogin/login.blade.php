@@ -1,4 +1,4 @@
-@extends('fontend.site')
+@extends('frontend.site')
 @section('main')
     <link rel="stylesheet" href="{{ asset('authlogin/login.css') }}">
 
