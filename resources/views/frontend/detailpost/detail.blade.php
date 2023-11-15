@@ -1,4 +1,4 @@
-@extends('fontend.site')
+@extends('frontend.site')
 @section('title', 'Chi tiết')
 
 @section('main')

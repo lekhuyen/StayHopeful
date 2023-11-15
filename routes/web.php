@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*

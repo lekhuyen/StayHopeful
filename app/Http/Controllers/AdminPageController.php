@@ -7,19 +7,19 @@ use Illuminate\Http\Request;
 class AdminPageController extends Controller
 {
     public function viewsidebar(){
-        return view('fontend.adminpage.adminindex');
+        return view('frontend.adminpage.adminindex');
     }
     public function viewdashboard(){
-        return view('fontend.adminpage.dashboard');
+        return view('frontend.adminpage.dashboard');
     }
     public function viewmanagermember(){
-        return view('fontend.adminpage.managermember');
+        return view('frontend.adminpage.managermember');
     }
     public function viewmanagerdesign(){
-        return view('fontend.adminpage.managerdesign');
+        return view('frontend.adminpage.managerdesign');
     }
     public function viewlistuser(){
-        return view('fontend.adminpage.listuser');
+        return view('frontend.adminpage.listuser');
     }
 
 }

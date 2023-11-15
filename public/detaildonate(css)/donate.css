@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(to bottom ,#1F794D, #7ED957);
+    background: linear-gradient(to bottom ,#245abe, #53b7f1);
     overflow-x: hidden;
 }
 
@@ -8,8 +8,8 @@ body{
     margin-bottom: 20px;
     width: 100%;
     height: 50px;
-    background: linear-gradient(to bottom ,#ffffff, #7ED957);
-    color: #1F794D;
+    background: linear-gradient(to bottom ,#ffffff, #2faaf2);
+    color: #245abe;
     font-size: 18px;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@ body{
 }
 
 .textandanh3{
-    color: #1F794D;
+    color: #245abe;
     font-size: 20px;
     font-weight: 700;
 }
