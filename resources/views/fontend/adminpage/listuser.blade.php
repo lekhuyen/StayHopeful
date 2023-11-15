@@ -29,6 +29,7 @@
                                 <th>Email</th>
                                 <th>Số Điện Thoại</th>
                                 <th>Ngày Đăng Ký</th>
+                                <th>Trạng Thái</th>
                                 <th style="text-align: center">Chỉnh Sửa</th>
                             </tr>
                         </thead>
@@ -39,12 +40,30 @@
                                 <td>phong@gmail.com</td>
                                 <td>099999999</td>
                                 <td>19-10-2019</td>
+                                <td>Đang hoạt động</td>
                                 <td style="text-align: center">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
                                         <i class="fa-solid fa-pen"></i>
                                     </button>
-                                    <button type="button" class="btn btn-primary" >
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Khuyên</td>
+                                <td>phong@gmail.com</td>
+                                <td>099999999</td>
+                                <td>19-10-2019</td>
+                                <td>Đã bị khoá</td>
+                                <td style="text-align: center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </td>
@@ -59,22 +78,41 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Thông Tin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST">
+                    <div class="modal-body">
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Nhập Tên" name="name">
+                          </div>
+                          <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Nhập Email" name="email">
+                          </div>
+                          <div class="mb-3 mt-3">
+                            <label for="phone" class="form-label">Phone:</label>
+                            <input type="number" class="form-control" id="email" placeholder="Nhập Số Điện Thoại" name="phone">
+                          </div>
+                          <div class="mb-3 mt-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Thẩy Đổi Trạng Thái</label>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
         </div>
-      </div>
-      
+    </div>
+
     <script>
         var myModal = document.getElementById('myModal')
         var myInput = document.getElementById('myInput')

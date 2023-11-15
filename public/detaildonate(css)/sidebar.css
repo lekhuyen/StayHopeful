@@ -63,10 +63,7 @@ hr.h-color {
 
 body {
 	line-height: 1.5;
-  font-size: medium;
-	font-family: 'Lato', sans-serif;
-font-family: 'Lora', serif;
-font-family: 'Raleway', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 .footer {
