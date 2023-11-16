@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\LoginController;
@@ -41,6 +42,10 @@ Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
 //detail-page
 Route::get('/detail',[BlogController::class,'detail'])->name('detail.post');
 
+// Contact 
+Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
+
+
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
@@ -48,3 +53,5 @@ Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->nam
 Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
+
+//
