@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(){
-        return view('fontend.blog.blog');
+        return view('frontend.blog.blog');
     }
 }
