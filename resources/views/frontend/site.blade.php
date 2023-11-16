@@ -6,6 +6,8 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
     <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
+    {{--css contactus --}}
+    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
     {{-- cssblog --}}
     <link rel="stylesheet" href="{{asset('blogcss/blog.css')}}">
     {{-- cssblog --}}
@@ -33,7 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav_bar">
-                    <li><a href="{{route('detail.index')}}">
+                    <li><a href="{{route('/')}}">
                         <div class="text">
                                 <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;"> 
                                 HOME
@@ -54,7 +56,7 @@
                     <li><a href="">
                             <div class="text">LIÊN HỆ</div>
                         </a></li>
-                    <li><a href="">
+                    <li><a href="{{route('auth.index')}}">
                             <div class="text">LOGIN</div>
                         </a></li>
                 </ul>
@@ -62,10 +64,11 @@
         </div>
     </div>
 
-    @yield('main')
+        <div>@yield('main')</div>
 
 {{-- footer --}}
     {{-- @yield('footer') --}}
+
     <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">

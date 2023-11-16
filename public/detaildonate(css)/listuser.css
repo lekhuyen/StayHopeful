@@ -53,7 +53,29 @@ input:focus {
 }
 .form-table{
     width: 100%;
-    height: 400px;
+    /* height: 400px; */
     background-color: #ffffff;
     border-radius: 20px;
+}
+table tr{
+    text-align: center;
+}
+
+.table>:not(caption)>*>* {
+    padding: 1.5rem 0.5rem;
+    transform: translateY(10%);
+    vertical-align: middle;
+
+}
+/* searchinput */
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right:  10px; /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555; /* Màu của biểu tượng */
 }
