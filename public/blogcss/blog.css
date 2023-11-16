@@ -26,12 +26,12 @@ body {
 .blog-image{
     width: 100%;
     border-radius: 10px;
-    background-color: #DAB0FF;
+    background-color: #95d0fc;
     margin-bottom: 20px;
 }
 #icon-arrow{
     font-size: 18px;
-    color: #80129F;
+    color: #004AAD;
     padding-right: 10px;
 }
 .description{
@@ -40,14 +40,14 @@ body {
 }
 #title{
     font-size: 20px;
-    color: #80129F;
+    color: #004AAD;
     font-weight: 700;
 }
 
 .blog-detail-img{
     width: 100%;
     height: 200px;
-    background-color: #DAB0FF;
+    background-color: #2faaf2;
 }
 .blog-detail-img-2{
     width: 100%;
@@ -68,13 +68,13 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background: linear-gradient(#FFFFFF, #DAB0FF);
+    background:  linear-gradient(to bottom, #FFFFFF, #2faaf2 );
     overflow: hidden;
 }
 
 .blogNav a {
     text-decoration: none;
-    color: #80129F;
+    color: #004AAD;
     padding: 10px;
     display: block;
     text-align: center;
@@ -83,7 +83,7 @@ body {
 }
 
 .blogNav a:hover {
-    text-decoration: underline;
+    color: #277ceb;
 }
 
 .blogNav li {

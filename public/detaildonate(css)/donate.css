@@ -37,12 +37,13 @@ body{
     width: 45%;
     height: 700px;
     max-height: fit-content;
-    background-color: #50a0ef;
+    background: linear-gradient(to right ,#8ecdf2, #1aa1ef);
     justify-content: center;
+    border-radius: 20px;
 }
 
 .textandanh3{
-    color: WHITE;
+    color: white;
     font-size: 20px;
     font-weight: 700;
 }
