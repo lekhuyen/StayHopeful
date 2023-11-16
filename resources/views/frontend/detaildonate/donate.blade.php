@@ -25,7 +25,7 @@
                     </div>
                     <div class="project">
                         <select class="form-select setinput" aria-label="Default select example" name="project"
-                            style="border-radius: 20px; background-color: #E8EAEB">
+                            style="border-radius: 20px; background-color: #fbfbfb">
                             <option selected>Chọn Dự Án Muốn Ủng Hộ</option>
                             <option value="Quỷ Từ Thiện">Quỹ từ thiện</option>
                             <option value="Quỷ giúp đỡ thú cưng">Quỹ giúp đỡ thú cưng</option>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="project">
                         <select class="form-select setinput" aria-label="Default select example" name="banktype"
-                            style="border-radius: 20px; background-color: #E8EAEB" id="banktype">
+                            style="border-radius: 20px; background-color: #fbfbfb" id="banktype">
                             <option selected>Chọn Phương Thức Thanh Toán</option>
                             <option value="Bank">Bank</option>
                             <option value="Momo">Momo</option>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="project" id="bankDropdown" style="display: none;">
                         <select class="form-select setinput" aria-label="Default select example" name="bank"
-                            style="border-radius: 20px; background-color: #E8EAEB;" id="bankSelect">
+                            style="border-radius: 20px; background-color: #fbfbfb;" id="bankSelect">
                             <option selected>Chọn Ngân Hàng</option>
                             <option value="VIB" data-imagesrc="{{ asset('img/logovib.png') }}">VIB</option>
                             <option value="BIDV" data-imagesrc="{{ asset('img/logobidv.png') }}">BIDV</option>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="project" id="momoDropdown" style="display: none;">
                         <select class="form-select setinput" aria-label="Default select example" name="momoSelect"
-                            style="border-radius: 20px; background-color: #E8EAEB" id="momoSelect">
+                            style="border-radius: 20px; background-color: #fbfbfb" id="momoSelect">
                             <option selected>Chọn Phương Thức</option>
                             <option value="momoqr" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo QR</option>
                             <option value="momocard" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo Card</option>
@@ -72,7 +72,7 @@
                                     của bạn: </span>
                             </div>
                             <input type="text" class="form-control textten2" aria-label="Default" name="name"
-                                aria-describedby="inputGroup-sizing-default" style="background-color: #E8EAEB"
+                                aria-describedby="inputGroup-sizing-default" style="background-color: #fbfbfb"
                                 placeholder="Nhập Tên">
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 <span class="input-group-text textten" style="padding: 8px">VND</span>
                             </div>
                             <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
-                                name="vnd" style="background-color: #E8EAEB">
+                                name="vnd" style="background-color: #fbfbfb">
                             <div class="input-group-append">
                                 <span class="input-group-text textten2" style="padding: 8px">.000</span>
                             </div>
@@ -96,7 +96,7 @@
                                 <span class="input-group-text textten" style="padding: 8px">USD</span>
                             </div>
                             <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
-                                name="usd" style="background-color: #E8EAEB" id="usd">
+                                name="usd" style="background-color: #fbfbfb" id="usd">
                             <div class="input-group-append">
                                 <span class="input-group-text textten2" tyle="padding: 8px">.00</span>
                             </div>
@@ -106,7 +106,8 @@
                     <div class="project" id="bankButton">
                         <div class="text-center">
                             <button type="submit" class="btn btn-success setinput"
-                                style="width: 100%; border-radius: 20px; background: #0c6efd" name="redirect" id="confirmBtnbank">QUYÊN GÓP
+                                style="width: 40%; border-radius: 20px; background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
+;" name="redirect" id="confirmBtnbank">QUYÊN GÓP
                                 </button>
                         </div>
                     </div>

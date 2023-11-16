@@ -1,10 +1,9 @@
 @extends('frontend.site')
 @section('main')
     <link rel="stylesheet" href="{{ asset('authlogin/login.css') }}">
-
-
+    
     <div id="container-2">
-        <h2>Login/Register Form</h2>
+
         <div class="container-login" id="form-login">
             <div class="form-container sign-up-container">
                 <form action="#">
@@ -15,7 +14,7 @@
                         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     </div>
                     <span>or use your email for registration</span>
-                    <input class="text-input" type="name" placeholder="name" name="name" />
+                    <input class="text-input" type="name" placeholder="Name" name="name" />
                     <input class="text-input" type="email" placeholder="Email" name="email" />
                     <div class="pass">
                         <input class="text-input" type="password" placeholder="Password" name="password" />
