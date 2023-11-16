@@ -37,7 +37,7 @@
                 <ul class="nav_bar">
                     <li><a href="{{route('/')}}">
                         <div class="text">
-                                <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;"> 
+                                <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: -53PX;"> 
                                 HOME
                             </div>
                         </a></li>

@@ -1,49 +1,54 @@
-
-  a {
+a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s;
-  }
+}
 
-  a:hover {
+a:hover {
     color: #ff69b4;
-  }
+}
 
-  .form-control {
+.input-phone-number {
+    border-color: #ff69b4 !important;
+    border-style: solid !important;
+    border-width: 4px !important;
+    border-radius: 10px !important;
+}
+.contact-input-form input{
     border-color: #ff69b4;
     border-style: solid;
     border-width: 4px;
     border-radius: 10px;
-  }
+}
 
-  .textarea {
+.textarea {
     border-color: #ff69b4;
     border-style: solid;
     border-width: 4px;
     border-radius: 10px;
     height: 100px;
-  }
+}
 
-  .pink-dropdown-item {
+.pink-dropdown-item {
     border-color: #ff69b4;
     background-color: #ff69b4;
     color: white;
-  }
+}
 
-  .left {
-    font-size: 18px; 
-    color: #FF9AC7;
-  }
-
-  .middle {
-    background-color: #D43790;
+.left {
     font-size: 18px;
-    color: #FFFFFF;
+    color: #ff9ac7;
+}
+
+.middle {
+    background-color: #d43790;
+    font-size: 18px;
+    color: #ffffff;
     padding-top: 30px;
     border-radius: 15px;
-  }
+}
 
-  .right {
+.right {
     background-color: rgb(134, 134, 244);
     font-size: 18px;
     color: white;
@@ -51,53 +56,52 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-  }
+}
 
-  .pink-button {
+.pink-button {
     border-color: #ff69b4;
     border-style: solid;
     border-width: 4px;
     background-color: #ff69b4;
     color: white;
     border-radius: 10px;
-  }
+}
 
-  .search {
+.search {
     border-color: rgb(105, 235, 255);
     border-radius: 15px;
-  }
+}
 
-  .input-icons i {
+.input-icons i {
     position: absolute;
-  }
-         
-  .input-icons {
+}
+
+.input-icons {
     width: 100%;
     margin-bottom: 10px;
-  }
-         
-  .icon {
+}
+
+.icon {
     padding: 10px;
     min-width: 40px;
-  }
-         
-  .input-field {
+}
+
+.input-field {
     width: 100%;
     padding: 10px;
     text-align: center;
-  }
+}
 
-  /* Center the map */
-  .map-container {
+/* Center the map */
+.map-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 410px;
-  }
+}
 
-  iframe {
+iframe {
     width: 100%;
-    max-width: 410px; /* Adjust the maximum width as needed */
     height: 100%;
     border: 0;
-  }
+}
