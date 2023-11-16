@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12 post-title">
                 <h2>CHIẾC XE SỐ 63: BỊ LIỆT MỘT TAY VÀ HAI CHÂN NHƯNG VẪN CỐ GẮNG MƯU SINH NUÔI SỐNG BẢN THÂN</h2>
-            </div>git
+            </div>
     </div>
     <div class="container post-detail">
         <div class="row">
