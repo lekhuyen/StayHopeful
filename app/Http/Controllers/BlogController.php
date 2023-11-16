@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('frontend.blog.blog');
     }
-    
+
+    public function index_finished()
+    {
+        return view('frontend.blog.blog_finished');
+    }
 }
