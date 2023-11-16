@@ -1,4 +1,4 @@
-    @extends('fontend.site')
+    @extends('frontend.site')
     @section('main')
         <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
         <div class="container-fluid" style="padding: 0;">
@@ -19,7 +19,7 @@
                         <div class="form-check form-switch">
                             <div class="textandanh2"><input class="form-check-input" type="checkbox"
                                     id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
-                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">DONATE ẨN
+                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">ẨN
                                     DANH</label></div>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
                         <select class="form-select setinput" aria-label="Default select example" name="project"
                             style="border-radius: 20px; background-color: #E8EAEB">
                             <option selected>Chọn Dự Án Muốn Ủng Hộ</option>
-                            <option value="Quỷ Từ Thiện">Quỷ từ thiện</option>
-                            <option value="Quỷ giúp đỡ thú cưng">Quỷ giúp đỡ thú cưng</option>
+                            <option value="Quỷ Từ Thiện">Quỹ từ thiện</option>
+                            <option value="Quỷ giúp đỡ thú cưng">Quỹ giúp đỡ thú cưng</option>
                             <option value="Đố bạn biết đấy">Đố bạn biết đấy</option>
                         </select>
                     </div>
@@ -106,8 +106,8 @@
                     <div class="project" id="bankButton">
                         <div class="text-center">
                             <button type="submit" class="btn btn-success setinput"
-                                style="width: 100%; border-radius: 20px" name="redirect" id="confirmBtnbank">Quyên Góp
-                                Bank</button>
+                                style="width: 100%; border-radius: 20px; background: #0c6efd" name="redirect" id="confirmBtnbank">QUYÊN GÓP
+                                </button>
                         </div>
                     </div>
                     {{-- button momo --}}

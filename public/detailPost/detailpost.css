@@ -36,7 +36,7 @@
 
 .donate_link a {
     padding: 10px;
-    background:  linear-gradient(to right, #0097B2, #7ED957 );
+    background:  linear-gradient(to right, #1a5fb4, #78a9e9 );
     width: 150px;
     font-size: 20px;
     color: white;
@@ -44,7 +44,9 @@
     text-decoration: none;
     border-radius: 20px;
 }
-
+.donate_link a:hover {
+    color: #023271;
+}
 
 /* nav right*/
 .nav-bar-right {
@@ -171,7 +173,7 @@
 
 /* ---------------------------------comment */
 .comment-access {
-    background-color: green;
+    background-color: rgb(38, 148, 226);
     width: 200px;
     height: 30px;
     display: flex;
@@ -191,7 +193,7 @@
     color: white;
 }
 .comment-access:hover {
-    background-color: rgb(7, 146, 7);
+    background-color: rgb(4, 106, 178);
 }
 .comment-icon i{
     font-size: 25px;
@@ -226,7 +228,7 @@
 .modal_inner {
     margin-top: 60px;
     background-color: white;
-    border: 5px solid  #FF914D;
+    border: 5px solid  #043e84;
     position: fixed;
     inset: 0 0 0 auto;
     display: grid;
@@ -251,26 +253,26 @@
 }
 .comment-header {
     width: 100%;
-    background-color: #FFEDD1;
+    background-color: #a3d5ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px solid  #FF914D;
+    border-bottom: 5px solid  #043e84;
 }
 .comment-header h1 {
     font-size: 25px;
     margin-bottom: 0;
     padding-left: 10px;
-    color: #FF914D;
+    color: #043e84;
 }
 .comment-header i {
     font-size: 25px;
-    color: #FF914D;
+    color: #043e84;
     padding-right: 10px;
     cursor: pointer;
 }
 .comment-body {
-    border-bottom: 5px solid  #FF914D;
+    border-bottom: 5px solid  #043e84;
     overflow-y: scroll;
 }
 
@@ -390,15 +392,15 @@
 .comment-status {
     display: flex;
     align-items: center;
-    background-color: #FFEDD1;
-    border-bottom: 6px solid  #FF914D;
+    background-color: #a3d5ff;
+    border-bottom: 6px solid  #043e84;
 }
 .comment-status i {
     margin: 0 5px;
-    color: #FF914D;
+    color: #043e84;
 }
 .comment-input {
-    background-color: #FF914D;
+    background-color: #043e84;
     display: flex;
     align-items: center;
     position: relative;
@@ -414,7 +416,7 @@
 }
 .comment-submit button {
     border: none;
-    color: #FF914D;
+    color: #007de4;
     opacity: .5;
 }
 .comment-submit {

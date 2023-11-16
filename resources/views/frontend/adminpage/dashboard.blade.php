@@ -1,10 +1,10 @@
-@extends('fontend.adminpage.adminindex')
+@extends('frontend.adminpage.adminindex')
 @section('admin_content')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="{{asset('detaildonate(css)/dashboardlayout.css')}}">
 
     <div class="container">
-        <h1 style="font-weight: 700">DashBoard</h1>
+        <h1 style="font-weight: 700">Dashboard</h1>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-6 mt-5">
                 <div class="card" style="width: 14rem; background: #039BE5;">
@@ -100,42 +100,42 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>Quỷ Từ Thiện</td>
+                                    <td>Quỹ Từ Thiện</td>
                                     <td>5000 nghìn tỷ</td>
                                     <td>20-15/1999</td>
                                     <td>Not Complete</td>

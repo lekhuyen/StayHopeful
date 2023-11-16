@@ -1,4 +1,4 @@
-@extends('fontend.adminpage.adminindex')
+@extends('frontend.adminpage.adminindex')
 @section('admin_content')
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI/tTme6a0WZhGJxCX2vZlVu6/ZFEcYS+MHMQcG4=" crossorigin="anonymous"></script>

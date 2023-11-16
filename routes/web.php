@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AuthloginController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,4 +35,10 @@ Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->n
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 //listdonate
-Route::get('/listdonate/show',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
+Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
+
+//login
+Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
+
+//blog
+Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
