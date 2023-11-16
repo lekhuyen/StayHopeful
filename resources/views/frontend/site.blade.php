@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav_bar">
-                    <li><a href="{{route('detail.index')}}">
+                    <li><a href="{{route('/')}}">
                         <div class="text">
                                 <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;"> 
                                 HOME
@@ -54,7 +54,7 @@
                     <li><a href="">
                             <div class="text">LIÊN HỆ</div>
                         </a></li>
-                    <li><a href="">
+                    <li><a href="{{route('auth.index')}}">
                             <div class="text">LOGIN</div>
                         </a></li>
                 </ul>
@@ -62,9 +62,10 @@
         </div>
     </div>
 
-    @yield('main')
+        <div>@yield('main')</div>
 
 {{-- footer --}}
+
     <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
