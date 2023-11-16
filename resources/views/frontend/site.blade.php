@@ -65,6 +65,7 @@
     @yield('main')
 
 {{-- footer --}}
+    {{-- @yield('footer') --}}
     <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">

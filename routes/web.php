@@ -42,3 +42,5 @@ Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
+
+
