@@ -32,4 +32,4 @@ Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->n
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 //listdonate
-Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
+Route::get('/listdonate/show',[detaildonateController::class,'viewlistdonate'])->name('detail.listdonate');
