@@ -38,7 +38,7 @@ Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
-Route::get('/blog',[BlogController::class,'index_finished'])->name('blog.index_finished');
+Route::get('/blog/blog_finished',[BlogController::class,'index_finished'])->name('blog.index_finished');
 
 //detail-page
 Route::get('/detail',[BlogController::class,'detail'])->name('detail.post');
