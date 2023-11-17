@@ -47,13 +47,13 @@
                     <li><a href="">
                             <div class="text">CHƯƠNG TRÌNH</div>
                         </a></li>
-                    <li><a href="">
+                    <li><a href="{{route('detail.donate')}}">
                             <div class="text">ỦNG HỘ</div>
                         </a></li>
                     <li><a href="">
                             <div class="text">TIN TỨC</div>
                         </a></li>
-                    <li><a href="">
+                    <li><a href="{{route('contact.index')}}">
                             <div class="text">LIÊN HỆ</div>
                         </a></li>
                     <li><a href="{{route('auth.index')}}">

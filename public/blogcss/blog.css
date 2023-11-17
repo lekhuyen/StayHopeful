@@ -90,4 +90,7 @@ body {
     float: left;
 }
 
-
+.blog-description-cart {
+    border-bottom-right-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
