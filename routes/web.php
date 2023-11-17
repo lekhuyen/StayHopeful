@@ -41,7 +41,7 @@ Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
 Route::get('/blog/blog_finished',[BlogController::class,'index_finished'])->name('blog.index_finished');
 
 //detail-page
-Route::get('/detail',[BlogController::class,'detail'])->name('detail.post');
+Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 
 // Contact 
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
