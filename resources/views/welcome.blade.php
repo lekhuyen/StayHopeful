@@ -22,14 +22,14 @@
                 </div>
             </div>
             <div class="carousel-item">
-            <img src="{{asset('home/img/cccc.webp')}}" alt="Chicago" class="d-block carosel_heigth">
+            <img src="{{asset('img/tramanh1.jpg')}}" alt="Chicago" class="d-block carosel_heigth">
             <div class="carousel-caption">
                 <h3>Chicago</h3>
                 <p>Thank you, Chicago!</p>
             </div> 
             </div>
             <div class="carousel-item">
-            <img src="{{asset('home/img/sssss.webp')}}" alt="New York" class="d-block carosel_heigth">
+            <img src="{{asset('img/tramanh1.jpg')}}" alt="New York" class="d-block carosel_heigth">
             <div class="carousel-caption">
                 <h3>New York</h3>
                 <p>We love the Big Apple!</p>
