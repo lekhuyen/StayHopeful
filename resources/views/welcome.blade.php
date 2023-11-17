@@ -63,7 +63,7 @@
         <div class=" col-xxl-4 col-xl-6 col-lg-6 large ">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 26rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body card-body-1">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -91,7 +91,7 @@
         <div class="col-xxl-4 col-xl-6 col-lg-6 large">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 26rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -119,7 +119,7 @@
         <div class="col-xxl-4 col-xl-6 col-lg-6 large">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 26rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -169,7 +169,7 @@
         <div class="col-xxl-3 col-xl-6">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 19.5rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -197,7 +197,7 @@
         <div class="col-xxl-3 col-xl-6">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 19.5rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -225,7 +225,7 @@
         <div class="col-xxl-3 col-xl-6">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 19.5rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
@@ -253,7 +253,7 @@
         <div class="col-xxl-3 col-xl-6">
             <a href="#" class="a-card">
                 <div class="card card_wapper" style="width: 19.5rem;">
-                    <img src="{{asset('home/img/vv.jpg')}}" class="card-img-top card-img-top-1" alt="...">
+                    <img src="{{asset('img/tramanh1.jpg')}}" class="card-img-top card-img-top-1" alt="...">
                         <div class="card-body">
                             <h5 class="card-title card-title-1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai khuyết tật ở nhà</h5>
                             <p class="card-text card-text-1-1">Nằm viện hơn 1 tháng nay tại Khoa nhiễm Việt Anh 
