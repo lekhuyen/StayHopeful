@@ -3,8 +3,6 @@
 @section('main')
     <!-- navbar for PJ  -->
 
-
-    <!-- 3 posts hang dau tien  -->
     <div class="container-fluid" style="text-align: center; padding: 60px 0 0 0">
         <div class="col-lg-12">
             <div>
@@ -16,6 +14,8 @@
                 </nav>
             </div>
         </div>
+
+        <!-- 3 posts hang dau tien  -->
         <div class="container mt-5">
             <div class="row">
                 <div class="col-lg-4 mb-3">
