@@ -107,15 +107,17 @@
                         <div class="text-center">
                             <button type="submit" class="btn btn-success setinput"
                                 style="width: 40%; border-radius: 20px; background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
-;" name="redirect" id="confirmBtnbank">QUYÊN GÓP
-                                </button>
+;"
+                                name="redirect" id="confirmBtnbank">QUYÊN GÓP
+                            </button>
                         </div>
                     </div>
                     {{-- button momo --}}
                     <div class="project" id="momoButton" style="display: none;">
                         <div class="text-center">
                             <button type="submit" class="btn setinput"
-                                style="width: 100%; border-radius: 20px; background: #A51F68; color: #ffffff"
+                                style="width: 40%; border-radius: 20px; background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
+;"
                                 name="payUrl" id="confirmBtnmomo">Quyên
                                 Góp Momo</button>
                         </div>

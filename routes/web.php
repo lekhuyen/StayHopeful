@@ -35,6 +35,10 @@ Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name
 
 //login
 Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
+Route::get('/login/google',[AuthloginController::class,'redirectgoogle'])->name('auth.google');
+Route::get('/auth/google/callback',[AuthloginController::class,'handleGoogleback'])->name('auth.googlecallback');
+Route::get('/login/facebook',[AuthloginController::class,'redirectfacebook'])->name('auth.facebook');
+Route::get('/auth/facebook/callback',[AuthloginController::class,'handlefacebookleback'])->name('auth.facebookcallback');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
