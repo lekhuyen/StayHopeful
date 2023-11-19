@@ -68,7 +68,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background:  linear-gradient(to bottom, #FFFFFF, #2faaf2 );
+    background:  linear-gradient(to bottom, #FFFFFF, #78a9e9 );
     overflow: hidden;
 }
 
@@ -90,4 +90,7 @@ body {
     float: left;
 }
 
-
+.blog-description-cart {
+    border-bottom-right-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}

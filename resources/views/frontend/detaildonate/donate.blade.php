@@ -19,16 +19,16 @@
                         <div class="form-check form-switch">
                             <div class="textandanh2"><input class="form-check-input" type="checkbox"
                                     id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
-                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">ẨN
-                                    DANH</label></div>
+                            <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault">ANONYMOUS
+                                    </label></div>
                         </div>
                     </div>
                     <div class="project">
                         <select class="form-select setinput" aria-label="Default select example" name="project"
                             style="border-radius: 20px; background-color: #fbfbfb">
                             <option selected>Chọn Dự Án Muốn Ủng Hộ</option>
-                            <option value="Quỷ Từ Thiện">Quỹ từ thiện</option>
-                            <option value="Quỷ giúp đỡ thú cưng">Quỹ giúp đỡ thú cưng</option>
+                            <option value="Quỹ Từ Thiện">Quỹ từ thiện</option>
+                            <option value="Quỹ giúp đỡ thú cưng">Quỹ giúp đỡ thú cưng</option>
                             <option value="Đố bạn biết đấy">Đố bạn biết đấy</option>
                         </select>
                     </div>

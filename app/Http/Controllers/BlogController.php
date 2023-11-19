@@ -10,6 +10,10 @@ class BlogController extends Controller
     {
         return view('frontend.blog.blog');
     }
+    public function detail(){
+        return view('frontend.side_right.side_right');
+    }
+    
 
     public function index_finished()
     {
