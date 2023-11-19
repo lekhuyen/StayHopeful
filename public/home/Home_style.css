@@ -7,8 +7,9 @@
 
 /* ----------------------------navbar -----------------------------------------*/
 
+/* ------------------------------------ */
 .nav_bar {
-    position: fixed;
+    /* position: fixed; */
     z-index: 999;
     width: 100%;
     height: 60px;
@@ -21,6 +22,7 @@
     overflow: hidden;
     padding-left: 0px;
     margin-bottom: 0;
+    display: none;
 }
 
 .nav_bar li {
@@ -99,11 +101,60 @@
     transform: skew(0.09turn);
 }
 
+#nav-toggle {
+    /* display: none; */
+    font-size: 40px;
+    padding-left: 30px;
+    color: white;
+    background-color: #38B6FF;
+    display: flex;
+
+}
+
 .logo {
     width: 130px;
     margin-right: -40px;
     background: none;
 }
+
+/* -----------header mobile interface--------- */
+#nav-mobile {
+    background-color: rgba(148, 185, 255, 1);
+}
+
+.nav-mobile-interface i{
+    color: white;
+}
+
+.nav-menu-title {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+}
+.nav-menu-title:hover {
+    color: white;
+}
+
+.nav-sub-menu-title {
+    display: none;
+}
+.nav-sub-menu-title a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-left: 40px;
+    font-size: 20px;
+}
+.nav-sub-menu-title a:hover {
+    background-color: rgb(116, 155, 227);
+    color: white;
+}
+
+
+
+
+
 
 
 /* --------------carosel------------------- */
@@ -550,5 +601,13 @@
     /* -----------video------------ */
     #myVideo {
         width: 350px;
+    }
+}
+
+@media(max-width: 1024px) {
+    
+
+    #nav-toggle {
+        display: block;
     }
 }
