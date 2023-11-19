@@ -66,7 +66,7 @@
 {{-- footer --}}
     {{-- @yield('footer') --}}
 
-    <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
+    <div class="container-fluid" style="background: linear-gradient(to bottom ,#245abe, #578fd9); margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">
@@ -88,6 +88,7 @@
                             <li><a href="">Tổ chức</a></li>
                             <li><a href="">Lịch sử</a></li>
                             <li><a href="">Quy chế tác viên</a></li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -100,6 +101,7 @@
                             <li><a href="">Trợ giúp suất ăn giá thấp</a></li>
                             <li><a href="">Cứu trợ khẩn cấp</a></li>
                             <li><a href="">Giáo dục và dạy nghề</a></li>
+                            <li><a href=""></a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,7 +112,8 @@
                             <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1, TP.Hồ Chí Minh.</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
-                            <li>Email: contact@StayHopeful.org</li>
+                            <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>

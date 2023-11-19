@@ -45,7 +45,7 @@
             <p>Stayhopeful</p>
             <p>Hotline: <a href="tel:+0987654321" style="text-decoration: none; color: white" >0987654321</a></p>
             <p>Email: <a href="mailto:stayhopful@gmail.com" style="text-decoration: none; color: white;">stayhopeful@gmail.com</a></p>
-            <p>Trụ sở chính: </p>
+            <p>Head Office Address: </p>
             <div class="map-container" style="padding-bottom: 20px">
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d823.8609185302755!2d106.70858875101122!3d10.813985461549624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700053839649!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
