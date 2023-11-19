@@ -55,7 +55,7 @@ modalInner.addEventListener('click', ()=> {
 })
 
 
-// manu bar 
+// menu bar 
 $('.item').click(function(){
     $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
     $(this).find('.sub-menu').slideToggle();

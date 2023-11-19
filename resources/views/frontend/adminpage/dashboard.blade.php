@@ -1,4 +1,4 @@
-@extends('frontend.adminpage.adminindex')
+@extends('frontend.adminpage.index')
 @section('admin_content')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="{{asset('detaildonate(css)/dashboardlayout.css')}}">

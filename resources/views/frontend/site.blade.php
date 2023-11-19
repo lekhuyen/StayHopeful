@@ -7,6 +7,8 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
     <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
+    {{--css contactus --}}
+    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
     {{-- cssblog --}}
     <link rel="stylesheet" href="{{asset('blogcss/blog.css')}}">
     {{-- cssblog --}}
@@ -21,9 +23,6 @@
     {{-- jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- jquery --}}
-    {{-- bootstrap --}}
-    <link href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')}}" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -31,74 +30,77 @@
     <!-- navbar -->
     <div class="container-fluid header-nav" style="padding-left: 0;">
         <div class="row">
+
             <div class="col-lg-12">
-                <div class="div" style="position: fixed; z-index: 1000; width: 100%">
+                <div style="position: fixed; z-index: 1000; width: 100%">
 
                     <!-- mobile interface -->
-                    <div id="nav-toggle">
-                        <div class="search-input-icon">
-                            <i class="fa-solid fa-bars"></i>
-                            <input type="text" placeholder="Tìm kiếm">
-                        </div>
-                        
-                        <div class="btn-login-nav">
-                            <button>ĐĂNG KÝ</button>
-                        </div>
-                    </div>
+                    <div class="test-nav">
+                        <div id="nav-toggle">
+                            <div class="search-input-icon" style="display: flex; align-items: center; justify-content: space-between;">
+                                <div class="search-input-icon-child" style="display: flex; align-items: center;">
+                                    <i class="fa-solid fa-bars"></i>
+                                    <input type="text" placeholder="Tìm kiếm">
+                                </div>
 
-                    <div id="nav-mobile">
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">LOGIN</a>
-                        </div>
-                        <div class="nav-mobile-interface">
-                            <a href="" class="nav-menu-title">TRANG CHỦ</a>
-                        </div>
-                        
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">GIỚI THIỆU</a>
-                            <i class="fas fa-angle-right dropdown"></i>
-                            <div class="nav-sub-menu-title">
-                                <a href="" class="sub-item">Tin tuc 1</a>
-                                <a href="" class="sub-item">Tin tuc 2</a>
-                                <a href="" class="sub-item">Tin tuc 3</a>
+                                <div style="display: flex; align-items: center;">
+                                    <button class="login-nav" style="margin-right: 5px;">ĐĂNG KÝ</button>
+                                    <button class="register-nav">ĐĂNG NHẬP</button>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">ĐÓNG GÓP</a>
-                            <i class="fas fa-angle-right dropdown"></i>
-                            <div class="nav-sub-menu-title">
-                                <a href="" class="sub-item">Tin tuc 1</a>
-                                <a href="" class="sub-item">Tin tuc 2</a>
-                                <a href="" class="sub-item">Tin tuc 3</a>
+                        <div id="nav-mobile">
+                            <div class="nav-mobile-interface">
+                                <a href="" class="nav-menu-title">TRANG CHỦ</a>
                             </div>
-                        </div>
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">TIN TỨC</a>
-                            <i class="fas fa-angle-right dropdown"></i>
-                            <div class="nav-sub-menu-title">
-                                <a href="" class="sub-item">Tin tuc 1</a>
-                                <a href="" class="sub-item">Tin tuc 2</a>
-                                <a href="" class="sub-item">Tin tuc 3</a>
+
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">GIỚI THIỆU</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">LIÊN HỆ</a>
-                            <i class="fas fa-angle-right dropdown"></i>
-                            <div class="nav-sub-menu-title">
-                                <a href="" class="sub-item">Tin tuc 1</a>
-                                <a href="" class="sub-item">Tin tuc 2</a>
-                                <a href="" class="sub-item">Tin tuc 3</a>
+
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">ĐÓNG GÓP</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="nav-mobile-interface">
-                            <a class="nav-menu-title">CHƯƠNG TRÌNH</a>
-                            <i class="fas fa-angle-right dropdown"></i>
-                            <div class="nav-sub-menu-title">
-                                <a href="" class="sub-item">Tin tuc 1</a>
-                                <a href="" class="sub-item">Tin tuc 2</a>
-                                <a href="" class="sub-item">Tin tuc 3</a>
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">TIN TỨC</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">LIÊN HỆ</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
+                            </div>
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">CHƯƠNG TRÌNH</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -161,6 +163,7 @@
                             <li><a href="">Tổ chức</a></li>
                             <li><a href="">Lịch sử</a></li>
                             <li><a href="">Quy chế tác viên</a></li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -173,6 +176,7 @@
                             <li><a href="">Trợ giúp suất ăn giá thấp</a></li>
                             <li><a href="">Cứu trợ khẩn cấp</a></li>
                             <li><a href="">Giáo dục và dạy nghề</a></li>
+                            <li><a href=""></a></li>
                         </ul>
                     </div>
                 </div>
@@ -183,7 +187,8 @@
                             <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1, TP.Hồ Chí Minh.</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
-                            <li>Email: contact@StayHopeful.org</li>
+                            <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -209,5 +214,6 @@
     </div>
 </body>
 <script src="{{asset('comment/comment.js')}}"></script>
+<script src="{{asset('js/header-nav.js')}}"></script>
 
 </html>

@@ -34,3 +34,15 @@ table thead tr td:first-child{
 table thead tr td:nth-child(5){
     border-top-right-radius: 20px;
 }
+/* serachinput */
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right:  10px; /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555; /* Màu của biểu tượng */
+}

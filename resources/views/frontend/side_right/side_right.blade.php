@@ -59,7 +59,7 @@
                 <h2 class="title-middle">BÀI VIẾT LIÊN QUAN</h2>
                 <div class="post_related">
                     <div>
-                        <img src="{{asset("img/img1.jpg")}}" alt="">
+                        <img src="{{asset("img/tramanh1.jpg")}}" alt="">
                     </div>
                     <div class="post-title-child">
                         <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="post_related">
                     <div>
-                        <img src="{{asset("img/img1.jpg")}}" alt="">
+                        <img src="{{asset("img/tramanh1.jpg")}}" alt="">
                     </div>
                     <div class="post-title-child">
                         <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="post_related">
                     <div>
-                        <img src="{{asset("img/img1.jpg")}}" alt="">
+                        <img src="{{asset("img/tramanh1.jpg")}}" alt="">
                     </div>
                     <div class="post-title-child">
                         <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="post_related">
                     <div>
-                        <img src="{{asset("img/img1.jpg")}}" alt="">
+                        <img src="{{asset("img/tramanh1.jpg")}}" alt="">
                     </div>
                     <div class="post-title-child">
                         <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="post_related">
                     <div>
-                        <img src="{{asset("img/img1.jpg")}}" alt="">
+                        <img src="{{asset("img/tramanh1.jpg")}}" alt="">
                     </div>
                     <div class="post-title-child">
                         <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>

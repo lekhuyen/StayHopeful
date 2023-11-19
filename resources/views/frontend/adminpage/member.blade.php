@@ -1,13 +1,15 @@
-@extends('frontend.adminpage.adminindex')
+@extends('frontend.adminpage.index')
 @section('admin_content')
 <link rel="stylesheet" href="{{asset('detaildonate(css)/managermember.css')}}">
 <div class="container">
     <h1 style="font-weight: 700">Quản lý Bài Đăng</h1>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="textusers">
-                <p>All Users (220)</p>
-                <p><input type="search" placeholder="Find User By name"><button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button></p>
+        <div class="col-lg-6">
+            <div class="search">
+                <div class="search-container">
+                    <i class="fas fa-magnifying-glass search-icon"></i>
+                    <input type="search" placeholder="Tìm Kiếm Tên Người Dùng" class="form-control input-search">
+                </div>
             </div>
         </div>
     </div>
@@ -17,7 +19,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td>ID</td>
+                            <td>#</td>
                             <td>Tên người dùng</td>
                             <td>Nội Dung</td>
                             <td>Ngày Đăng</td>

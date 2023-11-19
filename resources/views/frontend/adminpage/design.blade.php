@@ -1,4 +1,4 @@
-@extends('frontend.adminpage.adminindex')
+@extends('frontend.adminpage.index')
 @section('admin_content')
 <link rel="stylesheet" href="{{asset('detaildonate(css)/managerdesign.css')}}">
 
@@ -7,7 +7,10 @@
     <div class="row d-flex justify-content-between mt-5 position-relative">
         <div class="col-lg-6">
             <div class="search">
-                <input type="search" placeholder="Tìm Kiếm Tên Danh Mục" class="form-control input-search">
+                <div class="search-container">
+                    <i class="fas fa-magnifying-glass search-icon"></i>
+                    <input type="search" placeholder="Tìm Kiếm Tên Danh Mục" class="form-control input-search">
+                </div>
             </div>
         </div>
         <div class="col-lg-6">
@@ -22,7 +25,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td>ID</td>
+                            <td>#</td>
                             <td>Danh Mục</td>
                             <td>Hình Ảnh</td>
                             <td>Tên Ảnh</td>
@@ -48,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>
@@ -56,7 +59,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>
@@ -64,7 +67,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>

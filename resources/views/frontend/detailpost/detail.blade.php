@@ -106,7 +106,7 @@
                 {{-- comm cha --}}
                 <div class="comment-user">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/img1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">
@@ -147,7 +147,7 @@
                 {{-- comment con cap 1 --}}
                 <div class="comment-user" style="padding-left: 60px">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/img1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">

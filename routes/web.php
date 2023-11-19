@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\LoginController;
@@ -37,9 +38,14 @@ Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
+Route::get('/blog/blog_finished',[BlogController::class,'index_finished'])->name('blog.index_finished');
 
 //detail-page
-Route::get('/detail',[BlogController::class,'detail'])->name('detail.post');
+Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
+
+// Contact 
+Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
+
 
 
 //admin
@@ -48,3 +54,6 @@ Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->nam
 Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
+Route::get('/test',[AdminPageController::class,'viewtest'])->name('admin.test');
+
+//
