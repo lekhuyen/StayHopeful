@@ -111,6 +111,15 @@
 }
 
 
+
+/* mobile interface */
+#header {
+    
+}
+.header-menu-bar {
+    background-color: #245abe;
+}
+
 /* --------------carosel------------------- */
 .carosel_heigth {
     height: 100vh;

@@ -30,6 +30,7 @@
     <!-- navbar -->
     <div class="container-fluid" style="padding-left: 0;" >
         <div class="row">
+            
             <div class="col-lg-12">
                 <ul class="nav_bar">
                     <li><a href="{{route('/')}}">
@@ -64,7 +65,7 @@
         <div>@yield('main')</div>
 
 {{-- footer --}}
-    {{-- @yield('footer') --}}
+    
 
     <div class="container-fluid" style="background: linear-gradient(to bottom ,#245abe, #578fd9); margin-top: 150px;">
         <div class="container">
