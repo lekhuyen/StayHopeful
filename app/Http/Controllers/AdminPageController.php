@@ -21,5 +21,7 @@ class AdminPageController extends Controller
     public function viewlistuser(){
         return view('frontend.adminpage.listuser');
     }
-
+    public function viewtest(){
+        return view('frontend.language.languagetest');
+    }
 }

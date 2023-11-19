@@ -9,7 +9,7 @@
             <div class="search">
                 <div class="search-container">
                     <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="search" placeholder="Tìm Kiếm Tên Người Dùng" class="form-control input-search">
+                    <input type="search" placeholder="Tìm Kiếm Tên Danh Mục" class="form-control input-search">
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>
@@ -59,7 +59,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>
@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Slider Trang chủ</td>
+                            <td>Slider Blog</td>
                             <td><img src="{{asset('img/tramanh1.jpg')}}" width="30px"></td>
                             <td>Chị Trâm Anh</td>
                             <td><a href="#"><i class="fa-regular fa-pen-to-square" style="color: #4CAF50"></i></a>

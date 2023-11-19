@@ -19,4 +19,7 @@ class BlogController extends Controller
     {
         return view('frontend.blog.blog_finished');
     }
+    public function viewdetail(){
+        return view('frontend.side_right.side_right');
+    }
 }

@@ -1,6 +1,6 @@
 .margin-navbar {
     margin-top: 60px;
-    background:  linear-gradient(to bottom, #FFFFFF, #2faaf2 );
+    background:  linear-gradient(to bottom, #FFFFFF, #78a9e9 );
     height: 45px;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
 
 /* nav right*/
 .nav-bar-right {
-    background: linear-gradient(to right, #01C0C8, #004AAD);
+    background: linear-gradient(to left ,#2052af, #74a7e9);
     padding: 0 !important;
 }
 .nav-bar-right h2{
@@ -95,7 +95,7 @@
 
 .menu-bar .item {
     position: relative;
-    border-bottom: 3px solid #CDFFD8;
+    border-bottom: 3px solid white;
     cursor: pointer;
     transition: all .3s;
     cursor: pointer;
@@ -136,7 +136,7 @@
 }
 .sub-menu a:hover{
     color: white;
-    background-color:  #08cad1;
+    background-color:  #78a9e9;
 }
 .rotate-slide {
     transform: rotate(90deg);
@@ -173,7 +173,7 @@
 
 /* ---------------------------------comment */
 .comment-access {
-    background-color: rgb(38, 148, 226);
+    background-color: #1a5fb4;
     width: 200px;
     height: 30px;
     display: flex;
@@ -193,7 +193,7 @@
     color: white;
 }
 .comment-access:hover {
-    background-color: rgb(4, 106, 178);
+    background-color: #74a7e9;
 }
 .comment-icon i{
     font-size: 25px;
@@ -253,7 +253,7 @@
 }
 .comment-header {
     width: 100%;
-    background-color: #a3d5ff;
+    background-color: #a1caff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -338,7 +338,7 @@
     opacity: .7;
 }
 .choose-icon:hover {
-    background-color:rgb(242,243,245);
+    background-color:#023271;
 }
 
 .delete-edit-comment {
@@ -392,7 +392,7 @@
 .comment-status {
     display: flex;
     align-items: center;
-    background-color: #a3d5ff;
+    background-color: #a1caff;
     border-bottom: 6px solid  #043e84;
 }
 .comment-status i {
