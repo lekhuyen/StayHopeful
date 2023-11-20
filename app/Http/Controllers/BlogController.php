@@ -11,7 +11,7 @@ class BlogController extends Controller
         return view('frontend.blog.blog');
     }
     public function detail(){
-        return view('frontend.side_right.side_right');
+        return view('frontend.detailpost.detail');
     }
     
 
