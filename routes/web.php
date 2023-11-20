@@ -38,7 +38,8 @@ Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
-Route::get('/blog/blog_finished',[BlogController::class,'index_finished'])->name('blog.index_finished');
+Route::get('/blog/blog_finished',[BlogController::class,'blog_finished'])->name('blog.blog_finished');
+Route::get('/blog/blog_detail',[BlogController::class,'blog_detail'])->name('blog.blog_detail');
 
 //detail-page
 Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
