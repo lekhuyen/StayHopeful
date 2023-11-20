@@ -88,7 +88,7 @@
 
             <!-- sidebar -->
             @yield('sidebar')
-
+            
         </div>
     </div>
 
