@@ -5,25 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
-    <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
-    {{--css contactus --}}
-    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
+    <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- cssblog --}}
-    <link rel="stylesheet" href="{{asset('blogcss/blog.css')}}">
+    <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
     {{-- cssblog --}}
-    <link href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')}}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="{{asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js')}}" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js')}}" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    {{-- bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css') }}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js') }}"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js') }}"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js') }}"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+    {{-- bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    {{-- otometer --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-minimal.min.css"
+        integrity="sha512-Jeqp8CoPCvf9tf/uWokfCTsFcv5BIhfTYaTTJA0NKn6B88zDSWe5d/9HTmZX63FGpGGQdB8Chg2khB96+wn4Tw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+        integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- otometer --}}
     {{-- jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- jquery --}}
-    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')}}" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css') }}"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -37,7 +58,8 @@
                     <!-- mobile interface -->
                     <div class="test-nav">
                         <div id="nav-toggle">
-                            <div class="search-input-icon" style="display: flex; align-items: center; justify-content: space-between;">
+                            <div class="search-input-icon"
+                                style="display: flex; align-items: center; justify-content: space-between;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
                                     <i class="fa-solid fa-bars"></i>
                                     <input type="text" placeholder="Tìm kiếm">
@@ -107,7 +129,7 @@
 
                     <!-- desktop interface -->
                     <ul class="nav_bar">
-                        <li><a href="{{route('/')}}">
+                        <li><a href="{{ route('/') }}">
                                 <div class="text">
                                     <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;">
                                     HOME
@@ -128,10 +150,16 @@
                         <li><a href="">
                                 <div class="text">LIÊN HỆ</div>
                             </a></li>
-                        <li><a href="{{route('auth.index')}}">
+                        <li><a href="{{ route('auth.index') }}">
                                 <div class="text">LOGIN</div>
                             </a></li>
                     </ul>
+                    <div class="navbar-language" style="margin-left: 50px;">
+                        <select id="language-selector" onchange="changeLanguage()">
+                            <option value="en">English</option>
+                            <option value="vi">Tiếng Việt</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,7 +212,8 @@
                     <div class="footer_header">
                         <h2>QUỸ TỪ THIỆN STAY HOPEFUL</h2>
                         <ul>
-                            <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1, TP.Hồ Chí Minh.</li>
+                            <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1,
+                                TP.Hồ Chí Minh.</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
                             <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
@@ -202,10 +231,14 @@
                     <div class="footer-end">
                         <h6>©2023 QUỸ TỪ THIỆN STAY HOPEFUL. All rights reserved. Serviced by Easyweb.vn</h6>
                         <div class="media-icon">
-                            <a href=""><i class="fa-brands fa-square-facebook" style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-youtube" style="cursor: pointer; background-color: #e22b26; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-twitter" style="cursor: pointer; background-color: #0591fc; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-instagram" style="cursor: pointer; background-color: #d67d51; color: white;"></i></a>
+                            <a href=""><i class="fa-brands fa-square-facebook"
+                                    style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
+                            <a href=""><i class="fa-brands fa-square-youtube"
+                                    style="cursor: pointer; background-color: #e22b26; color: white;"></i></a>
+                            <a href=""><i class="fa-brands fa-square-twitter"
+                                    style="cursor: pointer; background-color: #0591fc; color: white;"></i></a>
+                            <a href=""><i class="fa-brands fa-square-instagram"
+                                    style="cursor: pointer; background-color: #d67d51; color: white;"></i></a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +246,8 @@
         </div>
     </div>
 </body>
-<script src="{{asset('comment/comment.js')}}"></script>
-<script src="{{asset('js/header-nav.js')}}"></script>
+<script src="{{ asset('comment/comment.js') }}"></script>
+<script src="{{ asset('js/header-nav.js') }}"></script>
+<script src="{{ asset('js/language.js') }}"></script>
 
 </html>
