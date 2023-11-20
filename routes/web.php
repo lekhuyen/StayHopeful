@@ -39,6 +39,8 @@ Route::get('/login/google',[AuthloginController::class,'redirectgoogle'])->name(
 Route::get('/auth/google/callback',[AuthloginController::class,'handleGoogleback'])->name('auth.googlecallback');
 Route::get('/login/facebook',[AuthloginController::class,'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback',[AuthloginController::class,'handlefacebookleback'])->name('auth.facebookcallback');
+//profile
+Route::get('/profile',[AuthloginController::class,'viewprofile'])->name('auth.profile');
 
 //blog
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
@@ -59,6 +61,5 @@ Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->nam
 Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
-Route::get('/test',[AdminPageController::class,'viewtest'])->name('admin.test');
 
 //

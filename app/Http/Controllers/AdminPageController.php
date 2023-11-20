@@ -24,4 +24,5 @@ class AdminPageController extends Controller
     public function viewtest(){
         return view('frontend.language.languagetest');
     }
+
 }

@@ -1,0 +1,87 @@
+.profile-form{
+    margin-top: 120px;
+    width: 100%;
+    height: 700px;
+    background-color: transparent;
+}
+
+.profile-form .profile-img{
+    width: 100%;
+    height: 400px;
+    background-color: blue;
+}
+.profile-img-show{
+    width: 100%;
+    height: 100%;
+    background: url(../img/tramanh2.jpg);
+    background-size: cover;
+}
+.profile-text{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+}
+.profile-post{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+.profile-post button{
+    color: #ffffff;
+    border: none;
+    background-color: #003060;
+    padding: 10px 100px 10px 100px;
+}
+.profile-icon{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+}
+.profile-icon i{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.profile-form-2{
+    margin-top: 120px;
+    width: 100%;
+    height: 700px;
+    background-color: transparent;
+}
+.profile-text-2{
+    text-align: center;
+    color: #003060;
+    font-size: 23px;
+    font-weight: 800;
+}
+.profile-about{
+    width: 91%;
+    height: 100px;
+    transform: translateX(10%);
+    background-color: #ece6e6;
+}
+.profile-about-text{
+    width: 100%;
+    height: 100%;
+    transform: translateX(12.5%);
+    text-align: center;
+    transform: translateY(12.5%);
+    background-color: transparent;
+    font-weight: 500;
+}
+.profile-history{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #ffffff;
+    width: 30%;
+    height: 50px;
+    background-color: #003060;
+    transform: translateX(33%);
+}
+.profile-donate-table{
+    width: 91%;
+    margin-top: 30px;
+    transform: translateX(10%);
+    background-color: #ece6e6;
+}
