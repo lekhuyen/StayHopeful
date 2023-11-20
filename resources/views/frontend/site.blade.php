@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title" href="{{route('blog.index')}}">PROJECT</a>
+                                <a class="nav-menu-title" href="{{ route('blog.index') }}">PROJECT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="{{route('detail.donate')}}" class="nav-menu-title">DONATE</a>
+                                <a href="{{ route('detail.donate') }}" class="nav-menu-title">DONATE</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="{{route('contact.index')}}" class="nav-menu-title">CONTACT</a>
+                                <a href="{{ route('contact.index') }}" class="nav-menu-title">CONTACT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -138,28 +138,33 @@
                         <li><a href="#">
                                 <div class="text">ABOUT</div>
                             </a></li>
-                        <li><a href="{{route('blog.index')}}">
+                        <li><a href="{{ route('blog.index') }}">
                                 <div class="text">PROJECT</div>
                             </a></li>
-                        <li><a href="{{route('detail.donate')}}">
+                        <li><a href="{{ route('detail.donate') }}">
                                 <div class="text">DONATE</div>
                             </a></li>
                         <li><a href="">
                                 <div class="text">BLOG</div>
                             </a></li>
-                        <li><a href="{{route('contact.index')}}">
+                        <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a></li>
                         <li><a href="{{ route('auth.index') }}">
                                 <div class="text">LOGIN</div>
                             </a></li>
                     </ul>
-                    <div class="navbar-language" style="margin-left: 50px;">
-                        <select id="language-selector" onchange="changeLanguage()">
-                            <option selected>Đổi Ngôn Ngữ</option>
-                            <option value="en">English</option>
-                            <option value="vi">Tiếng Việt</option>
-                        </select>
+
+                    <div class="dropdown d-flex justify-content-end">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe"></i> </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" data-value="en"
+                                onclick="changeLanguage(this)">English</button>
+                            <button class="dropdown-item" data-value="vi" onclick="changeLanguage(this)">Tiếng
+                                Việt</button>
+                        </div>
                     </div>
                 </div>
             </div>
