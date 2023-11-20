@@ -1,15 +1,17 @@
-@extends('frontend.detailpost.detail')
+@extends('frontend.slide-right.slide_right')
 
 @section('detail-post')
 
     @section('post-title')
-        <div class="container post-title-par">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 post-title">
                     <h2>CHIẾC XE SỐ 63: BỊ LIỆT MỘT TAY VÀ HAI CHÂN NHƯNG VẪN CỐ GẮNG MƯU SINH NUÔI SỐNG BẢN THÂN</h2>
                 </div>
         </div>
     @endsection
+
+    
     <div class="col-lg-8 post-detail-1">
         <h4>Tuy đoạn đường từ nhà ra điểm bán chưa đầy 2km nhưng anh Minh phải mất rất nhiều thời gian và 
             sức lực mới có thể hoàn thành, đó là chưa kể những ngày thời tiết Sài Gòn đổ mưa hay nắng gắt, 

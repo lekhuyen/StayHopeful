@@ -2,16 +2,33 @@
 @section('title', 'Chi tiết')
 
 @section('main')
-        
-    <div class="container-fluid margin-navbar" style="position:fixed">
+
+    <div class="container-fluid margin-navbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="display: flex; align-items:center">
                     <marquee>
-                        <span style="font-size: 30px; margin-left: 20px; color: black; ">
+                        <span style="font-size: 20px; margin-left: 20px; color: black; ">
                             Tổng Donate:
                         </span>
-                        <span  class="odometer" id="odometer" style="font-size: 30px; margin-left: 20px; color: white; "> 0</span> 
+                        <span  class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">0</span> 
+
+                        <span style="font-size: 20px; margin-left: 20px; color: black; ">
+                            A LvK:
+                        </span>
+                        <span id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span> 
+                        <span style="font-size: 20px; margin-left: 20px; color: black; ">
+                            Chị Yeong Báo:
+                        </span>
+                        <span id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span> 
+                        <span style="font-size: 20px; margin-left: 20px; color: black; ">
+                            Chị Sương Báo:
+                        </span>
+                        <span id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span> 
+                        <span style="font-size: 20px; margin-left: 20px; color: black; ">
+                            A Phong Báo:
+                        </span>
+                        <span id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span> 
                     </marquee>
                 </div>
             </div>
@@ -24,8 +41,11 @@
 
         <div class="container post-detail">
             <div class="row">
-                <!-- sidebar -->
+                {{-- detail - post --}}
                 @yield('detail-post')
+                
+                
+                <!-- sidebar -->
                 <div class="col-lg-4 nav-bar-right">
 
                     <div class="btn-search">
