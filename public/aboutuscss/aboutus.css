@@ -1,0 +1,197 @@
+h1, h2 {
+    color: #D43790;
+    text-align: center;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+img.aboutus-image-main {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row.g-10 {
+    margin-top: 40px;
+}
+
+.aboutus-image1,
+.aboutus-image3,
+.aboutus-image4,
+.aboutus-image5,
+.aboutus-image2 {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center the image */
+    display: block;
+}
+
+.story1,
+.story2,
+.story3,
+.story4,
+.story5 {
+    display: flex;
+    align-items: center;
+    
+}
+
+.story1 span,
+.story2 span,
+.story3 span,
+.story4 span,
+.story5 span {
+    width: 70%; /* Adjust the width as needed */
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+.about-story1 {
+background-color: #e6f7ff; /* Soft blue background */
+color: #333; /* Dark text color */
+}
+
+.about-story2 {
+background-color: #f0f0f0; /* Light gray background */
+color: #333; /* Dark text color */
+}
+
+.about-story3 {
+background-color: #cfe8d5; /* Soft green background */
+color: #333; /* Dark text color */
+}
+
+.about-story4 {
+background-color: #f5f5f5; /* Light gray background */
+color: #333; /* Dark text color */
+}
+
+.about-story5 {
+background-color: #d9ebd9; /* Light green background */
+color: #333; /* Dark text color */
+}
+
+.call_to_action {
+    text-align: center;
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    border: none;
+    text-align: center;
+    background-color: #ffffff; /* Adjust background color as needed */
+    border-radius: 10px;
+}
+
+.card svg {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    fill: #15b5f9; /* Adjust SVG fill color as needed */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #6c757d; /* Adjust text color as needed */
+    margin-bottom: 15px;
+}
+
+.card-text a {
+    color: #15b5f9; /* Adjust link color as needed */
+    text-decoration: none;
+}
+
+.card-text a:hover {
+    text-decoration: underline;
+}
+
+/* Additional styles for Board of Directors section */
+.board_of_directors {
+        margin-top: 5rem; /* Adjust the top margin as needed */
+        text-align: center;
+    }
+
+    .team-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80vh; /* Adjust the height as needed */
+        overflow: hidden;
+    }
+
+    .team-names {
+        width: 30%;
+        background-color: #ffffff; /* Set your desired background color */
+        padding: 20px;
+        box-sizing: border-box;
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 10px;
+    }
+
+    .team-member {
+        cursor: pointer;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f8f9fa; /* Set your desired background color */
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .team-member:hover {
+        background-color: #e9ecef; /* Set your desired hover background color */
+    }
+
+    .team-introduction {
+        width: 68%; /* Adjust the width as needed */
+        padding: 20px;
+        box-sizing: border-box;
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 10px;
+        background-color: #ffffff; /* Set your desired background color */
+    }
+
+    .introduction-box {
+        background-color: #e9ecef; /* Set your desired background color */
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .circular-picture {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px;
+    }
+
+    .circular-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }

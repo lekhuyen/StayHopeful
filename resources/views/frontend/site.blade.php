@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
     {{--css contactus --}}
     <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
+    {{--css aboutus --}}
+    <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
     {{-- cssblog --}}
     <link rel="stylesheet" href="{{asset('blogcss/blog.css')}}">
     {{-- cssblog --}}

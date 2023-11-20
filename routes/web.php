@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
@@ -50,7 +51,8 @@ Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 // Contact 
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
-
+// Aboutus 
+Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
