@@ -10,9 +10,10 @@ var languageStrings = {
 }
 var currentLanguage = "en";
 
-function changeLanguage() {
-    var select = document.getElementById("language-selector");
-    currentLanguage = select.value;
+function changeLanguage(button) {
+    var select = button.getAttribute('data-value');
+    currentLanguage = select;
+    console.log(select);
     updateLanguage();
 }
 
