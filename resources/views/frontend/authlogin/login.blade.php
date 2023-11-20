@@ -9,8 +9,16 @@
                     @csrf
                     <h1 class="login-title">Sign in</h1>
                     <div class="social-container">
-                        <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <div class="login-fb">
+                            <a href="" class="social">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div class="login-gg">
+                            <a href="" class="social">
+                                <i class="fa-brands fa-google"></i>
+                            </a>
+                        </div>
                     </div>
                     <input class="text-input" type="email" placeholder="Email" name="email" />
                     <div class="pass">
@@ -20,8 +28,9 @@
                     <div class="btn-signin">
                         <button style="margin-top: 20px">Sign In</button>
                     </div>
-                    <div class="forget-password">
+                    <div class="forget-password-signup">
                         <a class="forget-pass" href="#">Forgot your password?</a>
+                        <a class="a-signup" href="#">Sign Up</a>
                     </div>
                     
                 </form>
