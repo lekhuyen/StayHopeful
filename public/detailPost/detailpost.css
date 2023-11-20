@@ -468,4 +468,14 @@
     }
 }
 
+.navbar-language {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
 
+#language-selector {
+    font-size: 16px;
+    padding: 8px;
+    padding-right: 50px;
+}

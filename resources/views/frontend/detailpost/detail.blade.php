@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <span>Chiếc xe số 63: Bị liệt một tay và hai chân nhưng vẫn cố gắng mưu sinh nuôi sống bản thân</span>
+                    <marquee><span style="font-size: 30px; margin-left: 20px; color: white; ">Tổng Donate:</span><span  class="odometer" id="odometer" style="font-size: 30px; margin-left: 20px; color: white; "> 0</span> </marquee>
                 </div>
             </div>
         </div>
@@ -201,5 +201,5 @@
             </div>
         </div>
     </div>
-
+<script src="{{asset('js/countdonate.js')}}"></script>
 @stop()

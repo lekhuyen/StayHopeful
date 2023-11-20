@@ -156,6 +156,7 @@
                     </ul>
                     <div class="navbar-language" style="margin-left: 50px;">
                         <select id="language-selector" onchange="changeLanguage()">
+                            <option selected>Đổi Ngôn Ngữ</option>
                             <option value="en">English</option>
                             <option value="vi">Tiếng Việt</option>
                         </select>
@@ -184,7 +185,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>HƯỚNG DẪN – GIỚI THIỆU</h2>
+                        <h2>HƯỚNG DẪN – GIỚI THIỆU </h2>
                         <ul>
                             <li><a href="">Hướng dẫn đóng góp</a></li>
                             <li><a href="">Giới thiệu</a></li>
