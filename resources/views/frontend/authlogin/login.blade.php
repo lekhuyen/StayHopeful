@@ -39,7 +39,7 @@
                     </div>
 
                     <a href="#">Forgot your password?</a>
-                    <button style="margin-top: 20px">Sign In</button>
+                    <button class="login-btn" style="margin-top: 20px">Sign In</button>
                 </form>
             </div>
             <div class="overlay-container" id="overlay-container">
