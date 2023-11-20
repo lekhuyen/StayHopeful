@@ -117,7 +117,7 @@
                             <div class="project" id="momoButton" style="display: none;">
                                 <div class="text-center">
                                     <button type="submit" class="btn setinput"
-                                        style="width: 40%; border-radius: 20px; background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
+                                        style="width: 40%; border-radius: 20px;color: #fbfbfb ;background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
         ;"
                                         name="payUrl" id="confirmBtnmomo">Quyên
                                         Góp Momo</button>

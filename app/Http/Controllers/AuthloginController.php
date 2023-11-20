@@ -10,6 +10,9 @@ class AuthloginController extends Controller
     public function index(){
         return view('frontend.authlogin.login');
     }
+    public function viewprofile(){
+        return view('frontend.profile.index');
+    }
     //login bằng email
     public function redirectgoogle(){
         return Socialite::driver('google')->redirect();
