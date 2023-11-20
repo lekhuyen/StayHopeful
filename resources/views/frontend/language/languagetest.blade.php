@@ -29,36 +29,9 @@
             <option value="vi">Tiếng Việt</option>
         </select>
     </div>
-    <span data-i18n="text1">Hello</span>
 </body>
 <script>
-    var languageStrings = {
-        "en": {
-            "text1": "Hello"
-        },
-        "vi": {
-            "text1": "xin chào"
-        }
-    }
-    var currentLanguage = "en";
 
-    function changeLanguage() {
-        var select = document.getElementById("language-selector");
-        currentLanguage = select.value;
-        updateLanguage();
-    }
-
-    function updateLanguage() {
-        var elements = document.querySelectorAll("[data-i18n]");
-        for (var i = 0; i < elements.length; i++) {
-            var key = elements[i].getAttribute("data-i18n");
-            var value = languageStrings[currentLanguage][key];
-            elements[i].innerHTML = value;
-        }
-    }
-
-    // Initial language update
-    updateLanguage();
 </script>
 
 </html>

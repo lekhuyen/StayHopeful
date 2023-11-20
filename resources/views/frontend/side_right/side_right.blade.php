@@ -14,6 +14,9 @@
 
                 <div class="menu-bar">
                     <div class="item">
+                        <span style="font-size: 30px; margin-left: 20px; color: white; ">Tổng Donate:</span><span  class="odometer" id="odometer" style="font-size: 30px; margin-left: 20px; color: white; "> 0</span>
+                    </div>
+                    <div class="item">
                         <a href="{{route('/')}}" class="menu-title-a">TRANG CHỦ</a>
                     </div>
                     <div class="item">
@@ -99,4 +102,5 @@
                 </div>
                 
             </div>
+            <script src="{{asset('js/countdonate.js')}}"></script>
 @endsection
