@@ -66,38 +66,19 @@
                                 </div>
 
                                 <div style="display: flex; align-items: center;">
-                                    <button class="login-nav" style="margin-right: 5px;">ĐĂNG KÝ</button>
-                                    <button class="register-nav">ĐĂNG NHẬP</button>
+                                    <button class="login-nav" style="margin-right: 5px;">SIGN UP</button>
+                                    <button class="register-nav">LOGIN</button>
                                 </div>
                             </div>
                         </div>
 
                         <div id="nav-mobile">
                             <div class="nav-mobile-interface">
-                                <a href="" class="nav-menu-title">TRANG CHỦ</a>
+                                <a href="{{ route('/') }}" class="nav-menu-title">HOME</a>
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">GIỚI THIỆU</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
-                                </div>
-                            </div>
-
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">ĐÓNG GÓP</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
-                                </div>
-                            </div>
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">TIN TỨC</a>
+                                <a class="nav-menu-title">ABOUT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -107,7 +88,7 @@
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">LIÊN HỆ</a>
+                                <a class="nav-menu-title" href="{{route('blog.index')}}">PROJECT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -116,7 +97,26 @@
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">CHƯƠNG TRÌNH</a>
+                                <a href="{{route('detail.donate')}}" class="nav-menu-title">DONATE</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-mobile-interface">
+                                <a class="nav-menu-title">BLOG</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                </div>
+                            </div>
+                            <div class="nav-mobile-interface">
+                                <a href="{{route('contact.index')}}" class="nav-menu-title">CONTACT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="" class="sub-item">Tin tuc 1</a>
@@ -135,20 +135,20 @@
                                     HOME
                                 </div>
                             </a></li>
-                        <li><a href="">
-                                <div class="text">GIỚI THIỆU</div>
+                        <li><a href="#">
+                                <div class="text">ABOUT</div>
+                            </a></li>
+                        <li><a href="{{route('blog.index')}}">
+                                <div class="text">PROJECT</div>
+                            </a></li>
+                        <li><a href="{{route('detail.donate')}}">
+                                <div class="text">DONATE</div>
                             </a></li>
                         <li><a href="">
-                                <div class="text">CHƯƠNG TRÌNH</div>
+                                <div class="text">BLOG</div>
                             </a></li>
-                        <li><a href="">
-                                <div class="text">ỦNG HỘ</div>
-                            </a></li>
-                        <li><a href="">
-                                <div class="text">TIN TỨC</div>
-                            </a></li>
-                        <li><a href="">
-                                <div class="text">LIÊN HỆ</div>
+                        <li><a href="{{route('contact.index')}}">
+                                <div class="text">CONTACT</div>
                             </a></li>
                         <li><a href="{{ route('auth.index') }}">
                                 <div class="text">LOGIN</div>
@@ -156,6 +156,7 @@
                     </ul>
                     <div class="navbar-language" style="margin-left: 50px;">
                         <select id="language-selector" onchange="changeLanguage()">
+                            <option selected>Đổi Ngôn Ngữ</option>
                             <option value="en">English</option>
                             <option value="vi">Tiếng Việt</option>
                         </select>
@@ -184,7 +185,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>HƯỚNG DẪN – GIỚI THIỆU</h2>
+                        <h2>HƯỚNG DẪN – GIỚI THIỆU </h2>
                         <ul>
                             <li><a href="">Hướng dẫn đóng góp</a></li>
                             <li><a href="">Giới thiệu</a></li>
