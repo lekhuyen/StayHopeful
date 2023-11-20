@@ -64,7 +64,8 @@ span {
     margin: 15px 0;
 }
 
-button {
+.btn-signup,
+.login-btn {
     border-radius: 20px;
     border: 1px solid white;
     background-color: #2072dc;
@@ -76,15 +77,17 @@ button {
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
-button:active {
+.btn-signup,
+.login-btn:active {
     transform: scale(0.95);
 }
 
-button:focus {
+.btn-signup,
+.login-btn:focus {
     outline: none;
 }
 
-button.ghost {
+.btn-signup.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
 }
