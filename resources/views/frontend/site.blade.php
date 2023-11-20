@@ -242,6 +242,5 @@
 </body>
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
-<script src="{{ asset('js/language.js') }}"></script>
 
 </html>
