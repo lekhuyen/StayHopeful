@@ -154,18 +154,6 @@
                                 <div class="text">LOGIN</div>
                             </a></li>
                     </ul>
-
-                    <div class="dropdown d-flex justify-content-end">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-globe"></i> </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <button class="dropdown-item" data-value="en"
-                                onclick="changeLanguage(this)">English</button>
-                            <button class="dropdown-item" data-value="vi" onclick="changeLanguage(this)">Tiếng
-                                Việt</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -59,6 +59,5 @@ Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->nam
 Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
-Route::get('/test',[AdminPageController::class,'viewtest'])->name('admin.test');
 
 //
