@@ -8,7 +8,10 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthloginController extends Controller
 {
     public function index(){
-        return view('frontend.authlogin.login');
+        return view('frontend.login.login');
+    }
+    public function register(){
+        return view('frontend.login.register');
     }
     public function viewprofile(){
         return view('frontend.profile.index');

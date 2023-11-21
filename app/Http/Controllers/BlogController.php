@@ -23,4 +23,8 @@ class BlogController extends Controller
     {
         return view('frontend.blog.blog_detail');
     }
+    public function project()
+    {
+        return view('frontend.project.project');
+    }
 }

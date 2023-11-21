@@ -35,15 +35,15 @@
         <ul class="list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home"></i> Dashboard</a></li>
-            <li><a href="{{ route('admin.managermember') }}" class="text-decoration-none px-3 py-2 d-block"><i
+            <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-image"></i>
-                    Quản Lý Bài Đăng</a></li>
+                        Manager Post</a></li>
             <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-desktop"></i>
-                    Quản Lý Giao Diện</a></li>
+                        Manager Design</a></li>
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-users"></i>
-                    Quản Lý Người dùng</a></li>
+                        Manager User</a></li>
 
         </ul>
         <hr class="h-color mx-2">
@@ -65,7 +65,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                                <span style="margin-right: 20px">Welcome Admin</span><img src="{{ asset('img/tramanh1.jpg') }}" width="50px" height="50px" style="border-radius: 50%">
+                                <span style="margin-right: 20px">Welcome Admin</span><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px" style="border-radius: 50%">
                         </li>
 
                     </ul>

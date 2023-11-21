@@ -2,20 +2,20 @@
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/listuser.css') }}">
     <div class="container">
-        <h1 style="font-weight: 700">Quản Lý Người Dùng</h1>
+        <h1 style="font-weight: 700">Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Tìm Kiếm Tên Người Dùng" class="form-control input-search">
+                        <input type="search" placeholder="Search User Name" class="form-control input-search">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 ">
                 <div class="btnsearch position-absolute " style="right: 0;">
                     <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
-                            class="fa-solid fa-plus"></i><span>Thêm Tài Khoản</span></button>
+                            class="fa-solid fa-plus"></i><span>Add New Account</span></button>
                 </div>
             </div>
         </div>
@@ -26,18 +26,18 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Tên</th>
+                                <th>Name</th>
                                 <th>Email</th>
-                                <th>Số Điện Thoại</th>
-                                <th>Ngày Đăng Ký</th>
-                                <th>Trạng Thái</th>
-                                <th style="text-align: center">Chỉnh Sửa</th>
+                                <th>Phone</th>
+                                <th>Day_create</th>
+                                <th>Status</th>
+                                <th style="text-align: center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td><img src="{{ asset('img/tramanh2.jpg') }}" width="50px" height="50px"
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%; margin-right: 20px"> Phong</td>
                                 <td>phong@gmail.com</td>
                                 <td>099999999</td>
@@ -55,7 +55,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><img src="{{ asset('img/tramanh2.jpg') }}" width="50px" height="50px"
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%; margin-right: 20px"> Khuyên</td>
                                 <td>khuyen@gmail.com</td>
                                 <td>099999999</td>
@@ -73,7 +73,7 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><img src="{{ asset('img/tramanh2.jpg') }}" width="50px" height="50px"
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%; margin-right: 20px"> Yeong</td>
                                 <td>Yeong@gmail.com</td>
                                 <td>099999999</td>
@@ -91,7 +91,7 @@
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><img src="{{ asset('img/tramanh2.jpg') }}" width="50px" height="50px"
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%; margin-right: 20px"> Sương</td>
                                 <td>Sương@gmail.com</td>
                                 <td>099999999</td>

@@ -1,4 +1,4 @@
-@extends('frontend.slide-right.slide_right')
+@extends('frontend.comment.comment')
 
 @section('detail-post')
 
@@ -74,4 +74,5 @@
             <span>2</span>
         </div>
     </div>
+    <script src="{{asset('js/countdonate.js')}}"></script>
 @endsection

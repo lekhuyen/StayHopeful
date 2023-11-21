@@ -345,6 +345,36 @@ html,body{
     background-color: #578fd9;
 }
 
+
+/* project */
+
+.statistical {
+    text-align: center;
+    width: 300px;
+    margin: 40px 0;
+    color: white;
+}
+
+
+.project-count i{
+    font-size: 40px;
+    color: #f06626;
+}
+.total-money i,
+.total-money span {
+    font-size: 40px;
+    color: #bf271a;
+}
+.project-count span {
+    font-size: 40px;
+    color: #f06626;
+    margin-left: 5px;
+}
+
+
+
+
+
 /* -------------footer------------ */
 .footer_header span {
     line-height: 30px;
@@ -521,8 +551,10 @@ html,body{
     } */
 }
 /*Tablet nhỏ(480 x 640)*/
-@media screen and (min-width: 480px){
-    
+@media (max-width: 430px){
+    .section-title_video h4 {
+        font-size: 30px;
+    }
 }
 
 @media(max-width: 540px) {
@@ -594,17 +626,17 @@ html,body{
     }
 
     .section-title h4 {
-        font-size: 40px;
+        font-size: 25px;
     }
 
     .section-title_video h4 {
-        font-size: 40px;
+        font-size: 25px;
     }
     .section-title-1 div:last-child  {
         margin-bottom: 25px;
     }
     .section-title-1 div a {
-        font-size: 25px;
+        font-size: 16px;
         padding: 10px;
     }
     .video_status {

@@ -31,7 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    {{-- otometer --}}
+    {{-- odometer --}}
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-minimal.min.css"
         integrity="sha512-Jeqp8CoPCvf9tf/uWokfCTsFcv5BIhfTYaTTJA0NKn6B88zDSWe5d/9HTmZX63FGpGGQdB8Chg2khB96+wn4Tw=="
@@ -39,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
         integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    {{-- otometer --}}
+    {{-- odometer --}}
     {{-- jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- jquery --}}
@@ -140,13 +140,13 @@
                         <li><a href="#">
                                 <div class="text">ABOUT</div>
                             </a></li>
-                        <li><a href="{{ route('blog.index') }}">
+                        <li><a href="{{ route('project.index') }}">
                                 <div class="text">PROJECT</div>
                             </a></li>
                         <li><a href="{{ route('detail.donate') }}">
                                 <div class="text">DONATE</div>
                             </a></li>
-                        <li><a href="">
+                        <li><a href="{{route('blog.index')}}">
                                 <div class="text">BLOG</div>
                             </a></li>
                         <li><a href="{{ route('contact.index') }}">

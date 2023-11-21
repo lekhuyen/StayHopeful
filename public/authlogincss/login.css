@@ -1,0 +1,100 @@
+/* login */
+#container-2{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.container-login {
+    margin: 200px;
+    box-shadow: 0 0 10px grey;
+    border-radius: 5px;
+    width:600px;
+}
+.login-title{
+    padding: 40px;
+    color: #2d63c2;
+    height: 100px;
+}
+.social-container{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-container .login-fb,
+.social-container .login-gg{
+    margin: 0 5px;
+    border: 1px solid #2d63c2;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-container a i{
+    font-size: 15px;
+}
+/* .social-container .login-gg a i{
+    font-size: 20px;
+} */
+.text-input{
+    width: 80%;
+    outline: none;
+    border: 1px solid rgb(189, 186, 186);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+.pass{
+    position: relative;
+}
+.eye{
+    position: absolute;
+    right: 12%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+.forget-password-signup a{
+    text-decoration: none;
+    padding: 5px 10px;
+    color: #2d63c2;
+}
+.forget-password-signup .forget-pass:hover{
+    text-decoration: underline;
+}
+.forget-password-signup .a-signup:hover{
+    color: #76a0ea;
+}
+.btn-signin{
+    padding-bottom: 30px;
+}
+.btn-signin button{
+    border: none;
+    background-color: #2d63c2;
+    border-radius: 20px;
+    padding: 5px 20px;
+    color: white;
+    transition: 0.3s;
+}
+.btn-signin button:hover{
+    background-color: #5c8bdc;
+}
+.forget-password-signup{
+    padding-bottom: 50px;
+    margin-left: -20px;
+}
+
+/* responsive */
+@media(max-width: 540px){
+    .container-login {
+        width: 100%;
+        margin: 140px 20px 0px 20px;
+    }
+}
+@media(min-width: 912px){
+    /* .container-login {
+        width: 100%;
+        margin: 140px 100px 0px 100px;
+    } */
+}
