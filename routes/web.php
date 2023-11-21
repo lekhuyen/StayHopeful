@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,8 @@ Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 // Contact 
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
-
+//feedback
+Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
