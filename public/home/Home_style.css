@@ -255,6 +255,15 @@ html,body{
 .card_wapper:hover {
     transform: translateY(-5px);
 }
+
+.project-status {
+    position: absolute;
+    background-color: red;
+}
+/* .project-status-finish {
+    position: absolute;
+    background-color: green;
+} */
 .card-text-1-1 {
     color: rgb(13,44,76) !important;
     opacity: .9;
@@ -445,6 +454,12 @@ html,body{
     align-items: center;
 }
 
+/* project status */
+.project-status {
+    content: '';
+
+}
+
 /* -----------------------------responesive------------------------------- */
 /*Smart phone nhỏ*/
 @media (max-width: 280px){
@@ -545,10 +560,6 @@ html,body{
         line-height: 20px;
     }
 
-    /* video */
-    /* #myVideo {
-        width: 380px !important;
-    } */
 }
 /*Tablet nhỏ(480 x 640)*/
 @media (max-width: 430px){
@@ -583,6 +594,7 @@ html,body{
     .card_wapper {
         width: 100% !important;
         margin-bottom: 30px;
+        position: relative;
     } 
     .card-title-1 {
         font-size: 30px;
