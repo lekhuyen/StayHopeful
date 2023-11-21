@@ -1,6 +1,6 @@
 @extends('frontend.site')
 @section('main')
-<link rel="stylesheet" href="{{ asset('authlogin/login.css') }}">
+<link rel="stylesheet" href="{{ asset('authlogincss/login.css') }}">
 <div class="form-container sign-up-container">
     <form action="#">
         @csrf
