@@ -443,6 +443,7 @@
 }
 
 @media (max-width: 920px) {
+    
     .margin-navbar {
         display: none;
     }
@@ -455,4 +456,8 @@
     }
 }
 
-
+@media (max-width: 1023px) {
+    .nav-bar-right {
+        display: none;
+    }
+}
