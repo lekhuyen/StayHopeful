@@ -7,6 +7,8 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
+    {{-- css feedback --}}
+    <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- cssblog --}}
@@ -88,20 +90,20 @@
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title" href="{{ route('blog.index') }}">PROJECT</a>
+                                <a class="nav-menu-title" href="#">PROJECT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">Latest Projects</a>
+                                    <a href="{{ route('blog.blog_finished') }}" class="sub-item">Finished Projects</a>
+                                    <a href="#" class="sub-item">Tin tuc 3</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="{{ route('detail.donate') }}" class="nav-menu-title">DONATE</a>
+                                <a href="#" class="nav-menu-title">DONATE</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
+                                    <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
                                     <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
                             </div>
@@ -116,12 +118,12 @@
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="{{ route('contact.index') }}" class="nav-menu-title">CONTACT</a>
+                                <a href="#" class="nav-menu-title">CONTACT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact Us</a>
+                                    <a href="{{ route('feedback.index') }}" class="sub-item">Feedback</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
                             </div>
                         </div>
