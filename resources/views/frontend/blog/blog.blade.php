@@ -21,7 +21,7 @@
                 <div class="col-lg-4 mb-3">
                     <div class="blog-image">
                         <div class="img-blog">
-                            <img class="postimg" alt="Card image" src="{{ asset('img/tramanh1.jpg') }}">
+                            <img class="postimg" alt="Card image" src="{{ asset('img/omg.jpeg') }}">
                         </div>
                         <div id="imgIcon"><i class="far fa-heart"></i></div>
                         <div class="blog-flex">
@@ -38,7 +38,7 @@
                 <div class="col-lg-4 mb-3">
                     <div class="blog-image">
                         <div class="img-blog">
-                            <img class="postimg" alt="Card image" src="{{ asset('img/tramanh1.jpg') }}">
+                            <img class="postimg" alt="Card image" src="{{ asset('img/omg.jpeg') }}">
                         </div>
                         <div id="imgIcon"><i class="far fa-heart"></i></div>
                         <div class="blog-flex">
@@ -55,7 +55,7 @@
                 <div class="col-lg-4 mb-3">
                     <div class="blog-image">
                         <div class="img-blog">
-                            <img class="postimg" alt="Card image" src="{{ asset('img/tramanh1.jpg') }}">
+                            <img class="postimg" alt="Card image" src="{{ asset('img/omg.jpeg') }}">
                         </div>
                         <div id="imgIcon"><i class="far fa-heart"></i></div>
                         <div class="blog-flex">
@@ -77,7 +77,7 @@
         <div class="blog-detail-img">
             <div class="row"> --}}
                 <div class="col-lg-4 col-md-6" style="padding: 0; background-color: aqua; height: 200px; display: flex;">
-                    <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2" style="width: 40%; height: 100%; padding: 10px;">
+                    <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2" style="width: 40%; height: 100%; padding: 10px;">
                     <div>
                         <div class="blog-detail-detail ">
                             <h3 id="title" style="font-size: 15px">Lorem ipsum dolor sit amet consectetur Quis quos cum nostrum vitae? </h3>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" style="padding: 0; background-color: aqua; height: 200px; display: flex;">
-                    <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2" style="width: 40%; height: 100%; padding: 10px;">
+                    <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2" style="width: 40%; height: 100%; padding: 10px;">
                     <div>
                         <div class="blog-detail-detail ">
                             <h3 id="title" style="font-size: 15px">Lorem ipsum dolor sit amet consectetur Quis quos cum nostrum vitae? </h3>
@@ -125,7 +125,7 @@
         <div class="blog-detail-img">
             <div class="row">
                 <div class="col-lg-6 col-md-6" style="padding: 0">
-                    <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
+                    <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
                 </div>
                 <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
                     <div class="blog-detail-detail ">

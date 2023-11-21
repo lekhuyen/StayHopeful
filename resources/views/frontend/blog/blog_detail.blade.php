@@ -37,7 +37,7 @@
                     hơn, anh ngồi lọt thòm tròng chiếc xe lăn, cả thân người ước chừng chỉ khoảng 30kg. Mẹ anh đã 
                     65 tuổi, lâu lâu cô bắt xe khách lên thăm con và ở lại chơi vài ngày để thoả lòng mong nhớ.
                 </span>
-                <img src="{{asset("img/tramanh1.jpg")}}" alt="">
+                <img src="{{asset("img/omg.jpeg")}}" alt="">
                 <span>Mỗi ngày anh Minh bán được khoảng 100-150 tờ vé số, tiền thuê trọ hàng tháng đã hết 1,5 
                     triệu nên anh phải chi tiêu tiết kiệm để gửi tiền về hỗ trợ thêm cho mẹ. Anh Minh từng có xe 
                     lắc nhưng xe đã hư hỏng không dùng được, hiện tại anh di chuyển bằng xe lăn nên đi lại rất hạn 
@@ -105,7 +105,7 @@
                 {{-- comm cha --}}
                 <div class="comment-user">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/omg.jpeg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">
@@ -146,7 +146,7 @@
                 {{-- comment con cap 1 --}}
                 <div class="comment-user" style="padding-left: 60px">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/omg.jpeg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">

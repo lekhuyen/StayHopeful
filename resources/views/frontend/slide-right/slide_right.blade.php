@@ -104,7 +104,7 @@
                     <h2 class="title-middle">BÀI VIẾT LIÊN QUAN</h2>
                     <div class="post_related">
                         <div>
-                            <img src="{{ asset('img/tramanh1.jpg') }}" alt="">
+                            <img src="{{ asset('img/omg.jpeg') }}" alt="">
                         </div>
                         <div class="post-title-child">
                             <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="post_related">
                         <div>
-                            <img src="{{ asset('img/tramanh1.jpg') }}" alt="">
+                            <img src="{{ asset('img/omg.jpeg') }}" alt="">
                         </div>
                         <div class="post-title-child">
                             <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="post_related">
                         <div>
-                            <img src="{{ asset('img/tramanh1.jpg') }}" alt="">
+                            <img src="{{ asset('img/omg.jpeg') }}" alt="">
                         </div>
                         <div class="post-title-child">
                             <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="post_related">
                         <div>
-                            <img src="{{ asset('img/tramanh1.jpg') }}" alt="">
+                            <img src="{{ asset('img/omg.jpeg') }}" alt="">
                         </div>
                         <div class="post-title-child">
                             <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="post_related">
                         <div>
-                            <img src="{{ asset('img/tramanh1.jpg') }}" alt="">
+                            <img src="{{ asset('img/omg.jpeg') }}" alt="">
                         </div>
                         <div class="post-title-child">
                             <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
@@ -163,7 +163,7 @@
                 {{-- comm cha --}}
                 <div class="comment-user">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/omg.jpeg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">
@@ -204,7 +204,7 @@
                 {{-- comment con cap 1 --}}
                 <div class="comment-user" style="padding-left: 60px">
                     <a href='#' class="avatar-user">
-                        <img src="{{asset('img/tramanh1.jpg')}}" alt="" width="100">
+                        <img src="{{asset('img/omg.jpeg')}}" alt="" width="100">
                     </a>
                     <div class="comment-user-info">
                         <div class="comment-user-comment">
