@@ -31,7 +31,7 @@ textarea {
     margin-bottom: 30px;
 }
 
-.project .setinput {
+.fb-btn .fb-setinput {
     width: 40%;
     border-radius: 20px;
     background: linear-gradient(to left, #74cbfd, #0890df);

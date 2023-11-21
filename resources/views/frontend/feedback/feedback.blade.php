@@ -25,9 +25,9 @@
             <div class="fb-textarea">
                 <textarea name="feedback_text" id="feedback_text" cols="40" rows="5" placeholder="Your feedback here..."></textarea>
             </div>
-            <div class="project" id="bankButton">
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success setinput" name="redirect" id="confirmBtnbank">SEND
+            <div class="fb-btn">
+                <div class="textcenter">
+                    <button type="submit" class="btn btn-success fb-setinput" name="feedback-btn" id="feedback-btn">SEND
                     </button>
                 </div>
             </div>
