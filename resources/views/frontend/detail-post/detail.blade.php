@@ -1,4 +1,4 @@
-@extends('frontend.slide-right.slide_right')
+@extends('frontend.comment.comment')
 
 @section('detail-post')
 

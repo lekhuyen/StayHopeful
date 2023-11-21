@@ -341,7 +341,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div style="color: white; padding-top: 30px; border-bottom: 1px solid #fff">
-                        <h3>ĐẾN HÔM NAY STAYHOPEFUL ĐÃ LÀM ĐƯỢC :</h3>
+                        <h3>ĐẾN HÔM NAY STAYHOPEFUL ĐÃ LÀM ĐƯỢC:</h3>
                     </div>
                 </div>
                 <div class="col-lg-12" style="display: flex; align-content: center">

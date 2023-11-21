@@ -118,14 +118,15 @@
 }
 
 .new-description {
+    line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 4; 
+    -webkit-line-clamp: 3; 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    padding-left: 10px;
+    padding-left: 5px;
     margin-top: 15px;
-    padding-right: 20px
+    padding-right: 10px;
 }
 .new-description a {
     text-decoration: none;
