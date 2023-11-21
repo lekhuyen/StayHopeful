@@ -53,6 +53,8 @@ Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 // Contact 
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
+// project
+Route::get('/project',[BlogController::class,'project'])->name('project.index');
 
 
 //admin

@@ -138,13 +138,13 @@
                         <li><a href="#">
                                 <div class="text">ABOUT</div>
                             </a></li>
-                        <li><a href="{{ route('blog.index') }}">
+                        <li><a href="{{ route('project.index') }}">
                                 <div class="text">PROJECT</div>
                             </a></li>
                         <li><a href="{{ route('detail.donate') }}">
                                 <div class="text">DONATE</div>
                             </a></li>
-                        <li><a href="">
+                        <li><a href="{{route('blog.index')}}">
                                 <div class="text">BLOG</div>
                             </a></li>
                         <li><a href="{{ route('contact.index') }}">

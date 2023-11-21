@@ -345,6 +345,36 @@ html,body{
     background-color: #578fd9;
 }
 
+
+/* project */
+
+.statistical {
+    text-align: center;
+    width: 300px;
+    margin: 40px 0;
+    color: white;
+}
+
+
+.project-count i{
+    font-size: 40px;
+    color: #f06626;
+}
+.total-money i,
+.total-money span {
+    font-size: 40px;
+    color: #bf271a;
+}
+.project-count span {
+    font-size: 40px;
+    color: #f06626;
+    margin-left: 5px;
+}
+
+
+
+
+
 /* -------------footer------------ */
 .footer_header span {
     line-height: 30px;
