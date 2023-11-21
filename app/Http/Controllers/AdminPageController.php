@@ -12,8 +12,8 @@ class AdminPageController extends Controller
     public function viewdashboard(){
         return view('frontend.adminpage.dashboard');
     }
-    public function viewmanagermember(){
-        return view('frontend.adminpage.member');
+    public function viewmanagerpost(){
+        return view('frontend.adminpage.post');
     }
     public function viewmanagerdesign(){
         return view('frontend.adminpage.design');
@@ -21,8 +21,6 @@ class AdminPageController extends Controller
     public function viewlistuser(){
         return view('frontend.adminpage.listuser');
     }
-    public function viewtest(){
-        return view('frontend.language.languagetest');
-    }
+
 
 }

@@ -60,7 +60,7 @@ Route::get('/project',[BlogController::class,'project'])->name('project.index');
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
 Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->name('admin.dashboard');
-Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
+Route::get('/admin/managerpost',[AdminPageController::class,'viewmanagerpost'])->name('admin.managerpost');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
