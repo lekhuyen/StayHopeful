@@ -228,5 +228,4 @@
             </div>
         </div>
     </div>
-<script src="{{asset('js/countdonate.js')}}"></script>
 @stop()
