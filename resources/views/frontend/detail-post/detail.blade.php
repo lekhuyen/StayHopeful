@@ -74,4 +74,5 @@
             <span>2</span>
         </div>
     </div>
+    <script src="{{asset('js/countdonate.js')}}"></script>
 @endsection

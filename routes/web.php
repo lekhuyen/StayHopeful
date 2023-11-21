@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::get('/listdonate',[detaildonateController::class,'viewlistdonate'])->name
 
 //login
 Route::get('/login',[AuthloginController::class,'index'])->name('auth.index');
+Route::get('/register',[AuthloginController::class,'register'])->name('auth.register');
 Route::get('/login/google',[AuthloginController::class,'redirectgoogle'])->name('auth.google');
 Route::get('/auth/google/callback',[AuthloginController::class,'handleGoogleback'])->name('auth.googlecallback');
 Route::get('/login/facebook',[AuthloginController::class,'redirectfacebook'])->name('auth.facebook');
@@ -53,14 +55,17 @@ Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 // Contact 
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
+
+//feedback
+Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
+
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
-
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
 Route::get('/admin/dashboard',[AdminPageController::class,'viewdashboard'])->name('admin.dashboard');
-Route::get('/admin/manager',[AdminPageController::class,'viewmanagermember'])->name('admin.managermember');
+Route::get('/admin/managerpost',[AdminPageController::class,'viewmanagerpost'])->name('admin.managerpost');
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
