@@ -15,21 +15,21 @@
         </div>
                     <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{asset('img/tramanh1.jpg')}}" alt="Los Angeles" class="d-block carosel_heigth">
+                <img src="{{asset('img/omg.jpeg')}}" alt="Los Angeles" class="d-block carosel_heigth">
                 <div class="carousel-caption">
                 <h3>Los Angeles</h3>
                 <p>We had such a great time in LA!</p>
                 </div>
             </div>
             <div class="carousel-item">
-            <img src="{{asset('img/tramanh1.jpg')}}" alt="Chicago" class="d-block carosel_heigth">
+            <img src="{{asset('img/omg.jpeg')}}" alt="Chicago" class="d-block carosel_heigth">
             <div class="carousel-caption">
                 <h3>Chicago</h3>
                 <p>Thank you, Chicago!</p>
             </div> 
             </div>
             <div class="carousel-item">
-            <img src="{{asset('img/tramanh1.jpg')}}" alt="New York" class="d-block carosel_heigth">
+            <img src="{{asset('img/omg.jpeg')}}" alt="New York" class="d-block carosel_heigth">
             <div class="carousel-caption">
                 <h3>New York</h3>
                 <p>We love the Big Apple!</p>
