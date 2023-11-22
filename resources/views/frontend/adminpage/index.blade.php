@@ -27,7 +27,7 @@
 <div class="main-container d-flex">
     <div class="sidebar" id="side_nav">
         <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-            <h1 class="fs-4"><img src="{{asset('img/logo.PNG')}}" width="100%" height="100%"></h1>
+            <h1 class="fs-4"><img src="{{ asset('img/logo.PNG') }}" width="100%" height="100%"></h1>
             <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
                     class="fa-solid fa-bars-staggered"></i></button>
         </div>
@@ -37,13 +37,13 @@
                         class="fa fa-home"></i> Dashboard</a></li>
             <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-image"></i>
-                        Manager Post</a></li>
+                    Manager Post</a></li>
             <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-desktop"></i>
-                        Manager Design</a></li>
+                    Manager Design</a></li>
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-users"></i>
-                        Manager User</a></li>
+                    Manager User</a></li>
 
         </ul>
         <hr class="h-color mx-2">
@@ -65,9 +65,16 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                                <span style="margin-right: 20px">Welcome Admin</span><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px" style="border-radius: 50%">
+                            <div class="dropdown-profile" id="dropdown-profile">
+                                <button style="border: none; background: transparent" id="dropdown-profile-image"><img
+                                        src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
+                                        style="border-radius: 50%"></button>
+                                <div class="dropdownmenu-profile">
+                                    <a href="#" class="dropdownitem-profile">Profile</a>
+                                    <a href="#" class="dropdownitem-profile">Logout</a>
+                                </div>
+                            </div>
                         </li>
-
                     </ul>
 
                 </div>
@@ -122,4 +129,12 @@
     </div>
 </footer>
 <script src="{{ asset('js/sidebar.js') }}"></script>
+<script>
+    var profilebtn = document.getElementById('dropdown-profile');
+    var dropdownMenu = document.querySelector('.dropdownmenu-profile');
 
+    profilebtn.addEventListener('click', function() {
+        profilebtn.classList.add('dropdown-profile-click');
+        dropdownMenu.classList.toggle('active-profile-dropdown');
+    })
+</script>

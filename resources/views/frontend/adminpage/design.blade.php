@@ -2,6 +2,7 @@
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/managerdesign.css') }}">
 
+
     <div class="container">
         <h1 style="font-weight: 700">Manager Design</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
@@ -37,7 +38,8 @@
                             <tr>
                                 <td>1</td>
                                 <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100" class="img-hover-scale"></td>
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
+                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
                                 <td>Người Đẹp Ngủ Trong Rừng</td>
                                 <td>
                                     <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -51,7 +53,8 @@
                             <tr>
                                 <td>1</td>
                                 <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100" class="img-hover-scale"></td>
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
+                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
                                 <td>Người Đẹp Ngủ Trong Rừng</td>
                                 <td>
                                     <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -65,7 +68,8 @@
                             <tr>
                                 <td>1</td>
                                 <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100" class="img-hover-scale"></td>
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
+                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
                                 <td>Người Đẹp Ngủ Trong Rừng</td>
                                 <td>
                                     <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -76,8 +80,21 @@
                                                 style="color: #ffffff;"></i></button></a>
                                 </td>
                             </tr>
-
-
+                            <tr>
+                                <td>1</td>
+                                <td>Home</td>
+                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
+                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
+                                <td>Người Đẹp Ngủ Trong Rừng</td>
+                                <td>
+                                    <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff"></i>
+                                        </button></a>
+                                    <a href="#"><button class="btn btn-danger"><i class="fa-solid fa-x"
+                                                style="color: #ffffff;"></i></button></a>
+                                </td>
+                            </tr>
 
                         </tbody>
                     </table>
@@ -168,6 +185,15 @@
         </div>
     </div>
     {{-- them moi modal --}}
+    <div class="modal" id="imageModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="modalImage" src="" class="img-fluid" alt="Image Preview">
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         function previewImage() {
             var input = document.getElementById('image-change');
@@ -184,6 +210,13 @@
             } else {
                 preview.src = '';
             }
+        }
+        
+        function openImagePopup(imageSrc) {
+            var modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+
+            $('#imageModal').modal('show');
         }
     </script>
 @endsection
