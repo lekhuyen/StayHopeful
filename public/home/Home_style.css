@@ -345,6 +345,15 @@ html,body{
     content: "₫ "; 
 }
 
+.cart-description-post {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis; 
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
 /* video */
 
 .video_status a {
