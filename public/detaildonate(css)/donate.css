@@ -34,7 +34,7 @@ body{
 .formall{
     display: flex;
     flex-wrap: wrap;
-    width: 45%;
+    width: 80%;
     height: 700px;
     max-height: fit-content;
     background: linear-gradient(to right ,#8ecdf2, #1aa1ef);
@@ -53,10 +53,15 @@ body{
     margin: -20px 0;
 }
 .p2{
+    width: 100%;
     margin-top: -50px;
     font-size: 20px;
     display: flex;
     justify-content: center;
+}
+.form-switch {
+    width: 100%;
+    padding-left: 2.5em;
 }
 .formall h2{
     display: flex;

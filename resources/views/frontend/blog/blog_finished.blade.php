@@ -22,7 +22,7 @@
                     <div class="blog-detail-img">
                         <div class="row">
                             <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
                             </div>
                             <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
                                 <div class="blog-detail-detail ">
@@ -37,42 +37,7 @@
                     <div class="blog-detail-img">
                         <div class="row">
                             <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
-                            </div>
-                            <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
-                                <div class="blog-detail-detail ">
-                                    <span id="title">TITLE</span>
-                                    <a href="#"><i id="icon-arrow" class="far fa-arrow-alt-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 p-5">
-                    <div class="blog-detail-img">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
-                            </div>
-                            <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
-                                <div class="blog-detail-detail ">
-                                    <span id="title">TITLE</span>
-                                    <a href="#"><i id="icon-arrow" class="far fa-arrow-alt-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 p-5">
-                    <div class="blog-detail-img">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
                             </div>
                             <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
                                 <div class="blog-detail-detail ">
@@ -92,7 +57,7 @@
                     <div class="blog-detail-img">
                         <div class="row">
                             <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
                             </div>
                             <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
                                 <div class="blog-detail-detail ">
@@ -107,7 +72,42 @@
                     <div class="blog-detail-img">
                         <div class="row">
                             <div class="col-lg-6 col-md-6" style="padding: 0">
-                                <img src="{{ asset('img/tramanh1.jpg') }}" class="blog-detail-img-2">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
+                            </div>
+                            <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
+                                <div class="blog-detail-detail ">
+                                    <span id="title">TITLE</span>
+                                    <a href="#"><i id="icon-arrow" class="far fa-arrow-alt-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 p-5">
+                    <div class="blog-detail-img">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6" style="padding: 0">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
+                            </div>
+                            <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
+                                <div class="blog-detail-detail ">
+                                    <span id="title">TITLE</span>
+                                    <a href="#"><i id="icon-arrow" class="far fa-arrow-alt-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 p-5">
+                    <div class="blog-detail-img">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6" style="padding: 0">
+                                <img src="{{ asset('img/omg.jpeg') }}" class="blog-detail-img-2">
                             </div>
                             <div class="col-lg-6 col-md-6" style="padding: 0; background: #c1e2fd;">
                                 <div class="blog-detail-detail ">

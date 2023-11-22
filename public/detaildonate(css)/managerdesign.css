@@ -13,7 +13,8 @@ input:focus {
     -moz-box-shadow: 5px 5px 5px #ccc;
     -webkit-box-shadow: 10px 10px 10px #ccc;
 }
-.btn-search{
+
+.btn-search {
     background: #03A9F4;
     border-radius: 20px;
     border-style: none;
@@ -21,46 +22,65 @@ input:focus {
     color: #fff;
     font-weight: 600;
 }
-.btn-search span{
+
+.btn-search span {
     margin-left: 10px;
 }
-.form-table{
+
+.form-table {
     width: 100%;
-    height: 400px;
     background-color: #ffffff;
     border-radius: 20px;
 }
-.icon{
+
+.table>:not(caption)>*>* {
+    padding: 1.5rem 0.5rem;
+    transform: translateY(10%);
+    vertical-align: middle;
+
+}
+
+
+
+
+.icon {
     margin-left: 20px;
 }
-table{
-    
+
+table {
+
     justify-content: center;
     align-items: center;
 }
+
 @media screen and (max-width: 768px) {
-    .btnsearch{
+    .btnsearch {
         margin-top: 20px;
         padding-left: 25px;
         left: 0;
     }
-    .row-rs{
+
+    .row-rs {
         margin-top: 50px;
     }
 }
+
 @media screen and (max-width: 991px) {
-    .btnsearch{
+    .btnsearch {
         margin-top: 20px;
         padding-left: 5px;
         left: 0;
     }
-    .btn-search{
+
+    .btn-search {
         width: 100%;
     }
-    .row-rs{
+
+    .row-rs {
         margin-top: 50px;
     }
 }
+
 /* serachinput */
 .search-container {
     position: relative;
@@ -68,8 +88,10 @@ table{
 
 .search-icon {
     position: absolute;
-    right:  10px; /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
+    right: 10px;
+    /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
     top: 50%;
     transform: translateY(-50%);
-    color: #555; /* Màu của biểu tượng */
+    color: #555;
+    /* Màu của biểu tượng */
 }

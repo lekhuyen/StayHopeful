@@ -46,3 +46,7 @@ table thead tr td:nth-child(5){
     transform: translateY(-50%);
     color: #555; /* Màu của biểu tượng */
 }
+.icon{
+    margin-left: 20px;
+}
+
