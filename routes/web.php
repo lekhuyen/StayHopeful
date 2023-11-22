@@ -7,7 +7,9 @@ use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +60,10 @@ Route::get('/contact',[ContactusController::class,'index'])->name('contact.index
 
 //feedback
 Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
+Route::get('/feedback/create',[FeedbackController::class,'create'])->name('feedback.create');
+Route::post('/feedback/create',[FeedbackController::class,'store'])->name('feedback.store');
+
+
 
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
@@ -70,3 +76,6 @@ Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
 //
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

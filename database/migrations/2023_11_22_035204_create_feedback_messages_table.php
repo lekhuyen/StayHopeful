@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback_tables', function (Blueprint $table) {
+        Schema::create('feedback_messages', function (Blueprint $table) {
             $table->id();
-            $table->string('message');
-            $table->integer('rating');
-            $table->tinyInteger('status'); //for admin checking of the rating
+            $table->boolean("rating");
+            $table->string("message");
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback_tables');
+        Schema::dropIfExists('feedback_messages');
     }
 };

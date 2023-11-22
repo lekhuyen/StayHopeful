@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
     {{-- css feedback --}}
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
+    
+
+
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- cssblog --}}
@@ -122,7 +125,7 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact Us</a>
-                                    <a href="{{ route('feedback.index') }}" class="sub-item">Feedback</a>
+                                    <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                 </div>
                             </div>
@@ -146,13 +149,13 @@
                         <li><a href="{{ route('detail.donate') }}">
                                 <div class="text">DONATE</div>
                             </a></li>
-                        <li><a href="{{route('blog.index')}}">
+                        <li><a href="{{ route('blog.index') }}">
                                 <div class="text">BLOG</div>
                             </a></li>
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a></li>
-                        <li><a href="{{ route('auth.index') }}">
+                        <li><a href="#">
                                 <div class="text">LOGIN</div>
                             </a></li>
                     </ul>

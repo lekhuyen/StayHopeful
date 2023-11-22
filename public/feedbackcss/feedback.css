@@ -1,6 +1,6 @@
 .container-fluid-feedback {
     text-align: center;
-    background: linear-gradient(to right ,#8ecdf2, #1aa1ef);
+    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
     width: 40%;
     margin: 200px auto;
     padding-bottom: 50px;
@@ -38,32 +38,89 @@ textarea {
     border: 1px solid white;
 }
 
-/* rating */
-.rating-css div {
-    color: #ffe400;
-    font-family: sans-serif;
-    text-align: center;
-    text-transform: uppercase;
+/* Star Rating */
+.form-group {
+    display: flex;
     padding-bottom: 20px;
+    justify-content: center;
 }
 
-.rating-css input {
+.form-check-inline .rating {
     display: none;
 }
 
-.rating-css input+label {
-    font-size: 20px;
-    text-shadow: 1px 1px 0 #8f8420;
+.form-check-inline span {
+    padding-right: 2%;
     cursor: pointer;
+    color: transparent;
 }
 
-.rating-css input:checked+label~label {
-    color: #d9d9d9;
+.form-check-inline span:before {
+    content: '\2606';
+    color: gold;
 }
 
-.rating-css label:active {
-    transform: scale(0.8);
-    transition: 0.3s ease;
+.form-check-inline span:hover:before,
+.form-check-inline span:hover~span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-check-inline .rating:checked~span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="2"]:checked) input[id='1']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="3"]:checked) input[id='1']+span:before,
+.form-group:has(input[id="3"]:checked) input[id='2']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="4"]:checked) input[id='1']+span:before,
+.form-group:has(input[id="4"]:checked) input[id='2']+span:before ,
+.form-group:has(input[id="4"]:checked) input[id='3']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="5"]:checked) input[id='1']+span:before,
+.form-group:has(input[id="5"]:checked) input[id='2']+span:before ,
+.form-group:has(input[id="5"]:checked) input[id='3']+span:before ,
+.form-group:has(input[id="5"]:checked) input[id='4']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="2"]:hover) input[id='1']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="3"]:hover) input[id='1']+span:before,
+.form-group:has(input[id="3"]:hover) input[id='2']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="4"]:hover) input[id='1']+span:before,
+.form-group:has(input[id="4"]:hover) input[id='2']+span:before,
+.form-group:has(input[id="4"]:hover) input[id='3']+span:before {
+    content: '\2605';
+    color: gold;
+}
+
+.form-group:has(input[id="5"]:hover) input[id='1']+span:before,
+.form-group:has(input[id="5"]:hover) input[id='2']+span:before,
+.form-group:has(input[id="5"]:hover) input[id='3']+span:before,
+.form-group:has(input[id="5"]:hover) input[id='4']+span:before {
+    content: '\2605';
+    color: gold;
 }
 
 /* End of Star Rating */
