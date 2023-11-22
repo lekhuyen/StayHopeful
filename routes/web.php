@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
@@ -56,11 +57,16 @@ Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
 
+// Aboutus 
+Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
+
+
 //feedback
 Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
 
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
+
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');
