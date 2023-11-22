@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
+    <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css feedback --}}
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
     {{-- css contactus --}}

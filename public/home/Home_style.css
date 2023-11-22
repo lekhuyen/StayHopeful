@@ -494,11 +494,28 @@ html,body{
 /* project status */
 .project-status {
     content: '';
+}
 
+            
+/* ------video page--------- */
+.video-child {
+    position: relative;
+}
+.video-icon-youtube {
+    position: absolute;
+    top: 42%;
+    right: 37%; 
+    transform: translate(-50%, -50%);
+    color: red;
+    display: none;
+}
+
+.video-child:hover .video-icon-youtube {
+    display: block;
 }
 
 /* -----------------------------responesive------------------------------- */
-/*Smart phone nhỏ*/
+
 @media (max-width: 280px){
     /* --------------------------------- */
 
@@ -536,7 +553,7 @@ html,body{
 
     
 }
-/*Iphone(480 x 640)*/
+
 @media(max-width: 375px){
 
     /* footer */
@@ -598,7 +615,7 @@ html,body{
     }
 
 }
-/*Tablet nhỏ(480 x 640)*/
+
 @media (max-width: 430px){
     .section-title_video h4 {
         font-size: 30px;
@@ -608,7 +625,7 @@ html,body{
 @media(max-width: 540px) {
     
 }
-/*Ipad dọc(768 x 1024)*/
+
 @media(max-width: 768px){
 
     /* ----nav----------- */
@@ -766,4 +783,10 @@ html,body{
     #nav-toggle {
         display: block;
     }
+}
+
+/*-------- video page-----------*/
+@media (max-width: 1400px){}
+    #myVideo {
+        width: 100%;
 }

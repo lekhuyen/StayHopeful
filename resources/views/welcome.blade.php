@@ -320,7 +320,7 @@
                         <h4>THƯ VIỆN VIDEO</h4>
                     </div>
                     <div>
-                        <a href="#">XEM TẤT CẢ</a>
+                        <a href="{{route('video.index')}}">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>

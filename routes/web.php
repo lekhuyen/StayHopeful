@@ -67,6 +67,10 @@ Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.inde
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
 
+// video page
+Route::get('/video',[BlogController::class,'video'])->name('video.index');
+
+
 
 //admin
 Route::get('/admin',[AdminPageController::class,'viewsidebar'])->name('admin.index');

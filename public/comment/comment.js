@@ -61,3 +61,10 @@ $('.item').click(function(){
     $(this).find('.sub-menu').slideToggle();
     $(this).find('.dropdown').toggleClass('rotate-slide');
 })
+
+
+
+// video
+
+var videoParent = document.querySelector('.video-parent')
+console.log(videoParent)

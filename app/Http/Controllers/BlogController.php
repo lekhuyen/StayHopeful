@@ -27,4 +27,9 @@ class BlogController extends Controller
     {
         return view('frontend.project.project');
     }
+    //video page
+    public function video()
+    {
+        return view('frontend.video_page.video');
+    }
 }
