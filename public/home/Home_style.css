@@ -256,14 +256,51 @@ html,body{
     transform: translateY(-5px);
 }
 
+/* project status */
 .project-status {
     position: absolute;
+    right: -6px;
+    top: 10px;
     background-color: red;
+    color: white;
+    width: 140px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/* .project-status-finish {
+.project-status::before {
+    content: '';
     position: absolute;
+    border: 3px solid;
+    border-color: transparent  transparent #0d6efd #0d6efd;
+    right: 0;
+    top: -6px;
+}
+.project-status-finish {
+    position: absolute;
+    right: -6px;
+    top: 10px;
     background-color: green;
-} */
+    color: white;
+    width: 140px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-status-finish::before {
+    content: '';
+    position: absolute;
+    border: 3px solid;
+    border-color: transparent  transparent rgb(2, 73, 2) rgb(2, 73, 2);
+    right: 0;
+    top: -6px;
+}
+
+/* -------------------------------- */
+
 .card-text-1-1 {
     color: rgb(13,44,76) !important;
     opacity: .9;
