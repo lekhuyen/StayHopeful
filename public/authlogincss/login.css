@@ -59,6 +59,7 @@
     text-decoration: none;
     padding: 5px 10px;
     color: #2d63c2;
+    margin-left: 18px;
 }
 .forget-password-signup .forget-pass:hover{
     text-decoration: underline;
@@ -91,10 +92,4 @@
         width: 100%;
         margin: 140px 20px 0px 20px;
     }
-}
-@media(min-width: 912px){
-    /* .container-login {
-        width: 100%;
-        margin: 140px 100px 0px 100px;
-    } */
 }
