@@ -10,7 +10,7 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedback = feedback_message::all();
+        // $feedback = feedback_message::all();
         return view("frontend.feedback.index",compact('feedback'));
     }
     public function create()
@@ -18,18 +18,18 @@ class FeedbackController extends Controller
         return view("frontend.feedback.feedback");
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            "message" => "required",
-            "rating" => "required"
-        ]);
-        $feedback = new feedback_message();
-        $feedback->message = $request->message;
-        $feedback->rating = $request->rating;
-        $feedback->save();
-        return redirect()->route("frontend.feedback.create")->with("success", "Feedback is sent successfully.");     
-    }
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         "message" => "required",
+    //         "rating" => "required"
+    //     ]);
+    //     $feedback = new feedback_message();
+    //     $feedback->message = $request->message;
+    //     $feedback->rating = $request->rating;
+    //     $feedback->save();
+    //     return redirect()->route("frontend.feedback.create")->with("success", "Feedback is sent successfully.");     
+    // }
 
     public function passes($attribute, $value)
     {

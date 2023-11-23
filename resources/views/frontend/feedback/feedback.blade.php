@@ -10,10 +10,10 @@
                 </div>
 
 
-                <form method="post" action="{{ route('feedback.store') }}">
+                <form method="post" action="#">
                     @csrf
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <div class="form-check-inline">
                             <label class="form-check-label" for="1">
                                 <input type="radio" id="1" value="1" name="rating" class="rating"
@@ -49,7 +49,12 @@
                                 <span class="wpcomment-input-option-label wpcomment-label-radio">5</span>
                             </label>
                         </div>
+                    </div> --}}
+                    <div class="star_rating">
+                        <button class="star">&#9734;</button>
+
                     </div>
+                </form>
 
                     <div class="fb-textarea">
                         <textarea name="feedback_text" id="feedback_text" cols="40" rows="5" placeholder="Your feedback here..."></textarea>
@@ -61,7 +66,6 @@
                             </button>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
 
