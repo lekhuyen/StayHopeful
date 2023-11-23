@@ -124,7 +124,7 @@
                                 <a href="#" class="nav-menu-title">CONTACT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact Us</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                 </div>
