@@ -21,6 +21,11 @@
 <link
     href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Lora:wght@600&family=Raleway:wght@300&display=swap"
     rel="stylesheet">
+
+    {{-- ckeditor --}}
+    <script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
+    
+
 {{-- font --}}
 <link rel="stylesheet" href="{{ asset('detaildonate(css)/sidebar.css') }}">
 {{-- siderbar --}}

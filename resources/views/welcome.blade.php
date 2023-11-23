@@ -46,16 +46,6 @@
     </section>
 
     <section>
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h4>CÁC SỰ KIỆN GẦN NHẤT</h4>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> --}}
         <div class="container section-title-1-0">
             <div class="row">
                 <div class="col-lg-12 section-title-1">

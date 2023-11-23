@@ -4,11 +4,14 @@ use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,4 +82,22 @@ Route::get('/admin/managerpost',[AdminPageController::class,'viewmanagerpost'])-
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
-//
+//caregory Admin page
+Route::group(['prefix'=> 'category/'], function(){
+    Route::get('index',[CategoryController::class,'index'])->name('category.index');
+    Route::get('create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('store',[CategoryController::class,'store'])->name('category.store');
+    Route::get('delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+    Route::get('edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::put('update/{id}',[CategoryController::class,'update'])->name('category.update');
+});
+
+//project admin page
+Route::group(['prefix'=> 'project/'], function(){
+    Route::get('index',[ProjectController::class,'index'])->name('project.index');
+    Route::get('create',[ProjectController::class,'create'])->name('project.create');
+    Route::post('store',[ProjectController::class,'store'])->name('project.store');
+    // Route::get('delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
+    // Route::get('edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
+    // Route::put('update/{id}',[ProjectController::class,'update'])->name('project.update');
+});
