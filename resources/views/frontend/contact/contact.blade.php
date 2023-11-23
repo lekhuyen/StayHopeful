@@ -54,5 +54,5 @@
       </div>
     </form>
 </div>
-
+@include("frontend/login/login");
 @endsection

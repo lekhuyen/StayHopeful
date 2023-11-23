@@ -110,4 +110,5 @@
     </body>
 
     </html>
+    @include("frontend/login/login");
 @endsection()
