@@ -225,4 +225,5 @@
                 }
             });
         </script>
+        @include("frontend/login/login");
     @endsection()

@@ -161,9 +161,9 @@
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a></li>
-                        <li><a href="{{ route('auth.index') }}">
-                                <div class="text">LOGIN</div>
-                            </a></li>
+                        <li>
+                                <div class="text popup-login">LOGIN</div>
+                            </li>
                     </ul>
                 </div>
             </div>

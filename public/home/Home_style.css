@@ -2,9 +2,11 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-html,body{
+
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -63,32 +65,32 @@ html,body{
 
 .nav_bar li:nth-child(2) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li:nth-child(3) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li:nth-child(4) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li:nth-child(5) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li:nth-child(6) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li:nth-child(7) {
     width: 25%;
-    background: linear-gradient(to right ,#245abe, #578fd9);
+    background: linear-gradient(to right, #245abe, #578fd9);
 }
 
 .nav_bar li a {
@@ -106,10 +108,21 @@ html,body{
     font-size: 20px;
     transform: skew(0.09turn);
 }
+
+.nav_bar li div.text.popup-login {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    transform: skew(0.09turn);
+}
+
 /* mobile interface */
 .test-nav {
     display: none;
 }
+
 #nav-toggle {
     /* display: none; */
     font-size: 40px;
@@ -118,13 +131,16 @@ html,body{
     background-color: #123b6a;
     height: 60px;
 }
+
 .search-input-icon {
     height: 100%;
 }
+
 .search-input-icon i {
     font-size: 20px;
     padding-right: 10px;
 }
+
 #nav-toggle input {
     height: 36px;
     width: 420px;
@@ -147,6 +163,7 @@ html,body{
     background-color: #123b6a;
 
 }
+
 .register-nav {
     height: 34px;
     width: 92px;
@@ -167,6 +184,10 @@ html,body{
     transition: 0.3s;
 
 }
+.nav_bar li div.text.popup-login:hover{
+    color: #123b6a;
+    transition: 0.3s;
+}
 
 .logo {
     width: 130px;
@@ -180,7 +201,7 @@ html,body{
     display: none;
 }
 
-.nav-mobile-interface i{
+.nav-mobile-interface i {
     color: white;
 }
 
@@ -190,6 +211,7 @@ html,body{
     font-size: 20px;
     padding-left: 20px;
 }
+
 .nav-menu-title:hover {
     color: white;
 }
@@ -197,13 +219,15 @@ html,body{
 .nav-sub-menu-title {
     display: none;
 }
-.nav-sub-menu-title a{
+
+.nav-sub-menu-title a {
     display: block;
     text-decoration: none;
     color: white;
     padding-left: 40px;
     font-size: 20px;
 }
+
 .nav-sub-menu-title a:hover {
     background-color: rgb(116, 155, 227);
     color: white;
@@ -226,10 +250,17 @@ html,body{
 .carosel_heigth {
     height: 100vh;
     width: 100vw;
-    object-fit:  center;
+    object-fit: center;
 }
 
-/* --------------------card-------------------------- */ 
+button.carousel-control-prev,
+button.carousel-control-next {
+    height: 50px;
+    position: absolute;
+    top: 50%;
+}
+
+/* --------------------card-------------------------- */
 .section-title {
     height: 50px;
     margin: 50px 0;
@@ -241,6 +272,7 @@ html,body{
     margin-bottom: 0;
     color: #245abe;
 }
+
 .a-card {
     text-decoration: none;
 }
@@ -248,10 +280,12 @@ html,body{
 .card-img-top-1 {
     height: 250px;
 }
+
 .card_wapper {
-    box-shadow: 0 0 10px rgba(0, 0, 0 , 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: 0.2s linear;
 }
+
 .card_wapper:hover {
     transform: translateY(-5px);
 }
@@ -269,14 +303,16 @@ html,body{
     align-items: center;
     justify-content: center;
 }
+
 .project-status::before {
     content: '';
     position: absolute;
     border: 3px solid;
-    border-color: transparent  transparent #0d6efd #0d6efd;
+    border-color: transparent transparent #0d6efd #0d6efd;
     right: 0;
     top: -6px;
 }
+
 .project-status-finish {
     position: absolute;
     right: -6px;
@@ -294,7 +330,7 @@ html,body{
     content: '';
     position: absolute;
     border: 3px solid;
-    border-color: transparent  transparent rgb(2, 73, 2) rgb(2, 73, 2);
+    border-color: transparent transparent rgb(2, 73, 2) rgb(2, 73, 2);
     right: 0;
     top: -6px;
 }
@@ -302,15 +338,16 @@ html,body{
 /* -------------------------------- */
 
 .card-text-1-1 {
-    color: rgb(13,44,76) !important;
+    color: rgb(13, 44, 76) !important;
     opacity: .9;
 }
+
 .card-title-1 {
     font-weight: 700;
     color: #245abe !important;
 }
 
-.card-body p{
+.card-body p {
     margin-bottom: 8px;
 }
 
@@ -319,9 +356,11 @@ html,body{
     color: #224a7f;
     font-weight: 600;
 }
-.card-title-child span{
+
+.card-title-child span {
     color: rgb(87, 182, 50);
 }
+
 .card-title-child-1 span {
     color: red;
     font-weight: 500;
@@ -342,13 +381,13 @@ html,body{
 
 .card-title-child span::after,
 .card-title-child-1 span::after {
-    content: "₫ "; 
+    content: "₫ ";
 }
 
 .cart-description-post {
     overflow: hidden;
     text-overflow: ellipsis;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     display: -webkit-box;
@@ -359,7 +398,7 @@ html,body{
 .video_status a {
     display: block;
     font-size: 20px;
-    text-decoration: none; 
+    text-decoration: none;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -370,9 +409,11 @@ html,body{
 .video_status a:hover {
     color: #578fd9;
 }
+
 .section-title-1-0 {
     margin: 50px 0;
 }
+
 .section-title-1 {
     display: flex;
     justify-content: space-between;
@@ -385,10 +426,10 @@ html,body{
     color: #245abe;
 }
 
-.section-title-1 div a{
+.section-title-1 div a {
     text-decoration: none;
     color: white;
-    border-radius:10px;
+    border-radius: 10px;
     padding: 10px;
     font-weight: 50;
     font-size: 15px;
@@ -411,15 +452,17 @@ html,body{
 }
 
 
-.project-count i{
+.project-count i {
     font-size: 40px;
     color: #f06626;
 }
+
 .total-money i,
 .total-money span {
     font-size: 40px;
     color: #bf271a;
 }
+
 .project-count span {
     font-size: 40px;
     color: #f06626;
@@ -434,6 +477,7 @@ html,body{
 .footer_header span {
     line-height: 30px;
 }
+
 .footer_header h2 {
     font-size: 19px;
     font-weight: bold;
@@ -453,7 +497,7 @@ html,body{
     width: 90%;
 }
 
-.footer_header ul li:last-child{
+.footer_header ul li:last-child {
     border-bottom: none;
 }
 
@@ -478,10 +522,11 @@ html,body{
     height: 100%;
 }
 
-.footer-end  h6 {
+.footer-end h6 {
     color: white;
     margin-bottom: 0;
 }
+
 .media-icon a i {
     font-size: 30px;
     margin: 0 4px;
@@ -489,7 +534,7 @@ html,body{
 
 
 #footer-end {
-    background-color: #64b6fe; 
+    background-color: #64b6fe;
     height: 53px;
     display: flex;
     align-items: center;
@@ -505,15 +550,16 @@ html,body{
     content: '';
 }
 
-            
+
 /* ------video page--------- */
 .video-child {
     position: relative;
 }
+
 .video-icon-youtube {
     position: absolute;
     top: 42%;
-    right: 37%; 
+    right: 37%;
     transform: translate(-50%, -50%);
     color: red;
     display: none;
@@ -525,12 +571,13 @@ html,body{
 
 /* -----------------------------responesive------------------------------- */
 
-@media (max-width: 280px){
+@media (max-width: 280px) {
     /* --------------------------------- */
 
     .section-title {
         height: 34px;
     }
+
     .section-title h4 {
         font-size: 20px !important;
     }
@@ -538,7 +585,8 @@ html,body{
     .section-title_video h4 {
         font-size: 20px !important;
     }
-/* ----------------------------------------- */
+
+    /* ----------------------------------------- */
     #myVideo {
         width: 100% !important;
     }
@@ -547,23 +595,24 @@ html,body{
     #footer-end {
         height: 160px !important;
     }
+
     .footer-end {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .footer-end  h6 {
+    .footer-end h6 {
         font-size: 20px;
         text-align: center;
         margin-bottom: 20px;
         line-height: 20px;
     }
 
-    
+
 }
 
-@media(max-width: 375px){
+@media(max-width: 375px) {
 
     /* footer */
     #footer-end {
@@ -576,7 +625,7 @@ html,body{
         justify-content: center;
     }
 
-    .footer-end  h6 {
+    .footer-end h6 {
         text-align: center;
         margin-bottom: 10px !important;
         line-height: 20px;
@@ -584,8 +633,8 @@ html,body{
 }
 
 @media(max-width: 393px) {
-    
-     /* footer */
+
+    /* footer */
     #footer-end {
         height: 120px;
     }
@@ -596,7 +645,7 @@ html,body{
         justify-content: center;
     }
 
-    .footer-end  h6 {
+    .footer-end h6 {
         text-align: center;
         margin-bottom: 20px;
         line-height: 20px;
@@ -604,8 +653,8 @@ html,body{
 }
 
 @media(max-width: 414px) {
-    
-      /* footer */
+
+    /* footer */
     #footer-end {
         height: 120px;
     }
@@ -616,7 +665,7 @@ html,body{
         justify-content: center;
     }
 
-    .footer-end  h6 {
+    .footer-end h6 {
         font-size: 20px !important;
         text-align: center;
         margin-bottom: 20px;
@@ -625,45 +674,48 @@ html,body{
 
 }
 
-@media (max-width: 430px){
+@media (max-width: 430px) {
     .section-title_video h4 {
         font-size: 30px;
     }
 }
 
-@media(max-width: 540px) {
-    
-}
+@media(max-width: 540px) {}
 
-@media(max-width: 768px){
+@media(max-width: 768px) {
 
     /* ----nav----------- */
     .nav_bar li a .text {
         font-weight: 600;
         font-size: 15px;
     }
+
     .logo {
         margin-right: 0;
         width: 70px;
     }
+
     .nav_bar {
         padding-left: 0;
     }
+
     /* ----------caorsel--------- */
     .carosel_heigth {
-        object-fit:  cover;
+        object-fit: cover;
     }
+
     /* -----------card------------ */
     .card_wapper {
         width: 100% !important;
         margin-bottom: 30px;
         position: relative;
-    } 
+    }
+
     .card-title-1 {
         font-size: 30px;
         font-weight: 500;
     }
-    
+
 
     .card-body h5 {
         font-size: 30px;
@@ -679,7 +731,7 @@ html,body{
         height: 400px;
     }
 
-    
+
 }
 
 
@@ -689,13 +741,16 @@ html,body{
     .card-title-1 {
         font-size: 30px;
     }
+
     .card-body p {
         font-size: 25px;
     }
+
     .btn-primary-1 {
         width: 150px;
         margin: 15px 0;
     }
+
     .col-xl-6 {
         padding: 30px;
     }
@@ -707,28 +762,34 @@ html,body{
     .section-title_video h4 {
         font-size: 25px;
     }
-    .section-title-1 div:last-child  {
+
+    .section-title-1 div:last-child {
         margin-bottom: 25px;
     }
+
     .section-title-1 div a {
         font-size: 16px;
         padding: 10px;
     }
+
     .video_status {
         margin-bottom: 25px;
     }
+
     .video_title {
         font-size: 25px !important;
     }
 
     /* footer */
-    .footer_header h2{
+    .footer_header h2 {
         font-size: 25px;
     }
+
     .footer_header span {
         font-size: 23px;
         line-height: 30px;
     }
+
     .footer_header ul li a {
         font-size: 23px;
     }
@@ -737,7 +798,7 @@ html,body{
         font-size: 23px;
     }
 
-      /* footer */
+    /* footer */
     #footer-end {
         height: 120px;
     }
@@ -748,18 +809,19 @@ html,body{
         justify-content: center;
     }
 
-    .footer-end  h6 {
+    .footer-end h6 {
         text-align: center;
         margin-bottom: 20px;
         line-height: 20px;
     }
+
     .footer-end h6 {
         font-size: 23px;
     }
 }
 
 /*Ipad ngang(1024 x 768)*/
-@media(max-width: 1400px){
+@media(max-width: 1400px) {
 
 
     /* ------card----------- */
@@ -776,15 +838,18 @@ html,body{
         width: 350px;
     }
 }
+
 @media (max-width: 700px) {
     #nav-toggle input {
         width: 100%;
     }
 }
+
 @media(max-width: 1024px) {
     .test-nav {
         display: block;
     }
+
     .nav_bar {
         display: none;
     }
@@ -795,7 +860,8 @@ html,body{
 }
 
 /*-------- video page-----------*/
-@media (max-width: 1400px){}
-    #myVideo {
-        width: 100%;
+@media (max-width: 1400px) {}
+
+#myVideo {
+    width: 100%;
 }
