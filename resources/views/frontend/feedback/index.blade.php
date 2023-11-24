@@ -12,21 +12,24 @@
 <body>
 
     <h4>Feedback List</h4>
-    
+
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Rating</th>
-                <th>Message</th>
+                <th>Email</th>
+                <th>Content</th>
+                <th>Star</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($feedback as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->rating }}</td>
-                    <td>{{ $item->message }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->content }}</td>
+                    <td>{{ $item->star }}</td>
                 </tr>
             @endforeach
         </tbody>
