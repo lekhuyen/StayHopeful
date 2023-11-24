@@ -1,6 +1,25 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 h1, h2 {
     color: #D43790;
     text-align: center;
+    margin-top: 0;
+}
+
+.row.g-10 {
+    margin-top: 40px;
+}
+
+/* Container styles */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 p {
@@ -9,18 +28,24 @@ p {
     line-height: 1.6;
 }
 
-img.aboutus-image-main {
-    width: 100%;
-    height: auto;
+/*{{-- Mission sector --}}*/
+.container .aboutus-image-main {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 1000px; /* Set a maximum width if desired */
+    display: block;
+    margin: 0 auto;
     margin-top: 20px;
     border-radius: 8px;
+    object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.row.g-10 {
-    margin-top: 40px;
+.container span {
+    display: block;
+    width: inherit; /* Make the span inherit the width from its parent (.container) */
 }
 
+/* About us sector */
 .aboutus-image1,
 .aboutus-image3,
 .aboutus-image4,
@@ -66,20 +91,44 @@ color: #333; /* Dark text color */
 }
 
 .about-story3 {
-background-color: #cfe8d5; /* Soft green background */
+background-color: #e6f7ff; /* Soft blue background */
 color: #333; /* Dark text color */
 }
 
 .about-story4 {
-background-color: #f5f5f5; /* Light gray background */
+background-color: #f0f0f0; /* Light gray background */
 color: #333; /* Dark text color */
 }
 
 .about-story5 {
-background-color: #d9ebd9; /* Light green background */
+background-color: #e6f7ff; /* Soft blue background */
 color: #333; /* Dark text color */
 }
 
+/* Accordion sector */
+.accordion-button {
+    background-color: #f8f9fa; /* Background color of accordion header */
+    color: #212529; /* Text color of accordion header */
+    border: 1px solid #dee2e6; /* Border color of accordion header */
+    border-radius: 8px; /* Border radius of accordion header */
+    margin-bottom: 5px; /* Margin between accordion items */
+}
+
+.accordion-body {
+    background-color: #ffffff; /* Background color of accordion body */
+    border: 1px solid #dee2e6; /* Border color of accordion body */
+    border-radius: 8px; /* Border radius of accordion body */
+    padding: 10px; /* Padding inside accordion body */
+}
+
+.custom-badge{
+    max-width: 72%;
+    height: auto;
+    margin-left: 12%;
+    
+}
+
+/* call to action sector */
 .call_to_action {
     text-align: center;
     background-color: #f8f9fa; /* Adjust background color as needed */
@@ -95,8 +144,8 @@ color: #333; /* Dark text color */
 }
 
 .card svg {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto;
     display: block;
     fill: #15b5f9; /* Adjust SVG fill color as needed */
@@ -128,70 +177,65 @@ color: #333; /* Dark text color */
     text-decoration: underline;
 }
 
-/* Additional styles for Board of Directors section */
-.board_of_directors {
-        margin-top: 5rem; /* Adjust the top margin as needed */
-        text-align: center;
-    }
+.card:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+    transition: transform 0.3s ease-in-out; /* Adjust the duration and timing function as needed */
+}
 
-    .team-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 80vh; /* Adjust the height as needed */
-        overflow: hidden;
-    }
+.card {
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
 
-    .team-names {
-        width: 30%;
-        background-color: #ffffff; /* Set your desired background color */
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 10px;
-    }
+.founder-img {
+    width: 70%;
+    height:90%;
+}
 
-    .team-member {
-        cursor: pointer;
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: #f8f9fa; /* Set your desired background color */
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
+/* volunteer */
+.volunteer{
+    background-color: #e6f7ff
+}
 
-    .team-member:hover {
-        background-color: #e9ecef; /* Set your desired hover background color */
-    }
+.volunteer .aboutus-image6 {
+    width: 60%;
+    height: auto;
+    margin: 20px auto; /* Center the image */
+    display: block;
+}
 
-    .team-introduction {
-        width: 68%; /* Adjust the width as needed */
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 10px;
-        background-color: #ffffff; /* Set your desired background color */
-    }
+.volunteer .row {
+    display: flex;
+    align-items: center;
+}
 
-    .introduction-box {
-        background-color: #e9ecef; /* Set your desired background color */
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
+.left-volunteer, .right-volunteer {
+    text-align: center; /* Center text in left-volunteer and right-volunteer */
+}
 
-    .circular-picture {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 20px;
-    }
+.right-volunteer {
+    flex: 1; /* Take up remaining space in the row */
+    padding: 0 20px; /* Add some spacing to the right column */
+}
 
-    .circular-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.right-volunteer h3 {
+    color: #D43790; /* Adjust heading color as needed */
+    margin-top: 0;
+}
+
+.right-volunteer span {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333; /* Text color */
+    margin: 20px auto; /* Center the text */
+    display: block;
+}
+
+.right-volunteer a {
+    color: #0a77b8; /* Dark blue color */
+    text-decoration: underline;
+}
+
+.right-volunteer a:hover {
+    color: #0a77b8; /* Dark blue color on hover */
+    text-decoration: underline;
+}
