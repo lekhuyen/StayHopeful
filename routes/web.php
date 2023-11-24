@@ -60,11 +60,11 @@ Route::get('/blog/blog_detail',[BlogController::class,'blog_detail'])->name('blo
 //detail-page
 Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 
-// Contact 
+// Contact
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
 
-// Aboutus 
+// Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
 
 
@@ -95,7 +95,7 @@ Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name(
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
+
 //caregory Admin page
 Route::group(['prefix'=> 'category/'], function(){
     Route::get('index',[CategoryController::class,'index'])->name('category.index');
