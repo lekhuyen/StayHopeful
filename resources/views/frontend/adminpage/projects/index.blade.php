@@ -1,7 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     <div class="container mt-3">
-        <h2>List Project</h2>
+        <h2>List Project</h2> 
+        <a class="btn btn-primary "href="{{route('projectAd-image')}}">Trash</a>
         <a href="{{route('projectAd.create')}}" class="btn btn-primary">Create Category</a>
         <table class="table table-hover">
             <thead>'
@@ -64,7 +65,7 @@
         $('.delete-project').click(function(){
             var projectId = $(this).data('id');
             var projectTable = $(this).closest('.project-table');
-            console.log(projectTable)
+            
             var _csrf = '{{ csrf_token() }}';
 
             $.ajax({

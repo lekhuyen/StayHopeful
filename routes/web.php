@@ -104,10 +104,15 @@ Route::get('/admin/listuser', [AdminPageController::class, 'viewlistuser'])->nam
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
     Route::get('index', [CategoryController::class, 'index'])->name('category.index');
+
     Route::get('create', [CategoryController::class, 'create'])->name('category.create');
+
     Route::post('store', [CategoryController::class, 'store'])->name('category.store');
-    Route::get('delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+    Route::post('delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
     Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+
     Route::put('update/{id}', [CategoryController::class, 'update'])->name('category.update');
 });
 
@@ -126,5 +131,10 @@ Route::group(['prefix'=> 'project/'], function(){
     Route::get('editimage/{id}',[ProjectController::class,'deleteImgChild'])->name('delete_ImgChild');
 
     Route::put('update/{id}',[ProjectController::class,'update'])->name('projectAd.update');
+
+    // trash
+    Route::get('image-trash',[ProjectController::class,'trash_image'])->name('projectAd-image');
+    Route::get('image-untrash/{id}',[ProjectController::class,'untrash_image'])->name('projectAd-untrash');
+    Route::get('projectAd-forcedelete/{id}',[ProjectController::class,'projectAd_forcedelete'])->name('projectAd-forcedelete');
 });
 
