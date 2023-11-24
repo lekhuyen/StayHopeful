@@ -9,9 +9,13 @@ use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
+
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,6 +70,10 @@ Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index')
 
 //feedback
 Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
+Route::get('/feedback/create',[FeedbackController::class,'create'])->name('feedback.create');
+Route::post('/feedback/create',[FeedbackController::class,'store'])->name('feedback.store');
+
+
 
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
@@ -82,6 +90,12 @@ Route::get('/admin/managerpost',[AdminPageController::class,'viewmanagerpost'])-
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
+
+//
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
 //caregory Admin page
 Route::group(['prefix'=> 'category/'], function(){
     Route::get('index',[CategoryController::class,'index'])->name('category.index');
@@ -101,3 +115,4 @@ Route::group(['prefix'=> 'project/'], function(){
     // Route::get('edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
     // Route::put('update/{id}',[ProjectController::class,'update'])->name('project.update');
 });
+
