@@ -8,7 +8,7 @@
             <div class="search">
                 <div class="search-container">
                     <i class="fas fa-magnifying-glass search-icon"></i>
-                    <input type="search" placeholder="Tìm Kiếm Tên Người Dùng" class="form-control input-search">
+                    <input type="search" placeholder="Search User name" class="form-control input-search">
                 </div>
             </div>
         </div>
@@ -20,10 +20,10 @@
                     <thead>
                         <tr>
                             <td>#</td>
-                            <td>Tên người dùng</td>
-                            <td>Nội Dung</td>
-                            <td>Ngày Đăng</td>
-                            <td>Tác Vụ</td>
+                            <td>User Name</td>
+                            <td>Content</td>
+                            <td>Day_create</td>
+                            <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>

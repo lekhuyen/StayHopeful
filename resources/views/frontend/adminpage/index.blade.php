@@ -70,8 +70,8 @@
                                         src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%"></button>
                                 <div class="dropdownmenu-profile">
-                                    <a href="#" class="dropdownitem-profile">Profile</a>
-                                    <a href="#" class="dropdownitem-profile">Logout</a>
+                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er" class="dropdownitem-profile">Profile</a>
+                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er" class="dropdownitem-profile">Logout</a>
                                 </div>
                             </div>
                         </li>
