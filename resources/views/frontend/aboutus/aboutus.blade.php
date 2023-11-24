@@ -137,6 +137,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Donate Now to Save Lives</h5>
                     <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
+                    <br>
                     <a href="#">Sign In</a></p>
                 </div>
             </div>
@@ -180,9 +181,9 @@
 </div>
 
 {{-- Our Founder sector --}}
-<div class="container mt-3 our_founder">
+<div class="container mt-3 our_founder" data-aos="zoom-in">
     <h2 class="text-center">Our Founder</h2>
-    <div class="team-description">
+    <div>
         Welcome to the heart of <strong>Stay Hope full</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
     </div>
 
@@ -193,33 +194,124 @@
             <div class="col-md-4 text-center">
                 <img class="img-fluid rounded-circle founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
             </div>
-
+            
             <!-- Introduction -->
             <div class="col-md-8">
+                <br>
+            <br>
+            <br>
                 <p class="text-justify">
                     Meet John Doe, the visionary behind <strong>Stay hope full</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
                 </p>
-                <a href="#founder-story" class="btn btn-primary">HEAR JOHN DOE's STORY</a>
+                <a href="{{route("aboutus.johndoe")}}" class="btn btn-primary">HEAR JOHN DOE's STORY</a>
             </div>
         </div>
     </div>
 </div>
+<hr>
+<!-- Team Members sector -->
+<div class="container mt-3">
 
+    <div data-aos="zoom-out-up">
+        <h2 class="text-center">Our Team</h2>
+        <span>
+            Welcome to the heart of <strong>Stay Hopeful</strong>. Our dedicated team shares a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
+        </span>
+    </div>
 
-<!-- Board of Directors section -->
-<div class="container mt-5 text-center board_of_directors">
-    <h2>Board of Directors</h2>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 g-4" >
+      <div class="col">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-4" data-aos="fade-up-right" data-aos-delay="200">
+              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body" data-aos="fade-up-right" data-aos-delay="200">
+                <h5 class="card-title">Jane Smith</h5>
+                <p class="card-text">Jane Smith is our Chief Marketing Officer, bringing a creative and strategic approach to our outreach efforts. Her dedication has played a crucial role in expanding our reach and impact.</p>
+                <p class="card-text"><small class="text-body-secondary">Date of Birth: March 10, 1988</small></p>
+                <a href="{{route("aboutus.janesmith")}}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+    <div class="col">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-4" data-aos="fade-up-left" data-aos-delay="400">
+              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body" data-aos="fade-up-left" data-aos-delay="400">
+                <h5 class="card-title">Robert Johnson</h5>
+                <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive experience in finance and strategic planning. His innovative thinking has significantly contributed to our organization's success.</p>
+                <p class="card-text"><small class="text-body-secondary">Date of Birth: August 22, 1982</small></p>
+                <a href="{{route("aboutus.robertjohnson")}}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+    <div class="col">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-4" data-aos="fade-down-right" data-aos-delay="500">
+              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body" data-aos="fade-down-right" data-aos-delay="500">
+                <h5 class="card-title">Kai Greene</h5>
+                <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our technological initiatives. Their expertise has been instrumental in driving our digital transformation.</p>
+                <p class="card-text"><small class="text-body-secondary">Date of Birth: May 18, 1989</small></p>
+                <a href="{{route("aboutus.kaigreene")}}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 
-    <div class="team-container">
-        <div class="team-names" id="teamNames">
-            <div class="team-member" onclick="showIntroduction(1)">Team Member 1</div>
-            <div class="team-member" onclick="showIntroduction(2)">Team Member 2</div>
-            <div class="team-member" onclick="showIntroduction(3)">Team Member 3</div>
-            <!-- Add more team members as needed -->
+    <div class="col">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4" data-aos="fade-down-left" data-aos-delay="700">
+                    <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="Person's Image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" data-aos="fade-down-left" data-aos-delay="700">
+                        <h5 class="card-title">Oliver Hudson</h5>
+                        <p class="card-text">liver Hudson serves as our Creative Director, bringing a unique blend of artistic vision and strategic thinking to our projects. Their creativity adds a distinctive touch to our initiatives.</p>
+                        <p class="card-text"><small class="text-body-secondary">Date of Birth: January 15, 1985</small></p>
+                        <a href="{{route("aboutus.oliverhudson")}}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{{-- volunteer sector --}}
+<div class="container volunteer" >
+    <div class="row row-cols-1 row-cols-md-2 g-10 volunteer" data-aos="zoom-in-right">
+        <div class="col left-volunteer">
+            <div>
+                <img src="{{ asset('img/aboutus6.jpg') }}" alt="aboutus4" class="aboutus-image6">
+            </div>
+            
         </div>
 
-        <div class="team-introduction" id="teamIntroduction">
-            <!-- Introduction content will be dynamically loaded here -->
+        <div class="col right-volunteer" data-aos="zoom-in-left">
+            <div>
+                <div>
+                    <h3>Change the world with us</h3>
+                    <span>We are hiring! Explore our openings and join the team</span>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

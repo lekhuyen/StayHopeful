@@ -67,6 +67,15 @@ Route::get('/contact',[ContactusController::class,'index'])->name('contact.index
 // Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
 
+Route::get('/aboutus/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
+
+Route::get('/aboutus/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
+
+Route::get('/aboutus/robertjohnson', [AboutUsController::class, 'robertjohnson'])->name('aboutus.robertjohnson');
+
+Route::get('/aboutus/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
+
+Route::get('/aboutus/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
 
 //feedback
 Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
