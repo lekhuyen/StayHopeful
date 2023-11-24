@@ -74,7 +74,7 @@
             <span>2</span>
         </div>
     </div>
-    @include("frontend/login/login");
+    @include("frontend/login/login")
     <script src="{{asset('js/countdonate.js')}}"></script>
     
 @endsection
