@@ -22,8 +22,7 @@
     href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Lora:wght@600&family=Raleway:wght@300&display=swap"
     rel="stylesheet">
 
-    {{-- ckeditor --}}
-    <script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
+    
     
 
 {{-- font --}}
@@ -142,4 +141,9 @@
         profilebtn.classList.add('dropdown-profile-click');
         dropdownMenu.classList.toggle('active-profile-dropdown');
     })
+</script>
+{{-- ckeditor --}}
+<script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace('description-project')
 </script>

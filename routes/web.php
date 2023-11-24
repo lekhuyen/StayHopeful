@@ -94,9 +94,9 @@ Route::group(['prefix'=> 'category/'], function(){
 
 //project admin page
 Route::group(['prefix'=> 'project/'], function(){
-    Route::get('index',[ProjectController::class,'index'])->name('project.index');
-    Route::get('create',[ProjectController::class,'create'])->name('project.create');
-    Route::post('store',[ProjectController::class,'store'])->name('project.store');
+    Route::get('index',[ProjectController::class,'index'])->name('projectAd.index');
+    Route::get('create',[ProjectController::class,'create'])->name('projectAd.create');
+    Route::post('store',[ProjectController::class,'store'])->name('projectAd.store');
     // Route::get('delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
     // Route::get('edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
     // Route::put('update/{id}',[ProjectController::class,'update'])->name('project.update');

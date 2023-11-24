@@ -3,8 +3,8 @@
 
     <div class="container mt-3">
         <h2>Add Category</h2>
-        <a class="btn btn-primary"href="{{route('project.index')}}">Category List</a>
-        <form action="{{route('project.store')}}" method="POST">
+        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Category List</a>
+        <form action="{{route('projectAd.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
                 <label for="title">Title:</label>
@@ -69,7 +69,7 @@
     </div>
 
     <script>
-        CKEDITOR.replace('description-project')
-    </script>
+        CKEDITOR.replace( 'description' );
+</script>
 @endsection
     

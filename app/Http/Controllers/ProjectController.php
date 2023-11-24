@@ -28,7 +28,7 @@ class ProjectController extends Controller
             'category_id'=> 'required',
             'status'=> 'required',
             'image.*'=> 'image|mimes:jpeg,png,jpg,webp|max:10096',
-            'image.*'=> 'required',
+            'image'=> 'required',
         ]);
 
         $projects = new Project();
@@ -58,7 +58,7 @@ class ProjectController extends Controller
         }
         
         
-        return redirect()->route('project.index')->with('success', 'Project created successfully');
+        return redirect()->route('projectAd.index')->with('success', 'Project created successfully');
     }
 
 }
