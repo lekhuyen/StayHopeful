@@ -1,7 +1,8 @@
+{{-- <link href="{{ asset('feedbackcss/feedback.css') }}"> --}}
+
 @extends('frontend.site')
 @section('title', 'Feedback')
 @section('main')
-    <link href="{{ asset('feedbackcss/feedback.css') }}">
 
     <div class="container mt-3">
         @if (session('success'))
@@ -46,15 +47,15 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="content">Content:</label>
-                        <textarea name="content" id="content" placeholder="Write your feedback here">{{ old('content') }}</textarea>
+                        <label for="content">Content:</label><br>
+                        <textarea name="content" id="content" placeholder="Write your feedback here">{{ old('content') }}</textarea><br>
                         @error('content')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="mb-3 mt-3">
-                        <input hidden type="number" class="form-control" value="{{ old('star', 0) }}"
-                            id="star" name="star">
+
+                    <input hidden type="number" class="form-control" value="{{ old('star', 0) }}" id="star"
+                        name="star">
 
                     <div class="fb-btn">
                         <div class="textcenter">

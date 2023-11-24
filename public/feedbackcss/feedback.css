@@ -38,6 +38,11 @@ textarea {
     border: 1px solid white;
 }
 
+#email {
+    width: 80%;
+    margin: auto;
+}
+
 /* Star Rating */
 .feedback-alert {
     margin-top: 60px;

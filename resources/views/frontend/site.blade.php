@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
     {{-- css feedback --}}
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
-    
+
 
 
     {{-- css contactus --}}
