@@ -68,6 +68,7 @@
         </div>
         </form>
     </div>
+    
     <script>
         // To access the stars
         let stars =
@@ -100,4 +101,7 @@
             }
         }
     </script>
+
+    @include("frontend/login/login");
+
 @endsection

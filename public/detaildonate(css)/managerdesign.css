@@ -41,19 +41,6 @@ input:focus {
 }
 
 
-.img-hover-scale:hover {
-    z-index: 25;
-    transform: scale(3);
-}
-
-.img-hover-scale {
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-}
-
-
-
-
 
 
 .icon {
