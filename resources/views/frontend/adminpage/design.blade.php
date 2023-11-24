@@ -24,7 +24,7 @@
         <div class="row row-rs">
             <div class="col-lg-12 mt-5">
                 <div class="form-table ">
-                    <table class="table table-hover">
+                    <table class="table table-striper">
                         <thead>
                             <tr>
                                 <td>#</td>
@@ -35,66 +35,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
-                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
-                                <td>Người Đẹp Ngủ Trong Rừng</td>
-                                <td>
-                                    <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff"></i>
-                                        </button></a>
-                                    <a href="#"><button class="btn btn-danger"><i class="fa-solid fa-x"
-                                                style="color: #ffffff;"></i></button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
-                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
-                                <td>Người Đẹp Ngủ Trong Rừng</td>
-                                <td>
-                                    <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff"></i>
-                                        </button></a>
-                                    <a href="#"><button class="btn btn-danger"><i class="fa-solid fa-x"
-                                                style="color: #ffffff;"></i></button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
-                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
-                                <td>Người Đẹp Ngủ Trong Rừng</td>
-                                <td>
-                                    <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff"></i>
-                                        </button></a>
-                                    <a href="#"><button class="btn btn-danger"><i class="fa-solid fa-x"
-                                                style="color: #ffffff;"></i></button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Home</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="100"
-                                        onclick="openImagePopup('{{ asset('img/omg.jpeg') }}')"></td>
-                                <td>Người Đẹp Ngủ Trong Rừng</td>
-                                <td>
-                                    <a href="#"><button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff"></i>
-                                        </button></a>
-                                    <a href="#"><button class="btn btn-danger"><i class="fa-solid fa-x"
-                                                style="color: #ffffff;"></i></button></a>
-                                </td>
-                            </tr>
+
+                            @foreach ($sliders as $slider)
+                                <tr>
+                                    <td>{{ $slider->id }}</td>
+                                    <td>{{ $slider->categories_sliders->name }}</td>
+                                    <td><img src="{{ asset($slider->url_image) }}" width="100"
+                                            onclick="openImagePopup('{{ asset($slider->url_image) }}')"></td>
+                                    <td>{{ $slider->slider_name }}</td>
+                                    <td style="display: flex; align-items: center; height: 150px;">
+                                        <a href="#" data-slider-id="{{ $slider->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button type="button" class="btn btn-success" style="margin-right: 10px;">
+                                                <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
+                                            </button>
+                                        </a>
+                                    
+                                        <form method="POST" action="{{ route('admin.delete_slider', ['slider' => $slider->id]) }}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa-solid fa-x" style="color: #ffffff;"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -109,23 +74,27 @@
                     <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Slider</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data"
+                    action="{{ route('admin.update_slider', ['slider' => $slider->id]) }}">
+                    @method('PUT')
+                    @csrf
                     <div class="modal-body">
                         <div class="mb-3 mt-3">
-                            <select class="form-select" aria-label="Default select example" name="catogries-change">
+                            <select class="form-select" aria-label="Default select example" name="catogries">
                                 <option selected>Choose Category</option>
-                                <option value="Home">Home</option>
-                                <option value="Blog">Blog</option>
+                                @foreach ($categories as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="image-change" class="form-label">Current Image:</label>
-                            <img src="{{ asset('img/omg.jpeg') }}" width="100">
+                            <img id="current-image" src="" width="100">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="image-change" class="form-label">Image:</label>
-                            <input type="file" class="form-control" id="image-change" placeholder="Chọn Ảnh Mới"
-                                name="image-change" onchange="previewImage()">
+                            <input type="file" class="form-control" id="image-change" placeholder="Choose New Image"
+                                name="image" onchange="previewImage()">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="image-preview">New Image Preview:</label>
@@ -134,12 +103,12 @@
                         <div class="mb-3 mt-3">
                             <label for="name-image-change" class="form-label">Name Image:</label>
                             <input type="text" class="form-control" id="name-image-change"
-                                placeholder="Enter New Image Name" name="name-image-change">
+                                placeholder="Enter New Image Name" name="nameimage">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -152,33 +121,34 @@
                     <h5 class="modal-title" id="exampleModalLabel">Thêm Slider</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('admin.create_slider') }}">
+                    @csrf
                     <div class="modal-body">
                         <div class="mb-3 mt-3">
-                            <select class="form-select" aria-label="Default select example" name="catogries-add">
+                            <select class="form-select" aria-label="Default select example" name="categories">
                                 <option selected>Choose Category</option>
-                                <option value="Home">Home</option>
-                                <option value="Blog">Blog</option>
+                                @foreach ($categories as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
-
                         <div class="mb-3 mt-3">
-                            <label for="image-add" class="form-label">Image:</label>
-                            <input type="file" class="form-control" id="image-add" placeholder="Choose New Image"
-                                name="image-add" onchange="previewImage()">
+                            <label for="image" class="form-label">Image:</label>
+                            <input type="file" class="form-control" id="image" placeholder="Choose New Image"
+                                name="image" onchange="previewImage2()">
                         </div>
                         <div class="mb-3 mt-3">
-                            <img id="image-preview" src="" width="100">
+                            <img id="image-preview2" src="" width="100">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="name-image-add" class="form-label">Name Image:</label>
-                            <input type="text" class="form-control" id="name-image-add"
-                                placeholder="Enter Name Picture" name="name-image-add">
+                            <label for="name-image" class="form-label">Name Image:</label>
+                            <input type="text" class="form-control" id="name-image" placeholder="Enter Name Picture"
+                                name="nameimg">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -195,23 +165,55 @@
         </div>
     </div>
     <script>
+        $('#exampleModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var sliderId = button.data('slider-id');
+            $.ajax({
+                type: 'GET',
+                url: '/get-slider-image/' + sliderId,
+                success: function(response) {
+                    $('#current-image').attr('src', response.url);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            })
+        })
+
         function previewImage() {
-            var input = document.getElementById('image-change');
-            var preview = document.getElementById('image-preview');
+        var input = document.getElementById('image-change');
+        var preview = document.getElementById('image-preview');
 
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                };
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
 
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                preview.src = '';
-            }
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = '';
         }
+    }
+        function previewImage2() {
+        var input = document.getElementById('image');
+        var preview = document.getElementById('image-preview2');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = '';
+        }
+    }
         
+
         function openImagePopup(imageSrc) {
             var modalImage = document.getElementById('modalImage');
             modalImage.src = imageSrc;

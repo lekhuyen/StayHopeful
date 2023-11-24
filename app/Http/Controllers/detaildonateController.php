@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DonateInfo;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -10,8 +12,10 @@ class detaildonateController extends Controller
 
     public function index()
     {
-        return view('frontend.detaildonate.donatepage');
+        $project = Project::all();
+        return view('frontend.detaildonate.donatepage', compact('project'));
     }
+
 
 
     
@@ -21,8 +25,18 @@ class detaildonateController extends Controller
     }
     public function thanhtoan(Request $request)
     {
+        $fullname = "";
+        if($request->hidename == "hidename"){
+            $fullname = $request->hidename;
+        }else{
+            $fullname = $request->fullname;
+        }
+        $email = $request->email;
+        $phone = $request->phone;
+        $project = $request->project;
+        $type = $request->type;
         $amounttotal = $request->amount;
-        
+        $message = $request->message;
         
         if (isset($_POST['redirect'])) {
             $order_id = rand(10000000, 99999999);
@@ -31,11 +45,11 @@ class detaildonateController extends Controller
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://127.0.0.1:8000/listdonate";
-            $vnp_TmnCode = "JDTIQ2LS"; //Mã website tại VNPAY 
-            $vnp_HashSecret = "GOZHPSSCWYEILRDETJAJTHHDVAHUZAWW"; //Chuỗi bí mật
+            $vnp_TmnCode = "JDTIQ2LS"; 
+            $vnp_HashSecret = "GOZHPSSCWYEILRDETJAJTHHDVAHUZAWW";
 
-            $vnp_TxnRef = $order_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-            $vnp_OrderInfo = 'testproject';
+            $vnp_TxnRef = $order_id; 
+            $vnp_OrderInfo = $project;
             $vnp_OrderType = "card";
             $vnp_Amount = $amounttotal * 100;
             $vnp_Locale = "vi";
@@ -89,8 +103,17 @@ class detaildonateController extends Controller
                 'data' => $vnp_Url
             );
             if (isset($_POST['redirect'])) {
-                // successful redirect
-                return redirect($vnp_Url)->withInput();
+                $donateinfo = new DonateInfo();
+                $donateinfo->name = $fullname;
+                $donateinfo->email = $email;
+                $donateinfo->phone = $phone;
+                $donateinfo->project_id = $project;
+                $donateinfo->method = $type;
+                $donateinfo->amount = $amounttotal;
+                $donateinfo->message = $message;
+                $donateinfo->save();
+                // return redirect($vnp_Url)->withInput();
+                return redirect()->route('/');
 
             } else {
                 return response()->json($returnData);
