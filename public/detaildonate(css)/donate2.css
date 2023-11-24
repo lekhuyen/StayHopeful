@@ -1,0 +1,10 @@
+.form-donate{
+    margin-top: 150px;
+    width: 80%;
+    height: 100vh;
+    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
+}
+.info-donate{
+    font-size: 25px;
+    font-weight: 500;
+}

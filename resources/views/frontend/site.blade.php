@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
-    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
-    <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
-    {{--css contactus --}}
-    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
-    {{--css aboutus --}}
-    <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
+    <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    {{-- css aboutus --}}
+    <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
@@ -164,11 +164,10 @@
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a>
-                            </li>
-
-                        
-                                <div class="text popup-login">LOGIN</div>
-                            </li>
+                        </li>
+                        <li>
+                            <div class="text popup-login">LOGIN</div>
+                        </li>
 
                     </ul>
                 </div>
