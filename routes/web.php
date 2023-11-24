@@ -95,7 +95,6 @@ Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name(
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
 //caregory Admin page
 Route::group(['prefix'=> 'category/'], function(){
     Route::get('index',[CategoryController::class,'index'])->name('category.index');
@@ -109,10 +108,17 @@ Route::group(['prefix'=> 'category/'], function(){
 //project admin page
 Route::group(['prefix'=> 'project/'], function(){
     Route::get('index',[ProjectController::class,'index'])->name('projectAd.index');
+
     Route::get('create',[ProjectController::class,'create'])->name('projectAd.create');
+
     Route::post('store',[ProjectController::class,'store'])->name('projectAd.store');
-    // Route::get('delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
-    // Route::get('edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
-    // Route::put('update/{id}',[ProjectController::class,'update'])->name('project.update');
+
+    Route::post('delete/{id}',[ProjectController::class,'delete'])->name('projectAd.delete');
+
+    Route::get('edit/{id}',[ProjectController::class,'edit'])->name('projectAd.edit');
+
+    Route::get('editimage/{id}',[ProjectController::class,'deleteImgChild'])->name('delete_ImgChild');
+
+    Route::put('update/{id}',[ProjectController::class,'update'])->name('projectAd.update');
 });
 

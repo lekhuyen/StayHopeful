@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 {{-- jquery --}}
+
 {{-- font --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,8 @@
     href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Lora:wght@600&family=Raleway:wght@300&display=swap"
     rel="stylesheet">
 
-    
+    {{-- ckeditor --}}
+<script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
     
 
 {{-- font --}}
@@ -88,6 +90,10 @@
         <div class="dashboard-content px-3 pt-4">
             {{-- content --}}
             @yield('admin_content')
+
+            {{-- ckeditor --}}
+            @yield('ckeditor')
+
         </div>
     </div>
 </div>
@@ -142,8 +148,4 @@
         dropdownMenu.classList.toggle('active-profile-dropdown');
     })
 </script>
-{{-- ckeditor --}}
-<script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
-<script>
-    CKEDITOR.replace('description-project')
-</script>
+

@@ -2,8 +2,8 @@
 @section('admin_content')
 
     <div class="container mt-3">
-        <h2>Add Category</h2>
-        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Category List</a>
+        <h2>Add Project</h2>
+        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Project List</a>
         <form action="{{route('projectAd.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
@@ -68,8 +68,14 @@
         </form>
     </div>
 
-    <script>
-        CKEDITOR.replace( 'description' );
-</script>
 @endsection
     
+@section('ckeditor')
+<script>
+    ClassicEditor
+            .create( document.querySelector('#description-project-create'))
+            .catch( error => {
+                    console.error( error );
+            } );
+</script>
+@endsection
