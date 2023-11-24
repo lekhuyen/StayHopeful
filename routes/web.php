@@ -102,6 +102,7 @@ Route::get('/admin/listuser', [AdminPageController::class, 'viewlistuser'])->nam
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
     Route::get('index', [CategoryController::class, 'index'])->name('category.index');
