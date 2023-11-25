@@ -16,4 +16,12 @@ class SensitiveController extends Controller
         return view ('sensitive.create');
     }
 
+    public function store(Request $request) {
+        $request->validate([
+            'word'=>'required',
+            'status'=>'required',
+        ]);
+        Sensitive::create($request->all());
+        return redirect()->back()->with('success','Add sensitive word successfully.');
+    }
 }

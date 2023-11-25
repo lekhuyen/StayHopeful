@@ -15,7 +15,7 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
-
+use App\Http\Controllers\SensitiveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +76,12 @@ Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/detail', [FeedbackController::class, 'detail'])->name('feedback.detail');
+
+//sensitive
+Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
+Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
+Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
 
 
