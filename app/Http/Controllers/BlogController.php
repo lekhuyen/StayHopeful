@@ -38,4 +38,11 @@ class BlogController extends Controller
     {
         return view('frontend.video_page.video');
     }
+
+
+    // project 
+    public function project_index(){
+        $projects = Project::orderBy('id', 'desc')->get();
+        return view('frontend.project.index', compact('projects'));
+    }
 }

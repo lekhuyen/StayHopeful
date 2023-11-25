@@ -76,7 +76,8 @@ Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('fee
 
 
 // project
-Route::get('/project/{id}', [BlogController::class, 'project'])->name('project.index');
+Route::get('/project/{id}', [BlogController::class, 'project'])->name('project.post');
+Route::get('/project-all', [BlogController::class, 'project_index'])->name('project.index');
 
 // video page
 Route::get('/video', [BlogController::class, 'video'])->name('video.index');
@@ -133,10 +134,15 @@ Route::group(['prefix'=> 'project-post/'], function(){
 
     Route::put('update/{id}',[ProjectController::class,'update'])->name('projectAd.update');
 
-    // trash
+    // trash - softDelete - ProjectImage
     Route::get('image-trash',[ProjectController::class,'trash_image'])->name('projectAd-image');
     Route::get('image-untrash/{id}',[ProjectController::class,'untrash_image'])->name('projectAd-untrash');
     Route::get('projectAd-forcedelete/{id}',[ProjectController::class,'projectAd_forcedelete'])->name('projectAd-forcedelete');
+    
+    // trash - softDelete - ProjectImage
+    Route::get('project-trash',[ProjectController::class,'project_trash'])->name('project-trash');
+    Route::get('project_untrash/{id}',[ProjectController::class,'project_untrash'])->name('project-untrash');
+    Route::get('project-forcedelete/{id}',[ProjectController::class,'project_forcedelete'])->name('project-forcedelete');
 
     //project status
 

@@ -43,7 +43,7 @@
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
             @foreach ($categories as $category)
-                <a href="{{route('project.index',$category->id)}}" class="sub-item">{{$category->name}}</a>
+                <a href="{{route('project.post',$category->id)}}" class="sub-item">{{$category->name}}</a>
             @endforeach
         </div>
     </div>
