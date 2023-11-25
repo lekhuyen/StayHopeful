@@ -34,6 +34,11 @@
             @endforeach
         </tbody>
     </table>
+
+    <script>
+        const wordSensitives = @json($words);
+        
+    </script>
 </body>
 
 </html>

@@ -9,3 +9,14 @@
         <p>Star: {{$feedback->star}}</p>
     </div>
 </div>
+<script>
+    const wordSensitives = @json($words);
+    const row = document.querySelector('.content');
+    let text = row.textContent.toLowerCase();
+    wordSensitives.forEach(word => {
+        if (text.includes(word)) {
+            text = text.replace(word,`<b style="color:red">${words}</b>`);
+        }
+    });
+    row.innerHTML = text;
+</script>
