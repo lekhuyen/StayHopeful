@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('detaildonate(css)/listuser.css') }}">
+    <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
     <div class="container">
         <h1 style="font-weight: 700">Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">

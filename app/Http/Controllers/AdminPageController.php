@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories_sliders;
+use App\Models\DonateInfo;
 use App\Models\Slider;
 use App\Models\Sliders;
 use Illuminate\Http\Request;
@@ -19,17 +20,17 @@ class AdminPageController extends Controller
     }
     public function viewdashboard()
     {
-        return view('frontend.adminpage.dashboard');
+        return view('frontend.adminpage.manager.dashboard');
     }
     public function viewmanagerpost()
     {
-        return view('frontend.adminpage.post');
+        return view('frontend.adminpage.manager.post');
     }
     public function viewmanagerdesign()
     {
         $sliders = Sliders::all();
         $categories = Categories_sliders::all();
-        return view('frontend.adminpage.design', compact('categories', 'sliders'));
+        return view('frontend.adminpage.manager.design', compact('categories', 'sliders'));
     }
     public function sliderview(){
         $slider = Sliders::all();
@@ -90,7 +91,12 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        return view('frontend.adminpage.listuser');
+        return view('frontend.adminpage.manager.listuser');
+    }
+
+    public function viewlistdonate(){
+        $donateinfo = DonateInfo::all();
+        return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 
 

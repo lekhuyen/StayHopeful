@@ -84,17 +84,18 @@ Route::get('/video', [BlogController::class, 'video'])->name('video.index');
 
 
 //admin
-Route::get('/admin', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
-Route::get('/admin/dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
-Route::get('/admin/managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
-Route::get('/admin/managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
-Route::post('/admin/managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
-Route::put('/admin/managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider');
+Route::group(['prefix' => 'admin/'], function(){
+    Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
+Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
+Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
+Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
+Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
+Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider');
 Route::get('/get-slider-image/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
-Route::delete('/admin/managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider');
-
-
-Route::get('/admin/listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
+Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider');
+Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
+Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
+});
 
 
 //

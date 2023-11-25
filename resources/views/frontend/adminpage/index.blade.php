@@ -23,13 +23,13 @@
     href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Lora:wght@600&family=Raleway:wght@300&display=swap"
     rel="stylesheet">
 
-    {{-- ckeditor --}}
-<script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
+{{-- ckeditor --}}
+<script src="{{ asset('ckeditor5-build-classic/ckeditor.js') }}"></script>
 
-    
+
 
 {{-- font --}}
-<link rel="stylesheet" href="{{ asset('detaildonate(css)/sidebar.css') }}">
+<link rel="stylesheet" href="{{ asset('admincss/sidebar.css') }}">
 {{-- siderbar --}}
 <div class="main-container d-flex">
     <div class="sidebar" id="side_nav">
@@ -51,6 +51,9 @@
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-users"></i>
                     Manager User</a></li>
+            <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-briefcase"></i>
+                    List Donate</a></li>
 
         </ul>
         <hr class="h-color mx-2">
@@ -77,8 +80,10 @@
                                         src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
                                         style="border-radius: 50%"></button>
                                 <div class="dropdownmenu-profile">
-                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er" class="dropdownitem-profile">Profile</a>
-                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er" class="dropdownitem-profile">Logout</a>
+                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er"
+                                        class="dropdownitem-profile">Profile</a>
+                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er"
+                                        class="dropdownitem-profile">Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -149,4 +154,3 @@
         dropdownMenu.classList.toggle('active-profile-dropdown');
     })
 </script>
-

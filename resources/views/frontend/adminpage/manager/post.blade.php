@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-<link rel="stylesheet" href="{{asset('detaildonate(css)/managerpost.css')}}">
+<link rel="stylesheet" href="{{asset('admincss/managerpost.css')}}">
 <div class="container">
     <h1 style="font-weight: 700">Manager Post</h1>
     <div class="row">
