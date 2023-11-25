@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="description">Description:</label>
-                <textarea type="tetx" class="form-control" id="description-project" placeholder="Enter description" name="description"></textarea>
+                <textarea type="tetx" class="form-control" id="description-project-create" placeholder="Enter description" name="description"></textarea>
                 @error('description')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -39,7 +39,7 @@
                 <select name="status">
                     <option>Choose Status</option>
                     <option value="1">Finish</option>
-                    <option value="2">Unfinished</option>
+                    <option value="0">Unfinished</option>
                 </select>
                 @error('status')
                     <span class="text-danger">{{$message}}</span>

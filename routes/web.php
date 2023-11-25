@@ -136,5 +136,10 @@ Route::group(['prefix'=> 'project/'], function(){
     Route::get('image-trash',[ProjectController::class,'trash_image'])->name('projectAd-image');
     Route::get('image-untrash/{id}',[ProjectController::class,'untrash_image'])->name('projectAd-untrash');
     Route::get('projectAd-forcedelete/{id}',[ProjectController::class,'projectAd_forcedelete'])->name('projectAd-forcedelete');
+
+    //project status
+
+    Route::get('project-finish/{id}',[ProjectController::class,'finish_status'])->name('projectAd.finish');
+    Route::get('project-unfinish/{id}',[ProjectController::class,'unfinish_status'])->name('projectAd.unfinish');
 });
 

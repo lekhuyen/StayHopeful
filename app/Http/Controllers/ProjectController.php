@@ -71,14 +71,38 @@ class ProjectController extends Controller
 
     public function deleteImgChild($imgId){
         // return response()->json($imgId);
-        $image = ProjectImage::find($imgId);
-            if(File::exists($image->image)){
-                File::delete($image->image);
-            }
+        // $image = ProjectImage::find($imgId);
+        //     if(File::exists($image->image)){
+        //         File::delete($image->image);
+        //     }
             ProjectImage::find($imgId)->delete();
             return response()->json(['error'=>['Delete fails']]);
         
     }
+
+
+    // softdelete
+    public function trash_image(Request $request){
+        $images = ProjectImage::onlyTrashed()->get();
+        return view('frontend.adminpage.projects.trash_image', compact('images'));
+    }
+    public function untrash_image( $id){
+        $image = ProjectImage::withTrashed()->find($id);
+        $image->restore();
+        return back();
+    }
+    public function projectAd_forcedelete( $id){
+        $image = ProjectImage::withTrashed()->find($id);
+        $image->forceDelete();
+        if(File::exists($image->image)){
+            File::delete($image->image);
+        }
+        
+
+        return back();
+    }
+// ---------------------------------------
+
 
     public function update(Request $request, $id){
         $request->validate([
@@ -132,6 +156,27 @@ class ProjectController extends Controller
             }
         }
         return response()->json(['error'=>['Delete fails']]);
+    }
+
+
+    //project status
+    public function finish_status($id){
+        $project = Project::find($id);
+        if($project) {
+            $project->update(['status'=>0]);
+            return back();
+        }
+        
+        return response()->json(['error'=>['Updated fails']]);
+    }
+    public function unfinish_status($id){
+        $project = Project::find($id);
+        if($project) {
+            $project->update(['status'=>1]);
+            return back();
+        }
+        
+        return response()->json(['error'=>['Updated fails']]);
     }
 
 }
