@@ -4,11 +4,18 @@ use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
+
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectListController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,11 +60,11 @@ Route::get('/blog/blog_detail',[BlogController::class,'blog_detail'])->name('blo
 //detail-page
 Route::get('/detail',[BlogController::class,'viewdetail'])->name('detail.post');
 
-// Contact 
+// Contact
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
 
 
-// Aboutus 
+// Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
 
 Route::get('/aboutus/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
@@ -72,9 +79,17 @@ Route::get('/aboutus/oliverhudson', [AboutUsController::class, 'oliverhudson'])-
 
 //feedback
 Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback.index');
+Route::get('/feedback/create',[FeedbackController::class,'create'])->name('feedback.create');
+Route::post('/feedback/create',[FeedbackController::class,'store'])->name('feedback.store');
+
+
 
 // project
 Route::get('/project',[BlogController::class,'project'])->name('project.index');
+
+// video page
+Route::get('/video',[BlogController::class,'video'])->name('video.index');
+
 
 
 //admin
@@ -84,4 +99,29 @@ Route::get('/admin/managerpost',[AdminPageController::class,'viewmanagerpost'])-
 Route::get('/admin/managerdesign',[AdminPageController::class,'viewmanagerdesign'])->name('admin.managerdesign');
 Route::get('/admin/listuser',[AdminPageController::class,'viewlistuser'])->name('admin.listuser');
 
+
 //
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//caregory Admin page
+Route::group(['prefix'=> 'category/'], function(){
+    Route::get('index',[CategoryController::class,'index'])->name('category.index');
+    Route::get('create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('store',[CategoryController::class,'store'])->name('category.store');
+    Route::get('delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+    Route::get('edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::put('update/{id}',[CategoryController::class,'update'])->name('category.update');
+});
+
+//project admin page
+Route::group(['prefix'=> 'project/'], function(){
+    Route::get('index',[ProjectController::class,'index'])->name('projectAd.index');
+    Route::get('create',[ProjectController::class,'create'])->name('projectAd.create');
+    Route::post('store',[ProjectController::class,'store'])->name('projectAd.store');
+    // Route::get('delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
+    // Route::get('edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
+    // Route::put('update/{id}',[ProjectController::class,'update'])->name('project.update');
+});
+

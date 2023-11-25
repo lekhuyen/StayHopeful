@@ -1,6 +1,6 @@
 .container-fluid-feedback {
     text-align: center;
-    background: linear-gradient(to right ,#8ecdf2, #1aa1ef);
+    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
     width: 40%;
     margin: 200px auto;
     padding-bottom: 50px;
@@ -8,7 +8,7 @@
 }
 
 .feedback-h1 {
-    color: white;
+    color: aliceblue;
     padding-top: 30px;
     font-size: 3vw;
     font-weight: 600;
@@ -38,32 +38,56 @@ textarea {
     border: 1px solid white;
 }
 
-/* rating */
-.rating-css div {
-    color: #ffe400;
-    font-family: sans-serif;
+#email {
+    width: 80%;
+    margin: auto;
+}
+
+/* Star Rating */
+.feedback-alert {
+    margin-top: 60px;
+}
+
+.feedback {
     text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 20px;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
 }
 
-.rating-css input {
-    display: none;
+.star {
+    font-size: 4vh;
+    color: #cccc;
 }
 
-.rating-css input+label {
-    font-size: 20px;
-    text-shadow: 1px 1px 0 #8f8420;
+.star:hover {
+    font-size: 4vh;
     cursor: pointer;
 }
 
-.rating-css input:checked+label~label {
-    color: #d9d9d9;
+#output {
+    font-size: 3vh;
+    color: #cccc;
 }
 
-.rating-css label:active {
-    transform: scale(0.8);
-    transition: 0.3s ease;
+.one {
+    color: rgb(255, 0, 0);
+}
+
+.two {
+    color: rgb(255, 106, 0);
+}
+
+.three {
+    color: rgb(251, 255, 120);
+}
+
+.four {
+    color: rgb(255, 255, 0);
+}
+
+.five {
+    color: rgb(24, 159, 14);
 }
 
 /* End of Star Rating */

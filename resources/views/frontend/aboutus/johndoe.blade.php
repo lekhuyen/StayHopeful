@@ -1,15 +1,13 @@
 @extends('frontend.site')
-@section('title', 'johndoe')
+@section('title', 'foundername')
 @section('main')
 
 
-<link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}">
+{{-- foundername.css --}}
 
-
-<br>
-<br>
 <h1>Meet John Doe, The Founder</h1>  
-        <br>
+
+<br>
         <div class="container mt-3 introduction">
             {{-- introduction_1 --}}
             
@@ -124,5 +122,5 @@
             </div>
         </div>
 
-
+@include("frontend/login/login");
 @endsection

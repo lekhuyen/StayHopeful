@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ route('detail.thanhtoan') }}" >
+        <form method="POST" action="{{ route('detail.thanhtoan') }}">
             @csrf
             <div class="container">
                 <div class="row ">
@@ -19,10 +19,11 @@
                             <h2 class="mt-4 ">Donate Details</h2>
                             <div class="project p2 ">
                                 <div class="form-check form-switch d-flex justify-content-center">
-                                    <div class="textandanh2 " ><input class="form-check-input" type="checkbox"
+                                    <div class="textandanh2 "><input class="form-check-input" type="checkbox"
                                             id="flexSwitchCheckDefault" name="andanh" value="Andanh"></div>
-                                    <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault" style="font-size: 15px">ANONYMOUS
-                                            </label></div>
+                                    <div class="textandanh3"><label class="form-check-label" for="flexSwitchCheckDefault"
+                                            style="font-size: 15px">ANONYMOUS
+                                        </label></div>
                                 </div>
                             </div>
                             <div class="project">
@@ -37,21 +38,27 @@
                             <div class="project">
                                 <select class="form-select setinput" aria-label="Default select example" name="banktype"
                                     style="border-radius: 20px; background-color: #fbfbfb" id="banktype">
-                                    <option selected>Chọn Phương Thức Thanh Toán</option>
+                                    <option selected>Hình Thức Đóng Góp</option>
                                     <option value="Bank">Bank</option>
                                     <option value="Momo">Momo</option>
                                     <option value="Paypal">Paypal</option>
+                                    <option value="artifacts">Hiện Vật</option>
                                 </select>
                             </div>
                             <div class="project" id="bankDropdown" style="display: none;">
                                 <select class="form-select setinput" aria-label="Default select example" name="bank"
                                     style="border-radius: 20px; background-color: #fbfbfb;" id="bankSelect">
                                     <option selected>Chọn Ngân Hàng</option>
-                                    <option value="VIB" data-imagesrc="{{ asset('img/logovib.png') }}">VIB</option>
-                                    <option value="BIDV" data-imagesrc="{{ asset('img/logobidv.png') }}">BIDV</option>
-                                    <option value="SCB" data-imagesrc="{{ asset('img/logoscb.png') }}">SCB</option>
-                                    <option value="ACB" data-imagesrc="{{ asset('img/logoacb.png') }}">ACB</option>
-                                    <option value="OCB" data-imagesrc="{{ asset('img/logoocb.png') }}">OCB</option>
+                                    <option value="VIB" data-imagesrc="{{ asset('img/logobank/logovib.png') }}">VIB
+                                    </option>
+                                    <option value="BIDV" data-imagesrc="{{ asset('img/logobank/logobidv.png') }}">BIDV
+                                    </option>
+                                    <option value="SCB" data-imagesrc="{{ asset('img/logobank/logoscb.png') }}">SCB
+                                    </option>
+                                    <option value="ACB" data-imagesrc="{{ asset('img/logobank/logoacb.png') }}">ACB
+                                    </option>
+                                    <option value="OCB" data-imagesrc="{{ asset('img/logobank/logoocb.png') }}">OCB
+                                    </option>
                                     <input type="hidden" name="selectedBank" id="selectedBank" value="">
                                 </select>
                             </div>
@@ -59,12 +66,14 @@
                                 <select class="form-select setinput" aria-label="Default select example" name="momoSelect"
                                     style="border-radius: 20px; background-color: #fbfbfb" id="momoSelect">
                                     <option selected>Chọn Phương Thức</option>
-                                    <option value="momoqr" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo QR</option>
-                                    <option value="momocard" data-imagesrc="{{ asset('img/logomomo.png') }}">Momo Card</option>
+                                    <option value="momoqr" data-imagesrc="{{ asset('img/logobank/logomomo.png') }}">Momo QR
+                                    </option>
+                                    <option value="momocard" data-imagesrc="{{ asset('img/logobank/logomomo.png') }}">Momo
+                                        Card</option>
                                     <input type="hidden" name="selectedMomo" id="selectedMomo" value="">
-        
+
                                 </select>
-        
+
                             </div>
                             <div class="project">
                                 <div class="input-group setinput">
@@ -83,8 +92,9 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text textten" style="padding: 8px">VND</span>
                                     </div>
-                                    <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
-                                        name="vnd" style="background-color: #fbfbfb">
+                                    <input type="text" class="form-control "
+                                        aria-label="Amount (to the nearest dollar)" name="vnd"
+                                        style="background-color: #fbfbfb">
                                     <div class="input-group-append">
                                         <span class="input-group-text textten2" style="padding: 8px">.000</span>
                                     </div>
@@ -96,15 +106,23 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text textten" style="padding: 8px">USD</span>
                                     </div>
-                                    <input type="text" class="form-control " aria-label="Amount (to the nearest dollar)"
-                                        name="usd" style="background-color: #fbfbfb" id="usd">
+                                    <input type="text" class="form-control "
+                                        aria-label="Amount (to the nearest dollar)" name="usd"
+                                        style="background-color: #fbfbfb" id="usd">
                                     <div class="input-group-append">
                                         <span class="input-group-text textten2" style="padding: 8px">.00</span>
                                     </div>
                                 </div>
                             </div>
+                            {{-- message --}}
+                            <div class="project">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                  </div>
+                            </div>
                             {{-- button bank --}}
-                            <div class="project" id="bankButton">
+                            {{-- <div class="project" id="bankButton">
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success setinput"
                                         style="width: 40%; border-radius: 20px; background: linear-gradient(to left ,#74cbfd, #0890df); border: 2px solid white;
@@ -112,7 +130,7 @@
                                         name="redirect" id="confirmBtnbank">QUYÊN GÓP
                                     </button>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- button momo --}}
                             <div class="project" id="momoButton" style="display: none;">
                                 <div class="text-center">
@@ -130,12 +148,12 @@
                                     <p id="result-message"></p>
                                 </div>
                             </div>
-        
+
                         </div>
                     </div>
                 </div>
                 @csrf
-                
+
             </div>
         </form>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -146,83 +164,5 @@
         </script>
         <script src="{{ asset('js/paypal.js') }}"></script>
         <script src="{{ asset('js/imageselect.js') }}"></script>
-
-        <script>
-            $(document).ready(function() {
-                $("#banktype").change(function() {
-                    var selectedMethod = $(this).val();
-                    banktype(selectedMethod);
-                });
-                $('#bankSelect').ddslick({
-                    width: "100%",
-                    imagePosition: "left",
-                    onSelected: function(selectedData) {
-                        // Set the value to the hidden input
-                        $('#selectedBank').val(selectedData.selectedData.value);
-                    }
-                });
-                $('#momoSelect').ddslick({
-                    width: "100%",
-                    imagePosition: "left",
-                    onSelected: function(selectedData) {
-                        // Set the value to the hidden input
-                        $('#selectedMomo').val(selectedData.selectedData.value);
-                    }
-                });
-
-                // Bạn có thể cũng thêm một sự kiện change cho dropdown để cập nhật giá trị khi người dùng thay đổi chọn
-                $('#bankSelect').change(function() {
-                    var bankValue = $(this).val();
-                    $('#selectedBank').val(bankValue);
-                    console.log(bankValue);
-                });
-
-                $('#momoSelect').change(function() {
-                    var momoValue = $(this).val();
-                    $('#selectedMomo').val(momoValue);
-                    console.log(momoValue);
-
-                });
-
-                function banktype(selectedMethod) {
-                    console.log("Selected value: " + selectedMethod);
-                    if (selectedMethod === "Bank") {
-                        $('#bankDropdown').show();
-                        $('#momoDropdown').hide();
-                        $('#paypalButton').hide();
-                        $('#bankButton').show();
-                        $('#momoButton').hide();
-                        $('#paypalinput').hide();
-                        $('#vndinput').show();
-
-                    } else if (selectedMethod === 'Momo') {
-                        $('#bankDropdown').hide();
-                        $('#momoDropdown').show();
-                        $('#bankButton').hide();
-                        $('#paypalButton').hide();
-                        $('#momoButton').show();
-                        $('#paypalinput').hide();
-                        $('#vndinput').show();
-                    } else if (selectedMethod === 'Paypal') {
-                        $('#bankDropdown').hide();
-                        $('#momoDropdown').hide();
-                        $('#paypalButton').show();
-                        $('#bankButton').hide();
-                        $('#momoButton').hide();
-                        $('#paypalinput').show();
-                        $('#vndinput').hide();
-                    } else {
-                        $('#bankDropdown').hide();
-                        $('#momoDropdown').hide();
-                        $('#bankButton').show();
-                        $('#momoButton').hide();
-                        $('#paypalButton').hide();
-                        $('#paypalinput').hide();
-                        $('#vndinput').show();
-
-
-                    }
-                }
-            });
-        </script>
+        <script src="{{ asset('js/donate.js') }}"></script>
     @endsection()

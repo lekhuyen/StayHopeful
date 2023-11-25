@@ -3,10 +3,8 @@
 @section('main')
 
 
-<link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
+{{-- teamname.css --}}
 
-<br>
-<br>
 <h1>Meet Robert Johnson, A Financial Expert</h1>
 
     <br>
@@ -110,4 +108,6 @@
         </div>
     </div>
 
+
+@include("frontend/login/login");
 @endsection

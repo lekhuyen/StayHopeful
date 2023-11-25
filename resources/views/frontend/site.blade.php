@@ -11,12 +11,17 @@
     {{--css contactus --}}
     <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
     {{--css aboutus --}}
-    {{-- <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
+    <link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
+    <link rel="stylesheet" href="{{asset('aboutuscss/foundername.css')}}">
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
+    <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css feedback --}}
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
+
+
+
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
 
@@ -130,8 +135,8 @@
                                 <a href="#" class="nav-menu-title">CONTACT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact Us</a>
-                                    <a href="{{ route('feedback.index') }}" class="sub-item">Feedback</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
+                                    <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                 </div>
                             </div>
@@ -155,15 +160,18 @@
                         <li><a href="{{ route('detail.donate') }}">
                                 <div class="text">DONATE</div>
                             </a></li>
-                        <li><a href="{{route('blog.index')}}">
+                        <li><a href="{{ route('blog.index') }}">
                                 <div class="text">BLOG</div>
                             </a></li>
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
-                            </a></li>
-                        <li><a href="{{ route('auth.index') }}">
-                                <div class="text">LOGIN</div>
-                            </a></li>
+                            </a>
+                            </li>
+
+                        
+                                <div class="text popup-login">LOGIN</div>
+                            </li>
+
                     </ul>
                 </div>
             </div>

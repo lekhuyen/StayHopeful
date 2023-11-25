@@ -228,6 +228,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Donate Now to Save Lives</h5>
                     <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
+                    <br>
                     <a href="#">Sign In</a></p>
                 </div>
             </div>
@@ -273,6 +274,7 @@
 </div>
 
 {{-- Our Founder sector --}}
+<div class="container mt-3 our_founder" data-aos="zoom-in">
 <div class="container mt-3 our_founder" data-aos="zoom-in">
     <h2 class="text-center">Our Founder</h2>
     <div>
@@ -408,5 +410,5 @@
     </div>
 </div>
 
-
+@include("frontend/login/login");
 @endsection

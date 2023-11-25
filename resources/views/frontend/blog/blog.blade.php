@@ -115,5 +115,5 @@
             </div>
         </div>
     </div>
-    
+    @include("frontend/login/login");
 @endsection

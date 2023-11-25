@@ -3,10 +3,8 @@
 @section('main')
 
 
-<link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
+{{-- teamname.css --}}
 
-<br>
-<br>
 <h1>Meet Jane Smith, The Chief Marketing Officer</h1>
 
     <br>
@@ -111,4 +109,5 @@
         </div>
     </div>
 
+@include("frontend/login/login");
 @endsection

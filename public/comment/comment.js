@@ -56,8 +56,15 @@ modalInner.addEventListener('click', ()=> {
 
 
 // menu bar 
-$('.item').click(function(){
-    $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
-    $(this).find('.sub-menu').slideToggle();
-    $(this).find('.dropdown').toggleClass('rotate-slide');
-})
+// $('.item').click(function(){
+//     $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
+//     $(this).find('.sub-menu').slideToggle();
+//     $(this).find('.dropdown').toggleClass('rotate-slide');
+// })
+
+
+
+// video
+
+var videoParent = document.querySelector('.video-parent')
+console.log(videoParent)
