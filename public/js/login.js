@@ -97,7 +97,7 @@ function setError(ele, message) {
         setError(registerPassword,'Password không được để trống');
         isCheck = false;
     } else if (!validatePassword(registerPasswordValue)) {
-        setError(registerPassword,'Email không đúng định dạng');
+        setError(registerPassword,'Password không đúng định dạng');
         isCheck = false;
     } else {
         setSuccess(registerPassword);

@@ -14,8 +14,7 @@
             <div class="signin-signup">
                 
                 {{-- Login --}}
-                <form id="loginForm" action="{{route("auth.login")}}" class="sign-in-form" method="POST">
-                    @csrf
+                <form id="loginForm" class="sign-in-form" method="POST">
                     <h2 class="form-title">Sign In</h2>
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
@@ -121,6 +120,7 @@
     <script>
 
     $(document).ready(function() {
+    var containerLoginRegister = document.querySelector(".container-login-register");
     // Intercept the form submission
     // ajax register
     $('#registerForm').submit(function(e) {
@@ -136,7 +136,8 @@
             success: function(response) {
                 // Handle the server response
                 console.log(response);
-                window.location.href = "{{route('/')}}"; 
+                // window.location.href = "{{route('/')}}"; 
+                containerLoginRegister.classList.remove("sign-up-mode"); 
             },
             error: function(error) {
                 // Handle errors
@@ -166,6 +167,7 @@ $.ajax({
         if(response.status == 'success'){
             // Login successfully
             console.log("Login Successfully");
+            console.log(response);
             if(response.role == 1){
                 window.location.href = "{{route('admin.index')}}"; 
             }

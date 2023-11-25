@@ -43,6 +43,7 @@ Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('deta
 Route::get('/listdonate', [detaildonateController::class, 'viewlistdonate'])->name('detail.listdonate');
 
 //login
+Route::get('/logout',[FeedbackController::class,'logout'])->name('logout');
 Route::post('/login',[AuthloginController::class,'login'])->name('auth.login');
 Route::post('/register', [AuthloginController::class, 'register'])->name('auth.register');
 Route::get('/login/google',[AuthloginController::class,'redirectgoogle'])->name('auth.google');

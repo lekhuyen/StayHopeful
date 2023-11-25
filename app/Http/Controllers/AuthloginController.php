@@ -98,4 +98,8 @@ class AuthloginController extends Controller
             return redirect()->back()->withErrors('Lỗi đăng nhập email');
         }
     }
+    public function logout(){
+        session()->forget('userInfo');
+        return redirect()->route('/');
+    }
 }
