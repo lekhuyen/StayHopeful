@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Project;
 use App\Models\ProjectImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
@@ -30,16 +31,15 @@ class ProjectController extends Controller
             'image.*'=> 'image|mimes:jpeg,png,jpg,webp|max:10096',
             'image'=> 'required',
         ]);
+            $projects = new Project();
+            $projects->title = $request->title;
+            $projects->description = $request->description;
+            $projects->money = $request->money;
+            $projects->money2 = $request->money2;
+            $projects->status = $request->status;
+            $projects->category_id = $request->category_id;
 
-        $projects = new Project();
-        $projects->title = $request->title;
-        $projects->description = $request->description;
-        $projects->money = $request->money;
-        $projects->money2 = $request->money2;
-        $projects->status = $request->status;
-        $projects->category_id = $request->category_id;
-
-        $projects->save();
+            $projects->save();
 
         if($request->hasFile('image')){
             $images = $request->file('image');
@@ -59,6 +59,79 @@ class ProjectController extends Controller
         
         
         return redirect()->route('projectAd.index')->with('success', 'Project created successfully');
+    }
+
+    
+
+    public function edit($id) {
+        $categories = Category::orderBy('id', 'desc')->get();
+        $project = Project::find($id);
+        return view('frontend.adminpage.projects.update', compact('project', 'categories'));
+    }
+
+    public function deleteImgChild($imgId){
+        // return response()->json($imgId);
+        $image = ProjectImage::find($imgId);
+            if(File::exists($image->image)){
+                File::delete($image->image);
+            }
+            ProjectImage::find($imgId)->delete();
+            return response()->json(['error'=>['Delete fails']]);
+        
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+            'money'=> 'bail|required|numeric',
+            'money2'=> 'bail|required|numeric',
+            'category_id'=> 'required',
+        ]);
+
+        $projects = Project::find($id);
+        $projects->title = $request->title;
+        $projects->description = $request->description;
+        $projects->money = $request->money;
+        $projects->money2 = $request->money2;
+        $projects->category_id = $request->category_id;
+
+        $projects->save();
+
+        
+        if($request->hasFile('image')){
+            $images = $request->file('image');
+            foreach($images as $image){
+                $imageName = time().'_'.$image->getClientOriginalName();
+                $imagePath = public_path('images');
+                $image->move($imagePath,$imageName);
+                $imagePath ='images/'.$imageName;
+
+                $projectImage = new ProjectImage();
+                $projectImage->image = $imagePath;
+                $projectImage->project_id = $projects->id;
+                $projectImage->save();
+            }
+        } 
+        return redirect()->route('projectAd.index')->with('success', 'Project created successfully');
+    }
+
+
+    public function delete($id){
+        // return response()->json($id);
+        $project = Project::find($id);
+        if($project!=null){
+            $check = $project->delete();
+            if($check) {
+                foreach($project->images as $image){
+                    if(File::exists($image->image)){
+                        File::delete($image->image);
+                    }
+                    $image->delete();
+                }
+            }
+        }
+        return response()->json(['error'=>['Delete fails']]);
     }
 
 }
