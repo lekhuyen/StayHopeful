@@ -167,11 +167,11 @@
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a>
-                        </li>
-                        <li>
-                            <div class="text popup-login">LOGIN</div>
-                        </li>
-
+                            </li>
+                            <li>
+                                <div class="text popup-login">LOGIN</div>
+                                {{-- đã có route logout chưa chỉnh css cho đẹp nên hong để vô ạ --}}
+                            </li>
                     </ul>
                 </div>
             </div>
