@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{ asset('authlogincss/login.css') }}">
-<div class="container-popup scroll-form-signin-signup" style="z-index: 999">
+
+<div class="container-popup scroll-form-signin-signup" style="z-index: 10;">
     <div class="modal-inner">
     </div>
     <div class="container-login" id="form-login" >
@@ -13,18 +14,21 @@
             <div class="signin-signup">
                 
                 {{-- Login --}}
-                <form action="" class="sign-in-form">
+                <form id="loginForm" action="{{route("auth.login")}}" class="sign-in-form" method="POST">
+                    @csrf
                     <h2 class="form-title">Sign In</h2>
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Email">
+                        <input id="login-email" type="text" placeholder="Email" name="name"/>
+                        <small></small>
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input id="login-password" type="password" placeholder="Password" name="password"/>
                         <div class="eye"><i class="far fa-eye"></i></div>
+                        <small></small>
                     </div>
-                    <input type="submit" value="Login" class="btn solid">
+                    <button id="btn-sign-in" type="submit" class="btn solid">Sign In</button>
 
                     <p class="social-text">Or Sign in with social platform</p>
                     <div class="social-media">
@@ -44,25 +48,30 @@
                 </form>
 
                 {{-- Register --}}
-                <form action="" class="sign-up-form">
+                <form id="registerForm" action="{{route("auth.register")}}" class="sign-up-form" method="POST">
+                    @csrf
                     <h2 class="form-title">Sign Up</h2>
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name" required>
+                        <input id="register-name" type="text" placeholder="Name" name="name"/>
+                        <small></small>
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Email" >
+                        <input id="register-email" type="text" placeholder="Email" name="email"/>
+                        <small></small>
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" >
+                        <input id="register-password" type="password" placeholder="Password"  name="password"/>
+                        <small></small>
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Confirm Password" >
+                        <input id="register-confirm-password" type="password" placeholder="Confirm Password" name="confirm_password"/>
+                        <small></small>
                     </div>
-                    <input type="submit" value="Sign up" class="btn solid">
+                    <button id="btn-sign-up" type="submit" class="btn solid">Sign Up</button>
 
                     <p class="social-text">Or Sign up with social platform</p>
                     <div class="social-media">
@@ -107,5 +116,70 @@
     </div>
 </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/login.js"></script>
+    <script>
 
+    $(document).ready(function() {
+    // Intercept the form submission
+    // ajax register
+    $('#registerForm').submit(function(e) {
+        e.preventDefault();
+        // Perform client-side validation if needed
+        let isValid = checkValidateRegister();
+        if (isValid) {
+        // Send the form data to the server using Ajax
+        $.ajax({
+            type: 'POST',
+            url: "{{route('auth.register')}}",
+            data: $('#registerForm').serialize(),
+            success: function(response) {
+                // Handle the server response
+                console.log(response);
+                window.location.href = "{{route('/')}}"; 
+            },
+            error: function(error) {
+                // Handle errors
+                console.log(error);
+            }
+        });
+    }
+    });
+
+
+    // Login form submit handler
+$('#loginForm').submit(function(e) {
+
+e.preventDefault();
+let isValid = checkLogin();
+    if (isValid) {
+    
+$.ajax({
+    url: "{{route('auth.login')}}",
+    method: 'POST',
+    data: {
+        _token: "{{ csrf_token() }}",
+        email: $('#login-email').val(),
+        password: $('#login-password').val()
+    },
+    success: function(response){
+        if(response.status == 'success'){
+            // Login successfully
+            console.log("Login Successfully");
+            if(response.role == 1){
+                window.location.href = "{{route('admin.index')}}"; 
+            }
+            else if(response.role == 0){
+                window.location.href = "{{route('/')}}"; 
+            }
+        }
+        else {
+            // Display error 
+            console.log(response.message);
+        }
+    }
+});
+    }
+});
+});
+    </script>

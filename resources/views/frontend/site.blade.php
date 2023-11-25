@@ -167,10 +167,11 @@
                         <li><a href="{{ route('contact.index') }}">
                                 <div class="text">CONTACT</div>
                             </a>
-                        </li>
-                        <li>
-                            <div class="text popup-login">LOGIN</div>
-                        </li>
+                            </li>
+
+                        
+                                <div class="text popup-login">LOGIN</div>
+                            </li>
 
                     </ul>
                 </div>

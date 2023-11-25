@@ -43,12 +43,12 @@ Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('deta
 Route::get('/listdonate', [detaildonateController::class, 'viewlistdonate'])->name('detail.listdonate');
 
 //login
-Route::get('/login', [AuthloginController::class, 'index'])->name('auth.index');
-Route::get('/register', [AuthloginController::class, 'register'])->name('auth.register');
-Route::get('/login/google', [AuthloginController::class, 'redirectgoogle'])->name('auth.google');
-Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleback'])->name('auth.googlecallback');
-Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
-Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
+Route::post('/login',[AuthloginController::class,'login'])->name('auth.login');
+Route::post('/register', [AuthloginController::class, 'register'])->name('auth.register');
+Route::get('/login/google',[AuthloginController::class,'redirectgoogle'])->name('auth.google');
+Route::get('/auth/google/callback',[AuthloginController::class,'handleGoogleback'])->name('auth.googlecallback');
+Route::get('/login/facebook',[AuthloginController::class,'redirectfacebook'])->name('auth.facebook');
+Route::get('/auth/facebook/callback',[AuthloginController::class,'handlefacebookleback'])->name('auth.facebookcallback');
 //profile
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 
