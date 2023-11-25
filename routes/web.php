@@ -58,6 +58,8 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->name('blog.blog_finished');
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
 
+// news-detail
+Route::get('/news-detail', [BlogController::class, 'news_detail'])->name('news-detail');
 //detail-page
 Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
@@ -151,3 +153,7 @@ Route::group(['prefix'=> 'project-post/'], function(){
     Route::get('project-unfinish/{id}',[ProjectController::class,'unfinish_status'])->name('projectAd.unfinish');
 });
 
+// blog - news
+// Route::group(['prefix'=> 'news-post/'], function(){
+
+// });

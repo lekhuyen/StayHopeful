@@ -75,11 +75,6 @@ class ProjectController extends Controller
 
     public function deleteImgChild($imgId)
     {
-        // return response()->json($imgId);
-        // $image = ProjectImage::find($imgId);
-        //     if(File::exists($image->image)){
-        //         File::delete($image->image);
-        //     }
         ProjectImage::find($imgId)->delete();
         return response()->json(['error' => ['Delete fails']]);
     }
@@ -151,20 +146,9 @@ class ProjectController extends Controller
 
     public function delete($id)
     {
-        // return response()->json($id);
         $project = Project::find($id);
         $project->delete();
-        // if($project!=null){
-        //     $check = $project->delete();
-        //     if($check) {
-        //         foreach($project->images as $image){
-        //             if(File::exists($image->image)){
-        //                 File::delete($image->image);
-        //             }
-        //             $image->delete();
-        //         }
-        //     }
-        // }
+
         return response()->json(['error' => ['Delete fails']]);
     }
 

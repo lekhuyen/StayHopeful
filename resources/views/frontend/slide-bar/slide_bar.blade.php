@@ -31,12 +31,6 @@
     </div>
     <div class="item">
         <a class="menu-title-a">TIN TỨC</a>
-        <i class="fas fa-angle-right dropdown"></i>
-        <div class="sub-menu">
-            <a href="" class="sub-item">Tin tuc 1</a>
-            <a href="" class="sub-item">Tin tuc 2</a>
-            <a href="" class="sub-item">Tin tuc 3</a>
-        </div>
     </div>
     <div class="item">
         <a class="menu-title-a">CHƯƠNG TRÌNH</a>
@@ -51,46 +45,17 @@
 
 
 <h2 class="title-middle">BÀI VIẾT LIÊN QUAN</h2>
-<div class="post_related">
-    <div>
-        <img src="{{ asset('img/omg.jpeg') }}" alt="">
+@foreach ($projects as $project)
+    <div class="post_related">
+            <div>
+                <img src="{{ asset($project->images[0]->image) }}" alt="">
+            </div>
+        <div class="post-title-child">
+            <a href="{{route('detail.post',$project->id)}}">{{$project->title}}</a>
+        </div>
     </div>
-    <div class="post-title-child">
-        <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
-    </div>
-</div>
-<div class="post_related">
-    <div>
-        <img src="{{ asset('img/omg.jpeg') }}" alt="">
-    </div>
-    <div class="post-title-child">
-        <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
-    </div>
-</div>
-<div class="post_related">
-    <div>
-        <img src="{{ asset('img/omg.jpeg') }}" alt="">
-    </div>
-    <div class="post-title-child">
-        <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
-    </div>
-</div>
-<div class="post_related">
-    <div>
-        <img src="{{ asset('img/omg.jpeg') }}" alt="">
-    </div>
-    <div class="post-title-child">
-        <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
-    </div>
-</div>
-<div class="post_related">
-    <div>
-        <img src="{{ asset('img/omg.jpeg') }}" alt="">
-    </div>
-    <div class="post-title-child">
-        <a href="#">Khám bệnh từ thiện tại xã PomPen, TP. Sài gòn</a>
-    </div>
-</div>
+@endforeach
+
 
 
 <script>

@@ -11,17 +11,27 @@ class BlogController extends Controller
     public function index()
     {
         $categories = Category::orderBy('id', 'desc')->get();
-        return view('frontend.blog.blog', compact('categories'));
+        $projects = Project::orderBy('id', 'desc')->get();
+
+        return view('frontend.blog.blog', compact('categories', 'projects'));
     }
 
     public function blog_finished()
     {
         return view('frontend.blog.blog_finished');
     }
+
+    // detail, related project
     public function viewdetail($id){
         $categories = Category::orderBy('id', 'desc')->get();
         $project = Project::find($id);
-        return view('frontend.detail-post.detail', compact('categories','project'));
+        $category = $project->category;
+        $projects = Project::where('category_id', $category->id)
+                            ->where('id','!=', $project->id)
+                            ->orderBy('id', 'desc')
+                            ->limit(5)
+                            ->get();
+        return view('frontend.detail-post.detail', compact('categories','project', 'projects'));
     }
     
     public function blog_detail()
@@ -45,4 +55,14 @@ class BlogController extends Controller
         $projects = Project::orderBy('id', 'desc')->get();
         return view('frontend.project.index', compact('projects'));
     }
+
+
+    // news-detail
+    public function news_detail(){
+        $projects = Project::orderBy('id', 'desc')->get();
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('frontend.blog.news_detail', compact('categories', 'projects'));
+    }
+
+
 }

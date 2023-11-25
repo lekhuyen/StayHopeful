@@ -111,7 +111,7 @@
 
             {{-- slidebar --}}
             <div class="col-lg-4 nav-bar-right">
-                @include('frontend.slide-bar.slide_bar',['categories'=>$categories])  
+                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])  
             </div>
         </div>
     </div>
