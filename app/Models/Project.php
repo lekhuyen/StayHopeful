@@ -16,5 +16,8 @@ class Project extends Model
     public function images(){
         return $this->hasMany(ProjectImage::class, 'project_id', 'id');
     }
+    public function donateinfo(){
+        return $this->hasMany(ProjectImage::class, 'project_id');
+    }
     use HasFactory;
 }

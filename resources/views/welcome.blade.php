@@ -14,28 +14,16 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/omg.jpeg') }}" alt="Los Angeles" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>Los Angeles</h3>
-                        <p>We had such a great time in LA!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/omg.jpeg') }}" alt="Chicago" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/omg.jpeg') }}" alt="New York" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>New York</h3>
-                        <p>We love the Big Apple!</p>
-                    </div>
+               @foreach ($slider as $item)
+               <div class="carousel-item active">
+                <img src="{{ asset($item->url_image) }}" alt="Los Angeles" class="d-block carosel_heigth">
+                <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
                 </div>
             </div>
+               @endforeach
+
             <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>

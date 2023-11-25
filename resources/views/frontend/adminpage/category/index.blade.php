@@ -12,10 +12,10 @@
             </thead>
             <tbody>
                 @forelse ($categories as $category)
-                    <tr>
+                    <tr class="category-table">
                         <td>{{$category->name}}</td>
                         <td>
-                            <a class="btn btn-danger" href="{{route('category.delete', $category->id)}}">DELETE</a>
+                            <button class="btn btn-danger delete-category" data-id="{{$category->id}}">DELETE</button>
                             <a  class="btn btn-primary" href="{{route('category.edit', $category->id)}}">EDIT</a>
                         </td>
                     </tr>
@@ -29,3 +29,30 @@
         </table>
     </div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.delete-category').click(function(){
+            var categoryId = $(this).data('id');
+            var categoryTable = $(this).closest('.category-table');
+            var _csrf = '{{ csrf_token() }}';
+            
+            $.ajax({
+                type: "POST",
+                url: '{{ route('category.delete', ':id')}}'.replace(':id', categoryId),
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    id:categoryId,
+                    _token: _csrf,
+                }, 
+                success: function(data){
+                    categoryTable.remove();
+                }, 
+                error: function(error) {
+                    alert(error);
+                }
+            })
+        })
+    })
+</script>
