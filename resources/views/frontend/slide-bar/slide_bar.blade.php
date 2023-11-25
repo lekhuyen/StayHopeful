@@ -42,9 +42,9 @@
         <a class="menu-title-a">CHƯƠNG TRÌNH</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
-            <a href="" class="sub-item">Tin tuc 1</a>
-            <a href="" class="sub-item">Tin tuc 2</a>
-            <a href="" class="sub-item">Tin tuc 3</a>
+            @foreach ($categories as $category)
+                <a href="{{route('project.index',$category->id)}}" class="sub-item">{{$category->name}}</a>
+            @endforeach
         </div>
     </div>
 </div>

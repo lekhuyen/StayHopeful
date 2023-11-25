@@ -58,7 +58,7 @@ Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->nam
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
 
 //detail-page
-Route::get('/detail', [BlogController::class, 'viewdetail'])->name('detail.post');
+Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
 // Contact 
 Route::get('/contact', [ContactusController::class, 'index'])->name('contact.index');
@@ -76,7 +76,7 @@ Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('fee
 
 
 // project
-Route::get('/project', [BlogController::class, 'project'])->name('project.index');
+Route::get('/project/{id}', [BlogController::class, 'project'])->name('project.index');
 
 // video page
 Route::get('/video', [BlogController::class, 'video'])->name('video.index');
@@ -117,7 +117,7 @@ Route::group(['prefix' => 'category/'], function () {
 });
 
 //project admin page
-Route::group(['prefix'=> 'project/'], function(){
+Route::group(['prefix'=> 'project-post/'], function(){
     Route::get('index',[ProjectController::class,'index'])->name('projectAd.index');
 
     Route::get('create',[ProjectController::class,'create'])->name('projectAd.create');

@@ -152,7 +152,7 @@
                         <li><a href="#">
                                 <div class="text">ABOUT</div>
                             </a></li>
-                        <li><a href="{{ route('project.index') }}">
+                        <li><a href="{{ route('project.index', 1) }}">
                                 <div class="text">PROJECT</div>
                             </a></li>
                         <li><a href="{{ route('detail.donate') }}">

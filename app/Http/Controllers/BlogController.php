@@ -2,30 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return view('frontend.blog.blog');
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('frontend.blog.blog', compact('categories'));
     }
 
     public function blog_finished()
     {
         return view('frontend.blog.blog_finished');
     }
-    public function viewdetail(){
-        return view('frontend.detail-post.detail');
+    public function viewdetail($id){
+        $categories = Category::orderBy('id', 'desc')->get();
+        $project = Project::find($id);
+        return view('frontend.detail-post.detail', compact('categories','project'));
     }
     
     public function blog_detail()
     {
         return view('frontend.blog.blog_detail');
     }
-    public function project()
+    public function project($id)
     {
-        return view('frontend.project.project');
+        $category = Category::find($id);
+        return view('frontend.project.project', compact('category'));
     }
     //video page
     public function video()

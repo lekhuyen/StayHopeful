@@ -41,7 +41,7 @@
                         <h4>CÁC SỰ KIỆN GẦN NHẤT</h4>
                     </div>
                     <div>
-                        <a href="{{route('project.index')}}">XEM TẤT CẢ</a>
+                        <a href="{{route('project.index',1)}}">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                         <h4>CÁC SỰ KIỆN GẦN NHẤT</h4>
                     </div>
                     <div>
-                        <a href="{{route('project.index')}}">XEM TẤT CẢ</a>
+                        <a href="{{route('project.index',1)}}">XEM TẤT CẢ</a>
                     </div>
                 </div>
             </div>
