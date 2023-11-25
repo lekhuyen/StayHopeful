@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
-use App\Models\feedback_message;
-use App\Models\feedbackTable;
 use App\Models\Sensitive;
 use Illuminate\Http\Request;
 
