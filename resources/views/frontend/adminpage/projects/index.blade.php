@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="container mt-3">
         <h2>List Project</h2> 
-        <a class="btn btn-primary "href="{{route('projectAd-image')}}">Trash</a>
+        <a class="btn btn-primary "href="{{route('projectAd-image')}}" target="_blank">Trash</a>
         <a href="{{route('projectAd.create')}}" class="btn btn-primary">Create Category</a>
         <table class="table table-hover">
             <thead>'
@@ -15,7 +15,7 @@
                     <th>Status</th>
                     <th>Image</th>
                     <th>Category</th>
-                    {{-- <th>Action</th> --}}
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,14 +23,14 @@
                     <tr class="project-table">
                         <td>{{$project->id}}</td>
                         <td>{{$project->title}}</td>
-                        <td>{{$project->description}}</td>
+                        <td>{{strip_tags($project->description)}}</td>
                         <td>{{$project->money}}</td>
                         <td>{{$project->money2}}</td>
                         <td>
                             @if ($project->status == 1)
-                                <a href="">Finish</a>
+                                <a data-finish="{{$project->id}}" class="btn btn-primary project-finish">Finish</a>
                             @else
-                                <a href="">Unfinished</a>
+                                <a data-unfinish="{{$project->id}}" class="btn btn-warning project-unfinish">Unfinished</a>
                             @endif
                         </td>
                         <td>
@@ -50,7 +50,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Category emtry</td>
+                        <td colspan="9" style="text-align:center">Category emtry</td>
                     </tr>
                     
                 @endforelse
@@ -84,6 +84,48 @@
                     alert(error);
                 }
             })
+        })
+
+
+        $('.project-finish').on('click',function(){
+            var finishId = $(this).data('finish');
+            
+
+            $.ajax({
+                type: "GET",
+                url: '{{ route('projectAd.finish',':id')}}'.replace(':id',finishId),
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    id:finishId,
+                }, 
+                success: function(data){
+                    location.reload();
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            })
+        
+        })
+        $('.project-unfinish').on('click',function(){
+            var unfinishId = $(this).data('unfinish');
+            
+
+            $.ajax({
+                type: "GET",
+                url: '{{ route('projectAd.unfinish',':id')}}'.replace(':id',unfinishId),
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    id:unfinishId,
+                }, 
+                success: function(data){
+                    location.reload();
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            })
+        
         })
     })
 </script>

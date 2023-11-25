@@ -82,13 +82,15 @@
         </div>
     </div>
 @endsection
-{{-- <script>
+@section('ckeditor')
+<script>
     ClassicEditor
             .create( document.querySelector('#description-project-update'))
             .catch( error => {
                     console.error( error );
             } );
-</script> --}}
+</script>
+@endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>

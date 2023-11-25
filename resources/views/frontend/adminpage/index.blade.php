@@ -25,6 +25,7 @@
 
     {{-- ckeditor --}}
 <script src="{{ asset('ckeditor5-build-classic/ckeditor.js')}}"></script>
+
     
 
 {{-- font --}}
