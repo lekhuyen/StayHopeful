@@ -1,7 +1,7 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="{{asset('detaildonate(css)/dashboardlayout.css')}}">
+<link rel="stylesheet" href="{{asset('admincss/dashboardlayout.css')}}">
 
     <div class="container">
         <h1 style="font-weight: 700">Dashboard</h1>

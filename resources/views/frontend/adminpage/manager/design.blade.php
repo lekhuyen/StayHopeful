@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('detaildonate(css)/managerdesign.css') }}">
+    <link rel="stylesheet" href="{{ asset('admincss/managerdesign.css') }}">
 
 
     <div class="container">
