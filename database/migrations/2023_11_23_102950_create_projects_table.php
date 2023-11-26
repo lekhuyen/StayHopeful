@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('money', 11,2);
             $table->decimal('money2', 11,2);
             $table->foreignId('category_id')->constraint('categories')->onDelete('cascade');
+            $table->date("deleted_at")->nullable();          
             $table->timestamps();
         });
     }
