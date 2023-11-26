@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="item">
-        <a class="menu-title-a">TIN TỨC</a>
+        <a href="{{ route('blog.index') }}" class="menu-title-a">TIN TỨC</a>
     </div>
     <div class="item">
         <a class="menu-title-a">CHƯƠNG TRÌNH</a>

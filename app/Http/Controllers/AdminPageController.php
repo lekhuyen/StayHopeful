@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories_sliders;
 use App\Models\DonateInfo;
+use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Sliders;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Psy\Readline\Hoa\Console;
@@ -33,8 +35,17 @@ class AdminPageController extends Controller
         return view('frontend.adminpage.manager.design', compact('categories', 'sliders'));
     }
     public function sliderview(){
+        $projects = Project::orderBy('id', 'desc')
+                            ->where('status', 0)
+                            ->limit(3)
+                            ->get();
+        $project_finish = Project::orderBy('id', 'desc')
+                            ->where('status', 1)
+                            ->limit(4)
+                            ->get();
         $slider = Sliders::all();
-        return view('welcome',compact('slider'));
+        $videos = Video::orderBy('id', 'desc')->limit(3)->get();
+        return view('welcome',compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function create_slider(Request $request)
     {
@@ -87,7 +98,11 @@ class AdminPageController extends Controller
     public function getSliderImage($id)
     {
         $slider = Sliders::find($id);
-        return response()->json(['url' => asset($slider->url_image)]);
+        return response()->json([
+            'url' => asset($slider->url_image),
+            'categories' => $slider->categories_sliders_id,
+            'slider_name' => $slider->slider_name
+        ]);
     }
     public function viewlistuser()
     {
