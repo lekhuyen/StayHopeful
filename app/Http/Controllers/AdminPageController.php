@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Categories_sliders;
 use App\Models\DonateInfo;
 use App\Models\Project;
-use App\Models\Slider;
 use App\Models\Sliders;
+use App\Models\Video;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -46,7 +45,8 @@ class AdminPageController extends Controller
                             ->limit(4)
                             ->get();
         $slider = Sliders::all();
-        return view('welcome',compact('slider', 'projects', 'project_finish'));
+        $videos = Video::orderBy('id', 'desc')->limit(3)->get();
+        return view('welcome',compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function create_slider(Request $request)
     {

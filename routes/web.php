@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
-
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -185,4 +185,25 @@ Route::group(['prefix' => 'news/'], function () {
 
     // news-detail
     Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
+});
+
+// video-adminpage
+Route::group(['prefix'=> 'video-list/'], function(){
+    Route::get('index',[VideoController::class,'index'])->name('video-list.index');
+
+    Route::get('create',[VideoController::class,'create'])->name('video-list.create');
+
+    Route::post('store',[VideoController::class,'store'])->name('video-list.store');
+
+    Route::get('edit/{id}',[VideoController::class,'edit'])->name('video-list.edit');
+
+    Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
+
+    Route::post('delete/{id}',[VideoController::class,'delete'])->name('video-list.delete');
+
+    //softDelete
+    Route::get('video-trash',[VideoController::class,'video_trash'])->name('video-trash');
+    Route::get('video_untrash/{id}',[VideoController::class,'video_untrash'])->name('video-untrash');
+    Route::get('video-forcedelete/{id}',[VideoController::class,'video_forcedelete'])->name('video-forcedelete');
+
 });

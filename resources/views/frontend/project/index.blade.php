@@ -34,7 +34,7 @@
                                             {{number_format($project->money)}}
                                         </span>
                                     </p>
-                                    <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                                    <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
                                 </div>
                             </div>
                         </a>
