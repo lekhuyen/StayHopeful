@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories_sliders;
 use App\Models\DonateInfo;
+use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Sliders;
 use Illuminate\Http\Request;
@@ -33,8 +34,16 @@ class AdminPageController extends Controller
         return view('frontend.adminpage.manager.design', compact('categories', 'sliders'));
     }
     public function sliderview(){
+        $projects = Project::orderBy('id', 'desc')
+                            ->where('status', 0)
+                            ->limit(3)
+                            ->get();
+        $project_finish = Project::orderBy('id', 'desc')
+                            ->where('status', 1)
+                            ->limit(4)
+                            ->get();
         $slider = Sliders::all();
-        return view('welcome',compact('slider'));
+        return view('welcome',compact('slider', 'projects', 'project_finish'));
     }
     public function create_slider(Request $request)
     {

@@ -28,8 +28,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
                                     <div class="cart-description-post">
-                                        <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}
-                                        </p>
+                                        <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}</p>
                                     </div>
                                     <p class="card-title-child">
                                         Đã góp:
@@ -43,7 +42,7 @@
                                             {{number_format($project->money)}}
                                         </span>
                                     </p>
-                                    <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                                    <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
                                 </div>
                             </div>
                         </a>

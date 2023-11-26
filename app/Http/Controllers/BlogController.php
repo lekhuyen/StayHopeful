@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\News;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,9 @@ class BlogController extends Controller
     public function index()
     {
         $categories = Category::orderBy('id', 'desc')->get();
-        $projects = Project::orderBy('id', 'desc')->get();
-
-        return view('frontend.blog.blog', compact('categories', 'projects'));
+        $projects = Project::orderBy('id', 'desc')->limit(5)->get();
+        $blogs = News::orderBy('id', 'desc')->get();
+        return view('frontend.blog.blog', compact('categories', 'projects', 'blogs'));
     }
 
     public function blog_finished()
@@ -55,14 +56,5 @@ class BlogController extends Controller
         $projects = Project::orderBy('id', 'desc')->get();
         return view('frontend.project.index', compact('projects'));
     }
-
-
-    // news-detail
-    public function news_detail(){
-        $projects = Project::orderBy('id', 'desc')->get();
-        $categories = Category::orderBy('id', 'desc')->get();
-        return view('frontend.blog.news_detail', compact('categories', 'projects'));
-    }
-
 
 }

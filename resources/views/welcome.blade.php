@@ -67,15 +67,15 @@
                         <div class="card-body card-body-1">
                             <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
                                 khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
                             <p class="card-title-child">
                                 Đã góp:
                                 <span>
@@ -102,15 +102,15 @@
                         <div class="card-body">
                             <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
                                 khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
                             <p class="card-title-child">
                                 Đã góp:
                                 <span>
@@ -137,15 +137,15 @@
                         <div class="card-body">
                             <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
                                 khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
                             <p class="card-title-child">
                                 Đã góp:
                                 <span>
@@ -171,20 +171,11 @@
     <!-- su kien gan nhat -->
 
     <section>
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h4>CÁC SỰ KIỆN ĐÃ HOÀN THÀNH</h4>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <div class="container section-title-1-0">
             <div class="row">
                 <div class="col-lg-12 section-title-1">
                     <div class="section-title_video">
-                        <h4>CÁC SỰ KIỆN GẦN NHẤT</h4>
+                        <h4>CÁC SỰ KIỆN ĐÃ HOÀN THÀNH</h4>
                     </div>
                     <div>
                         <a href="{{ route('project.index', 1) }}">XEM TẤT CẢ</a>
@@ -197,6 +188,46 @@
     <!-- card -->
     <div class="container">
         <div class="row">
+            @foreach ($project_finish as $project)
+            <div class="col-xxl-3 col-xl-6">
+                <a href="{{ route('detail.post', $project->id) }}" class="a-card">
+                    <div class="card card_wapper" style="width: 19.5rem;">
+                        @if ($project->status == 0)
+                                <div class="project-status">ĐANG VẬN ĐỘNG</div>
+                            @else
+                                <div class="project-status-finish">ĐÃ HOÀN THÀNH</div>
+                        @endif
+                        <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"
+                                alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
+                                khuyết tật ở nhà</h5>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
+                            <p class="card-title-child">
+                                Đã góp:
+                                <span>
+                                    22.378.000
+                                </span>
+                            </p>
+                            <p class="card-title-child-1">
+                                Cần huy động:
+                                <span>
+                                    22.000.000
+                                </span>
+                            </p>
+                            <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <div class="col-xxl-3 col-xl-6">
                 <a href="#" class="a-card">
                     <div class="card card_wapper" style="width: 19.5rem;">
@@ -206,16 +237,50 @@
                         <div class="card-body">
                             <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
                                 khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa
-                                    nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
+                            <p class="card-title-child">
+                                Đã góp:
+                                <span>
+                                    22.378.000
+                                </span>
+                            </p>
+                            <p class="card-title-child-1">
+                                Cần huy động:
+                                <span>
+                                    22.000.000
+                                </span>
+                            </p>
+                            <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xxl-3 col-xl-6">
+                <a href="#" class="a-card">
+                    <div class="card card_wapper" style="width: 19.5rem;">
+                        {{-- <div class="project-status">ĐANG VẬN ĐỘNG</div> --}}
+                        <div class="project-status-finish">ĐÃ HOÀN THÀNH</div>
+                        <img src="{{ asset('img/omg.jpeg') }}" class="card-img-top card-img-top-1" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
+                                khuyết tật ở nhà</h5>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
+                                        Việt Anh
+                                        - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
+                                        điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
+                                        chăm sóc người con trai bị liệt ở nhà.
+                                        Việt Anh
+                                    </p>
+                                </div>
                             <p class="card-title-child">
                                 Đã góp:
                                 <span>
@@ -243,8 +308,7 @@
                             <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
                                 khuyết tật ở nhà</h5>
                             <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa
-                                    nhiễm
+                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa nhiễm
                                     Việt Anh
                                     - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
                                     điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
@@ -255,92 +319,24 @@
                             <p class="card-title-child">
                                 Đã góp:
                                 <span>
-                                    22.378.000
+                                    {{ number_format($project->money2) }}
                                 </span>
                             </p>
                             <p class="card-title-child-1">
                                 Cần huy động:
                                 <span>
-                                    22.000.000
+                                    {{ number_format($project->money) }}
                                 </span>
                             </p>
-                            <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                            <a href="{{ route('detail.post', $project->id) }}" class="btn btn-primary btn-primary-1">CHI
+                                TIẾT</a>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-xxl-3 col-xl-6">
-                <a href="#" class="a-card">
-                    <div class="card card_wapper" style="width: 19.5rem;">
-                        {{-- <div class="project-status">ĐANG VẬN ĐỘNG</div> --}}
-                        <div class="project-status-finish">ĐÃ HOÀN THÀNH</div>
-                        <img src="{{ asset('img/omg.jpeg') }}" class="card-img-top card-img-top-1" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
-                                khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa
-                                    nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
-                            <p class="card-title-child">
-                                Đã góp:
-                                <span>
-                                    22.378.000
-                                </span>
-                            </p>
-                            <p class="card-title-child-1">
-                                Cần huy động:
-                                <span>
-                                    22.000.000
-                                </span>
-                            </p>
-                            <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xxl-3 col-xl-6">
-                <a href="#" class="a-card">
-                    <div class="card card_wapper" style="width: 19.5rem;">
-                        {{-- <div class="project-status">ĐANG VẬN ĐỘNG</div> --}}
-                        <div class="project-status-finish">ĐÃ HOÀN THÀNH</div>
-                        <img src="{{ asset('img/omg.jpeg') }}" class="card-img-top card-img-top-1" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title card-title-1" data-i18n="text1">Kỳ 576: Mẹ nằm viện vẫn lo cho con trai
-                                khuyết tật ở nhà</h5>
-                            <div class="cart-description-post">
-                                <p class="card-text card-text-1-1" data-i18n="text2">Nằm viện hơn 1 tháng nay tại Khoa
-                                    nhiễm
-                                    Việt Anh
-                                    - Bệnh viện Nhiệt đới TP.HCM do Viêm màng não Herpes và đái tháo đường type 2,
-                                    điều đầu tiên cô G quan tâm sau khi ra khỏi phòng chăm sóc đặc biệt là ai đang
-                                    chăm sóc người con trai bị liệt ở nhà.
-                                    Việt Anh
-                                </p>
-                            </div>
-                            <p class="card-title-child">
-                                Đã góp:
-                                <span>
-                                    22.378.000
-                                </span>
-                            </p>
-                            <p class="card-title-child-1">
-                                Cần huy động:
-                                <span>
-                                    22.000.000
-                                </span>
-                            </p>
-                            <a href="#" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            @endforeach
+            
+            
 
 
         </div>
