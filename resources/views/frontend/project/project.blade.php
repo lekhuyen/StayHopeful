@@ -19,9 +19,9 @@
                         <a href="{{route('detail.post', $project->id)}}" class="a-card">
                             <div class="card card_wapper" style="width: 19.5rem;">
                                 @if($project->status == 0)
-                                    <div class="project-status">ĐANG VẬN ĐỘNG</div>
+                                    <div class="project-status">ON GOING</div>
                                 @else
-                                    <div class="project-status-finish">ĐÃ HOÀN THÀNH</div>
+                                    <div class="project-status-finish">FINISHED</div>
                                 @endif
 
                                 <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1" alt="...">
@@ -31,18 +31,18 @@
                                         <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}</p>
                                     </div>
                                     <p class="card-title-child">
-                                        Đã góp:
+                                        Received:
                                         <span>
                                             {{number_format($project->money2)}}
                                         </span>
                                     </p>
                                     <p class="card-title-child-1">
-                                        Cần huy động:
+                                        Goals:
                                         <span>
                                             {{number_format($project->money)}}
                                         </span>
                                     </p>
-                                    <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">CHI TIẾT</a>
+                                    <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">Details</a>
                                 </div>
                             </div>
                         </a>
