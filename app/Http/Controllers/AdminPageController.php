@@ -46,7 +46,7 @@ class AdminPageController extends Controller
                             ->get();
         $slider = Sliders::all();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
-        return view('welcome',compact('slider', 'projects', 'project_finish', 'videos'));
+        return view('index',compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function create_slider(Request $request)
     {
@@ -156,7 +156,7 @@ class AdminPageController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->back()->with('success', 'Delete User successfully');
-        
+
     }
 
 }

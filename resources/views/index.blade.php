@@ -14,7 +14,7 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner">
-                {{-- @foreach ($slider as $item)
+                @foreach ($slider as $item)
                     <div class="carousel-item active">
                         <img src="{{ asset($item->url_image) }}" alt="Los Angeles" class="d-block carosel_heigth">
                         <div class="carousel-caption">
@@ -22,7 +22,7 @@
                             <p>We had such a great time in LA!</p>
                         </div>
                     </div>
-                @endforeach --}}
+                @endforeach
                 <div class="carousel-item active">
                     <img src="{{ asset('img/omg.jpeg') }}" alt="Los Angeles" class="d-block carosel_heigth">
                     <div class="carousel-caption">
@@ -58,7 +58,7 @@
     <!-- card -->
     <div class="container">
         <div class="row">
-            @foreach ($projects as $project)               
+            @foreach ($projects as $project)
             <div class=" col-xxl-4 col-xl-6 col-lg-6 large ">
                 <a href="{{route('detail.post', $project->id)}}" class="a-card">
                     <div class="card card_wapper" style="width: 26rem;">
@@ -91,7 +91,7 @@
                 </a>
             </div>
             @endforeach
-            
+
 
         </div>
     </div>
@@ -151,8 +151,8 @@
                 </a>
             </div>
             @endforeach
-            
-            
+
+
 
 
         </div>
