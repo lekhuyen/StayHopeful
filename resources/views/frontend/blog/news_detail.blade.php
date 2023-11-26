@@ -11,7 +11,7 @@
                 <h4>{{$new->title}}</h4>
                 @if($new->images->count() > 0)
                     @foreach ($new->images as $image)
-                        <img src="{{asset($image->image)}}" alt="" width="100%" height="500px">
+                        <img src="{{asset($image->image)}}" alt="" width="100%" height="400px">
                     @endforeach
                 @endif
                 <span>{{strip_tags($new->description)}}</span>
