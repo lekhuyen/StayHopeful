@@ -98,7 +98,7 @@
                                 <a class="nav-menu-title">ABOUT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                     <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
@@ -152,7 +152,7 @@
                                     HOME
                                 </div>
                             </a></li>
-                        <li><a href="#">
+                        <li><a href="{{ route('aboutus.index') }}">
                                 <div class="text">ABOUT</div>
                             </a></li>
                         <li><a href="{{ route('project.index', 1) }}">
