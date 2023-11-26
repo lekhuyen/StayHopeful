@@ -11,6 +11,7 @@ use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\ProjectController;
@@ -29,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // home
+
 
 //frontend
 
@@ -58,8 +60,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->name('blog.blog_finished');
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
 
-// news-detail
-Route::get('/news-detail', [BlogController::class, 'news_detail'])->name('news-detail');
+
 //detail-page
 Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
@@ -103,9 +104,7 @@ Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('
 
 
 //
-// Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
     Route::get('index', [CategoryController::class, 'index'])->name('category.index');
@@ -142,7 +141,7 @@ Route::group(['prefix'=> 'project-post/'], function(){
     Route::get('image-untrash/{id}',[ProjectController::class,'untrash_image'])->name('projectAd-untrash');
     Route::get('projectAd-forcedelete/{id}',[ProjectController::class,'projectAd_forcedelete'])->name('projectAd-forcedelete');
     
-    // trash - softDelete - ProjectImage
+    // trash - softDelete - Project
     Route::get('project-trash',[ProjectController::class,'project_trash'])->name('project-trash');
     Route::get('project_untrash/{id}',[ProjectController::class,'project_untrash'])->name('project-untrash');
     Route::get('project-forcedelete/{id}',[ProjectController::class,'project_forcedelete'])->name('project-forcedelete');
@@ -154,6 +153,32 @@ Route::group(['prefix'=> 'project-post/'], function(){
 });
 
 // blog - news
-// Route::group(['prefix'=> 'news-post/'], function(){
+Route::group(['prefix'=> 'news/'], function(){
+    Route::get('index',[NewsController::class,'index'])->name('news.index');
 
-// });
+    Route::get('create',[NewsController::class,'create'])->name('news.create');
+
+    Route::post('store',[NewsController::class,'store'])->name('news.store');
+
+    Route::post('delete/{id}',[NewsController::class,'delete'])->name('news.delete');
+
+    Route::get('edit/{id}',[NewsController::class,'edit'])->name('news.edit');
+    
+    Route::put('update/{id}',[NewsController::class,'update'])->name('news.update');
+
+    // delete imageChild
+    Route::get('edit-news-image/{id}',[NewsController::class,'deleteImgChild'])->name('delete_newsImgChild');
+
+    // trash - softDelete - newsImage
+    Route::get('news-image-trash',[NewsController::class,'trash_image'])->name('news-image-trash');
+    Route::get('news-image-untrash/{id}',[NewsController::class,'untrash_image'])->name('news-image-untrash');
+    Route::get('news-image-forcedelete/{id}',[NewsController::class,'news_image_forcedelete'])->name('news-image-forcedelete');
+
+    // trash - softDelete - Project
+    Route::get('news-trash',[NewsController::class,'news_trash'])->name('news-trash');
+    Route::get('news_untrash/{id}',[NewsController::class,'news_untrash'])->name('news-untrash');
+    Route::get('news-forcedelete/{id}',[NewsController::class,'news_forcedelete'])->name('news-forcedelete');
+
+    // news-detail
+    Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
+});
