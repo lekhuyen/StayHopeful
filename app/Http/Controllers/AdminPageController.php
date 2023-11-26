@@ -7,8 +7,11 @@ use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Sliders;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Psy\Readline\Hoa\Console;
 
 use function Laravel\Prompts\alert;
@@ -66,7 +69,8 @@ class AdminPageController extends Controller
     {
         if ($request->hasFile('image')) {
             if (File::exists($slider->url_image)) {
-                File::delete(public_path($slider->url_image));
+                $imagePath = public_path($slider->url_image);
+                File::delete($imagePath);
             }
             $image = $request->file('image');
             $filename = time() . '-' . $image->getClientOriginalName();
@@ -74,7 +78,7 @@ class AdminPageController extends Controller
             $slider->url_image = 'images/' . $filename;
         }
         $slider->slider_name = $request->nameimage;
-        $slider->categories_sliders_id = $request->catogries;
+        $slider->categories_sliders_id = $request->categories;
         $slider->save();
 
         return redirect()->back()->with('success', 'Success update Sliders');
@@ -104,13 +108,55 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        return view('frontend.adminpage.manager.listuser');
+        $user = User::all();
+        return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
+    //donate admin
     public function viewlistdonate(){
         $donateinfo = DonateInfo::all();
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 
+    // register user
+    public function registeruser(Request $request){
+        $hashpass = Hash::make($request->password);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $hashpass;
+        $user->role = $request->role;
+        $user->status = $request->status;
+        $user->save();
+        return redirect()->back()->with('success', 'Create User successfully');
+    }
+    public function updateuser(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role' => 'required',
+            'status' => 'required',
+        ]);
+        $user = User::find($id);
+        if(!$user){
+            return redirect()->back()->with('error', 'Not found user');
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->status = $request->status;
+        $user->save();
+        return redirect()->back()->with('success', 'Update User successfully');
+    }
+    public function getiduser($id){
+        $user = User::find($id);
+        return response()->json($user);
+    }
+    public function deleteuser($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'Delete User successfully');
+        
+    }
 
 }

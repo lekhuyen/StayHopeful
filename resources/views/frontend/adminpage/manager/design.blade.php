@@ -81,9 +81,12 @@
                         action="{{ route('admin.update_slider', ['slider' => $slider->id]) }}">
                         @method('PUT')
                         @csrf
+                        <input type="hidden" name="user_id" value="{{ $slider->id }}">
+
                         <div class="modal-body">
                             <div class="mb-3 mt-3">
-                                <select class="form-select" aria-label="Default select example" id="categories" name="categories">
+                                <select class="form-select" aria-label="Default select example" id="categories"
+                                    name="categories">
                                     <option selected>Choose Category</option>
                                     @foreach ($categories as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -172,6 +175,9 @@
         $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var id = button.data('slider-id');
+            var form = $('#exampleModal form');
+            var action = form.attr('action');
+            form.attr('action', action.replace(/\/\d+$/, '/' + id));
             $.ajax({
                 type: 'GET',
                 url: '/admin/managerdesign/' + id,

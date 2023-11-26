@@ -2,6 +2,12 @@
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
     <div class="container">
+        @if (session('success'))
+            <div class="text-success">{{ session('success') }}</div>
+        @endif
+        @if (session('error'))
+            <div class="text-success">{{ session('error') }}</div>
+        @endif
         <h1 style="font-weight: 700">Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
@@ -28,86 +34,32 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
-                                <th>Day_create</th>
+                                <th>Role</th>
                                 <th>Status</th>
                                 <th style="text-align: center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" class="image-hover" width="50px" height="50px"
-                                        style="border-radius: 50%; margin-right: 20px"> Phong</td>
-                                <td>phong@gmail.com</td>
-                                <td>099999999</td>
-                                <td>19-10-2019</td>
-                                <td>Đang hoạt động</td>
-                                <td style="text-align: center">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
-                                        style="border-radius: 50%; margin-right: 20px"> Khuyên</td>
-                                <td>khuyen@gmail.com</td>
-                                <td>099999999</td>
-                                <td>19-10-2019</td>
-                                <td>Đang hoạt động</td>
-                                <td style="text-align: center">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
-                                        style="border-radius: 50%; margin-right: 20px"> Yeong</td>
-                                <td>Yeong@gmail.com</td>
-                                <td>099999999</td>
-                                <td>19-10-2019</td>
-                                <td>Đang hoạt động</td>
-                                <td style="text-align: center">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><img src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
-                                        style="border-radius: 50%; margin-right: 20px"> Sương</td>
-                                <td>Sương@gmail.com</td>
-                                <td>099999999</td>
-                                <td>19-10-2019</td>
-                                <td>Đang hoạt động</td>
-                                <td style="text-align: center">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
+                            @foreach ($user as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td><img src="{{ asset('img/omg.jpeg') }}" class="image-hover" width="50px"
+                                            height="50px"
+                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->role }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td style="text-align: center">
+                                        <a href="#" data-user-id="{{ $item->id }}" class="btn btn-success"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="{{route('admin.deleteuser', $item->id)}}" class="btn btn-danger">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -116,95 +68,152 @@
         </div>
     </div>
     {{-- popup --}}
-    <!-- Modal thay doi thong tin -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Thông Tin</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form method="POST">
-                    <div class="modal-body">
-                        <div class="mb-3 mt-3">
-                            <label for="name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Name"
-                                name="name">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="text" class="form-control" id="email" placeholder="Enter Email"
-                                name="email">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="date-register" class="form-label">Ngày Đăng Ký:</label>
-                            <input type="date" class="form-control" id="date" placeholder="Choose Date"
-                                name="date">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="phone" class="form-label">Số Điện Thoại:</label>
-                            <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number"
-                                name="phone">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
-                                    name="status-change">
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Thay Đổi Trạng Thái</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!-- Modal create -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New Account</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Create new account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST">
+                <form method="POST" action="{{ route('admin.registeruser') }}">
+                    @csrf
                     <div class="modal-body">
+
                         <div class="mb-3 mt-3">
-                            <label for="name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Name"
-                                name="name">
+                            <label for="name-add" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name-add" placeholder="Enter Name"
+                                name="name" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="text" class="form-control" id="email" placeholder="Enter Email"
-                                name="email">
+                            <label for="email-add" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="email-add" placeholder="Enter Email"
+                                name="email" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="password" class="form-label">Password:</label>
                             <input type="password" class="form-control" id="password" placeholder="Enter Password"
-                                name="password">
+                                name="password" value="{{ old('password') }}">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="phone" class="form-label">Phone:</label>
-                            <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number"
-                                name="phone">
+                            <label for="role-register" class="form-label">Role:</label>
+                            <select class="form-select" aria-label="Default select example" name="role"
+                                value="{{ old('role') == 'role' ? 'selected' : '' }}">
+                                <option selected>Select Role</option>
+                                <option value="0">User</option>
+                                <option value="1">Admin</option>
+                            </select>
                         </div>
                         <div class="mb-3 mt-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
-                                    name="status-add">
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Change Status</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="0" id="flexCheckDefault2"
+                                    name="status">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Đã bị khoá(0)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" id="flexCheckChecked2"
+                                    name="status" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Hoạt động(1)
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    {{-- update --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Account User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
+                    @method('PUT')
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3 mt-3">
+                            <label for="id" class="form-label">ID:</label>
+                            <input type="text" class="form-control" id="id" disabled name="id"
+                                value="1">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name-update" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name-update" placeholder="Enter Name"
+                                name="name">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="email-update" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="email-update" placeholder="Enter Email"
+                                name="email">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="role-register" class="form-label">Role:</label>
+                            <select class="form-select" aria-label="Default select example" id="role-update"
+                                name="role" value="{{ old('role') == 'role' ? 'selected' : '' }}">
+                                <option selected>Select Role</option>
+                                <option value="0">User</option>
+                                <option value="1">Admin</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="0" id="status-update"
+                                    name="status">
+                                <label class="form-check-label" for="status-update">
+                                    Đã bị khoá(0)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" id="status-update2"
+                                    name="status" checked>
+                                <label class="form-check-label" for="status-update2">
+                                    Hoạt động(1)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var id = button.data('user-id');
+            var form = $('#exampleModal form');
+            var action = form.attr('action');
+            form.attr('action', action.replace(/\/\d+$/, '/' + id));
+            $.ajax({
+                type: 'GET',
+                url: '/admin/updateuser/' + id,
+                success: function(data) {
+                    console.log(data);
+                    $('#id').val(data.id);
+                    $('#name-update').val(data.name);
+                    $('#email-update').val(data.email);
+                    $('#role-update').val(data.role);
+                    if (data.status == 0) {
+                        $('#status-update').prop('checked', true);
+                    } else {
+                        $('#status-update2').prop('checked', true);
+                    }
+                }
+            })
+        });
+    </script>
 @endsection
