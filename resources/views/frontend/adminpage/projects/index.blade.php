@@ -51,7 +51,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="9" style="text-align:center">Category emtry</td>
+                        <td colspan="9" style="text-align:center">Project emtry</td>
                     </tr>
                     
                 @endforelse
