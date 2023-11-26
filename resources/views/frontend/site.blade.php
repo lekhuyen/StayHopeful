@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css feedback --}}
-    <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
+
 
     {{-- popperjs --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -150,7 +150,7 @@
                     <ul class="nav_bar">
                         <li><a href="{{ route('/') }}">
                                 <div class="text">
-                                    <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;">
+                                    <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
                                     HOME
                                 </div>
                             </a></li>

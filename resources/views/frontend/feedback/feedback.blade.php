@@ -1,5 +1,5 @@
 {{-- <link href="{{ asset('feedbackcss/feedback.css') }}"> --}}
-
+<link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 @extends('frontend.site')
 @section('title', 'Feedback')
 @section('main')
