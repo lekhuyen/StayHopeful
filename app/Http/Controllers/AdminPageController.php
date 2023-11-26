@@ -87,7 +87,11 @@ class AdminPageController extends Controller
     public function getSliderImage($id)
     {
         $slider = Sliders::find($id);
-        return response()->json(['url' => asset($slider->url_image)]);
+        return response()->json([
+            'url' => asset($slider->url_image),
+            'categories' => $slider->categories_sliders_id,
+            'slider_name' => $slider->slider_name
+        ]);
     }
     public function viewlistuser()
     {

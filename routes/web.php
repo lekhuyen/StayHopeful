@@ -96,7 +96,7 @@ Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name
 Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
 Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
 Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider');
-Route::get('/get-slider-image/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
+Route::get('/managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
 Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider');
 Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
 Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
