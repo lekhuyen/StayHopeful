@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\Project;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -47,7 +48,8 @@ class BlogController extends Controller
     //video page
     public function video()
     {
-        return view('frontend.video_page.video');
+        $videos = Video::orderBy('id', 'desc')->get();
+        return view('frontend.video_page.video', compact('videos'));
     }
 
 

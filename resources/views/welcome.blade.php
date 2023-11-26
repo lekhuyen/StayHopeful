@@ -176,24 +176,12 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-4 video_status">
-                <video id="myVideo" src="{{ asset('home/video/video5.mp4') }}" controls width="400"
-                    height="200"></video>
-                <a href="#" class="video_title">Người bạn lớn là một dự án có mục đích giúp đỡ Trẻ em không còn cha
-                    hoặc mẹ hoặc cả hai</a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-4 video_status">
-                <video id="myVideo" src="{{ asset('home/video/video3.mp4') }}" controls width="400"
-                    height="200"></video>
-                <a href="#" class="video_title">Người bạn lớn là một dự án có mục đích giúp đỡ Trẻ em không còn cha
-                    hoặc mẹ hoặc cả hai</a>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-4 video_status">
-                <video id="myVideo" src="{{ asset('home/video/video4.mp4') }}" controls width="400"
-                    height="200"></video>
-                <a href="#" class="video_title">Người bạn lớn là một dự án có mục đích giúp đỡ Trẻ em không còn cha
-                    hoặc mẹ hoặc cả hai</a>
-            </div>
+            @foreach ($videos as $video)
+                <div class="col-lg-4 col-md-6 col-sm-4 video_status">
+                    <video id="myVideo" src="{{ asset($video->video) }}" controls width="400"
+                        height="200"></video>
+                </div>
+            @endforeach
         </div>
     </div>
 
