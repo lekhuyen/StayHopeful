@@ -1,5 +1,5 @@
 @extends('frontend.site')
-@section('title', 'Trang chủ')
+@section('title', 'StayHopeful')
 
 
 
