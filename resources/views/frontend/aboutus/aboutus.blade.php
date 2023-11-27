@@ -132,23 +132,23 @@
     </div>
     <br>
     <div class="row">
-        <div class="col ">
-            <img src="{{ asset('img/logo_company1.PNG') }}" alt="logo_company1.PNG" class="logo_company">
+        <div class="col">
+            <a href="https://www.independent.co.uk/asia"><img src="{{ asset('img/logo_aboutus/logo_company1.PNG') }}" alt="logo_company1.PNG" class="logo_company"></a>
+        </div>
+        <div class="col">
+            <a href="https://www.theguardian.com/international"><img src="{{ asset('img/logo_aboutus/logo_company2.PNG') }}" alt="logo_company2.PNG" class="logo_company"></a>
+        </div>
+        <div class="col">
+            <a href="https://www.cbsnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company3.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
         <div class="col ">
-            <img src="{{ asset('img/logo_company2.PNG') }}" alt="logo_company2.PNG" class="logo_company">
+            <a href="https://nypost.com/"><img src="{{ asset('img/logo_aboutus/logo_company4.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
         <div class="col ">
-            <img src="{{ asset('img/logo_company3.jpg') }}" alt="logo_company3.jpg" class="logo_company">
+            <a href="https://www.usnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company5.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
         <div class="col ">
-            <img src="{{ asset('img/logo_company4.PNG') }}" alt="logo_company3.jpg" class="logo_company">
-        </div>
-        <div class="col ">
-            <img src="{{ asset('img/logo_company5.jpg') }}" alt="logo_company3.jpg" class="logo_company">
-        </div>
-        <div class="col ">
-            <img src="{{ asset('img/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company">
+            <a href="https://fsoft-academy.edu.vn/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
     </div>
 </div>
