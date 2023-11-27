@@ -1,4 +1,5 @@
 @extends('frontend.site')
+@section('title', 'Donate Form')
 @section('main')
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
     <div class="container">
@@ -8,7 +9,7 @@
                     <form action="{{ route('detail.thanhtoan') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
-                        
+
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
