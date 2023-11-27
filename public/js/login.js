@@ -17,9 +17,11 @@ var containerPopup = document.querySelector('.container-popup');
 var exitBtn = document.querySelector('.exit-btn');
 var exitLogin = document.querySelector('.modal-inner');
 //console.log(containerPopup);
+if(popupLogin){
 popupLogin.addEventListener('click', function () {
     containerPopup.classList.add('showLogin');
 });
+}
 exitBtn.addEventListener('click', function () {
     containerPopup.classList.remove('showLogin');
     //alert('Exit');

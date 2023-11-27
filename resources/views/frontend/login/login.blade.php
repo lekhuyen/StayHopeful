@@ -135,9 +135,15 @@
             data: $('#registerForm').serialize(),
             success: function(response) {
                 // Handle the server response
-                console.log(response);
+                if((response.status) == 'error'){
+                    setError(registerEmail,'Email đã tồn tại');
+                }
+                else{
+                    console.log(response);
                 // window.location.href = "{{route('/')}}"; 
                 containerLoginRegister.classList.remove("sign-up-mode"); 
+                }
+                
             },
             error: function(error) {
                 // Handle errors

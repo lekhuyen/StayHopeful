@@ -89,6 +89,7 @@ Route::get('/video', [BlogController::class, 'video'])->name('video.index');
 
 
 //admin
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
@@ -105,7 +106,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('listuser/{id}', [AdminPageController::class, 'deleteuser'])->name('admin.deleteuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
 });
-
+});
 
 //
 

@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    {{-- favicon --}}
+    {{-- <link rel="icon" href="{{asset('img/logo.PNG')}}" sizes="32x32" type="image/png">
+<link rel="icon" href="{{asset('img/logo.PNG')}}" sizes="64x64" type="image/png">
+<link rel="icon" href="{{asset('img/logo.PNG')}}" sizes="128x128" type="image/png"> --}}
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
@@ -16,14 +20,6 @@
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css feedback --}}
-
-
-    {{-- popperjs --}}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-iOq1i6Z3NmFHAAdDOf9G4tLqtvxtk7GX6Zup9RS6VLgD5F5rtJd9uKT9KbeRGNfA" crossorigin="anonymous">
-    </script>
-
-    {{-- popperjs --}}
 
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
@@ -147,34 +143,48 @@
                     </div>
 
                     <!-- desktop interface -->
-                    <ul class="nav_bar">
-                        <li><a href="{{ route('/') }}">
-                                <div class="text">
-                                    <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
-                                    HOME
-                                </div>
-                            </a></li>
-                        <li><a href="{{ route('aboutus.index') }}">
-                                <div class="text">ABOUT</div>
-                            </a></li>
-                        <li><a href="{{ route('project.index', 1) }}">
-                                <div class="text">PROJECT</div>
-                            </a></li>
-                        <li><a href="{{ route('detail.donate') }}">
-                                <div class="text">DONATE</div>
-                            </a></li>
-                        <li><a href="{{ route('blog.index') }}">
-                                <div class="text">BLOG</div>
-                            </a></li>
-                        <li><a href="{{ route('contact.index') }}">
-                                <div class="text">CONTACT</div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="text popup-login">LOGIN</div>
-                            {{-- đã có route logout chưa chỉnh css cho đẹp nên hong để vô ạ --}}
-                        </li>
-                    </ul>
+                    <div style="position: relative;">
+                        <ul class="nav_bar">
+                            <li><a href="{{ route('/') }}">
+                                    <div class="text">
+                                        <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
+                                        HOME
+                                    </div>
+                                </a></li>
+                            <li><a href="{{ route('aboutus.index') }}">
+                                    <div class="text">ABOUT</div>
+                                </a></li>
+                            <li><a href="{{ route('project.index', 1) }}">
+                                    <div class="text">PROJECT</div>
+                                </a></li>
+                            <li><a href="{{ route('detail.donate') }}">
+                                    <div class="text">DONATE</div>
+                                </a></li>
+                            <li><a href="{{ route('blog.index') }}">
+                                    <div class="text">BLOG</div>
+                                </a></li>
+                            <li><a href="{{ route('contact.index') }}">
+                                    <div class="text">CONTACT</div>
+                                </a>
+                            </li>
+                            <li class="profile-option">
+                                    @if (session('userInfo'))
+                                    <div class="text username">{{session('userInfo')['name']}}</div> 
+                                    {{-- <a href="{{route('logout')}}">LOGOUT</a> --}}
+                                    @else
+                                    <div class="text popup-login">LOGIN</div>
+                                    @endif
+                            </li>
+                            </div>
+                        </ul>
+                        <div class="profile-dropdown">
+                            <ul>
+                                <li><a href="">PROFILE</a></li>
+                                <li><a href="">LOGOUT</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -262,5 +272,12 @@
 </body>
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
-
+<script>
+var profileOption = document.querySelector(".profile-option");
+var profileDropdown = document.querySelector(".profile-dropdown");
+profileOption.addEventListener("click", function(){
+    profileDropdown.classList.toggle("showOptionProfile");
+    //profileDropdown.style.animationDuration = "0.5s";
+})
+</script>
 </html>
