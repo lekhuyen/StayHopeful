@@ -28,7 +28,6 @@
                         <thead>
                             <tr>
                                 <td>#</td>
-                                <td>Catogries</td>
                                 <td>Image</td>
                                 <td>Name Image</td>
                                 <td>Action</td>
