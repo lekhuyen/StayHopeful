@@ -32,8 +32,7 @@ class AdminPageController extends Controller
     public function viewmanagerdesign()
     {
         $sliders = Sliders::all();
-        $categories = Categories_sliders::all();
-        return view('frontend.adminpage.manager.design', compact('categories', 'sliders'));
+        return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview(){
         $projects = Project::orderBy('id', 'desc')
@@ -58,7 +57,6 @@ class AdminPageController extends Controller
             $slider = new Sliders();
             $slider->url_image = 'images/' . $filename;
             $slider->slider_name = $request->nameimg;
-            $slider->categories_sliders_id = $request->categories;
             $slider->save();
 
         }
@@ -78,7 +76,6 @@ class AdminPageController extends Controller
             $slider->url_image = 'images/' . $filename;
         }
         $slider->slider_name = $request->nameimage;
-        $slider->categories_sliders_id = $request->categories;
         $slider->save();
 
         return redirect()->back()->with('success', 'Success update Sliders');

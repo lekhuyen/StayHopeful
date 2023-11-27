@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailDonate;
 use App\Models\DonateInfo;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class detaildonateController extends Controller
@@ -12,13 +14,14 @@ class detaildonateController extends Controller
 
     public function index()
     {
-        $project = Project::all();
-        return view('frontend.detaildonate.donatepage', compact('project'));
+        $projects = Project::all();
+
+        return view('frontend.detaildonate.donatepage', compact('projects'));
     }
 
 
 
-    
+
     public function viewlistdonate()
     {
         return view('frontend.detaildonate.listdonate');
@@ -26,9 +29,9 @@ class detaildonateController extends Controller
     public function thanhtoan(Request $request)
     {
         $fullname = "";
-        if($request->hidename == "hidename"){
+        if ($request->hidename == "hidename") {
             $fullname = $request->hidename;
-        }else{
+        } else {
             $fullname = $request->fullname;
         }
         $email = $request->email;
@@ -37,18 +40,18 @@ class detaildonateController extends Controller
         $type = $request->type;
         $amounttotal = $request->amount;
         $message = $request->message;
-        
+
         if (isset($_POST['redirect'])) {
             $order_id = rand(10000000, 99999999);
             error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
             date_default_timezone_set('Asia/Ho_Chi_Minh');
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/listdonate";
-            $vnp_TmnCode = "JDTIQ2LS"; 
+            $vnp_Returnurl = "http://127.0.0.1:8000/";
+            $vnp_TmnCode = "JDTIQ2LS";
             $vnp_HashSecret = "GOZHPSSCWYEILRDETJAJTHHDVAHUZAWW";
 
-            $vnp_TxnRef = $order_id; 
+            $vnp_TxnRef = $order_id;
             $vnp_OrderInfo = $project;
             $vnp_OrderType = "card";
             $vnp_Amount = $amounttotal * 100;
@@ -102,6 +105,7 @@ class detaildonateController extends Controller
                 ,
                 'data' => $vnp_Url
             );
+
             if (isset($_POST['redirect'])) {
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $fullname;
@@ -112,13 +116,19 @@ class detaildonateController extends Controller
                 $donateinfo->amount = $amounttotal;
                 $donateinfo->message = $message;
                 $donateinfo->save();
-                // return redirect($vnp_Url)->withInput();
-                return redirect()->route('/');
+                if ($returnData['code'] == '00') {
+                    $tomail = $request->email;
+
+                    Mail::to($tomail)->send(new EmailDonate());
+                    return redirect()->back()->with('success', 'Send Mail Success');
+                }
+                return redirect($vnp_Url)->withInput();
+
 
             } else {
                 return response()->json($returnData);
             }
-        } 
+        }
     }
 
 }

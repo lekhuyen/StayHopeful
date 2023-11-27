@@ -137,7 +137,9 @@
                     <h5 class="modal-title" id="exampleModalLabel">Edit Account User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                @foreach ($user as $item)
                 <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
+                @endforeach
                     @method('PUT')
                     @csrf
                     <div class="modal-body">

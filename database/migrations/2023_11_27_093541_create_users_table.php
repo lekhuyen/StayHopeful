@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories_sliders', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->integer('role')->default(0);
+            $table->boolean('status')->default(false);
+            $table->string('verified_token');
+            $table->string('avatar')->nullable();
+            $table->date('deleted_at')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories_sliders');
+        Schema::dropIfExists('users');
     }
 };
