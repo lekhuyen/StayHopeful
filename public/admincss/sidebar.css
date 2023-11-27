@@ -29,6 +29,8 @@ hr.h-color {
 
 
 .sidebar li a {
+	margin-top: 20px;
+	font-size: 20px;
 	color: #fff;
 }
 

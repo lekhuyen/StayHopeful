@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class="logo-donate">
-            <img src="Donation-Thank-You-White-Text-01-1.png">
+            <img src="{{asset('img/aboutus_main.jpg')}}">
         </div>
         <div class="container" style="font-weight: bold;">
             

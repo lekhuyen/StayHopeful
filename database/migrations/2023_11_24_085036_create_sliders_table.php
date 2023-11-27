@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('url_image');
             $table->string('slider_name');
-            $table->foreignId('categories_sliders_id')->constrained('categories_sliders')->onDelete('cascade');
             $table->timestamps();
         });
     }
