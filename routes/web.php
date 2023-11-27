@@ -101,8 +101,10 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
     Route::post('listuser', [AdminPageController::class, 'registeruser'])->name('admin.registeruser');
     Route::put('listuser/{id}', [AdminPageController::class, 'updateuser'])->name('admin.updateuser');
-    Route::get('updateuser/{id}', [AdminPageController::class, 'getiduser'])->name('admin.getiduser');
     Route::get('listuser/{id}', [AdminPageController::class, 'deleteuser'])->name('admin.deleteuser');
+    Route::get('updateuser/{id}', [AdminPageController::class, 'getiduser'])->name('admin.getiduser');
+    Route::get('updateuser/{id}/banned', [AdminPageController::class, 'banned'])->name('admin.banneduser');
+    Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
 });
 

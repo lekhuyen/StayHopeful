@@ -9,6 +9,7 @@ use App\Models\Sliders;
 use App\Models\Video;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Psy\Readline\Hoa\Console;
@@ -123,7 +124,8 @@ class AdminPageController extends Controller
         $user->email = $request->email;
         $user->password = $hashpass;
         $user->role = $request->role;
-        $user->status = $request->status;
+        $user->verified_token = 'ASD';
+        $user->status = 0;
         $user->save();
         return redirect()->back()->with('success', 'Create User successfully');
     }
@@ -141,7 +143,7 @@ class AdminPageController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
-        $user->status = $request->status;
+        // $user->status = $request->status;
         $user->save();
         return redirect()->back()->with('success', 'Update User successfully');
     }
@@ -153,6 +155,34 @@ class AdminPageController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->back()->with('success', 'Delete User successfully');
+
+    }
+    public function banned($id){
+        $now = date('Y-m-d H:i:s');
+        try{
+            DB::table('users')->where('id', $id)->update([
+                'status' => 0,
+                'deleted_at' => $now, 
+            ]);
+            return response()->json(['message' => 'User has been Active']);
+        } catch(\Exception $e){
+            return response()->json(['error' => 'Error banned: ' . $e->getMessage()]);
+
+        }
+
+    }
+    public function active($id){
+        $now = date('Y-m-d H:i:s');
+        try{
+            DB::table('users')->where('id', $id)->update([
+                'status' => 1, 
+                'deleted_at' => $now, 
+            ]);
+            return response()->json(['message' => 'User has been Banned']);
+        } catch(\Exception $e){
+            return response()->json(['error' => 'Error Active: ' . $e->getMessage()]);
+
+        }
 
     }
 
