@@ -31,16 +31,26 @@ textarea {
     margin-bottom: 30px;
 }
 
-.fb-btn .fb-setinput {
+.fb-setinput {
     width: 40%;
     border-radius: 20px;
-    background: linear-gradient(to left, #74cbfd, #0890df);
+    background: linear-gradient(to right, #4eb1ea, #0189d8);
     border: 1px solid white;
+}
+
+label {
+    color: aliceblue;
 }
 
 #email {
     width: 80%;
     margin: auto;
+}
+
+#content {
+    border-radius: 10px;
+    border: aliceblue;
+    width: 100%;
 }
 
 /* Star Rating */

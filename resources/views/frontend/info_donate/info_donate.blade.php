@@ -4,26 +4,31 @@
             <div class="col-lg-12" style="display: flex; align-items:center">
                 <marquee>
                     <span style="font-size: 20px; margin-left: 20px; color: black; ">
-                        Tổng Donate:
+                        Total Donate:
                     </span>
-                    <span  class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">0</span> 
+                    <span  class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">325000</span>
 
                     <span style="font-size: 20px; margin-left: 20px; color: black; ">
-                        A LvK:
+                        Mr. Le Van Khuyen:
                     </span>
-                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span> 
+                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span>
                     <span style="font-size: 20px; margin-left: 20px; color: black; ">
-                        Chị Yeong Báo:
+                        Ms. Cho In Yeong:
                     </span>
-                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span> 
+                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span>
                     <span style="font-size: 20px; margin-left: 20px; color: black; ">
-                        Chị Sương Báo:
+                        Ms. Huynh Boi Suong:
                     </span>
-                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span> 
+                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span>
                     <span style="font-size: 20px; margin-left: 20px; color: black; ">
-                        A Phong Báo:
+                        Mr. Tran Thanh Phong:
                     </span>
-                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span> 
+                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">100</span>
+
+                    <span style="font-size: 20px; margin-left: 20px; color: black; ">
+                        Mr. Pham Duy Hau:
+                    </span>
+                    <span class="odometer" id="odometer" style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">1000</span>
                 </marquee>
             </div>
         </div>

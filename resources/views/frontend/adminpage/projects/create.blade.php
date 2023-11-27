@@ -2,8 +2,8 @@
 @section('admin_content')
 
     <div class="container mt-3">
-        <h2>Add Category</h2>
-        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Category List</a>
+        <h2>Add Project</h2>
+        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Project List</a>
         <form action="{{route('projectAd.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="description">Description:</label>
-                <textarea type="tetx" class="form-control" id="description-project" placeholder="Enter description" name="description"></textarea>
+                <textarea type="tetx" class="form-control" id="description-project-create" placeholder="Enter description" name="description"></textarea>
                 @error('description')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -39,7 +39,7 @@
                 <select name="status">
                     <option>Choose Status</option>
                     <option value="1">Finish</option>
-                    <option value="2">Unfinished</option>
+                    <option value="0">Unfinished</option>
                 </select>
                 @error('status')
                     <span class="text-danger">{{$message}}</span>
@@ -68,8 +68,14 @@
         </form>
     </div>
 
-    <script>
-        CKEDITOR.replace( 'description' );
-</script>
 @endsection
     
+@section('ckeditor')
+<script>
+    ClassicEditor
+            .create( document.querySelector('#description-project-create'))
+            .catch( error => {
+                    console.error( error );
+            } );
+</script>
+@endsection
