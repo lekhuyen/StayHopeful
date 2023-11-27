@@ -3,6 +3,7 @@
 @section('main')
 
 
+<link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
 {{-- teamname.css --}}
 
 <h1>Meet Jane Smith, The Chief Marketing Officer</h1>

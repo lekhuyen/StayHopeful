@@ -10,6 +10,10 @@ class AboutusController extends Controller
         return view("frontend.aboutus.aboutus");
     }
 
+    public function whoweare() {
+        return view("frontend.aboutus.whoweare");
+    }
+
     public function johndoe()
     {
         return view('frontend.aboutus.johndoe');

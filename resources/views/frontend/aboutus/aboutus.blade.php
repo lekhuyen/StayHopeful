@@ -7,7 +7,7 @@
 <br>
 <br>
 {{-- Mission sector --}}
-<div class="container mt-3 about-main" data-aos="zoom-in-down">
+<div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
     <h1>What is our mission</h1>
 
     <span class="mission">
@@ -124,86 +124,31 @@
     </div>
 </div>
 
-{{-- Accordion sector--}}
-<div class="container mt-3">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-
-        <!-- Image -->
-        <div data-aos="zoom-in-right">
-            <img class="custom-badge" src="{{ asset('img/badge.jpg') }}" alt="badge">
+{{-- logo_company --}}
+<div class="container mt-3 ">
+    <div class="position-relative py-2 px-4 col-md-6 offset-md-3 logo_info">
+        Our vision extends beyond immediate impact. We're committed to sustainable solutions that stand the test of time. Your support not only transforms lives but also contributes to a more resilient and sustainable future. At <strong>Stay Hope Full</strong>, we partner with organizations that share our dedication to environmental well-being.
+        <svg width="20px" height="20px" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-secondary)" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col ">
+            <a href="https://www.independent.co.uk/asia"><img src="{{ asset('img/logo_aboutus/logo_company1.PNG') }}" alt="logo_company1.PNG" class="logo_company"></a>
         </div>
-
-        {{-- Accordion --}}
-        <div class="accordion" id="projectAccordion" data-aos="zoom-in-left">
-            <!-- Projects Funded -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="projectFundedHeading">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectFundedCollapse" aria-expanded="true" aria-controls="projectFundedCollapse">
-                        <i class="bi bi-check-square"></i> Projects Funded
-                    </button>
-                </h2>
-                <div id="projectFundedCollapse" class="accordion-collapse collapse show" aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        We have successfully funded <strong>50</strong> impactful projects, creating positive change globally. These projects include initiatives related to clean water, education, healthcare, and environmental sustainability.
-                    </div>
-                </div>
-            </div>
-        
-            <!-- People Served -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="peopleServedHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peopleServedCollapse" aria-expanded="false" aria-controls="peopleServedCollapse">
-                        <i class="bi bi-person"></i> People Served
-                    </button>
-                </h2>
-                <div id="peopleServedCollapse" class="accordion-collapse collapse" aria-labelledby="peopleServedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Our projects have positively impacted the lives of <strong>100,000</strong> individuals around the world. We focus on reaching underserved communities, providing them with access to essential services and improving their overall well-being.
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Countries Impacted -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="countriesImpactedHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#countriesImpactedCollapse" aria-expanded="false" aria-controls="countriesImpactedCollapse">
-                        <i class="bi bi-globe"></i> Countries Impacted
-                    </button>
-                </h2>
-                <div id="countriesImpactedCollapse" class="accordion-collapse collapse" aria-labelledby="countriesImpactedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Our projects have made a positive impact in <strong>25</strong> countries, reaching communities far and wide. We collaborate with local partners and organizations to address specific challenges and contribute to sustainable development.
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Challenges Faced -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="challengesFacedHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#challengesFacedCollapse" aria-expanded="false" aria-controls="challengesFacedCollapse">
-                        <i class="bi bi-exclamation-circle"></i> Challenges Faced
-                    </button>
-                </h2>
-                <div id="challengesFacedCollapse" class="accordion-collapse collapse" aria-labelledby="challengesFacedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Despite our successes, we have faced various challenges along the way. These challenges have strengthened our resolve and commitment to making a lasting impact on the lives of those in need.
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Future Plans -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="futurePlansHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#futurePlansCollapse" aria-expanded="false" aria-controls="futurePlansCollapse">
-                        <i class="bi bi-arrow-right-circle"></i> Future Plans
-                    </button>
-                </h2>
-                <div id="futurePlansCollapse" class="accordion-collapse collapse" aria-labelledby="futurePlansHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Looking ahead, our future plans involve expanding our reach, launching new projects, and leveraging innovative solutions to address emerging challenges. We are dedicated to creating a positive and sustainable impact on a global scale.
-                    </div>
-                </div>
-            </div>
+        <div class="col ">
+            <a href="https://www.cbsnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company2.PNG') }}" alt="logo_company2.PNG" class="logo_company"></a>
+        </div>
+        <div class="col ">
+            <a href="https://www.cbsnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company3.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
+        </div>
+        <div class="col ">
+            <a href="https://nypost.com/"><img src="{{ asset('img/logo_aboutus/logo_company4.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
+        </div>
+        <div class="col ">
+            <a href="https://www.usnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company5.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
+        </div>
+        <div class="col ">
+            <a href="https://fsoft-academy.edu.vn/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>       
         </div>
     </div>
 </div>
@@ -228,8 +173,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Donate Now to Save Lives</h5>
                     <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
-                    <br>
-                    <a href="#">Sign In</a></p>
+                    <a href="{{ route('detail.donate') }}">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -273,142 +217,118 @@
     </div>
 </div>
 
-{{-- Our Founder sector --}}
-<div class="container mt-3 our_founder" data-aos="zoom-in">
-<div class="container mt-3 our_founder" data-aos="zoom-in">
-    <h2 class="text-center">Our Founder</h2>
-    <div>
-        Welcome to the heart of <strong>Stay Hope full</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
-    </div>
-
-    <div class="container mt-5">
-
-        <div class="row mt-4">
-            <!-- Founder's Picture -->
-            <div class="col-md-4 text-center">
-                <img class="img-fluid rounded-circle founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
-            </div>
-            
-            <!-- Introduction -->
-            <div class="col-md-8">
-                <br>
+{{-- Our Team sector --}}
+<div class="container-fluid mt-3 our_team" data-aos="fade-right">
+    <h2>Who We Are</h2>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <span>
+                Welcome to <strong>Stay Hope Full</strong>, where our journey towards positive change began 1990. Over the years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and Growth</strong> dedicated to making a lasting impact.
+            </span>
             <br>
-            <br>
-                <p class="text-justify">
-                    Meet John Doe, the visionary behind <strong>Stay hope full</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
-                </p>
-                <a href="{{route("aboutus.johndoe")}}" class="btn btn-primary">HEAR JOHN DOE's STORY</a>
-            </div>
+            <span>
+                Our story started with a vision held passionately by <strong>John Doe</strong>. Fueled by the potential to leverage technology, they laid the foundation for <strong>Stay Hope Full</strong> with the belief that will make a better Tomorrow.
+            </span>
         </div>
     </div>
-</div>
-<hr>
-<!-- Team Members sector -->
-<div class="container mt-3">
-
-    <div data-aos="zoom-out-up">
-        <h2 class="text-center">Our Team</h2>
-        <span>
-            Welcome to the heart of <strong>Stay Hopeful</strong>. Our dedicated team shares a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
-        </span>
-    </div>
-
     <br>
-    <div class="row row-cols-1 row-cols-md-2 g-4" >
-      <div class="col">
-        <div class="card">
-          <div class="row g-0">
-            <div class="col-md-4" data-aos="fade-up-right" data-aos-delay="200">
-              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body" data-aos="fade-up-right" data-aos-delay="200">
-                <h5 class="card-title">Jane Smith</h5>
-                <p class="card-text">Jane Smith is our Chief Marketing Officer, bringing a creative and strategic approach to our outreach efforts. Her dedication has played a crucial role in expanding our reach and impact.</p>
-                <p class="card-text"><small class="text-body-secondary">Date of Birth: March 10, 1988</small></p>
-                <a href="{{route("aboutus.janesmith")}}" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
+    <div class="row align-items-center">
+        <div class="col">
+            <img class="founder-img1" src="{{ asset('img/aboutus_founder1.jpg') }}" alt="founder1" >
         </div>
-    </div>
-  
-    <div class="col">
-        <div class="card">
-          <div class="row g-0">
-            <div class="col-md-4" data-aos="fade-up-left" data-aos-delay="400">
-              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body" data-aos="fade-up-left" data-aos-delay="400">
-                <h5 class="card-title">Robert Johnson</h5>
-                <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive experience in finance and strategic planning. His innovative thinking has significantly contributed to our organization's success.</p>
-                <p class="card-text"><small class="text-body-secondary">Date of Birth: August 22, 1982</small></p>
-                <a href="{{route("aboutus.robertjohnson")}}" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  
-    <div class="col">
-        <div class="card">
-          <div class="row g-0">
-            <div class="col-md-4" data-aos="fade-down-right" data-aos-delay="500">
-              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body" data-aos="fade-down-right" data-aos-delay="500">
-                <h5 class="card-title">Kai Greene</h5>
-                <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our technological initiatives. Their expertise has been instrumental in driving our digital transformation.</p>
-                <p class="card-text"><small class="text-body-secondary">Date of Birth: May 18, 1989</small></p>
-                <a href="{{route("aboutus.kaigreene")}}" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="card">
-            <div class="row g-0">
-                <div class="col-md-4" data-aos="fade-down-left" data-aos-delay="700">
-                    <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="Person's Image">
+        <div class="col">
+            <div class="card mb-3">
+                <img class="founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
+                <div class="card-body">
+                  <h5 class="card-title">John Doe</h5>
+                  <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus where donors and causes converge</p>
+                  <a href="{{route("aboutus.whoweare")}}" >Meet Our Team</a>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body" data-aos="fade-down-left" data-aos-delay="700">
-                        <h5 class="card-title">Oliver Hudson</h5>
-                        <p class="card-text">liver Hudson serves as our Creative Director, bringing a unique blend of artistic vision and strategic thinking to our projects. Their creativity adds a distinctive touch to our initiatives.</p>
-                        <p class="card-text"><small class="text-body-secondary">Date of Birth: January 15, 1985</small></p>
-                        <a href="{{route("aboutus.oliverhudson")}}" class="btn btn-primary">View Details</a>
-                    </div>
+              </div>
+        </div>
+        <div class="col">
+            <img class="founder-img2" src="{{ asset('img/aboutus_founder2.jpg') }}" alt="founder2">
+        </div>
+    </div>
+</div>
+<hr>
+{{-- Accordion sector--}}
+<div class="container mt-3" data-aos="zoom-in">
+    <h2>Questions you often encounter</h2>
+    {{-- Accordion --}}
+    <div class="accordion" id="projectAccordion">
+        <!-- Projects Funded -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="projectFundedHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectFundedCollapse" aria-expanded="true" aria-controls="projectFundedCollapse">
+                    <i class="bi bi-check-square"></i> 1. How Can I Make a Donation
+                </button>
+            </h2>
+            <div id="projectFundedCollapse" class="accordion-collapse collapse show" aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    To make a donation, simply click on the "Donate Now" button on our homepage. You'll be guided through a secure process to choose your donation amount and payment method.
+                </div>
+            </div>
+        </div>
+    
+        <!-- People Served -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="peopleServedHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peopleServedCollapse" aria-expanded="false" aria-controls="peopleServedCollapse">
+                    <i class="bi bi-person"></i> 2. Where Does My Money Go?
+                </button>
+            </h2>
+            <div id="peopleServedCollapse" class="accordion-collapse collapse" aria-labelledby="peopleServedHeading" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    Your donation directly supports [insert your organization's mission]. We allocate funds to [specific programs or initiatives] to make a lasting impact
+                </div>
+            </div>
+        </div>
+    
+        <!-- Countries Impacted -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="countriesImpactedHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#countriesImpactedCollapse" aria-expanded="false" aria-controls="countriesImpactedCollapse">
+                    <i class="bi bi-globe"></i> 3. Can I Specify How I Want My Donation to be Used?
+                </button>
+            </h2>
+            <div id="countriesImpactedCollapse" class="accordion-collapse collapse" aria-labelledby="countriesImpactedHeading" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    Certainly! During the donation process, you can indicate any preferences or specify a particular program you'd like your donation to support
+            </div>
+        </div>
+    
+        <!-- Challenges Faced -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="challengesFacedHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#challengesFacedCollapse" aria-expanded="false" aria-controls="challengesFacedCollapse">
+                    <i class="bi bi-exclamation-circle"></i> 4. How Can I Contact Your Organization for More Information?
+                </button>
+            </h2>
+            <div id="challengesFacedCollapse" class="accordion-collapse collapse" aria-labelledby="challengesFacedHeading" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    For more information, feel free to reach out to our team at StayHopeful@email.com or call us at 123456789. We're here to assist you.
+                </div>
+            </div>
+        </div>
+    
+        <!-- Future Plans -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="futurePlansHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#futurePlansCollapse" aria-expanded="false" aria-controls="futurePlansCollapse">
+                    <i class="bi bi-arrow-right-circle"></i> 5. How Can I Get Involved Beyond Donating?
+                </button>
+            </h2>
+            <div id="futurePlansCollapse" class="accordion-collapse collapse" aria-labelledby="futurePlansHeading" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                    We appreciate your interest! Explore volunteer opportunities, attend events, or share our mission on social media to help us reach more supporters
                 </div>
             </div>
         </div>
     </div>
 </div>
 <hr>
-{{-- volunteer sector --}}
-<div class="container volunteer" >
-    <div class="row row-cols-1 row-cols-md-2 g-10 volunteer" data-aos="zoom-in-right">
-        <div class="col left-volunteer">
-            <div>
-                <img src="{{ asset('img/aboutus6.jpg') }}" alt="aboutus4" class="aboutus-image6">
-            </div>
-            
-        </div>
 
-        <div class="col right-volunteer" data-aos="zoom-in-left">
-            <div>
-                <div>
-                    <h3>Change the world with us</h3>
-                    <span>We are hiring! Explore our openings and join the team</span>
-                    <a href="#">Careers</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @include("frontend/login/login");
 @endsection

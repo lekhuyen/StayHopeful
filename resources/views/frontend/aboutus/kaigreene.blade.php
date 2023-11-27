@@ -3,6 +3,7 @@
 @section('main')
 
 
+<link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
 {{-- teamname.css --}}
 
 <h1>Meet Kai Greene, A Lead Developer</h1>

@@ -3,8 +3,11 @@
 @section('main')
 
 
+<link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}">
 {{-- foundername.css --}}
 
+<br>
+<br>
 <h1>Meet John Doe, The Founder</h1>  
 
 <br>

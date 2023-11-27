@@ -71,6 +71,8 @@ Route::get('/contact', [ContactusController::class, 'index'])->name('contact.ind
 // Aboutus 
 Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
+Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
+
 Route::get('/aboutus/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
 
 Route::get('/aboutus/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
