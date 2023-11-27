@@ -6,7 +6,7 @@
         <div class="row">
             @if ($projects->count() > 0)
                 @foreach ($projects as $project)
-                    <div class="col-xxl-3 col-xl-6" style="margin-bottom: 20px">
+                    <div class="col-lg-3 col-xxl-4 col-xl-3" style="margin-bottom: 20px">
                         <a href="{{route('detail.post', $project->id)}}" class="a-card">
                             <div class="card card_wapper" style="width: 19.5rem;">
                                 @if($project->status == 0)
