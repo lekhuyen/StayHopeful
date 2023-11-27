@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
+    {{-- favicon  --}}
+    <link rel="icon" type="image/x-icon" href="{{asset('img/favicon.PNG')}}">
+    <link rel="apple-touch-icon" href="{{asset('img/favicon.PNG')}}">
+
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
     {{-- css contactus --}}
