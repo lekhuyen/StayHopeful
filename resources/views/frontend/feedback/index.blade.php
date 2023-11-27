@@ -19,7 +19,7 @@
                 <td>{{ $item->email }}</td>
                 <td class="content">{{ $item->content }}</td>
                 <td>{{ $item->star }}</td>
-                <td><a href="{{ route('feedback.detail') }}" class="btn btn-warning">Detail</a></td>
+                <td><a href="{{ route('feedback.detail',$item->id) }}" class="btn btn-warning">Detail</a></td>
             </tr>
         @endforeach
     </tbody>
