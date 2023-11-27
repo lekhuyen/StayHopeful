@@ -1,4 +1,5 @@
 @extends('frontend.site')
+@section('title', 'Projects')
 @section('main')
     @include('frontend.info_donate.info_donate')
 

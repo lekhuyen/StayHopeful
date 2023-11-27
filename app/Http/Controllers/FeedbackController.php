@@ -32,6 +32,7 @@ class FeedbackController extends Controller
         $feedback = Feedback::find($id);
         $sensitives_word = Sensitive::all();
         $words = $sensitives_word->pluck('word');
+        // dd($words);
         return view('frontend.feedback.detail', compact('feedback','words'));
     }
 }

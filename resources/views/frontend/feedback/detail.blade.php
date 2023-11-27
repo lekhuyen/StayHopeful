@@ -17,7 +17,7 @@
     let text = row.textContent.toLowerCase();
     wordSensitives.forEach(word => {
         if (text.includes(word)) {
-            text = text.replace(word,`<b style="color:red">${words}</b>`);
+            text = text.replace(word,`<b style="color:red">${word}</b>`);
             btnBadFeedback.classList.remove('d-none');
         }
     });
