@@ -4,6 +4,8 @@
 @section('title', 'Feedback')
 @section('main')
 
+<link href="{{ asset('feedbackcss/feedback.css') }}">
+
     <div class="container mt-3">
         @if (session('success'))
             <div class="alert alert-success feedback-alert">
@@ -68,7 +70,7 @@
         </div>
         </form>
     </div>
-    
+
     <script>
         // To access the stars
         let stars =
@@ -78,25 +80,26 @@
         let numberStar = document.getElementById("star");
 
         // Funtion to update rating
+        let cls;
         function gfg(n) {
-            remove();
+            remove(cls);
             for (let i = 0; i < n; i++) {
                 if (n == 1) cls = "one";
                 else if (n == 2) cls = "two";
                 else if (n == 3) cls = "three";
                 else if (n == 4) cls = "four";
                 else if (n == 5) cls = "five";
-                stars[i].className = "star " + cls;
+                stars[i].classList.add(cls);
             }
             output.innerText = "Rating is: " + n + "/5";
             numberStar.value = n; //gan value vao n; numberStar la gtr of o input
         }
 
         // To remove the pre-applied styling
-        function remove() {
+        function remove(cls) {
             let i = 0;
             while (i < 5) {
-                stars[i].className = "star";
+                stars[i].classList.remove(cls);
                 i++;
             }
         }

@@ -12,9 +12,10 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+
 html {
     scroll-behavior: smooth;
-  }
+}
 
 /* ----------------------------navbar -----------------------------------------*/
 
@@ -186,7 +187,8 @@ html {
     transition: 0.3s;
 
 }
-.nav_bar li div.text.popup-login:hover{
+
+.nav_bar li div.text.popup-login:hover {
     color: #123b6a;
     transition: 0.3s;
 }
@@ -742,6 +744,12 @@ button.carousel-control-next {
     /* card */
     .card-title-1 {
         font-size: 30px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
     }
 
     .card-body p {
@@ -827,6 +835,16 @@ button.carousel-control-next {
 
 
     /* ------card----------- */
+    .card-title-1 {
+        font-size: 18px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
     .card_wapper {
         width: 100% !important;
     }

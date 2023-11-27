@@ -105,7 +105,7 @@
     height: 100%;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius:3px;
+    border-radius:5px;
 }
 .new_child img {
     width: 40%;
@@ -121,7 +121,7 @@
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     padding-left: 5px;

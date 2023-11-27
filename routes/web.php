@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
-use App\Http\Controllers\VideoController;
+use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,11 +64,15 @@ Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('b
 //detail-page
 Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
-// Contact 
+// Contact
+Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
+// Contact
 Route::get('/contact', [ContactusController::class, 'index'])->name('contact.index');
 
 
-// Aboutus 
+// Aboutus
+Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
+// Aboutus
 Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
@@ -87,6 +91,12 @@ Route::get('/aboutus/oliverhudson', [AboutUsController::class, 'oliverhudson'])-
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail');
+
+//sensitive
+Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
+Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
+Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
 
 

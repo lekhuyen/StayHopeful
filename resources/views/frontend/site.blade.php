@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
+    {{-- favicon  --}}
+    <link rel="icon" type="image/x-icon" href="{{asset('img/favicon.PNG')}}">
+    <link rel="apple-touch-icon" href="{{asset('img/favicon.PNG')}}">
+
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detailPost/detailpost.css') }}">
     {{-- css contactus --}}
@@ -23,8 +27,6 @@
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
-    {{-- css feedback --}}
-
 
     {{-- popperjs --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -109,8 +111,8 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                    <a href="{{route('blog.index')}}" class="sub-item">Blog</a>
+                                    <a href="{{route('contact.index')}}" class="sub-item">Location</a>
                                 </div>
                             </div>
 
@@ -118,9 +120,9 @@
                                 <a class="nav-menu-title" href="#">PROJECT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('blog.index') }}" class="sub-item">Latest Projects</a>
+                                    <a href="{{ route('project.index', 1) }}" class="sub-item">Recent Projects</a>
                                     <a href="{{ route('blog.blog_finished') }}" class="sub-item">Finished Projects</a>
-                                    <a href="#" class="sub-item">Tin tuc 3</a>
+                                    {{-- <a href="#" class="sub-item">Tin tuc 3</a> --}}
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
@@ -129,7 +131,7 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
                                     <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                    {{-- <a href="" class="sub-item">Tin tuc 3</a> --}}
                                 </div>
                             </div>
 
@@ -137,7 +139,7 @@
                                 <a class="nav-menu-title">BLOG</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="{{route('blog.index')}}" class="sub-item">News</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                     <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
@@ -148,7 +150,7 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
                                 </div>
                             </div>
                         </div>
