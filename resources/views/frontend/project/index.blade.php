@@ -17,9 +17,9 @@
 
                                 <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
+                                    <h5 class="card-title card-title-1">{{ $project->title }}</h5>
                                     <div class="cart-description-post">
-                                        <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}
+                                        <p class="card-text card-text-1-1" >{{strip_tags($project->description)}}
                                         </p>
                                     </div>
                                     <p class="card-title-child">

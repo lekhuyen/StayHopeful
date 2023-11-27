@@ -110,7 +110,7 @@
         </div>
     </div>
 </div>
-<footer class="footer">
+{{-- <footer class="footer">
     <div class="container row">
         <div class="footer-col">
             <h4>company</h4>
@@ -150,7 +150,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> --}}
 <script src="{{ asset('js/sidebar.js') }}"></script>
 <script>
     var profilebtn = document.getElementById('dropdown-profile');
