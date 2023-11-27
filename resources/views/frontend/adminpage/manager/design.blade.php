@@ -39,7 +39,6 @@
                             @foreach ($sliders as $slider)
                                 <tr>
                                     <td>{{ $slider->id }}</td>
-                                    <td>{{ $slider->categories_sliders->name }}</td>
                                     <td><img src="{{ asset($slider->url_image) }}" width="100"
                                             onclick="openImagePopup('{{ asset($slider->url_image) }}')"></td>
                                     <td>{{ $slider->slider_name }}</td>
@@ -84,15 +83,7 @@
                         <input type="hidden" name="user_id" value="{{ $slider->id }}">
 
                         <div class="modal-body">
-                            <div class="mb-3 mt-3">
-                                <select class="form-select" aria-label="Default select example" id="categories"
-                                    name="categories">
-                                    <option selected>Choose Category</option>
-                                    @foreach ($categories as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
                             <div class="mb-3 mt-3">
                                 <label for="current-image" class="form-label">Current Image:</label>
                                 <img id="current-image" src="" width="100">
@@ -131,14 +122,7 @@
                 <form method="POST" enctype="multipart/form-data" action="{{ route('admin.create_slider') }}">
                     @csrf
                     <div class="modal-body">
-                        <div class="mb-3 mt-3">
-                            <select class="form-select" aria-label="Default select example" name="categories">
-                                <option selected>Choose Category</option>
-                                @foreach ($categories as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+
                         <div class="mb-3 mt-3">
                             <label for="image" class="form-label">Image:</label>
                             <input type="file" class="form-control" id="image" placeholder="Choose New Image"

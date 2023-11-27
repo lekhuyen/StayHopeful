@@ -14,7 +14,7 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner">
-                {{-- @foreach ($slider as $item)
+                @foreach ($slider as $item)
                     <div class="carousel-item active">
                         <img src="{{ asset($item->url_image) }}" alt="Los Angeles" class="d-block carosel_heigth">
                         <div class="carousel-caption">
@@ -22,8 +22,8 @@
                             <p>We had such a great time in LA!</p>
                         </div>
                     </div>
-                @endforeach --}}
-                <div class="carousel-item active">
+                @endforeach
+                {{-- <div class="carousel-item active">
                     <img src="{{ asset('img/slider_home3.jpg') }}" alt="Los Angeles" class="d-block carosel_heigth">
                     <div class="carousel-caption">
                         <h3>Viet Nam</h3>
@@ -43,7 +43,7 @@
                         <h3>Los Angeles</h3>
                         <p>We had such a great time in LA!</p>
                     </div>
-                </div>
+                </div> --}}
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>

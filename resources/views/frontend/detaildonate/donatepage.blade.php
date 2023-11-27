@@ -5,9 +5,10 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
                 <div class="form-donate">
-                    <form action="{{ route('detail.thanhtoan') }}" method="post">
+                    <form action="{{ route('detail.thanhtoan') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
+                        
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
@@ -60,8 +61,8 @@
                                     <select class="form-select" id="floatingSelect"
                                         aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
-                                        @foreach ($project as $p)
-                                            <option value="{{$p->id}}">{{$p->title}}</option>
+                                        @foreach ($projects as $item)
+                                            <option value="{{$item->id}}">{{$item->title}}</option>
                                         @endforeach
                                     </select>
                                     <label for="floatingSelect">Select Type</label>
@@ -125,4 +126,6 @@
             </div>
         </div>
     </div>
+    @include("frontend/login/login");
+
 @endsection
