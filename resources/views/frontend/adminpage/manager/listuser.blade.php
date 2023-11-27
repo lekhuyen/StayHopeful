@@ -48,13 +48,21 @@
                                             style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->role }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td>
+                                        @if ($item->status == '0')
+                                            <button class="btn btn-success active"
+                                                data-active="{{ $item->id }}">Active</button>
+                                        @else
+                                            <button class="btn btn-danger banned"
+                                                data-banned="{{ $item->id }}">Banned</button>
+                                        @endif
+                                    </td>
                                     <td style="text-align: center">
                                         <a href="#" data-user-id="{{ $item->id }}" class="btn btn-success"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="fa-solid fa-pen"></i>
                                         </a>
-                                        <a href="{{route('admin.deleteuser', $item->id)}}" class="btn btn-danger">
+                                        <a href="{{ route('admin.deleteuser', $item->id) }}" class="btn btn-danger">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </td>
@@ -104,22 +112,22 @@
                                 <option value="1">Admin</option>
                             </select>
                         </div>
-                        <div class="mb-3 mt-3">
+                        {{-- <div class="mb-3 mt-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" value="0" id="flexCheckDefault2"
                                     name="status">
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    Đã bị khoá(0)
+                                    Đã bị khoá(1)
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" value="1" id="flexCheckChecked2"
                                     name="status" checked>
                                 <label class="form-check-label" for="flexCheckChecked">
-                                    Hoạt động(1)
+                                    Hoạt động(0)
                                 </label>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -138,84 +146,112 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 @foreach ($user as $item)
-                <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
+                    <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
                 @endforeach
-                    @method('PUT')
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3 mt-3">
-                            <label for="id" class="form-label">ID:</label>
-                            <input type="text" class="form-control" id="id" disabled name="id"
-                                value="1">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="name-update" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name-update" placeholder="Enter Name"
-                                name="name">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="email-update" class="form-label">Email:</label>
-                            <input type="text" class="form-control" id="email-update" placeholder="Enter Email"
-                                name="email">
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="role-register" class="form-label">Role:</label>
-                            <select class="form-select" aria-label="Default select example" id="role-update"
-                                name="role" value="{{ old('role') == 'role' ? 'selected' : '' }}">
-                                <option selected>Select Role</option>
-                                <option value="0">User</option>
-                                <option value="1">Admin</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="0" id="status-update"
-                                    name="status">
-                                <label class="form-check-label" for="status-update">
-                                    Đã bị khoá(0)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="1" id="status-update2"
-                                    name="status" checked>
-                                <label class="form-check-label" for="status-update2">
-                                    Hoạt động(1)
-                                </label>
-                            </div>
-                        </div>
+                @method('PUT')
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3 mt-3">
+                        <label for="id" class="form-label">ID:</label>
+                        <input type="text" class="form-control" id="id" disabled name="id"
+                            value="1">
                     </div>
+                    <div class="mb-3 mt-3">
+                        <label for="name-update" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name-update" placeholder="Enter Name"
+                            name="name">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email-update" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="email-update" placeholder="Enter Email"
+                            name="email">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="role-register" class="form-label">Role:</label>
+                        <select class="form-select" aria-label="Default select example" id="role-update" name="role">
+                            <option selected>Select Role</option>
+                            <option value="0">User</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                    {{-- <div class="mb-3 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="0" id="status-update"
+                                name="status">
+                            <label class="form-check-label" for="status-update">
+                                Đã bị khoá(1)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="1" id="status-update2"
+                                name="status" checked>
+                            <label class="form-check-label" for="status-update2">
+                                Hoạt động(0)
+                            </label>
+                        </div>
+                    </div> --}}
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
                 </form>
             </div>
         </div>
     </div>
     <script>
-        $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var id = button.data('user-id');
-            var form = $('#exampleModal form');
-            var action = form.attr('action');
-            form.attr('action', action.replace(/\/\d+$/, '/' + id));
-            $.ajax({
-                type: 'GET',
-                url: '/admin/updateuser/' + id,
-                success: function(data) {
-                    console.log(data);
-                    $('#id').val(data.id);
-                    $('#name-update').val(data.name);
-                    $('#email-update').val(data.email);
-                    $('#role-update').val(data.role);
-                    if (data.status == 0) {
-                        $('#status-update').prop('checked', true);
-                    } else {
-                        $('#status-update2').prop('checked', true);
+        $(document).ready(function() {
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var id = button.data('user-id');
+                var form = $('#exampleModal form');
+                var action = form.attr('action');
+                form.attr('action', action.replace(/\/\d+$/, '/' + id));
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/updateuser/' + id,
+                    success: function(data) {                        $('#id').val(data.id);
+                        $('#name-update').val(data.name);
+                        $('#email-update').val(data.email);
+                        $('#role-update').val(data.role);
+                        if (data.status == 0) {
+                            $('#status-update').prop('checked', true);
+                        } else {
+                            $('#status-update2').prop('checked', true);
+                        }
                     }
-                }
-            })
-        });
+                })
+            });
+            $('.banned').on('click', function() {
+                var id = $(this).data('banned');
+                $.ajax({
+                    type: 'GET',
+                    url: "/admin/updateuser/" + id + "/banned",
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+            });
+
+            $('.active').on('click', function() {
+                var id = $(this).data('active');
+                $.ajax({
+                    type: 'GET',
+                    url: "/admin/updateuser/" + id + "/active", 
+                    success: function(response) {
+                        console.log(response);
+                        location.reload();
+
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+            });
+        })
     </script>
 @endsection

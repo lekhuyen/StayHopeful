@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('status')->default(false);
             $table->string('verified_token');
             $table->string('avatar')->nullable();
-            $table->date('deleted_at')->nullable();
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }
