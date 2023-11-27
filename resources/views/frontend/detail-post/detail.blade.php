@@ -6,30 +6,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 post-title">
-                    <h2>CHIẾC XE SỐ 63: BỊ LIỆT MỘT TAY VÀ HAI CHÂN NHƯNG VẪN CỐ GẮNG MƯU SINH NUÔI SỐNG BẢN THÂN</h2>
+                    <h2>{{$project->title}}</h2>
                 </div>
         </div>
     @endsection
 
     
     <div class="col-lg-8 post-detail-1">
-        <h4>Tuy đoạn đường từ nhà ra điểm bán chưa đầy 2km nhưng anh Minh phải mất rất nhiều thời gian và 
+        {{-- <h4>Tuy đoạn đường từ nhà ra điểm bán chưa đầy 2km nhưng anh Minh phải mất rất nhiều thời gian và 
             sức lực mới có thể hoàn thành, đó là chưa kể những ngày thời tiết Sài Gòn đổ mưa hay nắng gắt, 
             anh càng vất vả hơn. Ấy vậy mà đều đặn mỗi ngày trên chiếc xe lăn anh Minh vẫn cần cù bán từng 
             tờ vé số.
-        </h4>
+        </h4> --}}
 
-        <span>Anh Nguyễn Trọng Minh (1981) quê ở Đồng Tháp, là con giữa trong gia đình có 3 anh chị em. 
-            Kém may mắn hơn anh trai và em gái, anh Minh bị sốt bại liệt từ nhỏ khiến tay trái, hai chân 
-            bị liệt và teo dần. Cha mất sớm, anh Minh sống với mẹ từ nhỏ nhưng thấy rằng không thể ở quê 
-            sống nhờ vào mẹ và anh em mãi được nên từ năm 2008 anh Minh lên Sài Gòn bán vé số để tự nuôi 
-            sống bản thân. Trong đợt dịch covid vừa rồi anh Minh bị sụt ký nghiêm trọng, khám ra mới phát 
-            hiện mình bị tiểu đường, cơ thể vốn ốm yếu lại gánh thêm một căn bệnh mãn tính nên càng ốm yếu 
-            hơn, anh ngồi lọt thòm tròng chiếc xe lăn, cả thân người ước chừng chỉ khoảng 30kg. Mẹ anh đã 
-            65 tuổi, lâu lâu cô bắt xe khách lên thăm con và ở lại chơi vài ngày để thoả lòng mong nhớ.
-        </span>
-        <img src="{{asset("img/omg.jpeg")}}" alt="">
-        <span>Mỗi ngày anh Minh bán được khoảng 100-150 tờ vé số, tiền thuê trọ hàng tháng đã hết 1,5 
+        <span>{{strip_tags($project->description)}}</span>
+        @foreach ($project->images as $image)
+            <img src="{{asset($image->image)}}" alt="">
+        @endforeach
+        {{-- <span>Mỗi ngày anh Minh bán được khoảng 100-150 tờ vé số, tiền thuê trọ hàng tháng đã hết 1,5 
             triệu nên anh phải chi tiêu tiết kiệm để gửi tiền về hỗ trợ thêm cho mẹ. Anh Minh từng có xe 
             lắc nhưng xe đã hư hỏng không dùng được, hiện tại anh di chuyển bằng xe lăn nên đi lại rất hạn 
             chế trong khi người bán vé số ngày càng đông, anh càng khó bán hơn. Với số tiền ít ỏi kiếm được 
@@ -62,7 +56,7 @@
             13. Nhà hảo tâm Ẩn Danh hỗ trợ 100000 đồng
             14. Nhà hảo tâm CU BA BUI THI VIET hỗ trợ 2000000 đồng
             Nhà hảo tâm Truong Nhu Nhan hỗ trợ 200000 đồng
-        </span>
+        </span> --}}
         <div class="donate_link">
             <a href="#">ĐÓNG GÓP</a>
         </div>

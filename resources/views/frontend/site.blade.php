@@ -20,9 +20,14 @@
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css feedback --}}
-    <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 
 
+    {{-- popperjs --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-iOq1i6Z3NmFHAAdDOf9G4tLqtvxtk7GX6Zup9RS6VLgD5F5rtJd9uKT9KbeRGNfA" crossorigin="anonymous">
+    </script>
+
+    {{-- popperjs --}}
 
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
@@ -99,7 +104,7 @@
                                 <a class="nav-menu-title">ABOUT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="" class="sub-item">Tin tuc 1</a>
+                                    <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                     <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
@@ -149,14 +154,14 @@
                     <ul class="nav_bar">
                         <li><a href="{{ route('/') }}">
                                 <div class="text">
-                                    <img class="logo" src="./img/logo.PNG" alt="" style="margin-left: 0;">
+                                    <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
                                     HOME
                                 </div>
                             </a></li>
-                        <li><a href="#">
+                        <li><a href="{{ route('aboutus.index') }}">
                                 <div class="text">ABOUT</div>
                             </a></li>
-                        <li><a href="{{ route('project.index') }}">
+                        <li><a href="{{ route('project.index', 1) }}">
                                 <div class="text">PROJECT</div>
                             </a></li>
                         <li><a href="{{ route('detail.donate') }}">
@@ -171,8 +176,8 @@
                         </li>
                         <li>
                             <div class="text popup-login">LOGIN</div>
+                            {{-- đã có route logout chưa chỉnh css cho đẹp nên hong để vô ạ --}}
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -188,46 +193,45 @@
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>VỀ CHÚNG TÔI</h2>
-                        <span>Quỹ Từ thiện Stay Hopeful được thành lập theo Quyết định số:
-                            24/QĐ-BNV ngày 5 tháng 1 năm 2018. Stay Hopeful là phiên bản
-                            mở rộng của Quỹ Từ thiện Tình Thương thành phố Hồ Chí Minh.
-                            Quỹ có phạm vi hoạt động toàn quốc.
+                        <h2>STAYHOPEFUL</h2>
+                        <span>Charity Fund was established under Decision No. 24/QD-BNV dated January 5, 2018. Stay
+                            Hopeful is an expanded version of Ho Chi Minh City Charity Fund. The Fund has a nationwide
+                            scope of operations.
                         </span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>HƯỚNG DẪN – GIỚI THIỆU </h2>
+                        <h2>QUICK LINKS</h2>
                         <ul>
-                            <li><a href="">Hướng dẫn đóng góp</a></li>
-                            <li><a href="">Giới thiệu</a></li>
-                            <li><a href="">Tổ chức</a></li>
-                            <li><a href="">Lịch sử</a></li>
-                            <li><a href="">Quy chế tác viên</a></li>
+                            <li><a href="">Donate</a></li>
+                            <li><a href="">Projects</a></li>
+                            <li><a href="">Our Team</a></li>
+                            <li><a href="">History</a></li>
+                            <li><a href="">About StayHopeful</a></li>
                             <li></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>CHƯƠNG TRÌNH</h2>
+                        <h2>PROJECTS</h2>
                         <ul>
-                            <li><a href="">Trợ giúp y tế</a></li>
-                            <li><a href="">Dự án xây dựng</a></li>
-                            <li><a href="">Trợ giúp suất ăn giá thấp</a></li>
-                            <li><a href="">Cứu trợ khẩn cấp</a></li>
-                            <li><a href="">Giáo dục và dạy nghề</a></li>
+                            <li><a href="">Elderly Donation</a></li>
+                            <li><a href="">Children Donation</a></li>
+                            <li><a href="">Pet Donation</a></li>
+                            {{-- <li><a href=""></a></li>
                             <li><a href=""></a></li>
+                            <li><a href=""></a></li> --}}
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>QUỸ TỪ THIỆN STAY HOPEFUL</h2>
+                        <h2>STAYHOPEFUL CHARITY FUND</h2>
                         <ul>
-                            <li><i class="fa-solid fa-map"></i> Tầng 5, số 7 – 9 – 11 Mai Thị Lựu, P. Đa Kao, Quận 1,
-                                TP.Hồ Chí Minh.</li>
+                            <li><i class="fa-solid fa-map"></i>5th Floor, No. 7 – 9 – 11 Mai Thị Lựu Street, Đa Kao Ward, District 1,
+                                Hồ Chí Minh City</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
                             <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
@@ -243,7 +247,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-end">
-                        <h6>©2023 QUỸ TỪ THIỆN STAY HOPEFUL. All rights reserved. Serviced by Easyweb.vn</h6>
+                        <h6>©2023 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
                         <div class="media-icon">
                             <a href=""><i class="fa-brands fa-square-facebook"
                                     style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
