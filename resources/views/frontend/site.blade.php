@@ -151,7 +151,7 @@
                                     HOME
                                 </div>
                             </a></li>
-                        <li><a href="#">
+                        <li><a href="">
                                 <div class="text">ABOUT</div>
                             </a></li>
                         <li><a href="{{ route('project.index') }}">
