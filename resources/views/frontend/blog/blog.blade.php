@@ -21,9 +21,10 @@
 
             {{-- slidebar --}}
             <div class="col-lg-4 nav-bar-right">
-                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])  
+                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])
             </div>
         </div>
+        {{$blogs->links()}}
     </div>
     @include("frontend/login/login");
 @endsection
