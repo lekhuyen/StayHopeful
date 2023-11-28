@@ -43,7 +43,23 @@
         <ul class="list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home"></i> Dashboard</a></li>
-            <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
+            <li class="text-decoration-none px-3 py-2 d-block">
+                <div class="sider-dropdown">Manager<i class="fa-solid fa-angle-right" style="margin-left: 30px"></i>
+                    <div class="sider-dropdown-menu">
+                        <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
+                            class="fa-solid fa-image"></i> Post</a>
+                        <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
+                            class="fa-solid fa-desktop"></i>Slider</a>
+                        <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
+                            class="fa-solid fa-users"></i>User</a>
+                        <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
+                            class="fa-solid fa-briefcase"></i>Project</a>
+                        <a href="{{ route('category.index') }}" class="siderbar-item"><i
+                            class="fa-solid fa-briefcase"></i>Category</a>
+                    </div>
+                </div>
+            </li>
+            {{-- <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-image"></i>
                     Manager Post</a></li>
             <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
@@ -57,7 +73,7 @@
                     Manager Project</a></li>
             <li><a href="{{ route('category.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
-                    Manager Category</a></li>
+                    Manager Category</a></li> --}}
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
                     List Donate</a></li>
@@ -160,4 +176,15 @@
         profilebtn.classList.add('dropdown-profile-click');
         dropdownMenu.classList.toggle('active-profile-dropdown');
     })
+    document.addEventListener('DOMContentLoaded', function() {
+            var dropdownsider = document.querySelector('.sider-dropdown');
+            var angleIcon = dropdownsider.querySelector('.fa-angle-right');
+            var siderMenu = dropdownsider.querySelector('.sider-dropdown-menu');
+
+            dropdownsider.addEventListener('click', function() {
+                angleIcon.classList.toggle('fa-angle-right');
+                angleIcon.classList.toggle('fa-angle-down');
+                siderMenu.classList.toggle('show-menu');
+            });
+        });
 </script>
