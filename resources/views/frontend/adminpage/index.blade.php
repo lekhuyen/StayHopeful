@@ -49,31 +49,17 @@
                         <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
                             class="fa-solid fa-image"></i> Post</a>
                         <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                            class="fa-solid fa-desktop"></i>Slider</a>
+                            class="fa-solid fa-desktop"></i>Create Slider</a>
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
-                            class="fa-solid fa-users"></i>User</a>
+                            class="fa-solid fa-users"></i>Create User</a>
                         <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Project</a>
+                            class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
                             class="fa-solid fa-briefcase"></i>Category</a>
                     </div>
                 </div>
             </li>
-            {{-- <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-image"></i>
-                    Manager Post</a></li>
-            <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-desktop"></i>
-                    Manager Design</a></li>
-            <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-users"></i>
-                    Manager User</a></li>
-            <li><a href="{{ route('projectAd.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>
-                    Manager Project</a></li>
-            <li><a href="{{ route('category.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>
-                    Manager Category</a></li> --}}
+
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
                     List Donate</a></li>

@@ -66,8 +66,15 @@
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </td>
+
                                 </tr>
+                                
                             @endforeach
+                            @if ($user->isEmpty())
+                                    <tr>
+                                        <td colspan="6" style="text-align:center">No users found</td>
+                                    </tr>
+                                @endif
 
                         </tbody>
                     </table>
@@ -211,7 +218,7 @@
                 $.ajax({
                     type: 'GET',
                     url: '/admin/updateuser/' + id,
-                    success: function(data) {                        
+                    success: function(data) {
                         $('#id').val(data.id);
                         $('#name-update').val(data.name);
                         $('#email-update').val(data.email);
@@ -242,7 +249,7 @@
                 var id = $(this).data('active');
                 $.ajax({
                     type: 'GET',
-                    url: "/admin/updateuser/" + id + "/active", 
+                    url: "/admin/updateuser/" + id + "/active",
                     success: function(response) {
                         console.log(response);
                         location.reload();
