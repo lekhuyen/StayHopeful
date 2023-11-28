@@ -177,12 +177,14 @@
                             </li>
                             </div>
                         </ul>
+                        @if (session('userInfo'))
                         <div class="profile-dropdown">
                             <ul>
                                 <li><a href="">PROFILE</a></li>
                                 <li><a href="">LOGOUT</a></li>
                             </ul>
                         </div>
+                        @endif
                     </div>
                     
                 </div>
@@ -275,9 +277,13 @@
 <script>
 var profileOption = document.querySelector(".profile-option");
 var profileDropdown = document.querySelector(".profile-dropdown");
-profileOption.addEventListener("click", function(){
+profileOption.addEventListener("mouseover", function(){
     profileDropdown.classList.toggle("showOptionProfile");
-    //profileDropdown.style.animationDuration = "0.5s";
+    profileDropdown.style.transitionDuration = "0.5s";
 })
+// profileOption.addEventListener("mouseout", function(){
+//     profileDropdown.classList.remove("showOptionProfile");
+//     //profileDropdown.style.animationDuration = "0.5s";
+// })
 </script>
 </html>

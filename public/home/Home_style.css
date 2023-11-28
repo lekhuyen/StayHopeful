@@ -132,7 +132,7 @@ html {
 .profile-dropdown{
     width: 16.1%;
     height: 60px;
-    background-color: #123b6a;
+    background-color: #2880e5;
     position: fixed;
     right: 0;
     top: 60px;
@@ -231,7 +231,7 @@ html {
     color: #123b6a;
     transition: 0.3s;
 }
-.nav_bar li div.text.username:hover .profile-dropdown{
+.nav_bar li div.text.username:hover{
     color: #123b6a;
     transition: 0.3s;
 }
