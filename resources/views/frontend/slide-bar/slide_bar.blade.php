@@ -8,32 +8,31 @@
 </div>
 <div class="menu-bar">
     <div class="item">
-        <a href="{{ route('/') }}" class="menu-title-a">TRANG CHỦ</a>
+        <a href="{{ route('/') }}" class="menu-title-a">HOME</a>
     </div>
     <div class="item">
-        <a class="menu-title-a">GIỚI THIỆU</a>
+        <a class="menu-title-a">ABOUT</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
-            <a href="" class="sub-item">Tin tuc 1</a>
-            <a href="" class="sub-item">Tin tuc 2</a>
-            <a href="" class="sub-item">Tin tuc 3</a>
-        </div>
-    </div>
-
-    <div class="item">
-        <a class="menu-title-a">ĐÓNG GÓP</a>
-        <i class="fas fa-angle-right dropdown"></i>
-        <div class="sub-menu">
-            <a href="" class="sub-item">Tin tuc 1</a>
-            <a href="" class="sub-item">Tin tuc 2</a>
-            <a href="" class="sub-item">Tin tuc 3</a>
+            <a href="" class="sub-item">Aout Us</a>
+            <a href="" class="sub-item">Location</a>
+            <a href="" class="sub-item">Recent Projects</a>
         </div>
     </div>
     <div class="item">
-        <a href="{{ route('blog.index') }}" class="menu-title-a">TIN TỨC</a>
+        <a href="{{ route('contact.index') }}" class="menu-title-a">CONTACT US</a>
     </div>
     <div class="item">
-        <a class="menu-title-a">CHƯƠNG TRÌNH</a>
+        <a class="menu-title-a">DONATE</a>
+        <i class="fas fa-angle-right dropdown"></i>
+        <div class="sub-menu">
+            <a href="" class="sub-item">Donate Form</a>
+            <a href="" class="sub-item">Donate List</a>
+            {{-- <a href="" class="sub-item">Tin tuc 3</a> --}}
+        </div>
+    </div>
+    <div class="item">
+        <a class="menu-title-a">OUR PROJECT</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
             @foreach ($categories as $category)
@@ -44,7 +43,7 @@
 </div>
 
 
-<h2 class="title-middle">BÀI VIẾT LIÊN QUAN</h2>
+<h2 class="title-middle">RELATED ARTICLES</h2>
 @foreach ($projects as $project)
     <div class="post_related">
             <div>
@@ -59,7 +58,7 @@
 
 
 <script>
-// menu bar 
+// menu bar
 $('.item').click(function(){
     $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
     $(this).find('.sub-menu').slideToggle();

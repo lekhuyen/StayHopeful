@@ -25,7 +25,7 @@
                         </div>
                         <div class="hide-name-info">
                             <div class="hide-text">
-                                <input type="checkbox" name="hidename" value="hidename" style="transform: scale(1.5); margin-right: 20px"> Hide me form public
+                                <input type="checkbox" name="hidename" value="hidename" style="transform: scale(1.5); margin-right: 20px"> Donate Anonymously
                             </div>
                         </div>
                         <div class="form-donate-info">
