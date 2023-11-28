@@ -47,7 +47,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingInput" name="phone"
                                         placeholder="name@example.com">
-                                    <label for="floatingInput">Enter PhoneNumber</label>
+                                    <label for="floatingInput">Enter Phone Number</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-phone"></i></div>
                                     </div>
@@ -112,7 +112,7 @@
                                 <span class="info-text">Message</span>
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="message" style="height: 150px"></textarea>
-                                    <label for="floatingTextarea">Write Yours Message</label>
+                                    <label for="floatingTextarea">Write Your Message</label>
                                 </div>
                             </div>
                         </div>

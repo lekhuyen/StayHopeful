@@ -41,8 +41,8 @@
                         </a>
                     </div>
                 @endforeach
+                {{$projects->links()}}
             @endif
-
         </div>
     </div>
 

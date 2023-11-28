@@ -50,8 +50,8 @@
                         </a>
                     </div>
                 @endforeach
+                {{-- {{$category->links()}} --}}
             @endif
-            {{-- {!!$projects->links()!!} --}}
         </div>
     </div>
 

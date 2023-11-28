@@ -57,6 +57,7 @@ class BlogController extends Controller
     // project
     public function project_index(){
         $projects = Project::orderBy('id', 'desc')->get();
+        $projects = Project::paginate(8);
         return view('frontend.project.index', compact('projects'));
     }
 
