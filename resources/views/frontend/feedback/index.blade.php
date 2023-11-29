@@ -24,17 +24,21 @@
         @endforeach
     </tbody>
 </table>
-
+<p id="countBadfb"></p>
 <script>
     const wordSensitives = @json($words);
     const rows = document.querySelectorAll('.content');
+    const countBadfb = document.querySelector("#countBadfb");
+    let countBadfeedback = 0;
     rows.forEach(row => {
         let text = row.textContent.toLowerCase();
         wordSensitives.forEach(word => {
             if (text.includes(word)) {
+                countBadfeedback += 1;
                 text = text.replace(word, `<b style = "color: red">${word}</b>`)
             }
         });
         row.innerHTML = text;
+        countBadfb.innerHTML = `<b>Tong so bad feed back : ${countBadfeedback}</b>`;
     });
 </script>
