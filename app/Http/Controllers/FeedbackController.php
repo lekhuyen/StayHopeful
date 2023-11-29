@@ -10,7 +10,7 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedback = Feedback::all();
+        $feedback = Feedback::paginate(4);
         $sensitives_word = Sensitive::all();
         $words = $sensitives_word->pluck('word');
         return view("frontend.feedback.index",compact('feedback','words'));
