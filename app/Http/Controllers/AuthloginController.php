@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -62,7 +63,12 @@ class AuthloginController extends Controller
         return response()->json(['status' => 'success', 'message' => 'Dữ liệu đã được nhận và xử lý thành công.']);
     }
     public function viewprofile(){
-        return view('frontend.profile.index');
+        $user = session()->get('userInfo')['id'];
+        $posts = UserPost::orderBy('id','desc')
+                            ->where('user_id',$user)
+                            ->where('status', 0)
+                            ->get();
+        return view('frontend.profile.index', compact('posts'));
     }
     //login bằng email
     public function redirectgoogle(){
