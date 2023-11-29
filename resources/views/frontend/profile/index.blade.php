@@ -58,60 +58,6 @@
                                         <td>Con mèo bị con chó cắn</td>
                                         <td>100.000VNĐ</td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -158,7 +104,7 @@
                                     @if ($post->images->count() > 0)
                                         @foreach ($post->images as $image)
                                             <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px">
-                                                <img width="90%" height="400px" src="{{ asset($image->image) }}"
+                                                <img width="80%" height="400px" src="{{ asset($image->image) }}"
                                                     alt="">
                                             </div>
                                         @endforeach
