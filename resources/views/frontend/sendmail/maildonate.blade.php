@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class="logo-donate">
-            <img src="{{asset('img/aboutus_main.jpg')}}">
+            <img src="https://www.shutterstock.com/image-illustration/3d-image-thank-you-donating-260nw-1904263960.jpg" alt="Picture">
         </div>
         <div class="container" style="font-weight: bold;">
             
@@ -58,7 +58,7 @@
             <p>With sincere gratitude,</p>
             <p>Bắc Song Yeong</p>
             <div style="line-height: 10px;">
-                <p>Dự Án Giúp Người Vùng Cao</p>
+                <p>{!! $project !!}</p>
                 <p>(84-028) 3910 7614</p>
                 <p>contact@StayHopeful.org</p>
             </div>
