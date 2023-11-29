@@ -145,39 +145,51 @@
                     </div>
 
                     <!-- desktop interface -->
-                    <ul class="nav_bar">
-                        <li><a href="{{ route('/') }}">
-                                <div class="text">
-                                    <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
-                                        style="margin-left: 0;">
-                                    HOME
-                                </div>
-                            </a></li>
-                        <li><a href="{{ route('aboutus.index') }}">
-                                <div class="text">ABOUT</div>
-                            </a></li>
-                        <li><a href="{{ route('project.index', 1) }}">
-                                <div class="text">PROJECT</div>
-                            </a></li>
-                        <li><a href="{{ route('detail.donate') }}">
-                                <div class="text">DONATE</div>
-                            </a></li>
-                        <li><a href="{{ route('blog.index') }}">
-                                <div class="text">BLOG</div>
-                            </a></li>
-                        <li><a href="{{ route('contact.index') }}">
-                                <div class="text">CONTACT</div>
-                            </a>
-                        </li>
-                        <li>
-                            @if (session('userInfo'))
-                                <a href="{{ route('logout') }}"class="text popup-login">LOG OUT</a>
-                            @else
-                                <div class="text popup-login">LOGIN</div>
-                            @endif
-                            {{-- đã có route logout chưa chỉnh css cho đẹp nên hong để vô ạ --}}
-                        </li>
-                    </ul>
+                    <div style="position: relative;">
+                        <ul class="nav_bar">
+                            <li><a href="{{ route('/') }}">
+                                    <div class="text">
+                                        <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
+                                        HOME
+                                    </div>
+                                </a></li>
+                            <li><a href="{{ route('aboutus.index') }}">
+                                    <div class="text">ABOUT</div>
+                                </a></li>
+                            <li><a href="{{ route('project.index', 1) }}">
+                                    <div class="text">PROJECT</div>
+                                </a></li>
+                            <li><a href="{{ route('detail.donate') }}">
+                                    <div class="text">DONATE</div>
+                                </a></li>
+                            <li><a href="{{ route('blog.index') }}">
+                                    <div class="text">BLOG</div>
+                                </a></li>
+                            <li><a href="{{ route('contact.index') }}">
+                                    <div class="text">CONTACT</div>
+                                </a>
+                            </li>
+                            <li class="profile-option">
+                                    @if (session('userInfo'))
+                                    <div class="text username">{{session('userInfo')['name']}}</div> 
+                                    {{-- <a href="{{route('logout')}}">LOGOUT</a> --}}
+                                    @else
+                                    <div class="text popup-login">LOGIN</div>
+                                    @endif
+                            </li>
+                            </div>
+                        </ul>
+                        @if (session('userInfo'))
+                        <div class="profile-dropdown">
+                            <ul>
+                                <li><a href="">PROFILE</a></li>
+                                <li><a href="">LOGOUT</a></li>
+                            </ul>
+                        </div>
+                        @endif
+                    </div>
+                    
+                </div>
                 </div>
             </div>
         </div>
@@ -266,9 +278,12 @@
 </body>
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
-
-
-
-
-
+<script>
+    var profileOption = document.querySelector(".profile-option");
+    var profileDropdown = document.querySelector(".profile-dropdown");
+    profileOption.addEventListener("mouseover", function(){
+        profileDropdown.classList.toggle("showOptionProfile");
+        profileDropdown.style.transitionDuration = "0.5s";
+    })
+    </script>
 </html>
