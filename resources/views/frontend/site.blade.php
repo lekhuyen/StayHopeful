@@ -182,8 +182,8 @@
                         @if (session('userInfo'))
                         <div class="profile-dropdown">
                             <ul>
-                                <li><a href="">PROFILE</a></li>
-                                <li><a href="">LOGOUT</a></li>
+                                <li><a href="{{route('auth.profile')}}">PROFILE</a></li>
+                                <li><a href="{{ route('logout') }}">LOGOUT</a></li>
                             </ul>
                         </div>
                         @endif
