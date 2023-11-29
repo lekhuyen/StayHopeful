@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
                 <div class="form-donate">
-                    <form action="{{ route('detail.thanhtoan') }}" method="POST">
+                    <form action="{{ route('detail.payment') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
 
@@ -15,7 +15,7 @@
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control background-icon-big" id="floatingInput" name="fullname"
-                                        placeholder="name@example.com">
+                                        >
                                     <label for="floatingInput">Enter Fullname</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-info"></i></div>
@@ -33,7 +33,7 @@
                                 <span class="info-text">Email <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" name="email"
-                                        placeholder="name@example.com">
+                                        >
                                     <label for="floatingInput">Enter Email</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
@@ -47,7 +47,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingInput" name="phone"
                                         placeholder="name@example.com">
-                                    <label for="floatingInput">Enter Phone Number</label>
+                                    <label for="floatingInput">Enter PhoneNumber</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-phone"></i></div>
                                     </div>
@@ -97,7 +97,7 @@
                                 <span class="info-text">Amount <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingInput" name="amount"
-                                        placeholder="name@example.com">
+                                        >
                                     <label for="floatingInput">Enter Amount</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-money-bill"></i></div>

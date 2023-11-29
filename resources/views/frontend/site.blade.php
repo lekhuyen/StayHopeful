@@ -20,12 +20,7 @@
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
 
-    {{-- popperjs --}}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-iOq1i6Z3NmFHAAdDOf9G4tLqtvxtk7GX6Zup9RS6VLgD5F5rtJd9uKT9KbeRGNfA" crossorigin="anonymous">
-    </script>
 
-    {{-- popperjs --}}
 
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
