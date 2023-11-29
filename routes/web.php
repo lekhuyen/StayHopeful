@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('listuser/{id}', [AdminPageController::class, 'deleteuser'])->name('admin.deleteuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
 });
-});
+
 
 //
 
@@ -207,4 +207,5 @@ Route::group(['prefix'=> 'video-list/'], function(){
     Route::get('video_untrash/{id}',[VideoController::class,'video_untrash'])->name('video-untrash');
     Route::get('video-forcedelete/{id}',[VideoController::class,'video_forcedelete'])->name('video-forcedelete');
 
+});
 });
