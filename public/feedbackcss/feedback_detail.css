@@ -9,3 +9,7 @@
 .fb__sensitive{
     text-align: center;
 }
+
+a {
+    white-space: nowrap;
+}

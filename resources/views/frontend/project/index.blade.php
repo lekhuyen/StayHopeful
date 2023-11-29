@@ -20,7 +20,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title card-title-1">{{ $project->title }}</h5>
                                     <div class="cart-description-post">
-                                        <p class="card-text card-text-1-1" >{{strip_tags($project->description)}}
+                                        <p class="card-text card-text-1-1" >{!! $project->description !!}
                                         </p>
                                     </div>
                                     <p class="card-title-child">

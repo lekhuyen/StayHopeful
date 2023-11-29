@@ -3,7 +3,7 @@
 
 <a href="{{ route('sensitive.create') }}" class="btn btn-primary">Add sensitive word</a>
 
-<div class="container mt-3">
+<div class="container mt-3 sensitive-detail">
 
     <table class="table">
         <thead>

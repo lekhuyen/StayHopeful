@@ -1,13 +1,13 @@
 @extends('frontend.comment.comment')
-
 @section('detail-post')
+@section('post-title')
 
-    @section('post-title')
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 post-title">
-                    <h2>{{$project->title}}</h2>
-                </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 post-title">
+                <h2>{{ $project->title }}</h2>
+            </div>
         </div>
     @endsection
 
@@ -19,9 +19,9 @@
             tờ vé số.
         </h4> --}}
 
-        <span>{{strip_tags($project->description)}}</span>
+        <span>{!! $project->description !!}</span>
         @foreach ($project->images as $image)
-            <img src="{{asset($image->image)}}" alt="">
+            <img src="{{ asset($image->image) }}" alt="">
         @endforeach
         {{-- <span>Mỗi ngày anh Minh bán được khoảng 100-150 tờ vé số, tiền thuê trọ hàng tháng đã hết 1,5
             triệu nên anh phải chi tiêu tiết kiệm để gửi tiền về hỗ trợ thêm cho mẹ. Anh Minh từng có xe
@@ -68,7 +68,7 @@
             <span>2</span>
         </div>
     </div>
-    @include("frontend/login/login")
-    <script src="{{asset('js/countdonate.js')}}"></script>
+    @include('frontend/login/login')
+    <script src="{{ asset('js/countdonate.js') }}"></script>
 
 @endsection
