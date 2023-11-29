@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\aboutusteam;
 use Illuminate\Http\Request;
 
 class AboutusController extends Controller
@@ -11,7 +12,9 @@ class AboutusController extends Controller
     }
 
     public function whoweare() {
-        return view("frontend.aboutus.whoweare");
+        $teamMembers = aboutusteam::all();
+
+        return view('frontend.aboutus.whoweare', compact('teamMembers'));
     }
 
     public function johndoe()

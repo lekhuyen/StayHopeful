@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
@@ -73,8 +74,6 @@ Route::get('/contact', [ContactusController::class, 'index'])->name('contact.ind
 
 // Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
-// Aboutus
-Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
 
@@ -87,6 +86,21 @@ Route::get('/aboutus/robertjohnson', [AboutUsController::class, 'robertjohnson']
 Route::get('/aboutus/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
 
 Route::get('/aboutus/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
+
+// About Us Team
+Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
+
+Route::get('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_create'])->name('aboutusteam.create');
+
+Route::post('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_store'])->name('aboutusteam.store');
+
+Route::get('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, "aboutus_team_edit"])->name("aboutusteam.edit_aboutus");
+
+Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'aboutus_team_update'])->name('aboutusteam.update');
+
+Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
+
+Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
