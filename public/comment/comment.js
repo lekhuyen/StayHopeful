@@ -9,7 +9,7 @@ var modalInner = document.querySelector('.modal_inner')
 
 // user - post
 var formPost = document.querySelector('.user-post-form')
-var formPostShow = document.querySelectorAll('.modal-user-post-1')
+var formPostShow = document.querySelector('.modal-user-post-1')
 var closeFormPost = document.querySelector('.close-icon div')
 var modelFormPost = document.querySelector('.modal_inner-post')
 
@@ -24,21 +24,20 @@ editPost.forEach((item, key) => {
         editPostForm[key].classList.toggle('show-edit-form')        
     })
 });
-window.addEventListener('click', ()=>{
-    editPostForm.forEach(item, ()=>{
-        item.classList.remove('show-edit-form')
-    })
-})
+// window.addEventListener('click', ()=>{
+//     editPostForm.forEach(item, ()=>{
+//         item.classList.remove('show-edit-form')
+//     })
+// })
 
 // editPost.addEventListener('click', (e)=>{
 // })
 
 
 
-
-
-formPost.addEventListener('click', ()=>{
-    formPostShow.classList.add('show-post-form')
+formPost.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    formPostShow.classList.add('show-post-form');
 })
 closeFormPost.addEventListener('click', ()=>{
     formPostShow.classList.remove('show-post-form')
