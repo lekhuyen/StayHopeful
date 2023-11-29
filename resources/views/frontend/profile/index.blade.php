@@ -15,12 +15,15 @@
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-                                    @if(session('userInfo'))
-                                        <span class="profile-username-text">{{session('userInfo')['name']}}</span>
+                                    @if (session('userInfo'))
+                                        <span class="profile-username-text">{{ session('userInfo')['name'] }}</span>
                                     @endif
                                 </div>
                                 <div class="profile-info">
-                                    <p class="info-text">Email: <span class="info-text-user">Chưa cập nhật</span></p>
+                                    @if (session('userInfo'))
+                                        <p class="info-text">Email: <span
+                                                class="info-text-user">{{ session('userInfo')['email'] }}</span></p>
+                                    @endif
                                     <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
                                     <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
                                     <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
@@ -30,21 +33,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-aboutme">
-                        <span class="aboutme">About me</span>
-                        <div class="profile-aboutme-set">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, ea provident architecto repellendus voluptatum, assumenda natus vitae similique possimus minus nulla sed adipisci ab a temporibus, magnam consequuntur est quisquam.
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis omnis ex exercitationem libero possimus. Odio ipsa dicta, incidunt pariatur, facilis magni nam, quo atque impedit vel inventore ducimus? Quam, qui.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis incidunt possimus eum molestias beatae doloribus est eos quam illo quaerat magnam dolore, perferendis assumenda minus natus unde ipsam! Voluptatibus, quasi.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, necessitatibus reiciendis eligendi ullam voluptate placeat dolor unde harum vitae praesentium rerum architecto odio tenetur quia, mollitia libero sapiente ea nostrum.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum autem facilis atque. Suscipit libero omnis accusamus ducimus. Est ducimus temporibus exercitationem natus, vero saepe deserunt excepturi dolorum nesciunt sequi.
-                        </div>
-                        <button class="profile-edit-aboutme">Edit Aboutme</button>
-                    </div>
                     <div class="profile-listdonate">
                         <span class="listdonate">List Donate</span>
                         <div class="profile-table" id="style-1">
-                            <table class="table table-striper" >
+                            <table class="table table-striper">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -124,6 +116,59 @@
                             </table>
                         </div>
                     </div>
+                    @foreach ($posts as $post)
+                        <div class="profile-aboutme" style="padding-bottom: 30px">
+
+                            <div class="profile-aboutme-set">
+
+                                <div style="padding: 0; border-radius: 5px; position: relative;">
+                                    <div class="post-uset-body"
+                                        style="text-align:left; 
+                                        display: flex; 
+                                        align-items:center;
+                                        justify-content: space-between;
+                                        ">
+                                        <div
+                                            style="text-align:left; 
+                                                    display: flex; 
+                                                    align-items:center;">
+                                            <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
+                                                <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
+                                                    alt="" width="50"
+                                                    style=" width: 80px;clip-path: circle(30%);">
+                                            </a>
+                                            <div>
+                                                <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">
+                                                    {{ $post->user->name }}</p>
+                                                <p style="margin-bottom: 0; font-size: 13px; font-weight: 500;">
+                                                    {{ $post->updated_at }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="edit_post">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </div>
+                                    </div>
+                                    <div class="edit-post-user">
+                                        <a>Edit</a>
+                                        <a>Delete</a>
+                                    </div>
+                                    <div style="text-align:left; margin: 0 50px 20px 50px;">
+                                        <span>{{ $post->title }}</span>
+                                    </div>
+                                    @if ($post->images->count() > 0)
+                                        @foreach ($post->images as $image)
+                                            <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px">
+                                                <img width="90%" height="400px" src="{{ asset($image->image) }}"
+                                                    alt="">
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
@@ -149,13 +194,13 @@
                     <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50">
                 </a>
                 <div class="user-name-post">
-                    @if(session('userInfo'))
-                        <p>{{session('userInfo')['name']}}</p>
+                    @if (session('userInfo'))
+                        <p>{{ session('userInfo')['name'] }}</p>
                     @endif
                 </div>
-                
+
             </div>
-            <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-post-content">
                     <textarea name="title" id="" placeholder="content.."></textarea>
@@ -166,9 +211,8 @@
                 <div class="submit-post">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                
+
             </form>
         </div>
     </div>
 @endsection
-
