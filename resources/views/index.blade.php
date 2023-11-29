@@ -1,10 +1,12 @@
 @extends('frontend.site')
-@section('title', 'Trang chủ')
-
-
-
+@section('title', 'StayHopeful')
 @section('main')
+    {{-- keenslider --}}
+    <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('indexcss/indexdonate.css')}}">
+    {{-- keenslider --}}
     <!-- carosel -->
+
     <section>
         <div id="demo" class="carousel slide" data-bs-ride="carousel" style="height:100vh;">
 
@@ -53,7 +55,51 @@
                 </button>
             </div>
     </section>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="donate-home">
+                <div class="donate-user-index">
+                    <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
+                        <div class="keen-slider__slide transaction-info">
+                            <div class="img-donate">
+                                <img src="{{asset('img/humanicon.png')}}">
+                            </div>
+                            <div class="text-name-donate"><span>Trần Thanh Phong <span class="text-info">Just Donated <span
+                                            style="color: #27AE60;">5.5 USD</span></span></span></div>
+                            <div class="donate-time"><span>12 Minutes Ago</span></div>
+                        </div>
+                        <div class="keen-slider__slide transaction-info">
+                            <div class="img-donate">
+                                <img src="{{asset('img/humanicon.png')}}">
+                            </div>
+                            <div class="text-name-donate"><span>Lê Văn Khuyên <span class="text-info">Just Donated <span
+                                            style="color: #27AE60;">92 USD</span></span></span></div>
+                            <div class="donate-time"><span>34 Minutes Ago</span></div>
+                        </div>
+                        <div class="keen-slider__slide transaction-info">
+                            <div class="img-donate">
+                                <img src="{{asset('img/humanicon.png')}}">
+                            </div>
+                            <div class="text-name-donate"><span>Cho In Yeon <span class="text-info">Just Donated <span
+                                            style="color: #27AE60;">5 USD</span></span></span></div>
+                            <div class="donate-time"><span>22 Minutes Ago</span></div>
+                        </div>
+                        <div class="keen-slider__slide transaction-info">
+                            <div class="img-donate">
+                                <img src="{{asset('img/humanicon.png')}}">
+                            </div>
+                            <div class="text-name-donate"><span>Phản Bội Sương <span class="text-info">Just Donated <span
+                                            style="color: #27AE60;">1112 USD</span></span></span></div>
+                            <div class="donate-time"><span>16 Minutes Ago</span></div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <section>
         <div class="container section-title-1-0">
             <div class="row">
@@ -73,37 +119,39 @@
     <div class="container">
         <div class="row">
             @foreach ($projects as $project)
-            <div class=" col-xxl-4 col-xl-4 col-lg-6 large ">
-                <a href="{{route('detail.post', $project->id)}}" class="a-card">
-                    <div class="card card_wapper" style="width: 26rem;">
-                        @if ($project->status == 0)
+                <div class=" col-xxl-4 col-xl-4 col-lg-6 large ">
+                    <a href="{{ route('detail.post', $project->id) }}" class="a-card">
+                        <div class="card card_wapper" style="width: 26rem;">
+                            @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
                             @else
                                 <div class="project-status-finish">FINISHED</div>
-                        @endif
-                        <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"alt="...">
-                        <div class="card-body card-body-1">
-                            <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
-                                    <div class="cart-description-post">
-                                        <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}</p>
-                                    </div>
-                                    <p class="card-title-child">
-                                        Received:
-                                        <span>
-                                            {{number_format($project->money2)}}
-                                        </span>
-                                    </p>
-                                    <p class="card-title-child-1">
-                                        Goals:
-                                        <span>
-                                            {{number_format($project->money)}}
-                                        </span>
-                                    </p>
-                            <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">Details</a>
+                            @endif
+                            <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"alt="...">
+                            <div class="card-body card-body-1">
+                                <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">
+                                        {{ strip_tags($project->description) }}</p>
+                                </div>
+                                <p class="card-title-child">
+                                    Received:
+                                    <span>
+                                        {{ number_format($project->money2) }}
+                                    </span>
+                                </p>
+                                <p class="card-title-child-1">
+                                    Goals:
+                                    <span>
+                                        {{ number_format($project->money) }}
+                                    </span>
+                                </p>
+                                <a href="{{ route('detail.post', $project->id) }}"
+                                    class="btn btn-primary btn-primary-1">Details</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             @endforeach
 
 
@@ -132,38 +180,41 @@
     <div class="container">
         <div class="row">
             @foreach ($project_finish as $project)
-            <div class="col-xxl-3 col-xl-3">
-                <a href="{{ route('detail.post', $project->id) }}" class="a-card">
-                    <div class="card card_wapper" style="width: 19.5rem;">
-                        @if ($project->status == 0)
+                <div class="col-xxl-3 col-xl-3">
+                    <a href="{{ route('detail.post', $project->id) }}" class="a-card">
+                        <div class="card card_wapper" style="width: 19.5rem;">
+                            @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
                             @else
                                 <div class="project-status-finish">FINISHED</div>
-                        @endif
-                        <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
-                                    <div class="cart-description-post">
-                                        <p class="card-text card-text-1-1" data-i18n="text2">{{strip_tags($project->description)}}
-                                        </p>
-                                    </div>
-                                    <p class="card-title-child">
-                                        Received:
-                                        <span>
-                                            {{number_format($project->money2)}}
-                                        </span>
+                            @endif
+                            <img src="{{ asset($project->images[0]->image) }}"
+                                class="card-img-top card-img-top-1"alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
+                                <div class="cart-description-post">
+                                    <p class="card-text card-text-1-1" data-i18n="text2">
+                                        {{ strip_tags($project->description) }}
                                     </p>
-                                    <p class="card-title-child-1">
-                                        Goals:
-                                        <span>
-                                            {{number_format($project->money)}}
-                                        </span>
-                                    </p>
-                            <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">Details</a>
+                                </div>
+                                <p class="card-title-child">
+                                    Received:
+                                    <span>
+                                        {{ number_format($project->money2) }}
+                                    </span>
+                                </p>
+                                <p class="card-title-child-1">
+                                    Goals:
+                                    <span>
+                                        {{ number_format($project->money) }}
+                                    </span>
+                                </p>
+                                <a href="{{ route('detail.post', $project->id) }}"
+                                    class="btn btn-primary btn-primary-1">Details</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             @endforeach
 
 
@@ -227,4 +278,6 @@
         </div>
     </div>
     @include('frontend/login/login');
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
+    <script src="{{asset('js/keensider.js')}}"></script>
 @stop()

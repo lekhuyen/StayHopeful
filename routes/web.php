@@ -40,8 +40,9 @@ Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
 //donatedetail
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate');
-Route::get('/donate2', [detaildonateController::class, 'index2'])->name('detail.donate2');
-Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
+// Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
+Route::post('/donate', [detaildonateController::class, 'payment'])->name('detail.payment');
+Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
 //listdonate
 Route::get('/listdonate', [detaildonateController::class, 'viewlistdonate'])->name('detail.listdonate');
@@ -82,7 +83,7 @@ Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store');
-Route::get('/feedback/detail', [FeedbackController::class, 'detail'])->name('feedback.detail');
+Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail');
 
 //sensitive
 Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');

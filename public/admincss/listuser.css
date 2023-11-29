@@ -52,7 +52,7 @@ input:focus {
     }
 }
 .form-table{
-    width: 100%;
+    width: auto;
     /* height: 400px; */
     background-color: #ffffff;
     border-radius: 20px;
