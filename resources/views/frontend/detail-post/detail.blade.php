@@ -11,17 +11,18 @@
         </div>
     @endsection
 
-    
+
     <div class="col-lg-8 post-detail-1">
 
         <span>{{strip_tags($project->description)}}</span>
         @foreach ($project->images as $image)
             <img src="{{asset($image->image)}}" alt="">
         @endforeach
-    
+
         <div class="donate_link">
-            <a href="#">ĐÓNG GÓP</a>
+            <a href="#">DONATE</a>
         </div>
+
         {{-- @if(session('userInfo')) --}}
             <div class="comment-icon">
                 <i class="fa-regular fa-comment"></i>
@@ -32,8 +33,17 @@
                 <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
             </div>
         {{-- @endif --}}
+
+        <div class="comment-access">
+            <a href="#">LOGIN TO LEAVE A COMMENT</a>
+        </div>
+        <div class="comment-icon">
+            <i class="fa-regular fa-comment"></i>
+            <span>2</span>
+        </div>
+
     </div>
     @include("frontend/login/login")
     <script src="{{asset('js/countdonate.js')}}"></script>
-    
+
 @endsection

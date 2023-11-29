@@ -15,9 +15,10 @@ class EmailDonate extends Mailable
     use Queueable, SerializesModels;
 
     public $tomail;
-
-    public function __construct()
+    public $message;
+    public function __construct($message)
     {
+        $this->message = $message;
     }
 
     /**
@@ -38,6 +39,9 @@ class EmailDonate extends Mailable
     {
         return new Content(
             view: 'frontend/sendmail/maildonate',
+            with: [
+                'project' => $this->message,
+            ],
         );
     }
 

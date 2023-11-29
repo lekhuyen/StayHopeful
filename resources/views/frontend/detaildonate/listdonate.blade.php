@@ -1,4 +1,5 @@
 @extends('frontend.site')
+@section('title', 'Donate List')
 @section('main')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -27,7 +28,7 @@
                             aria-label="Username" aria-describedby="basic-addon1" id="search">
                     </div>
                     <div class="textnav3">
-                        <h3>List</h3>
+                        <h3>Donate List</h3>
                     </div>
                 </div>
             </div>
@@ -42,67 +43,16 @@
                   <div class="col col-3">Amount</div>
                   <div class="col col-4">Date</div>
                 </li>
+                @foreach ($donateinfo as $user)
                 <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
+                  <div class="col col-1" data-label="name">{{$user->name}}</div>
+                  <div class="col col-2" data-label="project">{{$user->project->title}}</div>
+                  <div class="col col-3" data-label="Amount">{{$user->amount}} <span style="color: #2ECC71; font-size: 20px; font-weight: 900">$</span></div>
+                  <div class="col col-4" data-label="date">{{$user->created_at}}</div>
                 </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">Phong</div>
-                  <div class="col col-2" data-label="project">Hello what ur name</div>
-                  <div class="col col-3" data-label="Amount">$350</div>
-                  <div class="col col-4" data-label="date">22-26-2015</div>
-                </li>
-                
+                @endforeach
+              
+
               </ul>
         </div>
     </div>

@@ -6,7 +6,7 @@
             <div class="text-success">{{ session('success') }}</div>
         @endif
         @if (session('error'))
-            <div class="text-success">{{ session('error') }}</div>
+            <div class="text-danger">{{ session('error') }}</div>
         @endif
         <h1 style="font-weight: 700">Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="row row-rs">
-            <div class="col-lg-12 mt-5">
+            <div class="col-12 mt-5">
                 <div class="form-table">
                     <table class="table">
                         <thead>
@@ -66,8 +66,15 @@
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </td>
+
                                 </tr>
+
                             @endforeach
+                            @if ($user->isEmpty())
+                                    <tr>
+                                        <td colspan="6" style="text-align:center">No users found</td>
+                                    </tr>
+                                @endif
 
                         </tbody>
                     </table>
@@ -211,7 +218,8 @@
                 $.ajax({
                     type: 'GET',
                     url: '/admin/updateuser/' + id,
-                    success: function(data) {                        $('#id').val(data.id);
+                    success: function(data) {
+                        $('#id').val(data.id);
                         $('#name-update').val(data.name);
                         $('#email-update').val(data.email);
                         $('#role-update').val(data.role);
@@ -241,7 +249,7 @@
                 var id = $(this).data('active');
                 $.ajax({
                     type: 'GET',
-                    url: "/admin/updateuser/" + id + "/active", 
+                    url: "/admin/updateuser/" + id + "/active",
                     success: function(response) {
                         console.log(response);
                         location.reload();

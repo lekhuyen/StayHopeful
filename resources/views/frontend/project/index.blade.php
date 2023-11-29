@@ -1,4 +1,5 @@
 @extends('frontend.site')
+@section('title', 'Projects')
 @section('main')
     @include('frontend.info_donate.info_donate')
 
@@ -40,8 +41,8 @@
                         </a>
                     </div>
                 @endforeach
+                {{$projects->links()}}
             @endif
-
         </div>
     </div>
 
