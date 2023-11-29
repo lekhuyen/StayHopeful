@@ -40,7 +40,7 @@
                     class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
-        <ul class="list-unstyled px-2">
+        <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home"></i> Dashboard</a></li>
             <li class="text-decoration-none px-3 py-2 d-block">
@@ -56,6 +56,8 @@
                             class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
                             class="fa-solid fa-briefcase"></i>Category</a>
+                        <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
+                            class="fa-solid fa-briefcase"></i>Feedback</a>
                     </div>
                 </div>
             </li>

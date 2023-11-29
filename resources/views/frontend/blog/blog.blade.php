@@ -17,13 +17,15 @@
                         </div>
                     </div>
                 @endforeach
+                {{$blogs->links()}}
             </div>
 
             {{-- slidebar --}}
             <div class="col-lg-4 nav-bar-right">
-                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])  
+                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])
             </div>
         </div>
+
     </div>
     @include("frontend/login/login");
 @endsection
