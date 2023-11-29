@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,6 +97,11 @@ Route::get('/project-all', [BlogController::class, 'project_index'])->name('proj
 
 // video page
 Route::get('/video', [BlogController::class, 'video'])->name('video.index');
+
+//comment
+Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comment.index');
+
+
 
 
 
@@ -217,5 +224,32 @@ Route::group(['prefix'=> 'video-list/'], function(){
     Route::get('video-trash',[VideoController::class,'video_trash'])->name('video-trash');
     Route::get('video_untrash/{id}',[VideoController::class,'video_untrash'])->name('video-untrash');
     Route::get('video-forcedelete/{id}',[VideoController::class,'video_forcedelete'])->name('video-forcedelete');
+
+});
+
+
+//user-post
+
+Route::group(['prefix'=> 'post/'], function(){
+    Route::get('index',[UserPostController::class,'index'])->name('post.index');
+
+    Route::post('store',[UserPostController::class,'store'])->name('post.store');
+
+    Route::post('dalete/{id}',[UserPostController::class,'delete'])->name('post.delete');
+
+    Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
+
+    //show-post(web)
+    Route::get('post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
+
+    // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
+
+    Route::get('post-cho-duyet/{id}',[UserPostController::class,'choduyet'])->name('post.choduyet');
+    Route::get('post-da-duyet/{id}',[UserPostController::class,'daduyet'])->name('post.duyet');
+
+    // //softDelete
+    Route::get('post-trash',[UserPostController::class,'post_trash'])->name('post-trash');
+    Route::get('post_untrash/{id}',[UserPostController::class,'post_untrash'])->name('post-untrash');
+    Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });

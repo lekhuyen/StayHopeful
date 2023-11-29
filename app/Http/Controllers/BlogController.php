@@ -27,13 +27,14 @@ class BlogController extends Controller
     public function viewdetail($id){
         $categories = Category::orderBy('id', 'desc')->get();
         $project = Project::find($id);
+        $comments = $project->comments;
         $category = $project->category;
         $projects = Project::where('category_id', $category->id)
                             ->where('id','!=', $project->id)
                             ->orderBy('id', 'desc')
                             ->limit(5)
                             ->get();
-        return view('frontend.detail-post.detail', compact('categories','project', 'projects'));
+        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments'));
     }
     
     public function blog_detail()

@@ -15,15 +15,18 @@
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-                                    <span class="profile-username-text">Lê Văn Báo</span>
+                                    @if(session('userInfo'))
+                                        <span class="profile-username-text">{{session('userInfo')['name']}}</span>
+                                    @endif
                                 </div>
                                 <div class="profile-info">
-                                    <p class="info-text">Email: <span class="info-text-user">Super Báo@gmail.com</span></p>
-                                    <p class="info-text">Age: <span class="info-text-user">99</span></p>
-                                    <p class="info-text">Phone : <span class="info-text-user">069696969</span></p>
-                                    <p class="info-text">Address : <span class="info-text-user">Độc lạ bình dương</span></p>
+                                    <p class="info-text">Email: <span class="info-text-user">Chưa cập nhật</span></p>
+                                    <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
+                                    <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
+                                    <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
                                 <button class="profile-edit-info">Edit Profile</button>
+                                <button class="profile-edit-info user-post-form">Post</button>
                             </div>
                         </div>
                     </div>
@@ -125,5 +128,47 @@
             </div>
         </div>
     </div>
+
+    <div class="modal-user-post-1">
+        {{-- -------------------- --}}
+        <div class="modal_inner-post">
+            <div class="post-header">
+
+                <div class="close-icon">
+                    <div>
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <div class="post-header-title">
+                    <h1>Create Post</h1>
+                </div>
+            </div>
+            <div class="post-uset-body">
+                <a href='#' class="avatar-user-post">
+                    <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50">
+                </a>
+                <div class="user-name-post">
+                    @if(session('userInfo'))
+                        <p>{{session('userInfo')['name']}}</p>
+                    @endif
+                </div>
+                
+            </div>
+            <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="input-post-content">
+                    <textarea name="title" id="" placeholder="content.."></textarea>
+                </div>
+                <div class="user-post-image">
+                    <input type="file" multiple name="image[]">
+                </div>
+                <div class="submit-post">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+        </div>
     </div>
 @endsection
+

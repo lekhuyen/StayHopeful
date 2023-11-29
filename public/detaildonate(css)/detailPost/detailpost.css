@@ -211,7 +211,7 @@
 }
 
 /* ----------------------------comment modal */
-.modal-comment {
+.modal-user-post {
     position: fixed;
     top: 0;
     right: 0;

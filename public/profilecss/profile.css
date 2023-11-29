@@ -260,3 +260,126 @@
 }
 
 
+/* user-post */
+.modal-user-post-1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(246,246,246, .4);
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes modalShowForm {
+    from {
+        opacity: 0;
+        transform: translateY(-600px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+.modal_inner-post {
+    background-color: white;
+    inset: 0 0 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: modalShowForm ease .4s ;
+}
+
+.post-header {
+    border-bottom: 1px solid #043e84;
+}
+.post-header-title {
+    height: 100%;
+    text-align: center;
+}
+.post-header-title h1 {
+    font-size: 25px;
+    color: #043e84;
+    margin-bottom: 0;
+}
+.close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.close-icon div{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: .5s;
+}
+.close-icon div:hover {
+    background-color: #043e84;
+}
+.close-icon div:hover i {
+    color: white;
+}
+
+.close-icon div i {
+    font-size: 20px;
+    color: #043e84;
+}
+
+.post-uset-body {
+    display: flex;
+}
+.user-name-post {
+    display: flex;
+    align-items: center;
+}
+.user-name-post p{
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.avatar-user-post img{
+    clip-path: circle(30%);
+    width: 60px;
+}
+.input-post-content {
+    padding: 0 10px;
+}
+.input-post-content textarea {
+    width: 500px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    resize: none;
+    height: 150px;
+}
+.user-post-image {
+    padding-left: 10px;
+}
+.user-post-image input {
+    cursor: pointer;
+}
+
+.submit-post {
+    width: 100%;
+    padding: 10px;
+}
+
+.submit-post button {
+    width: 100%;
+}
+
+.show-post-form {
+    display: flex;
+}
