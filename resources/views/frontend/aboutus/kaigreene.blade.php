@@ -6,13 +6,15 @@
 <link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
 {{-- teamname.css --}}
 
+<br>
+<br>
 <h1>Meet Kai Greene, A Lead Developer</h1>
 
     <br>
     <div class="container mt-3 introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
+            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Return to About Us page
             </a>
             <div class="col-md-8 offset-md-2">

@@ -77,15 +77,15 @@ Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index')
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
 
-Route::get('/aboutus/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
+Route::get('/aboutus/whoweare/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
 
-Route::get('/aboutus/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
+Route::get('/aboutus/whoweare/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
 
-Route::get('/aboutus/robertjohnson', [AboutUsController::class, 'robertjohnson'])->name('aboutus.robertjohnson');
+Route::get('/aboutus/whoweare/robertjohnson', [AboutUsController::class, 'robertjohnson'])->name('aboutus.robertjohnson');
 
-Route::get('/aboutus/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
+Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
 
-Route::get('/aboutus/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
+Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
 
 // About Us Team
 Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
@@ -101,6 +101,8 @@ Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'ab
 Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
 
 Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
+
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.whoweare.detail');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');

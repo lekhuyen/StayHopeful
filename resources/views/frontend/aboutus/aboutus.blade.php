@@ -172,7 +172,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Donate Now to Save Lives</h5>
                     <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
-                    <a href="#">Sign In</a></p>
+                    <a href="#" class="btn btn-info">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
                     <h5 class="card-title">Join Our Community for Exclusive Updates.</h5>
                     <p class="card-text">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
                     <br>
-                    <a href="#">Sign In</a></p>
+                    <a href="#" class="btn btn-info">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Support Our Cause Volunteer Today</h5>
                     <p class="card-text">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
-                    <a href="#">Sign In</a></p>
+                    <a href="#" class="btn btn-info">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -241,7 +241,7 @@
                 <div class="card-body">
                   <h5 class="card-title">John Doe</h5>
                   <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus where donors and causes converge</p>
-                  <a href="{{route("aboutus.whoweare")}}" >Meet Our Team</a>
+                  <a href="{{route("aboutus.whoweare")}}" class="btn btn-info">Meet Our Team</a>
                 </div>
               </div>
         </div>

@@ -19,7 +19,8 @@ h1, h2 {
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
+    
 }
 
 p {
@@ -31,4 +32,23 @@ p {
 .founder-img {
     width: 70%;
     height:90%;
+}
+
+.card {
+    border: none;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-link{
+  text-decoration: none;
+}
+
+.card-img-top{
+  height: 200px;
+  object-fit: cover;
 }
