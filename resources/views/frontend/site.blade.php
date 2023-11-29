@@ -7,8 +7,8 @@
     <title>@yield('title')</title>
 
     {{-- favicon  --}}
-    <link rel="icon" type="image/x-icon" href="{{asset('img/favicon.PNG')}}">
-    <link rel="apple-touch-icon" href="{{asset('img/favicon.PNG')}}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.PNG') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/favicon.PNG') }}">
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
@@ -28,8 +28,9 @@
     {{-- cssblog --}}
     <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
     {{-- cssblog --}}
-    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css') }}" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css') }}"
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js') }}"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
@@ -147,7 +148,8 @@
                     <ul class="nav_bar">
                         <li><a href="{{ route('/') }}">
                                 <div class="text">
-                                    <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
+                                    <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
+                                        style="margin-left: 0;">
                                     HOME
                                 </div>
                             </a></li>
@@ -168,7 +170,11 @@
                             </a>
                         </li>
                         <li>
-                            <div class="text popup-login">LOGIN</div>
+                            @if (session('userInfo'))
+                                <a href="{{ route('logout') }}"class="text popup-login">LOG OUT</a>
+                            @else
+                                <div class="text popup-login">LOGIN</div>
+                            @endif
                             {{-- đã có route logout chưa chỉnh css cho đẹp nên hong để vô ạ --}}
                         </li>
                     </ul>
@@ -223,7 +229,8 @@
                     <div class="footer_header">
                         <h2>STAYHOPEFUL CHARITY FUND</h2>
                         <ul>
-                            <li><i class="fa-solid fa-map"></i>5th Floor, No. 7 – 9 – 11 Mai Thị Lựu Street, Đa Kao Ward, District 1,
+                            <li><i class="fa-solid fa-map"></i>5th Floor, No. 7 – 9 – 11 Mai Thị Lựu Street, Đa Kao
+                                Ward, District 1,
                                 Hồ Chí Minh City</li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
                             <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
@@ -259,5 +266,9 @@
 </body>
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
+
+
+
+
 
 </html>

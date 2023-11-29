@@ -7,6 +7,27 @@ var modalComment = document.querySelector('.modal-comment')
 var commentIcon = document.querySelector('.comment-icon i')
 var modalInner = document.querySelector('.modal_inner')
 
+// user - post
+var formPost = document.querySelector('.user-post-form')
+var formPostShow = document.querySelector('.modal-user-post-1')
+var closeFormPost = document.querySelector('.close-icon div')
+var modelFormPost = document.querySelector('.modal_inner-post')
+
+formPost.addEventListener('click', ()=>{
+    formPostShow.classList.add('show-post-form')
+})
+closeFormPost.addEventListener('click', ()=>{
+    formPostShow.classList.remove('show-post-form')
+})
+formPostShow.addEventListener('click', ()=>{
+    formPostShow.classList.remove('show-post-form')
+})
+modelFormPost.addEventListener('click', (e)=>{
+    e.stopPropagation();
+})
+
+
+
 
 // an model
 modalInner.addEventListener('click', (e)=>{
@@ -55,16 +76,6 @@ modalInner.addEventListener('click', ()=> {
 })
 
 
-// menu bar 
-// $('.item').click(function(){
-//     $('.item .sub-menu').not($(this).find('.sub-menu')).slideUp();
-//     $(this).find('.sub-menu').slideToggle();
-//     $(this).find('.dropdown').toggleClass('rotate-slide');
-// })
 
 
 
-// video
-
-var videoParent = document.querySelector('.video-parent')
-console.log(videoParent)
