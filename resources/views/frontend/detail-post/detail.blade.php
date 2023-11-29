@@ -1,22 +1,22 @@
 @extends('frontend.comment.comment')
-
 @section('detail-post')
+@section('post-title')
 
-    @section('post-title')
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 post-title">
-                    <h2>{{$project->title}}</h2>
-                </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 post-title">
+                <h2>{{ $project->title }}</h2>
+            </div>
         </div>
     @endsection
 
 
     <div class="col-lg-8 post-detail-1">
 
-        <span>{{strip_tags($project->description)}}</span>
+        <span>{!! $project->description !!}</span>
         @foreach ($project->images as $image)
-            <img src="{{asset($image->image)}}" alt="">
+            <img src="{{ asset($image->image) }}" alt="">
         @endforeach
 
         <div class="donate_link">
@@ -43,7 +43,7 @@
         </div>
 
     </div>
-    @include("frontend/login/login")
-    <script src="{{asset('js/countdonate.js')}}"></script>
+    @include('frontend/login/login')
+    <script src="{{ asset('js/countdonate.js') }}"></script>
 
 @endsection

@@ -14,7 +14,7 @@
                         <img src="{{asset($image->image)}}" alt="" width="100%" height="400px">
                     @endforeach
                 @endif
-                <span>{{strip_tags($new->description)}}</span>
+                <span>{!! $new->description !!}</span>
             </div>
             <div class="col-lg-2"></div>
         </div>
