@@ -1,0 +1,32 @@
+.sensitive__container {
+    width: 80%;
+    height: 50%;
+    padding: 20px;
+    margin: 160px auto;
+    background-color: lightblue;
+    border-radius: 5px;
+    position: relative;
+}
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: mediumblue;
+}
+
+label {
+    font-size: 20px;
+}
+
+.radio__sensitive {
+    float: left;
+    display: inline;
+    margin: 15px;
+}
+
+.btn__sensitive {
+    clear: left;
+    margin: 0;
+    display: block;
+    text-align: center;
+}
