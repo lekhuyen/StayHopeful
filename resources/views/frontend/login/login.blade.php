@@ -173,7 +173,7 @@ $.ajax({
             console.log("Login Successfully");
             console.log(response);
             if(response.role == 1){
-                window.location.href = "{{route('admin.index')}}"; 
+                window.location.href = "{{route('admin.dashboard')}}"; 
             }
             else if(response.role == 0){
                 window.location.href = "{{route('/')}}"; 

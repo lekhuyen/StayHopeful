@@ -114,7 +114,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 //admin
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
-    Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
+    Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
     Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
