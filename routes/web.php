@@ -57,11 +57,10 @@ Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleba
 Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
 //profile
-// user middleware
-Route::group(["middleware" => "user_auth"], function () {
+
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 // user middleware close
-});
+
 
 //blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
@@ -114,8 +113,6 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 
 //admin
-//admin middleware
-Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
@@ -264,6 +261,4 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post_untrash/{id}',[UserPostController::class,'post_untrash'])->name('post-untrash');
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
-});
-// admin middleware close
 });
