@@ -1,0 +1,17 @@
+.sensitive-detail {
+    margin: 160px auto;
+    width: 60%;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.btn_sensitive_create{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+    color: cornflowerblue;
+    text-align: center;
+}

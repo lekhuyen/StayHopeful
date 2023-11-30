@@ -84,7 +84,6 @@ Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index')
 // Aboutus
 Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
-
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
