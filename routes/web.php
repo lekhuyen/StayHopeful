@@ -61,10 +61,13 @@ Route::group(["middleware" => "user_auth"], function () {
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 // user middleware close
 });
+
 //blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->name('blog.blog_finished');
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
+Route::get('/news-detail/{id}', [BlogController::class, 'news_detail'])->name('news-detail');
+
 
 
 //detail-page
@@ -209,7 +212,7 @@ Route::group(['prefix' => 'news/'], function () {
     Route::get('news-forcedelete/{id}', [NewsController::class, 'news_forcedelete'])->name('news-forcedelete');
 
     // news-detail
-    Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
+    // Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
 });
 
 // video-adminpage
