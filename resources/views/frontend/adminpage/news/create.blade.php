@@ -3,7 +3,7 @@
 
     <div class="container mt-3">
         <h2>Add News</h2>
-        <a class="btn btn-primary"href="{{route('news.index')}}">List News</a>
+        <a class="btn btn-primary"href="{{route('news.index')}}">News List</a>
         <form action="{{route('news.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
@@ -32,7 +32,7 @@
     </div>
 
 @endsection
-    
+
 @section('ckeditor')
 <script>
     ClassicEditor

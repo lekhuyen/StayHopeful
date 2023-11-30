@@ -49,22 +49,24 @@
                         <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
                             class="fa-solid fa-image"></i> Post</a>
                         <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                            class="fa-solid fa-desktop"></i>Create Slider</a>
+                            class="fa-solid fa-desktop"></i>Slider List</a>
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
-                            class="fa-solid fa-users"></i>Create User</a>
+                            class="fa-solid fa-users"></i>User List</a>
                         <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Create Project</a>
+                            class="fa-solid fa-briefcase"></i>Project List</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Category</a>
+                            class="fa-solid fa-briefcase"></i>Category List</a>
+                        <a href="{{ route('news.index') }}" class="siderbar-item"><i
+                            class="fa-solid fa-briefcase"></i>News List</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Feedback</a>
+                            class="fa-solid fa-briefcase"></i>Feedback List</a>
                     </div>
                 </div>
             </li>
 
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
-                    List Donate</a></li>
+                    Donate List</a></li>
 
         </ul>
         <hr class="h-color mx-2">
