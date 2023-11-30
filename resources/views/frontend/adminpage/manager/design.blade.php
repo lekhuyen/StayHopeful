@@ -4,7 +4,7 @@
 
 
     <div class="container">
-        <h1 style="font-weight: 700">Manager Design</h1>
+        <h1 style="font-weight: 700">Slider Design</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
@@ -60,6 +60,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            {{$sliders->links()}}
 
                         </tbody>
                     </table>

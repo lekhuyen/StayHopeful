@@ -24,7 +24,7 @@ class UserPostController extends Controller
         $posts = UserPost::orderBy('id', 'desc')
         ->where('status', 0)
         ->get();
-        
+
         return view('frontend.post_page.index', compact('posts'));
     }
 

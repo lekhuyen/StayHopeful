@@ -56,6 +56,8 @@
                                 class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Category</a>
+                        <a href="{{ route('news.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-briefcase"></i>Create News</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Feedback</a>
                     </div>
@@ -64,7 +66,7 @@
 
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
-                    List Donate</a></li>
+                    Donate List</a></li>
 
         </ul>
         <hr class="h-color mx-2">

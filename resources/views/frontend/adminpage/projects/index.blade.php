@@ -25,7 +25,7 @@
                 @forelse ($projects as $project)
                     <tr class="project-table">
                         <td>{{$project->id}}</td>
-                        <td>{{$project->title}}</td>
+                        <td><span class="pj__description">{{$project->title}}</span></td>
                         <td><span class="pj__description">{!! $project->description !!}</span></td>
                         <td>{{$project->money}}</td>
                         <td>{{$project->money2}}</td>
@@ -59,6 +59,7 @@
                 @endforelse
             </tbody>
         </table>
+        {{$projects->links()}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

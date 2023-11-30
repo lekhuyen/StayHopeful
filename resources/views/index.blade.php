@@ -20,8 +20,8 @@
                     <div class="carousel-item active">
                         <img src="{{ asset($item->url_image) }}" alt="Los Angeles" class="d-block carosel_heigth">
                         <div class="carousel-caption">
-                            <h3>Los Angeles</h3>
-                            <p>We had such a great time in LA!</p>
+                            <h3>StayHopeful</h3>
+                            <p style="color: DimGrey;">Please contact us to donate!</p>
                         </div>
                     </div>
                 @endforeach
