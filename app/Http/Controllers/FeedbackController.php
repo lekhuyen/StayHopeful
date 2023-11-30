@@ -10,29 +10,41 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedback = Feedback::all();
+        $feedback = Feedback::paginate(4);
+        $feedbacks = Feedback::all();
         $sensitives_word = Sensitive::all();
         $words = $sensitives_word->pluck('word');
-        return view("frontend.feedback.index",compact('feedback','words'));
+        $count = 0;
+        foreach ($feedbacks as $key => $text) {
+            foreach ($words as $word) {
+                if (str_contains($text, $word)) {
+                    $count++;
+                    break;
+                }
+            }
+        }
+        return view("frontend.feedback.index", compact('feedback', 'words', 'count','feedbacks'));
     }
     public function create()
     {
         return view("frontend.feedback.feedback");
     }
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
-            'email'=>'bail|required|email',
-            'content'=>'required',
-            'star'=>'required',
+            'email' => 'bail|required|email',
+            'content' => 'required',
+            'star' => 'required',
         ]);
         Feedback::create($request->all());
-        return redirect()->back()->with('success','Thanks for your feedback.');
+        return redirect()->back()->with('success', 'Thanks for your feedback.');
     }
-    public function detail($id) {
+    public function detail($id)
+    {
         $feedback = Feedback::find($id);
         $sensitives_word = Sensitive::all();
         $words = $sensitives_word->pluck('word');
         // dd($words);
-        return view('frontend.feedback.detail', compact('feedback','words'));
+        return view('frontend.feedback.detail', compact('feedback', 'words'));
     }
 }

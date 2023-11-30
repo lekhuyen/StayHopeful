@@ -61,8 +61,7 @@
                 <div class="donate-home">
                     <div class="donate-user-index">
                         <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
-                            <!-- Placeholder content -->
-
+                            {{-- content donate user --}}
                         </div>
                     </div>
                 </div>

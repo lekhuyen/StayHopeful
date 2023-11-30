@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role')->default(0);
             $table->boolean('status')->default(false);
-            $table->string('verified_token');
-            $table->string('avatar')->nullable();
-            $table->datetime('deleted_at')->nullable();
+            // $table->string('verified_token');
+            // $table->string('avatar')->nullable();
+            // $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

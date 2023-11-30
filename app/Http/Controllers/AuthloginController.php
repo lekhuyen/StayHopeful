@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -49,6 +50,12 @@ class AuthloginController extends Controller
             "email" => "bail|required|email",
             "password" => "bail|required|min:5|max:20",
         ]);
+        $email = $request->email;
+        $existingUser = User::where("email", $email)->first();
+        if ($existingUser) {
+              return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
+        }
+        else{
         //$password = $request->password;
         $hashPassword = Hash::make($request->password);
         $user = new User();
@@ -60,9 +67,15 @@ class AuthloginController extends Controller
         $user->save();
 
         return response()->json(['status' => 'success', 'message' => 'Dữ liệu đã được nhận và xử lý thành công.']);
+        }
     }
     public function viewprofile(){
-        return view('frontend.profile.index');
+        $user = session()->get('userInfo')['id'];
+        $posts = UserPost::orderBy('id','desc')
+                            ->where('user_id',$user)
+                            ->where('status', 0)
+                            ->get();
+        return view('frontend.profile.index', compact('posts'));
     }
     //login bằng email
     public function redirectgoogle(){

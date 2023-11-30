@@ -127,13 +127,13 @@
     position: relative;
     margin-top: 50px;
     width: 100%;
-    height: 350px;
+    min-height: 350px;
     background-color: transparent;
 }
 
 .profile-aboutme-set {
     width: 90%;
-    height: 265px;
+    min-height: 265px;
     margin-left: 50px;
     background-color: transparent;
     text-overflow: ellipsis;
@@ -205,7 +205,6 @@
 /* listdonate */
 .profile-listdonate {
     width: 100%;
-    height: 500px;
     background-color: transparent;
     margin-top: 50px;
 }
@@ -241,7 +240,6 @@
 
 .profile-table {
     width: 90%;
-    height: 465px;
     background-color: transparent;
     margin-left: 50px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -260,3 +258,176 @@
 }
 
 
+/* -------------------------user-post-------------------------- */
+.modal-user-post-1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(246,246,246, .4);
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes modalShowForm {
+    from {
+        opacity: 0;
+        transform: translateY(-600px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+.modal_inner-post {
+    background-color: white;
+    inset: 0 0 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: modalShowForm ease .4s ;
+}
+
+.post-header {
+    border-bottom: 1px solid #043e84;
+}
+.post-header-title {
+    height: 100%;
+    text-align: center;
+}
+.post-header-title h1 {
+    font-size: 25px;
+    color: #043e84;
+    margin-bottom: 0;
+}
+.close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.close-icon div{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: .5s;
+}
+.close-icon div:hover {
+    background-color: #043e84;
+}
+.close-icon div:hover i {
+    color: white;
+}
+
+.close-icon div i {
+    font-size: 20px;
+    color: #043e84;
+}
+
+.post-uset-body {
+    display: flex;
+}
+.user-name-post {
+    display: flex;
+    align-items: center;
+}
+.user-name-post p{
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.avatar-user-post img{
+    clip-path: circle(30%);
+    width: 60px;
+}
+.input-post-content {
+    padding: 0 10px;
+}
+.input-post-content textarea {
+    width: 500px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    resize: none;
+    height: 150px;
+}
+.user-post-image {
+    padding-left: 10px;
+}
+.user-post-image input {
+    cursor: pointer;
+}
+
+.submit-post {
+    width: 100%;
+    padding: 10px;
+}
+
+.submit-post button {
+    width: 100%;
+}
+
+.show-post-form {
+    display: flex;
+}
+
+.edit_post {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+.edit_post:hover {
+    background-color: #f0eaea;
+}
+.edit-post-user  {
+    background-color: rgb(246,246,246);
+    width: 100px;
+    position: absolute;
+    top: 75px;
+    right: 17px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(201, 197, 197);
+    display: none;
+}
+.show-edit-form {
+    display: block;
+}
+.edit-post-user::after {
+    content: '';
+    position: absolute;
+    border-color: transparent transparent rgb(246,246,246) transparent;
+    border-style: solid;
+    border-width: 16px 14px;
+    right: 9px;
+    top: -31px;
+}
+.edit-post-user a {
+    display: block;
+    color: black;
+    font-weight: 500;
+    opacity: .8;
+    cursor: pointer;
+}
+.edit-post-user a:hover {
+    background-color: #f0eaea;
+}

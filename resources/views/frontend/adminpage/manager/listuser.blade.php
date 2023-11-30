@@ -68,7 +68,7 @@
                                     </td>
 
                                 </tr>
-                                
+
                             @endforeach
                             @if ($user->isEmpty())
                                     <tr>
