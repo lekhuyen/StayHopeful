@@ -13,7 +13,7 @@
       <i class="fa fa-arrow-left" style="margin-right: 5px;" ></i> Return to About Us page
     </a>
     <div>
-        Welcome to the heart of <strong>Stay Hope full</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
+        Welcome to the heart of <strong>StayHopeful</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
     </div>
 
     <div class="container mt-5">
@@ -30,7 +30,7 @@
               <br>
               <br>
               <p class="text-justify">
-                Meet John Doe, the visionary behind <strong>Stay hope full</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
+                Meet John Doe, the visionary behind <strong>StayHopeful</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
               </p>
               <a href="{{route("aboutus.johndoe")}}" class="btn btn-info">HEAR STORY</a>
             </div>

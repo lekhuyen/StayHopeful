@@ -32,7 +32,7 @@
             
             <div>
                 
-                <span> As a small group of passionate individuals, we founded <strong>Stay Hope Full</strong> with a shared commitment to making a difference. Inspired by the stories of resilience in the face of adversity, we set out on a mission to combat diseases, end animal cruelty, and respond to natural disasters. Over the years, we've faced challenges head-on, but the stories of transformation keep us driven.</span>
+                <span> As a small group of passionate individuals, we founded <strong>StayHopeful</strong> with a shared commitment to making a difference. Inspired by the stories of resilience in the face of adversity, we set out on a mission to combat diseases, end animal cruelty, and respond to natural disasters. Over the years, we've faced challenges head-on, but the stories of transformation keep us driven.</span>
             </div>
             
         </div>
@@ -127,7 +127,7 @@
 {{-- logo_company --}}
 <div class="container mt-3 ">
     <div class="position-relative py-2 px-4 col-md-6 offset-md-3 logo_info">
-        Our vision extends beyond immediate impact. We're committed to sustainable solutions that stand the test of time. Your support not only transforms lives but also contributes to a more resilient and sustainable future. At <strong>Stay Hope Full</strong>, we partner with organizations that share our dedication to environmental well-being.
+        Our vision extends beyond immediate impact. We're committed to sustainable solutions that stand the test of time. Your support not only transforms lives but also contributes to a more resilient and sustainable future. At <strong>StayHopeful</strong>, we partner with organizations that share our dedication to environmental well-being.
         <svg width="20px" height="20px" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-secondary)" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
     </div>
     <br>
@@ -170,9 +170,9 @@
                     </svg>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Donate Now to Save Lives</h5>
+                    <h5 class="card-title">Donate To Save Lives</h5>
                     <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
-                    <a href="#" class="btn btn-info">Sign In</a></p>
+                    <a href="{{ route('detail.donate') }}" class="btn btn-info">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Support Our Cause Volunteer Today</h5>
                     <p class="card-text">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
-                    <a href="#" class="btn btn-info">Sign In</a></p>
+                    <a href="{{ route('contact.index') }}" class="btn btn-info">Contact</a></p>
                 </div>
             </div>
         </div>
@@ -222,11 +222,11 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <span>
-                Welcome to <strong>Stay Hope Full</strong>, where our journey towards positive change began 1990. Over the years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and Growth</strong> dedicated to making a lasting impact.
+                Welcome to <strong>StayHopeful</strong>, where our journey towards positive change began 1990. Over the years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and Growth</strong> dedicated to making a lasting impact.
             </span>
             <br>
             <span>
-                Our story started with a vision held passionately by <strong>John Doe</strong>. Fueled by the potential to leverage technology, they laid the foundation for <strong>Stay Hope Full</strong> with the belief that will make a better Tomorrow.
+                Our story started with a vision held passionately by <strong>John Doe</strong>. Fueled by the potential to leverage technology, they laid the foundation for <strong>StayHopeful</strong> with the belief that will make a better Tomorrow.
             </span>
         </div>
     </div>
@@ -265,7 +265,7 @@
             </h2>
             <div id="projectFundedCollapse" class="accordion-collapse collapse show" aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
                 <div class="accordion-body">
-                    To make a donation, simply click on the "Donate Now" button on our homepage. You'll be guided through a secure process to choose your donation amount and payment method.
+                    To make a donation, simply click on the <a href="{{ route('detail.donate') }}" style="text-decoration: none">"Donate"</a> button on our homepage. You'll be guided through a secure process to choose your donation amount and payment method.
                 </div>
             </div>
         </div>
@@ -279,7 +279,7 @@
             </h2>
             <div id="peopleServedCollapse" class="accordion-collapse collapse" aria-labelledby="peopleServedHeading" data-bs-parent="#projectAccordion">
                 <div class="accordion-body">
-                    Your donation directly supports [insert your organization's mission]. We allocate funds to [specific programs or initiatives] to make a lasting impact
+                    Your donation makes a meaningful impact across critical areas. By supporting our Environmental Nonprofit, Humanitarian Aid Organization, and Animal Welfare initiatives, you are directly contributing to positive change. Our commitment to transparency means that funds are allocated to specific programs, including Patient Support and Care for those battling illnesses, Emergency Relief to aid communities in crisis, and Rehabilitation and Support for those rebuilding their lives. Together, we can create a lasting and transformative impact on the environment, humanity, and the welfare of animals. Thank you for being a vital part of our mission
                 </div>
             </div>
         </div>
@@ -301,7 +301,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="challengesFacedHeading">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#challengesFacedCollapse" aria-expanded="false" aria-controls="challengesFacedCollapse">
-                    <i class="bi bi-exclamation-circle"></i> 4. How Can I Contact Your Organization for More Information?
+                    <i class="bi bi-exclamation-circle"></i> 4. How Can I Contact StayHopeful for More Information?
                 </button>
             </h2>
             <div id="challengesFacedCollapse" class="accordion-collapse collapse" aria-labelledby="challengesFacedHeading" data-bs-parent="#projectAccordion">
