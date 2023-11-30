@@ -5,7 +5,7 @@
 #side_nav {
     position: fixed;
     background: #000;
-    width: 300px;
+    width: 250px;
     height: 100vh;
     transition: all 0.3s;
     z-index: 2;
@@ -114,14 +114,17 @@ hr.h-color {
 @media(max-width: 767px) {
     #side_nav {
         margin-left: -250px;
-        position: absolute;
-        min-height: 100vh;
-        z-index: 1;
-
+        position: fixed;
+        height: 100vh;
     }
-
     #side_nav.active {
         margin-left: 0;
+    }
+    .dashboard-content{
+        margin-left: 0;
+    }
+    .footer{
+        margin-left: 0 !important;
     }
 }
 
@@ -144,7 +147,7 @@ body {
 .footer {
     background-color: #151515;
     padding: 80px 0;
-    margin-left: 300px;
+    margin-left: 250px;
 }
 
 .container {

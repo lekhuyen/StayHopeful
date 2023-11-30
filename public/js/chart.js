@@ -32,21 +32,20 @@ new Chart(ctx, {
     }
   }
 });
-const data2 = [52, 22, 12, 23, 52, 5];
 
 const ctx2 = document.getElementById('charttwo');
 new Chart(ctx2, {
   type: 'line',
   data: {
-    labels: labels,
+    labels: labelprojects,
     datasets: [{
-      label: 'Quỹ Đóng Góp',
-      data: data2,
+      label: 'All Project',
+      data: projects,
       borderWidth: 1,
       backgroundColor: '#39f',
       borderColor: '#fff',
       tension: 0.5
-      
+
     }]
   },
   options: {
@@ -62,7 +61,6 @@ new Chart(ctx2, {
       },
       y: {
         display: false,
-        beginAtZero: true,
       }
     }
   }
@@ -73,10 +71,10 @@ const ctx3 = document.getElementById('chartthree');
 new Chart(ctx3, {
   type: 'line',
   data: {
-    labels: labels,
+    labels: labelday,
     datasets: [{
       label: 'Donate',
-      data: data3,
+      data: amount,
       borderWidth: 1,
       backgroundColor: '#2eb85c',
       borderColor: '#fff',
@@ -97,7 +95,6 @@ new Chart(ctx3, {
       },
       y: {
         display: false,
-        beginAtZero: true,
       }
     }
   }
@@ -108,10 +105,10 @@ const ctx4 = document.getElementById('chartfour');
 new Chart(ctx4, {
   type: 'line',
   data: {
-    labels: labels,
+    labels: labelcompleteds,
     datasets: [{
-      label: 'Quỹ Đóng Góp',
-      data: data,
+      label: 'Project Completed',
+      data: totalstatus,
       borderWidth: 1,
       backgroundColor: '#e55353',
       borderColor: '#fff',
@@ -131,7 +128,6 @@ new Chart(ctx4, {
       },
       y: {
         display: false,
-        beginAtZero: true,
       }
     }
   }
@@ -146,25 +142,30 @@ const ctx5 = document.getElementById('chartbig');
 new Chart(ctx5, {
   type: 'line',
   data: {
-    labels: labels,
+    labels: labelday,
     datasets: [{
-      label: 'Sustaining Profit',
-      data: bigdata,
-      borderWidth: 1,
-      tension: 0.4
-    },
-    {
-      label: 'Sustaining Profit 2',
-      data: bigdata2,
-      borderWidth: 1,
-      tension: 0.4
+      label: 'Donation Revenue',
+      data: amount,
+      borderWidth: 2,
+      tension: 0.4,
+      borderColor:"royalblue",
+      backgroundColor: "lightblue",
+      fill: true
+      
     }]
   },
   options: {
-    
-    bezierCurve: false,
-    beginAtZero: true,
-    responsive: true,
+    scales: {
+      x: {
+        grid: {
+          drawOnChartArea: false,
+        }
+      },
+      y: {
+        beginAtZero: 1,
+      }
+    },
+
     maintainAspectRatio: false, // Thiết lập giữ tỷ lệ khung nhìn
   }
 });

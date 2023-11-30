@@ -25,7 +25,19 @@ class AdminPageController extends Controller
     }
     public function viewdashboard()
     {
-        return view('frontend.adminpage.manager.dashboard');
+        $amount = DonateInfo::select('amount')->get();
+        $project = Project::selectRaw('COUNT(id) as total_projects, COUNT(CASE WHEN status = 1 THEN 1 END) as status_1')
+            ->groupBy('status')
+            ->get();
+        $allproject = Project::all();
+        $totalproject = $project->sum('total_projects');
+        $totalstatus = $project->sum('status_1');
+        $totalamount = $amount->sum('amount');
+
+        $bigchart = $this->bigchart();
+        $chartproject = $this->chartproject();
+        $chartcompleted = $this->chartcompleted();
+        return view('frontend.adminpage.manager.dashboard', compact('allproject','bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted'));
     }
     public function viewmanagerpost()
     {
@@ -49,10 +61,11 @@ class AdminPageController extends Controller
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
 
         $slider = Sliders::all();
-        
+
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
-    public function getdonateuser(){
+    public function getdonateuser()
+    {
         $userinfoCollection = DonateInfo::orderBy('created_at', 'desc')->limit(10)->get();
 
         foreach ($userinfoCollection as $userinfo) {
@@ -209,4 +222,66 @@ class AdminPageController extends Controller
 
     }
 
+    public function bigchart()
+    {
+        $amountday = DonateInfo::selectRaw('DAYOFWEEK(created_at) as days, SUM(amount) as total_amount')
+            ->groupBy('days')
+            ->get();
+
+        $days = [];
+        $amounts = [];
+
+        foreach ($amountday as $amount) {
+            $days[] = date('l', strtotime("Sunday + {$amount->days} days"));
+            $amounts[] = $amount->total_amount;
+        }
+
+        $data = [
+            "days" => $days,
+            "amounts" => $amounts,
+        ];
+
+        return $data;
+    }
+    public function chartproject()
+    {
+        $project = Project::selectRaw('MONTH(created_at) as months, COUNT(id) as projectid')
+            ->groupBy('months')
+            ->get();
+
+        $ids = [];
+        $months = [];
+
+        foreach ($project as $p) {
+            $ids[] = $p->projectid;
+            $months[] = date('F', strtotime("{$p->months}-01"));
+        }
+
+        $data = [
+            'ids' => $ids,
+            'months' => $months,
+        ];
+
+        return $data;
+    }
+    public function chartcompleted(){
+        $project = Project::selectRaw('MONTH(created_at) as months, COUNT(CASE WHEN status = 1 THEN 1 END) as projectstatus')
+            ->groupBy('months')
+            ->get();
+
+        $status = [];
+        $months = [];
+
+        foreach ($project as $p) {
+            $status[] = $p->projectstatus;
+            $months[] = date('F', strtotime("{$p->months}-01"));
+        }
+
+        $data = [
+            'status' => $status,
+            'months' => $months,
+        ];
+
+        return $data;
+    }
 }
