@@ -56,6 +56,8 @@
                                 class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Category</a>
+                        <a href="{{ route('news.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-briefcase"></i>Create News</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Feedback</a>
                     </div>
