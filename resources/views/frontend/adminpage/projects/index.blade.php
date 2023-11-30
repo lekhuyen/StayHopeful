@@ -8,7 +8,7 @@
         <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a>
         <a href="{{route('projectAd.create')}}" class="btn btn-primary">Create Category</a>
         <table class="table table-hover">
-            <thead>'
+            <thead>
                 <tr>
                     <th>Id</th>
                     <th>Title</th>

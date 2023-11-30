@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sliderElement = document.getElementById("my-keen-slider");
     let keenSlider = new KeenSlider(sliderElement, {
         loop: true,
-        vertical: true,
+        vertical: false,
     });
 
     function updateSlider(data) {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         keenSlider = new KeenSlider(sliderElement, {
             loop: true,
-            vertical: true,
+            vertical: false,
         });
     }
 

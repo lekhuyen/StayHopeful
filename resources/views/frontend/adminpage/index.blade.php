@@ -47,17 +47,17 @@
                 <div class="sider-dropdown">Manager<i class="fa-solid fa-angle-right" style="margin-left: 30px"></i>
                     <div class="sider-dropdown-menu">
                         <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
-                            class="fa-solid fa-image"></i> Post</a>
+                                class="fa-solid fa-image"></i> Post</a>
                         <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                            class="fa-solid fa-desktop"></i>Create Slider</a>
+                                class="fa-solid fa-desktop"></i>Create Slider</a>
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
-                            class="fa-solid fa-users"></i>Create User</a>
+                                class="fa-solid fa-users"></i>Create User</a>
                         <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Create Project</a>
+                                class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Category</a>
+                                class="fa-solid fa-briefcase"></i>Category</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
-                            class="fa-solid fa-briefcase"></i>Feedback</a>
+                                class="fa-solid fa-briefcase"></i>Feedback</a>
                     </div>
                 </div>
             </li>
@@ -103,18 +103,17 @@
                 </div>
             </div>
         </nav>
-
-        <div class="dashboard-content px-3 pt-4">
-            {{-- content --}}
-            @yield('admin_content')
-
-            {{-- ckeditor --}}
-            @yield('ckeditor')
-
-        </div>
     </div>
 </div>
-{{-- <footer class="footer">
+<div class="dashboard-content px-3 pt-4">
+    {{-- content --}}
+    @yield('admin_content')
+
+    {{-- ckeditor --}}
+    @yield('ckeditor')
+
+</div>
+<footer class="footer">
     <div class="container row">
         <div class="footer-col">
             <h4>company</h4>
@@ -154,7 +153,7 @@
             </div>
         </div>
     </div>
-</footer> --}}
+</footer>
 <script src="{{ asset('js/sidebar.js') }}"></script>
 <script>
     var profilebtn = document.getElementById('dropdown-profile');
@@ -165,14 +164,14 @@
         dropdownMenu.classList.toggle('active-profile-dropdown');
     })
     document.addEventListener('DOMContentLoaded', function() {
-            var dropdownsider = document.querySelector('.sider-dropdown');
-            var angleIcon = dropdownsider.querySelector('.fa-angle-right');
-            var siderMenu = dropdownsider.querySelector('.sider-dropdown-menu');
+        var dropdownsider = document.querySelector('.sider-dropdown');
+        var angleIcon = dropdownsider.querySelector('.fa-angle-right');
+        var siderMenu = dropdownsider.querySelector('.sider-dropdown-menu');
 
-            dropdownsider.addEventListener('click', function() {
-                angleIcon.classList.toggle('fa-angle-right');
-                angleIcon.classList.toggle('fa-angle-down');
-                siderMenu.classList.toggle('show-menu');
-            });
+        dropdownsider.addEventListener('click', function() {
+            angleIcon.classList.toggle('fa-angle-right');
+            angleIcon.classList.toggle('fa-angle-down');
+            siderMenu.classList.toggle('show-menu');
         });
+    });
 </script>

@@ -8,7 +8,7 @@
   }
   .donate-home{
     position: relative;
-    width: 100%;
+    width: auto;
     height: 50px;
     background-color: transparent;
     margin-top: 50px;
@@ -67,4 +67,16 @@
     color: #BDC3C7;
     height: 50px;
     /* background-color: red; */
+  }
+  @media screen and (max-width: 576px) {
+    .donate-user-index{
+      width: 400px;
+    }
+    .text-name-donate{
+      width: 250px;
+    }
+    .donate-time{
+      right: 0;
+      padding-left: 40px;
+    }
   }
