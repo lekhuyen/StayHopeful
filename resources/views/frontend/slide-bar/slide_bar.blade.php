@@ -14,7 +14,7 @@
         <a class="menu-title-a">ABOUT</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
-            <a href="" class="sub-item">Aout Us</a>
+            <a href="" class="sub-item">About Us</a>
             <a href="" class="sub-item">Location</a>
             <a href="" class="sub-item">Recent Projects</a>
         </div>
@@ -56,7 +56,7 @@
 @endforeach
 
 
-
+@include("frontend/login/login");
 <script>
 // menu bar
 $('.item').click(function(){
