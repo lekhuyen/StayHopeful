@@ -45,7 +45,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::all();
+        $sliders = Sliders::paginate(4);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
@@ -136,7 +136,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::all();
+        $user = User::paginate(6);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 

@@ -70,6 +70,7 @@
                                 </tr>
 
                             @endforeach
+                            {{$user->links()}}
                             @if ($user->isEmpty())
                                     <tr>
                                         <td colspan="6" style="text-align:center">No users found</td>
