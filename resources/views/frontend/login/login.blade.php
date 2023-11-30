@@ -134,10 +134,14 @@
             url: "{{route('auth.register')}}",
             data: $('#registerForm').serialize(),
             success: function(response) {
+                if(response.status == 'success'){
                 // Handle the server response
                 console.log(response);
                 // window.location.href = "{{route('/')}}"; 
-                containerLoginRegister.classList.remove("sign-up-mode"); 
+                containerLoginRegister.classList.remove("sign-up-mode");
+                } else if (response.status == 'error'){
+                    setError(registerEmail,'Email đã tồn tại');
+                }
             },
             error: function(error) {
                 // Handle errors

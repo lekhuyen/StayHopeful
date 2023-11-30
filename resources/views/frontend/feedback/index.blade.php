@@ -25,29 +25,23 @@
             @endforeach
         </tbody>
     </table>
-    <p id="countBadfb"></p>
+    <p id="countBadfb">Total Bad Feedback: {{ $count }}/{{ $feedbacks->count() }}</p>
     {{ $feedback->links() }}
     <div class="fb__sensitive">
-        <a class="btn btn-primary" href="{{route('sensitive.create')}}">Add a Sensitive Word</a>
-        <a class="btn btn-primary" href="{{route('sensitive.index')}}">Sensitive Word List</a>
+        <a class="btn btn-primary btn-add-1" href="{{ route('sensitive.create') }}">Sensitive Word List</a>
+        <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.index') }}">Add a Sensitive Word</a>
     </div>
     <script>
         const wordSensitives = @json($words);
         const rows = document.querySelectorAll('.fb-content');
-
-        const countBadfb = document.querySelector("#countBadfb");
-        console.log("rocountBadfbws", countBadfb);
-        let countBadfeedback = 0;
         rows.forEach(row => {
             let text = row.textContent.toLowerCase();
             wordSensitives.forEach(word => {
                 if (text.includes(word)) {
-                    countBadfeedback += 1;
                     text = text.replace(word, `<b style = "color: red">${word}</b>`)
                 }
             });
             row.innerHTML = text;
-            countBadfb.innerHTML = `<b>Tong so bad feed back : ${countBadfeedback}</b>`;
         });
     </script>
 

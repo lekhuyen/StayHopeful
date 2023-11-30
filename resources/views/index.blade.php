@@ -81,7 +81,7 @@
                             <div class="img-donate">
                                 <img src="{{asset('img/humanicon.png')}}">
                             </div>
-                            <div class="text-name-donate"><span>Cho In Yeon <span class="text-info">Just Donated <span
+                            <div class="text-name-donate"><span>Cho In Yeong <span class="text-info">Just Donated <span
                                             style="color: #27AE60;">5 USD</span></span></span></div>
                             <div class="donate-time"><span>22 Minutes Ago</span></div>
                         </div>

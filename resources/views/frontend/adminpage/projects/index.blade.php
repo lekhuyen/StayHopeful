@@ -1,7 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
+
     <div class="container mt-3">
-        <h2>List Project</h2> 
+        <h2>List Project</h2>
         <a class="btn btn-primary "href="{{route('projectAd-image')}}" target="_blank">Trash Image</a>
         <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a>
         <a href="{{route('projectAd.create')}}" class="btn btn-primary">Create Category</a>
@@ -24,7 +26,7 @@
                     <tr class="project-table">
                         <td>{{$project->id}}</td>
                         <td>{{$project->title}}</td>
-                        <td>{{strip_tags($project->description)}}</td>
+                        <td><span class="pj__description">{!! $project->description !!}</span></td>
                         <td>{{$project->money}}</td>
                         <td>{{$project->money2}}</td>
                         <td>
@@ -53,7 +55,7 @@
                     <tr>
                         <td colspan="9" style="text-align:center">Project emtry</td>
                     </tr>
-                    
+
                 @endforelse
             </tbody>
         </table>
@@ -66,7 +68,7 @@
         $('.delete-project').click(function(){
             var projectId = $(this).data('id');
             var projectTable = $(this).closest('.project-table');
-            
+
             var _csrf = '{{ csrf_token() }}';
 
             $.ajax({
@@ -74,11 +76,11 @@
                 url: '{{ route('projectAd.delete',':id')}}'.replace(':id',projectId),
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
-                    id:projectId, 
+                    id:projectId,
                     _token:_csrf
                 },
                 success: function(data){
-                    
+
                     projectTable.remove()
                 },
                 error: function(error) {
@@ -90,7 +92,7 @@
 
         $('.project-finish').on('click',function(){
             var finishId = $(this).data('finish');
-            
+
 
             $.ajax({
                 type: "GET",
@@ -98,7 +100,7 @@
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
                     id:finishId,
-                }, 
+                },
                 success: function(data){
                     location.reload();
                 },
@@ -106,11 +108,11 @@
                     alert(error);
                 }
             })
-        
+
         })
         $('.project-unfinish').on('click',function(){
             var unfinishId = $(this).data('unfinish');
-            
+
 
             $.ajax({
                 type: "GET",
@@ -118,7 +120,7 @@
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
                     id:unfinishId,
-                }, 
+                },
                 success: function(data){
                     console.log(data);
                     location.reload();
@@ -127,7 +129,7 @@
                     alert(error);
                 }
             })
-        
+
         })
     })
 </script>

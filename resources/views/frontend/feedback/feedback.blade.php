@@ -1,9 +1,7 @@
-<link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 @extends('frontend.site')
 @section('title', 'Feedback')
 @section('main')
-
-<link href="{{ asset('feedbackcss/feedback.css') }}">
+<link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 
     <div class="container mt-3">
         @if (session('success'))
@@ -38,22 +36,23 @@
 
                 <form method="post" action="{{ route('feedback.store') }}">
                     @csrf
+<div class="form-group p-3">
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" value="{{ old('email') }}"
+        placeholder="Enter email" name="email">
+    @error('email')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
 
-                    <div class="mb-3 mt-3">
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" value="{{ old('email') }}" id="email"
-                            placeholder="Enter email" name="email">
-                        @error('email')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="content">Content:</label><br>
-                        <textarea name="content" id="content" placeholder="Write your feedback here">{{ old('content') }}</textarea><br>
-                        @error('content')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+
+    <label for="content">Content:</label>
+    <textarea class="form-control" type="text" name="content" rows="5" cols="50" placeholder="Write your feedback here">{{ old('content') }}</textarea>
+
+    @error('content')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
 
                     <input hidden type="number" class="form-control" value="{{ old('star', 0) }}" id="star"
                         name="star">
