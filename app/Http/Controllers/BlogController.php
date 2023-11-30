@@ -62,4 +62,11 @@ class BlogController extends Controller
         return view('frontend.project.index', compact('projects'));
     }
 
+    // news-detail
+    public function news_detail($id){
+        $new = News::find($id);
+        return view('frontend.blog.news_detail', compact('new'));
+        // return view('frontend.blog.news_detail', compact('categories', 'projects', 'new'));
+    }
+
 }

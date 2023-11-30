@@ -41,6 +41,7 @@ Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate');
 // Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
+
 Route::post('/donate', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
@@ -56,15 +57,17 @@ Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleba
 Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
 //profile
-// user middleware
-Route::group(["middleware" => "user_auth"], function () {
+
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 // user middleware close
-});
+
+
 //blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->name('blog.blog_finished');
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
+Route::get('/news-detail/{id}', [BlogController::class, 'news_detail'])->name('news-detail');
+
 
 
 //detail-page
@@ -109,8 +112,6 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 
 //admin
-//admin middleware
-Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
@@ -128,8 +129,10 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/banned', [AdminPageController::class, 'banned'])->name('admin.banneduser');
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
+    Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+
 });
-});
+
 
 //
 
@@ -208,7 +211,7 @@ Route::group(['prefix' => 'news/'], function () {
     Route::get('news-forcedelete/{id}', [NewsController::class, 'news_forcedelete'])->name('news-forcedelete');
 
     // news-detail
-    Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
+    // Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
 });
 
 // video-adminpage
@@ -258,4 +261,3 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
-// admin middleware close
