@@ -24,6 +24,7 @@
       background-color: #fff;
       overflow: hidden;
       border: solid 1px #E67E22;
+      box-shadow: 5px 5px 5px 5px #ccc;
     
   }
   .img-donate{

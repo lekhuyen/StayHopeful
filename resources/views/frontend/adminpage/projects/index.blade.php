@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
 
     <div class="container mt-3">
-        <h2>List Project</h2>
-        <a class="btn btn-primary "href="{{route('projectAd-image')}}" target="_blank">Trash Image</a>
-        <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a>
+        <h2>Project List</h2>
+        <a class="btn btn-primary "href="{{route('projectAd-image')}}" target="_blank">Unused Image</a>
+        <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Unused Project</a>
         <a href="{{route('projectAd.create')}}" class="btn btn-primary">Create Category</a>
         <table class="table table-hover">
-            <thead>'
+            <thead>
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
