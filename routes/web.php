@@ -39,6 +39,7 @@ Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate');
 // Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
+
 Route::post('/donate', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
@@ -117,6 +118,8 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/banned', [AdminPageController::class, 'banned'])->name('admin.banneduser');
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
+    Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+
 });
 
 

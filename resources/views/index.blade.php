@@ -3,7 +3,7 @@
 @section('main')
     {{-- keenslider --}}
     <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('indexcss/indexdonate.css')}}">
+    <link rel="stylesheet" href="{{ asset('indexcss/indexdonate.css') }}">
     {{-- keenslider --}}
     <!-- carosel -->
 
@@ -55,51 +55,20 @@
                 </button>
             </div>
     </section>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="donate-home">
-                <div class="donate-user-index">
-                    <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
-                        <div class="keen-slider__slide transaction-info">
-                            <div class="img-donate">
-                                <img src="{{asset('img/humanicon.png')}}">
-                            </div>
-                            <div class="text-name-donate"><span>Trần Thanh Phong <span class="text-info">Just Donated <span
-                                            style="color: #27AE60;">5.5 USD</span></span></span></div>
-                            <div class="donate-time"><span>12 Minutes Ago</span></div>
-                        </div>
-                        <div class="keen-slider__slide transaction-info">
-                            <div class="img-donate">
-                                <img src="{{asset('img/humanicon.png')}}">
-                            </div>
-                            <div class="text-name-donate"><span>Lê Văn Khuyên <span class="text-info">Just Donated <span
-                                            style="color: #27AE60;">92 USD</span></span></span></div>
-                            <div class="donate-time"><span>34 Minutes Ago</span></div>
-                        </div>
-                        <div class="keen-slider__slide transaction-info">
-                            <div class="img-donate">
-                                <img src="{{asset('img/humanicon.png')}}">
-                            </div>
-                            <div class="text-name-donate"><span>Cho In Yeon <span class="text-info">Just Donated <span
-                                            style="color: #27AE60;">5 USD</span></span></span></div>
-                            <div class="donate-time"><span>22 Minutes Ago</span></div>
-                        </div>
-                        <div class="keen-slider__slide transaction-info">
-                            <div class="img-donate">
-                                <img src="{{asset('img/humanicon.png')}}">
-                            </div>
-                            <div class="text-name-donate"><span>Phản Bội Sương <span class="text-info">Just Donated <span
-                                            style="color: #27AE60;">1112 USD</span></span></span></div>
-                            <div class="donate-time"><span>16 Minutes Ago</span></div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="donate-home">
+                    <div class="donate-user-index">
+                        <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
+                            <!-- Placeholder content -->
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <section>
         <div class="container section-title-1-0">
             <div class="row">
@@ -127,7 +96,8 @@
                             @else
                                 <div class="project-status-finish">FINISHED</div>
                             @endif
-                            <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"alt="...">
+                            <img src="{{ asset($project->images[0]->image) }}"
+                                class="card-img-top card-img-top-1"alt="...">
                             <div class="card-body card-body-1">
                                 <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
                                 <div class="cart-description-post">
@@ -279,5 +249,5 @@
     </div>
     @include('frontend/login/login');
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
-    <script src="{{asset('js/keensider.js')}}"></script>
+    <script src="{{asset('js/getuserdonate.js')}}"></script>
 @stop()

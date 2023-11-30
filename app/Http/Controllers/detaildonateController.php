@@ -22,6 +22,7 @@ class detaildonateController extends Controller
         $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
         return view('frontend.detaildonate.listdonate', compact('donateinfo'));
     }
+    
     public function payment(Request $request)
     {
         $data = $request->all();
