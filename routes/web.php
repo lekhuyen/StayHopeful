@@ -81,7 +81,6 @@ Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index')
 // Aboutus
 Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
-
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
@@ -130,7 +129,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
 });
-
+});
 
 //
 
@@ -260,4 +259,3 @@ Route::group(['prefix'=> 'post/'], function(){
 
 });
 // admin middleware close
-});
