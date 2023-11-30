@@ -170,8 +170,8 @@ $.ajax({
     success: function(response){
         if(response.status == 'success'){
             // Login successfully
-            console.log("Login Successfully");
-            console.log(response);
+            alert("Login Successfully");
+            console.log(response.message);
             if(response.role == 1){
                 window.location.href = "{{route('admin.dashboard')}}"; 
             }
@@ -179,9 +179,11 @@ $.ajax({
                 window.location.href = "{{route('/')}}"; 
             }
         }
-        else {
+        else if(response.status == 'email_error'){
+            setError(loginEmail,'Must verify email before login');
+        }else{
             // Display error 
-            console.log(response.message);
+            alert(response.message);
         }
     }
 });

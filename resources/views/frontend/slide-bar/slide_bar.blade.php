@@ -56,7 +56,7 @@
 @endforeach
 
 
-
+@include("frontend/login/login");
 <script>
 // menu bar
 $('.item').click(function(){

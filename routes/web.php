@@ -56,10 +56,12 @@ Route::get('/login/google', [AuthloginController::class, 'redirectgoogle'])->nam
 Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleback'])->name('auth.googlecallback');
 Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
+//verify_email
+// Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
+Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 //profile
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
-// user middleware close
 
 
 //blog
