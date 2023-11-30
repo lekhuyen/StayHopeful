@@ -57,14 +57,14 @@
     </section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="donate-home">
-                    <div class="donate-user-index">
-                        <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
-                            {{-- content donate user --}}
+            <div class="col-lg-12 col-sm-12">
+                    <div class="donate-home">
+                        <div class="donate-user-index">
+                            <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
+                                {{-- content donate user --}}
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

@@ -118,7 +118,6 @@ class AdminPageController extends Controller
         $slider = Sliders::find($id);
         return response()->json([
             'url' => asset($slider->url_image),
-            'categories' => $slider->categories_sliders_id,
             'slider_name' => $slider->slider_name
         ]);
     }
@@ -144,7 +143,6 @@ class AdminPageController extends Controller
         $user->email = $request->email;
         $user->password = $hashpass;
         $user->role = $request->role;
-        $user->verified_token = 'ASD';
         $user->status = 0;
         $user->save();
         return redirect()->back()->with('success', 'Create User successfully');
