@@ -72,16 +72,15 @@ class AuthloginController extends Controller
         $hashPassword = Hash::make($request->password);
         $user = new User();
         $user->name = $request->name;
-        $user->email = $request->email;
+        $emailUser = $user->email = $request->email;
         $user->password = $hashPassword;
         $user->verified_token = $verify_token;
         $user->save();
-
         $name = 'StayHopeful';
 
-        Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name) {
+        Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
             $email->subject('Confirm Register');
-            $email->to('trieunhananh@gmail.com', $name);
+            $email->to($emailUser, $name);
         });
         return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
         }

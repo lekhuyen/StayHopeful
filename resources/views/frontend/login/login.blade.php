@@ -137,7 +137,7 @@
             success: function(response) {
                 if(response.status == 'success'){
                 // Handle the server response
-                console.log(response);
+                alert(response.message);
                 // window.location.href = "{{route('/')}}"; 
                 containerLoginRegister.classList.remove("sign-up-mode");
                 } else if (response.status == 'error'){
