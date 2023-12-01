@@ -45,7 +45,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(4);
+        $sliders = Sliders::paginate(2);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
@@ -60,7 +60,7 @@ class AdminPageController extends Controller
             ->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
 
-        $slider = Sliders::all();
+        $slider = Sliders::paginate(2);
 
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
@@ -136,7 +136,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::paginate(6);
+        $user = User::paginate(2);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
