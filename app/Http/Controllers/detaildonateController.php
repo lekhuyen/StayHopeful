@@ -36,7 +36,7 @@ class detaildonateController extends Controller
             "intent" => "CAPTURE",
             "application_context" => [
                 "return_url" => route('detail.paymentsuccess'),
-                "cancel_url" => route('admin.index')
+                "cancel_url" => route('detail.donate')
             ],
             "purchase_units" => [
                 [
@@ -59,7 +59,7 @@ class detaildonateController extends Controller
                 }
             }
         } else {
-            return redirect()->route('admin.index');
+            return redirect()->back()->with('error', 'Payment not accepted');
         }
     }
     public function paymentsuccess(Request $request)
@@ -80,7 +80,7 @@ class detaildonateController extends Controller
         // nghĩa là việc thanh toán đã hoàn tất thành công. 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $tomail = $userinfo['email'];
-            $message = $userinfo['message'];
+            $message = $userinfo['project'];
 
             Mail::to($tomail)->send(new EmailDonate($message));
             $donateinfo = new DonateInfo();
@@ -96,7 +96,7 @@ class detaildonateController extends Controller
 
 
         } else {
-            return redirect()->route('admin.index');
+            return redirect()->back()->with('error', 'Error');
         }
     }
 

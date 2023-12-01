@@ -9,7 +9,9 @@
                     <form action="{{ route('detail.payment') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
-
+                        @if (session('error'))
+                        <div class="text-danger">{{session('error')}}</div> 
+                        @endif
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
@@ -118,7 +120,7 @@
                         </div>
                         <div class="form-donate-info">
                             <div class="form-info-detail">
-                                <button class="form-info-btn" type="submit" name="redirect">Send</button>
+                                <button class="form-info-btn" type="submit">Send</button>
                             </div>
                         </div>
                     </form>

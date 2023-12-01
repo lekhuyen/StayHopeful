@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const sliderElement = document.getElementById("my-keen-slider");
     let keenSlider = new KeenSlider(sliderElement, {
@@ -15,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="text-name-donate">
                         <span>${user.name}</span>
-                        <span class="text-info">Just Donated
-                            <span style="color: #27AE60;">${user.amount} USD</span>
+                        <span class="text-info">Just Donated 
                         </span>
+                        <div style="color:#27AE60; font-weight: 800; margin-left: 10px;">${user.amount} USD</div>
                     </div>
                     <div class="donate-time">
                         <span>${user.formattedTime}</span>
@@ -46,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     fetchData();
-    setInterval(fetchData,60000);
+    setInterval(fetchData, 60000);
 
     setInterval(() => {
         keenSlider.next();
-    },3000);
+    }, 3000);
 });
