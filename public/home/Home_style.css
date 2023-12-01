@@ -111,7 +111,14 @@ html {
     font-size: 20px;
     transform: skew(0.09turn);
 }
-
+.nav_bar li div.text.username{
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    transform: skew(0.09turn);
+}
 .nav_bar li div.text.popup-login {
     display: flex;
     align-items: center;
@@ -186,6 +193,11 @@ html {
     color: #123b6a;
     transition: 0.3s;
 
+}
+
+.nav_bar li div.text.username:hover{
+    color: #123b6a;
+    transition: 0.3s;
 }
 
 .nav_bar li div.text.popup-login:hover {
