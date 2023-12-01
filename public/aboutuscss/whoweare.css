@@ -1,0 +1,54 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+
+    text-align: center;
+    margin-top: 0;
+}
+
+.row.g-10 {
+    margin-top: 40px;
+}
+
+/* Container styles */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.founder-img {
+    width: 70%;
+    height:90%;
+}
+
+.card {
+    border: none;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-link{
+  text-decoration: none;
+}
+
+.card-img-top{
+  height: 200px;
+  object-fit: cover;
+}
