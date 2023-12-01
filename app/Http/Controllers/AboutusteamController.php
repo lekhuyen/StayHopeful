@@ -62,7 +62,7 @@ class AboutusteamController extends Controller
         }
         $aboutusteams = aboutusteam::all();
 
-        return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
+        return view("aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
 
     }
 
@@ -120,7 +120,7 @@ class AboutusteamController extends Controller
                 $newImage->save();
             }
         }
-        return redirect()->route("frontend.aboutusteam.index")->with("success","Team created successfully");
+        return redirect()->route("aboutusteam.index")->with("success","Team created successfully");
     }
 
     public function aboutus_team_delete(aboutusteam $aboutusteam)
@@ -136,7 +136,7 @@ class AboutusteamController extends Controller
         // Delete the team member
         $aboutusteam->delete();
 
-        return redirect()->route("frontend.aboutusteam.index")->with("success", "Team member deleted successfully");
+        return redirect()->route("aboutusteam.index")->with("success", "Team member deleted successfully");
     }
 
 }
