@@ -1,7 +1,7 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     <div class="container mt-3">
-        <h2>List Post</h2>
+        <h2>User Post List</h2>
         <a class="btn btn-primary "href="{{route('post-trash')}}" target="_blank">Trash</a>
         <table class="table table-hover">
             <thead>
