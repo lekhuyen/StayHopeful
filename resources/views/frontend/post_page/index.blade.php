@@ -42,5 +42,5 @@
             <div class="col-lg-2"></div>
         </div>
     </div>
-
+    @include("frontend/login/login");
 @endsection

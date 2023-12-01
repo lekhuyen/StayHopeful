@@ -287,7 +287,7 @@
 <script>
     var profileOption = document.querySelector(".profile-option");
     var profileDropdown = document.querySelector(".profile-dropdown");
-    profileOption.addEventListener("mouseover", function(){
+    profileOption.addEventListener("click", function(){
         profileDropdown.classList.toggle("showOptionProfile");
         profileDropdown.style.transitionDuration = "0.5s";
     })
