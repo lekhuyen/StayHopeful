@@ -8,8 +8,8 @@
                 @foreach ($posts as $post)
                     <div style="padding: 0; background-color:#f1ebeb; border-radius: 5px; ">
                         <div class="post-uset-body"
-                            style="text-align:left; 
-                                display: flex; 
+                            style="text-align:left;
+                                display: flex;
                                 align-items:center;
                                 ">
                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 50px;">

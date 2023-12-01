@@ -28,14 +28,14 @@
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-danger delete-news" data-id="{{$new->id}}">DELETE</button>
-                            <a  class="btn btn-primary" href="{{route('news.edit', $new->id)}}">EDIT</a>
+                            <button class="btn btn-danger delete-news" data-id="{{$new->id}}"><i class="fa-solid fa-trash-can"></i></button>
+                            <a  class="btn btn-warning" href="{{route('news.edit', $new->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        {{-- {{$news->links()}} --}}
+        {{$news->links()}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

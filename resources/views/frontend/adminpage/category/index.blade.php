@@ -15,8 +15,8 @@
                     <tr class="category-table">
                         <td>{{ $category->name }}</td>
                         <td>
-                            <button class="btn btn-danger delete-category" data-id="{{ $category->id }}">DELETE</button>
-                            <a class="btn btn-primary" href="{{ route('category.edit', $category->id) }}">EDIT</a>
+                            <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
+                            <a class="btn btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                 @empty
@@ -25,8 +25,9 @@
                     </tr>
                 @endforelse
             </tbody>
-            {{-- {{ $categories->links() }} --}}
+
         </table>
+        {{ $categories->links() }}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
