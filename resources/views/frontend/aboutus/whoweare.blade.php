@@ -10,7 +10,7 @@
 <div class="container mt-3 our_founder" data-aos="zoom-in">
     <h2 class="text-center">Our Founder</h2>
     <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
-      <i class="fa fa-arrow-left" style="margin-right: 5px;" ></i> Return to About Us page
+      <i class="fa fa-arrow-left" style="margin-right: 5px;" ></i> Go Back
     </a>
     <div>
         Welcome to the heart of <strong>StayHopeful</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.

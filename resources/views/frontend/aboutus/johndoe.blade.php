@@ -16,7 +16,7 @@
             
             <div class="row">
                 <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
-                    <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Return to About Us page
+                    <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
                 </a>
                 <div class="col-md-10 offset-md-1">
                     
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-top: 10px;">
-                    <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Return to About Us page
+                    <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
                 </a>
             </div>
         </div>
