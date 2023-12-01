@@ -175,6 +175,11 @@
                                     {{-- <a href="{{route('logout')}}">LOGOUT</a> --}}
                                     @else
                                     <div class="text popup-login">LOGIN</div>
+                                        {{-- @if (session('isVerified'))
+                                        <div class="text popup-login showLogin">LOGIN</div>
+                                        @else
+                                        <div class="text popup-login">LOGIN</div>
+                                        @endif --}}
                                     @endif
                             </li>
                             </div>

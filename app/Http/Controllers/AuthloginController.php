@@ -96,7 +96,7 @@ class AuthloginController extends Controller
         $user = User::where("verified_token", $verify_token)->first();
         if($user){
             $user->update(['status' => 1]);
-            return view('frontend.login.confirm_register');
+            return redirect()->route('/')->with("isVerified",true);
         }
         
     }
