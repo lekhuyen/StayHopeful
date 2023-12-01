@@ -52,6 +52,8 @@
                                 class="fa-solid fa-desktop"></i>Create Slider</a>
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
                                 class="fa-solid fa-users"></i>Create User</a>
+                        <a href="{{ route('post.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-users"></i>User Posts</a>
                         <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Create Project</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i

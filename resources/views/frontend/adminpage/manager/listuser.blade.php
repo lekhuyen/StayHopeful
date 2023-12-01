@@ -31,8 +31,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Status</th>
@@ -68,17 +68,16 @@
                                     </td>
 
                                 </tr>
-
                             @endforeach
-                            {{$user->links()}}
                             @if ($user->isEmpty())
-                                    <tr>
-                                        <td colspan="6" style="text-align:center">No users found</td>
-                                    </tr>
-                                @endif
+                                <tr>
+                                    <td colspan="6" style="text-align:center">No users found</td>
+                                </tr>
+                            @endif
 
                         </tbody>
                     </table>
+                    {{ $user->links() }}
                 </div>
             </div>
         </div>
