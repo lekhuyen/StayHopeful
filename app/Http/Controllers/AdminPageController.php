@@ -60,7 +60,7 @@ class AdminPageController extends Controller
             ->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
 
-        $slider = Sliders::paginate(2);
+        $slider = Sliders::all();
 
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
