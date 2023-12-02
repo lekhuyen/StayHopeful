@@ -89,7 +89,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->money2) }}
+                                        {{ number_format($project->donateInfo->sum('amount')) }}   
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -151,7 +151,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->money2) }}
+                                        {{ number_format($project->donateInfo->sum('amount')) }}   
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -220,7 +220,7 @@
                     <div class="statistical">
                         <div class="total-money">
                             <i class="fa-regular fa-face-smile"></i>
-                            <span>123.456.789</span>
+                            <span class="odometer" id="odometer"></span>
                         </div>
                         <span style="font-size: 18px;">USD</span>
                     </div>
@@ -228,12 +228,21 @@
             </div>
         </div>
     </div>
+
+    {{-- đừng xoá --}}
+    {{-- @foreach ($totalAmountByProject as $projectId => $total)
+        Project ID: {{ $projectId }}, Total Amount: {{ $total }}<br>
+    @endforeach --}}
     @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true]);
     @else
         @include('frontend/login/login');
     @endif
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+        integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
-    <script src="{{asset('js/indexslider.js')}}"></script>
+    <script src="{{ asset('js/indexslider.js') }}"></script>
+    <script src="{{ asset('js/countdonate.js') }}"></script>
 @stop()

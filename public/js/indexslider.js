@@ -163,14 +163,17 @@ class PostSlider {
         this.slider.addEventListener('scroll', () => {
             const scrollLeft = this.slider.scrollLeft;
             const currentIndex = Math.trunc((Math.abs(scrollLeft) + 2) / this.slider.clientWidth);
-
-
-
-            for (let i = 0; i < this.dots.length; i++) {
-                this.dots[i].classList.remove('active');
+    
+            // Ensure currentIndex is within the valid range
+            if (currentIndex >= 0 && currentIndex < this.dots.length) {
+                // Remove 'active' class from all dots
+                for (let i = 0; i < this.dots.length; i++) {
+                    this.dots[i].classList.remove('active');
+                }
+    
+                // Add 'active' class to the dot at currentIndex
+                this.dots[currentIndex].classList.add('active');
             }
-
-            this.dots[currentIndex].classList.add('active');
 
             this.prevBtn.style.opacity = Math.abs(scrollLeft) < 1 ? '0' :
                 '1'; /*it means there is no element before so it would hide prev button*/

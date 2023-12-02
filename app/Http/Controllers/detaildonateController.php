@@ -18,20 +18,22 @@ class detaildonateController extends Controller
 
         return view('frontend.detaildonate.donatepage', compact('projects'));
     }
-    public function viewlistdonate(){
+    public function viewlistdonate()
+    {
         $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
         return view('frontend.detaildonate.listdonate', compact('donateinfo'));
     }
-    
+
     public function payment(Request $request)
     {
+        $request->validate([
+            'amount' => 'required|numeric|min:0',
+        ]);
         $data = $request->all();
         session()->put('userinfo', $data);
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
-        //Lấy Token Truy Cập:
         $paypalToken = $provider->getAccessToken();
-        //Tạo Đơn Đặt Hàng:
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
@@ -49,45 +51,45 @@ class detaildonateController extends Controller
         ]);
 
 
-        //**Kiểm Tra và Chuyển Hướng Người Dùng:
-        //Kiểm Tra Phản Hồi Từ PayPal:
+
         if (isset($response['id']) && $response['id'] != null) {
-            //Tìm URL Chấp Thuận:
             foreach ($response['links'] as $link) {
                 if ($link['rel'] === 'approve') {
                     return redirect()->away($link['href']);
                 }
             }
         } else {
-            return redirect()->back()->with('error', 'Payment not accepted');
+            return redirect()->back()->with('error', 'Payment not accepted')->withInput();
         }
     }
     public function paymentsuccess(Request $request)
     {
         $userinfo = session()->get('userinfo');
-        //Khởi Tạo và Cấu Hình PayPal Client:
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
-        //Lấy Token Truy Cập:
         $paypalToken = $provider->getAccessToken();
-        //Lấy Thông Tin Đơn Đặt Hàng:
         $response = $provider->capturePaymentOrder($request->token);
 
-        //dd($response);
 
-        //Kiểm Tra Kết Quả Thanh Toán:
-        //Nếu trạng thái ($response['status']) là 'COMPLETED',
-        // nghĩa là việc thanh toán đã hoàn tất thành công. 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $tomail = $userinfo['email'];
             $message = $userinfo['project'];
 
             Mail::to($tomail)->send(new EmailDonate($message));
+            $username = "";
+            if($userinfo['hidename'] == "Anonymous"){
+                $username = $userinfo['hidename'];
+            }else{
+                $username = $userinfo['fullname'];
+            }
             $donateinfo = new DonateInfo();
-            $donateinfo->name = $userinfo['fullname'];
+            $donateinfo->name = $username;
             $donateinfo->email = $userinfo['email'];
             $donateinfo->phone = $userinfo['phone'];
-            $donateinfo->project_id = $userinfo['project'];
+            $project = Project::where('title', $userinfo['project'])->first();
+            if ($project) {
+                $donateinfo->project_id = $project->id;
+            }
             $donateinfo->method = $userinfo['type'];
             $donateinfo->amount = $userinfo['amount'];
             $donateinfo->message = $userinfo['message'];

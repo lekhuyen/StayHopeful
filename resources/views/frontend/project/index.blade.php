@@ -26,8 +26,7 @@
                                     <p class="card-title-child">
                                         Received:
                                         <span>
-                                            {{number_format($project->money2)}}
-                                        </span>
+                                            {{ number_format($project->donateInfo->sum('amount')) }}                                        </span>
                                     </p>
                                     <p class="card-title-child-1">
                                         Goals:
