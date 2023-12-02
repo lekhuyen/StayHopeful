@@ -45,7 +45,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(2);
+        $sliders = Sliders::paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
