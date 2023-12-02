@@ -7,12 +7,13 @@
 {{-- teamname.css --}}
 <br>
 <br>
-<h1>Meet Jane Smith, The Chief Marketing Officer</h1>
+<br>
+<h1 class="aboutus_teammember_h1">Meet Jane Smith, The Chief Marketing Officer</h1>
 
     <div class="container mt-3 introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
+            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
             </a>
             <div class="col-md-8 offset-md-2">
@@ -41,7 +42,7 @@
     </div>
     <hr>
 
-    <div class="col-md-6 offset-md-3 ">
+    <div class="col-md-6 offset-md-3 aboutus_carousel_p">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -96,7 +97,7 @@
     
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
-        <h5>Current Projects and Future Plans:</h5>
+        <h5>Current Projects and Future Plans</h5>
         <div class="plans">
             <span class="col-md-8 offset-md-2">
                 As the Chief Marketing Officer, Jane is now at the forefront of expanding the reach and influence of the donation website. She has implemented creative campaigns that not only raise funds but also tell compelling stories of the lives changed by the generosity of donors.
