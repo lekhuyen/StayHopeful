@@ -112,7 +112,7 @@
 .PostSlide {
   width: 100%;
   margin: 40px auto;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .PostSlide {
@@ -128,7 +128,7 @@
   margin: auto;
 }
 .innerContainer{
-  margin-top: 60px;
+  margin-top: 80px;
 }
 .PostSlide .innerContainer .slider .slide {
   display: block;
