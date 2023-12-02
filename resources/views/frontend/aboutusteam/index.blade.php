@@ -4,7 +4,7 @@
 
 <div class="container mt-3">
   <h2>About Us Team</h2>
-  <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Create a new Team</a>
+  <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">New Team</a>
 
   <table class="table table-dark mt-3">
     <thead>
@@ -43,14 +43,12 @@
             </td>
             <td>
               <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-warning">Edit</a>
-            </td>
-            <td>
               <form action="{{ route('aboutusteam.delete', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this team member?');">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger">Delete</button>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
               </form>
-          </td>
+            </td>
         </tr>
         @endforeach
     </tbody>

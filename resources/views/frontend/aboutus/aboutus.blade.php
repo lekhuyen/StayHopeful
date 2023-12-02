@@ -8,7 +8,7 @@
 <br>
 {{-- Mission sector --}}
 <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
-    <h1>What is our mission</h1>
+    <h1 class="aboutus_h1">What is our mission</h1>
 
     <span class="mission">
         At StayHopeful, we are dedicated to creating positive and lasting change in the world.
@@ -25,9 +25,9 @@
 <br>
 
 {{-- About us sector --}}
-<h2>About Us</h2>
+<h2 class="aboutus-h2">About Us</h2>
 <div class="container about-story1" data-aos="zoom-in-left">
-    <div class="row row-cols-1 row-cols-md-2 g-10">
+    <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col story1">
             
             <div>
@@ -46,7 +46,7 @@
 </div>
 
 <div class="container about-story2" data-aos="zoom-in-right">
-    <div class="row row-cols-1 row-cols-md-2 g-10">
+    <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col aboutus2">
             <div><!-- aboutus's Picture 2-->
                 <img src="{{ asset('img/aboutus2.jpg') }}" alt="aboutus2" class="aboutus-image2">
@@ -67,7 +67,7 @@
 
 
 <div class="container about-story3" data-aos="zoom-in-left">
-    <div class="row row-cols-1 row-cols-md-2 g-10">
+    <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col story3">
             <div>
                 
@@ -87,7 +87,7 @@
 </div>
 
 <div class="container about-story4" data-aos="zoom-in-right">
-    <div class="row row-cols-1 row-cols-md-2 g-10">
+    <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col aboutus2">
             <div><!-- aboutus's Picture 4-->
                 <img src="{{ asset('img/aboutus4.jpg') }}" alt="aboutus4" class="aboutus-image4">
@@ -106,7 +106,7 @@
 </div>
 
 <div class="container about-story5" data-aos="fade-up">
-    <div class="row row-cols-1 row-cols-md-2 g-10">
+    <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col story5">
             <div>
                 <div>
@@ -125,7 +125,7 @@
 </div>
 
 {{-- logo_company --}}
-<div class="container mt-3 ">
+<div class="container mt-3 aboutus-logo">
     <div class="position-relative py-2 px-4 col-md-6 offset-md-3 logo_info">
         Our vision extends beyond immediate impact. We're committed to sustainable solutions that stand the test of time. Your support not only transforms lives but also contributes to a more resilient and sustainable future. At <strong>StayHopeful</strong>, we partner with organizations that share our dedication to environmental well-being.
         <svg width="20px" height="20px" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-secondary)" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
@@ -171,8 +171,8 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Donate To Save Lives</h5>
-                    <p class="card-text">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us in the fight against diseases, and let's make a difference together.</p>
-                    <a href="{{ route('detail.donate') }}" class="btn btn-info">Sign In</a></p>
+                    <p class="card-text card-text-p">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us, and let's make a difference together.</p>
+                    <a href="{{ route('detail.donate') }}" class="btn btn-info call_to_action_button">Donate</a></p>
                 </div>
             </div>
         </div>
@@ -189,9 +189,8 @@
 
                 <div class="card-body">
                     <h5 class="card-title">Join Our Community for Exclusive Updates.</h5>
-                    <p class="card-text">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
-                    <br>
-                    <a href="#" class="btn btn-info">Sign In</a></p>
+                    <p class="card-text card-text-p">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
+                    <a href="{{route ('auth.login')}}" class="btn btn-info call_to_action_button">Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -208,8 +207,8 @@
 
                 <div class="card-body">
                     <h5 class="card-title">Support Our Cause Volunteer Today</h5>
-                    <p class="card-text">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
-                    <a href="{{ route('contact.index') }}" class="btn btn-info">Contact</a></p>
+                    <p class="card-text card-text-p">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
+                    <a href="{{ route('contact.index') }}" class="btn btn-info call_to_action_button">Contact</a></p>
                 </div>
             </div>
         </div>
@@ -217,8 +216,8 @@
 </div>
 
 {{-- Our Team sector --}}
-<div class="container-fluid mt-3 our_team" data-aos="fade-right">
-    <h2>Who We Are</h2>
+<div class="container-fluid mt-3 aboutus_our_team" data-aos="fade-right">
+    <h2 class="aboutus-h2">Who We Are</h2>
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <span>
@@ -241,7 +240,7 @@
                 <div class="card-body">
                   <h5 class="card-title">John Doe</h5>
                   <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus where donors and causes converge</p>
-                  <a href="{{route("aboutus.whoweare")}}" class="btn btn-info">Meet Our Team</a>
+                  <a href="{{route("aboutus.whoweare")}}" class="btn btn-info our-team-button">Our Team</a>
                 </div>
               </div>
         </div>
@@ -306,7 +305,7 @@
             </h2>
             <div id="challengesFacedCollapse" class="accordion-collapse collapse" aria-labelledby="challengesFacedHeading" data-bs-parent="#projectAccordion">
                 <div class="accordion-body">
-                    For more information, feel free to reach out to our team at StayHopeful@email.com or call us at 123456789. We're here to assist you.
+                    For more information, feel free to reach out to our team at <a href="mailto:contact@StayHopeful.org" style="text-decoration: none">contact@StayHopeful.org</a> or call us at Hotline :<a href="tel:+842839107612" style="text-decoration: none">+84-28 3910 7612</a> or  Fax :<a href="tel:+8402839107614" style="text-decoration: none">84-028 3910 7614</a>. We're here to assist you.
                 </div>
             </div>
         </div>

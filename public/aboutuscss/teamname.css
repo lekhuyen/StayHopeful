@@ -1,94 +1,68 @@
-body {
-    background-color: white;
-    color: #333; /* Dark text color */
-}
-
-h1 {
+.aboutus_teammember_h1 {
     text-align: center;
-    font-size: 3em;
-    margin-top: 20px;
-    margin-bottom: 30px;
 }
-
-.container {
-    background-color: #fff; /* White background */
-    padding: 30px;
-    margin-top: 20px;
-}
-
-h5 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-span {
+/* # Introduction */
+.introduction span {
     display: block;
     font-size: 1.2em;
     line-height: 1.6;
-    color: #555; /* Dark gray color */
+    color: #555;
     margin-bottom: 15px;
-}
-
-a {
-    color: rgb(127, 214, 244); /* Custom lightblue color for links */
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-p {
-    font-style: italic;
-    margin-top: 15px;
-    color: #777; /* Slightly darker gray color for quotes */
-}
-
-hr {
-    margin-top: 30px;
-}
-
-.introduction span {
     padding: 15px;
     border-radius: 10px;
 }
 
-.the_past,
-.the_present,
-.becoming_the_founder_main {
-    padding: 30px;
-    margin-top: 20px;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-    border-radius: 15px; /* Rounded corners */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    border-radius: 15px; /* Rounded corners */
-}
-
-.teamname1 {
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
-    width: 100%; /* Half the original size */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center the image */
-}
-
-.plans {
+/* # Meeting the Founder */
+.the_past h5{
     text-align: center;
 }
 
-.carousel_p {
-    color: black; /* Change the color to your desired one */
+.the_past span {
+    color: #555;
+    display: block;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+/* # Carousel
+# Adjusting the image size */
+.kaigreene_image {
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+}
+
+.aboutus_carousel_p p {
+    font-style: italic;
+    color: black;
+}
+
+.aboutus_carousel_p h5 {
+    font-style: italic;
+    color: black;
+}
+
+/* # Current Projects and Future Plans */
+
+
+.plans span {
+    display: block;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* # Quotes */
+.plans p {
+    margin-top: 15px;
+    font-style: italic;
+    color: #777;
+}
+
+.becoming_the_founder_main h5{
+    text-align: center;
 }
