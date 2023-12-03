@@ -46,13 +46,12 @@
     <div class="card">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
+          <img src="{{ asset('img/Robert_Johnson.jpg') }}" class="img-fluid rounded-start" alt="Robert_Johnson">
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">Robert Johnson</h5>
             <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive experience in finance and strategic planning. His innovative thinking has significantly contributed to our organization's success.</p>
-            <p class="card-text"><small class="text-body-secondary">Date of Birth: August 22, 1982</small></p>
             <a href="{{route("aboutus.robertjohnson")}}" class="btn btn-primary">View Details</a>
           </div>
         </div>
@@ -93,13 +92,12 @@
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="">
+                    <img src="{{ asset('img/Jane_Smith.jpg') }}" class="img-fluid rounded-start" alt="Jane_Smith">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body" >
                         <h5 class="card-title">Jane Smith</h5>
                         <p class="card-text">Jane Smith is our Chief Marketing Officer, bringing a creative and strategic approach to our outreach efforts. Her dedication has played a crucial role in expanding our reach and impact.</p>
-                        <p class="card-text"><small class="text-body-secondary">Date of Birth: March 10, 1988</small></p>
                         <a href="{{ route('aboutus.janesmith') }}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
@@ -142,13 +140,12 @@
     <div class="card">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="...">
+          <img src="{{ asset('img/Kai_Greene.jpg') }}" class="img-fluid rounded-start" alt="Kai_Greene">
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">Kai Greene</h5>
             <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our technological initiatives. Their expertise has been instrumental in driving our digital transformation.</p>
-            <p class="card-text"><small class="text-body-secondary">Date of Birth: May 18, 1989</small></p>
             <a href="{{route("aboutus.kaigreene")}}" class="btn btn-primary">View Details</a>
           </div>
         </div>
@@ -190,13 +187,12 @@
     <div class="card">
       <div class="row g-0">
           <div class="col-md-4">
-              <img src="{{ asset('img/aboutus2.jpg') }}" class="img-fluid rounded-start" alt="Person's Image">
+              <img src="{{ asset('img/Oliver_Hudson.jpeg') }}" class="img-fluid rounded-start" alt="Oliver_Hudson">
           </div>
           <div class="col-md-8">
               <div class="card-body">
                   <h5 class="card-title">Oliver Hudson</h5>
                   <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend of artistic vision and strategic thinking to our projects. Their creativity adds a distinctive touch to our initiatives.</p>
-                  <p class="card-text"><small class="text-body-secondary">Date of Birth: January 15, 1985</small></p>
                   <a href="{{route("aboutus.oliverhudson")}}" class="btn btn-primary">View Details</a>
               </div>
           </div>

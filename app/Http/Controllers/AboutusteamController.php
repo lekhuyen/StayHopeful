@@ -62,7 +62,7 @@ class AboutusteamController extends Controller
         }
         $aboutusteams = aboutusteam::all();
 
-        return view("aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
+        return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
 
     }
 

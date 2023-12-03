@@ -10,7 +10,7 @@
 <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
     <h1 class="aboutus_h1">What is our mission</h1>
 
-    <span class="mission">
+    <span class="mission ">
         At StayHopeful, we are dedicated to creating positive and lasting change in the world.
         Our mission is to extend a helping hand to those facing the challenges of disease, combat animal cruelty, and provide relief in the aftermath of natural disasters.
         We believe in the power of collective compassion to heal, protect, and rebuild lives.
@@ -131,7 +131,7 @@
         <svg width="20px" height="20px" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-secondary)" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
     </div>
     <br>
-    <div class="row">
+    <div class="row align-items-center">
         <div class="col">
             <a href="https://www.independent.co.uk/asia"><img src="{{ asset('img/logo_aboutus/logo_company1.PNG') }}" alt="logo_company1.PNG" class="logo_company"></a>
         </div>
@@ -231,7 +231,7 @@
     </div>
     <br>
     <div class="row align-items-center">
-        <div class="col">
+        <div class="col d-none d-lg-block">
             <img class="founder-img1" src="{{ asset('img/aboutus_founder1.jpg') }}" alt="founder1" >
         </div>
         <div class="col">
@@ -244,7 +244,7 @@
                 </div>
               </div>
         </div>
-        <div class="col">
+        <div class="col d-none d-lg-block">
             <img class="founder-img2" src="{{ asset('img/aboutus_founder2.jpg') }}" alt="founder2">
         </div>
     </div>
