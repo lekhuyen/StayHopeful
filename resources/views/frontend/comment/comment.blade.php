@@ -28,8 +28,7 @@
 
 
     {{-- comment --}}
-    <div class="modal-comment" style="display: block;">
-        {{-- -------------------- --}}
+    {{-- <div class="modal-comment">
         <div class="modal_inner">
             <div class="comment-header">
                 <h1>Comments</h1>
@@ -38,7 +37,6 @@
                 </div>
             </div>
             <div class="comment-body">
-                {{-- comm cha --}}
                 @foreach ($comments as $comment)
                     <div class="comment-user">
                         <a href='#' class="avatar-user">
@@ -84,8 +82,7 @@
                 @endforeach
 
 
-                {{-- comment con cap 1 --}}
-                {{-- <div class="comment-user" style="padding-left: 60px">
+                <div class="comment-user" style="padding-left: 60px">
                     <a href='#' class="avatar-user">
                         <img src="{{asset('img/omg.jpeg')}}" alt="" width="100">
                     </a>
@@ -123,8 +120,7 @@
                         </div>
                     </div>
                     
-                </div> --}}
-                {{-- end comm con --}}
+                </div>
             </div>
             <div class="comment-status">
                 <i class="fa-regular fa-heart"></i>
@@ -142,9 +138,9 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 @endsection()
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     $('.comment-submit').click(function() {
 
@@ -213,4 +209,4 @@
     
 
 
-</script>
+</script> --}}

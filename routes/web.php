@@ -59,6 +59,8 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 //profile
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
+Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
+Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
 // user middleware close
 
 
@@ -262,3 +264,8 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
+
+//edit-post(user)
+Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');
+Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user'])->name('delete.post_user');
+Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');
