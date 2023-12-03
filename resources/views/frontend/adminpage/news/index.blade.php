@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
     <div class="container mt-3">
         <h2>List News</h2>
         <a class="btn btn-primary "href="{{route('news-image-trash')}}" target="_blank">Trash Image</a>
@@ -19,21 +20,22 @@
                 @foreach ($news as $new)
                     <tr class="news-table">
                         <td>{{$new->id}}</td>
-                        <td>{{$new->title}}</td>
-                        <td>{{$new->description}}</td>
+                        <td><span class="pj__description">{{$new->title}}</span></td>
+                        <td><span class="pj__description">{{$new->description}}</span></td>
                         <td>
                             @if($new->images->count() > 0)
                                 <img src="{{asset($new->images[0]->image)}}" width="100">
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-danger delete-news" data-id="{{$new->id}}">DELETE</button>
-                            <a  class="btn btn-primary" href="{{route('news.edit', $new->id)}}">EDIT</a>
+                            <button class="btn btn-danger delete-news" data-id="{{$new->id}}"><i class="fa-solid fa-trash-can"></i></button>
+                            <a  class="btn btn-warning" href="{{route('news.edit', $new->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {{$news->links()}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

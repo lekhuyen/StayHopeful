@@ -1,6 +1,27 @@
-let value = 0;
-setInterval( () =>{
-    rd = Math.floor(Math.random() * 1000) + 1;
-    value += rd;
-    odometer.innerHTML = value;
-},3000)
+$(document).ready(function () {
+    // Function to update totalAmount
+    function updateTotalAmount(data) {
+        var totalAmount = data.totalAmount;
+        $('#odometer').text(totalAmount); 
+    }
+
+
+    function GetData() {
+        $.ajax({
+            url: '/admin/totaldonate', 
+            type: 'GET',
+            success: function (data) {
+                updateTotalAmount(data);
+            },
+            error: function (error) {
+                console.error('Error get data:', error);
+            }
+        });
+    }
+
+    setInterval(function () {
+        GetData();
+    }, 60000); 
+
+    GetData();
+});

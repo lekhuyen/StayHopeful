@@ -12,6 +12,7 @@ class BlogController extends Controller
 {
     public function index()
     {
+        $categories = Category::paginate(6);
         $categories = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->limit(5)->get();
         $blogs = News::orderBy('id', 'desc')->get();

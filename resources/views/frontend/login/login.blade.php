@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{ asset('authlogincss/login.css') }}">
+<link rel="stylesheet" href="{{ asset('authlogincss/spinner.css') }}">
 
-<div class="container-popup scroll-form-signin-signup" style="z-index: 10;">
+{{-- spinner-loader --}}
+<div id="spinner-container" style="display: none;">
+    <div id="spinner"></div>
+</div>
+
+<div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
     <div class="modal-inner">
     </div>
     <div class="container-login" id="form-login" >
@@ -45,7 +51,6 @@
                         </a>
                     </div>
                 </form>
-
                 {{-- Register --}}
                 <form id="registerForm" action="{{route("auth.register")}}" class="sign-up-form" method="POST">
                     @csrf
@@ -116,6 +121,7 @@
 </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
     <script src="js/login.js"></script>
     <script>
 
@@ -133,10 +139,14 @@
             type: 'POST',
             url: "{{route('auth.register')}}",
             data: $('#registerForm').serialize(),
+            beforeSend: function () {
+                $('#spinner-container').show();
+            },
             success: function(response) {
+                $('#spinner-container').hide();
                 if(response.status == 'success'){
                 // Handle the server response
-                console.log(response);
+                // alert(response.message);
                 // window.location.href = "{{route('/')}}"; 
                 containerLoginRegister.classList.remove("sign-up-mode");
                 } else if (response.status == 'error'){
@@ -170,18 +180,20 @@ $.ajax({
     success: function(response){
         if(response.status == 'success'){
             // Login successfully
-            console.log("Login Successfully");
-            console.log(response);
+            alert("Login Successfully");
+            console.log(response.message);
             if(response.role == 1){
-                window.location.href = "{{route('admin.index')}}"; 
+                window.location.href = "{{route('admin.dashboard')}}"; 
             }
             else if(response.role == 0){
                 window.location.href = "{{route('/')}}"; 
             }
         }
-        else {
+        else if(response.status == 'email_error'){
+            setError(loginEmail,'Must verify email before login');
+        }else{
             // Display error 
-            console.log(response.message);
+            alert(response.message);
         }
     }
 });

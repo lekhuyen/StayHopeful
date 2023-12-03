@@ -9,7 +9,7 @@ class DonateInfo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','email','phone','project_id','method','amount','message'];
+    protected $fillable = ['name','email','phone','project_id','user_id','method','amount','message'];
     public function project(){
         return $this->belongsTo(Project::class,'project_id');
     }

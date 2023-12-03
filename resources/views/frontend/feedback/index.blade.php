@@ -28,8 +28,8 @@
     <p id="countBadfb">Total Bad Feedback: {{ $count }}/{{ $feedbacks->count() }}</p>
     {{ $feedback->links() }}
     <div class="fb__sensitive">
-        <a class="btn btn-primary btn-add-1" href="{{ route('sensitive.create') }}">Sensitive Word List</a>
-        <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.index') }}">Add a Sensitive Word</a>
+        <a class="btn btn-primary btn-add-1" href="{{ route('sensitive.index') }}">Sensitive Word List</a>
+        <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.create') }}">Add a Sensitive Word</a>
     </div>
     <script>
         const wordSensitives = @json($words);

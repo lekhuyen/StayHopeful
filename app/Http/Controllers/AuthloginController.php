@@ -7,6 +7,8 @@ use App\Models\UserPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthloginController extends Controller
@@ -22,6 +24,8 @@ class AuthloginController extends Controller
         $password = $request->password;
         $user = User::where("email", $email)->first();
         $role = $user->role;
+        $status = $user->status;
+        if ($status == 1){
         // Attempt login with provided credentials
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             
@@ -41,10 +45,18 @@ class AuthloginController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         }
+        }else{
+            return response()->json(['status' => 'email_error', 'message' => 'Must verify email before login']);
+        }
     
     }
+
+    // public function abc(){
+    //     return view('frontend.login.verified_email');
+    // }
     public function register(Request $request)
     {
+        $verify_token = Str::random(6);
         $request->validate([
             "name" => "required",
             "email" => "bail|required|email",
@@ -60,14 +72,32 @@ class AuthloginController extends Controller
         $hashPassword = Hash::make($request->password);
         $user = new User();
         $user->name = $request->name;
-        $user->email = $request->email;
+        $emailUser = $user->email = $request->email;
         $user->password = $hashPassword;
-        // $user->role = $request->role;
-        // $user->status = $request->status;
+        $user->verified_token = $verify_token;
         $user->save();
+        $name = 'StayHopeful';
 
-        return response()->json(['status' => 'success', 'message' => 'Dữ liệu đã được nhận và xử lý thành công.']);
+        Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
+            $email->subject('Confirm Register');
+            $email->to($emailUser, $name);
+        });
+        return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
         }
+    }
+    public function verified_email($verify_token){
+        // $users = User::all();
+        // $verify = $users->verify_token;
+        // foreach ($verify as $value) {
+        //     if()
+        // }
+
+        $user = User::where("verified_token", $verify_token)->first();
+        if($user){
+            $user->update(['status' => 1]);
+            return redirect()->route('/')->with("isVerified",true);
+        }
+        
     }
     public function viewprofile(){
         $user = session()->get('userInfo')['id'];

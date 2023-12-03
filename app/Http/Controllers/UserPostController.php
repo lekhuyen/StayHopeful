@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class UserPostController extends Controller
 {
     public function index(){
-        $posts = UserPost::orderBy('status', 'desc')->get();
+        $posts = UserPost::orderBy('status', 'desc')->paginate(4);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id){
@@ -24,7 +24,7 @@ class UserPostController extends Controller
         $posts = UserPost::orderBy('id', 'desc')
         ->where('status', 0)
         ->get();
-        
+
         return view('frontend.post_page.index', compact('posts'));
     }
 

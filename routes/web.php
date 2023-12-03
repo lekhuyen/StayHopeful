@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
@@ -56,6 +57,9 @@ Route::get('/login/google', [AuthloginController::class, 'redirectgoogle'])->nam
 Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleback'])->name('auth.googlecallback');
 Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
+//verify_email
+// Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
+Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 //profile
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
@@ -83,9 +87,35 @@ Route::get('/contact', [ContactusController::class, 'index'])->name('contact.ind
 
 // Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
-// Aboutus
-Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
+Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
+
+Route::get('/aboutus/whoweare/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
+
+Route::get('/aboutus/whoweare/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
+
+Route::get('/aboutus/whoweare/robertjohnson', [AboutUsController::class, 'robertjohnson'])->name('aboutus.robertjohnson');
+
+Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
+
+Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
+
+// About Us Team
+Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
+
+Route::get('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_create'])->name('aboutusteam.create');
+
+Route::post('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_store'])->name('aboutusteam.store');
+
+Route::get('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, "aboutus_team_edit"])->name("aboutusteam.edit_aboutus");
+
+Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'aboutus_team_update'])->name('aboutusteam.update');
+
+Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
+
+Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
+
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.whoweare.detail');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
@@ -117,7 +147,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 //admin
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
-    Route::get('dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
+    Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
     Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
@@ -133,6 +163,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
     Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+    Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
 
 });
 

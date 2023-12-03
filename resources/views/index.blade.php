@@ -7,57 +7,41 @@
     {{-- keenslider --}}
     <!-- carosel -->
 
-    <section>
-        <div id="demo" class="carousel slide" data-bs-ride="carousel" style="height:100vh;">
-
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
+    <div class="PostSlide">
+        <div class="innerContainer active">
+            <div class="slider">
                 @foreach ($slider as $item)
-                    <div class="carousel-item active">
-                        <img src="{{ asset($item->url_image) }}" alt="Los Angeles" class="d-block carosel_heigth">
-                        <div class="carousel-caption">
-                            <h3>Los Angeles</h3>
-                            <p>We had such a great time in LA!</p>
+                    <div class="slide">
+                        <div style="background:url('{{ $item->url_image }}')">
                         </div>
                     </div>
                 @endforeach
-                {{-- <div class="carousel-item active">
-                    <img src="{{ asset('img/slider_home3.jpg') }}" alt="Los Angeles" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>Viet Nam</h3>
-                        <p>Please donate for us</p>
-                    </div>
-                </div>
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/slider_home1.jpg') }}" alt="Los Angeles" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>Viet Nam</h3>
-                        <p style="color: #fff">Please donate for us!</p>
-                    </div>
-                </div>
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/slider_home2.jpg') }}" alt="Los Angeles" class="d-block carosel_heigth">
-                    <div class="carousel-caption">
-                        <h3>Los Angeles</h3>
-                        <p>We had such a great time in LA!</p>
-                    </div>
-                </div> --}}
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
-    </section>
+            <div class="handles">
+                <span class="prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-left: 30px"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
+                            stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </span>
+                <span class="next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 30px"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
+                            stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="dots">
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-sm-12">
                 <div class="donate-home">
                     <div class="donate-user-index">
                         <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
@@ -95,8 +79,7 @@
                             @else
                                 <div class="project-status-finish">FINISHED</div>
                             @endif
-                            <img src="{{ asset($project->images[0]->image) }}"
-                                class="card-img-top card-img-top-1"alt="...">
+                            <img src="{{ asset($project->images[0]->image) }}" class="card-img-top card-img-top-1"alt="...">
                             <div class="card-body card-body-1">
                                 <h5 class="card-title card-title-1" data-i18n="text1">{{ $project->title }}</h5>
                                 <div class="cart-description-post">
@@ -106,7 +89,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->money2) }}
+                                        {{ number_format($project->donateInfo->sum('amount')) }}   
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -122,7 +105,6 @@
                     </a>
                 </div>
             @endforeach
-
 
         </div>
     </div>
@@ -169,7 +151,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->money2) }}
+                                        {{ number_format($project->donateInfo->sum('amount')) }}   
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -238,7 +220,7 @@
                     <div class="statistical">
                         <div class="total-money">
                             <i class="fa-regular fa-face-smile"></i>
-                            <span>123.456.789</span>
+                            <span class="odometer" id="odometer"></span>
                         </div>
                         <span style="font-size: 18px;">USD</span>
                     </div>
@@ -246,7 +228,21 @@
             </div>
         </div>
     </div>
-    @include('frontend/login/login');
+
+    {{-- đừng xoá --}}
+    {{-- @foreach ($totalAmountByProject as $projectId => $total)
+        Project ID: {{ $projectId }}, Total Amount: {{ $total }}<br>
+    @endforeach --}}
+    @if (session('isVerified'))
+        @include('frontend/login/login', ['isVerified', true]);
+    @else
+        @include('frontend/login/login');
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
-    <script src="{{asset('js/getuserdonate.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+        integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('js/getuserdonate.js') }}"></script>
+    <script src="{{ asset('js/indexslider.js') }}"></script>
+    <script src="{{ asset('js/countdonate.js') }}"></script>
 @stop()

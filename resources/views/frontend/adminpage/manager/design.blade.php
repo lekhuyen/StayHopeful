@@ -4,7 +4,7 @@
 
 
     <div class="container">
-        <h1 style="font-weight: 700">Manager Design</h1>
+        <h1 style="font-weight: 700">Slider Design</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
@@ -27,10 +27,11 @@
                     <table class="table table-striper">
                         <thead>
                             <tr>
-                                <td>#</td>
+                                <td>ID</td>
                                 <td>Image</td>
-                                <td>Name Image</td>
+                                <td>Image Name</td>
                                 <td>Action</td>
+                                <td></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,14 +42,15 @@
                                     <td><img src="{{ asset($slider->url_image) }}" width="100"
                                             onclick="openImagePopup('{{ asset($slider->url_image) }}')"></td>
                                     <td>{{ $slider->slider_name }}</td>
-                                    <td style="display: flex; align-items: center; height: 150px;">
+                                    <td>
                                         <a href="#" data-slider-id="{{ $slider->id }}" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
                                             <button type="button" class="btn btn-success" style="margin-right: 10px;">
                                                 <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
                                             </button>
                                         </a>
-
+                                    </td>
+                                    <td>
                                         <form method="POST"
                                             action="{{ route('admin.delete_slider', ['slider' => $slider->id]) }}">
                                             @method('DELETE')
@@ -60,9 +62,9 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+                    {{ $sliders->links() }}
                 </div>
             </div>
         </div>

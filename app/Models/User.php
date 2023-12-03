@@ -22,7 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'status'
+        'status',
+        'verified_token',
+        'avatar',
+        'deleted_at'
     ];
 
     /**
@@ -44,4 +47,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function donateinfo(){
+        return $this->hasMany(DonateInfo::class, 'user_id');
+    }
 }

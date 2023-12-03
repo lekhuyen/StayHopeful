@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css aboutus --}}
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
+    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
+    <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
+    {{--css contactus --}}
+    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
+    {{--css aboutus --}}
+
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
@@ -175,6 +181,11 @@
                                     {{-- <a href="{{route('logout')}}">LOGOUT</a> --}}
                                     @else
                                     <div class="text popup-login">LOGIN</div>
+                                        {{-- @if (session('isVerified'))
+                                        <div class="text popup-login showLogin">LOGIN</div>
+                                        @else
+                                        <div class="text popup-login">LOGIN</div>
+                                        @endif --}}
                                     @endif
                             </li>
                             </div>
@@ -281,7 +292,7 @@
 <script>
     var profileOption = document.querySelector(".profile-option");
     var profileDropdown = document.querySelector(".profile-dropdown");
-    profileOption.addEventListener("mouseover", function(){
+    profileOption.addEventListener("click", function(){
         profileDropdown.classList.toggle("showOptionProfile");
         profileDropdown.style.transitionDuration = "0.5s";
     })

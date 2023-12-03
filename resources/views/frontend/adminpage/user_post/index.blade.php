@@ -1,7 +1,7 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     <div class="container mt-3">
-        <h2>List Post</h2>
+        <h2>User Post List</h2>
         <a class="btn btn-primary "href="{{route('post-trash')}}" target="_blank">Trash</a>
         <table class="table table-hover">
             <thead>
@@ -21,14 +21,15 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
-                            <a class="btn btn-primary" href="">{{ $post->user->name }}</a>
+                            <a class="btn btn-secondary" href="">{{ $post->user->name }}</a>
                         </td>
                         <td>
                             @if ($post->status == 1)
-                                <span data-choduyet="{{ $post->id }}" class="btn btn-warning post-choduyet">Chờ
-                                    Duyệt</span>
+                                <span data-choduyet="{{ $post->id }}" class="post-choduyet"><span
+                                    class="badge bg-warning rounded-pill">Pending</span></span>
                             @else
-                                <span data-duyet="{{ $post->id }}" class="btn btn-primary post-daduyet">Đã Duyệt</span>
+                                <span data-duyet="{{ $post->id }}" class="post-daduyet"><span
+                                    class="badge bg-success rounded-pill">Approved</span></span>
                             @endif
                         </td>
                         <td>
@@ -38,11 +39,10 @@
                         </td>
 
                         <td>
-                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-primary" target="_blank">Chi
-                                tiết</a>
+                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-info" target="_blank">Details</a>
                         </td>
                         <td>
-                            <button class="btn btn-danger delete-post" data-id="{{$post->id}}">DELETE</button>
+                            <button class="btn btn-danger delete-post" data-id="{{$post->id}}"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
                 @empty
@@ -52,6 +52,7 @@
                 @endforelse
             </tbody>
         </table>
+        {{$posts->links()}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -61,7 +62,7 @@
         $('.delete-post').click(function(){
             var postId = $(this).data('id');
             var postTable = $(this).closest('.post-table');
-            
+
             var _csrf = '{{ csrf_token() }}';
 
             $.ajax({
@@ -69,11 +70,11 @@
                 url: '{{ route('post.delete',':id')}}'.replace(':id',postId),
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
-                    id:postId, 
+                    id:postId,
                     _token:_csrf
                 },
                 success: function(data){
-                    
+
                     postTable.remove()
                 },
                 error: function(error) {
@@ -92,7 +93,7 @@
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
                     id:postId,
-                }, 
+                },
                 success: function(data){
                     location.reload();
                 },
@@ -112,7 +113,7 @@
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
                     id:postId,
-                }, 
+                },
                 success: function(data){
                     location.reload();
                 },
