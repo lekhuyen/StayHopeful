@@ -436,10 +436,10 @@ button.carousel-control-next {
     color: #245abe !important;
 }
 
-.card-title-child span::after,
+/* .card-title-child span::after,
 .card-title-child-1 span::after {
     content: "₫ ";
-}
+} */
 
 .cart-description-post {
     overflow: hidden;

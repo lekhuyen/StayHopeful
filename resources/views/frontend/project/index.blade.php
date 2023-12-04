@@ -26,12 +26,12 @@
                                     <p class="card-title-child">
                                         Received:
                                         <span>
-                                            {{ number_format($project->donateInfo->sum('amount')) }}                                        </span>
-                                    </p>
+                                            ${{ number_format($project->donateInfo->sum('amount'), 2) }}
+                                        </p>
                                     <p class="card-title-child-1">
                                         Goals:
                                         <span>
-                                            {{number_format($project->money)}}
+                                            ${{number_format($project->money)}}
                                         </span>
                                     </p>
                                     <a href="{{route('detail.post', $project->id)}}" class="btn btn-primary btn-primary-1">Details</a>

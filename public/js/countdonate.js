@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     setInterval(function () {
         GetData();
-    }, 60000); 
+    }, 30000); 
 
     GetData();
 });
