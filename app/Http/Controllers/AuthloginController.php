@@ -65,7 +65,7 @@ class AuthloginController extends Controller
         $email = $request->email;
         $existingUser = User::where("email", $email)->first();
         if ($existingUser) {
-              return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
+            return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
         }
         else{
         //$password = $request->password;
@@ -144,5 +144,12 @@ class AuthloginController extends Controller
     public function logout(){
         session()->forget('userInfo');
         return redirect()->route('/');
+    }
+
+    //edit-post
+    public function post_edit($post_id){
+        $post = UserPost::find($post_id);
+        $image = $post->images;
+        return response()->json(['post' => $post, 'images' => $image]);
     }
 }

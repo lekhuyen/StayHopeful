@@ -21,7 +21,7 @@ class Project extends Model
         return $this->hasMany(ProjectImage::class, 'project_id', 'id');
     }
     public function donateinfo(){
-        return $this->hasMany(ProjectImage::class, 'project_id');
+        return $this->hasMany(DonateInfo::class, 'project_id');
     }
     public function comments(){
         return $this->hasMany(Comment::class, 'project_id', 'id');

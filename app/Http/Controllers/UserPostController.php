@@ -115,4 +115,73 @@ class UserPostController extends Controller
         }
         return back();
     }
+
+
+    // edit post(user)
+    public function edit_post(Request $request){
+        
+        $id = $request->post_id;
+        $post = UserPost::find($id);
+        if($post) {
+            $post->title = $request->title;
+        
+            $post->save();
+
+            // $images_id = $request->image_id;
+            // if(count($images_id) > 0) {
+            //     foreach($images_id as $image_id) {
+            //         $post_images = PostImage::find($image_id);
+            //         if ($post_images) {
+            //             if(File::exists($post_images->image)){
+            //                 File::delete($post_images->image);
+            //             }
+            //             PostImage::find($image_id)->delete();
+            //         }
+                    
+            //     }
+            // }
+            
+        }
+        
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $image) {
+                $fileName = time() . '_' . $image->getClientOriginalName();
+                $PublicImagePath = public_path("images");
+                $image->move($PublicImagePath, $fileName);
+                $imagePath = 'images/' . $fileName;
+
+                $postImage = new PostImage();
+                $postImage->image = $imagePath;
+                $postImage->post_id = $post->id;
+
+                $postImage->save();
+            }
+            return back()->with('success', 'Cập nhật thành công');
+
+        }
+            
+
+        return back()->with('error', 'Bản ghi không tồn tại');
+    }
+
+    public function delete_post_image($id) {
+        $images = PostImage::find($id);
+        if(File::exists($images->image)){
+            File::delete($images->image);
+        }
+        PostImage::find($id)->delete();
+        return back();
+    }
+
+
+
+    public function delete_post_user($id)
+    {
+        $project = UserPost::find($id);
+        $project->delete();
+
+        return response()->json(['error' => ['Delete fails']]);
+    }
 }

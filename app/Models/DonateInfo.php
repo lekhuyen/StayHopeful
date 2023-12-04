@@ -11,6 +11,6 @@ class DonateInfo extends Model
 
     protected $fillable = ['name','email','phone','project_id','user_id','method','amount','message'];
     public function project(){
-        return $this->belongsTo(Project::class,'project_id','user_id');
+        return $this->belongsTo(Project::class,'project_id');
     }
 }

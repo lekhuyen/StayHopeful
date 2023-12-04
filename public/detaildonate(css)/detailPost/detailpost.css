@@ -44,6 +44,16 @@
     text-decoration: none;
     border-radius: 20px;
 }
+.donate_link button{
+    padding: 10px;
+    background:  #F44336;
+    width: 150px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+}
 .donate_link a:hover {
     color: #023271;
 }

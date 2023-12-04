@@ -9,12 +9,14 @@
                     <form action="{{ route('detail.payment') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
-
+                        @if (session('error'))
+                        <div class="text-danger">{{session('error')}}</div> 
+                        @endif
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control background-icon-big" id="floatingInput" name="fullname"
+                                    <input type="text" class="form-control background-icon-big" required id="floatingInput" name="fullname" value="{{old('fullname')}}"
                                         >
                                     <label for="floatingInput">Enter Fullname</label>
                                     <div class="background-icon">
@@ -31,8 +33,8 @@
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Email <span class="req"> *</span> </span>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" name="email"
+                                <div class="form-floating mb-3"> 
+                                    <input type="text" class="form-control" id="floatingInput" required name="email" value="{{old('email')}}"
                                         >
                                     <label for="floatingInput">Enter Email</label>
                                     <div class="background-icon">
@@ -45,7 +47,7 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Phone <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingInput" name="phone"
+                                    <input type="number" class="form-control" id="floatingInput" required name="phone" value="{{old('phone')}}"
                                         placeholder="name@example.com">
                                     <label for="floatingInput">Enter PhoneNumber</label>
                                     <div class="background-icon">
@@ -63,7 +65,7 @@
                                         aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
-                                            <option value="{{$item->id}}">{{$item->title}}</option>
+                                            <option value="{{$item->title}}">{{$item->title}}</option>
                                         @endforeach
                                     </select>
                                     <label for="floatingSelect">Select Type</label>
@@ -96,7 +98,7 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Amount <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingInput" name="amount"
+                                    <input type="number" class="form-control" id="floatingInput" name="amount" value="{{old('amount')}}"
                                         >
                                     <label for="floatingInput">Enter Amount</label>
                                     <div class="background-icon">
@@ -111,14 +113,14 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Message</span>
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="message" style="height: 150px">{{old('message')}}</textarea>
                                     <label for="floatingTextarea">Write Your Message</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-donate-info">
                             <div class="form-info-detail">
-                                <button class="form-info-btn" type="submit" name="redirect">Send</button>
+                                <button class="form-info-btn" type="submit">Send</button>
                             </div>
                         </div>
                     </form>

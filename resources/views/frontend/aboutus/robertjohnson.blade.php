@@ -7,13 +7,14 @@
 {{-- teamname.css --}}
 <br>
 <br>
-<h1>Meet Robert Johnson, A Financial Expert</h1>
+<br>
+<h1 class="aboutus_teammember_h1">Meet Robert Johnson, A Financial Expert</h1>
 
     <br>
     <div class="container mt-3 introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
+            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
             </a>
             <div class="col-md-8 offset-md-2">
@@ -30,7 +31,7 @@
     <hr>
 
     <div class="container mt-3 the_past">
-        <h5>Meeting the Founder:</h5>
+        <h5>Meeting the Founder</h5>
         <div class="clearfix">
             <span class="col-md-8 offset-md-2">
                 Robert's path converged with John Doe, the founder of the donation website, at a financial conference focused on the intersection of finance and social impact. Intrigued by John's vision of leveraging financial innovation for charitable causes, Robert struck up a conversation. The two discovered a shared passion for using financial expertise to drive positive change
@@ -42,7 +43,7 @@
     </div>
     <hr>
 
-    <div class="col-md-6 offset-md-3 ">
+    <div class="col-md-6 offset-md-3 aboutus_carousel_p">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -97,7 +98,7 @@
 
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
-        <h5>Current Projects and Future Plans:</h5>
+        <h5>Current Projects and Future Plans</h5>
         <div class="plans">
             <span class="col-md-8 offset-md-2">
                 As the financial expert on the team, Robert is instrumental in ensuring the financial sustainability of the donation website. He has implemented robust financial systems, streamlined budgeting processes, and established partnerships with financial institutions to maximize the impact of donations

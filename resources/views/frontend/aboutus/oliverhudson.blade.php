@@ -6,13 +6,14 @@
 {{-- teamname.css --}}
 <br>
 <br>
-<h1>Meet Oliver Hudson, A Creative Director</h1>
+<br>
+<h1 class="aboutus_teammember_h1">Meet Oliver Hudson, A Creative Director</h1>
 
     <br>
     <div class="container mt-3 introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
+            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
             </a>
             <div class="col-md-8 offset-md-2">
@@ -29,7 +30,7 @@
     <hr>
 
     <div class="container mt-3 the_past">
-        <h5>Meeting the Founder:</h5>
+        <h5>Meeting the Founder</h5>
         <div class="clearfix">
             <span class="col-md-8 offset-md-2">
                 Oliver's path intersected with John Doe, the founder of the donation website, during a creative industry event. Drawn to John's presentation on the power of storytelling in philanthropy, Oliver approached him with an enthusiasm for combining creativity with social impact.
@@ -41,7 +42,7 @@
     </div>
     <hr>
 
-    <div class="col-md-6 offset-md-3 ">
+    <div class="col-md-6 offset-md-3 aboutus_carousel_p">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -96,7 +97,7 @@
 
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
-        <h5>Current Projects and Future Plans:</h5>
+        <h5>Current Projects and Future Plans</h5>
         <div class="plans">
             <span class="col-md-8 offset-md-2">
                 As the Creative Director, Oliver plays a pivotal role in shaping the visual identity of the donation website. He has introduced visually striking campaigns that not only convey the urgency of social issues but also inspire hope and action.

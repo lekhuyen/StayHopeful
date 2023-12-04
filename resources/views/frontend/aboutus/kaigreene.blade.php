@@ -5,16 +5,16 @@
 
 {{-- <link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}"> --}}
 {{-- teamname.css --}}
-
 <br>
 <br>
-<h1>Meet Kai Greene, A Lead Developer</h1>
+<br>
+<h1 class="aboutus_teammember_h1">Meet Kai Greene, A Lead Developer</h1>
 
     <br>
     <div class="container mt-3 introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
+            <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
             </a>
             <div class="col-md-8 offset-md-2">
@@ -31,7 +31,7 @@
     <hr>
 
     <div class="container mt-3 the_past">
-        <h5>Meeting the Founder:</h5>
+        <h5>Meeting the Founder</h5>
         <div class="clearfix">
             <span class="col-md-8 offset-md-2">
                 Kai's journey took an unexpected turn when she attended a tech conference where John Doe, the founder of the donation website, was speaking. Impressed by John's vision for leveraging technology for social good, Kai approached him after the talk. The two immediately connected over their shared passion for using technology to address societal challenges.
@@ -43,7 +43,7 @@
     </div>
     <hr>
 
-    <div class="col-md-6 offset-md-3 ">
+    <div class="col-md-6 offset-md-3 aboutus_carousel_p">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -98,7 +98,7 @@
 
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
-        <h5>Current Projects and Future Plans:</h5>
+        <h5>Current Projects and Future Plans</h5>
         <div class="plans">
             <span class="col-md-8 offset-md-2">
                 As the Lead Developer, Kai is at the forefront of implementing technological advancements for the donation website. She has introduced features that optimize the platform's performance, making it more user-friendly and scalable.

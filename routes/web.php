@@ -64,6 +64,9 @@ Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_em
 //profile
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
+Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
+Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
+// user middleware close
 
 
 //blog
@@ -165,6 +168,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
     Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+    Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
 
 });
 
@@ -296,3 +300,8 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
+
+//edit-post(user)
+Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');
+Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user'])->name('delete.post_user');
+Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');

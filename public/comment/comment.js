@@ -18,6 +18,8 @@ var editPost = document.querySelectorAll('.edit_post')
 var editPostForm = document.querySelectorAll('.edit-post-user')
 var profileForm = document.querySelector('.profile-form')
 
+
+
 editPost.forEach((item, key) => {
     item.addEventListener('click', (e)=>{ 
         e.stopPropagation();
@@ -48,6 +50,21 @@ formPostShow.addEventListener('click', ()=>{
 modelFormPost.addEventListener('click', (e)=>{
     e.stopPropagation();
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
