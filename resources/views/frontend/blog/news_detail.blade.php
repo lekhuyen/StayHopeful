@@ -21,5 +21,6 @@
     </div>
 
     @include("frontend/login/login")
+    @include('frontend/profile/popup_profile');
     <script src="{{asset('js/countdonate.js')}}"></script>
 @endsection
