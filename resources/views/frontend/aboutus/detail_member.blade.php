@@ -2,7 +2,7 @@
 @section('title', 'detail_member')
 @section('main')
 
-<link rel="stylesheet" href="{{asset('aboutuscss/detail_member.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/detail_member.css')}}"> --}}
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="card mb-3" style="max-width: 1000px;">

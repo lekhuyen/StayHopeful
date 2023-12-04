@@ -20,13 +20,17 @@
         @endforeach
 
         @if ($project->donateinfo->sum('amount')>= $project->money)
-        
+
         <div class="donate_link">
             <button disabled >DONATE</button>
         </div>
         @else
         <div class="donate_link">
             <a href="{{route('detail.donate')}}">DONATE</a>
+            <a href="#">VOLUNTEER</a>
+        </div>
+
+        <div>
         </div>
         @endif
 

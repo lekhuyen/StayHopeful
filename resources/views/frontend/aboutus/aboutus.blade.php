@@ -2,7 +2,7 @@
 @section('title', 'About Us')
 @section('main')
 
-<link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}"> --}}
 
 <br>
 <br>
@@ -29,12 +29,12 @@
 <div class="container about-story1" data-aos="zoom-in-left">
     <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col story1">
-            
+
             <div>
-                
+
                 <span> As a small group of passionate individuals, we founded <strong>StayHopeful</strong> with a shared commitment to making a difference. Inspired by the stories of resilience in the face of adversity, we set out on a mission to combat diseases, end animal cruelty, and respond to natural disasters. Over the years, we've faced challenges head-on, but the stories of transformation keep us driven.</span>
             </div>
-            
+
         </div>
 
         <div class="col">
@@ -51,14 +51,14 @@
             <div><!-- aboutus's Picture 2-->
                 <img src="{{ asset('img/aboutus2.jpg') }}" alt="aboutus2" class="aboutus-image2">
             </div>
-            
+
         </div>
 
         <div class="col story2">
             <div>
                 <div>
                   <span>Meet <strong>Sarah, a survivor of heart disease</strong>. Through the generosity of donors like you, we were able to provide life-saving treatment and support her on the journey to recovery. Sarah's story is just one example of the impact we can make together.</span>
-                    
+
                 </div>
             </div>
         </div>
@@ -70,9 +70,9 @@
     <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
         <div class="col story3">
             <div>
-                
+
                 <div>
-                    
+
                     <span>From humble beginnings, our organization has grown, forming partnerships with local communities and international organizations. Together, we've responded to natural disasters, rescued animals from abusive situations, and brought hope to countless lives.</span>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div><!-- aboutus's Picture 4-->
                 <img src="{{ asset('img/aboutus4.jpg') }}" alt="aboutus4" class="aboutus-image4">
             </div>
-            
+
         </div>
 
         <div class="col story4">
@@ -110,7 +110,7 @@
         <div class="col story5">
             <div>
                 <div>
-                    
+
                     <span>Join us on this incredible journey. Your support can be the turning point in someone's life, and together, we can create a world where every individual, human or animal, has the opportunity to thrive</span>
                 </div>
             </div>
@@ -196,7 +196,7 @@
         </div>
 
         <div class="col" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-            
+
             <div class="card">
                 <br>
                 <div>
@@ -268,7 +268,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- People Served -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="peopleServedHeading">
@@ -282,7 +282,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Countries Impacted -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="countriesImpactedHeading">
@@ -295,7 +295,7 @@
                     Certainly! During the donation process, you can indicate any preferences or specify a particular program you'd like your donation to support
             </div>
         </div>
-    
+
         <!-- Challenges Faced -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="challengesFacedHeading">
@@ -309,7 +309,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Future Plans -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="futurePlansHeading">

@@ -81,15 +81,53 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; 
+    margin: 20px auto; /* Center the image */
+    display: block;
+}
+
+.story1,
+.story2,
+.story3,
+.story4,
+.story5 {
+    display: flex;
+    align-items: center;
+
+}
+
+.story1 span,
+.story2 span,
+.story3 span,
+.story4 span,
+.story5 span {
+    width: 70%; /* Adjust the width as needed */
+    margin-right: auto;
+    margin-left: auto;
+
+    margin: 20px auto;
     display: block
-    
+
 }
 
 /* logo_company */
 .about-logo {
     text-align: center;
     margin-top: 50px;
+}
+
+.about-story1 {
+background-color: #e6f7ff; /* Soft blue background */
+color: #333; /* Dark text color */
+}
+
+.about-story2 {
+background-color: #f0f0f0; /* Light gray background */
+color: #333; /* Dark text color */
+}
+
+.about-story3 {
+background-color: #e6f7ff; /* Soft blue background */
+color: #333; /* Dark text color */
 }
 
 .logo_info {
@@ -167,13 +205,6 @@
 
 .aboutus_our_team a {
     margin-left: auto;
-    margin-right: auto;
-}
-
-.aboutus_our_team span {
-    font-size: 18px;
-    display: block;
-    margin-bottom: 15px;
 }
 
 .founder-img1,
@@ -182,7 +213,7 @@
     max-width: 600px; /* Set a maximum width if desired */
     height: 200%; /* Maintain the aspect ratio */
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 .aboutus_our_team .card {
@@ -202,10 +233,10 @@
     max-width: 150px; /* Set a maximum width if desired */
     height: auto;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
- 
+
 }
 
 .aboutus_our_team .card-title {
@@ -256,13 +287,6 @@
     color: #FFFFFF;
 }
 
-.aboutus-accordion-body {
-    color: #6C757D;
-}
-
-/* Additional styles for responsiveness */
-@media (max-width: 767px) {
-    .aboutus-accordion-item {
-        margin-bottom: 15px;
-    }
+.accordion-body {
+    border-top: 1px solid #dee2e6; /* Add a top border for separation between accordion items */
 }
