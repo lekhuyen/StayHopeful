@@ -15,7 +15,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- ajax --}}
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/listdonate.css') }}">
-
+    @if (session('success'))
+        <div class="pop-background">
+            <div class="popup-success">
+                <div class="exit" id="click-exit">&#10005;</div>
+                <div class="icon-succes"><i class="fa-solid fa-check" style="color: #fff;"></i></div>
+                <div class="text-error">Sincerely appreciate your support in aiding and assisting others. Thank you</div>
+                <div class="popupbutton">
+                    <button class="btn-popup" id="click-exit-ok">OK</button>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="container-fluid" style="padding: 0;">
         <div class="row">
@@ -38,28 +49,40 @@
         <div class="tableform mt-4">
             <ul class="responsive-table">
                 <li class="table-header">
-                  <div class="col col-1">Name</div>
-                  <div class="col col-2">Project</div>
-                  <div class="col col-3">Amount</div>
-                  <div class="col col-4">Date</div>
+                    <div class="col col-1">Name</div>
+                    <div class="col col-2">Project</div>
+                    <div class="col col-3">Amount</div>
+                    <div class="col col-4">Date</div>
                 </li>
                 @foreach ($donateinfo as $user)
-                <li class="table-row">
-                  <div class="col col-1" data-label="name">{{$user->name}}</div>
-                  <div class="col col-2" data-label="project">{{$user->project->title}}</div>
-                  <div class="col col-3" data-label="Amount" style="color: #2ECC71; font-size: 20px; font-weight: 900">{{$user->amount}}$</div>
-                  <div class="col col-4" data-label="date">{{$user->created_at}}</div>
-                </li>
+                    <li class="table-row">
+                        <div class="col col-1" data-label="name">{{ $user->name }}</div>
+                        <div class="col col-2" data-label="project">{{ $user->project->title }}</div>
+                        <div class="col col-3" data-label="Amount"
+                            style="color: #2ECC71; font-size: 20px; font-weight: 900">{{ $user->amount }}$</div>
+                        <div class="col col-4" data-label="date">{{ $user->created_at }}</div>
+                    </li>
                 @endforeach
-              
 
-              </ul>
+
+            </ul>
         </div>
     </div>
     <script src="{{ asset('js/listdonate.js') }}"></script>
+    <script>
+        var click = document.getElementById('click-exit');
+        var click_ok = document.getElementById('click-exit-ok');
+        var popup = document.querySelector('.pop-background'); // Fixed typo here
+        click.addEventListener('click', function() {
+            popup.classList.add('exit-none');
+        });
+        click_ok.addEventListener('click', function() {
+            popup.classList.add('exit-none');
+        });
+    </script>
     </body>
 
     </html>
-    @include("frontend/login/login");
-    @include('frontend/profile/popup_profile');
+    @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
 @endsection()
