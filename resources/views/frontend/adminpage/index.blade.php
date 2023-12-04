@@ -47,21 +47,25 @@
                 <div class="sider-dropdown">Manager<i class="fa-solid fa-angle-right" style="margin-left: 30px"></i>
                     <div class="sider-dropdown-menu">
                         <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
-                                class="fa-solid fa-image"></i> Post</a>
+                                class="fa-solid fa-image"></i>Post</a>
                         <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                                class="fa-solid fa-desktop"></i>Create Slider</a>
+                                class="fa-solid fa-desktop"></i>Slider</a>
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
-                                class="fa-solid fa-users"></i>Create User</a>
+                                class="fa-solid fa-users"></i>User List</a>
                         <a href="{{ route('post.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-users"></i>User Posts</a>
                         <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Create Project</a>
+                                class="fa-solid fa-briefcase"></i>Project List</a>
                         <a href="{{ route('category.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Category</a>
+                                class="fa-solid fa-briefcase"></i>Category List</a>
                         <a href="{{ route('news.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Create News</a>
+                                class="fa-solid fa-briefcase"></i>News List</a>
+                        <a href="{{ route('video-list.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-briefcase"></i>Video Gallery</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Feedback</a>
+                                class="fa-solid fa-briefcase"></i>Feedback List</a>
+                        {{-- <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-briefcase"></i>Volunteer List</a> --}}
                     </div>
                 </div>
             </li>

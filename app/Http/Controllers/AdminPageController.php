@@ -45,7 +45,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(2);
+        $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
@@ -60,8 +60,7 @@ class AdminPageController extends Controller
             ->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
 
-        $slider = Sliders::paginate(2);
-
+        $slider = Sliders::paginate(3);
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function getdonateuser()

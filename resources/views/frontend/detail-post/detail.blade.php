@@ -21,6 +21,10 @@
 
         <div class="donate_link">
             <a href="#">DONATE</a>
+            <a href="#">VOLUNTEER</a>
+        </div>
+
+        <div>
         </div>
 
         {{-- @if(session('userInfo')) --}}

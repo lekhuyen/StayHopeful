@@ -3,7 +3,7 @@
 @section('title', 'whoweare')
 @section('main')
 
-<link rel="stylesheet" href="{{asset('aboutuscss/whoweare.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/whoweare.css')}}"> --}}
 {{-- Our Founder sector --}}
 <br>
 <br>
@@ -237,7 +237,7 @@
 <div class="container mt-3" data-aos="fade-right">
   <h2>Volunteer Member</h2>
 
-  
+
     <!-- Volunteer Team Members -->
     <div class="row row-cols-1 row-cols-md-6 g-2">
       @foreach($teamMembers as $member)
@@ -257,10 +257,10 @@
           @endif
       @endforeach
     </div>
-  </div> 
+  </div>
 </div>
 
-    
+
 @include("frontend/login/login");
 @endsection
 

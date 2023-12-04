@@ -1,0 +1,63 @@
+.title__voting {
+    color: #fff;
+}
+
+.voting__form {
+    display: block;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background: linear-gradient(0deg, rgb(212, 233, 250), lightskyblue 80%) no-repeat;
+    color: #333;
+    line-height: 1.6;
+}
+
+.grid_container_social__network {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    word-wrap: break-word;
+}
+
+.container__personalinfo {
+    margin-top: 5px;
+}
+
+.container__checkbox {
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+.container__availdays {
+    margin-bottom: 5px;
+}
+
+.voting_form__btn {
+    margin: 0 auto;
+    display: block;
+    background-color: lightskyblue;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    border: #fff;
+}
+
+.votingSelect {
+    word-wrap: break-word;
+}
+
+.voting__label {
+    font-size: 12px;
+}
+
+.description__voting {
+    margin-top: 10px;
+}
+
+.relationship_form {
+    margin-top: 10px;
+}

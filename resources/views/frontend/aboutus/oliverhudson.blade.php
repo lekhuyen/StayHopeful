@@ -2,7 +2,7 @@
 @section('title', 'teamname')
 @section('main')
 
-<link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}"> --}}
 {{-- teamname.css --}}
 <br>
 <br>
@@ -93,7 +93,7 @@
             </button>
         </div>
     </div>
-    
+
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
         <h5>Current Projects and Future Plans:</h5>
@@ -204,7 +204,7 @@
             </button>
         </div>
     </div>
-    
+
     <hr>
     <div class="container mt-3 becoming_the_founder_main">
         <h5>Current Projects and Future Plans:</h5>

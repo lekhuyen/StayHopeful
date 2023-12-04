@@ -3,23 +3,23 @@
 @section('main')
 
 
-<link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}"> --}}
 {{-- foundername.css --}}
 
 <br>
 <br>
-<h1>Meet John Doe, The Founder</h1>  
+<h1>Meet John Doe, The Founder</h1>
 
 <br>
         <div class="container mt-3 introduction">
             {{-- introduction_1 --}}
-            
+
             <div class="row">
                 <a href="{{ route('aboutus.whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px;">
                     <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
                 </a>
                 <div class="col-md-10 offset-md-1">
-                    
+
                     <span class="introduction_1">
                         John Doe, a compassionate soul from a modest background, grew up witnessing the impact of community
                         support. Raised in a town where neighbors looked out for one another, he developed a deep sense of
