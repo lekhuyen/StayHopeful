@@ -89,13 +89,13 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->donateInfo->sum('amount')) }}   
+                                        ${{ number_format($project->donateInfo->sum('amount'), 2) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
                                     Goals:
                                     <span>
-                                        {{ number_format($project->money) }}
+                                        ${{ number_format($project->money) }}
                                     </span>
                                 </p>
                                 <a href="{{ route('detail.post', $project->id) }}"
@@ -151,13 +151,13 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->donateInfo->sum('amount')) }}   
+                                        ${{ number_format($project->donateInfo->sum('amount'), 2) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
                                     Goals:
                                     <span>
-                                        {{ number_format($project->money) }}
+                                        ${{ number_format($project->money) }}
                                     </span>
                                 </p>
                                 <a href="{{ route('detail.post', $project->id) }}"
