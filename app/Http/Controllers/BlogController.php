@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\DonateInfo;
 use App\Models\News;
 use App\Models\Project;
 use App\Models\Video;
@@ -38,6 +39,9 @@ class BlogController extends Controller
                             ->get();
         return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments'));
     }
+    public function viewmarquee(){
+        return view('frontend.info_donate.info_donate', compact('project'));
+    }
 
     public function blog_detail()
     {
@@ -46,6 +50,7 @@ class BlogController extends Controller
     public function project($id)
     {
         $category = Category::find($id);
+        
         return view('frontend.project.project', compact('category'));
     }
     //video page
