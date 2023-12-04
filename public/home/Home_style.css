@@ -502,6 +502,7 @@ button.carousel-control-next {
 /* project */
 
 .statistical {
+    position: relative;
     text-align: center;
     width: 300px;
     margin: 40px 0;
@@ -513,11 +514,14 @@ button.carousel-control-next {
     font-size: 40px;
     color: #f06626;
 }
+.total-money i{
+    transform: translateY(10px);
+}
 
 .total-money i,
 .total-money span {
     font-size: 40px;
-    color: #bf271a;
+    color: #27AE60;
 }
 
 .project-count span {

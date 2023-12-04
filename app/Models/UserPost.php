@@ -11,7 +11,7 @@ class UserPost extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'title', 'image',  'user_id', 'deleted_at', 'status'
+        'title', 'user_id', 'deleted_at', 'status'
     ];
 
     protected function user(){

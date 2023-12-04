@@ -1,0 +1,93 @@
+.our_founder div {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.founder-img {
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  height:90%;
+}
+
+/* Team Members sector */
+.robert_johnsonc_card,
+.jane_smith_card,
+.kai_greene_card,
+.oliver_hudson_card,
+.volunteer_member_card {
+  text-align: center;
+}
+
+.robert_johnsonc_card a,
+.jane_smith_card a,
+.kai_greene_card a,
+.oliver_hudson_card a,
+.volunteer_member_card a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aboutus_ourfounder_h2 {
+    margin-bottom: 15px;
+}
+
+/* Adjusting image size */
+.img-fluid.rounded-start {
+    border-radius: 15px 0 0 15px;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Team Members grid */
+.row.row-cols-1.row-cols-md-6.g-2 {
+    margin-top: 20px;
+}
+
+/* General HR styling */
+.whoweare_hr {
+  border-color: black;
+  margin-top: 30px;
+
+}
+
+/* Additional Styling for Member Details */
+/* Team Members links styling */
+.financial_team_members a,
+.marketing_team_members a,
+.lead_developer_team_members a,
+.creative_team_members a,
+.volunteer_team_members a {
+    text-decoration: none;
+    color: #3747d4;
+}
+
+/* Hover effect */
+.financial_team_members a:hover,
+.marketing_team_members a:hover,
+.lead_developer_team_members a:hover,
+.creative_team_members a:hover,
+.volunteer_team_members a:hover {
+    text-decoration: underline;
+    color: #3747d4;
+}
+
+/* Styling for Member Details */
+.team-member-details {
+    margin-top: 10px;
+}
+
+.team-member-details h5 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.team-member-details p {
+  color: #555;
+}
+
+.aboutus-card-img-top {
+  height: 200px;
+  object-fit: cover;
+}

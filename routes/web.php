@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
 use App\Http\Controllers\UserPostController;
+use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +65,9 @@ Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_em
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
+Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
+Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
+// user middleware close
 
 
 //blog
@@ -84,8 +89,35 @@ Route::get('/contact', [ContactusController::class, 'index'])->name('contact.ind
 
 // Aboutus
 Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
-// Aboutus
-Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
+
+Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
+
+Route::get('/aboutus/whoweare/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
+
+Route::get('/aboutus/whoweare/janesmith', [AboutUsController::class, 'janesmith'])->name('aboutus.janesmith');
+
+Route::get('/aboutus/whoweare/robertjohnson', [AboutUsController::class, 'robertjohnson'])->name('aboutus.robertjohnson');
+
+Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'])->name('aboutus.kaigreene');
+
+Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
+
+// About Us Team
+Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
+
+Route::get('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_create'])->name('aboutusteam.create');
+
+Route::post('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_store'])->name('aboutusteam.store');
+
+Route::get('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, "aboutus_team_edit"])->name("aboutusteam.edit_aboutus");
+
+Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'aboutus_team_update'])->name('aboutusteam.update');
+
+Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
+
+Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
+
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.whoweare.detail');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
@@ -98,6 +130,10 @@ Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
+//voting form
+Route::get('/voting', [VotingController::class, 'index'])->name('voting.index');
+Route::get('/voting/create', [VotingController::class, 'create'])->name('voting.create');
+Route::post('/voting/create', [VotingController::class, 'store'])->name('voting.store');
 
 
 // project
@@ -133,6 +169,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
     Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+    Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
 
 });
 
@@ -264,3 +301,8 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
+
+//edit-post(user)
+Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');
+Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user'])->name('delete.post_user');
+Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');

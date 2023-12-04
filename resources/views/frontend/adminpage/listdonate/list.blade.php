@@ -2,7 +2,7 @@
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
     <div class="container">
-        <h1 style="font-weight: 700">List Donate</h1>
+        <h1 style="font-weight: 700">Donate List</h1>
         <div class="row">
             <div class="col-lg-6">
                 <div class="search">
@@ -19,8 +19,8 @@
                     <table class="table table-striper">
                         <thead>
                             <tr>
-                                <td>#</td>
-                                <td>Name</td>
+                                <td>ID</td>
+                                <td>Donor</td>
                                 <td>Email</td>
                                 <td>Phone</td>
                                 <td>Project</td>

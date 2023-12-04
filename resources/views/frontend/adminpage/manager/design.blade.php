@@ -64,7 +64,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $sliders->links() }}
+                    {{-- {{ $sliders->links() }} --}}
                 </div>
             </div>
         </div>

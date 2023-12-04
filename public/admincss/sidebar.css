@@ -258,8 +258,8 @@ ul {
     z-index: 1;
     right: 20px;
     display: none;
-    background: rgb(85, 247, 79);
-    background: linear-gradient(180deg, rgba(85, 247, 79, 1) 30%, rgba(2, 209, 120, 1) 86%);
+    background: linear-gradient(to right, #4eb1ea, #0189d8);
+    background: linear-gradient(to right, #4eb1ea, #0189d8);
     animation: transform 0.3s ease-in-out;
 }
 
@@ -279,7 +279,7 @@ ul {
     display: block;
     padding: 8px 0;
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
 
 .active-profile-dropdown {

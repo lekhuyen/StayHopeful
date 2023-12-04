@@ -47,7 +47,7 @@
                 <li class="table-row">
                   <div class="col col-1" data-label="name">{{$user->name}}</div>
                   <div class="col col-2" data-label="project">{{$user->project->title}}</div>
-                  <div class="col col-3" data-label="Amount">{{$user->amount}} <span style="color: #2ECC71; font-size: 20px; font-weight: 900">$</span></div>
+                  <div class="col col-3" data-label="Amount" style="color: #2ECC71; font-size: 20px; font-weight: 900">{{$user->amount}}$</div>
                   <div class="col col-4" data-label="date">{{$user->created_at}}</div>
                 </li>
                 @endforeach

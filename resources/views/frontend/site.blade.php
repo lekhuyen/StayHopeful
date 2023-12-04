@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css aboutus --}}
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
+    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
+    <link rel="stylesheet" href="{{asset('detailPost/detailpost.css')}}">
+    {{--css contactus --}}
+    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
+    {{--css aboutus --}}
+
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
@@ -275,4 +281,18 @@
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
 
+
+
+<script>
+    var profileOption = document.querySelector(".profile-option");
+    var profileDropdown = document.querySelector(".profile-dropdown");
+    profileOption.addEventListener("click", function(){
+        profileDropdown.classList.toggle("showOptionProfile");
+        profileDropdown.style.transitionDuration = "0.5s";
+    })
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </html>
+

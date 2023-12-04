@@ -37,7 +37,8 @@ class AdminPageController extends Controller
         $bigchart = $this->bigchart();
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();
-        return view('frontend.adminpage.manager.dashboard', compact('allproject','bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted'));
+
+        return view('frontend.adminpage.manager.dashboard', compact('allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted'));
     }
     public function viewmanagerpost()
     {
@@ -45,7 +46,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(2);
+        $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
@@ -59,9 +60,23 @@ class AdminPageController extends Controller
             ->limit(4)
             ->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
+        $slider = Sliders::all();
+        // tong donate
+        $donatetotal = DonateInfo::select('amount')->get();
+        $totalamount = $donatetotal->sum('amount');
 
-        $slider = Sliders::paginate(2);
 
+        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount'));
+    }
+    public function GetTotalAmount()
+    {
+        try {
+            $totalAmount = DonateInfo::sum('amount');
+
+            return response()->json(['totalAmount' => $totalAmount]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error fetching total amount'], 500);
+        }
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function getdonateuser()
@@ -264,7 +279,8 @@ class AdminPageController extends Controller
 
         return $data;
     }
-    public function chartcompleted(){
+    public function chartcompleted()
+    {
         $project = Project::selectRaw('MONTH(created_at) as months, COUNT(CASE WHEN status = 1 THEN 1 END) as projectstatus')
             ->groupBy('months')
             ->get();
@@ -283,5 +299,10 @@ class AdminPageController extends Controller
         ];
 
         return $data;
+    }
+    public function getmoneyproject()
+    {
+
+
     }
 }

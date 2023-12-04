@@ -1,31 +1,82 @@
-h1, h2 {
-    color: #D43790;
+/*  Mission sector  */
+.container.mt-3.about-main {
     text-align: center;
 }
 
-p {
+.about-main h1.aboutus-h1 {
+
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-main .mission {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.about-main .aboutus-image-main {
+    width: 100%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Us sector */
+.aboutus-h2,
+.aboutus-h3{
+    text-align: center;
+}
+
+.about-story1,
+.about-story3,
+.about-story5 {
+    margin-top: 50px;
+    background-color: #e6f7ff; /* Soft blue background */
+    color: #333; /* Dark text color */
+}
+
+.about-story2,
+.about-story4 {
+    margin-top: 50px;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+
+.about-story1 h2,
+.about-story2 h2,
+.about-story3 h2,
+.about-story4 h2,
+.about-story5 h2 {
+
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-story1 .story1,
+.about-story2 .story2,
+.about-story3 .story3,
+.about-story4 .story4,
+.about-story5 .story5 {
     color: #333;
     font-size: 18px;
     line-height: 1.6;
 }
 
-img.aboutus-image-main {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.row.g-10 {
-    margin-top: 40px;
-}
-
-.aboutus-image1,
-.aboutus-image3,
-.aboutus-image4,
-.aboutus-image5,
-.aboutus-image2 {
+.about-story1 .aboutus-image1,
+.about-story2 .aboutus-image2,
+.about-story3 .aboutus-image3,
+.about-story4 .aboutus-image4,
+.about-story5 .aboutus-image5 {
     width: 60%;
     height: auto;
     border-radius: 8px;
@@ -41,7 +92,7 @@ img.aboutus-image-main {
 .story5 {
     display: flex;
     align-items: center;
-    
+
 }
 
 .story1 span,
@@ -52,7 +103,16 @@ img.aboutus-image-main {
     width: 70%; /* Adjust the width as needed */
     margin-right: auto;
     margin-left: auto;
-    
+
+    margin: 20px auto;
+    display: block
+
+}
+
+/* logo_company */
+.about-logo {
+    text-align: center;
+    margin-top: 50px;
 }
 
 .about-story1 {
@@ -66,132 +126,167 @@ color: #333; /* Dark text color */
 }
 
 .about-story3 {
-background-color: #cfe8d5; /* Soft green background */
+background-color: #e6f7ff; /* Soft blue background */
 color: #333; /* Dark text color */
 }
 
-.about-story4 {
-background-color: #f5f5f5; /* Light gray background */
-color: #333; /* Dark text color */
+.logo_info {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
 }
 
-.about-story5 {
-background-color: #d9ebd9; /* Light green background */
-color: #333; /* Dark text color */
+.logo_company {
+    width: 100%;
+    max-width: 150px;
+    margin-top: 20px;
 }
 
+/* Additional styles for responsiveness */
+@media (max-width: 767px) {
+    .logo_company {
+        max-width: 100%;
+    }
+}
+
+/* call_to_action */
 .call_to_action {
     text-align: center;
-    background-color: #f8f9fa; /* Adjust background color as needed */
-    padding: 20px;
-    border-radius: 10px;
+    margin-top: 50px;
 }
 
-.card {
+.call_to_action a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.call_to_action .card {
     border: none;
-    text-align: center;
-    background-color: #ffffff; /* Adjust background color as needed */
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.card svg {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    display: block;
-    fill: #15b5f9; /* Adjust SVG fill color as needed */
+.call_to_action .card:hover {
+    transform: translateY(-5px);
 }
 
-.card-body {
-    padding: 20px;
+.call_to_action .card svg {
+    fill: #15b5f9;
+    width: 80px;
+    height: 80px;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+.call_to_action .card-title {
+    margin-top: 10px;
 }
 
-.card-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #6c757d; /* Adjust text color as needed */
-    margin-bottom: 15px;
-}
-
-.card-text a {
-    color: #15b5f9; /* Adjust link color as needed */
+.call_to_action .card a {
     text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
 }
 
-.card-text a:hover {
-    text-decoration: underline;
-}
-
-/* Additional styles for Board of Directors section */
-.board_of_directors {
-        margin-top: 5rem; /* Adjust the top margin as needed */
-        text-align: center;
-    }
-
-    .team-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 80vh; /* Adjust the height as needed */
-        overflow: hidden;
-    }
-
-    .team-names {
-        width: 30%;
-        background-color: #ffffff; /* Set your desired background color */
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 10px;
-    }
-
-    .team-member {
-        cursor: pointer;
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: #f8f9fa; /* Set your desired background color */
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    .team-member:hover {
-        background-color: #e9ecef; /* Set your desired hover background color */
-    }
-
-    .team-introduction {
-        width: 68%; /* Adjust the width as needed */
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 10px;
-        background-color: #ffffff; /* Set your desired background color */
-    }
-
-    .introduction-box {
-        background-color: #e9ecef; /* Set your desired background color */
-        padding: 20px;
-        border-radius: 10px;
+/* Additional styles for responsiveness */
+@media (max-width: 767px) {
+    .card {
         margin-bottom: 20px;
     }
+}
 
-    .circular-picture {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 20px;
-    }
+/* Our Team sector */
+.aboutus_our_team {
+    text-align: center;
+    padding: 50px 0;
+}
 
-    .circular-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+.aboutus_our_team a {
+    margin-left: auto;
+}
+
+.founder-img1,
+.founder-img2 {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 600px; /* Set a maximum width if desired */
+    height: 200%; /* Maintain the aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aboutus_our_team .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.aboutus_our_team .card:hover {
+    transform: translateY(-5px);
+}
+
+.founder-img {
+    max-width: 100%;
+    max-width: 150px; /* Set a maximum width if desired */
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+}
+
+.aboutus_our_team .card-title {
+    margin-top: 10px;
+}
+
+.aboutus_our_team .card-text-p {
+    color: #6C757D;
+}
+
+.aboutus_our_team .card a {
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 767px) {
+    .founder-img,
+    .founder-img1,
+    .founder-img2 {
+        border-radius: 8px;
     }
+}
+
+/* Accordion sector */
+.aboutus-accordion {
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* Accordion style */
+.aboutus-accordion-item {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.aboutus-accordion-button {
+    background-color: #FFFFFF;
+    text-align: left;
+}
+
+.aboutus-accordion-button:hover {
+    color: #FFFFFF;
+}
+
+.accordion-body {
+    border-top: 1px solid #dee2e6; /* Add a top border for separation between accordion items */
+}

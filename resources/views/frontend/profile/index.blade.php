@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     @foreach ($posts as $post)
-                        <div class="profile-aboutme" style="padding-bottom: 30px">
+                        <div class="profile-aboutme post_user-web" style="padding-bottom: 30px">
 
                             <div class="profile-aboutme-set">
 
@@ -95,8 +95,8 @@
                                         </div>
                                     </div>
                                     <div class="edit-post-user">
-                                        <a>Edit</a>
-                                        <a>Delete</a>
+                                        <a class="edit_form-post"data-id="{{ $post->id}}">Edit</a>
+                                        <a class="delete_form-post"data-id="{{ $post->id}}">Delete</a>
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
@@ -121,7 +121,6 @@
     </div>
 
     <div class="modal-user-post-1">
-        {{-- -------------------- --}}
         <div class="modal_inner-post">
             <div class="post-header">
 
@@ -161,5 +160,10 @@
             </form>
         </div>
     </div>
+
     @include('frontend/profile/popup_profile');
+
+    @include('frontend.profile.form_post')
+    
+
 @endsection

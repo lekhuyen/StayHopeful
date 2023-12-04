@@ -10,7 +10,7 @@ class Project extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    
+
     protected $fillable = [
         'title', 'image', 'description','status', 'money', 'money2', 'category_id'
     ];
@@ -21,10 +21,13 @@ class Project extends Model
         return $this->hasMany(ProjectImage::class, 'project_id', 'id');
     }
     public function donateinfo(){
-        return $this->hasMany(ProjectImage::class, 'project_id');
+        return $this->hasMany(DonateInfo::class, 'project_id');
     }
     public function comments(){
         return $this->hasMany(Comment::class, 'project_id', 'id');
+    }
+    public function votings(){
+        return $this->hasMany(Voting::class, 'project_id');
     }
     use HasFactory;
 }
