@@ -43,7 +43,7 @@
 <h2>Financial Team</h2>
 <div class="row" data-aos="fade-right">
   <div class="col-md-6">
-    <div class="card">
+    <div class="card robert_johnsonc_picture">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="{{ asset('img/Robert_Johnson.jpg') }}" class="img-fluid rounded-start" alt="Robert_Johnson">
@@ -66,7 +66,7 @@
   @foreach($teamMembers as $member)
       @if($member->skill === 'Financial Team')
           <div class="col">
-              <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+              <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                   <div class="card h-100">
                       @if ($member->images->count() > 0)
                           <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}" style="height: 200px; object-fit: cover;">
@@ -89,7 +89,7 @@
 <h2>Marketing Team</h2>
 <div class="row" data-aos="fade-right">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card jane_smith_picture">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="{{ asset('img/Jane_Smith.jpg') }}" class="img-fluid rounded-start" alt="Jane_Smith">
@@ -113,7 +113,7 @@
   @foreach($teamMembers as $member)
       @if($member->skill === 'Marketing Team')
           <div class="col">
-              <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+              <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                 <div class="card h-100">
                   @if ($member->images->count() > 0)
                       <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
@@ -137,7 +137,7 @@
 <h2>Lead Developer Team</h2>
 <div class="row" data-aos="fade-right">
   <div class="col-md-6">
-    <div class="card">
+    <div class="card kai_greene_picture">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="{{ asset('img/Kai_Greene.jpg') }}" class="img-fluid rounded-start" alt="Kai_Greene">
@@ -160,7 +160,7 @@
   @foreach($teamMembers as $member)
       @if($member->skill === 'Lead Developer Team')
           <div class="col">
-              <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+              <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                 <div class="card h-100">
                   @if ($member->images->count() > 0)
                       <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
@@ -184,7 +184,7 @@
 <h2>Creative Team</h2>
 <div class="row" data-aos="fade-right">
   <div class="col-md-6">
-    <div class="card">
+    <div class="card oliver_hudson_picture">
       <div class="row g-0">
           <div class="col-md-4">
               <img src="{{ asset('img/Oliver_Hudson.jpeg') }}" class="img-fluid rounded-start" alt="Oliver_Hudson">
@@ -207,7 +207,7 @@
   @foreach($teamMembers as $member)
       @if($member->skill === 'Creative Team')
           <div class="col">
-              <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+              <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                 <div class="card h-100">
                   @if ($member->images->count() > 0)
                       <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
@@ -234,7 +234,7 @@
     @foreach($teamMembers as $member)
         @if($member->skill === 'Volunteer')
             <div class="col">
-                <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+                <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                   <div class="card h-100">
                     @if ($member->images->count() > 0)
                         <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">

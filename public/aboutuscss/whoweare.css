@@ -91,3 +91,19 @@
   height: 200px;
   object-fit: cover;
 }
+
+/* Hover effect for cards */
+.card-link:hover .card {
+  transform: translateY(-5px); /* Adjust the value as needed */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for .robert_johnsonc_card, .jane_smith_card, .kai_greene_card, .oliver_hudson_card, .volunteer_member_card */
+.robert_johnsonc_picture:hover .card,
+.jane_smith_picture:hover .card,
+.kai_greene_picture:hover .card,
+.oliver_hudson_picture:hover .card,
+.volunteer_member_card:hover .card {
+    transform: translateY(-10px); /* Adjust the value as needed */
+    transition: transform 0.3s ease-in-out;
+}

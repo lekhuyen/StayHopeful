@@ -240,7 +240,7 @@
                 <div class="card-body">
                   <h5 class="card-title">John Doe</h5>
                   <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus where donors and causes converge</p>
-                  <a href="{{route("aboutus.whoweare")}}" class="btn btn-info our-team-button">Our Team</a>
+                  <a href="{{route("aboutus.aboutus_whoweare")}}" class="btn btn-info our-team-button">Our Team</a>
                 </div>
               </div>
         </div>
