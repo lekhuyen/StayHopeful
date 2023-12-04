@@ -235,7 +235,7 @@
 
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');
-
+    @endif
 
     {{-- đừng xoá --}}
     {{-- @foreach ($totalAmountByProject as $projectId => $total)
