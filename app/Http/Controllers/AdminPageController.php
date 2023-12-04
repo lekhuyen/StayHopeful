@@ -78,7 +78,6 @@ class AdminPageController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error fetching total amount'], 500);
         }
-        return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function getdonateuser()
     {

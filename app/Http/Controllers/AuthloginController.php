@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DonateInfo;
 use App\Models\User;
 use App\Models\UserPost;
 use Illuminate\Http\Request;
@@ -93,7 +94,8 @@ class AuthloginController extends Controller
                             ->where('user_id',$user)
                             ->where('status', 0)
                             ->get();
-        return view('frontend.profile.index', compact('posts'));
+        $userinfo = DonateInfo::all();
+        return view('frontend.profile.index', compact('posts', 'userinfo'));
     }
     //login bằng email
     public function redirectgoogle(){
