@@ -89,7 +89,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->donateInfo->sum('amount')) }}   
+                                        {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -151,7 +151,7 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
-                                        {{ number_format($project->donateInfo->sum('amount')) }}   
+                                        {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -229,10 +229,10 @@
         </div>
     </div>
 
-    @if(session('isVerified'))
-    @include('frontend/login/login',['isVerified',true]);
+    @if (session('isVerified'))
+        @include('frontend/login/login', ['isVerified', true]);
     @else
-
+    @endif
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');
 
@@ -245,7 +245,6 @@
         @include('frontend/login/login', ['isVerified', true]);
     @else
         @include('frontend/login/login');
-
     @endif
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
@@ -254,4 +253,4 @@
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
     <script src="{{ asset('js/indexslider.js') }}"></script>
     <script src="{{ asset('js/countdonate.js') }}"></script>
-@stop()
+    @stop()
