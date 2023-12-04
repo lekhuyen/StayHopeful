@@ -161,4 +161,5 @@
             </form>
         </div>
     </div>
+    @include('frontend/profile/popup_profile');
 @endsection

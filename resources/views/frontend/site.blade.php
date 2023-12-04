@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
 
     {{-- cssblog --}}
-    <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
     {{-- cssblog --}}
     <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css') }}"
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -169,29 +168,21 @@
                                     <div class="text">CONTACT</div>
                                 </a>
                             </li>
-                            <li class="profile-option">
+                            <li>
                                     @if (session('userInfo'))
-                                    <div class="text username">{{session('userInfo')['name']}}</div> 
-                                    {{-- <a href="{{route('logout')}}">LOGOUT</a> --}}
+                                    <div class="text popup-profile">
+                                        @if(session('userInfo')['avatar'])
+                                        <img class="nav-user-img" src="{{asset(session('userInfo')['avatar'])}}" alt="">
+                                        @else
+                                        <img class="nav-user-img" src="{{asset('img/omg.jpeg')}}" alt="">
+                                        @endif
+                                    </div> 
                                     @else
                                     <div class="text popup-login">LOGIN</div>
-                                        {{-- @if (session('isVerified'))
-                                        <div class="text popup-login showLogin">LOGIN</div>
-                                        @else
-                                        <div class="text popup-login">LOGIN</div>
-                                        @endif --}}
                                     @endif
                             </li>
                             </div>
                         </ul>
-                        @if (session('userInfo'))
-                        <div class="profile-dropdown">
-                            <ul>
-                                <li><a href="{{route('auth.profile')}}">PROFILE</a></li>
-                                <li><a href="{{ route('logout') }}">LOGOUT</a></li>
-                            </ul>
-                        </div>
-                        @endif
                     </div>
                     
                 </div>
@@ -283,12 +274,5 @@
 </body>
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
-<script>
-    var profileOption = document.querySelector(".profile-option");
-    var profileDropdown = document.querySelector(".profile-dropdown");
-    profileOption.addEventListener("click", function(){
-        profileDropdown.classList.toggle("showOptionProfile");
-        profileDropdown.style.transitionDuration = "0.5s";
-    })
-    </script>
+
 </html>

@@ -247,8 +247,10 @@
     </div>
     @if(session('isVerified'))
     @include('frontend/login/login',['isVerified',true]);
-@else
-@include('frontend/login/login');
+    @else
+
+    @include('frontend/login/login');
+    @include('frontend/profile/popup_profile');
     @endif
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
     <script src="{{asset('js/getuserdonate.js')}}"></script>

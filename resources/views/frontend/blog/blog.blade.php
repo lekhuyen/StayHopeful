@@ -1,6 +1,8 @@
 @extends('frontend.site')
 @section('title', 'Blog')
 @section('main')
+<link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
+
     <div class="container" style="margin-top: 100px">
         <div class="row">
             <div class="col-lg-8 new-page" style="padding-right: 20px; height: 100%;">
@@ -28,4 +30,5 @@
 
     </div>
     @include("frontend/login/login");
+    @include("frontend/profile/popup_profile");
 @endsection
