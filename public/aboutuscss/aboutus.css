@@ -16,6 +16,7 @@
     line-height: 1.6;
     display: block;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .about-main .aboutus-image-main {
@@ -41,6 +42,7 @@
     margin-top: 50px;
     background-color: #e6f7ff; /* Soft blue background */
     color: #333; /* Dark text color */
+    text-align: justify;
 }
 
 .about-story2,
@@ -48,6 +50,7 @@
     margin-top: 50px;
     background-color: #f0f0f0; /* Light gray background */
     color: #333; /* Dark text color */
+    text-align: justify;
 }
 
 
@@ -111,8 +114,8 @@
 
 /* logo_company */
 .about-logo {
-    text-align: center;
     margin-top: 50px;
+    text-align: justify;
 }
 
 .about-story1 {
@@ -160,6 +163,10 @@ color: #333; /* Dark text color */
 .call_to_action a {
     margin-left: auto;
     margin-right: auto;
+}
+
+.call_to_action_card p {
+    text-align: justify;
 }
 
 .call_to_action .card {
@@ -228,6 +235,10 @@ color: #333; /* Dark text color */
     transform: translateY(-5px);
 }
 
+.aboutus_johndoe p {
+    text-align: justify;
+} 
+
 .founder-img {
     max-width: 100%;
     max-width: 150px; /* Set a maximum width if desired */
@@ -287,6 +298,12 @@ color: #333; /* Dark text color */
     color: #FFFFFF;
 }
 
+
 .accordion-body {
     border-top: 1px solid #dee2e6; /* Add a top border for separation between accordion items */
+}
+
+.aboutus_johndoe a {
+    margin-left: auto;
+    margin-right: auto;
 }

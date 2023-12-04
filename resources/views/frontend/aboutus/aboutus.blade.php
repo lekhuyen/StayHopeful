@@ -10,8 +10,8 @@
 <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
     <h1 class="aboutus_h1">What is our mission</h1>
 
-    <span class="mission ">
-        At StayHopeful, we are dedicated to creating positive and lasting change in the world.
+    <span class="mission">
+        At <strong>StayHopeful</strong>, we are dedicated to creating positive and lasting change in the world.
         Our mission is to extend a helping hand to those facing the challenges of disease, combat animal cruelty, and provide relief in the aftermath of natural disasters.
         We believe in the power of collective compassion to heal, protect, and rebuild lives.
         Through strategic initiatives and community-driven support, we strive to make a meaningful impact, fostering a world where every individual, animal, and community can thrive despite adversity.
@@ -32,7 +32,7 @@
 
             <div>
 
-                <span> As a small group of passionate individuals, we founded <strong>StayHopeful</strong> with a shared commitment to making a difference. Inspired by the stories of resilience in the face of adversity, we set out on a mission to combat diseases, end animal cruelty, and respond to natural disasters. Over the years, we've faced challenges head-on, but the stories of transformation keep us driven.</span>
+                <span> As a large group of passionate individuals, we founded <strong>StayHopeful</strong> with a shared commitment to making a difference. Inspired by the stories of resilience in the face of adversity, we set out on a mission to combat diseases, end animal cruelty, and respond to natural disasters. Over the years, we've faced challenges head-on, but the stories of transformation keep us driven.</span>
             </div>
 
         </div>
@@ -148,7 +148,7 @@
             <a href="https://www.usnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company5.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
         <div class="col ">
-            <a href="https://fsoft-academy.edu.vn/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
+            <a href="https://www.globalgiving.org/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
     </div>
 </div>
@@ -169,7 +169,7 @@
                         <style>svg{fill:#15b5f9}</style><path d="M256 48a160 160 0 1 1 0 320 160 160 0 1 1 0-320zm0 368A208 208 0 1 0 256 0a208 208 0 1 0 0 416zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.6-64-64-64c-13.6 18.2-29.8 34.3-48 48h48c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V416c0-8.8 7.2-16 16-16h48c-18.2-13.7-34.3-29.8-48-48zM276 104c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V312c0 11 9 20 20 20s20-9 20-20V298.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V104z"/>
                     </svg>
                 </div>
-                <div class="card-body">
+                <div class="card-body call_to_action_card">
                     <h5 class="card-title">Donate To Save Lives</h5>
                     <p class="card-text card-text-p">Your contribution can make a life-saving impact. By donating now, you help us provide crucial support and resources to those in need. Join us, and let's make a difference together.</p>
                     <a href="{{ route('detail.donate') }}" class="btn btn-info call_to_action_button">Donate</a></p>
@@ -187,7 +187,7 @@
                     </svg>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body call_to_action_card">
                     <h5 class="card-title">Join Our Community for Exclusive Updates.</h5>
                     <p class="card-text card-text-p">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
                     <a href="{{route ('auth.login')}}" class="btn btn-info call_to_action_button">Sign In</a></p>
@@ -205,7 +205,7 @@
                     </svg>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body call_to_action_card">
                     <h5 class="card-title">Support Our Cause Volunteer Today</h5>
                     <p class="card-text card-text-p">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
                     <a href="{{ route('contact.index') }}" class="btn btn-info call_to_action_button">Contact</a></p>
@@ -230,12 +230,12 @@
         </div>
     </div>
     <br>
-    <div class="row align-items-center">
+    <div class="row align-items-center aboutus_johndoe">
         <div class="col d-none d-lg-block">
             <img class="founder-img1" src="{{ asset('img/aboutus_founder1.jpg') }}" alt="founder1" >
         </div>
         <div class="col">
-            <div class="card mb-3">
+            <div class="card mb-3 aboutus_card_johndoe">
                 <img class="founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
                 <div class="card-body">
                   <h5 class="card-title">John Doe</h5>

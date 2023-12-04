@@ -18,7 +18,7 @@
                   <p class="card-text"><strong>Age:</strong> {{ $teamMember->age }}</p>
                   <p class="card-text"><strong>Email:</strong> <a href="mailto:{{ $teamMember->email }}">{{ $teamMember->email }}</a></p>
                   <p class="card-text"><strong>Role:</strong> {{ $teamMember->skill }}</p>
-                  <p class="card-text"><strong>Description:</strong> {{ $teamMember->description }}</p>
+                  <p class="card-text "><strong>Description:</strong> {{ $teamMember->description }}</p>
                   <p class="card-text"><small class="text-muted">Last updated: {{ $teamMember->updated_at->diffForHumans() }}</small></p>
                   <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn btn-primary align-self-center">Back to Team</a>
               </div>

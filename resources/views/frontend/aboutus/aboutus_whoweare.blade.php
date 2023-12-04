@@ -3,20 +3,22 @@
 @section('title', 'whoweare')
 @section('main')
 
-{{-- <link rel="stylesheet" href="{{asset('aboutuscss/whoweare.css')}}"> --}}
+<link rel="stylesheet" href="{{asset('aboutuscss/aboutus_whoweare.css')}}">
 {{-- Our Founder sector --}}
 <br>
 <br>
-<div class="container mt-3 our_founder" data-aos="zoom-in">
+<div class="container mt-3 our_founder " data-aos="zoom-in">
   <h2 class="text-center aboutus_ourfounder_h2">Our Founder</h2>
   <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
     <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back
   </a>
-  <div class="col-md-10 offset-md-1">
-      Welcome to the heart of <strong>Stay Hope full</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
+  <div class="col-md-10 offset-md-1 our_founder">
+      <span>
+        Welcome to the heart of <strong>StayHopeful</strong>. Behind every impactful initiative and transformative project, there's a team of dedicated individuals committed to making a positive difference. Together, we share a common vision, diverse skills, and an unwavering commitment to creating a world where hope, compassion, and resilience thrive.
+      </span>
   </div>
 
-  <div class="container mt-5">
+  <div class="container mt-5 johndoe_card">
 
       <div class="row mt-4">
           <!-- Founder's Picture -->
@@ -27,8 +29,8 @@
           <!-- Introduction -->
           <div class="col-md-8">
               <br>
-              <p class="text-justify">
-                  Meet John Doe, the visionary behind <strong>Stay hope full</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
+              <p>
+                  Meet John Doe, the visionary behind <strong>StayHopeful</strong>. As the driving force behind the organization's mission, John's passion for making a positive impact has been evident since its inception. His leadership and commitment inspire our team to create a world where hope and compassion thrive. Learn more about John's journey and dedication in the Read More section below.
               </p>
               <a href="{{route("aboutus.johndoe")}}" class="btn btn-primary">Learn More</a>
           </div>
@@ -208,7 +210,7 @@
       @if($member->skill === 'Creative Team')
           <div class="col">
               <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
-                <div class="card h-100">
+                <div class="card h-100 creative_team_card">
                   @if ($member->images->count() > 0)
                       <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
                   @endif
@@ -225,56 +227,26 @@
 
 <hr class="whoweare_hr">
 
-<div class="container mt-3" data-aos="fade-right">
+<div class="container mt-3 volunteer_team_members" data-aos="fade-right">
   <h2>Volunteer Member</h2>
-
-
-    <!-- Volunteer Team Members -->
-    <div class="row row-cols-1 row-cols-md-6 g-2">
+  <!-- Volunteer Team Members -->
+  <div class="row row-cols-1 row-cols-md-6 g-2 volunteer_team_card">
       @foreach($teamMembers as $member)
           @if($member->skill === 'Volunteer')
               <div class="col">
-                  <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
-                    <div class="card h-100">
-                      @if ($member->images->count() > 0)
-                          <img src="{{ asset($member->images[0]->url_image) }}" class="card-img-top" alt="{{ $member->name }}">
-                      @endif
-                      <div class="card-body">
-                          <h5 class="card-title">{{ $member->name }}</h5>
+                  <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
+                      <div class="card h-100">
+                          @if ($member->images->count() > 0)
+                              <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
+                          @endif
+                          <div class="card-body">
+                              <h5 class="card-title">{{ $member->name }}</h5>
+                          </div>
                       </div>
-                  </div>
                   </a>
               </div>
           @endif
       @endforeach
-    </div>
-  </div>
-</div>
-
-
-@include("frontend/login/login");
-<!-- Volunteer Member Card -->
-<div class="container mt-3 volunteer_member_card" data-aos="fade-right">
-<h2>Volunteer Member</h2>
-
-  <!-- Volunteer Team Members -->
-  <div class="row row-cols-1 row-cols-md-6 g-2 volunteer_team_members">
-    @foreach($teamMembers as $member)
-        @if($member->skill === 'Volunteer')
-            <div class="col">
-                <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
-                  <div class="card h-100">
-                    @if ($member->images->count() > 0)
-                        <img src="{{ asset($member->images[0]->url_image) }}" class="aboutus-card-img-top" alt="{{ $member->name }}">
-                    @endif
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $member->name }}</h5>
-                    </div>
-                </div>
-                </a>
-            </div>
-        @endif
-    @endforeach
   </div>
 </div>
 

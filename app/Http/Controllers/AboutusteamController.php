@@ -14,8 +14,12 @@ class AboutusteamController extends Controller
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 
-    public function aboutus_team_detail($id){
+    public function aboutus_team_detail($id)
+    {
+        // dd("Trying to access aboutus_team_detail with ID: $id");
+
         $aboutusteam = aboutusteam::find($id);
+
         return view('frontend.aboutus.whoweare_detail', compact('aboutusteam'));
     }
 
@@ -138,5 +142,15 @@ class AboutusteamController extends Controller
 
         return redirect()->route("aboutusteam.index")->with("success", "Team member deleted successfully");
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $aboutusteams = Aboutusteam::where('name', 'like', "%$search%")->get();
+
+        return view('frontend.aboutusteam.index', compact('aboutusteams'));
+    }
+
 
 }

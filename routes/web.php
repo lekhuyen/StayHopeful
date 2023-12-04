@@ -88,7 +88,7 @@ Route::get('/contact', [ContactusController::class, 'index'])->name('contact.ind
 
 
 // Aboutus
-Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
+Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'aboutus_whoweare'])->name('aboutus.aboutus_whoweare');
 
@@ -113,11 +113,14 @@ Route::get('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, "ab
 
 Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'aboutus_team_update'])->name('aboutusteam.update');
 
+Route::get('/aboutusteam/search', [AboutusTeamController::class, 'search'])->name('aboutusteam.search');  // Place search route before the detail route
+
 Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
 
 Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
 
 Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail');
+
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');

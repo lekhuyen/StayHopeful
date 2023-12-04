@@ -6,6 +6,14 @@
   <h2>About Us Team</h2>
   <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">New Team</a>
 
+  <!-- Search Form -->
+  <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Search by name">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </div>
+  </form>
+
   <table class="table table-dark mt-3 text-center">
     <thead>
       <tr>
