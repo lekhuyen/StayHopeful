@@ -46,7 +46,6 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(3);
         $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
@@ -78,8 +77,6 @@ class AdminPageController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error fetching total amount'], 500);
         }
-
-        $slider = Sliders::paginate(3);
         return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function getdonateuser()
