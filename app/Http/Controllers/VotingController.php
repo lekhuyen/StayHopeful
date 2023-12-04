@@ -12,7 +12,7 @@ class VotingController extends Controller
     {
         $votes = Voting::all();
         $projects = Project::all();
-        return view("frontend.volunteer.index", compact("votes", "projects"));
+        return view("frontend.volunteer.index", compact("projects"));
     }
     public function create()
     {

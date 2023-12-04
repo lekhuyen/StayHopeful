@@ -1,5 +1,6 @@
-.title__voting {
+.h1_title__voting {
     color: #fff;
+    text-align: center;
 }
 
 .voting__form {
@@ -11,6 +12,7 @@
     background: linear-gradient(0deg, rgb(212, 233, 250), lightskyblue 80%) no-repeat;
     color: #333;
     line-height: 1.6;
+    border-radius: 10px;
 }
 
 .grid_container_social__network {

@@ -9,4 +9,9 @@ class Voting extends Model
 {
     use HasFactory;
     protected $fillable = ["finding_source", "enrolled", "name", "phone", "email", "role", "avail_date", "project_id", "project_title", "voting_description", "rel_name", "rel_relationship", "rel_phone"];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class,'project_id');
+    }
 }

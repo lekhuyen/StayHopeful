@@ -7,9 +7,12 @@
         <div class="row__voting">
             <div class="col-lg-12 d-flex justify-content-center">
                 <div class="voting__form">
-                    <h1 class="title__voting">Volunteer Form</h1>
                     <form action="#" method="post">
                         @csrf
+                        <h1 class="h1_title__voting">Volunteer Form</h1>
+                        @if (session('error'))
+                            <div class="text-danger">{{ session('error') }}</div>
+                        @endif
                         <div class="mb-3 mt-3">
                             <label for="finding_source">Where did you find us?</label>
                             <div class="grid_container_social__network">
@@ -47,7 +50,8 @@
 
                             <div class="input-group mb-3 container__personalinfo">
                                 <span class="input-group-text">Personal</span>
-                                <input type="text" class="form-control voting__label" id="name" placeholder="Name" name="name">
+                                <input type="text" class="form-control voting__label" id="name" placeholder="Name"
+                                    name="name">
                                 <input type="text" class="form-control voting__label" id="phone" placeholder="Phone"
                                     name="phone">
                                 <input type="text" class="form-control voting__label" id="email" placeholder="Email"
@@ -79,7 +83,8 @@
                                     <option><a href="#">Saturday</a></option>
                                     <option><a href="#">Sunday</a></option>
                                 </select>
-                                <label for="sel1" class="form-label voting__label">Which days are you available?</label>
+                                <label for="sel1" class="form-label voting__label">Which days are you
+                                    available?</label>
                             </div>
 
                             <div class="form-donate-info">
@@ -88,11 +93,12 @@
                                         <select class="form-select" id="votingSelect"
                                             aria-label="Floating label select example" name="project">
                                             <option selected>Select Project</option>
-                                            {{-- @foreach ($projects as $item)
-                                                <option value="{{$item->id}}">{{$item->title}}</option>
-                                            @endforeach --}}
+                                            @foreach ($projects as $item)
+                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                            @endforeach
                                         </select>
-                                        <label for="votingSelect" class="voting__label">Which projects are you interested in
+                                        <label for="votingSelect" class="voting__label">Which projects are you interested
+                                            in
                                             volunteering?</label>
                                     </div>
                                 </div>
@@ -112,10 +118,10 @@
                                     contact?</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Relatives</span>
-                                    <input type="text" class="form-control voting__label" id="name1" placeholder="Name"
-                                        name="name">
-                                    <input type="text" class="form-control voting__label" id="phone1" placeholder="Phone"
-                                        name="phone">
+                                    <input type="text" class="form-control voting__label" id="name1"
+                                        placeholder="Name" name="name">
+                                    <input type="text" class="form-control voting__label" id="phone1"
+                                        placeholder="Phone" name="phone">
                                     <input type="text" class="form-control voting__label" id="relationship"
                                         placeholder="Relationship" name="relationship">
                                 </div>
