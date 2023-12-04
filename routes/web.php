@@ -20,6 +20,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
 use App\Http\Controllers\UserPostController;
+use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,7 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 //profile
+Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
@@ -128,6 +130,10 @@ Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
+//voting form
+Route::get('/voting', [VotingController::class, 'index'])->name('voting.index');
+Route::get('/voting/create', [VotingController::class, 'create'])->name('voting.create');
+Route::post('/voting/create', [VotingController::class, 'store'])->name('voting.store');
 
 
 // project
@@ -146,7 +152,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 //admin
 Route::group(['prefix' => 'admin/'], function () {
-    Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
+    // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');

@@ -17,6 +17,8 @@ var containerPopup = document.querySelector('.container-popup');
 var exitBtn = document.querySelector('.exit-btn');
 var exitLogin = document.querySelector('.modal-inner');
 //console.log(containerPopup);
+if(popupLogin)
+{
 popupLogin.addEventListener('click', function () {
     containerPopup.classList.add('showLogin');
 });
@@ -27,6 +29,27 @@ exitBtn.addEventListener('click', function () {
 exitLogin.addEventListener('click', function () {
     containerPopup.classList.remove('showLogin');
 })
+}
+
+//popup alert remove
+var exitAlertBtn = document.querySelector('.exit-alert-btn');
+var registerSuccess = document.querySelector(".container-register-notification");
+var loginSuccess = document.querySelector(".container-login-notification");
+var errorAlert = document.querySelector(".container-error-notification");
+exitAlertBtn.addEventListener('click', function () {
+    registerSuccess.classList.remove("showAlert");
+    loginSuccess.classList.remove("showAlert");
+    errorAlert.classList.remove("showAlert");
+});
+registerSuccess.addEventListener('click', function () {
+    registerSuccess.classList.remove("showAlert");
+});
+loginSuccess.addEventListener('click', function () {
+    loginSuccess.classList.remove("showAlert");
+});
+errorAlert.addEventListener('click', function () {
+    errorAlert.classList.remove("showAlert");
+});
 
 //eye
 $(document).ready(function() {

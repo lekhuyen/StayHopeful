@@ -14,7 +14,7 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User Name" class="form-control input-search">
+                        <input type="search" placeholder="Search User Name" id="search" class="form-control input-search">
                     </div>
                 </div>
             </div>
@@ -97,12 +97,12 @@
 
                         <div class="mb-3 mt-3">
                             <label for="name-add" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name-add" placeholder="Enter Name"
+                            <input type="text" class="form-control" id="name-add" placeholder="Enter Name" autocomplete="off"
                                 name="name" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email-add" class="form-label">Email:</label>
-                            <input type="text" class="form-control" id="email-add" placeholder="Enter Email"
+                            <input type="text" class="form-control" id="email-add" placeholder="Enter Email" autocomplete="off"
                                 name="email" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3 mt-3">
@@ -112,29 +112,13 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="role-register" class="form-label">Role:</label>
-                            <select class="form-select" aria-label="Default select example" name="role"
+                            <select class="form-select" id="role-register" aria-label="Default select example" name="role"
                                 value="{{ old('role') == 'role' ? 'selected' : '' }}">
                                 <option selected>Select Role</option>
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
                             </select>
                         </div>
-                        {{-- <div class="mb-3 mt-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="0" id="flexCheckDefault2"
-                                    name="status">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Đã bị khoá(1)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="1" id="flexCheckChecked2"
-                                    name="status" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Hoạt động(0)
-                                </label>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -165,12 +149,12 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="name-update" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name-update" placeholder="Enter Name"
+                        <input type="text" class="form-control" id="name-update" placeholder="Enter Name" autocomplete="off"
                             name="name">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="email-update" class="form-label">Email:</label>
-                        <input type="text" class="form-control" id="email-update" placeholder="Enter Email"
+                        <input type="text" class="form-control" id="email-update" placeholder="Enter Email" autocomplete="off"
                             name="email">
                     </div>
                     <div class="mb-3 mt-3">
@@ -181,22 +165,6 @@
                             <option value="1">Admin</option>
                         </select>
                     </div>
-                    {{-- <div class="mb-3 mt-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="0" id="status-update"
-                                name="status">
-                            <label class="form-check-label" for="status-update">
-                                Đã bị khoá(1)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="1" id="status-update2"
-                                name="status" checked>
-                            <label class="form-check-label" for="status-update2">
-                                Hoạt động(0)
-                            </label>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="modal-footer">

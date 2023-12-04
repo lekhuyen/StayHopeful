@@ -15,7 +15,6 @@ class detaildonateController extends Controller
     public function index()
     {
         $projects = Project::all();
-
         return view('frontend.detaildonate.donatepage', compact('projects'));
     }
     public function viewlistdonate()
@@ -23,6 +22,7 @@ class detaildonateController extends Controller
         $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
         return view('frontend.detaildonate.listdonate', compact('donateinfo'));
     }
+
 
     public function payment(Request $request)
     {
@@ -71,6 +71,9 @@ class detaildonateController extends Controller
         $response = $provider->capturePaymentOrder($request->token);
 
 
+        //Kiểm Tra Kết Quả Thanh Toán:
+        //Nếu trạng thái ($response['status']) là 'COMPLETED',
+        // nghĩa là việc thanh toán đã hoàn tất thành công.
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $tomail = $userinfo['email'];
             $message = $userinfo['project'];
@@ -177,7 +180,7 @@ class detaildonateController extends Controller
 
     //         $vnp_Url = $vnp_Url . "?" . $query;
     //         if (isset($vnp_HashSecret)) {
-    //             $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
+    //             $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret); //
     //             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
     //         }
     //         $returnData = array(

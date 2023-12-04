@@ -49,6 +49,10 @@
         </div>
     </div>
 
+    @include("frontend/login/login");
+    @include('frontend/profile/popup_profile');
+
+
 
     {{-- comment --}}
     <div class="modal-user-Comment-post" style="display:none">
@@ -131,6 +135,7 @@
             
         </div>
     </div>
+
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

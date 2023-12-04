@@ -3,7 +3,7 @@
 @section('title', 'whoweare')
 @section('main')
 
-<link rel="stylesheet" href="{{asset('aboutuscss/whoweare.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('aboutuscss/whoweare.css')}}"> --}}
 {{-- Our Founder sector --}}
 <br>
 <br>
@@ -23,7 +23,7 @@
           <div class="col-md-4 text-center">
               <img class="img-fluid rounded-circle founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
           </div>
-          
+
           <!-- Introduction -->
           <div class="col-md-8">
               <br>
@@ -225,6 +225,34 @@
 
 <hr class="whoweare_hr">
 
+<div class="container mt-3" data-aos="fade-right">
+  <h2>Volunteer Member</h2>
+
+
+    <!-- Volunteer Team Members -->
+    <div class="row row-cols-1 row-cols-md-6 g-2">
+      @foreach($teamMembers as $member)
+          @if($member->skill === 'Volunteer')
+              <div class="col">
+                  <a href="{{ route('aboutus.whoweare.detail', $member->id) }}" class="card-link">
+                    <div class="card h-100">
+                      @if ($member->images->count() > 0)
+                          <img src="{{ asset($member->images[0]->url_image) }}" class="card-img-top" alt="{{ $member->name }}">
+                      @endif
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $member->name }}</h5>
+                      </div>
+                  </div>
+                  </a>
+              </div>
+          @endif
+      @endforeach
+    </div>
+  </div>
+</div>
+
+
+@include("frontend/login/login");
 <!-- Volunteer Member Card -->
 <div class="container mt-3 volunteer_member_card" data-aos="fade-right">
 <h2>Volunteer Member</h2>
@@ -248,7 +276,7 @@
         @endif
     @endforeach
   </div>
-</div> 
+</div>
 
 @include('frontend/login/login');
 @endsection

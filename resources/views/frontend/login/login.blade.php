@@ -6,7 +6,47 @@
 <div id="spinner-container" style="display: none;">
     <div id="spinner"></div>
 </div>
-
+{{-- alert --}}
+<div class="container-register-notification">
+    <div class="register-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+            <p>
+                Sign Up Successfully !
+                <br>
+                Please verify your email before sign in.
+            </p>
+    </div>
+</div>
+<div class="container-login-notification">
+    <div class="login-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+        <p>
+            Sign In Successfully !
+            <br>
+            Thanks for being with us.
+        </p>
+    </div>
+</div>
+<div class="container-error-notification">
+    <div class="status-error">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+        <p>
+            Somethings went wrong !
+            <br>
+            Please try again later.
+        </p>
+    </div>
+</div>
+{{-- login-register-popup --}}
 <div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
     <div class="modal-inner">
     </div>
@@ -34,7 +74,7 @@
                         <small></small>
                     </div>
                     <button id="btn-sign-in" type="submit" class="btn solid">Sign In</button>
-
+                    <a class="a-forgot-pass" href="#">Forgot your password?</a>
                     <p class="social-text">Or Sign in with social platform</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -126,7 +166,13 @@
     <script>
 
     $(document).ready(function() {
+    //login-register form
     var containerLoginRegister = document.querySelector(".container-login-register");
+
+    //alert
+    var registerSuccess = document.querySelector(".container-register-notification");
+    var loginSuccess = document.querySelector(".container-login-notification");
+    var errorAlert = document.querySelector(".container-error-notification");
     // Intercept the form submission
     // ajax register
     $('#registerForm').submit(function(e) {
@@ -148,6 +194,7 @@
                 // Handle the server response
                 // alert(response.message);
                 // window.location.href = "{{route('/')}}"; 
+                registerSuccess.classList.add("showAlert");
                 containerLoginRegister.classList.remove("sign-up-mode");
                 } else if (response.status == 'error'){
                     setError(registerEmail,'Email đã tồn tại');
@@ -155,6 +202,7 @@
             },
             error: function(error) {
                 // Handle errors
+                errorAlert.classList.add("showAlert");
                 console.log(error);
             }
         });
@@ -180,20 +228,31 @@ $.ajax({
     success: function(response){
         if(response.status == 'success'){
             // Login successfully
-            alert("Login Successfully");
             console.log(response.message);
             if(response.role == 1){
-                window.location.href = "{{route('admin.dashboard')}}"; 
+            loginSuccess.classList.add("showAlert");
+              window.location.href = "{{route('admin.dashboard')}}"; 
+                
             }
             else if(response.role == 0){
-                window.location.href = "{{route('/')}}"; 
+            loginSuccess.classList.add("showAlert");
+              window.location.href = "{{route('/')}}"; 
             }
+            
+        }
+        else if(response.status == 'undefined_email'){
+            setError(loginEmail,'Undefined email! Please sign up');
         }
         else if(response.status == 'email_error'){
             setError(loginEmail,'Must verify email before login');
-        }else{
+        }
+        else if(response.status == 'error'){
+            setError(loginPassword,'Invalid credentials');
+        }
+        else{
+            errorAlert.classList.add("showAlert");
             // Display error 
-            alert(response.message);
+            console.log(response.message);
         }
     }
 });

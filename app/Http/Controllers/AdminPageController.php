@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Psy\Readline\Hoa\Console;
 
 use function Laravel\Prompts\alert;
@@ -46,7 +47,7 @@ class AdminPageController extends Controller
     }
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(3);
+        $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
     public function sliderview()
@@ -77,6 +78,7 @@ class AdminPageController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error fetching total amount'], 500);
         }
+        return view('index', compact('slider', 'projects', 'project_finish', 'videos'));
     }
     public function getdonateuser()
     {
@@ -150,7 +152,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::paginate(2);
+        $user = User::paginate(6);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
@@ -164,33 +166,33 @@ class AdminPageController extends Controller
     // register user
     public function registeruser(Request $request)
     {
+        $verify_token = Str::random(6);
         $hashpass = Hash::make($request->password);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $hashpass;
         $user->role = $request->role;
+        $user->verified_token = $verify_token;
         $user->status = 0;
         $user->save();
         return redirect()->back()->with('success', 'Create User successfully');
     }
     public function updateuser(Request $request, $id)
     {
+        $verify_token = Str::random(6);
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'role' => 'required',
-            'status' => 'required',
         ]);
         $user = User::find($id);
-        if (!$user) {
-            return redirect()->back()->with('error', 'Not found user');
-        }
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
-        // $user->status = $request->status;
-        $user->save();
+        $user->verified_token = $verify_token;
+        $user->save();      
         return redirect()->back()->with('success', 'Update User successfully');
     }
     public function getiduser($id)

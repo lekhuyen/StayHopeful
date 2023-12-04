@@ -160,6 +160,10 @@
             </form>
         </div>
     </div>
+
+    @include('frontend/profile/popup_profile');
+
     @include('frontend.profile.form_post')
     
+
 @endsection

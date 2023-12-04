@@ -14,14 +14,13 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthloginController extends Controller
 {
     public function login(Request $request) {
-
         // Validate the login request data
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required'
         ]);
         $email = $request->email;
-        $password = $request->password;
+        // $password = $request->password;
         $user = User::where("email", $email)->first();
         $role = $user->role;
         $status = $user->status;
@@ -38,12 +37,11 @@ class AuthloginController extends Controller
             ], 200);
     
         } else {
-        
             // Login failed
             return response()->json([
                 'status' => 'error',
                 'message' => 'Unauthorized'
-            ], 401);
+            ]);
         }
         }else{
             return response()->json(['status' => 'email_error', 'message' => 'Must verify email before login']);
@@ -51,9 +49,6 @@ class AuthloginController extends Controller
     
     }
 
-    // public function abc(){
-    //     return view('frontend.login.verified_email');
-    // }
     public function register(Request $request)
     {
         $verify_token = Str::random(6);
@@ -86,18 +81,11 @@ class AuthloginController extends Controller
         }
     }
     public function verified_email($verify_token){
-        // $users = User::all();
-        // $verify = $users->verify_token;
-        // foreach ($verify as $value) {
-        //     if()
-        // }
-
         $user = User::where("verified_token", $verify_token)->first();
         if($user){
             $user->update(['status' => 1]);
             return redirect()->route('/')->with("isVerified",true);
         }
-        
     }
     public function viewprofile(){
         $user = session()->get('userInfo')['id'];
