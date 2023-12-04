@@ -46,18 +46,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Báo Siêu Cấp</td>
-                                        <td>Con mèo bị con chó cắn</td>
-                                        <td>100.000VNĐ</td>
-                                    </tr>
+                                    @foreach ($userinfo as $user)
+                                        <tr>
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->users->name}}</td>
+                                            <td>{{$user->project->title}}</td>
+                                            <td style="color: #27AE60;">{{$user->amount}}$</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
