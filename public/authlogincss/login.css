@@ -5,6 +5,95 @@
     margin: 0;
     box-sizing: border-box;
 } */
+
+
+/* notification */
+
+.container-register-notification{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    display: none;
+}
+.container-login-notification{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 11;
+}
+.container-error-notification{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 11;
+}
+.showAlert{
+    display: block;
+}
+.register-status-success,
+.login-status-success,
+.status-error{
+    background: white;
+    border: 2px solid #2d63c2;
+    border-radius: 20px;
+    position: fixed;
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.register-status-success p,
+.login-status-success p{
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    color: green;
+}
+.status-error p{
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    color: red;
+}
+.exit-alert-btn{
+    /* display: flex;
+    justify-content: flex-end; */
+    width: fit-content;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    z-index: 12;
+    /* font-size: 20px;
+    color: #2d63c2;
+    cursor: pointer; */
+}
+.exit-alert-btn i{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    color: #2d63c2;
+    cursor: pointer;
+}
+.img-alert{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -35%;
+}
+
+
+/* login-register form popup */
 .container-popup{
     position:fixed;
     top: 0;
@@ -13,6 +102,7 @@
     bottom: 0;
     display: none;
 }
+
 .modal-inner{
     width: 100%;
     height: 100%;
@@ -45,6 +135,7 @@
 body, input{
     font-family: 'Poppins', sans-serif;
 }
+
 .container-login-register{
     position: relative;
     width: 80%;
@@ -102,14 +193,26 @@ form{
 form.sign-in-form{
     z-index: 2;
 }
+a.a-forgot-pass{
+    text-decoration: none;
+    color:#4481eb;
+}
+a.a-forgot-pass:hover{
+    /* text-decoration: underline; */
+    color: rgb(05, 4, 195);
+}
 form.sign-up-form{
     z-index: 1;
     opacity: 0;
+}
+h2.form-title{
+    color: black;
 }
 .title{
     font-size: 2.2rem;
     color: #444;
     margin-bottom: 10px;
+    z-index: 1;
 }
 .input-field{
     max-width: 380px;

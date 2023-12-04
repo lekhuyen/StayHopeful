@@ -62,6 +62,7 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 //profile
+Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
