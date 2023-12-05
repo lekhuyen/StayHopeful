@@ -89,13 +89,14 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
+                                        ${{ number_format($project->donateInfo->sum('amount'), 2) }}
                                         {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
                                     Goals:
                                     <span>
-                                        {{ number_format($project->money) }}
+                                        ${{ number_format($project->money) }}
                                     </span>
                                 </p>
                                 <a href="{{ route('detail.post', $project->id) }}"
@@ -151,13 +152,14 @@
                                 <p class="card-title-child">
                                     Received:
                                     <span>
+                                        ${{ number_format($project->donateInfo->sum('amount'), 2) }}
                                         {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
                                     Goals:
                                     <span>
-                                        {{ number_format($project->money) }}
+                                        ${{ number_format($project->money) }}
                                     </span>
                                 </p>
                                 <a href="{{ route('detail.post', $project->id) }}"
@@ -235,13 +237,13 @@
     @endif
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');
-
+    @endif
 
     {{-- đừng xoá --}}
     {{-- @foreach ($totalAmountByProject as $projectId => $total)
         Project ID: {{ $projectId }}, Total Amount: {{ $total }}<br>
     @endforeach --}}
-    @if (session('isVerified'))
+    {{-- @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true]);
     @else
         @include('frontend/login/login');

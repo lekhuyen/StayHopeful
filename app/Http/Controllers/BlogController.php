@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\DonateInfo;
 use App\Models\News;
 use App\Models\Project;
 use App\Models\Video;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -36,7 +38,22 @@ class BlogController extends Controller
                             ->orderBy('id', 'desc')
                             ->limit(5)
                             ->get();
-        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments'));
+        session()->put("project_id",$id);
+        $user = session()->get("userInfo");
+        $checkUserProject = 0;
+        if($user){
+            $volunteerPersonByProject = Volunteer::where('email',$user['email'])->first();
+            if($volunteerPersonByProject != null){
+                $projectId = $volunteerPersonByProject->project_id;
+                $checkUserProject = ($projectId == $id);
+            }
+
+        }
+        // dd($checkUserProject);
+        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments','checkUserProject'));
+    }
+    public function viewmarquee(){
+        return view('frontend.info_donate.info_donate', compact('project'));
     }
 
     public function blog_detail()
@@ -46,6 +63,7 @@ class BlogController extends Controller
     public function project($id)
     {
         $category = Category::find($id);
+        
         return view('frontend.project.project', compact('category'));
     }
     //video page

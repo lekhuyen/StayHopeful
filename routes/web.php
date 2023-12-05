@@ -9,18 +9,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
-use App\Http\Controllers\DetailPostController;
 use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ProjectListController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
 use App\Http\Controllers\UserPostController;
-use App\Http\Controllers\VotingController;
+use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -130,10 +125,10 @@ Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
-//voting form
-Route::get('/voting', [VotingController::class, 'index'])->name('voting.index');
-Route::get('/voting/create', [VotingController::class, 'create'])->name('voting.create');
-Route::post('/voting/create', [VotingController::class, 'store'])->name('voting.store');
+//volunteer form
+Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index');
+Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create');
+Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store');
 
 
 // project
@@ -152,7 +147,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 //admin
 Route::group(['prefix' => 'admin/'], function () {
-    Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
+    // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');

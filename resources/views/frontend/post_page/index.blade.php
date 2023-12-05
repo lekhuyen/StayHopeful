@@ -55,7 +55,7 @@
 
 
     {{-- comment --}}
-    <div class="modal-user-Comment-post" style="display:none">
+    <div class="modal-user-Comment-post">
         <div class="modal_inner-comment-post">
             <div class="post-header">
     
@@ -84,7 +84,7 @@
                     </p>
 
                     <form action="" style="display: none">
-                        {{-- <input type="text"> --}}
+                        
                         <div id="input_reply-comment">
                             <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
                             <div id="btn_icon-submit">
@@ -109,7 +109,7 @@
                             </p>
         
                             <form action="" style="display: none">
-                                {{-- <input type="text"> --}}
+                                
                                 <div id="input_reply-comment">
                                     <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
                                     <div id="btn_icon-submit">
@@ -122,28 +122,19 @@
                 </div>
             </div>
 
-            <form action="">
-                {{-- <input type="text"> --}}
-                <div id="input_comment-post">
-                    <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                    <div class="submit_comment-post" id="btn_icon-submit">
-                        <i class="fa-solid fa-location-arrow"></i>
+            <div>
+                <form action="" id="form_comment-texarena">
+                    <div id="input_comment-post-1">
+                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                        <div class="submit_comment-post" id="btn_icon-submit">
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         
             
         </div>
     </div>
 
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        ('#comment_post').click(function(){
-        // $('.modal-user-Comment-post').addClass('show')
-        // var post_id = $(this).data('id');
-        alert('post_id');
-    })
-    })
-</script>

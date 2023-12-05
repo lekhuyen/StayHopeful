@@ -26,8 +26,8 @@ class Project extends Model
     public function comments(){
         return $this->hasMany(Comment::class, 'project_id', 'id');
     }
-    public function voting(){
-        return $this->hasMany(Voting::class, 'project_id');
-    }
+    // public function votings(){
+    //     return $this->hasMany(Voting::class, 'project_id');
+    // }
     use HasFactory;
 }

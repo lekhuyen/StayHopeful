@@ -367,7 +367,7 @@
     padding: 0 10px;
 }
 .input-post-content textarea {
-    width: 100%;
+    width: 700px;
     font-size: 20px;
     outline: none;
     border: none;
@@ -486,7 +486,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 100%;
+    /* height: 100%; */
 }
 .post_comment-header-title h1 {
     font-size: 1.4rem;
@@ -503,12 +503,12 @@
 .close-icon-comment i {
     font-size: 20px;
 }
-#input_comment-post {
+#input_comment-post-1 {
     margin-bottom: 20px;
     text-align: center;
     position: relative;
 }
-#input_comment-post textarea {
+#input_comment-post-1 textarea {
     width: 95%;
     height:80%;
     outline: none;

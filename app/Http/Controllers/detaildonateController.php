@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\EmailDonate;
 use App\Models\DonateInfo;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
@@ -97,6 +98,11 @@ class detaildonateController extends Controller
             $donateinfo->amount = $userinfo['amount'];
             $donateinfo->message = $userinfo['message'];
             $donateinfo->save();
+            $findUser =  User::where('email', $request->$userinfo['email'])->first();
+            if($findUser){
+                $findUser->is_sponsor = true;
+                $findUser->save();
+            }
             return redirect()->route('detail.listdonate')->with('success', 'Success Payment');
 
 
@@ -104,7 +110,7 @@ class detaildonateController extends Controller
             return redirect()->back()->with('error', 'Error');
         }
     }
-
+    
 
 
     // public function viewlistdonate()
