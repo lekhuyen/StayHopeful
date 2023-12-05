@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\News;
 use App\Models\Project;
 use App\Models\Video;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -36,7 +37,19 @@ class BlogController extends Controller
                             ->orderBy('id', 'desc')
                             ->limit(5)
                             ->get();
-        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments'));
+        session()->put("project_id",$id);
+        $user = session()->get("userInfo");
+        $checkUserProject = 0;
+        if($user){
+            $volunteerPersonByProject = Volunteer::where('email',$user['email'])->first();
+            if($volunteerPersonByProject != null){
+                $projectId = $volunteerPersonByProject->project_id;
+                $checkUserProject = ($projectId == $id);
+            }
+
+        }
+        // dd($checkUserProject);
+        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments','checkUserProject'));
     }
 
     public function blog_detail()

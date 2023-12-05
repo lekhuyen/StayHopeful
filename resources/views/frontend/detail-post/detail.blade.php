@@ -1,7 +1,8 @@
 @extends('frontend.comment.comment')
 @section('detail-post')
 @section('post-title')
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <div class="container">
         <div class="row">
@@ -19,30 +20,34 @@
             <img src="{{ asset($image->image) }}" alt="">
         @endforeach
 
-        @if ($project->donateinfo->sum('amount')>= $project->money)
-
-        <div class="donate_link">
-            <button disabled >DONATE</button>
-        </div>
+        @if ($project->donateinfo->sum('amount') >= $project->money)
+            <div class="donate_link">
+                <button disabled>DONATE</button>
+            </div>
         @else
-        <div class="donate_link">
-            <a href="{{route('detail.donate')}}">DONATE</a>
-            <a href="#">VOLUNTEER</a>
-        </div>
+            <div class="donate_link">
+                <a href="{{ route('detail.donate') }}">DONATE</a>
+                @if ($checkUserProject)
+                <a href="#" class= "disabled">VOLUNTEER</a>
+                @else
+                <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                @endif
 
-        <div>
-        </div>
+            </div>
+
+            <div>
+            </div>
         @endif
 
-        {{-- @if(session('userInfo')) --}}
-            <div class="comment-icon">
-                <i class="fa-regular fa-comment"></i>
-                <span>2</span>
-            </div>
+        {{-- @if (session('userInfo')) --}}
+        <div class="comment-icon">
+            <i class="fa-regular fa-comment"></i>
+            <span>2</span>
+        </div>
         {{-- @else --}}
-            <div class="comment-access">
-                <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-            </div>
+        <div class="comment-access">
+            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+        </div>
         {{-- @endif --}}
 
         <div class="comment-access">
