@@ -13,4 +13,7 @@ class DonateInfo extends Model
     public function project(){
         return $this->belongsTo(Project::class,'project_id');
     }
+    public function users(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

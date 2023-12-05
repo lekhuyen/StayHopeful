@@ -281,17 +281,6 @@
 <script src="{{ asset('comment/comment.js') }}"></script>
 <script src="{{ asset('js/header-nav.js') }}"></script>
 
-
-
-<script>
-    var profileOption = document.querySelector(".profile-option");
-    var profileDropdown = document.querySelector(".profile-dropdown");
-    profileOption.addEventListener("click", function(){
-        profileDropdown.classList.toggle("showOptionProfile");
-        profileDropdown.style.transitionDuration = "0.5s";
-    })
-    </script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </html>

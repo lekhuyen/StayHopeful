@@ -110,7 +110,7 @@ class detaildonateController extends Controller
             return redirect()->back()->with('error', 'Error');
         }
     }
-
+    
 
 
     // public function viewlistdonate()
