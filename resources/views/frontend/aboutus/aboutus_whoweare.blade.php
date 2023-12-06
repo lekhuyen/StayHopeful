@@ -59,6 +59,7 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 <br>
@@ -136,25 +137,25 @@
 
 <!-- Kai Greene Card -->
 <div class="container mt-3 kai_greene_card">
-<h2>Lead Developer Team</h2>
-<div class="row" data-aos="fade-right">
-  <div class="col-md-6">
-    <div class="card kai_greene_picture">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="{{ asset('img/Kai_Greene.jpg') }}" class="img-fluid rounded-start" alt="Kai_Greene">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Kai Greene</h5>
-            <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our technological initiatives. Their expertise has been instrumental in driving our digital transformation.</p>
-            <a href="{{route("aboutus.kaigreene")}}" class="btn btn-primary">View Details</a>
+  <h2>Lead Developer Team</h2>
+  <div class="row" data-aos="fade-right">
+    <div class="col-md-6">
+      <div class="card kai_greene_picture">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ asset('img/Kai_Greene.jpg') }}" class="img-fluid rounded-start" alt="Kai_Greene">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Kai Greene</h5>
+              <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our technological initiatives. Their expertise has been instrumental in driving our digital transformation.</p>
+              <a href="{{route("aboutus.kaigreene")}}" class="btn btn-primary">View Details</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
 </div>
-
 <br>
 
 <!-- Lead Developer Team Members -->
