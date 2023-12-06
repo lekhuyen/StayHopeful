@@ -3,10 +3,13 @@
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AdminPermissionsController;
+use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AuthloginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentPostController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\DetailPostController;
@@ -19,6 +22,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectListController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
+use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Route;
@@ -155,11 +159,13 @@ Route::group(['prefix' => 'admin/'], function () {
     // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
-    Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
-    Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
-    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider');
+
+    Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign')->middleware('can:slider_list');
+    Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider')->middleware('can:slider_add');
+    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_add');
     Route::get('managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
-    Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider');
+    Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider')->middleware('can:slider_delete');
+
     Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
     Route::post('listuser', [AdminPageController::class, 'registeruser'])->name('admin.registeruser');
     Route::put('listuser/{id}', [AdminPageController::class, 'updateuser'])->name('admin.updateuser');
@@ -178,30 +184,30 @@ Route::group(['prefix' => 'admin/'], function () {
 
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
-    Route::get('index', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('index', [CategoryController::class, 'index'])->name('category.index')->middleware('can:category_list');
 
-    Route::get('create', [CategoryController::class, 'create'])->name('category.create');
+    Route::get('create', [CategoryController::class, 'create'])->name('category.create')->middleware('can:category_add');
 
     Route::post('store', [CategoryController::class, 'store'])->name('category.store');
 
-    Route::post('delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+    Route::post('delete/{id}', [CategoryController::class, 'delete'])->name('category.delete')->middleware('can:category_delete');
 
-    Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('category.edit')->middleware('can:category_edit');
 
     Route::put('update/{id}', [CategoryController::class, 'update'])->name('category.update');
 });
 
 //project admin page
 Route::group(['prefix' => 'project-post/'], function () {
-    Route::get('index', [ProjectController::class, 'index'])->name('projectAd.index');
+    Route::get('index', [ProjectController::class, 'index'])->name('projectAd.index')->middleware('can:project_list');
 
-    Route::get('create', [ProjectController::class, 'create'])->name('projectAd.create');
+    Route::get('create', [ProjectController::class, 'create'])->name('projectAd.create')->middleware('can:project_add');
 
     Route::post('store', [ProjectController::class, 'store'])->name('projectAd.store');
 
-    Route::post('delete/{id}', [ProjectController::class, 'delete'])->name('projectAd.delete');
+    Route::post('delete/{id}', [ProjectController::class, 'delete'])->name('projectAd.delete')->middleware('can:project_delete');
 
-    Route::get('edit/{id}', [ProjectController::class, 'edit'])->name('projectAd.edit');
+    Route::get('edit/{id}', [ProjectController::class, 'edit'])->name('projectAd.edit')->middleware('can:project_edit');
 
     Route::get('editimage/{id}', [ProjectController::class, 'deleteImgChild'])->name('delete_ImgChild');
 
@@ -225,15 +231,15 @@ Route::group(['prefix' => 'project-post/'], function () {
 
 // blog - news
 Route::group(['prefix' => 'news/'], function () {
-    Route::get('index', [NewsController::class, 'index'])->name('news.index');
+    Route::get('index', [NewsController::class, 'index'])->name('news.index')->middleware('can:news_list');
 
-    Route::get('create', [NewsController::class, 'create'])->name('news.create');
+    Route::get('create', [NewsController::class, 'create'])->name('news.create')->middleware('can:news_add');
 
     Route::post('store', [NewsController::class, 'store'])->name('news.store');
 
-    Route::post('delete/{id}', [NewsController::class, 'delete'])->name('news.delete');
+    Route::post('delete/{id}', [NewsController::class, 'delete'])->name('news.delete')->middleware('can:news_delete');
 
-    Route::get('edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+    Route::get('edit/{id}', [NewsController::class, 'edit'])->name('news.edit')->middleware('can:news_edit');
 
     Route::put('update/{id}', [NewsController::class, 'update'])->name('news.update');
 
@@ -256,17 +262,17 @@ Route::group(['prefix' => 'news/'], function () {
 
 // video-adminpage
 Route::group(['prefix'=> 'video-list/'], function(){
-    Route::get('index',[VideoController::class,'index'])->name('video-list.index');
+    Route::get('index',[VideoController::class,'index'])->name('video-list.index')->middleware('can:video_list');
 
-    Route::get('create',[VideoController::class,'create'])->name('video-list.create');
+    Route::get('create',[VideoController::class,'create'])->name('video-list.create')->middleware('can:video_add');
 
     Route::post('store',[VideoController::class,'store'])->name('video-list.store');
 
-    Route::get('edit/{id}',[VideoController::class,'edit'])->name('video-list.edit');
+    Route::get('edit/{id}',[VideoController::class,'edit'])->name('video-list.edit')->middleware('can:video_edit');
 
     Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
-    Route::post('delete/{id}',[VideoController::class,'delete'])->name('video-list.delete');
+    Route::post('delete/{id}',[VideoController::class,'delete'])->name('video-list.delete')->middleware('can:video_delete');
 
     //softDelete
     Route::get('video-trash',[VideoController::class,'video_trash'])->name('video-trash');
@@ -306,3 +312,34 @@ Route::group(['prefix'=> 'post/'], function(){
 Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');
 Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user'])->name('delete.post_user');
 Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');
+
+// comment post-user
+Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])->name('post.comment');
+// Route::get('/post/comment/{id}',[CommentPostController::class,'get_comment'])->name('get.comment');
+
+
+//ds nv
+
+Route::group(['prefix'=> 'staff/'], function(){
+    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
+    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
+    Route::post('store',[UserAdminController::class,'store'])->name('staff.store');
+    Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
+    Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
+    Route::get('delete/{id}',[UserAdminController::class,'delete'])->name('staff.delete')->middleware('can:user_delete');
+
+});
+//roles
+Route::group(['prefix'=> 'roles/'], function(){
+    Route::get('index',[AdminRoleController::class,'index'])->name('roles.index')->middleware('can:roles_list');
+    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_addt');
+    Route::post('store',[AdminRoleController::class,'store'])->name('roles.store');
+    Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit')->middleware('can:roles_edit');
+    Route::post('update/{id}',[AdminRoleController::class,'update'])->name('roles.update');
+    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete')->middleware('can:roles_delete');
+
+});
+Route::group(['prefix'=> 'permissions/'], function(){
+    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
+    Route::post('store',[AdminPermissionsController::class,'store'])->name('roles.store');
+});

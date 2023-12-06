@@ -6,7 +6,9 @@
         <h2>Project List</h2>
         <a class="btn btn-primary "href="{{ route('projectAd-image') }}" target="_blank">Unused Image</a>
         <a class="btn btn-primary "href="{{ route('project-trash') }}" target="_blank">Unused Project</a>
-        <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create Category</a>
+        @can('project_add')
+            <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create Category</a>
+        @endcan
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -49,10 +51,14 @@
                             </td>
                         @endif
                         <td>
-                            <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
+                            @can('project_delete')
+                                <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
                                     class="fa-solid fa-trash-can"></i></button>
-                            <a class="btn btn-info" href="{{ route('projectAd.edit', $project->id) }}"><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
+                            @can('project_edit')
+                                <a class="btn btn-info" href="{{ route('projectAd.edit', $project->id) }}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
                         </td>
                     </tr>
                 @empty

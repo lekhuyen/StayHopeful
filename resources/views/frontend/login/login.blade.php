@@ -231,12 +231,12 @@ $.ajax({
             console.log(response.message);
             if(response.role == 1){
             loginSuccess.classList.add("showAlert");
-              window.location.href = "{{route('admin.dashboard')}}"; 
+                window.location.href = "{{route('admin.dashboard')}}"; 
                 
             }
             else if(response.role == 0){
             loginSuccess.classList.add("showAlert");
-              window.location.href = "{{route('/')}}"; 
+                window.location.href = "{{route('/')}}"; 
             }
             
         }
