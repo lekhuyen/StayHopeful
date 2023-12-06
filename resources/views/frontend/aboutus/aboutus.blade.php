@@ -2,7 +2,7 @@
 @section('title', 'About Us')
 @section('main')
 
-{{-- <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}"> --}}
+<link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
 
 <br>
 <br>
@@ -124,6 +124,22 @@
     </div>
 </div>
 
+<br>
+{{-- Map Section --}}
+<div class="container mt-3 aboutus_map_section">
+    <div class="row">
+        <div class="col-md-6 aboutus-text">
+            <h2>Our Journey</h2>
+            <p>At <strong>StayHopeFul</strong>, we are on a mission to create positive change across multiple fronts. Our commitment extends to promoting sustainability, empowering communities by providing access to education, healthcare, and economic opportunities, delivering humanitarian aid in times of crisis, advocating for the welfare of animals, and working towards global health equity.</p>
+            <p>Explore the map below to see the tangible impact of our initiatives. Each marked location represents a step forward in our journey towards a better, more sustainable world. Join us in making a difference for the communities, ecosystems, and lives we serve.</p>
+        </div>
+        <div class="col-md-6 aboutus-map">
+            @include('frontend.aboutus.aboutus_map')
+        </div>
+    </div>
+</div>
+
+<br>
 {{-- logo_company --}}
 <div class="container mt-3 aboutus-logo">
     <div class="position-relative py-2 px-4 col-md-6 offset-md-3 logo_info">
@@ -325,7 +341,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');

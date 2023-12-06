@@ -112,6 +112,14 @@
 
 }
 
+.aboutus-section {
+    padding: 40px 0;
+}
+
+.aboutus-text {
+    padding-right: 20px; /* Adjust as needed */
+}
+
 /* logo_company */
 .about-logo {
     margin-top: 50px;

@@ -47,7 +47,7 @@
             <p>Email: <a href="mailto:stayhopful@gmail.com" style="text-decoration: none; color: white;">stayhopeful@gmail.com</a></p>
             <p>Head Office Address: </p>
             <div class="map-container" style="padding-bottom: 20px">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d823.8609185302755!2d106.70858875101122!3d10.813985461549624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700053839649!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d979.8193604109812!2d106.69962077301636!3d10.79004996076054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b558d27b01%3A0xd645560d7278324!2zNy05IMSQLiBNYWkgVGjhu4sgTOG7sXUsIMSQYSBLYW8sIFF14bqtbiAxLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1701847340971!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
