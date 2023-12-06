@@ -64,8 +64,8 @@
                                 class="fa-solid fa-briefcase"></i>Video Gallery</a>
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Feedback List</a>
-                        {{-- <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Volunteer List</a> --}}
+                        <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
+                                class="fa-solid fa-briefcase"></i>Volunteer List</a>
                     </div>
                 </div>
             </li>

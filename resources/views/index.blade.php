@@ -234,15 +234,13 @@
     @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true]);
     @else
-    @endif
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');
     @endif
 
     {{-- đừng xoá --}}
     {{-- @foreach ($totalAmountByProject as $projectId => $total)
-        Project ID: {{ $projectId }}, Total Amount: {{ $total }}<br>
-    @endforeach --}}
+
     {{-- @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true]);
     @else
@@ -255,4 +253,4 @@
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
     <script src="{{ asset('js/indexslider.js') }}"></script>
     <script src="{{ asset('js/countdonate.js') }}"></script>
-    @stop()
+    @stop() --}}
