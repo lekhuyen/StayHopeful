@@ -60,6 +60,7 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 //verify_email
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
+Route::post('/changepassword', [AuthloginController::class, 'verified_email'])->name('auth.changepassword');
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
