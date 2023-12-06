@@ -14,7 +14,7 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User Name" id="search" class="form-control input-search">
+                        <input type="search" placeholder="Search User Name" id="search" name="search" class="form-control input-search">
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                                 <th style="text-align: center">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="data_all">
                             @foreach ($user as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
@@ -76,6 +76,8 @@
                             @endif
 
                         </tbody>
+                        <tbody id="content" class="searchdata"></tbody>
+
                     </table>
                     {{ $user->links() }}
                 </div>
@@ -176,6 +178,29 @@
         </div>
     </div>
     <script>
+        $(document).ready(function(){
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+                if($value){
+                    $('.data_all').hide();
+                    $('#content').show();
+                }else{
+                    $('.data_all').show();
+                    $('#content').hide();
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/searchlistuser",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#content').html(data);
+                    }
+                })
+            })
+        })
+    </script>
+    <script>
+        
         $(document).ready(function() {
             $('#exampleModal').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget);

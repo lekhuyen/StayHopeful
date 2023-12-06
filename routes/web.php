@@ -165,6 +165,11 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
     Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
     Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
+    Route::get('/searchdashboard', [AdminPageController::class, 'searchdashboard'])->name('admin.searchdashboard');
+    Route::get('/searchdesign', [AdminPageController::class, 'searchdesign'])->name('admin.searchdesign');
+    Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
+    Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
+    
 
 });
 

@@ -10,7 +10,7 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search Category Name" class="form-control input-search">
+                        <input type="search" placeholder="Search Category Name" id="search" class="form-control input-search" name="search">
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                                 <td></td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="data_all">
 
                             @foreach ($sliders as $slider)
                                 <tr>
@@ -63,6 +63,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
+                        <tbody id="content" class="searchdata"></tbody>
                     </table>
                     {{-- {{ $sliders->links() }} --}}
                 </div>
@@ -156,6 +157,28 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+                if($value){
+                    $('.data_all').hide();
+                    $('.searchdata').show();
+                }else{
+                    $('.data_all').show();
+                    $('.searchdata').hide();
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/searchdesign",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#content').html(data);
+                    }
+                })
+            })
+        })
+    </script>
     <script>
         $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
