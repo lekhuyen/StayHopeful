@@ -341,5 +341,5 @@ Route::group(['prefix'=> 'roles/'], function(){
 });
 Route::group(['prefix'=> 'permissions/'], function(){
     Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
-    Route::post('store',[AdminPermissionsController::class,'store'])->name('roles.store');
+    Route::post('store',[AdminPermissionsController::class,'store'])->name('permissions.store');
 });
