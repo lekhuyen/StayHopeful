@@ -155,11 +155,17 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
 
-    Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign')->middleware('can:slider_list');
-    Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider')->middleware('can:slider_add');
-    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_add');
+
+    // ->middleware('can:slider_list')
+    // ->middleware('can:slider_add')
+    // ->middleware('can:slider_add')
+    // ->middleware('can:slider_delete')
+
+    Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign');
+    Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider');
+    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider');
     Route::get('managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
-    Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider')->middleware('can:slider_delete');
+    Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider');
 
     Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
     Route::post('listuser', [AdminPageController::class, 'registeruser'])->name('admin.registeruser');
@@ -175,7 +181,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchdesign', [AdminPageController::class, 'searchdesign'])->name('admin.searchdesign');
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
-    
+
 
 });
 
@@ -321,23 +327,35 @@ Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])-
 //ds nv
 
 Route::group(['prefix'=> 'staff/'], function(){
-    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
-    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
+    Route::get('index',[UserAdminController::class,'index'])->name('staff.index');
+    Route::get('create',[UserAdminController::class,'create'])->name('staff.create');
     Route::post('store',[UserAdminController::class,'store'])->name('staff.store');
-    Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
+    Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit');
     Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
-    Route::get('delete/{id}',[UserAdminController::class,'delete'])->name('staff.delete')->middleware('can:user_delete');
+    Route::get('delete/{id}',[UserAdminController::class,'delete'])->name('staff.delete');
 });
 //roles
 Route::group(['prefix'=> 'roles/'], function(){
-    Route::get('index',[AdminRoleController::class,'index'])->name('roles.index')->middleware('can:roles_list');
-    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_add');
+    Route::get('index',[AdminRoleController::class,'index'])->name('roles.index');
+    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create');
     Route::post('store',[AdminRoleController::class,'store'])->name('roles.store');
-    Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit')->middleware('can:roles_edit');
+    Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit');
     Route::post('update/{id}',[AdminRoleController::class,'update'])->name('roles.update');
-    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete')->middleware('can:roles_delete'); 
+    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete');
 });
 Route::group(['prefix'=> 'permissions/'], function(){
-    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
+    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create');
     Route::post('store',[AdminPermissionsController::class,'store'])->name('roles.store');
 });
+
+//->middleware('can:permissions_add')
+
+//  ->middleware('can:roles_list')
+// ->middleware('can:roles_add')
+// ->middleware('can:roles_edit')
+// ->middleware('can:roles_delete')
+
+// ->middleware('can:user_list')
+// ->middleware('can:user_add')
+// ->middleware('can:user_edit')
+// ->middleware('can:user_delete')
