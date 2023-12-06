@@ -47,7 +47,11 @@
                                             height="50px"
                                             style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->role }}</td>
+                                    <td>@if ($item->role == '1')
+                                        Admin
+                                        @else
+                                        User
+                                    @endif</td>
                                     <td>
                                         @if ($item->status == '1')
                                             <button class="btn btn-success active"
