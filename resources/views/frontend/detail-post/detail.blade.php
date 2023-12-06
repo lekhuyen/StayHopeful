@@ -9,16 +9,16 @@
                         <span style="font-size: 20px; margin-left: 20px; color: black;">
                             Total Donate:
                         </span>
-                        <span 
+                        <span
                             style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
-                            {{ number_format($project->donateinfo->sum('amount'), 2) }} 
+                            {{ number_format($project->donateinfo->sum('amount'), 2) }}
                         </span>
 
                         @foreach ($project->donateinfo as $donation)
                             <span style="font-size: 20px; margin-left: 20px; color: black;">
                                 Mr. {{ $donation->name }}:
                             </span>
-                            <span 
+                            <span
                                 style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
                                 {{ $donation->amount }}
                             </span>
@@ -49,12 +49,23 @@
             <div class="donate_link">
                 <button disabled>DONATE</button>
             </div>
+        @if ($project->donateinfo->sum('amount') >= $project->money)
+            <div class="donate_link">
+                <button disabled>DONATE</button>
+            </div>
         @else
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
-                <a href="#">VOLUNTEER</a>
+                @if ($checkUserProject)
+                <a href="#" class= "disabled">VOLUNTEER</a>
+                @else
+                <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                @endif
+
             </div>
 
+            <div>
+            </div>
             <div>
             </div>
         @endif
@@ -64,7 +75,15 @@
             <i class="fa-regular fa-comment"></i>
             <span>2</span>
         </div>
+        {{-- @if (session('userInfo')) --}}
+        <div class="comment-icon">
+            <i class="fa-regular fa-comment"></i>
+            <span>2</span>
+        </div>
         {{-- @else --}}
+        <div class="comment-access">
+            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+        </div>
         <div class="comment-access">
             <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
         </div>

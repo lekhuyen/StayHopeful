@@ -2,14 +2,20 @@
     color: #fff;
     text-align: center;
 }
-
-.voting__form {
+.row__voting{
+    background: linear-gradient(0deg, rgb(212, 233, 250), lightskyblue 80%) no-repeat;
+    width: 60%;
     display: block;
-    margin-top: 80px;
+    margin: auto;
+    margin-top: 100px;
+}
+.voting__form {
+
+    /* margin-top: 80px; */
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    background: linear-gradient(0deg, rgb(212, 233, 250), lightskyblue 80%) no-repeat;
+
     color: #333;
     line-height: 1.6;
     border-radius: 10px;
