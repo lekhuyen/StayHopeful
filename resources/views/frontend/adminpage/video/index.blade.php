@@ -6,7 +6,9 @@
             <h2>List Video</h2>
             <a class="btn btn-primary "href="{{route('video-trash')}}" target="_blank">Trash Video</a>
             {{-- <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a> --}}
-            <a class="btn btn-primary" href="{{route('video-list.create')}}">Create Video</a>
+            @can('video_add')
+                <a class="btn btn-primary" href="{{route('video-list.create')}}">Create Video</a>
+            @endcan
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -21,8 +23,12 @@
                                     <video id="" src="{{ asset($video->video) }}" controls width="200" height="100"></video>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger delete-video" data-id="{{$video->id}}">DELETE</button>
-                                    <a  class="btn btn-primary" href="{{route('video-list.edit', $video->id)}}">EDIT</a>
+                                    @can('video_delete')
+                                        <button class="btn btn-danger delete-video" data-id="{{$video->id}}">DELETE</button>
+                                    @endcan
+                                    @can('video_edit')
+                                        <a  class="btn btn-primary" href="{{route('video-list.edit', $video->id)}}">EDIT</a>
+                                    @endcan
                                 </td>
                             </tr>
                         @empty

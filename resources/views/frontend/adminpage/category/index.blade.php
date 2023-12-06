@@ -2,7 +2,9 @@
 @section('admin_content')
     <div class="container mt-3">
         <h2>Category List</h2>
-        <a href="{{ route('category.create') }}" class="btn btn-primary">Create Category</a>
+        @can('category_add')
+            <a href="{{ route('category.create') }}" class="btn btn-primary">Create Category</a>
+        @endcan
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -15,8 +17,12 @@
                     <tr class="category-table">
                         <td>{{ $category->name }}</td>
                         <td>
-                            <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
-                            <a class="btn btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            @can('category_delete')
+                                <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
+                            @endcan
+                            @can('category_edit')
+                                <a class="btn btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
                         </td>
                     </tr>
                 @empty

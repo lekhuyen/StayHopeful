@@ -4,7 +4,9 @@
     <div class="container mt-3">
         <h2>List News</h2>
         <a class="btn btn-primary "href="{{route('news-image-trash')}}" target="_blank">Trash Image</a>
-        <a class="btn btn-primary "href="{{route('news.create')}}">Create News</a>
+        @can('news_add')
+            <a class="btn btn-primary "href="{{route('news.create')}}">Create News</a>
+        @endcan
         <a class="btn btn-primary "href="{{route('news-trash')}}" target="_blank">Trash News</a>
         <table class="table table-hover">
             <thead>
@@ -28,8 +30,12 @@
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-danger delete-news" data-id="{{$new->id}}"><i class="fa-solid fa-trash-can"></i></button>
-                            <a  class="btn btn-warning" href="{{route('news.edit', $new->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            @can('news_delete')
+                                <button class="btn btn-danger delete-news" data-id="{{$new->id}}"><i class="fa-solid fa-trash-can"></i></button>
+                            @endcan
+                            @can('news_edit')
+                                <a  class="btn btn-warning" href="{{route('news.edit', $new->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
