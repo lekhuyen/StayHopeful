@@ -150,4 +150,32 @@ class AuthloginController extends Controller
         $image = $post->images;
         return response()->json(['post' => $post, 'images' => $image]);
     }
+    public function change_password(Request $request)
+    {
+        $request->validate([
+        'old_password' => 'required',
+        'new_password' => 'required',
+         ]);
+        // $old_password = $request-> old_password;
+        // $new_password = $request-> new_password;
+        $email = session()->get('userInfo')['email'];
+        $user = User::where("email", $email)->first();
+        if(Auth::attempt(['email' => $email, 'password' => $request->old_password])){
+            // $user->update(['password' => $request->new_password]);
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Change password successfully'
+            ], 200);
+    
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to change password'
+            ]);
+        }
+
+        
+    }
 }
