@@ -89,13 +89,21 @@ class AuthloginController extends Controller
         }
     }
     public function viewprofile(){
-        $user = session()->get('userInfo')['id'];
-        $posts = UserPost::orderBy('id','desc')
-                            ->where('user_id',$user)
-                            ->where('status', 0)
-                            ->get();
-        $userinfo = DonateInfo::all();
-        return view('frontend.profile.index', compact('posts', 'userinfo'));
+        $userInfo = session()->get('userInfo');
+
+        if ($userInfo && isset($userInfo['id'])) {
+            $user = $userInfo['id'];
+    
+            $posts = UserPost::orderBy('id', 'desc')
+                ->where('user_id', $user)
+                ->where('status', 0)
+                ->get();
+    
+            $userinfo = DonateInfo::all();
+            return view('frontend.profile.index', compact('posts', 'userinfo'));
+        } else {
+            return redirect()->route('/')->with('error', 'You Need to login');
+        }
     }
     //login bằng email
     public function redirectgoogle(){
