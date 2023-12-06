@@ -112,12 +112,14 @@
 
 }
 
-.aboutus-section {
+.aboutus_map_section {
     padding: 40px 0;
 }
 
+
 .aboutus-text {
     padding-right: 20px; /* Adjust as needed */
+    text-align: justify;
 }
 
 /* logo_company */
