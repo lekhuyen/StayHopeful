@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CommentPost;
 use App\Models\PostImage;
 use App\Models\UserPost;
 use Illuminate\Http\Request;
@@ -20,12 +21,17 @@ class UserPostController extends Controller
 
     //show-web
 
-    public function show_post_home(){
+    public function show_post_home(Request $request){
         $posts = UserPost::orderBy('id', 'desc')
         ->where('status', 0)
         ->get();
+        $comments = CommentPost::where(['post_id'=>$request->post_id, 'reply_id'=>0])->orderBy('id', 'desc')->get();
+        if($comments->count() > 0 || $posts) {
+            return view('frontend.post_page.index', compact('posts', 'comments'));
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Loi']);
 
-        return view('frontend.post_page.index', compact('posts'));
+        }
     }
 
     public function store(Request $request)

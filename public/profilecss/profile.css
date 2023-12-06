@@ -266,8 +266,8 @@
     bottom: 0;
     left: 0;
     background-color: rgb(246,246,246, .4);
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -278,8 +278,8 @@
     bottom: 0;
     left: 0;
     background-color: rgb(246,246,246, .4);
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -350,10 +350,10 @@
 .post-uset-body {
     display: flex;
 }
-.user-name-post {
+/* .user-name-post {
     display: flex;
     align-items: center;
-}
+} */
 .user-name-post p{
     margin-bottom: 0;
     font-weight: 500;
@@ -396,9 +396,7 @@
 .show-edit-post-form {
     display: flex;
 }
-.show {
-    display: block;
-}
+
 .edit_post {
     width: 30px;
     height: 30px;
@@ -457,11 +455,14 @@
     bottom: 0;
     left: 0;
     background-color: rgb(246,246,246, .4);
-    /* display: none; */
-    display: flex;
+    /* display: flex; */
+    display: none;
     align-items: center;
     justify-content: center;
     
+}
+.show-comment {
+    display: flex;
 }
 .modal_inner-comment-post {
     background-color: white;
@@ -486,7 +487,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    /* height: 100%; */
+    height: 100%;
 }
 .post_comment-header-title h1 {
     font-size: 1.4rem;
@@ -498,6 +499,7 @@
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .close-icon-comment i {
@@ -517,14 +519,15 @@
     border-radius: 10px;
     padding: 10px 40px 10px 20px;
 }
-#btn_icon-submit {
+.btn_icon-submit {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 40px;
+    cursor: pointer;
 }
 
-#btn_icon-submit i {
+.btn_icon-submit i {
     font-size: 30px;
 }
 
