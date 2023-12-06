@@ -2,6 +2,8 @@
 @section('title', 'About Us')
 @section('main')
 
+<br>
+<br>
 <div class="container mt-3">
   <h2>About Us Team</h2>
   <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">New Team</a>
@@ -14,60 +16,62 @@
       </div>
   </form>
 
-  <table class="table table-dark mt-3 text-center" id="teamTable">
-      <thead>
-          <tr>
-              <th onclick="sortTable(0)">
-                  Id
-                  <span class="arrow">&#x2191;</span>
-                  <span class="arrow">&#x2193;</span>
-              </th>
-              <th onclick="sortTable(1)">Name</th>
-              <th onclick="sortTable(2)">Age</th>
-              <th onclick="sortTable(3)">Email</th>
-              <th onclick="sortTable(4)">Skill</th>
-              <th onclick="sortTable(5)">Status</th>
-              <th onclick="sortTable(6)">Image</th>
-              <th>Edit</th>
-              <th>Delete</th>
-          </tr>
-      </thead>
+    <table class="table table-dark mt-3 text-center" id="teamTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">
+                    Id
+                    <span class="arrow">&#x2191;</span>
+                    <span class="arrow">&#x2193;</span>
+                </th>
+                <th onclick="sortTable(1)">Name</th>
+                <th onclick="sortTable(2)">Age</th>
+                <th onclick="sortTable(3)">Email</th>
+                <th onclick="sortTable(4)">Skill</th>
+                <th onclick="sortTable(5)">Status</th>
+                <th onclick="sortTable(6)">Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
 
-      <tbody>
-          @foreach ($aboutusteams as $item)
-          <tr>
-              <td>{{ $item->id }}</td>
-              <td>{{ $item->name }}</td>
-              <td>{{ $item->age }}</td>
-              <td>{{ $item->email }}</td>
-              <td>{{ $item->skill }}</td>
-              <td>
-                  @if ($item->status)
-                  <span class="badge bg-success">Active</span>
-                  @else
-                  <span class="badge bg-danger">Inactive</span>
-                  @endif
-              </td>
-              <td>
-                  @if ($item->images->count() > 0)
-                  <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image" />
-                  @endif
-              </td>
-              <td>
-                  <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-info">Edit</a>
-              </td>
-              <td>
-                  <form action="{{ route('aboutusteam.delete', $item->id) }}" method="POST"
-                      onsubmit="return confirm('Are you sure you want to delete this team member?');">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-info">Delete</button>
-                  </form>
-              </td>
-          </tr>
-          @endforeach
-      </tbody>
-  </table>
+
+        <tbody>
+            @foreach ($aboutusteams as $item)
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->age }}</td>
+                <td>{{ $item->email }}</td>
+                <td>{{ $item->skill }}</td>
+                <td>
+                    @if ($item->status)
+                    <span class="badge bg-success">Active</span>
+                    @else
+                    <span class="badge bg-danger">Inactive</span>
+                    @endif
+                </td>
+                <td>
+                    @if ($item->images->count() > 0)
+                    <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image" />
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-info">Edit</a>
+                </td>
+                <td>
+                    <form action="{{ route('aboutusteam.delete', $item->id) }}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this team member?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-info">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+
+    </table>
 
   <!-- Below your table -->
   <div class="d-flex justify-content-between mt-3">
@@ -102,68 +106,71 @@
 </div>
 
 <script>
-  $(document).ready(function () {
-      function convertToNumber(value) {
-          return isNaN(value) ? value : parseFloat(value);
-      }
+    $(document).ready(function () {
+        let arrowUp = "&#x2191;";
+        let arrowDown = "&#x2193;";
 
-      function sortTable(n) {
-          var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-          table = document.getElementById("teamTable");
-          switching = true;
-          dir = "asc";
-          while (switching) {
-              switching = false;
-              rows = table.rows;
-              for (i = 1; i < rows.length - 1; i++) {
-                  shouldSwitch = false;
-                  x = convertToNumber(rows[i].getElementsByTagName("TD")[n].innerHTML);
-                  y = convertToNumber(rows[i + 1].getElementsByTagName("TD")[n].innerHTML);
-                  if (dir == "asc") {
-                      if (x > y) {
-                          shouldSwitch = true;
-                          break;
-                      }
-                  } else if (dir == "desc") {
-                      if (x < y) {
-                          shouldSwitch = true;
-                          break;
-                      }
-                  }
-              }
-              if (shouldSwitch) {
-                  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                  switching = true;
-                  switchcount++;
-              } else {
-                  if (switchcount == 0 && dir == "asc") {
-                      dir = "desc";
-                      switching = true;
-                  }
-              }
-          }
-      }
+        function convertToNumber(value) {
+            return isNaN(value) ? value : parseFloat(value);
+        }
 
-      $("#teamTable th").click(function () {
-          var index = $(this).index();
-          sortTable(index);
-      });
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("teamTable");
+            switching = true;
+            dir = "asc";
 
-      let arrowUp = "&#x2191;";
-      let arrowDown = "&#x2193;";
+            // Clear all arrows
+            $("#teamTable th .arrow").html("");
 
-      function sortTable(n) {
-          // Rest of your existing sorting code...
+            while (switching) {
+                switching = false;
+                rows = table.rows;
 
-          // Toggle arrow symbols
-          let currentArrow = $("#teamTable th").eq(n).find(".arrow").html();
-          $("#teamTable th .arrow").html(""); // Clear all arrows
-          $("#teamTable th").eq(n).find(".arrow").html(currentArrow === arrowUp ? arrowDown : arrowUp);
-      }
+                for (i = 1; i < rows.length - 1; i++) {
+                    shouldSwitch = false;
+                    x = convertToNumber(rows[i].getElementsByTagName("TD")[n].innerHTML);
+                    y = convertToNumber(rows[i + 1].getElementsByTagName("TD")[n].innerHTML);
 
-      // Initial arrow symbols
-      $("#teamTable th:first-child .arrow").html(arrowUp);
-  });
+                    if (dir == "asc") {
+                        if (x > y) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x < y) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+
+            // Toggle arrow symbols
+            let currentArrow = $("#teamTable th").eq(n).find(".arrow").html();
+            $("#teamTable th .arrow").html("");
+            $("#teamTable th").eq(n).find(".arrow").html(currentArrow === arrowUp ? arrowDown : arrowUp);
+        }
+
+        // Initial arrow symbols
+        $("#teamTable th:first-child .arrow").html(arrowUp);
+
+        $("#teamTable th").click(function () {
+            var index = $(this).index();
+            sortTable(index);
+        });
+    });
 </script>
 
 @include('frontend/login/login');

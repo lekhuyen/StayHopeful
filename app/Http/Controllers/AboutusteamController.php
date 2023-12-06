@@ -147,10 +147,9 @@ class AboutusteamController extends Controller
     {
         $search = $request->input('search');
 
-        $aboutusteams = Aboutusteam::where('name', 'like', "%$search%")->get();
+        // Paginate the query results
+        $aboutusteams = Aboutusteam::where('name', 'like', "%$search%")->paginate(5);
 
         return view('frontend.aboutusteam.index', compact('aboutusteams'));
     }
-
-
 }
