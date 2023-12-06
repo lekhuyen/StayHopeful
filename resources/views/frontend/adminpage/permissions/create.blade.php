@@ -4,7 +4,7 @@
     <div class="container mt-3">
         <h2>Add Roles</h2>
         <a class="btn btn-primary"href="{{route('roles.index')}}">Roles List</a>
-        <form action="{{route('roles.store')}}" method="POST">
+        <form action="{{route('permissions.store')}}" method="POST">
             @csrf
             <div class="col-lg-12 mb-3 mt-3">
                 <label for="permissions">Permissions</label>:</label>
