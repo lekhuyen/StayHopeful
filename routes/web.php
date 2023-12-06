@@ -327,15 +327,17 @@ Route::group(['prefix'=> 'staff/'], function(){
     Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
     Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
     Route::get('delete/{id}',[UserAdminController::class,'delete'])->name('staff.delete')->middleware('can:user_delete');
+
 });
 //roles
 Route::group(['prefix'=> 'roles/'], function(){
     Route::get('index',[AdminRoleController::class,'index'])->name('roles.index')->middleware('can:roles_list');
-    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_add');
+    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_addt');
     Route::post('store',[AdminRoleController::class,'store'])->name('roles.store');
     Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit')->middleware('can:roles_edit');
     Route::post('update/{id}',[AdminRoleController::class,'update'])->name('roles.update');
-    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete')->middleware('can:roles_delete'); 
+    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete')->middleware('can:roles_delete');
+
 });
 Route::group(['prefix'=> 'permissions/'], function(){
     Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
