@@ -3,7 +3,7 @@
 @section('main')
 
 
-{{-- <link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}"> --}}
+<link rel="stylesheet" href="{{asset('aboutuscss/johndoe.css')}}">
 {{-- foundername.css --}}
 
 <br>
@@ -39,8 +39,7 @@
         <div class="container mt-3 the_past">
             <h5 class="johndoe-h5">Challenges and Triumphs</h5>
             <div class="clearfix">
-                <img src="{{ asset('img/johndoe_past.jpg') }}" class="col-md-6 float-md-end mb-3 ms-md-3 johndoe_image"
-                    alt="johndoe_past">
+                <img src="{{ asset('img/johndoe_past.jpg') }}" class="col-md-6 float-md-end mb-3 ms-md-3 mx-auto d-block johndoe_image" alt="johndoe_past">
 
                 <span>
                     Founding a donation-based website wasn't without hurdles. In the early stages, John faced skepticism

@@ -148,7 +148,7 @@
             <a href="https://www.usnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company5.jpg') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
         <div class="col ">
-            <a href="https://www.globalgiving.org/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
+            <a href="https://e.vnexpress.net/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}" alt="logo_company3.jpg" class="logo_company"></a>
         </div>
     </div>
 </div>
@@ -190,7 +190,7 @@
                 <div class="card-body call_to_action_card">
                     <h5 class="card-title">Join Our Community for Exclusive Updates.</h5>
                     <p class="card-text card-text-p">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
-                    <a href="{{route ('auth.login')}}" class="btn btn-info call_to_action_button">Sign In</a></p>
+                    <a href="{{route ('volunteer.index')}}" class="btn btn-info call_to_action_button">Volunteer</a></p>
                 </div>
             </div>
         </div>

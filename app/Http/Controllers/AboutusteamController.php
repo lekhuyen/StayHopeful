@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AboutusteamController extends Controller
 {
     public function aboutus_team_index() {
-        $aboutusteams = aboutusteam::all();
+        $aboutusteams = aboutusteam::paginate(5); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 

@@ -7,7 +7,7 @@
 <div class="container aboutus_detail d-flex align-items-center">
   <div class="card mb-3" style="max-width: 1170px; margin-left: 6%;">
       <div class="row g-0">
-          <div class="col-md-4">
+          <div class="col-md-4 d-none d-lg-block">
               @if ($teamMember->images->count() > 0)
                   <img src="{{ asset($teamMember->images[0]->url_image) }}" class="img-fluid rounded-start" alt="{{ $teamMember->name }}">
               @endif
