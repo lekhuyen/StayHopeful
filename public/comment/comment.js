@@ -36,61 +36,66 @@ editPost.forEach((item, key) => {
 // })
 
 
+if(formPost) {
+    formPost.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        formPostShow.classList.add('show-post-form');
+    })
+}
 
-formPost.addEventListener('click', (e)=>{
-    e.stopPropagation();
-    formPostShow.classList.add('show-post-form');
-})
-closeFormPost.addEventListener('click', ()=>{
-    formPostShow.classList.remove('show-post-form')
-})
-formPostShow.addEventListener('click', ()=>{
-    formPostShow.classList.remove('show-post-form')
-})
-modelFormPost.addEventListener('click', (e)=>{
-    e.stopPropagation();
-})
+if(closeFormPost){
+    closeFormPost.addEventListener('click', ()=>{
+        formPostShow.classList.remove('show-post-form')
+    })
+}
 
+if(formPostShow) {
+    formPostShow.addEventListener('click', ()=>{
+        formPostShow.classList.remove('show-post-form')
+    })
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+if(modelFormPost) {
+    modelFormPost.addEventListener('click', (e)=>{
+        e.stopPropagation();
+    })
+}
 
 
 
 
 // an model
-modalInner.addEventListener('click', (e)=>{
-    e.stopPropagation()
-})
-commentIcon.addEventListener('click', ()=>{
-    modalComment.classList.add('show')
-})
-modalComment.addEventListener('click', ()=>{
-    modalComment.classList.remove('show')
-})
+if(modalInner) {
+    modalInner.addEventListener('click', (e)=>{
+        e.stopPropagation()
+    })
+}
 
-closeIcon.addEventListener('click', ()=>{
-    modalComment.classList.remove('show')
-})
+if(commentIcon){
+    commentIcon.addEventListener('click', ()=>{
+        modalComment.classList.add('show')
+    })
+}
 
+if(modalComment) {
+    modalComment.addEventListener('click', ()=>{
+        modalComment.classList.remove('show')
+    })
+}
 
+if(closeIcon){
+    closeIcon.addEventListener('click', ()=>{
+        modalComment.classList.remove('show')
+    })
+}
 
+if(commentInput){
+    commentInput.addEventListener('input', function(){
+        var inputValue = commentInput.value.trim();
+        commentSubmit.style.opacity = inputValue.length > 0 ? '1' : '0.5';    
+    })
 
-commentInput.addEventListener('input', function(){
-    var inputValue = commentInput.value.trim();
-    commentSubmit.style.opacity = inputValue.length > 0 ? '1' : '0.5';    
-})
+}
 
 
 
@@ -109,11 +114,14 @@ window.addEventListener('click', ()=> {
         comment.classList.remove('show')
     })
 })
-modalInner.addEventListener('click', ()=> {
-    deleteEditComment.forEach(comment =>{
-        comment.classList.remove('show')
+
+if(modalInner){
+    modalInner.addEventListener('click', ()=> {
+        deleteEditComment.forEach(comment =>{
+            comment.classList.remove('show')
+        })
     })
-})
+}
 
 
 

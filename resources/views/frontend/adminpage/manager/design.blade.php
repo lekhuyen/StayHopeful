@@ -10,14 +10,16 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search Category Name" class="form-control input-search">
+                        <input type="search" placeholder="Search Category Name" id="search" class="form-control input-search" name="search">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="btnsearch position-absolute " style="right: 0;">
-                    <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
+                    @can('slider_add')
+                        <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
                             class="fa-solid fa-plus"></i><span>Add New Image</span></button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -34,7 +36,7 @@
                                 <td></td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="data_all">
 
                             @foreach ($sliders as $slider)
                                 <tr>
@@ -45,9 +47,11 @@
                                     <td>
                                         <a href="#" data-slider-id="{{ $slider->id }}" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
-                                            <button type="button" class="btn btn-success" style="margin-right: 10px;">
-                                                <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
-                                            </button>
+                                            @can('slider_edit')
+                                                <button type="button" class="btn btn-success" style="margin-right: 10px;">
+                                                    <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
+                                                </button>
+                                            @endcan
                                         </a>
                                     </td>
                                     <td>
@@ -55,14 +59,17 @@
                                             action="{{ route('admin.delete_slider', ['slider' => $slider->id]) }}">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">
-                                                <i class="fa-solid fa-x" style="color: #ffffff;"></i>
-                                            </button>
+                                            @can('slider_delete')
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa-solid fa-x" style="color: #ffffff;"></i>
+                                                </button>
+                                            @endcan
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
+                        <tbody id="content" class="searchdata"></tbody>
                     </table>
                     {{-- {{ $sliders->links() }} --}}
                 </div>
@@ -156,6 +163,28 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+                if($value){
+                    $('.data_all').hide();
+                    $('.searchdata').show();
+                }else{
+                    $('.data_all').show();
+                    $('.searchdata').hide();
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/searchdesign",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#content').html(data);
+                    }
+                })
+            })
+        })
+    </script>
     <script>
         $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);

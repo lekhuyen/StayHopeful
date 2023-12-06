@@ -14,6 +14,11 @@ class UserPost extends Model
         'title', 'user_id', 'deleted_at', 'status'
     ];
 
+
+
+    protected function comments(){
+        return $this->hasMany(CommentPost::class, 'post_id', 'id');
+    }
     protected function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

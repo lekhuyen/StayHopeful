@@ -8,7 +8,7 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User name" class="form-control input-search">
+                        <input type="search" placeholder="Search User name" id="search" name="search" class="form-control input-search">
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Donor</td>
+                                <td>Name</td>
                                 <td>Email</td>
                                 <td>Phone</td>
                                 <td>Project</td>
@@ -35,7 +35,7 @@
                                 </td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="data_all">
                             @foreach ($donateinfo as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
@@ -53,11 +53,35 @@
                                 </tr>
                             @endforeach
                         </tbody>
+                        <tbody id="content" class="searchdata"></tbody>
+
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+                if($value){
+                    $('.data_all').hide();
+                    $('.searchdata').show();
+                }else{
+                    $('.data_all').show();
+                    $('.searchdata').hide();
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/searchlistdonate",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#content').html(data);
+                    }
+                })
+            })
+        })
+    </script>
     <script>
         var clickElements = document.querySelectorAll('.clickmessage');
 

@@ -167,7 +167,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 mb-3 mt-3">
-                        <input type="search" name="search" placeholder="Search By name" class="input-search"><button
+                        <input type="search" name="search" placeholder="Search By name" id="search" class="input-search"><button
                             class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
@@ -183,12 +183,12 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="data_all">
                                 @foreach ($allproject as $project)
                                 <tr>
                                     <td>{{$project->id}}</td>
                                     <td>{{$project->title}}</td>
-                                    <td>{{$project->money}}</td>
+                                    <td>{{$project->money2}}</td>
                                     <td>{{$project->created_at}}</td>
                                     <td>@if ($project->status == 1)
                                         <div class="text-succes">Finish</div>
@@ -199,13 +199,35 @@
                                 @endforeach
 
                             </tbody>
-
+                            <tbody id="content"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+                if($value){
+                    $('.data_all').hide();
+                    $('#content').show();
+                }else{
+                    $('.data_all').show();
+                    $('#content').hide();
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/searchdashboard",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#content').html(data);
+                    }
+                })
+            })
+        })
+    </script>
     <script>
         // donate big chart
         let amount = {!! json_encode($bigchart['amounts']) !!};
