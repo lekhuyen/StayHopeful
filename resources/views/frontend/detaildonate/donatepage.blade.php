@@ -26,8 +26,8 @@
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control background-icon-big" required
-                                        id="floatingInput" name="fullname" value="{{ old('fullname') }}">
-                                    <label for="floatingInput">Enter Fullname</label>
+                                         name="fullname" value="{{ old('fullname') }}">
+                                    <label >Enter Fullname</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-info"></i></div>
                                     </div>
@@ -44,9 +44,9 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Email <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" required name="email"
+                                    <input type="text" class="form-control"  required name="email"
                                         value="{{ old('email') }}">
-                                    <label for="floatingInput">Enter Email</label>
+                                    <label >Enter Email</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
                                     </div>
@@ -57,9 +57,9 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Phone <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingInput" required name="phone"
+                                    <input type="number" class="form-control"  required name="phone"
                                         value="{{ old('phone') }}" placeholder="name@example.com">
-                                    <label for="floatingInput">Enter PhoneNumber</label>
+                                    <label >Enter PhoneNumber</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-phone"></i></div>
                                     </div>
@@ -71,14 +71,14 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Select <span class="req"> *</span></span>
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect"
+                                    <select class="form-select"
                                         aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
                                             <option value="{{ $item->title }}">{{ $item->title }}</option>
                                         @endforeach
                                     </select>
-                                    <label for="floatingSelect">Select Type</label>
+                                    <label >Select Type</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-earth-asia"></i></div>
                                     </div>
@@ -90,13 +90,13 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Select <span class="req"> *</span></span>
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect"
+                                    <select class="form-select" 
                                         aria-label="Floating label select example" name="type">
                                         <option selected>Select Contribution Type</option>
                                         <option value="Bank">Online money transfer</option>
                                         <option value="Artifacts">Artifacts</option>
                                     </select>
-                                    <label for="floatingSelect">Select Type</label>
+                                    <label>Select Type</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-earth-asia"></i></div>
                                     </div>
@@ -108,9 +108,9 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Amount <span class="req"> *</span> </span>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingInput" name="amount"
+                                    <input type="number" class="form-control"  name="amount"
                                         value="{{ old('amount') }}">
-                                    <label for="floatingInput">Enter Amount</label>
+                                    <label >Enter Amount</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-money-bill"></i></div>
                                     </div>
@@ -140,7 +140,9 @@
             </div>
         </div>
     </div>
-    @include('frontend/login/login');
+    @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
+
     <script>
         var click = document.getElementById('click-exit');
         var click_ok = document.getElementById('click-exit-ok');
