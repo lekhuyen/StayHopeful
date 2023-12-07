@@ -145,11 +145,10 @@ Route::get('/video', [BlogController::class, 'video'])->name('video.index');
 
 //comment
 Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comment.index');
-//input search
-Route::post('/search', [BlogController::class, 'search'])->name('serach_project');
 
 
-
+//search bar project page
+Route::post('/search', [BlogController::class, 'search'])->name('search_project');
 
 
 //admin
@@ -178,7 +177,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchdesign', [AdminPageController::class, 'searchdesign'])->name('admin.searchdesign');
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
-    
+
 
 });
 
@@ -326,6 +325,8 @@ Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])-
 Route::group(['prefix'=> 'staff/'], function(){
     Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
     Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
+    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
+    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
     Route::post('store',[UserAdminController::class,'store'])->name('staff.store');
     Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
     Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
@@ -335,7 +336,7 @@ Route::group(['prefix'=> 'staff/'], function(){
 //roles
 Route::group(['prefix'=> 'roles/'], function(){
     Route::get('index',[AdminRoleController::class,'index'])->name('roles.index')->middleware('can:roles_list');
-    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_addt');
+    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_add');
     Route::post('store',[AdminRoleController::class,'store'])->name('roles.store');
     Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit')->middleware('can:roles_edit');
     Route::post('update/{id}',[AdminRoleController::class,'update'])->name('roles.update');
@@ -343,6 +344,7 @@ Route::group(['prefix'=> 'roles/'], function(){
 
 });
 Route::group(['prefix'=> 'permissions/'], function(){
+    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::post('store',[AdminPermissionsController::class,'store'])->name('permissions.store');
 });

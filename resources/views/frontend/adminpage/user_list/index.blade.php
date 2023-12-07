@@ -2,9 +2,9 @@
 @section('admin_content')
     <div class="container mt-3">
         <h2>user list</h2>
-        {{-- @can('user_add') --}}
+        @can('user_add')
             <a href="{{route('staff.create')}}" class="btn btn-primary">Add</a>
-        {{-- @endcan --}}
+        @endcan
         <table class="table table-hover">
             <thead>
                 <tr>

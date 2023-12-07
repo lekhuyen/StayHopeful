@@ -2,9 +2,9 @@
 @section('admin_content')
     <div class="container mt-3">
         <h2>roles list</h2>
-        {{-- @can('roles_add') --}}
+        @can('roles_add')
             <a href="{{route('roles.create')}}" class="btn btn-primary">Add</a>
-        {{-- @endcan --}}
+        @endcan
         <table class="table table-hover">
             <thead>
                 <tr>
