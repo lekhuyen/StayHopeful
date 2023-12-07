@@ -46,6 +46,9 @@
         </p>
     </div>
 </div>
+
+{{-- forgot pass form --}}
+
 {{-- login-register-popup --}}
 <div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
     <div class="modal-inner">

@@ -91,7 +91,13 @@
 .showChangePassword{
     display: block;
 }
-
+.modal-inner-change-password{
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    position: fixed;
+    filter: opacity(0.6);
+}
 .change-password-popup{
     /* background: linear-gradient(to bottom, #245abe, #95b5df); */
     background: #2d63c2;

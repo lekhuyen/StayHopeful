@@ -28,6 +28,8 @@
     </div>
 </div>
     <div class="popup-change-password-container">
+        <div class="modal-inner-change-password">
+        </div>
         <div class="change-password-popup">
             <div class="exit-change-password-btn">
                 <i class="fa-solid fa-xmark"></i>
