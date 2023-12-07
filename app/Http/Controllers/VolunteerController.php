@@ -11,7 +11,8 @@ class VolunteerController extends Controller
 {
     public function index()
     {
-        return view("frontend.volunteer.index");
+        $volunteers = Volunteer::all();
+        return view("frontend.volunteer.index", compact('volunteers'));
     }
 
     public function create()
@@ -21,8 +22,7 @@ class VolunteerController extends Controller
         $user = session()->get("userInfo");
         return view("frontend.volunteer.create", compact("projects", "project_id", "user"));
     }
-    // "finding_source", "enrolled", "name", "phone", "email", "role", "project_id",
-    // "volunteer_description", "rel_name", "rel_relationship", "rel_phone"
+
     public function store(Request $request)
     {
         $request->validate([
@@ -37,17 +37,16 @@ class VolunteerController extends Controller
         ]);
         Volunteer::create($request->all());
         $findUser =  User::where('email', $request->email)->first();
-        if($findUser != null){
+        if ($findUser != null) {
             $findUser->is_volunteer = true;
             $findUser->save();
-        }else{
+        } else {
             $userCreate = new User();
             $userCreate->email = $request->email;
             $userCreate->password = "12345";
             $userCreate->is_volunteer = true;
-           $userCreate->save();
+            $userCreate->save();
         }
-        // dd($request->all());
         return redirect()->back()->with("success", "Cam on ban da dang ky");
     }
 }
