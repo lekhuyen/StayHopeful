@@ -29,18 +29,24 @@ errorAlert.addEventListener('click', function () {
  })
  }
 
- // change password form popup
+ // change password form popup 
  var changePasswordBtn = document.querySelector('.change-password');
  var popupChangePassword = document.querySelector('.popup-change-password-container');
- var exitChangePassword= document.querySelector('.exit-change-password-btn');
+ var exitChangePasswordBtn = document.querySelector('.exit-change-password-btn');
+ var exitChangePassword = document.querySelector('.modal-inner-change-password');
  changePasswordBtn.addEventListener('click', function () {
      containerPopupProfile.classList.remove('showProfileDropdown');
      popupChangePassword.classList.add('showChangePassword');
  });
- exitChangePassword.addEventListener('click', function () {
+ exitChangePasswordBtn.addEventListener('click', function () {
      popupChangePassword.classList.remove('showChangePassword');
      containerPopupProfile.classList.add('showProfileDropdown');
- })
+ });
+ exitChangePassword.addEventListener('click', function () {
+    popupChangePassword.classList.remove('showChangePassword');
+    containerPopupProfile.classList.add('showProfileDropdown');
+});
+ 
 
  function validatePassword(password) {
     return /^[A-Za-z]\w{7,14}$/.test(password);
