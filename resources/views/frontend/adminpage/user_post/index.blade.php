@@ -21,11 +21,11 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
-                            <a class="btn btn-secondary" href="">{{ $post->user->name }}</a>
+                            {{-- <a class="btn btn-secondary" href="">{{ $post->user->name }}</a> --}}
                         </td>
                         <td>
                             @if ($post->status == 1)
-                                <span data-choduyet="{{ $post->id }}" class="post-choduyet"><span
+                                <span data-choduyet="{{ $post->id }}" class="post-choduyet" style="cursor: pointer"><span
                                     class="badge bg-warning rounded-pill">Pending</span></span>
                             @else
                                 <span data-duyet="{{ $post->id }}" class="post-daduyet"><span
