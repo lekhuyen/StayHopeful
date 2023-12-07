@@ -45,65 +45,55 @@
         <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home"></i> Dashboard</a></li>
-            <li class="text-decoration-none px-3 py-2 d-block">
-                <div class="sider-dropdown">Manager<i class="fa-solid fa-angle-right" style="margin-left: 30px"></i>
-                    <div class="sider-dropdown-menu">
-                        <a href="{{ route('admin.managerpost') }}" class="siderbar-item"><i
-                                class="fa-solid fa-image"></i>Post</a>
-                        @can('slider_list')
-                            <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                                class="fa-solid fa-desktop"></i>Slider</a>
-                        @endcan
+            <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-image"></i>Post</a></li>
+            @can('slider_list')
+                <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-desktop"></i>Slider</a></li>
+            @endcan
+            <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-users"></i>User List</a></li>
+            <li><a href="{{ route('post.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-users"></i>User
+                    Posts</a></li>
+            @can('news_list')
+                <li><a href="{{ route('news.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-briefcase"></i>News
+                        List</a></li>
+            @endcan
+            @can('category_list')
+                <li><a href="{{ route('category.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-briefcase"></i>Category List</a></li>
+            @endcan
+            @can('video_list')
+                <li><a href="{{ route('video-list.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-briefcase"></i>Video
+                        Gallery</a></li>
+            @endcan
+            @can('user_list')
+                <a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-briefcase"></i>Staff
+                    List</a>
+            @endcan
+            <a href="{{ route('feedback.index') }}" class="siderbar-item"><i class="fa-solid fa-briefcase"></i>Feedback
+                List</a>
+            @can('roles_list')
+                <li><a href="{{ route('roles.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-briefcase"></i>Roles
+                        List</a></li>
+            @endcan
 
-                        <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
-                                class="fa-solid fa-users"></i>User List</a>
-                        <a href="{{ route('post.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-users"></i>User Posts</a>
-                        @can('project_list')
-                            <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Project List</a>
-                        @endcan
-
-                        @can('category_list')
-                            <a href="{{ route('category.index') }}" class="siderbar-item"><i
-                                    class="fa-solid fa-briefcase"></i>Category List</a>
-                        @endcan
-
-                        @can('news_list')
-                            <a href="{{ route('news.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>News List</a>
-                        @endcan
-
-                        @can('video_list')
-                            <a href="{{ route('video-list.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Video Gallery</a>
-                        @endcan
-
-                        <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Feedback List</a>
-                        @can('user_list')
-                            <a href="{{ route('staff.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Staff List</a>
-                        @endcan
-
-                        @can('roles_list')
-                            <a href="{{ route('roles.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Roles List</a>
-                        @endcan
-
-                        <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Volunteer List</a>
-                    </div>
-                </div>
-            </li>
+            <li><a href="{{ route('volunteer.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-briefcase"></i>Volunteer
+                    List</a></li>
 
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
                     Donate List</a></li>
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>
-                    Add Permissions</a></li>
+                            class="fa-solid fa-briefcase"></i>
+                        Add Permissions</a></li>
             @endcan
 
         </ul>
