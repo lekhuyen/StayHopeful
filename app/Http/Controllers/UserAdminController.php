@@ -41,7 +41,7 @@ class UserAdminController extends Controller
             Log::error('Message: ' . $exception->getMessage());
 
         }
-        
+
     }
 
 
@@ -49,7 +49,7 @@ class UserAdminController extends Controller
         $roles = Role::all();
         $user = User::find($id);
         $roleUser = $user->roles;
-        
+
         return view('frontend.adminpage.user_list.edit', compact('user', 'roles', 'roleUser'));
     }
 
@@ -71,7 +71,7 @@ class UserAdminController extends Controller
             DB::rollBack();
             Log::error('Message: ' . $exception->getMessage());
         }
-        
+
     }
 
     public function delete($id){

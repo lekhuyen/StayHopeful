@@ -28,31 +28,44 @@ class BlogController extends Controller
     }
 
     // detail, related project
-    public function viewdetail($id){
+    public function viewdetail($id)
+    {
         $categories = Category::orderBy('id', 'desc')->get();
         $project = Project::find($id);
         $comments = $project->comments;
         $category = $project->category;
         $projects = Project::where('category_id', $category->id)
-                            ->where('id','!=', $project->id)
-                            ->orderBy('id', 'desc')
-                            ->limit(5)
-                            ->get();
-        session()->put("project_id",$id);
+            ->where('id', '!=', $project->id)
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->get();
+        $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
+
+        // dd($volunterCountRegisterByProject);
+        session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
-        if($user){
-            $volunteerPersonByProject = Volunteer::where('email',$user['email'])->first();
-            if($volunteerPersonByProject != null){
-                $projectId = $volunteerPersonByProject->project_id;
-                $checkUserProject = ($projectId == $id);
-            }
-
+        if($project->quantity == $volunterCountRegisterByProject->count()){
+            $checkUserProject = 1;
         }
-        // dd($checkUserProject);
-        return view('frontend.detail-post.detail', compact('categories','project', 'projects', 'comments','checkUserProject'));
+
+        if ($user) {
+            $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
+            //dd($volunteerPersonByProjects);
+            if ($volunteerPersonByProjects->count() > 0) {
+                foreach ($volunteerPersonByProjects as $key => $projectItem) {
+                    $projectId = $projectItem->project_id;
+                    if($projectId == $id){
+                        $checkUserProject = 1;
+                        break;
+                    }
+                }
+            }
+        }
+        return view('frontend.detail-post.detail', compact('categories', 'project', 'projects', 'comments', 'checkUserProject'));
     }
-    public function viewmarquee(){
+    public function viewmarquee()
+    {
         return view('frontend.info_donate.info_donate', compact('project'));
     }
 
@@ -63,7 +76,7 @@ class BlogController extends Controller
     public function project($id)
     {
         $category = Category::find($id);
-        
+
         return view('frontend.project.project', compact('category'));
     }
     //video page
@@ -75,17 +88,18 @@ class BlogController extends Controller
 
 
     // project
-    public function project_index(){
+    public function project_index()
+    {
         $projects = Project::orderBy('id', 'desc')->get();
         $projects = Project::paginate(8);
         return view('frontend.project.index', compact('projects'));
     }
 
     // news-detail
-    public function news_detail($id){
+    public function news_detail($id)
+    {
         $new = News::find($id);
         return view('frontend.blog.news_detail', compact('new'));
         // return view('frontend.blog.news_detail', compact('categories', 'projects', 'new'));
     }
-
 }

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_volunteer');
-            $table->boolean('is_sponsor');
+            $table->boolean('is_volunteer')->default(0);
+            $table->boolean('is_sponsor')->default(0);
         });
     }
 
