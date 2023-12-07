@@ -84,9 +84,22 @@
                                 style="display: flex; align-items: center; justify-content: space-between;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
                                     <i class="fa-solid fa-bars"></i>
-                                    <input type="text" placeholder="Search">
+                                    <input type="search" placeholder="Search" id="search" class="search-home">
+                                    <div class="search-ajax" id="search-ajax" style="display: none">
+                                        {{-- <div class="result-search">
+                                            <a href="#">
+                                                <div class="image-search">
+                                                    <img src="{{asset('img/aboutus1.jpg')}}">
+                                                </div>
+                                                <div class="text-result">
+                                                    aa
+                                                </div>
+                                            </a>
+                                        </div> --}}
+                                    </div>
+                                    
                                 </div>
-
+                                
                                 <div style="display: flex; align-items: center;">
                                     <button class="login-nav" style="margin-right: 5px;">SIGN UP</button>
                                     <button class="register-nav">LOGIN</button>
@@ -282,6 +295,26 @@
 <script src="{{ asset('js/header-nav.js') }}"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script>
+    $(document).ready(function(){
+        $('#search').on('keyup', function(){
+            $value = $(this).val();
+            if($value){
+                $('#search-ajax').show();
+            }else{
+                $('#search-ajax').hide();
+                
+            }
+            $.ajax({
+                    type: "GET",
+                    url: "{{route('admin.searchhome')}}",
+                    data: {'search':$value},
+                    success: function(data){
+                        $('#search-ajax').html(data);
+                    }
+                })
+        })
+    })
+</script>
 </html>
 
