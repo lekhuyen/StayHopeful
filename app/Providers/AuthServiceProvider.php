@@ -25,9 +25,9 @@ class AuthServiceProvider extends ServiceProvider
         $this->difineGateCategory();
         $this->difineGateProject();
         $this->difineGateNews();
-        // $this->difineGateUser();
-        // $this->difineGateRoles();
-        // $this->difineGatePermission();
+        $this->difineGateUser();
+        $this->difineGateRoles();
+        $this->difineGatePermission();
         $this->difineGateVideos();
         $this->difineGateSliders();
 

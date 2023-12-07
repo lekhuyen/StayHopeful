@@ -16,10 +16,10 @@
             </div>
             <div class="col-lg-6">
                 <div class="btnsearch position-absolute " style="right: 0;">
-                    {{-- @can('slider_add') --}}
+                    @can('slider_add')
                         <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
                             class="fa-solid fa-plus"></i><span>Add New Image</span></button>
-                    {{-- @endcan --}}
+                    @endcan
                 </div>
             </div>
         </div>
@@ -47,11 +47,11 @@
                                     <td>
                                         <a href="#" data-slider-id="{{ $slider->id }}" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
-                                            {{-- @can('slider_edit') --}}
+                                            @can('slider_edit')
                                                 <button type="button" class="btn btn-success" style="margin-right: 10px;">
                                                     <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
                                                 </button>
-                                            {{-- @endcan --}}
+                                            @endcan
                                         </a>
                                     </td>
                                     <td>
@@ -59,11 +59,11 @@
                                             action="{{ route('admin.delete_slider', ['slider' => $slider->id]) }}">
                                             @method('DELETE')
                                             @csrf
-                                            {{-- @can('slider_delete') --}}
+                                            @can('slider_delete')
                                                 <button type="submit" class="btn btn-danger">
                                                     <i class="fa-solid fa-x" style="color: #ffffff;"></i>
                                                 </button>
-                                            {{-- @endcan --}}
+                                            @endcan
                                         </form>
                                     </td>
                                 </tr>
