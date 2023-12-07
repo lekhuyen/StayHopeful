@@ -8,9 +8,10 @@
 
 <br>
 <br>
-<h1 class="johndoe-h1">Meet John Doe, The Founder</h1>
+
         <br>
-        <div class="container mt-3 johndoe-introduction">
+        <div class="container mt-3 johndoe_introduction">
+            <h1 class="johndoe-h1">Meet John Doe, The Founder</h1>
             {{-- introduction_1 --}}
 
             <div class="row">

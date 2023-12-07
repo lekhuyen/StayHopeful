@@ -2,6 +2,7 @@
   margin-top: 15px;
   font-size: 1.1em;
   color: #333;
+  background-color: #e6f7ff;
 }
 
 .johndoe_card .founder-img {
@@ -20,9 +21,23 @@
 .jane_smith_card,
 .kai_greene_card,
 .oliver_hudson_card,
-.volunteer_member_card {
+.volunteer_team_members {
   text-align: center;
   margin-top: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.robert_johnsonc_card,
+.kai_greene_card,
+.volunteer_team_members{
+  background-color: #f0f0f0; 
+  padding: 40px;
+}
+
+.jane_smith_card,
+.oliver_hudson_card {
+  background-color: #e6f7ff;
+  padding: 40px;
 }
 
 .robert_johnsonc_card a,
@@ -43,11 +58,6 @@
   border-radius: 15px 0 0 15px;
   height: 100%;
   object-fit: cover;
-}
-
-/* Team Members grid */
-.row.row-cols-1.row-cols-md-6.g-2 {
-  margin-top: 20px;
 }
 
 /* General HR styling */

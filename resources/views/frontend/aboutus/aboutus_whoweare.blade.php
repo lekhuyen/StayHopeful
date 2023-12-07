@@ -43,6 +43,7 @@
 <!-- Robert Johnson Card -->
 <div class="container mt-3 robert_johnsonc_card">
 <h2>Financial Team</h2>
+<br>
 <div class="row" data-aos="fade-right">
   <div class="col-md-6">
     <div class="card robert_johnsonc_picture">
@@ -90,6 +91,7 @@
 <!-- Jane Smith Card -->
 <div class="container mt-3 jane_smith_card">
 <h2>Marketing Team</h2>
+<br>
 <div class="row" data-aos="fade-right">
     <div class="col-md-6">
         <div class="card jane_smith_picture">
@@ -138,6 +140,7 @@
 <!-- Kai Greene Card -->
 <div class="container mt-3 kai_greene_card">
   <h2>Lead Developer Team</h2>
+  <br>
   <div class="row" data-aos="fade-right">
     <div class="col-md-6">
       <div class="card kai_greene_picture">
@@ -185,24 +188,25 @@
 <!-- Oliver Hudson Card -->
 <div class="container mt-3 oliver_hudson_card">
 <h2>Creative Team</h2>
-<div class="row" data-aos="fade-right">
-  <div class="col-md-6">
-    <div class="card oliver_hudson_picture">
-      <div class="row g-0">
-          <div class="col-md-4">
-              <img src="{{ asset('img/Oliver_Hudson.jpeg') }}" class="img-fluid rounded-start" alt="Oliver_Hudson">
-          </div>
-          <div class="col-md-8">
-              <div class="card-body">
-                  <h5 class="card-title">Oliver Hudson</h5>
-                  <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend of artistic vision and strategic thinking to our projects. Their creativity adds a distinctive touch to our initiatives.</p>
-                  <a href="{{route("aboutus.oliverhudson")}}" class="btn btn-primary">View Details</a>
-              </div>
-          </div>
-      </div>
+<br>
+  <div class="row" data-aos="fade-right">
+    <div class="col-md-6">
+      <div class="card oliver_hudson_picture">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('img/Oliver_Hudson.jpeg') }}" class="img-fluid rounded-start" alt="Oliver_Hudson">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Oliver Hudson</h5>
+                    <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend of artistic vision and strategic thinking to our projects. Their creativity adds a distinctive touch to our initiatives.</p>
+                    <a href="{{route("aboutus.oliverhudson")}}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
-
 <br>
 
 <!-- Creative Team Members -->
@@ -230,6 +234,7 @@
 
 <div class="container mt-3 volunteer_team_members" data-aos="fade-right">
   <h2>Volunteer Member</h2>
+  <br>
   <!-- Volunteer Team Members -->
   <div class="row row-cols-1 row-cols-md-6 g-2 volunteer_team_card">
       @foreach($teamMembers as $member)
@@ -250,7 +255,9 @@
       @endforeach
   </div>
 </div>
-
+<script>
+  AOS.init();
+</script>
 @include('frontend/login/login');
 @endsection
 

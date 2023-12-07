@@ -29,7 +29,7 @@
 
 
     {{-- css contactus --}}
-    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    
 
     {{-- cssblog --}}
     {{-- cssblog --}}
