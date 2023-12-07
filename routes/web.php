@@ -177,6 +177,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchdesign', [AdminPageController::class, 'searchdesign'])->name('admin.searchdesign');
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
+    Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
 
 
 });
