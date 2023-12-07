@@ -1,5 +1,6 @@
 @extends('frontend.comment.comment')
-@section('detail-post')
+{{-- @section('detail-post') --}}
+<link rel="stylesheet" href="{{ asset('volunteercss/blog_detail.css') }}">
 @section('post-title')
     <div class="container-fluid margin-navbar">
         <div class="container">
@@ -35,7 +36,7 @@
                 <h2>{{ $project->title }}</h2>
             </div>
         </div>
-    @endsection
+    {{-- @endsection --}}
 
 
     <div class="col-lg-8 post-detail-1">
@@ -49,46 +50,25 @@
             <div class="donate_link">
                 <button disabled>DONATE</button>
             </div>
-        @if ($project->donateinfo->sum('amount') >= $project->money)
-            <div class="donate_link">
-                <button disabled>DONATE</button>
-            </div>
         @else
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
-                <a href="#" class= "disabled">VOLUNTEER</a>
+                <a class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else
-                <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                <a href="{{ route('volunteer.create') }}"  class= "btn_volunter">VOLUNTEER</a>
                 @endif
 
             </div>
-
-            <div>
-            </div>
-            <div>
-            </div>
         @endif
 
-        {{-- @if (session('userInfo')) --}}
+        @if (session('userInfo'))
         <div class="comment-icon">
             <i class="fa-regular fa-comment"></i>
             <span>2</span>
         </div>
-        {{-- @if (session('userInfo')) --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        {{-- @else --}}
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        {{-- @endif --}}
 
+        @else
         <div class="comment-access">
             <a href="#">LOGIN TO LEAVE A COMMENT</a>
         </div>
@@ -96,6 +76,7 @@
             <i class="fa-regular fa-comment"></i>
             <span>2</span>
         </div>
+        @endif
 
     </div>
     @include('frontend/login/login')
