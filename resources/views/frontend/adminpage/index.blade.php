@@ -52,16 +52,16 @@
                                 class="fa-solid fa-image"></i>Post</a>
                         @can('slider_list')
                             <a href="{{ route('admin.managerdesign') }}" class="siderbar-item"><i
-                                class="fa-solid fa-desktop"></i>Slider</a>
+                                    class="fa-solid fa-desktop"></i>Slider</a>
                         @endcan
 
                         <a href="{{ route('admin.listuser') }}" class="siderbar-item"><i
                                 class="fa-solid fa-users"></i>User List</a>
-                        <a href="{{ route('post.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-users"></i>User Posts</a>
+                        <a href="{{ route('post.index') }}" class="siderbar-item"><i class="fa-solid fa-users"></i>User
+                            Posts</a>
                         @can('project_list')
                             <a href="{{ route('projectAd.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Project List</a>
+                                    class="fa-solid fa-briefcase"></i>Project List</a>
                         @endcan
 
                         @can('category_list')
@@ -71,24 +71,24 @@
 
                         @can('news_list')
                             <a href="{{ route('news.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>News List</a>
+                                    class="fa-solid fa-briefcase"></i>News List</a>
                         @endcan
 
                         @can('video_list')
                             <a href="{{ route('video-list.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Video Gallery</a>
+                                    class="fa-solid fa-briefcase"></i>Video Gallery</a>
                         @endcan
 
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Feedback List</a>
+                                class="fa-solid fa-briefcase"></i>Feedback</a>
                         @can('user_list')
                             <a href="{{ route('staff.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Staff List</a>
+                                    class="fa-solid fa-briefcase"></i>Staff List</a>
                         @endcan
 
                         @can('roles_list')
                             <a href="{{ route('roles.index') }}" class="siderbar-item"><i
-                                class="fa-solid fa-briefcase"></i>Roles List</a>
+                                    class="fa-solid fa-briefcase"></i>Roles List</a>
                         @endcan
 
                         <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
@@ -102,8 +102,8 @@
                     Donate List</a></li>
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>
-                    Add Permissions</a></li>
+                            class="fa-solid fa-briefcase"></i>
+                        Permissions</a></li>
             @endcan
 
         </ul>
@@ -154,7 +154,7 @@
 
 </div>
 <footer class="footer">
-    <div class="text-footer">Stay Hope Ful</div>
+    <div class="text-footer">StayHopeful</div>
 </footer>
 <script src="{{ asset('js/sidebar.js') }}"></script>
 <script>
