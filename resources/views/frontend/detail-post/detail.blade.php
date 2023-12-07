@@ -39,16 +39,12 @@
 
 
     <div class="col-lg-8 post-detail-1">
-
         <span>{!! $project->description !!}</span>
+    
         @foreach ($project->images as $image)
             <img src="{{ asset($image->image) }}" alt="">
         @endforeach
-
-        @if ($project->donateinfo->sum('amount') >= $project->money)
-            <div class="donate_link">
-                <button disabled>DONATE</button>
-            </div>
+    
         @if ($project->donateinfo->sum('amount') >= $project->money)
             <div class="donate_link">
                 <button disabled>DONATE</button>
@@ -57,38 +53,24 @@
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
-                <a href="#" class= "disabled">VOLUNTEER</a>
+                    <a href="#" class="disabled">VOLUNTEER</a>
                 @else
-                <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                    <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
                 @endif
-
-            </div>
-
-            <div>
-            </div>
-            <div>
             </div>
         @endif
-
-        {{-- @if (session('userInfo')) --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        {{-- @if (session('userInfo')) --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        {{-- @else --}}
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        {{-- @endif --}}
-
+    
+        @if (session('userInfo'))
+            <div class="comment-icon">
+                <i class="fa-regular fa-comment"></i>
+                <span>2</span>
+            </div>
+        @else
+            <div class="comment-access">
+                <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+            </div>
+        @endif
+    
         <div class="comment-access">
             <a href="#">LOGIN TO LEAVE A COMMENT</a>
         </div>
@@ -96,9 +78,9 @@
             <i class="fa-regular fa-comment"></i>
             <span>2</span>
         </div>
-
     </div>
+    
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')
-
-@endsection
+    
+    @endsection
