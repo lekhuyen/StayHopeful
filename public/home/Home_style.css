@@ -107,6 +107,7 @@ html {
     display: flex;
     align-items: center;
     color: #FFFFFF;
+    margin-right: 15px;
     font-weight: 700;
     font-size: 20px;
     transform: skew(0.09turn);
@@ -215,8 +216,8 @@ img.nav-user-img{
 }
 
 .logo {
-    width: 130px;
-    margin-right: -40px;
+    width: 120px;
+    margin-right: -35px;
     background: none;
 }
 
