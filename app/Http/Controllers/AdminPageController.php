@@ -158,7 +158,9 @@ class AdminPageController extends Controller {
         $user->password = $hashpass;
         $user->role = $request->role;
         $user->verified_token = $verify_token;
-        $user->status = 0;
+        $user->status = 1;
+        $user->is_volunteer = 0;
+        $user->is_sponsor = 0;
         $user->save();
         return redirect()->back()->with('success', 'Create User successfully');
     }
@@ -192,7 +194,7 @@ class AdminPageController extends Controller {
         $now = date('Y-m-d H:i:s');
         try {
             DB::table('users')->where('id', $id)->update([
-                'status' => 0,
+                'status' => 1,
                 'deleted_at' => $now,
             ]);
             return response()->json(['message' => 'User has been Active']);
@@ -206,7 +208,7 @@ class AdminPageController extends Controller {
         $now = date('Y-m-d H:i:s');
         try {
             DB::table('users')->where('id', $id)->update([
-                'status' => 1,
+                'status' => 0,
                 'deleted_at' => $now,
             ]);
             return response()->json(['message' => 'User has been Banned']);

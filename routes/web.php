@@ -60,6 +60,7 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 //verify_email
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
+Route::post('/change-password', [AuthloginController::class, 'change_password'])->name('auth.changepassword');
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
@@ -344,5 +345,5 @@ Route::group(['prefix'=> 'roles/'], function(){
 });
 Route::group(['prefix'=> 'permissions/'], function(){
     Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
-    Route::post('store',[AdminPermissionsController::class,'store'])->name('roles.store');
+    Route::post('store',[AdminPermissionsController::class,'store'])->name('permissions.store');
 });

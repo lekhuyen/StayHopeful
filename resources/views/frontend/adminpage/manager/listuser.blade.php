@@ -47,9 +47,13 @@
                                             height="50px"
                                             style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->role }}</td>
+                                    <td>@if ($item->role == '1')
+                                        Admin
+                                        @else
+                                        User
+                                    @endif</td>
                                     <td>
-                                        @if ($item->status == '0')
+                                        @if ($item->status == '1')
                                             <button class="btn btn-success active"
                                                 data-active="{{ $item->id }}">Active</button>
                                         @else
@@ -69,11 +73,7 @@
 
                                 </tr>
                             @endforeach
-                            @if ($user->isEmpty())
-                                <tr>
-                                    <td colspan="6" style="text-align:center">No users found</td>
-                                </tr>
-                            @endif
+
 
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
@@ -230,7 +230,8 @@
                     type: 'GET',
                     url: "/admin/updateuser/" + id + "/banned",
                     success: function(response) {
-                        location.reload();
+                        console.log(response);
+                        // location.reload();
                     },
                     error: function(error) {
                         console.error(error);
@@ -245,7 +246,7 @@
                     url: "/admin/updateuser/" + id + "/active",
                     success: function(response) {
                         console.log(response);
-                        location.reload();
+                        // location.reload();
 
                     },
                     error: function(error) {

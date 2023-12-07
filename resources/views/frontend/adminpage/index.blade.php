@@ -27,7 +27,9 @@
 <script src="{{ asset('ckeditor5-build-classic/ckeditor.js') }}"></script>
 
 
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
 {{-- font --}}
 <link rel="stylesheet" href="{{ asset('admincss/sidebar.css') }}">
 {{-- siderbar --}}
@@ -79,15 +81,16 @@
 
                         <a href="{{ route('feedback.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Feedback List</a>
-                        @can('user_list')
+                        {{-- @can('user_list') --}}
                             <a href="{{ route('staff.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Staff List</a>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('roles_list')
+                        {{-- @can('roles_list') --}}
                             <a href="{{ route('roles.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Roles List</a>
-                        @endcan
+                        {{-- @endcan --}}
+
                         {{-- <a href="{{ route('volunteer.index') }}" class="siderbar-item"><i
                                 class="fa-solid fa-briefcase"></i>Volunteer List</a> --}}
                     </div>
@@ -97,11 +100,11 @@
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
                     Donate List</a></li>
-            @can('permissions_add')
+            {{-- @can('permissions_add') --}}
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-briefcase"></i>
                     Add Permissions</a></li>
-            @endcan
+            {{-- @endcan --}}
 
         </ul>
         <hr class="h-color mx-2">
@@ -151,45 +154,7 @@
 
 </div>
 <footer class="footer">
-    <div class="container row">
-        <div class="footer-col">
-            <h4>company</h4>
-            <ul>
-                <li><a href="#">about us</a></li>
-                <li><a href="#">our services</a></li>
-                <li><a href="#">privacy policy</a></li>
-                <li><a href="#">visit website</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>get help</h4>
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">shipping</a></li>
-                <li><a href="#">returns</a></li>
-                <li><a href="#">order status</a></li>
-                <li><a href="#">payment options</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>online shop</h4>
-            <ul>
-                <li><a href="#">download</a></li>
-                <li><a href="#">changelog</a></li>
-                <li><a href="#">github</a></li>
-                <li><a href="#">all version</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>follow us</h4>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div>
+    <div class="text-footer">Stay Hope Ful</div>
 </footer>
 <script src="{{ asset('js/sidebar.js') }}"></script>
 <script>
