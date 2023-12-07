@@ -110,9 +110,7 @@ class BlogController extends Controller
         // $projects = Project::where('title', 'like','%'.$keywork.'%')->get();
         $projects = Project::where(function ($query) use ($keywork) {
             $query->where('title', 'like', '%' . $keywork . '%')
-                ->orWhereHas('category', function ($categoryQuery) use ($keywork) {
-                    $categoryQuery->where('name', 'like', '%' . $keywork . '%');
-                });
+                ->orWhere('description', 'like', '%' . $keywork . '%');
         })->get();
         
         if($projects->count() > 0){
