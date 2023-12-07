@@ -47,12 +47,14 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($userinfo as $user)
-                                        <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->users->name}}</td>
-                                            <td>{{$user->project->title}}</td>
-                                            <td style="color: #27AE60;">{{$user->amount}}$</td>
-                                        </tr>
+                                        @if (session('userInfo')['id'] == $user->users->id)
+                                            <tr>
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->users->name }}</td>
+                                                <td>{{ $user->project->title }}</td>
+                                                <td style="color: #27AE60;">{{ $user->amount }}$</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -91,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="edit-post-user">
-                                        <a class="edit_form-post"data-id="{{ $post->id}}">Edit</a>
-                                        <a class="delete_form-post"data-id="{{ $post->id}}">Delete</a>
+                                        <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
+                                        <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
@@ -116,7 +118,7 @@
         </div>
     </div>
 
-    <div class="modal-user-post-1">
+    <div class="modal-user-post-1" >
         <div class="modal_inner-post">
             <div class="post-header">
 
@@ -160,6 +162,4 @@
     @include('frontend/profile/popup_profile')
 
     @include('frontend.profile.form_post')
-    
-
 @endsection
