@@ -11,7 +11,7 @@ class VolunteerController extends Controller
 {
     public function index()
     {
-        return view("volunteer.index");
+        return view("frontend.volunteer.index");
     }
 
     public function create()
