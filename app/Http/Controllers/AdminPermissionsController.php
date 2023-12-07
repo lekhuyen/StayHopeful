@@ -13,7 +13,7 @@ class AdminPermissionsController extends Controller
     public function store(Request $request){
         $permission = Permissions::create([
             'name'=>$request->name,
-            'display_name'=>$request->display_name,
+            'display_name'=>$request->name,
             'parent_id'=>0,
         ]);
         foreach ($request->module_childrent as $value) {
