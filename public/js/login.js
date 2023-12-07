@@ -31,6 +31,13 @@ exitLogin.addEventListener('click', function () {
 })
 }
 
+//popup forgot password
+var forgotPasswordLink = document.querySelector('.a-forgot-pass');
+var forgotPasswordForm = document.querySelector('.container-reset-password-email-input');
+forgotPasswordLink.addEventListener('click', function () {
+    forgotPasswordForm.classList.add("showForgotPassword");
+    containerPopup.classList.remove('showLogin');
+});
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-alert-btn');
 var registerSuccess = document.querySelector(".container-register-notification");
