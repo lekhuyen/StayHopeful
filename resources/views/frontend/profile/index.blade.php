@@ -47,15 +47,18 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($userinfo as $user)
+                                    <tr>
                                         @if (session('userInfo')['id'] == $user->users->id)
-                                            <tr>
-                                                <td>{{ $user->id }}</td>
-                                                <td>{{ $user->users->name }}</td>
-                                                <td>{{ $user->project->title }}</td>
-                                                <td style="color: #27AE60;">{{ $user->amount }}$</td>
-                                            </tr>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->users->name }}</td>
+                                            <td>{{ $user->project->title }}</td>
+                                            <td style="color: #27AE60;">{{ $user->amount }}$</td>
                                         @endif
-                                    @endforeach
+                                    </tr>
+                                @endforeach
+                                
+                                
+
                                 </tbody>
                             </table>
                         </div>
@@ -118,7 +121,7 @@
         </div>
     </div>
 
-    <div class="modal-user-post-1" >
+    <div class="modal-user-post-1">
         <div class="modal_inner-post">
             <div class="post-header">
 
