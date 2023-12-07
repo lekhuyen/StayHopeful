@@ -144,7 +144,7 @@
                     <button class="btn transparent" id="sign-up-btn">Sign Up</button>
                 </div>
 
-                <img src="img/logo.svg" class="image" alt="">
+                <img src="{{asset('img/logo.svg')}}" class="image" alt="">
             </div>
 
             <div class="panel right-panel">
@@ -154,7 +154,7 @@
                     <button class="btn transparent" id="sign-in-btn">Sign In</button>
                 </div>
 
-                <img src="img/logo.svg" class="image" alt="">
+                <img src="{{asset('img/logo.svg')}}" class="image" alt="">
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
-    <script src="js/login.js"></script>
+    <script src="{{asset('js/login.js')}}"></script>
     <script>
 
     $(document).ready(function() {
