@@ -171,19 +171,19 @@
     color: #aaa;
     font-weight: 500;
 }
-.change-password-input-field small {
+.change-password-input-field small.change-password-validate {
     margin-top: 45px;
     color: rgb(255, 255, 255);
     position: absolute;
     /* bottom: -20px; */
-    /* left: 20%; */
+    left: 20%;
     visibility: hidden;
     font-size: 12px;
 }
-.change-password-input-field.error small {
+.change-password-input-field.error small.change-password-validate {
     visibility: visible;
 }
-.btn{
+.btn-change-password{
     width: 150px;
     height: 40px;
     border: none;
@@ -196,7 +196,7 @@
     margin: 50px 0;
     transition: .5s;
 }
-.btn:hover{
+.btn-change-password:hover{
     background-color: #4d84e2;
 }
 /* @media (max-width: 1170px) {

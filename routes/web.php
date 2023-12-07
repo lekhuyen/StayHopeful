@@ -157,10 +157,9 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
 
-
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign')->middleware('can:slider_list');
     Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider')->middleware('can:slider_add');
-    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_edit');
+    Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_add');
     Route::get('managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
     Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider')->middleware('can:slider_delete');
 
@@ -181,6 +180,9 @@ Route::group(['prefix' => 'admin/'], function () {
 
 
 });
+
+
+//
 
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
@@ -323,6 +325,8 @@ Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])-
 Route::group(['prefix'=> 'staff/'], function(){
     Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
     Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
+    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
+    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
     Route::post('store',[UserAdminController::class,'store'])->name('staff.store');
     Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
     Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
@@ -340,6 +344,7 @@ Route::group(['prefix'=> 'roles/'], function(){
 
 });
 Route::group(['prefix'=> 'permissions/'], function(){
+    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::post('store',[AdminPermissionsController::class,'store'])->name('permissions.store');
 });

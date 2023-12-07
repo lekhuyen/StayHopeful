@@ -172,10 +172,12 @@ class AdminPageController extends Controller {
             'email' => 'required',
             'role' => 'required',
         ]);
+        $hashpass = Hash::make($request->password);
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
+        $user->password = $hashpass;
         $user->verified_token = $verify_token;
         $user->save();
         return redirect()->back()->with('success', 'Update User successfully');
