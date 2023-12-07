@@ -38,7 +38,8 @@ class UserAdminController extends Controller
             return redirect()->route('staff.index');
         } catch (\Exception $exception) {
             DB::rollBack();
-            Log::error('Message: ' . $exception->getMessage(),'--Line:'.$exception->getLine());
+            Log::error('Message: ' . $exception->getMessage());
+
         }
         
     }
@@ -68,7 +69,7 @@ class UserAdminController extends Controller
             return redirect()->route('staff.index');
         } catch (\Exception $exception) {
             DB::rollBack();
-            Log::error('Message: ' . $exception->getMessage(),'--Line:'.$exception->getLine());
+            Log::error('Message: ' . $exception->getMessage());
         }
         
     }

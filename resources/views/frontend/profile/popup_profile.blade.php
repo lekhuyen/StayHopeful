@@ -1,10 +1,62 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{ asset('profilecss/popup_profile.css') }}">
-    {{-- profile popup --}}
 
-    <div class="popup-profile-container" style="z-index: 10;">
-        <div class="modal-inner-profile">
+<div class="container-change-password-notification">
+    <div class="change-password-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
         </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+        <p>
+            Change Password Successfully !
+            <br>
+            Please input your new password next time you login.
+        </p>
+    </div>
+</div>
+<div class="container-error-notification">
+    <div class="status-error">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+        <p>
+            Somethings went wrong !
+            <br>
+            Please try again later.
+        </p>
+    </div>
+</div>
+    <div class="popup-change-password-container">
+        <div class="change-password-popup">
+            <div class="exit-change-password-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <form id="changePasswordForm" class="change-password-form" action="{{ route("auth.changepassword") }}" method="POST">
+                @csrf
+                <h2 class="change-password-form-title">Change Password</h2>
+                <div class="change-password-input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input id="old-password" type="password" placeholder="Current Password" name="old_password" style="height: 45px;"/>
+                    <div class="eye"><i class="far fa-eye"></i></div>
+                    <small></small>
+                </div>
+                <div class="change-password-input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input id="new-password-change" type="password" placeholder="New Password" name="new_password"/>
+                    <small></small>
+                </div>
+                <div class="change-password-input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input id="confirm-new-password-change" type="password" placeholder="Confirm New Password" name="confirm_new_password"/>
+                    <small></small>
+                </div>
+                <button id="btn-change-password" type="submit" class="btn solid">Confirm</button>
+            </form>
+        </div>
+    </div>
+    {{-- profile popup dropdown--}}
+    <div class="popup-profile-container" style="z-index: 10;">
         <div class="profile-popup">
             <div class="profile-menu">
                 <div class="user-info">
@@ -23,7 +75,7 @@
                 </div>
                 <hr>
                 <div>
-                    <a href="#" class="profile-menu-link">
+                    <a href="#" class="profile-menu-link change-password">
                         <i class="fa-solid fa-key"></i>
                         <p>Change Password</p>
                         <span>></span>
@@ -40,23 +92,50 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <script src="js/popup_profile.js"></script>
     <script>
-       
-        // popup
-    var profileDropdown = document.querySelector('.profile-popup');
-    var popupProfile = document.querySelector('.popup-profile');
-    var containerPopupProfile = document.querySelector('.popup-profile-container');
-    var exitProfile = document.querySelector('.modal-inner-profile');
-    //console.log(containerPopup);
-    if(popupProfile){
-    popupProfile.addEventListener('click', function () {
-        containerPopupProfile.classList.toggle('showProfileDropdown');
-        // profileDropdown.classList.toggle('open-popup-profile');
+
+     //alert
+     var changePasswordSuccess = document.querySelector(".container-change-password-notification");
+     var errorAlert = document.querySelector(".container-error-notification");
+
+     //change password ajax request
+    $(document).ready(function () {
+        $('#changePasswordForm').submit(function (e) {
+            e.preventDefault();
+            let isValid = checkChangePassword();
+            if(isValid){
+            $.ajax({
+                url: '{{ route("auth.changepassword") }}',
+                type: 'POST',
+                data: {
+                      _token: "{{ csrf_token() }}",
+                      old_password: $('#old-password').val(),
+                      new_password: $('#new-password-change').val()
+                 },
+                success: function (response) {
+                    if(response.status == 'success') {
+                        changePasswordSuccess.classList.add("showAlert");
+                        popupChangePassword.classList.remove('showChangePassword');
+                        // window.location.href = "{{route('/')}}"; 
+                        $('#old-password').val(''),
+                        $('#new-password-change').val('')
+                        $('#confirm-new-password-change').val('')
+                    }
+                    else if(response.status == 'error'){
+                        errorAlert.classList.add("showAlert");
+                    }
+                },
+                error: function (error) {
+                    console.log(response.message);
+                }
+            });
+        }
+        });
     });
-    containerPopupProfile.addEventListener('click', function () {
-    containerPopupProfile.classList.remove('showProfileDropdown');
-    // profileDropdown.classList.remove('open-popup-profile');
-    })
-    }
+
     </script>
    
