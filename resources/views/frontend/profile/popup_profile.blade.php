@@ -39,19 +39,19 @@
                     <i class="fa-solid fa-lock"></i>
                     <input id="old-password" type="password" placeholder="Current Password" name="old_password" style="height: 45px;"/>
                     <div class="eye"><i class="far fa-eye"></i></div>
-                    <small></small>
+                    <small class="change-password-validate"></small>
                 </div>
                 <div class="change-password-input-field">
                     <i class="fa-solid fa-key"></i>
                     <input id="new-password-change" type="password" placeholder="New Password" name="new_password"/>
-                    <small></small>
+                    <small class="change-password-validate"></small>
                 </div>
                 <div class="change-password-input-field">
                     <i class="fa-solid fa-key"></i>
                     <input id="confirm-new-password-change" type="password" placeholder="Confirm New Password" name="confirm_new_password"/>
-                    <small></small>
+                    <small class="change-password-validate"></small>
                 </div>
-                <button id="btn-change-password" type="submit" class="btn solid">Confirm</button>
+                <button id="btn-change-password" type="submit" class="btn solid btn-change-password">Confirm</button>
             </form>
         </div>
     </div>
