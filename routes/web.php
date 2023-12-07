@@ -145,6 +145,8 @@ Route::get('/video', [BlogController::class, 'video'])->name('video.index');
 
 //comment
 Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comment.index');
+//input search
+Route::post('/search', [BlogController::class, 'search'])->name('serach_project');
 
 
 

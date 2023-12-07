@@ -21,6 +21,11 @@ class UserAdminController extends Controller
         return view('frontend.adminpage.user_list.create', compact('roles'));
     }
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         try {
             DB::beginTransaction();
             $user = new User();
@@ -54,6 +59,11 @@ class UserAdminController extends Controller
     }
 
     public function update(Request $request, $id){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         try {
             DB::beginTransaction();
             $user = User::find($id)->update([

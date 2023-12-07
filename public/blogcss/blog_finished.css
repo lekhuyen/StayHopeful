@@ -90,4 +90,32 @@ body {
     float: left;
 }
 
+/* search input */
+.serach_input-project {
+    background-color: rgb(158, 211, 247);
+    height:40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+.serach_input-project input {
+    margin-right: 30px;
+    width: 30%;
+    height: 90%;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 40px 5px 20px;
+}
+.serach_input-project div {
+    position: absolute;
+    top: 25%;
+    right: 40px;
+}
 
+.serach_input-project div i {
+    font-size: 20px;
+    color: rgb(212, 204, 204);
+}
