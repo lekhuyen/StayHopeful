@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail;
 
 class UserAdminController extends Controller
 {
     public function index(){
-        $users = User::all();
+        $users = User::where('status',1)->get();
         return view('frontend.adminpage.user_list.index', compact('users'));
     }
 
@@ -23,8 +21,6 @@ class UserAdminController extends Controller
         return view('frontend.adminpage.user_list.create', compact('roles'));
     }
     public function store(Request $request){
-        $verify_token = Str::random(6);
-        $emailUser=$request->email;
         try {
             DB::beginTransaction();
             $user = new User();
@@ -32,14 +28,8 @@ class UserAdminController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->status = 1;
+            $user->role = 1;
             $user->save();
-
-            $name = 'StayHopeful';
-
-            Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
-                $email->subject('Confirm Register');
-                $email->to($emailUser, $name);
-            });
 
             $roleIds = $request->role_id;
             $user->roles()->attach($roleIds);
