@@ -40,11 +40,12 @@
 
 
     <div class="col-lg-8 post-detail-1">
-
         <span>{!! $project->description !!}</span>
+
         @foreach ($project->images as $image)
             <img src="{{ asset($image->image) }}" alt="">
         @endforeach
+
 
         @if ($project->donateinfo->sum('amount') >= $project->money)
             <div class="donate_link">
@@ -79,7 +80,8 @@
         @endif
 
     </div>
+
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')
 
-@endsection
+    @endsection
