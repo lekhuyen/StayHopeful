@@ -47,18 +47,15 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($userinfo as $user)
-                                    <tr>
-                                        @if (session('userInfo')['id'] == $user->users->id)
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->users->name }}</td>
-                                            <td>{{ $user->project->title }}</td>
-                                            <td style="color: #27AE60;">{{ $user->amount }}$</td>
-                                        @endif
-                                    </tr>
-                                @endforeach
-                                
-                                
-
+                                        <tr>
+                                            @if (session('userInfo')['id'] == $user->users_id)
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->users->name }}</td>
+                                                <td>{{ $user->project->title }}</td>
+                                                <td style="color: #27AE60;">{{ $user->amount }}$</td>
+                                            @endif
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
