@@ -21,6 +21,11 @@ class UserAdminController extends Controller
         return view('frontend.adminpage.user_list.create', compact('roles'));
     }
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         try {
             DB::beginTransaction();
             $user = new User();
@@ -41,7 +46,7 @@ class UserAdminController extends Controller
             Log::error('Message: ' . $exception->getMessage());
 
         }
-        
+
     }
 
 
@@ -49,11 +54,16 @@ class UserAdminController extends Controller
         $roles = Role::all();
         $user = User::find($id);
         $roleUser = $user->roles;
-        
+
         return view('frontend.adminpage.user_list.edit', compact('user', 'roles', 'roleUser'));
     }
 
     public function update(Request $request, $id){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         try {
             DB::beginTransaction();
             $user = User::find($id)->update([
@@ -71,7 +81,7 @@ class UserAdminController extends Controller
             DB::rollBack();
             Log::error('Message: ' . $exception->getMessage());
         }
-        
+
     }
 
     public function delete($id){

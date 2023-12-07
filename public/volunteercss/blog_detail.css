@@ -1,0 +1,23 @@
+.btn_volunter{
+    border-radius: 10px;
+    background: green;
+    color: black;
+    padding: 10px;
+    opacity: 0.9;
+}
+.btn_volunter:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.btn_volunter_disabled{
+    border-radius: 10px;
+    background: gray !important;
+    color: black !important;
+    padding: 10px;
+    opacity: 0.6;
+}
+.btn_volunter_disabled:hover{
+    cursor: not-allowed;
+    color: black !important;
+
+}
