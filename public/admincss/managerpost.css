@@ -7,7 +7,7 @@
 .textusers p{
     font-size: 23px;
     font-weight: 600;
-    
+
 }
 .btn-search{
     padding: 10px;
@@ -35,7 +35,7 @@ table thead tr td:first-child{
 table thead tr td:nth-child(5){
     border-top-right-radius: 20px;
 }
-/* serachinput */
+/* searchinput */
 .search-container {
     position: relative;
 }

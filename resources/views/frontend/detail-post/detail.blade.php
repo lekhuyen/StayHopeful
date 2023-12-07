@@ -9,8 +9,7 @@
                         <span style="font-size: 20px; margin-left: 20px; color: black;">
                             Total Donate:
                         </span>
-                        <span
-                            style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
+                        <span style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
                             {{ number_format($project->donateinfo->sum('amount'), 2) }}
                         </span>
 
@@ -18,8 +17,7 @@
                             <span style="font-size: 20px; margin-left: 20px; color: black;">
                                 Mr. {{ $donation->name }}:
                             </span>
-                            <span
-                                style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
+                            <span style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
                                 {{ $donation->amount }}
                             </span>
                         @endforeach
@@ -49,40 +47,22 @@
             <div class="donate_link">
                 <button disabled>DONATE</button>
             </div>
-        @if ($project->donateinfo->sum('amount') >= $project->money)
-            <div class="donate_link">
-                <button disabled>DONATE</button>
-            </div>
         @else
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
-                <a href="#" class= "disabled">VOLUNTEER</a>
+                    <a href="#" class= "disabled">VOLUNTEER</a>
                 @else
-                <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                    <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
                 @endif
-
-            </div>
-
-            <div>
-            </div>
-            <div>
             </div>
         @endif
 
         {{-- @if (session('userInfo')) --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        {{-- @if (session('userInfo')) --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
         {{-- @else --}}
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+        <div class="comment-icon">
+            <i class="fa-regular fa-comment"></i>
+            <span>2</span>
         </div>
         <div class="comment-access">
             <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
@@ -92,10 +72,7 @@
         <div class="comment-access">
             <a href="#">LOGIN TO LEAVE A COMMENT</a>
         </div>
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
+        
 
     </div>
     @include('frontend/login/login')

@@ -30,10 +30,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->difineGatePermission();
         $this->difineGateVideos();
         $this->difineGateSliders();
-        
+
         // Gate::define('post_edit', function ($user) {
         //     return $user->checkPermissionAccess(config('permissions.access.post_edit'));
-            
+
         // });
     }
 

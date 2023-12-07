@@ -48,10 +48,12 @@
                                 <tbody>
                                     @foreach ($userinfo as $user)
                                         <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->users->name}}</td>
-                                            <td>{{$user->project->title}}</td>
-                                            <td style="color: #27AE60;">{{$user->amount}}$</td>
+                                            @if (session('userInfo')['id'] == $user->users_id)
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->users->name }}</td>
+                                                <td>{{ $user->project->title }}</td>
+                                                <td style="color: #27AE60;">{{ $user->amount }}$</td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -91,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="edit-post-user">
-                                        <a class="edit_form-post"data-id="{{ $post->id}}">Edit</a>
-                                        <a class="delete_form-post"data-id="{{ $post->id}}">Delete</a>
+                                        <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
+                                        <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
@@ -160,6 +162,4 @@
     @include('frontend/profile/popup_profile')
 
     @include('frontend.profile.form_post')
-    
-
 @endsection

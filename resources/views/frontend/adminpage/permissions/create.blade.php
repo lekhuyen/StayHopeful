@@ -8,7 +8,7 @@
             @csrf
             <div class="col-lg-12 mb-3 mt-3">
                 <label for="permissions">Permissions</label>:</label>
-                <select name="module_parent" style="width:100%">
+                <select name="name" style="width:100%">
                     <option>Choose Permission</option>
                     @foreach (config('permissions.table_module') as $item)
                         <option value="{{$item}}">{{$item}}</option>
@@ -35,7 +35,7 @@
                         @endforeach
                     </div>
                 </div>
-                
+
             </div>
 
             <button type="submit" class="btn btn-primary mb-3">Submit</button>

@@ -90,6 +90,7 @@
                                     Received:
                                     <span>
                                         ${{ number_format($project->donateInfo->sum('amount'), 2) }}
+                                        {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">
@@ -229,24 +230,13 @@
         </div>
     </div>
 
-    @if(session('isVerified'))
-    @include('frontend/login/login',['isVerified',true]);
-    @else
-
-    @include('frontend/login/login');
-    @include('frontend/profile/popup_profile');
-    @endif
-
-    {{-- đừng xoá --}}
-    {{-- @foreach ($totalAmountByProject as $projectId => $total)
-        Project ID: {{ $projectId }}, Total Amount: {{ $total }}<br>
-    @endforeach --}}
-    {{-- @if (session('isVerified'))
+    @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true]);
     @else
         @include('frontend/login/login');
+        @include('frontend/profile/popup_profile');
+    @endif
 
-    @endif --}}
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
         integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
@@ -254,4 +244,4 @@
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
     <script src="{{ asset('js/indexslider.js') }}"></script>
     <script src="{{ asset('js/countdonate.js') }}"></script>
-@stop()
+    @stop()

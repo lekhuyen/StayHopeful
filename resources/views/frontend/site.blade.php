@@ -84,7 +84,7 @@
                                 style="display: flex; align-items: center; justify-content: space-between;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
                                     <i class="fa-solid fa-bars"></i>
-                                    <input type="text" placeholder="Tìm kiếm">
+                                    <input type="text" placeholder="Search">
                                 </div>
 
                                 <div style="display: flex; align-items: center;">
@@ -182,7 +182,7 @@
                                         @else
                                         <img class="nav-user-img" src="{{asset('img/omg.jpeg')}}" alt="">
                                         @endif
-                                    </div> 
+                                    </div>
                                     @else
                                     <div class="text popup-login">LOGIN</div>
                                     @endif
@@ -190,7 +190,7 @@
                             </div>
                         </ul>
                     </div>
-                    
+
                 </div>
                 </div>
             </div>

@@ -12,8 +12,8 @@ class AdminPermissionsController extends Controller
     }
     public function store(Request $request){
         $permission = Permissions::create([
-            'name'=>$request->module_parent,
-            'display_name'=>$request->module_parent,
+            'name'=>$request->name,
+            'display_name'=>$request->name,
             'parent_id'=>0,
         ]);
         foreach ($request->module_childrent as $value) {
