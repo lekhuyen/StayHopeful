@@ -25,9 +25,9 @@
                             @can('user_delete')
                                 <a href="{{route('staff.delete', $user->id)}}" class="btn btn-danger">Delete</a>
                             @endcan
-                            {{-- @can('user_edit') --}}
+                            @can('user_edit')
                                 <a href="{{route('staff.edit', $user->id)}}" class="btn btn-primary">Edit</a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
