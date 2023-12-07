@@ -155,6 +155,11 @@
                             name="name">
                     </div>
                     <div class="mb-3 mt-3">
+                        <label for="password-update" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password-update" placeholder="Enter Password" autocomplete="off"
+                            name="password">
+                    </div>
+                    <div class="mb-3 mt-3">
                         <label for="email-update" class="form-label">Email:</label>
                         <input type="text" class="form-control" id="email-update" placeholder="Enter Email" autocomplete="off"
                             name="email">
