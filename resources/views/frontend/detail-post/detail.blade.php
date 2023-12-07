@@ -1,6 +1,5 @@
 @extends('frontend.comment.comment')
-{{-- @section('detail-post') --}}
-<link rel="stylesheet" href="{{ asset('volunteercss/blog_detail.css') }}">
+@section('detail-post')
 @section('post-title')
     <div class="container-fluid margin-navbar">
         <div class="container">
@@ -10,8 +9,7 @@
                         <span style="font-size: 20px; margin-left: 20px; color: black;">
                             Total Donate:
                         </span>
-                        <span
-                            style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
+                        <span style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
                             {{ number_format($project->donateinfo->sum('amount'), 2) }}
                         </span>
 
@@ -19,8 +17,7 @@
                             <span style="font-size: 20px; margin-left: 20px; color: black;">
                                 Mr. {{ $donation->name }}:
                             </span>
-                            <span
-                                style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
+                            <span style="font-size: 20px; margin-left: 6px; color: black; vertical-align: inherit">
                                 {{ $donation->amount }}
                             </span>
                         @endforeach
@@ -36,16 +33,15 @@
                 <h2>{{ $project->title }}</h2>
             </div>
         </div>
-    {{-- @endsection --}}
+    @endsection
 
 
     <div class="col-lg-8 post-detail-1">
-        <span>{!! $project->description !!}</span>
 
+        <span>{!! $project->description !!}</span>
         @foreach ($project->images as $image)
             <img src="{{ asset($image->image) }}" alt="">
         @endforeach
-
 
         @if ($project->donateinfo->sum('amount') >= $project->money)
             <div class="donate_link">
@@ -55,33 +51,31 @@
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
-                <a class= "btn_volunter_disabled">VOLUNTEER</a>
+                    <a href="#" class= "disabled">VOLUNTEER</a>
                 @else
-                <a href="{{ route('volunteer.create') }}"  class= "btn_volunter">VOLUNTEER</a>
+                    <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
                 @endif
-
             </div>
         @endif
 
-        @if (session('userInfo'))
+        {{-- @if (session('userInfo')) --}}
+        {{-- @else --}}
         <div class="comment-icon">
             <i class="fa-regular fa-comment"></i>
             <span>2</span>
         </div>
+        <div class="comment-access">
+            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+        </div>
+        {{-- @endif --}}
 
-        @else
         <div class="comment-access">
             <a href="#">LOGIN TO LEAVE A COMMENT</a>
         </div>
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        @endif
+        
 
     </div>
-
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')
 
-    @endsection
+@endsection
