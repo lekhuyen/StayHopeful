@@ -69,7 +69,7 @@ class AdminPageController extends Controller
         $totalamount = $donatetotal->sum('amount');
 
 
-        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', '$categories'));
+        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
     public function GetTotalAmount()
     {

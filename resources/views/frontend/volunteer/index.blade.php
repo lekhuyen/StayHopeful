@@ -5,40 +5,58 @@
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer_list.css') }}">
 
     <div class="volunteer-detail">
-        <h1>Volunteer List</h1>
+        <h1>Project Volunteer</h1>
         <div class="container mt-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Finding Source</th>
-                        <th>Enrolled</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Description</th>
-                        <th>Relative Name</th>
-                        <th>Relative Relationship</th>
-                        <th>Relative Phone</th>
+                        <th>Title</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($volunteers as $item)
+                    @foreach ($projects as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->finding_source }}</td>
-                            <td>{{ $item->enrolled ? 'already' : 'not yet' }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->phone }}</td>
-                            <td>{{ $item->email }}</td>
-                            <td>{{ $item->volunteer_description }}</td>
-                            <td>{{ $item->rel_name }}</td>
-                            <td>{{ $item->rel_relationship }}</td>
-                            <td>{{ $item->rel_phone }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
+                            <td>{{ $item->title }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>
+                                @foreach ($summedCounts as $key => $itemPro)
+
+                                    @if ($item->id == $key)
+                                        @if ($item->quantity == $itemPro)
+                                            <span>Da full</span>
+                                            <a class="btn btn-info">View List Volunteer</a>
+                                        @break
+                                        @endif
+                                    @else
+                                        <span>Con tuyen</span>
+                                        <a class="btn btn-info">View List Volunteer</a>
+                                    @break
+                                @endif
+                        @endforeach
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
 @endsection
+{{-- @foreach ($summedCounts as $key => $itemPro)
+@if ($item->id == $key)
+    @if ($item->quantity == $itemPro)
+        <td>Da full</td>
+        <td><a class="btn btn-info">View List Volunteer</a></td>
+    @break
+
+@else
+    <td>Dang nhan</td>
+    <td><a class="btn btn-info">View List Volunteer</a></td>
+@break
+
+@endif
+@endforeach --}}
