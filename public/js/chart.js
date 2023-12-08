@@ -1,17 +1,18 @@
 const ctx = document.getElementById('chartone');
-const labels = ['Monday  ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday '];
-const data = [25, 34, 120, 44, 64, 88];
+
 
 new Chart(ctx, {
-  type: 'bar',
+  type: 'line',
   data: {
-    labels: labels,
+    labels: labeldayuser,
     datasets: [{
-      label: 'Lợi Nhuận',
-      data: data,
+      label: 'Total User',
+      data: totaluser,
       borderWidth: 1,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)', // Màu trắng với độ trong suốt 0%
-      borderColor: '#5856d6'
+      backgroundColor: '#39f',
+      borderColor: '#fff',
+      tension: 0.5
+
     }]
   },
   options: {
@@ -27,7 +28,6 @@ new Chart(ctx, {
       },
       y: {
         display: false,
-        beginAtZero: true
       }
     }
   }

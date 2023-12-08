@@ -31,6 +31,7 @@ class AdminPageController extends Controller
         $project = Project::selectRaw('COUNT(id) as total_projects, COUNT(CASE WHEN status = 1 THEN 1 END) as status_1')
             ->groupBy('status')
             ->get();
+        $usercount = User::count();
         $allproject = Project::all();
         $totalproject = $project->sum('total_projects');
         $totalstatus = $project->sum('status_1');
@@ -39,14 +40,18 @@ class AdminPageController extends Controller
         $bigchart = $this->bigchart();
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();
+        $usercountchart = $this->usercountchart();
 
-        return view('frontend.adminpage.manager.dashboard', compact('allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted'));
+        return view('frontend.adminpage.manager.dashboard', compact('usercount','allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
     public function viewmanagerdesign()
     {
         $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
+    }
+    public function viewboxmail(){
+        return view('frontend.adminpage.mailbox.mailbox');
     }
     public function sliderview()
     {
@@ -245,6 +250,27 @@ class AdminPageController extends Controller
 
         return $data;
     }
+    public function usercountchart()
+    {
+        $usercount = User::selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
+            ->groupBy('days')
+            ->get();
+
+        $days = [];
+        $userCounts = [];
+
+        foreach ($usercount as $count) {
+            $days[] = date('l', strtotime("Sunday + {$count->day} days"));
+            $userCounts[] = $count->total_users;
+        }
+
+        $data = [
+            "days" => $days,
+            "userCounts" => $userCounts,
+        ];
+
+        return $data;
+    }
     public function chartproject()
     {
         $project = Project::selectRaw('MONTH(created_at) as months, COUNT(id) as projectid')
@@ -298,7 +324,7 @@ class AdminPageController extends Controller
 
         foreach ($projects as $project) {
             $statusText = ($project->status == 1) ? 'Finish' : 'Unfinish';
-
+            
             $output .=
                 '<tr>
                     <td> ' . $project->id . ' </td>
