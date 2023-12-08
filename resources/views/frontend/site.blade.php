@@ -117,7 +117,7 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Team</a>
+                                    <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Team</a>
                                     <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                 </div>
                             </div>
