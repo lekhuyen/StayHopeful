@@ -117,10 +117,9 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{ route('blog.index') }}" class="sub-item">Blog</a>
-                                    <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                     <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Team</a>
                                     <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
                                 </div>
                             </div>
 
@@ -134,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="#" class="nav-menu-title">DONORS</a>
+                                <a class="nav-menu-title">DONORS</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
@@ -143,12 +142,12 @@
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">BLOG</a>
+                                <a class="nav-menu-title">STAYHOPEFUL</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{route('blog.index')}}" class="sub-item">News</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                    <a href="{{route('feedback.create')}}" class="sub-item">Feedback</a>
+                                    <a href="{{route('volunteer.create')}}" class="sub-item">Volunteer</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
@@ -189,7 +188,7 @@
                                     <div class="text">CONTACT</div>
                                 </a>
                             </li>
-                            
+
                             <li>
                                     @if (session('userInfo'))
                                     <div class="text popup-profile">
@@ -247,7 +246,7 @@
                     <div class="footer_header">
                         <h2>EXPLORE</h2>
                         <ul>
-                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
+                            <li><a href="{{ route('contact.index', 1) }}">About Us</a></li>
                             <li><a href="{{ route('blog.index') }}">News</a></li>
                             <li><a href="{{ route('detail.listdonate') }}">Donate List</a></li>
                             <li><a href="{{ route('video.index') }}">Video Gallery</a></li>

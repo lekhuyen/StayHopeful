@@ -1,4 +1,5 @@
 @extends('frontend.comment.comment')
+<link rel="stylesheet" href="{{asset("volunteercss/blog_detail.css")}}">
 @section('detail-post')
 @section('post-title')
     <div class="container-fluid margin-navbar">
@@ -51,9 +52,9 @@
             <div class="donate_link">
                 <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
-                    <a href="#" class= "disabled">VOLUNTEER</a>
+                    <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else
-                    <a href="{{ route('volunteer.create') }}">VOLUNTEER</a>
+                    <a href="{{ route('volunteer.create') }}" class="btn_volunter">VOLUNTEER</a>
                 @endif
             </div>
         @endif
@@ -72,7 +73,7 @@
         <div class="comment-access">
             <a href="#">LOGIN TO LEAVE A COMMENT</a>
         </div>
-        
+
 
     </div>
     @include('frontend/login/login')
