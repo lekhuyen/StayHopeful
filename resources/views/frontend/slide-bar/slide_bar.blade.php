@@ -1,10 +1,13 @@
 <div class="btn-search">
-    <div class="btn-search-1">
-        <input type="text">
-        <div class="search-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <form action="{{route('search_project')}}" method="POST">
+        @csrf
+        <div class="btn-search-1">
+            <input type="text" name="keywork" placeholder="Search..">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 <div class="menu-bar">
     <div class="item">

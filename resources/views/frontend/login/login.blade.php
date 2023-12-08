@@ -46,6 +46,28 @@
         </p>
     </div>
 </div>
+
+{{-- forgot pass form --}}
+<div class="container-reset-password-email-input">
+    <div class="modal-inner-reset-password-email-input"></div>
+    <div class="reset-password-email-input">
+        <div class="exit-reset-password-email-input-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <form id="inputEmailResetPassword" class="reset-password-email-input-form" method="POST">
+            @csrf
+            <h2 class="reset-password-email-input-form-title">Reset Password</h2>
+            <p>Please input your email to receive OTP:</p>
+            <div class="reset-password-email-input-field">
+                <i class="fa-solid fa-user"></i>
+                <input id="reset-password-email" type="text" placeholder="Email" name="name"/>
+                <small class="reset-password-email-validate"></small>
+            </div>
+            <button id="btn-send-otp" type="submit" class="btn solid btn-send-otp-email">Send OTP</button>
+        </form>
+    </div>
+</div>
+
 {{-- login-register-popup --}}
 <div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
     <div class="modal-inner">

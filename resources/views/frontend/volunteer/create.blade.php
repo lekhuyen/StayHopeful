@@ -1,6 +1,7 @@
 @extends('frontend.site')
 @section('title', 'Volunteer Form')
 @section('main')
+
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer.css') }}">
 
     <div class="container__voting mt-5">
