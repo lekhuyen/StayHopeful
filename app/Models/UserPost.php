@@ -16,6 +16,9 @@ class UserPost extends Model
 
 
 
+    protected function likes(){
+        return $this->hasMany(Like::class, 'id_post', 'id');
+    }
     protected function comments(){
         return $this->hasMany(CommentPost::class, 'post_id', 'id');
     }

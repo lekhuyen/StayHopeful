@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CommentPost;
+use App\Models\Like;
 use App\Models\PostImage;
 use App\Models\UserPost;
 use Illuminate\Http\Request;
@@ -25,13 +26,43 @@ class UserPostController extends Controller
         $posts = UserPost::orderBy('id', 'desc')
         ->where('status', 0)
         ->get();
-        $comments = CommentPost::where(['post_id'=>$request->post_id, 'reply_id'=>0])->orderBy('id', 'desc')->get();
-        if($comments->count() > 0 || $posts) {
-            return view('frontend.post_page.index', compact('posts', 'comments'));
-        } else {
-            return response()->json(['status' => 'error', 'message' => 'Loi']);
 
+        $comments = CommentPost::where(['post_id'=>$request->post_id, 'reply_id'=>0])->orderBy('id', 'desc')->get();
+        // if($comments->count() > 0 || $posts) {
+        // } else {
+        //     return response()->json(['status' => 'error', 'message' => 'Loi']);
+            
+        // }
+        // $likes = Like::all();
+
+        return view('frontend.post_page.index', compact('posts', 'comments'));
+    }
+
+    // like - user - post 
+    public function like(Request $request){
+        $post_id  = $request->post_id;
+        $post = UserPost::find($post_id);
+        $like_count = Like::where('id_post', $post->id)->count();
+        
+        $like = Like::where('id_post', $post->id)
+            ->where('id_user', auth()->user()->id)
+            ->first();
+        if($like) {
+            $like->delete();
+            
+        } else {
+            Like::create([
+                'id_post'=>$post_id,
+                'id_user'=>auth()->user()->id
+            ]);
         }
+        return response()->json([
+            'status' => 'success',
+            'count'=>$like_count
+        ], 200);
+        // return response()->json($like_count);
+        // return response()->json(['error'=>['Tai khoan khong ton tai']]);
+        
     }
 
     public function store(Request $request)

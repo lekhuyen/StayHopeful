@@ -32,6 +32,7 @@ class AdminPageController extends Controller
             ->groupBy('status')
             ->get();
         $allproject = Project::all();
+
         $totalproject = $project->sum('total_projects');
         $totalstatus = $project->sum('status_1');
         $totalamount = $amount->sum('amount');
@@ -69,8 +70,12 @@ class AdminPageController extends Controller
         $totalamount = $donatetotal->sum('amount');
 
 
-        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', '$categories'));
+        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
+
+
+
+
     public function GetTotalAmount()
     {
         try {
