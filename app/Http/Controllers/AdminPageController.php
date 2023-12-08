@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories_sliders;
+use App\Models\Category;
 use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\Sliders;
@@ -62,12 +63,13 @@ class AdminPageController extends Controller
             ->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
         $slider = Sliders::all();
+        $categories = Category::orderBy('id', 'desc')->get();
         // tong donate
         $donatetotal = DonateInfo::select('amount')->get();
         $totalamount = $donatetotal->sum('amount');
 
 
-        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount'));
+        return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', '$categories'));
     }
     public function GetTotalAmount()
     {
