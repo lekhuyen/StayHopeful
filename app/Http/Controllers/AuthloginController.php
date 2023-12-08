@@ -14,7 +14,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthloginController extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         // Validate the login request data
         $this->validate($request, [
             'email' => 'required|email',
@@ -25,29 +26,29 @@ class AuthloginController extends Controller
         $user = User::where("email", $email)->first();
         $role = $user->role;
         $status = $user->status;
-        if ($status == 1){
-        // Attempt login with provided credentials
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-            
-            session()->put("userInfo", $user->toArray());
-            // User logged in successfully
-            return response()->json([
-                'status' => 'success',
-                'role' => $role,
-                'message' => 'User logged in successfully'
-            ], 200);
-    
+        if ($status == 1) {
+            // Attempt login with provided credentials
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+                session()->put("userInfo", $user->toArray());
+                // User logged in successfully
+                return response()->json([
+                    'status' => 'success',
+                    'role' => $role,
+                    'message' => 'User logged in successfully'
+                ], 200);
+
+            } else {
+                // Login failed
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Unauthorized'
+                ]);
+            }
         } else {
-            // Login failed
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized'
-            ]);
-        }
-        }else{
             return response()->json(['status' => 'email_error', 'message' => 'Must verify email before login']);
         }
-    
+
     }
 
     public function register(Request $request)
@@ -62,43 +63,44 @@ class AuthloginController extends Controller
         $existingUser = User::where("email", $email)->first();
         if ($existingUser) {
             return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
-        }
-        else{
-        //$password = $request->password;
-        $hashPassword = Hash::make($request->password);
-        $user = new User();
-        $user->name = $request->name;
-        $emailUser = $user->email = $request->email;
-        $user->password = $hashPassword;
-        $user->verified_token = $verify_token;
-        $user->save();
-        $name = 'StayHopeful';
+        } else {
+            //$password = $request->password;
+            $hashPassword = Hash::make($request->password);
+            $user = new User();
+            $user->name = $request->name;
+            $emailUser = $user->email = $request->email;
+            $user->password = $hashPassword;
+            $user->verified_token = $verify_token;
+            $user->save();
+            $name = 'StayHopeful';
 
-        Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
-            $email->subject('Confirm Register');
-            $email->to($emailUser, $name);
-        });
-        return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
+            Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
+                $email->subject('Confirm Register');
+                $email->to($emailUser, $name);
+            });
+            return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
         }
     }
-    public function verified_email($verify_token){
+    public function verified_email($verify_token)
+    {
         $user = User::where("verified_token", $verify_token)->first();
-        if($user){
+        if ($user) {
             $user->update(['status' => 1]);
-            return redirect()->route('/')->with("isVerified",true);
+            return redirect()->route('/')->with("isVerified", true);
         }
     }
-    public function viewprofile(){
+    public function viewprofile()
+    {
         $userInfo = session()->get('userInfo');
 
         if ($userInfo && isset($userInfo['id'])) {
             $user = $userInfo['id'];
-    
+
             $posts = UserPost::orderBy('id', 'desc')
                 ->where('user_id', $user)
                 ->where('status', 0)
                 ->get();
-    
+
             $userinfo = DonateInfo::all();
             return view('frontend.profile.index', compact('posts', 'userinfo'));
         } else {
@@ -106,46 +108,84 @@ class AuthloginController extends Controller
         }
     }
     //login bằng email
-    public function redirectgoogle(){
+    public function redirectgoogle()
+    {
         return Socialite::driver('google')->redirect();
     }
-    public function handleGoogleback(){
+    public function handleGoogleback()
+    {
         try {
             $usergoogle = Socialite::driver('google')->user();
-        if($usergoogle){
-            session()->put('user', $usergoogle);
-            return redirect()->route('/');  
-        }else{
-            return redirect()->back()->with('error', 'Lỗi đăng nhập');
-        };
+            if ($usergoogle) {
+                $userGoogle = [
+                    'id' => $usergoogle->id,
+                    'name' => $usergoogle->name,
+                    'email' => $usergoogle->email,
+                    'avatar' => $usergoogle->avatar,
+                    'role' => 0,
+                    'status' => 1,
+                    'is_volunteer' => 0,
+                    'is_sponsor' => 0,
+                ];
+                session()->put('userInfo', $userGoogle);
+                return redirect()->route('/');
+            } else {
+                return redirect()->back()->with('error', 'Lỗi đăng nhập');
+            }
+            ;
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors('Lỗi đăng nhập email');
         }
     }
     //login bằng facebook
-    public function redirectfacebook(){
+    public function redirectfacebook()
+    {
         return Socialite::driver('facebook')->redirect();
     }
-    public function handlefacebookback(){
+    public function handlefacebookback()
+    {
         try {
             $userfacebook = Socialite::driver('facebook')->user();
-        if($userfacebook){
-            session()->put('user', $userfacebook);
-            return redirect()->route('/');  
-        }else{
-            return redirect()->back()->with('error', 'Lỗi đăng nhập');
-        };
+            if ($userfacebook) {
+                session()->put("userInfo", $userfacebook);
+                return redirect()->route('/');
+            } else {
+                return redirect()->back()->with('error', 'Lỗi đăng nhập');
+            }
+            ;
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors('Lỗi đăng nhập email');
         }
     }
-    public function logout(){
+    public function redirectTwitter()
+    {
+        return Socialite::driver('twitter')->redirect();
+    }
+    public function handleTwitterCallback()
+    {
+        try {
+            $usertwitter = Socialite::driver('twitter')->user();
+
+            if ($usertwitter) {
+                session()->put("userInfo", $usertwitter);
+                return redirect()->route('/');
+            } else {
+                return redirect()->back()->with('error', 'Login error');
+            }
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors('Login error');
+        }
+    }
+    public function logout()
+    {
         session()->forget('userInfo');
         return redirect()->route('/');
     }
 
     //edit-post
-    public function post_edit($post_id){
+    public function post_edit($post_id)
+    {
         $post = UserPost::find($post_id);
         $image = $post->images;
         return response()->json(['post' => $post, 'images' => $image]);
@@ -153,14 +193,14 @@ class AuthloginController extends Controller
     public function change_password(Request $request)
     {
         $request->validate([
-        'old_password' => 'required',
-        'new_password' => 'required',
-         ]);
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
         // $old_password = $request-> old_password;
         // $new_password = $request-> new_password;
         $email = session()->get('userInfo')['email'];
         $user = User::where("email", $email)->first();
-        if(Auth::attempt(['email' => $email, 'password' => $request->old_password])){
+        if (Auth::attempt(['email' => $email, 'password' => $request->old_password])) {
             // $user->update(['password' => $request->new_password]);
             $user->password = Hash::make($request->new_password);
             $user->save();
@@ -168,7 +208,7 @@ class AuthloginController extends Controller
                 'status' => 'success',
                 'message' => 'Change password successfully'
             ], 200);
-    
+
         } else {
             return response()->json([
                 'status' => 'error',
@@ -176,6 +216,6 @@ class AuthloginController extends Controller
             ]);
         }
 
-        
+
     }
 }

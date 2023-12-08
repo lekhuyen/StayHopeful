@@ -117,6 +117,8 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">Blog</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                     <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Team</a>
                                     <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                 </div>
@@ -144,8 +146,9 @@
                                 <a class="nav-menu-title">BLOG</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
-                                    <a href="{{ route('aboutus.index') }}" class="sub-item">Our Story</a>
+                                    <a href="{{route('blog.index')}}" class="sub-item">News</a>
+                                    <a href="" class="sub-item">Tin tuc 2</a>
+                                    <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
@@ -154,7 +157,7 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{ route('volunteer.create') }}" class="sub-item">Volunteer</a>
+                                    <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
                                 </div>
                             </div>
                         </div>
@@ -186,8 +189,9 @@
                                     <div class="text">CONTACT</div>
                                 </a>
                             </li>
+                            
                             <li>
-                                @if (session('userInfo'))
+                                    @if (session('userInfo'))
                                     <div class="text popup-profile">
                                         @if (session('userInfo')['avatar'])
                                             <img class="nav-user-img"

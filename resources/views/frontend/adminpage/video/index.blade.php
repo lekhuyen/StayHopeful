@@ -9,7 +9,7 @@
             @can('video_add')
                 <a class="btn btn-primary" href="{{route('video-list.create')}}">Create Video</a>
             @endcan
-                <table class="table table-hover">
+                <table class="table table-striper">
                     <thead>
                         <tr>
                             <th>Video</th>

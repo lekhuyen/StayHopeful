@@ -39,61 +39,60 @@
             <h1 class="fs-4"><a href="{{ route('/') }}"><img src="{{ asset('img/logo.PNG') }}" width="100%"
                         height="100%"></a></h1>
             <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
-                    class="fa-solid fa-bars-staggered"></i></button>
+                    class="fa-solid fa-bars-staggered" style="padding-right: 20px"></i></button>
         </div>
 
         <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa fa-home"></i> Dashboard</a></li>
-            <li><a href="{{ route('admin.managerpost') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-image"></i>Post</a></li>
+                        class="fa fa-home" style="padding-right: 20px"></i> Dashboard</a></li>
+
             @can('slider_list')
                 <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-desktop"></i>Slider</a></li>
+                            class="fa-solid fa-desktop"  style="padding-right: 20px"></i>Slider</a></li>
             @endcan
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-users"></i>User List</a></li>
+                        class="fa-solid fa-users" style="padding-right: 20px"></i>User List</a></li>
             <li><a href="{{ route('post.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-users"></i>User
+                        class="fa-solid fa-users" style="padding-right: 20px"></i>User
                     Posts</a></li>
             @can('news_list')
                 <li><a href="{{ route('news.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase"></i>News
+                            class="fa-solid fa-briefcase" style="padding-right: 20px"></i>News
                         List</a></li>
             @endcan
             @can('category_list')
                 <li><a href="{{ route('category.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase"></i>Category List</a></li>
+                            class="fa-solid fa-briefcase" style="padding-right: 20px"></i>Category List</a></li>
             @endcan
             @can('video_list')
                 <li><a href="{{ route('video-list.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase"></i>Video
+                            class="fa-solid fa-video" style="padding-right: 20px"></i>Video
                         Gallery</a></li>
             @endcan
             @can('user_list')
-                <a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>Staff
-                    List</a>
+                <li><a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-person" style="padding-right: 20px"></i>Staff
+                        List</a></li>
             @endcan
-            <a href="{{ route('feedback.index') }}" class="siderbar-item"><i class="fa-solid fa-briefcase"></i>Feedback
-                List</a>
+                <li><a href="{{ route('feedback.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-message" style="padding-right: 20px"></i>Feedback
+                        List</a></li>
             @can('roles_list')
                 <li><a href="{{ route('roles.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase"></i>Roles
+                            class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>Roles
                         List</a></li>
             @endcan
 
             <li><a href="{{ route('volunteer.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>Volunteer
+                        class="fa-solid fa-handshake-angle" style="padding-right: 20px"></i>Volunteer
                     List</a></li>
 
-
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-briefcase"></i>
+                        class="fa-solid fa-money-bill" style="padding-right: 20px"></i>
                     Donate List</a></li>
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase"></i>
+                            class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>
                         Add Permissions</a></li>
             @endcan
 
@@ -117,17 +116,18 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <div class="dropdown-profile" id="dropdown-profile">
-                                <button style="border: none; background: transparent" id="dropdown-profile-image"><img
-                                        src="{{ asset('img/omg.jpeg') }}" width="50px" height="50px"
-                                        style="border-radius: 50%"></button>
-                                <div class="dropdownmenu-profile">
-                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er"
-                                        class="dropdownitem-profile">Profile</a>
-                                    <a href="https://www.youtube.com/watch?v=tc5SiDjDPAM&ab_channel=Bo%27ohw%27o%27wo%27er"
-                                        class="dropdownitem-profile">Logout</a>
+                            @if (session('userInfo'))
+                                <div class="text popup-profile">
+                                    @if (session('userInfo')['avatar'])
+                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
+                                            alt="">
+                                    @else
+                                        <img class="nav-user-img" src="{{ asset('img/omg.jpeg') }}" alt="">
+                                    @endif
                                 </div>
-                            </div>
+                            @else
+                                <div class="text popup-login" style="cursor: pointer">LOGIN</div>
+                            @endif
                         </li>
                     </ul>
 
@@ -148,23 +148,6 @@
     <div class="text-footer">StayHopeful</div>
 </footer>
 <script src="{{ asset('js/sidebar.js') }}"></script>
-<script>
-    var profilebtn = document.getElementById('dropdown-profile');
-    var dropdownMenu = document.querySelector('.dropdownmenu-profile');
-
-    profilebtn.addEventListener('click', function() {
-        profilebtn.classList.add('dropdown-profile-click');
-        dropdownMenu.classList.toggle('active-profile-dropdown');
-    })
-    document.addEventListener('DOMContentLoaded', function() {
-        var dropdownsider = document.querySelector('.sider-dropdown');
-        var angleIcon = dropdownsider.querySelector('.fa-angle-right');
-        var siderMenu = dropdownsider.querySelector('.sider-dropdown-menu');
-
-        dropdownsider.addEventListener('click', function() {
-            angleIcon.classList.toggle('fa-angle-right');
-            angleIcon.classList.toggle('fa-angle-down');
-            siderMenu.classList.toggle('show-menu');
-        });
-    });
-</script>
+@include('frontend/login/login');
+@include('frontend/profile/popup_profile');
+<script></script>
