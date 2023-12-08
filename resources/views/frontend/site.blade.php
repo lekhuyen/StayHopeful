@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css aboutus --}}
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
-    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
-    <link rel="stylesheet" href="{{asset('detaildonate(css)/detailPost/detailpost.css')}}">
-    {{--css contactus --}}
-    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
-    {{--css aboutus --}}
+    <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    {{-- css aboutus --}}
 
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
@@ -97,9 +97,9 @@
                                             </a>
                                         </div> --}}
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div style="display: flex; align-items: center;">
                                     <button class="login-nav" style="margin-right: 5px;">SIGN UP</button>
                                     <button class="register-nav">LOGIN</button>
@@ -117,8 +117,8 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{route('blog.index')}}" class="sub-item">Blog</a>
-                                    <a href="{{route('contact.index')}}" class="sub-item">Location</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">Blog</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                 </div>
                             </div>
 
@@ -145,7 +145,7 @@
                                 <a class="nav-menu-title">BLOG</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{route('blog.index')}}" class="sub-item">News</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
                                     <a href="" class="sub-item">Tin tuc 2</a>
                                     <a href="" class="sub-item">Tin tuc 3</a>
                                 </div>
@@ -156,7 +156,7 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
+                                    <a href="{{ route('detail.donate') }}" class="sub-item">Get Involved</a>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,8 @@
                         <ul class="nav_bar">
                             <li><a href="{{ route('/') }}">
                                     <div class="text">
-                                        <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
+                                        <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
+                                            style="margin-left: 0;">
                                         HOME
                                     </div>
                                 </a></li>
@@ -187,27 +188,31 @@
                                     <div class="text">CONTACT</div>
                                 </a>
                             </li>
+                            
                             <li>
-                                    @if (session('userInfo'))
+                                
+                                @if (session('userInfo') )
                                     <div class="text popup-profile">
-                                        @if(session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{asset(session('userInfo')['avatar'])}}" alt="">
+                                        @if (session('userInfo')['avatar'])
+                                            <img class="nav-user-img"
+                                                src="{{ asset(session('userInfo')['avatar']) }}" alt="">
                                         @else
-                                        <img class="nav-user-img" src="{{asset('img/omg.jpeg')}}" alt="">
+                                            <img class="nav-user-img" src="{{ asset('img/omg.jpeg') }}"
+                                                alt="">
                                         @endif
                                     </div>
-                                    @else
+                                @else
                                     <div class="text popup-login">LOGIN</div>
-                                    @endif
+                                @endif
                             </li>
-                            </div>
-                        </ul>
                     </div>
+                    </ul>
+                </div>
 
-                </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
     <div>@yield('main')</div>
@@ -296,25 +301,27 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#search').on('keyup', function(){
+    $(document).ready(function() {
+        $('#search').on('keyup', function() {
             $value = $(this).val();
-            if($value){
+            if ($value) {
                 $('#search-ajax').show();
-            }else{
+            } else {
                 $('#search-ajax').hide();
-                
+
             }
             $.ajax({
-                    type: "GET",
-                    url: "{{route('admin.searchhome')}}",
-                    data: {'search':$value},
-                    success: function(data){
-                        $('#search-ajax').html(data);
-                    }
-                })
+                type: "GET",
+                url: "{{ route('admin.searchhome') }}",
+                data: {
+                    'search': $value
+                },
+                success: function(data) {
+                    $('#search-ajax').html(data);
+                }
+            })
         })
     })
 </script>
-</html>
 
+</html>

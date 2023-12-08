@@ -14,7 +14,8 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User Name" id="search" name="search" class="form-control input-search">
+                        <input type="search" placeholder="Search User Name" id="search" name="search"
+                            class="form-control input-search">
                     </div>
                 </div>
             </div>
@@ -47,18 +48,20 @@
                                             height="50px"
                                             style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>@if ($item->role == '1')
-                                        Admin
+                                    <td>
+                                        @if ($item->role == '1')
+                                            Admin
                                         @else
-                                        User
-                                    @endif</td>
+                                            User
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($item->status == '1')
-                                            <button class="btn btn-success active"
-                                                data-active="{{ $item->id }}">Active</button>
+                                            <button data-user-id="{{ $item->id }}" data-status="0"
+                                                class="btn btn-success change-status">Active</button>
                                         @else
-                                            <button class="btn btn-danger banned"
-                                                data-banned="{{ $item->id }}">Banned</button>
+                                            <button data-user-id="{{ $item->id }}" data-status="1"
+                                                class="btn btn-danger change-status">Banned</button>
                                         @endif
                                     </td>
                                     <td style="text-align: center">
@@ -79,7 +82,6 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
-                    {{ $user->links() }}
                 </div>
             </div>
         </div>
@@ -99,13 +101,13 @@
 
                         <div class="mb-3 mt-3">
                             <label for="name-add" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name-add" placeholder="Enter Name" autocomplete="off"
-                                name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" id="name-add" placeholder="Enter Name"
+                                autocomplete="off" name="name" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email-add" class="form-label">Email:</label>
-                            <input type="text" class="form-control" id="email-add" placeholder="Enter Email" autocomplete="off"
-                                name="email" value="{{ old('email') }}">
+                            <input type="text" class="form-control" id="email-add" placeholder="Enter Email"
+                                autocomplete="off" name="email" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="password" class="form-label">Password:</label>
@@ -114,8 +116,8 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="role-register" class="form-label">Role:</label>
-                            <select class="form-select" id="role-register" aria-label="Default select example" name="role"
-                                value="{{ old('role') == 'role' ? 'selected' : '' }}">
+                            <select class="form-select" id="role-register" aria-label="Default select example"
+                                name="role" value="{{ old('role') == 'role' ? 'selected' : '' }}">
                                 <option selected>Select Role</option>
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
@@ -151,18 +153,18 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="name-update" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name-update" placeholder="Enter Name" autocomplete="off"
-                            name="name">
+                        <input type="text" class="form-control" id="name-update" placeholder="Enter Name"
+                            autocomplete="off" name="name">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="password-update" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="password-update" placeholder="Enter Password" autocomplete="off"
-                            name="password">
+                        <input type="password" class="form-control" id="password-update" placeholder="Enter Password"
+                            autocomplete="off" name="password">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="email-update" class="form-label">Email:</label>
-                        <input type="text" class="form-control" id="email-update" placeholder="Enter Email" autocomplete="off"
-                            name="email">
+                        <input type="text" class="form-control" id="email-update" placeholder="Enter Email"
+                            autocomplete="off" name="email">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="role-register" class="form-label">Role:</label>
@@ -183,21 +185,23 @@
         </div>
     </div>
     <script>
-        $(document).ready(function(){
-            $('#search').on('keyup',function(){
+        $(document).ready(function() {
+            $('#search').on('keyup', function() {
                 $value = $(this).val();
-                if($value){
+                if ($value) {
                     $('.data_all').hide();
                     $('#content').show();
-                }else{
+                } else {
                     $('.data_all').show();
                     $('#content').hide();
                 }
                 $.ajax({
                     type: "GET",
                     url: "/admin/searchlistuser",
-                    data: {'search':$value},
-                    success: function(data){
+                    data: {
+                        'search': $value
+                    },
+                    success: function(data) {
                         $('#content').html(data);
                     }
                 })
@@ -205,7 +209,6 @@
         })
     </script>
     <script>
-        
         $(document).ready(function() {
             $('#exampleModal').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget);
@@ -229,32 +232,22 @@
                     }
                 })
             });
-            $('.banned').on('click', function() {
-                var id = $(this).data('banned');
+            $('.change-status').on('click', function() {
+                var userId = $(this).data('user-id');
+                var newStatus = $(this).data('status');
                 $.ajax({
-                    type: 'GET',
-                    url: "/admin/updateuser/" + id + "/banned",
-                    success: function(response) {
-                        console.log(response);
-                        // location.reload();
+                    type: 'POST',
+                    url: '/admin/changeuserstatus/' + userId,
+                    data: {
+                        'status': newStatus,
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(data) {
+                        // Update the UI or handle success as needed
+                        location.reload();
                     },
                     error: function(error) {
-                        console.error(error);
-                    }
-                });
-            });
-
-            $('.active').on('click', function() {
-                var id = $(this).data('active');
-                $.ajax({
-                    type: 'GET',
-                    url: "/admin/updateuser/" + id + "/active",
-                    success: function(response) {
-                        console.log(response);
-                        // location.reload();
-
-                    },
-                    error: function(error) {
+                        // Handle error or show a message
                         console.error(error);
                     }
                 });

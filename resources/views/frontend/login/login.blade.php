@@ -76,17 +76,17 @@
                         <div class="eye"><i class="far fa-eye"></i></div>
                         <small></small>
                     </div>
-                    <button id="btn-sign-in" type="submit" class="btn solid">Sign In</button>
+                    <button id="btn-sign-in" type="submit" class="btn-login solid">Sign In</button>
                     <a class="a-forgot-pass" href="#">Forgot your password?</a>
                     <p class="social-text">Or Sign in with social platform</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="{{route('auth.twitter')}}" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="{{route('auth.google')}}" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">
@@ -118,7 +118,7 @@
                         <input id="register-confirm-password" type="password" placeholder="Confirm Password" name="confirm_password"/>
                         <small></small>
                     </div>
-                    <button id="btn-sign-up" type="submit" class="btn solid">Sign Up</button>
+                    <button id="btn-sign-up" type="submit" class="btn-login solid">Sign Up</button>
 
                     <p class="social-text">Or Sign up with social platform</p>
                     <div class="social-media">
@@ -144,7 +144,7 @@
                 <div class="content">
                     <h3>New here ?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil atque officia.</p>
-                    <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+                    <button class="btn-login transparent" id="sign-up-btn">Sign Up</button>
                 </div>
 
                 <img src="{{asset('img/logo.svg')}}" class="image" alt="">
@@ -154,7 +154,7 @@
                 <div class="content">
                     <h3>One of us ?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil atque officia.</p>
-                    <button class="btn transparent" id="sign-in-btn">Sign In</button>
+                    <button class="btn-login transparent" id="sign-in-btn">Sign In</button>
                 </div>
 
                 <img src="{{asset('img/logo.svg')}}" class="image" alt="">
