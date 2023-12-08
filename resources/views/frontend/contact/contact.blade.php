@@ -4,6 +4,10 @@
 
 <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
 
+<div class="container mt-6">
+
+</div>
+
 <div class="container mt-6 contactus_first">
   <form method="POST">
       @csrf

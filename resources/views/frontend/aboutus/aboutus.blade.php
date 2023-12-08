@@ -206,7 +206,7 @@
                 <div class="card-body call_to_action_card">
                     <h5 class="card-title">Join Our Community for Exclusive Updates.</h5>
                     <p class="card-text card-text-p">Become a part of our community to receive exclusive updates and be the first to know about our impactful initiatives.</p>
-                    <a href="{{route ('volunteer.index')}}" class="btn btn-info call_to_action_button">Volunteer</a></p>
+                    <a href="{{route ('volunteer.index')}}" class="btn btn-info call_to_action_button">Feedback</a></p>
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@
                 <div class="card-body call_to_action_card">
                     <h5 class="card-title">Support Our Cause Volunteer Today</h5>
                     <p class="card-text card-text-p">Join us in supporting our cause and contribute to positive change. Your dedication can help us bring hope, healing, and resilience to those who need it most.</p>
-                    <a href="{{ route('contact.index') }}" class="btn btn-info call_to_action_button">Contact</a></p>
+                    <a href="{{ route('contact.index') }}" class="btn btn-info call_to_action_button">Volunteer</a></p>
                 </div>
             </div>
         </div>
