@@ -44,9 +44,15 @@
                             @foreach ($user as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td><img src="{{ asset('img/omg.jpeg') }}" class="image-hover" width="50px"
+                                    <td>@if ($item->avatar == null)
+                                        <img src="{{ asset('img/user.png') }}" class="image-hover" width="50px"
                                             height="50px"
-                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}</td>
+                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
+                                            @else
+                                            <img src="{{ asset($item->avatar)}}" class="image-hover" width="50px"
+                                            height="50px"
+                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
+                                    @endif</td>
                                     <td>{{ $item->email }}</td>
                                     <td>
                                         @if ($item->role == '1')

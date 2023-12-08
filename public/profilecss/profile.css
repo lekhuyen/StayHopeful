@@ -551,15 +551,21 @@
 
 
 
-#comment_post {
+.post_like-comment-post {
     border-top: 1px solid #ccc;
     padding: 5px 0;
     margin: 0 10px;
+    display: flex;
 }
-
+.like_post {
+    margin-right: 10px;
+}
 .comment_post {
     display: flex;
     margin: 20px;
+}
+.like_post.active i{
+    color: red;
 }
 .comment_body {
     margin-left: 20px;

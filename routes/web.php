@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Route;
 //frontend
 
 Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
+// Route::get('/category-list', [AdminPageController::class, 'category']);
 //donatedetail
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate');
@@ -310,6 +311,10 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
+
+//like-user-post
+Route::post('like',[UserPostController::class,'like'])->name('post.like');
+
 
 //edit-post(user)
 Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');

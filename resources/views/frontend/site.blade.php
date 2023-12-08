@@ -159,6 +159,17 @@
                                     <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
                                 </div>
                             </div>
+                            <div class="nav-mobile-interface">
+                                <a href="#" class="nav-menu-title">CATEGORY</a>
+                                <i class="fas fa-angle-right dropdown"></i>
+                                <div class="nav-sub-menu-title">
+                                    {{-- @if($categories->count() > 0)
+                                    @foreach ($categories as $category)
+                                        <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
+                                    @endforeach
+                                    @endif --}}
+                                </div>
+                            </div>
                         </div>
                     </div>
 

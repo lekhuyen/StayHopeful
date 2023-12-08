@@ -17,8 +17,8 @@
                                 <i class="fa-solid fa-users img-fluid" style="font-size: 50px; color: #ffffff"></i>
                             </div>
                             <div class="col-8 mt-1">
-                                <div class="card-text textcard2">Total visitor</div>
-                                <p class="card-text textcard">52,220</p>
+                                <div class="card-text textcard2">Total User</div>
+                                <p class="card-text textcard">{{$usercount}}</p>
                             </div>
                             <div class="chart-dashboard">
                                 <canvas id="chartone"></canvas>
@@ -238,6 +238,9 @@
         // project competed chart
         let labelcompleteds = {!! json_encode($chartcompleted['months']) !!}
         let totalstatus = {!! json_encode($chartcompleted['status']) !!}
+        // countuser chart
+        let labeldayuser = {!! json_encode($usercountchart['days']) !!}
+        let totaluser = {!! json_encode($usercountchart['userCounts']) !!}
     </script>
     <script src="{{ asset('js/chart.js') }}"></script>
 @endsection
