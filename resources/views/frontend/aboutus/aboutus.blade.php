@@ -237,7 +237,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <span>
-                Welcome to <strong>StayHopeful</strong>, where our journey towards positive change began 1990. Over the years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and Growth</strong> dedicated to making a lasting impact.
+                Welcome to <strong>StayHopeful</strong>, where our journey towards positive change began 2018. Over the years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and Growth</strong> dedicated to making a lasting impact.
             </span>
             <br>
             <span>
