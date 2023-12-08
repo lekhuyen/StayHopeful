@@ -12,7 +12,32 @@ class VolunteerController extends Controller
     public function index()
     {
         $volunteers = Volunteer::all();
-        return view("frontend.volunteer.index", compact('volunteers'));
+        // dd($volunteers);
+        $arrayPeopleVolunteer = [];
+        foreach ($volunteers as $key => $item) {
+            // array_push($arrayPeopleVolunteer, $item->project_id);
+            $arrayPeopleVolunteer[$key]["project"] = $item->project_id;
+            $arrayPeopleVolunteer[$key]["value"] = $item->project_id;
+        }
+        // dd($arrayPeopleVolunteer);
+        $summedCounts = [];
+
+        // Loop through the array to count occurrences of each project
+        foreach ($arrayPeopleVolunteer as $item) {
+            $projectId = $item['project'];
+
+            // If the project ID exists in the summedCounts array, increment count
+            if (array_key_exists($projectId, $summedCounts)) {
+                $summedCounts[$projectId]++;
+            } else {
+                // If the project ID doesn't exist, set count to 1
+                $summedCounts[$projectId] = 1;
+            }
+        }
+// dd($summedCounts);
+        // $summedCounts will contain the summed counts for each project ID
+        $projects = Project::all();
+        return view("frontend.volunteer.index", compact('projects','summedCounts'));
     }
 
     public function create()
@@ -43,6 +68,7 @@ class VolunteerController extends Controller
         } else {
             $userCreate = new User();
             $userCreate->email = $request->email;
+            $userCreate->name = $request->name;
             $userCreate->password = "12345";
             $userCreate->is_volunteer = true;
             $userCreate->save();

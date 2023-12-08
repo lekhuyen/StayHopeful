@@ -31,6 +31,7 @@ class AdminPageController extends Controller
         $project = Project::selectRaw('COUNT(id) as total_projects, COUNT(CASE WHEN status = 1 THEN 1 END) as status_1')
             ->groupBy('status')
             ->get();
+        $usercount = User::count();
         $allproject = Project::all();
 
         $totalproject = $project->sum('total_projects');
@@ -40,17 +41,18 @@ class AdminPageController extends Controller
         $bigchart = $this->bigchart();
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();
+        $usercountchart = $this->usercountchart();
 
-        return view('frontend.adminpage.manager.dashboard', compact('allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted'));
+        return view('frontend.adminpage.manager.dashboard', compact('usercount','allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
-    public function viewmanagerpost()
-    {
-        return view('frontend.adminpage.manager.post');
-    }
+
     public function viewmanagerdesign()
     {
         $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
+    }
+    public function viewboxmail(){
+        return view('frontend.adminpage.mailbox.mailbox');
     }
     public function sliderview()
     {
@@ -158,10 +160,22 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::paginate(6);
+        $user = User::all();
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
+    public function changeUserStatus($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->status = request('status');
+            $user->save();
+
+            return response()->json(['success' => true, 'message' => 'User status updated successfully']);
+        }
+
+        return response()->json(['success' => false, 'message' => 'User not found'], 404);
+    }
     //donate admin
     public function viewlistdonate()
     {
@@ -217,36 +231,8 @@ class AdminPageController extends Controller
         return redirect()->back()->with('success', 'Delete User successfully');
 
     }
-    public function banned($id)
-    {
-        $now = date('Y-m-d H:i:s');
-        try {
-            DB::table('users')->where('id', $id)->update([
-                'status' => 1,
-                'deleted_at' => $now,
-            ]);
-            return response()->json(['message' => 'User has been Active']);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Error banned: ' . $e->getMessage()]);
 
-        }
 
-    }
-    public function active($id)
-    {
-        $now = date('Y-m-d H:i:s');
-        try {
-            DB::table('users')->where('id', $id)->update([
-                'status' => 0,
-                'deleted_at' => $now,
-            ]);
-            return response()->json(['message' => 'User has been Banned']);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Error Active: ' . $e->getMessage()]);
-
-        }
-
-    }
 
     public function bigchart()
     {
@@ -265,6 +251,27 @@ class AdminPageController extends Controller
         $data = [
             "days" => $days,
             "amounts" => $amounts,
+        ];
+
+        return $data;
+    }
+    public function usercountchart()
+    {
+        $usercount = User::selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
+            ->groupBy('days')
+            ->get();
+
+        $days = [];
+        $userCounts = [];
+
+        foreach ($usercount as $count) {
+            $days[] = date('l', strtotime("Sunday + {$count->day} days"));
+            $userCounts[] = $count->total_users;
+        }
+
+        $data = [
+            "days" => $days,
+            "userCounts" => $userCounts,
         ];
 
         return $data;
@@ -322,7 +329,7 @@ class AdminPageController extends Controller
 
         foreach ($projects as $project) {
             $statusText = ($project->status == 1) ? 'Finish' : 'Unfinish';
-
+            
             $output .=
                 '<tr>
                     <td> ' . $project->id . ' </td>
@@ -446,7 +453,7 @@ class AdminPageController extends Controller
             $output .= '<div class="result-search">
                             <a href="' . route('detail.post', $project->id) . '">
                                 <div class="image-search">
-                                    <img src="'  . asset($project->images[0]->image)  . '" alt="' . $project->title . '">
+                                    <img src="' . asset($project->images[0]->image) . '" alt="' . $project->title . '">
                                 </div>
                                 <div class="text-result">
                                     ' . $project->title . '

@@ -56,6 +56,8 @@ Route::post('/login', [AuthloginController::class, 'login'])->name('auth.login')
 Route::post('/register', [AuthloginController::class, 'register'])->name('auth.register');
 Route::get('/login/google', [AuthloginController::class, 'redirectgoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [AuthloginController::class, 'handleGoogleback'])->name('auth.googlecallback');
+Route::get('/login/twitter', [AuthloginController::class, 'redirectTwitter'])->name('auth.twitter');
+Route::get('/callback/twitter', [AuthloginController::class, 'handleTwitterCallback'])->name('auth.twittercallback');
 Route::get('/login/facebook', [AuthloginController::class, 'redirectfacebook'])->name('auth.facebook');
 Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebookleback'])->name('auth.facebookcallback');
 //verify_email
@@ -156,21 +158,19 @@ Route::post('/search', [BlogController::class, 'search'])->name('search_project'
 Route::group(['prefix' => 'admin/'], function () {
     // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
-    Route::get('managerpost', [AdminPageController::class, 'viewmanagerpost'])->name('admin.managerpost');
 
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign')->middleware('can:slider_list');
     Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider')->middleware('can:slider_add');
     Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_add');
     Route::get('managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
     Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider')->middleware('can:slider_delete');
-
+    
+    Route::post('changeuserstatus/{id}', [AdminPageController::class, 'changeUserStatus'])->name('admin.changeUserStatus');
     Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
     Route::post('listuser', [AdminPageController::class, 'registeruser'])->name('admin.registeruser');
     Route::put('listuser/{id}', [AdminPageController::class, 'updateuser'])->name('admin.updateuser');
     Route::get('listuser/{id}', [AdminPageController::class, 'deleteuser'])->name('admin.deleteuser');
     Route::get('updateuser/{id}', [AdminPageController::class, 'getiduser'])->name('admin.getiduser');
-    Route::get('updateuser/{id}/banned', [AdminPageController::class, 'banned'])->name('admin.banneduser');
-    Route::get('updateuser/{id}/active', [AdminPageController::class, 'active'])->name('admin.activeuser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
     Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
     Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
