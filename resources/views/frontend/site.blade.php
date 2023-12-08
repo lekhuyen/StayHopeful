@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css aboutus --}}
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
-    <link rel="stylesheet" href="{{asset('home/Home_style.css')}}">
-    <link rel="stylesheet" href="{{asset('detaildonate(css)/detailPost/detailpost.css')}}">
-    {{--css contactus --}}
-    <link rel="stylesheet" href="{{asset('contactus/contact.css')}}">
-    {{--css aboutus --}}
+    <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    {{-- css aboutus --}}
 
 
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
@@ -97,9 +97,9 @@
                                             </a>
                                         </div> --}}
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div style="display: flex; align-items: center;">
                                     <button class="login-nav" style="margin-right: 5px;">SIGN UP</button>
                                     <button class="register-nav">LOGIN</button>
@@ -117,27 +117,26 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{route('blog.index')}}" class="sub-item">Blog</a>
-                                    <a href="{{route('contact.index')}}" class="sub-item">Location</a>
+                                    <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Team</a>
+                                    <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                 </div>
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title" href="#">PROJECT</a>
+                                <a class="nav-menu-title">EXPLORE</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('project.index', 1) }}" class="sub-item">Recent Projects</a>
-                                    <a href="{{ route('blog.blog_finished') }}" class="sub-item">Finished Projects</a>
-                                    {{-- <a href="#" class="sub-item">Tin tuc 3</a> --}}
+                                    <a href="{{ route('project.index', 1) }}" class="sub-item">Our Projects</a>
+                                    <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
+                                    <a href="{{ route('video.index') }}" class="sub-item">Video Gallery</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="#" class="nav-menu-title">DONATE</a>
+                                <a href="#" class="nav-menu-title">DONORS</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
                                     <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
-                                    {{-- <a href="" class="sub-item">Tin tuc 3</a> --}}
                                 </div>
                             </div>
 
@@ -145,9 +144,8 @@
                                 <a class="nav-menu-title">BLOG</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{route('blog.index')}}" class="sub-item">News</a>
-                                    <a href="" class="sub-item">Tin tuc 2</a>
-                                    <a href="" class="sub-item">Tin tuc 3</a>
+                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
+                                    <a href="{{ route('aboutus.index') }}" class="sub-item">Our Story</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
@@ -156,7 +154,7 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
+                                    <a href="{{ route('volunteer.create') }}" class="sub-item">Volunteer</a>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +165,8 @@
                         <ul class="nav_bar">
                             <li><a href="{{ route('/') }}">
                                     <div class="text">
-                                        <img class="logo" src="{{asset('img/logo.PNG')}}" alt="" style="margin-left: 0;">
+                                        <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
+                                            style="margin-left: 0;">
                                         HOME
                                     </div>
                                 </a></li>
@@ -188,26 +187,28 @@
                                 </a>
                             </li>
                             <li>
-                                    @if (session('userInfo'))
+                                @if (session('userInfo'))
                                     <div class="text popup-profile">
-                                        @if(session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{asset(session('userInfo')['avatar'])}}" alt="">
+                                        @if (session('userInfo')['avatar'])
+                                            <img class="nav-user-img"
+                                                src="{{ asset(session('userInfo')['avatar']) }}" alt="">
                                         @else
-                                        <img class="nav-user-img" src="{{asset('img/omg.jpeg')}}" alt="">
+                                            <img class="nav-user-img" src="{{ asset('img/omg.jpeg') }}"
+                                                alt="">
                                         @endif
                                     </div>
-                                    @else
+                                @else
                                     <div class="text popup-login">LOGIN</div>
-                                    @endif
+                                @endif
                             </li>
-                            </div>
-                        </ul>
                     </div>
+                    </ul>
+                </div>
 
-                </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
     <div>@yield('main')</div>
@@ -230,25 +231,23 @@
                     <div class="footer_header">
                         <h2>QUICK LINKS</h2>
                         <ul>
-                            <li><a href="">Donate</a></li>
-                            <li><a href="">Projects</a></li>
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="">History</a></li>
-                            <li><a href="">About StayHopeful</a></li>
+                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
+                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
+                            <li><a href="{{ route('feedback.create') }}">Feedback</a></li>
+                            <li><a href="{{ route('volunteer.create') }}">Volunteer</a></li>
                             <li></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>PROJECTS</h2>
+                        <h2>EXPLORE</h2>
                         <ul>
-                            <li><a href="">Elderly Donation</a></li>
-                            <li><a href="">Children Donation</a></li>
-                            <li><a href="">Pet Donation</a></li>
-                            <li><a href=""></a></li>
-                            {{-- <li><a href=""></a></li>
-                            <li><a href=""></a></li> --}}
+                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
+                            <li><a href="{{ route('blog.index') }}">News</a></li>
+                            <li><a href="{{ route('detail.listdonate') }}">Donate List</a></li>
+                            <li><a href="{{ route('video.index') }}">Video Gallery</a></li>
+                            <li><a></a></li>
                         </ul>
                     </div>
                 </div>
@@ -296,25 +295,27 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#search').on('keyup', function(){
+    $(document).ready(function() {
+        $('#search').on('keyup', function() {
             $value = $(this).val();
-            if($value){
+            if ($value) {
                 $('#search-ajax').show();
-            }else{
+            } else {
                 $('#search-ajax').hide();
-                
+
             }
             $.ajax({
-                    type: "GET",
-                    url: "{{route('admin.searchhome')}}",
-                    data: {'search':$value},
-                    success: function(data){
-                        $('#search-ajax').html(data);
-                    }
-                })
+                type: "GET",
+                url: "{{ route('admin.searchhome') }}",
+                data: {
+                    'search': $value
+                },
+                success: function(data) {
+                    $('#search-ajax').html(data);
+                }
+            })
         })
     })
 </script>
-</html>
 
+</html>
