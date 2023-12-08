@@ -31,6 +31,23 @@ exitLogin.addEventListener('click', function () {
 })
 }
 
+//popup forgot password
+var forgotPasswordLink = document.querySelector('.a-forgot-pass');
+var forgotPasswordForm = document.querySelector('.container-reset-password-email-input');
+var exitSendOtpBtn = document.querySelector('.exit-reset-password-email-input-btn');
+var exitSendOtpForm = document.querySelector('.modal-inner-reset-password-email-input');
+forgotPasswordLink.addEventListener('click', function () {
+    forgotPasswordForm.classList.add("showForgotPassword");
+    containerPopup.classList.remove('showLogin');
+});
+exitSendOtpBtn.addEventListener('click', function () {
+    forgotPasswordForm.classList.remove("showForgotPassword");
+    containerPopup.classList.add('showLogin');
+});
+exitSendOtpForm.addEventListener('click', function () {
+    forgotPasswordForm.classList.remove("showForgotPassword");
+    containerPopup.classList.add('showLogin');
+});
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-alert-btn');
 var registerSuccess = document.querySelector(".container-register-notification");

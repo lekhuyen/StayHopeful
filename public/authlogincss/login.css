@@ -6,7 +6,128 @@
     box-sizing: border-box;
 } */
 
-
+/* forgot password form */
+.container-reset-password-email-input{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    display: none;
+}
+.modal-inner-reset-password-email-input{
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    position: fixed;
+    filter: opacity(0.6);
+}
+.showForgotPassword{
+    display: block;
+}
+.reset-password-email-input{
+    background: #2d63c2;
+    border: 2px solid white;
+    border-radius: 20px;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+}
+.reset-password-email-input-form p{
+    color:#afcaf8;
+}
+.exit-reset-password-email-input-btn{
+    width: fit-content;
+    position: absolute;
+    top: 4%;
+    right: 3%;
+}
+.exit-reset-password-email-input-btn i{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    color: #f2f6fd;
+    cursor: pointer;
+}
+.reset-password-email-input-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 30px 40px 30px;
+    overflow: hidden;
+    z-index: 20;
+}
+.reset-password-email-input-form-title{
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.reset-password-email-input-field{
+    max-width: 380px;
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    margin: 15px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    /* padding: -0.6rem; */
+}
+.reset-password-email-input-field i{
+    text-align: center;
+    line-height: 26px;
+    color: #acacac;
+    font-size: 1.1rem;
+    padding-top: 10px;
+}
+.reset-password-email-input-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 2.8rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    padding-right: 38px;
+}
+.reset-password-email-input-field input::placeholder{
+    color: #aaa;
+    font-weight: 500;
+}
+.reset-password-email-input-field small.reset-password-email-validate {
+    margin-top: 45px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    /* bottom: -20px; */
+    left: 20%;
+    visibility: hidden;
+    font-size: 12px;
+}
+.reset-password-email-input-field.error small.reset-password-email-validate {
+    visibility: visible;
+}
+.btn-send-otp-email{
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    background-color: #5995fd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 50px 0;
+    transition: .5s;
+}
+.btn-send-otp-email:hover{
+    background-color: #4d84e2;
+}
 /* notification */
 
 .container-register-notification{
