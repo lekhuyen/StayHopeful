@@ -33,37 +33,38 @@ class UserPostController extends Controller
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
             
         // }
-        // $likes = Like::all();
 
         return view('frontend.post_page.index', compact('posts', 'comments'));
     }
 
     // like - user - post 
-    public function like(Request $request){
-        $post_id  = $request->post_id;
-        $post = UserPost::find($post_id);
-        $like_count = Like::where('id_post', $post->id)->count();
-        
-        $like = Like::where('id_post', $post->id)
-            ->where('id_user', auth()->user()->id)
-            ->first();
-        if($like) {
-            $like->delete();
-            
-        } else {
-            Like::create([
-                'id_post'=>$post_id,
-                'id_user'=>auth()->user()->id
-            ]);
-        }
-        return response()->json([
-            'status' => 'success',
-            'count'=>$like_count
-        ], 200);
-        // return response()->json($like_count);
-        // return response()->json(['error'=>['Tai khoan khong ton tai']]);
-        
+
+    public function like(Request $request)
+{
+    $post_id  = $request->post_id;
+    $user_id = auth()->user()->id;
+
+    $like = Like::where('id_post', $post_id)
+        ->where('id_user', $user_id)
+        ->first();
+
+    if ($like) {
+        $like->delete();
+    } else {
+        $like = Like::create([
+            'id_post' => $post_id,
+            'id_user' => $user_id
+        ]);
     }
+
+    $like_count = Like::where('id_post', $post_id)->count();
+
+    return response()->json([
+        'status' => 'success',
+        'count' => $like_count
+    ], 200);
+}
+
 
     public function store(Request $request)
     {

@@ -51,9 +51,7 @@ class AdminPageController extends Controller
         $sliders = Sliders::all();
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
-    public function viewboxmail(){
-        return view('frontend.adminpage.mailbox.mailbox');
-    }
+
     public function sliderview()
     {
         $projects = Project::orderBy('id', 'desc')
