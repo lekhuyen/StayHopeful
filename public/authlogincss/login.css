@@ -418,7 +418,7 @@ h2.form-title{
 .input-field.error small {
     visibility: visible;
 }
-.btn{
+.btn-login{
     width: 150px;
     height: 40px;
     border: none;
@@ -431,7 +431,7 @@ h2.form-title{
     margin: 10px 0;
     transition: .5s;
 }
-.btn:hover{
+.btn-login:hover{
     background-color: #4d84e2;
 }
 .social-text{
@@ -515,8 +515,9 @@ h2.form-title{
 .panel p{
     font-size: 0.95rem;
     padding: 0.7rem 0;
+    color: purple;
 }
-.btn.transparent{
+.btn-login.transparent{
     margin: 0;
     background: none;
     border: 2px solid #fff;
@@ -618,7 +619,7 @@ h2.form-title{
         font-size: 0.7rem;
         padding: 0.5rem 0;
     }
-    .btn.transparent{
+    .btn-login.transparent{
         width: 110px;
         height: 35px;
         font-size: 0.7rem;
@@ -676,6 +677,20 @@ h2.form-title{
     .container-login-register.sign-up-mode:before{
         bottom: 28%;
         left: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .input-field{
+        max-width: 380px;
+        width: 180px;
+        height: 45px;
+        background-color: #f0f0f0;
+        margin: 15px 0;
+        border-radius: 55px;
+        display: grid;
+        grid-template-columns: 15% 85%;
+        /* padding: -0.6rem; */
     }
 }
 

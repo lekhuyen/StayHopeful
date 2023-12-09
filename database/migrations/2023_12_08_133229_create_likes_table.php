@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->integer("quantity")->default(2);
+        Schema::create('likes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_post')->constrained('user_posts')->onDelete('cascade');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->dropColumn('quantity');
-        });
+        Schema::dropIfExists('likes');
     }
 };
