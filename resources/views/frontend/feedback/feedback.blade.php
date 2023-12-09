@@ -103,6 +103,6 @@
         }
     </script>
 
-    @include("frontend/login/login");
-    @include('frontend/profile/popup_profile');
+    @include("frontend/login/login")
+    @include('frontend/profile/popup_profile')
 @endsection
