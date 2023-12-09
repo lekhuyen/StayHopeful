@@ -515,6 +515,7 @@ h2.form-title{
 .panel p{
     font-size: 0.95rem;
     padding: 0.7rem 0;
+    color: purple;
 }
 .btn-login.transparent{
     margin: 0;
