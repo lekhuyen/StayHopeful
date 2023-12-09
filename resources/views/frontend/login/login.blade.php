@@ -102,14 +102,8 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="{{route('auth.twitter')}}" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
                         <a href="{{route('auth.google')}}" class="social-icon">
                             <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </form>
@@ -145,13 +139,7 @@
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </form>
@@ -162,7 +150,7 @@
             <div class="panel left-panel">
                 <div class="content">
                     <h3>New here ?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil atque officia.</p>
+                    <p>Nice to meet you! Feel free to sign up and be parts of our community.</p>
                     <button class="btn-login transparent" id="sign-up-btn">Sign Up</button>
                 </div>
 
@@ -172,7 +160,7 @@
             <div class="panel right-panel">
                 <div class="content">
                     <h3>One of us ?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil atque officia.</p>
+                    <p>Welcome back! It's a great honor for us to have you here again.</p>
                     <button class="btn-login transparent" id="sign-in-btn">Sign In</button>
                 </div>
 
