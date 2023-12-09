@@ -36,11 +36,15 @@
                             @endforeach
                         @endif
                         <div class="post_like-comment-post" style="margin-bottom:20px; cursor:pointer">
-                            <div class="like_post" data-id="{{ $post->id }}">
+                            {{-- <div class="like_post" data-id="{{ $post->id }}">
                                 <i class="fa-solid fa-heart"></i>
-                                        {{-- <i class="fa-regular fa-heart"></i> --}}
                                 <span class="count_like" data-id="{{ $post->id }}">{{$post->likes->count()}}</span>
+                            </div> --}}
+                            <div class="like_post" data-post-id="{{ $post->id }}">
+                                <i class="fa-solid fa-heart"></i>
+                                <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() }}</span>
                             </div>
+
                             <div id="comment_post" data-id="{{ $post->id }}">
                                 <i class="fa-regular fa-comment"></i>
                                 <span>Comment</span>
@@ -215,13 +219,26 @@
         })
     })
 
+// like - user - post
+    $(document).ready(function () {
+    $('.like_post').each(function () {
+        var postId = $(this).data('post-id');
+        var likeButton = $('.like_post[data-post-id="' + postId + '"]');
+        var countElement = $('.count_like[data-post-id="' + postId + '"]');
 
-    // like post
-    $(document).on('click', '.like_post', function(e) {
-        e.preventDefault();
-        var post_id = $(this).data('id');
-        var _csrf = '{{ csrf_token() }}';
-        var _loginUrl = '{{ route('post.like') }}';
+        var likesCount = localStorage.getItem('likesCount_' + postId);
+        if (likesCount !== null) {
+            countElement.text(likesCount);
+            if (likesCount > 0) {
+                likeButton.addClass('active');
+            }
+        }
+
+        $(document).on('click', '.like_post[data-post-id="' + postId + '"]', function (e) {
+            e.preventDefault();
+            var post_id = $(this).data('post-id');
+            var _csrf = '{{ csrf_token() }}';
+            var _loginUrl = '{{ route('post.like') }}';
 
             $.ajax({
                 url: _loginUrl,
@@ -230,24 +247,21 @@
                     post_id: post_id,
                     _token: _csrf
                 },
-                success: function(data) {
-                
-                    if(data.status == 'success') {
-                        var countElement = $('.count_like').filter('[data-id="' + post_id + '"]');
-                        var count = `<span class="count_like">${data.count}</span>`
-                        countElement.html(count);
+                success: function (data) {
+                    if (data.count === 0) {
+                        likeButton.removeClass('active');
+                    } else {
+                        likeButton.addClass('active');
                     }
+                    countElement.text(data.count);
+
+                    localStorage.setItem('likesCount_' + post_id, data.count);
                 }
-            })
-    })
-        // if(data.status == 'success') {
-                    //     if(data.count == 0) {
-                    //         $(this).addClass('active')
-                    //         // $('.count_like').val(data.count)
-                    //     } else {
-                    //         $(this).removeClass('active')
-                    //         // $('.count_like').val(data.count)
-                    //     }
-                    // }
-                    // console.log(data);
+            });
+        });
+    });
+});
+
+
+    
 </script>
