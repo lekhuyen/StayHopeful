@@ -10,7 +10,8 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search Category Name" id="search" class="form-control input-search" name="search">
+                        <input type="search" placeholder="Search Category Name" id="search"
+                            class="form-control input-search" name="search">
                     </div>
                 </div>
             </div>
@@ -18,7 +19,7 @@
                 <div class="btnsearch position-absolute " style="right: 0;">
                     @can('slider_add')
                         <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
-                            class="fa-solid fa-plus"></i><span>Add New Image</span></button>
+                                class="fa-solid fa-plus"></i><span>Add New Image</span></button>
                     @endcan
                 </div>
             </div>
@@ -45,14 +46,15 @@
                                             onclick="openImagePopup('{{ asset($slider->url_image) }}')"></td>
                                     <td>{{ $slider->slider_name }}</td>
                                     <td>
-                                        <a href="#" data-slider-id="{{ $slider->id }}" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            @can('slider_edit')
+                                        @can('slider_edit')
+                                            <a href="#" data-slider-id="{{ $slider->id }}" class="edit-slider"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <button type="button" class="btn btn-success" style="margin-right: 10px;">
-                                                    <i class="fa-regular fa-pen-to-square" style="color: #ffffff; "></i>
+                                                    <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
                                                 </button>
-                                            @endcan
-                                        </a>
+                                            </a>
+                                        @endcan
+
                                     </td>
                                     <td>
                                         <form method="POST"
@@ -164,21 +166,23 @@
         </div>
     </div>
     <script>
-        $(document).ready(function(){
-            $('#search').on('keyup',function(){
+        $(document).ready(function() {
+            $('#search').on('keyup', function() {
                 $value = $(this).val();
-                if($value){
+                if ($value) {
                     $('.data_all').hide();
                     $('.searchdata').show();
-                }else{
+                } else {
                     $('.data_all').show();
                     $('.searchdata').hide();
                 }
                 $.ajax({
                     type: "GET",
                     url: "/admin/searchdesign",
-                    data: {'search':$value},
-                    success: function(data){
+                    data: {
+                        'search': $value
+                    },
+                    success: function(data) {
                         $('#content').html(data);
                     }
                 })
@@ -186,25 +190,26 @@
         })
     </script>
     <script>
-        $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var id = button.data('slider-id');
+        $(document).ready(function() {
+            $('.edit-slider').on('click', function(event) {
+            var id = $(this).data('slider-id');
             var form = $('#exampleModal form');
             var action = form.attr('action');
             form.attr('action', action.replace(/\/\d+$/, '/' + id));
+
             $.ajax({
                 type: 'GET',
                 url: '/admin/managerdesign/' + id,
                 success: function(response) {
                     console.log(response);
                     $('#current-image').attr('src', response.url);
-                    $('#categories').val(response.categories).prop("selected", true);
                     $('#name-image-change').val(response.slider_name);
                 },
                 error: function(error) {
                     console.log(error);
                 }
             })
+        });
         });
 
         function previewImage() {
