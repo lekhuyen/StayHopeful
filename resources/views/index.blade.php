@@ -90,7 +90,6 @@
                                     Received:
                                     <span>
                                         ${{ number_format($project->donateInfo->sum('amount'), 2) }}
-                                        {{ number_format($project->donateInfo->sum('amount')) }}
                                     </span>
                                 </p>
                                 <p class="card-title-child-1">

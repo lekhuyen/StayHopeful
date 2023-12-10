@@ -21,7 +21,9 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
-                            {{-- <a class="btn btn-secondary" href="">{{ $post->user->name }}</a> --}}
+                            
+                            <a class="btn btn-secondary" href="">{{ $post->user->name }}</a>
+                            
                         </td>
                         <td>
                             @if ($post->status == 1)

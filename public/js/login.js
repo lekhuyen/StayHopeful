@@ -33,20 +33,40 @@ exitLogin.addEventListener('click', function () {
 
 //popup forgot password
 var forgotPasswordLink = document.querySelector('.a-forgot-pass');
-var forgotPasswordForm = document.querySelector('.container-reset-password-email-input');
+var forgotPasswordEmailForm = document.querySelector('.container-reset-password-email-input');
 var exitSendOtpBtn = document.querySelector('.exit-reset-password-email-input-btn');
 var exitSendOtpForm = document.querySelector('.modal-inner-reset-password-email-input');
 forgotPasswordLink.addEventListener('click', function () {
-    forgotPasswordForm.classList.add("showForgotPassword");
+    forgotPasswordEmailForm.classList.add("showForgotPassword");
     containerPopup.classList.remove('showLogin');
 });
 exitSendOtpBtn.addEventListener('click', function () {
-    forgotPasswordForm.classList.remove("showForgotPassword");
+    forgotPasswordEmailForm.classList.remove("showForgotPassword");
     containerPopup.classList.add('showLogin');
 });
 exitSendOtpForm.addEventListener('click', function () {
     forgotPasswordForm.classList.remove("showForgotPassword");
     containerPopup.classList.add('showLogin');
+});
+//show reset password form
+var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
+var resetPasswordForm = document.querySelector('.container-reset-password-form');
+var exitResetPasswordFormBtn = document.querySelector('.exit-reset-password-form');
+var exitResetPasswordForm = document.querySelector('.modal-inner-reset-password-form');
+sentOtpSuccessfully.addEventListener('click', function () {
+    resetPasswordForm.classList.add("showFormResetPassword");
+});
+exitResetPasswordFormBtn.addEventListener('click', function () {
+    resetPasswordForm.classList.remove("showFormResetPassword");
+});
+exitResetPasswordForm.addEventListener('click', function () {
+    resetPasswordForm.classList.remove("showFormResetPassword");
+});
+//resend otp popup
+var linkResendPassword = document.querySelector('.link-resend-otp');
+linkResendPassword.addEventListener('click', function () {
+    resetPasswordForm.classList.remove("showFormResetPassword");
+    forgotPasswordEmailForm.classList.add("showForgotPassword");
 });
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-alert-btn');

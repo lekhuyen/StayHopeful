@@ -38,17 +38,23 @@
         <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
             <h1 class="fs-4"><a href="{{ route('/') }}"><img src="{{ asset('img/logo.PNG') }}" width="100%"
                         height="100%"></a></h1>
-            <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
-                    class="fa-solid fa-bars-staggered" style="padding-right: 20px"></i></button>
+            <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars-staggered"
+                    style="padding-right: 20px"></i></button>
         </div>
-
         <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home" style="padding-right: 20px"></i> Dashboard</a></li>
+            <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-money-bill" style="padding-right: 20px"></i>
+                    Donate List</a></li>
+            <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-envelope" style="padding-right: 20px"></i>
+                    MailBox</a></li>
+          
 
             @can('slider_list')
                 <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-desktop"  style="padding-right: 20px"></i>Slider</a></li>
+                            class="fa-solid fa-desktop" style="padding-right: 20px"></i>Slider</a></li>
             @endcan
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-users" style="padding-right: 20px"></i>User List</a></li>
@@ -74,12 +80,17 @@
                             class="fa-solid fa-person" style="padding-right: 20px"></i>Staff
                         List</a></li>
             @endcan
-                <li><a href="{{ route('feedback.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-message" style="padding-right: 20px"></i>Feedback
-                        List</a></li>
+            <li><a href="{{ route('feedback.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-message" style="padding-right: 20px"></i>Feedback
+                    List</a></li>
             @can('roles_list')
                 <li><a href="{{ route('roles.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
                             class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>Roles
+                        List</a></li>
+            @endcan
+            @can('project_list')
+                <li><a href="{{ route('projectAd.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-brands fa-usps" style="padding-right: 20px"></i>Project
                         List</a></li>
             @endcan
 
@@ -87,9 +98,7 @@
                         class="fa-solid fa-handshake-angle" style="padding-right: 20px"></i>Volunteer
                     List</a></li>
 
-            <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-money-bill" style="padding-right: 20px"></i>
-                    Donate List</a></li>
+
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
                             class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>
