@@ -11,7 +11,7 @@
             <div class="col-lg-8" style="padding: 0; border-radius: 5px; ">
                 {{-- new post(user) --}}
                 <div class="input_new-post">
-                    <div type="text" placeholder="New post..">New post</div>
+                    <div type="text">New post..</div>
                 </div>
 
                 @foreach ($posts as $post)

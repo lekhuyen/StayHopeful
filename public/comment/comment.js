@@ -62,7 +62,7 @@ if(modelFormPost) {
 }
 
 
-var inputNewPost = document.querySelector('.input_new-post')
+var inputNewPost = document.querySelector('.input_new-post div')
 
 inputNewPost.addEventListener('click', ()=> {
     formPostShow.classList.add('show-post-form');
