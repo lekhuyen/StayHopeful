@@ -47,7 +47,7 @@
     </div>
 </div>
 
-{{-- forgot pass form --}}
+{{-- input email forgot pass form --}}
 <div class="container-reset-password-email-input">
     <div class="modal-inner-reset-password-email-input"></div>
     <div class="reset-password-email-input">
@@ -63,10 +63,43 @@
                 <input id="reset-password-email" type="text" placeholder="Email" name="name"/>
                 <small class="reset-password-email-validate"></small>
             </div>
-            <button id="btn-send-otp" type="submit" class="btn solid btn-send-otp-email">Send OTP</button>
+            <button id="btn-send-otp" class="btn solid btn-send-otp-email">Send OTP</button>
         </form>
     </div>
 </div>
+
+{{-- forgot pass form --}}
+<div class="container-reset-password-form">
+    <div class="modal-inner-reset-password-form"></div>
+    <div class="reset-password-form-wrapper">
+        <div class="exit-reset-password-form">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <form id="resetPasswordForm" class="reset-password-form" method="POST">
+            @csrf
+            <h2 class="reset-password-form-title">Reset Password</h2>
+            <p>Please input your OTP to reset password:</p>
+            <div class="reset-password-input-field">
+                <i class="fa-solid fa-unlock-keyhole"></i>
+                <input id="reset-password-otp" type="text" placeholder="OTP" name="otp"/>
+                <small class="reset-password-otp-validate"></small>
+            </div>
+            <div class="reset-password-input-field">
+                <i class="fa-solid fa-key"></i>
+                <input id="new-password-reset" type="password" placeholder="New Password" name="new_password"/>
+                <small class="reset-password-validate"></small>
+            </div>
+            <div class="reset-password-input-field">
+                <i class="fa-solid fa-key"></i>
+                <input id="confirm-new-password-reset" type="password" placeholder="Confirm New Password" name="confirm_new_password"/>
+                <small class="reset-password-validate"></small>
+            </div>
+            <button id="btn-reset-password" type="submit" class="btn solid btn-reset-password-submit">Confirm</button>
+            <p>Haven't receive OTP ?  <a class="link-resend-otp" href="#">Resend</a></p>
+        </form>
+    </div>
+</div>
+
 
 {{-- login-register-popup --}}
 <div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
