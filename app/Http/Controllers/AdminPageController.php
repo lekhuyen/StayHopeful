@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailReply;
 use App\Models\Categories_sliders;
 use App\Models\Category;
+use App\Models\Contactdetail;
+use App\Models\Contactus;
 use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\Sliders;
 use App\Models\Video;
 use App\Models\User;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Psy\Readline\Hoa\Console;
 
@@ -25,6 +31,46 @@ class AdminPageController extends Controller
     {
         return view('frontend.adminpage.index');
     }
+    public function viewmail()
+    {
+        $mail = Contactus::all();
+        return view('frontend.adminpage.manager.mailbox', compact('mail'));
+    }
+
+    public function getreplymail($id)
+    {
+        $mail = Contactus::where('id', '=', $id)->select('*')->first();
+        return view('frontend.adminpage.manager.replymail', compact('mail'));
+    }
+    public function viewmaildetail($id){
+        $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
+        return view('frontend.adminpage.manager.maildetail', compact('mail'));
+    }
+    public function sendreplymail(Request $request, $id)
+    {
+        $request->validate([
+            'email' => 'required',
+            'message' => 'required',
+            'subject' => 'required',
+        ]);
+        $email = $request->email;
+        $message = $request->message;
+        $subject = $request->subject;
+        $contact = Contactus::find($id);
+        $contact->status = 1;
+        $contact->save();
+        $detail = new Contactdetail();
+        $detail->message = $message;
+        $detail->contact_id = $id;
+        $detail->save();
+        Mail::to($email)->send(new MailReply($message, $subject));
+
+        return redirect()->route('admin.viewmail')->with('success', 'Send Mail Success');
+
+    }
+
+    
+
     public function viewdashboard()
     {
         $amount = DonateInfo::select('amount')->get();
@@ -43,7 +89,7 @@ class AdminPageController extends Controller
         $chartcompleted = $this->chartcompleted();
         $usercountchart = $this->usercountchart();
 
-        return view('frontend.adminpage.manager.dashboard', compact('usercount','allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
+        return view('frontend.adminpage.manager.dashboard', compact('usercount', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
     public function viewmanagerdesign()
@@ -327,7 +373,7 @@ class AdminPageController extends Controller
 
         foreach ($projects as $project) {
             $statusText = ($project->status == 1) ? 'Finish' : 'Unfinish';
-            
+
             $output .=
                 '<tr>
                     <td> ' . $project->id . ' </td>
