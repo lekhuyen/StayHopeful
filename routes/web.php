@@ -67,6 +67,9 @@ Route::post('/change-password', [AuthloginController::class, 'change_password'])
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
+//profile rieng cua user
+Route::get('/profile/{id}', [AuthloginController::class, 'user_profile'])->name('user.profile');
+
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
 Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');

@@ -13,12 +13,12 @@
                                 display: flex;
                                 align-items:center;
                                 ">
-                            <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 50px;">
+                            <a href="{{route('user.profile', $post->user_id)}}" class="avatar-user-post" style="margin: 10px 0 10px 50px;">
                                 <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
                                     style=" width: 80px;clip-path: circle(30%);">
                             </a>
                             <div class="user-name-post">
-                                <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">{{ $post->user->name }}</p>
+                                <a href="{{route('user.profile', $post->user_id)}}" style="margin-bottom: 0; font-size: 20px; font-weight: 500; text-decoration: none; color: black">{{ $post->user->name }}</a>
                                 <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
 
                             </div>
