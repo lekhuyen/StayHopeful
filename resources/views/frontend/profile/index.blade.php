@@ -108,7 +108,25 @@
                                         @endforeach
                                     @endif
                                 </div>
+
+                                <div class="like_post_profile" data-post-id="{{ $post->id }}">
+                                    @if ($post->likes->contains('id_user', auth()->user()->id))
+                                        <div>
+                                            <i class="fa-solid fa-heart like_icon"  data-post-id="{{ $post->id }}"></i>
+                                        </div>
+                                    @else
+                                        <div>
+                                            <i class="fa-regular fa-heart dislike_icon" data-post-id="{{ $post->id }}"></i>
+                                        </div>
+                                    @endif
+    
+                                    <div class="like_count">
+                                        <span class="count_like" data-post-id="{{ $post->id }}"></span>
+                                    </div>
+                                </div>
+
                             </div>
+                            
                         </div>
                     @endforeach
 

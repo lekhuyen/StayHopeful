@@ -18,7 +18,7 @@
                                     style=" width: 80px;clip-path: circle(30%);">
                             </a>
                             <div class="user-name-post">
-                                {{-- <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">{{ $post->user->name }}</p> --}}
+                                <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">{{ $post->user->name }}</p>
                                 <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
 
                             </div>
@@ -36,20 +36,10 @@
                             @endforeach
                         @endif
                         <div class="post_like-comment-post" style="margin-bottom:20px; cursor:pointer">
-
                             <div class="like_post" data-post-id="{{ $post->id }}">
-                                {{-- @if ($post->likes->contains('id_user', auth()->user()->id))
-                                    <div class="like_icon" data-post-id="{{ $post->id }}">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                @else
-                                    <div class="dislike_icon" data-post-id="{{ $post->id }}">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </div>
-                                @endif --}}
                                 @if ($post->likes->contains('id_user', auth()->user()->id))
                                     <div>
-                                        <i class="fa-solid fa-heart like_icon"  data-post-id="{{ $post->id }}"></i>
+                                        <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
                                     </div>
                                 @else
                                     <div>
@@ -238,78 +228,81 @@
     })
 
     $(document).ready(function() {
-    $('.like_post').each(function() {
-        var postId = $(this).data('post-id');
-        var likeButton = $('.like_post[data-post-id="' + postId + '"]');
-        var countElement = $('.count_like[data-post-id="' + postId + '"]');
-        var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
-        var dislike_icons = $('.dislike_icon[data-post-id="' + postId + '"]');
-        var iconContainer = $('.icon_container[data-post-id="' + postId + '"]');
+        $('.like_post').each(function() {
+            var postId = $(this).data('post-id');
 
-        var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
+            var likeButton = $('.like_post[data-post-id="' + postId + '"]');
 
-        if (userLikeStatus === 'liked') {
-            like_icons.addClass('show');
-            // dislike_icons.removeClass('show');
-        } else if (userLikeStatus === 'disliked') {
-            // like_icons.removeClass('show');
-            dislike_icons.addClass('show');
+            var countElement = $('.count_like[data-post-id="' + postId + '"]');
 
-        } 
-        // else{
-        //     var currentUserLiked = @json($post->likes->where('id_user', auth()->user()->id)->count() > 0);
-        //     if (currentUserLiked) {
-        //         like_icons.addClass('show');
-        //     } else {
-        //         dislike_icons.addClass('show');
-        //     }
-        // }
+            var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
 
-        var likesCount = localStorage.getItem('likesCount_' + postId);
-        if (likesCount !== null) {
-            if(likesCount == 0) {
-                countElement.text('');
-            } else {
-                countElement.text(likesCount);
+            var dislike_icons = $('.dislike_icon[data-post-id="' + postId + '"]');
+
+            var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
+
+
+            if (userLikeStatus === 'liked') {
+                like_icons.addClass('show');
+                dislike_icons.removeClass('show');
+            } else if (userLikeStatus === 'disliked') {
+                like_icons.removeClass('show');
+                dislike_icons.addClass('show');
             }
-        }
 
-        $(document).on('click', '.like_post[data-post-id="' + postId + '"]', function(e) {
-            e.preventDefault();
-            var post_id = $(this).data('post-id');
-            var _csrf = '{{ csrf_token() }}';
-            var _loginUrl = '{{ route('post.like') }}';
 
-            $.ajax({
-                url: _loginUrl,
-                type: 'POST',
-                data: {
-                    post_id: post_id,
-                    _token: _csrf
-                },
-                success: function(data) {
-                    if (data.like_user === 1) {
-                        like_icons.addClass('show');
-                        // dislike_icons.addClass('show');
-                        localStorage.setItem('likeStatus_' + post_id, 'liked');
-                    } else {
-                        // like_icons.removeClass('show');
-                        dislike_icons.addClass('show');
+            // else{
+            //     var currentUserLiked = @json($post->likes->where('id_user', auth()->user()->id)->count() > 0);
+            //     if (currentUserLiked) {
+            //         like_icons.addClass('show');
+            //     } else {
+            //         dislike_icons.addClass('show');
+            //     }
+            // }
 
-                        localStorage.setItem('likeStatus_' + post_id, 'disliked');
-                    }
-                    if(data.count == 0) {
-                        countElement.text('');
-                    } else {
-                        countElement.text(data.count);
-                    }
-                    localStorage.setItem('likesCount_' + post_id, data.count);
+            var likesCount = localStorage.getItem('likesCount_' + postId);
+            if (likesCount !== null) {
+                if (likesCount == 0) {
+                    countElement.text('');
+                } else {
+                    countElement.text(likesCount);
                 }
+            }
+
+            $(document).on('click', '.like_post[data-post-id="' + postId + '"]', function(e) {
+                e.preventDefault();
+                var post_id = $(this).data('post-id');
+                var _csrf = '{{ csrf_token() }}';
+                var _loginUrl = '{{ route('post.like') }}';
+
+                $.ajax({
+                    url: _loginUrl,
+                    type: 'POST',
+                    data: {
+                        post_id: post_id,
+                        _token: _csrf
+                    },
+                    success: function(data) {
+                        if (data.like_user === 1) {
+                            like_icons.addClass('show');
+                            dislike_icons.removeClass('show');
+                            localStorage.setItem('likeStatus_' + post_id, 'liked');
+                        } else {
+                            like_icons.removeClass('show');
+                            dislike_icons.addClass('show');
+
+                            localStorage.setItem('likeStatus_' + post_id,
+                                'disliked');
+                        }
+                        if (data.count == 0) {
+                            countElement.text('');
+                        } else {
+                            countElement.text(data.count);
+                        }
+                        localStorage.setItem('likesCount_' + post_id, data.count);
+                    }
+                });
             });
         });
     });
-});
-
-
-
 </script>

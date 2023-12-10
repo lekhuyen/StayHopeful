@@ -14,7 +14,7 @@
                                 <h3 id="title">{{$blog->title}}</h3>
                             </div>
                             <div class="new-description">
-                                <a href="{{route('news-detail',$blog->id)}}">{{strip_tags($blog->description)}}</a>
+                                <a href="{{route('news-detail',[$blog->id, Str::slug($blog->title).'.html'])}}">{{strip_tags($blog->description)}}</a>
                             </div>
                         </div>
                     </div>
