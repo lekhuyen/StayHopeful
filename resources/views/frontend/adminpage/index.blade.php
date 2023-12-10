@@ -41,13 +41,15 @@
             <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars-staggered"
                     style="padding-right: 20px"></i></button>
         </div>
-
         <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa fa-home" style="padding-right: 20px"></i> Dashboard</a></li>
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-money-bill" style="padding-right: 20px"></i>
                     Donate List</a></li>
+            <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                        class="fa-solid fa-envelope" style="padding-right: 20px"></i>
+                    MailBox</a></li>
           
 
             @can('slider_list')

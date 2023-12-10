@@ -58,7 +58,7 @@
             <img src="{{ asset($project->images[0]->image) }}" alt="">
         </div>
         <div class="post-title-child">
-            <a href="{{ route('detail.post', $project->id) }}">{{ $project->title }}</a>
+            <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}">{{ $project->title }}</a>
         </div>
     </div>
 @endforeach

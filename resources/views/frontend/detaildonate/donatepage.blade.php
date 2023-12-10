@@ -7,6 +7,7 @@
         <div class="popup-success">
             <div class="exit" id="click-exit">&#10005;</div>
             <div class="icon-succes"><i class="fa-solid fa-xmark" style="color: #fff;"></i></div>
+            <h2>Error :(</h2>
             <div class="text-error">Payment Error Please Try Again</div>
             <div class="popupbutton">
                 <button class="btn-popup" id="click-exit-ok">OK</button>

@@ -75,6 +75,40 @@
     font-weight: normal;
 }
 
+/* LIKE POST */
+
+.like_post {
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+}
+.like_icon {
+    /* position: absolute; */
+    color: red;
+}
+.like_icon,
+.dislike_icon {
+    display: none;
+}
+
+.show {
+    display: inline-block; 
+}
+
+/* like - profile */
+.like_post_profile {
+    border-top: 1px solid #ccc;
+    padding: 5px 0;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+
 /* button profile */
 .profile-edit-info {
     position: absolute;
@@ -125,20 +159,20 @@
 
 .profile-aboutme {
     position: relative;
-    margin-top: 50px;
+    margin-top: 25px;
     width: 100%;
-    min-height: 350px;
     background-color: transparent;
 }
 
 .profile-aboutme-set {
     width: 90%;
-    min-height: 265px;
+    min-height: 150px;
     margin-left: 50px;
     background-color: transparent;
     text-overflow: ellipsis;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
 
 }
 
