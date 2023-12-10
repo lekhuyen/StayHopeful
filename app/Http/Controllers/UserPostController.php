@@ -11,27 +11,30 @@ use Illuminate\Support\Facades\File;
 
 class UserPostController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $posts = UserPost::orderBy('status', 'desc')->paginate(4);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
-    public function detail_post($id){
+    public function detail_post($id)
+    {
         $post = UserPost::find($id);
         return view('frontend.adminpage.user_post.post_detail', compact('post'));
     }
 
     //show-web
 
-    public function show_post_home(Request $request){
+    public function show_post_home(Request $request)
+    {
         $posts = UserPost::orderBy('id', 'desc')
-        ->where('status', 0)
-        ->get();
+            ->where('status', 0)
+            ->get();
 
-        $comments = CommentPost::where(['post_id'=>$request->post_id, 'reply_id'=>0])->orderBy('id', 'desc')->get();
+        $comments = CommentPost::where(['post_id' => $request->post_id, 'reply_id' => 0])->orderBy('id', 'desc')->get();
         // if($comments->count() > 0 || $posts) {
         // } else {
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
-            
+
         // }
 
         return view('frontend.post_page.index', compact('posts', 'comments'));
@@ -40,30 +43,35 @@ class UserPostController extends Controller
     // like - user - post 
 
     public function like(Request $request)
-{
-    $post_id  = $request->post_id;
-    $user_id = auth()->user()->id;
+    {
+        $post_id  = $request->post_id;
+        $user_id = auth()->user()->id;
 
-    $like = Like::where('id_post', $post_id)
-        ->where('id_user', $user_id)
-        ->first();
+        $like = Like::where('id_post', $post_id)
+            ->where('id_user', $user_id)
+            ->first();
 
-    if ($like) {
-        $like->delete();
-    } else {
-        $like = Like::create([
-            'id_post' => $post_id,
-            'id_user' => $user_id
-        ]);
+        if ($like) {
+            $like->delete();
+        } else {
+            $like = Like::create([
+                'id_post' => $post_id,
+                'id_user' => $user_id
+            ]);
+        }
+
+        $like_count = Like::where('id_post', $post_id)
+        ->count();
+        $like_user = Like::where('id_post', $post_id)
+            ->where('id_user', $user_id)
+            ->count();
+
+        return response()->json([
+            'status' => 'success',
+            'count' => $like_count,
+            'like_user' => $like_user
+        ], 200);
     }
-
-    $like_count = Like::where('id_post', $post_id)->count();
-
-    return response()->json([
-        'status' => 'success',
-        'count' => $like_count
-    ], 200);
-}
 
 
     public function store(Request $request)
@@ -156,13 +164,14 @@ class UserPostController extends Controller
 
 
     // edit post(user)
-    public function edit_post(Request $request){
-        
+    public function edit_post(Request $request)
+    {
+
         $id = $request->post_id;
         $post = UserPost::find($id);
-        if($post) {
+        if ($post) {
             $post->title = $request->title;
-        
+
             $post->save();
 
             // $images_id = $request->image_id;
@@ -175,12 +184,12 @@ class UserPostController extends Controller
             //             }
             //             PostImage::find($image_id)->delete();
             //         }
-                    
+
             //     }
             // }
-            
+
         }
-        
+
 
         if ($request->hasFile('images')) {
             $images = $request->file('images');
@@ -197,16 +206,16 @@ class UserPostController extends Controller
                 $postImage->save();
             }
             return back()->with('success', 'Cập nhật thành công');
-
         }
-            
+
 
         return back()->with('error', 'Bản ghi không tồn tại');
     }
 
-    public function delete_post_image($id) {
+    public function delete_post_image($id)
+    {
         $images = PostImage::find($id);
-        if(File::exists($images->image)){
+        if (File::exists($images->image)) {
             File::delete($images->image);
         }
         PostImage::find($id)->delete();
