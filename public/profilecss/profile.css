@@ -75,6 +75,26 @@
     font-weight: normal;
 }
 
+/* LIKE POST */
+
+.like_post {
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+}
+.like_icon {
+    /* position: absolute; */
+    color: red;
+}
+.like_icon,
+.dislike_icon {
+    display: none;
+}
+
+.show {
+    display: inline-block; 
+}
+
 /* button profile */
 .profile-edit-info {
     position: absolute;
