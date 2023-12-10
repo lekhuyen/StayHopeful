@@ -94,8 +94,8 @@
                                     </div>
                                     <div class="edit-post-user">
                                         
-                                        <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
-                                        <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
+                                        <a class="edit_form-post"data-id="{{ $post->id }} ">Edit</a>
+                                        <a class="delete_form-post"data-id="{{ $post->id }} ">Delete</a>
                                         
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
@@ -138,7 +138,7 @@
         </div>
     </div>
 
-    <div class="modal-user-post-1">
+    {{-- <div class="modal-user-post-1">
         <div class="modal_inner-post">
             <div class="post-header">
 
@@ -177,7 +177,8 @@
 
             </form>
         </div>
-    </div>
+    </div> --}}
+    @include('frontend/profile/post_form')
 
     @include('frontend/profile/popup_profile')
 

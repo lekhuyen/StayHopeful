@@ -59,7 +59,7 @@
     var modalFormPost = $('.modal-user-post-2')
     var editFromPost = $('.edit_form-post')
 
-     $('.edit_form-post').click(function() {
+    $('.edit_form-post').click(function() {
             modalFormPost.addClass('show-edit-post-form')
         })
         $('.close-icon-from-edit').click(function() {
