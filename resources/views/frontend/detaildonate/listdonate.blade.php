@@ -20,6 +20,7 @@
             <div class="popup-success">
                 <div class="exit" id="click-exit">&#10005;</div>
                 <div class="icon-succes"><i class="fa-solid fa-check" style="color: #fff;"></i></div>
+                <h2>Success!</h2>
                 <div class="text-error">Sincerely appreciate your support in aiding and assisting others. Thank you</div>
                 <div class="popupbutton">
                     <button class="btn-popup" id="click-exit-ok">OK</button>
@@ -33,8 +34,7 @@
             <div class="col-lg-12">
                 <div class="nav3 ">
                     <div class="input-group mb-3 setinput2">
-                        <button class="input-group-text btn-start" id="basic-addon1"><i
-                                class="fa-solid fa-microphone"></i></button>
+
                         <input type="text" class="form-control output" placeholder="Enter Name search"
                             aria-label="Username" aria-describedby="basic-addon1" id="search">
                     </div>

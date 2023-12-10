@@ -86,8 +86,8 @@ Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.
 
 // Contact
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
+Route::post('/contact',[ContactusController::class,'create'])->name('contact.create');
 // Contact
-Route::get('/contact', [ContactusController::class, 'index'])->name('contact.index');
 
 
 // Aboutus
@@ -158,6 +158,10 @@ Route::post('/search', [BlogController::class, 'search'])->name('search_project'
 Route::group(['prefix' => 'admin/'], function () {
     // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
+    Route::get('/managermail', [AdminPageController::class, 'viewmail'])->name('admin.viewmail');
+    Route::get('/replymail/{id}', [AdminPageController::class, 'getreplymail'])->name('admin.getreplymail');
+    Route::post('/replymail/{id}', [AdminPageController::class, 'sendreplymail'])->name('admin.sendreplymail');
+    Route::get('/maildetail/{id}', [AdminPageController::class, 'viewmaildetail'])->name('admin.viewmaildetail');
 
     Route::get('managerdesign', [AdminPageController::class, 'viewmanagerdesign'])->name('admin.managerdesign')->middleware('can:slider_list');
     Route::post('managerdesign', [AdminPageController::class, 'create_slider'])->name('admin.create_slider')->middleware('can:slider_add');
