@@ -82,6 +82,14 @@
             </div>
             <hr>
             <div>
+                <a href="{{ route('post.detail.web') }}" class="profile-menu-link">
+                    <i class="fa-solid fa-users"></i>
+                    <p>User Post</p>
+                    <span>></span>
+                </a>
+            </div>
+            <hr>
+            <div>
                 <a href="#" class="profile-menu-link change-password">
                     <i class="fa-solid fa-key"></i>
                     <p>Change Password</p>

@@ -41,7 +41,7 @@ Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
 // Route::get('/category-list', [AdminPageController::class, 'category']);
 //donatedetail
 
-Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate');
+Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate'); //view user
 // Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
 
 Route::post('/donate', [detaildonateController::class, 'payment'])->name('detail.payment');
@@ -93,8 +93,8 @@ Route::post('/contact',[ContactusController::class,'create'])->name('contact.cre
 // Contact
 
 
-// Aboutus
-Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
+// Aboutus user
+Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index'); 
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'aboutus_whoweare'])->name('aboutus.aboutus_whoweare');
 
@@ -108,7 +108,7 @@ Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'
 
 Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
 
-// About Us Team
+// About Us Team admin
 Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
 
 Route::get('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_create'])->name('aboutusteam.create');
@@ -125,25 +125,25 @@ Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class
 
 Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
 
-Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail');
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
 
 
 //feedback
-Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
-Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
-Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store');
-Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail');
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
+Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user
+Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store'); //user
+Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
 
-//sensitive
+//sensitive admin
 Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
 //volunteer form
-Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index');
-Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create');
-Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store');
-Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail');
+Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin
+Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create'); //user
+Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store'); //user
+Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail'); //admin
 
 
 // project
@@ -306,8 +306,6 @@ Route::group(['prefix'=> 'post/'], function(){
 
     Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
 
-    //show-post(web)
-    Route::get('post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
 
     // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
@@ -320,9 +318,14 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
 
 });
+ //show-post(web)
+ Route::get('/post/post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
 
-//like-user-post
+Route::group(['middleware' => 'user_auth'], function(){
+   //like-user-post
 Route::post('like',[UserPostController::class,'like'])->name('post.like');
+});
+
 
 
 //edit-post(user)

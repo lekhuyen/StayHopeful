@@ -29,10 +29,10 @@
                                     <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
                                 <button class="profile-edit-info">Edit Profile</button>
-                                <button class="profile-edit-info user-post-form">Post</button>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="profile-listdonate">
                         <span class="listdonate">List Donate</span>
                         <div class="profile-table" id="style-1">
@@ -59,6 +59,9 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="profile-post">
+                        <button class="profile-edit-info user-post-form">Post</button>
                     </div>
                     @foreach ($posts as $post)
                         <div class="profile-aboutme post_user-web">

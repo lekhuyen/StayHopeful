@@ -229,7 +229,7 @@
 
     {{-- footer --}}
 
-    <div class="container-fluid" style="background-color: #1184c6; margin-top: 150px;">
+    <div class="container-fluid" style="background: linear-gradient(to bottom, #245abe, #578fd9);; margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">
