@@ -16,7 +16,7 @@ class UserAuthenticate
     public function handle(Request $request, Closure $next): Response
     {
         $userInfo = session()->get('userInfo');
-        if ($userInfo && $userInfo["role"] == 0 || $userInfo["role"] == 1)
+        if ($userInfo && $userInfo["status"] == 1 && $userInfo["role"] == 0 || $userInfo["role"] == 1)
         {
             return $next($request);
         }
