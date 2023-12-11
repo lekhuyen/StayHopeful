@@ -75,4 +75,10 @@ class VolunteerController extends Controller
         }
         return redirect()->back()->with("success", "Thanks for being a part of us.");
     }
+
+    public function detail($id)
+    {
+        $volunteers = Volunteer::all();
+        return view('frontend.volunteer.detail', compact('volunteers'));
+    }
 }
