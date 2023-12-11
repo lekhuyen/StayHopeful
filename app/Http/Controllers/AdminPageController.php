@@ -118,7 +118,11 @@ class AdminPageController extends Controller
 
         return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
-
+    // public function viewnav(){
+        
+        
+    //     return view('frontend.site', compact('infouser'));
+    // }
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CommentPost;
 use App\Models\Like;
 use App\Models\PostImage;
+use App\Models\User;
 use App\Models\UserPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -19,7 +20,7 @@ class UserPostController extends Controller
     public function detail_post($id)
     {
         $post = UserPost::find($id);
-    
+
         return view('frontend.adminpage.user_post.post_detail', compact('post'));
     }
 
@@ -38,7 +39,7 @@ class UserPostController extends Controller
 
         // }
         $user = session()->get('userInfo');
-// dd($user['id']);
+        // dd($user['id']);
 // dd($user);
         return view('frontend.post_page.index', compact('posts', 'comments'));
     }
@@ -47,7 +48,7 @@ class UserPostController extends Controller
 
     public function like(Request $request)
     {
-        $post_id  = $request->post_id;
+        $post_id = $request->post_id;
         $user_id = auth()->user()->id;
 
         $like = Like::where('id_post', $post_id)
@@ -64,7 +65,7 @@ class UserPostController extends Controller
         }
 
         $like_count = Like::where('id_post', $post_id)
-        ->count();
+            ->count();
         $like_user = Like::where('id_post', $post_id)
             ->where('id_user', $user_id)
             ->count();
@@ -233,5 +234,27 @@ class UserPostController extends Controller
         $project->delete();
 
         return response()->json(['error' => ['Delete fails']]);
+    }
+    public function updateprofile(Request $request, $id)
+    {
+        
+        $age = $request->age;
+        $phone = $request->phone;
+        $address = $request->address;
+        $user = User::find($id);
+        $user->age = $age;
+        $user->phone = $phone;
+        $user->address = $address;
+        if ($request->hasFile('images')) {
+            $image = $request->file('images');
+                $fileName = time() . '_' . $image->getClientOriginalName();
+                $PublicImagePath = public_path("images");
+                $image->move($PublicImagePath, $fileName);
+                $imagePath = 'images/' . $fileName;
+                $user->avatar = $imagePath;
+            
+        }
+        $user->save();
+        return redirect()->back();
     }
 }

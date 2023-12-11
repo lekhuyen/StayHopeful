@@ -29,7 +29,7 @@ class AuthloginController extends Controller
         if ($status == 1) {
             // Attempt login with provided credentials
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
+                
                 session()->put("userInfo", $user->toArray());
                 // User logged in successfully
                 return response()->json([
@@ -95,6 +95,7 @@ class AuthloginController extends Controller
 
         if ($userInfo && isset($userInfo['id'])) {
             $user = $userInfo['id'];
+            $userupdate = User::where("id", '=', $user)->select('*')->first();
 
             $posts = UserPost::orderBy('id', 'desc')
                 ->where('user_id', $user)
@@ -102,7 +103,7 @@ class AuthloginController extends Controller
                 ->get();
 
             $userinfo = DonateInfo::all();
-            return view('frontend.profile.index', compact('posts', 'userinfo'));
+            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
         }

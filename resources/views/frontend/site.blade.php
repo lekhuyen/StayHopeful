@@ -174,7 +174,7 @@
                             </div>
                         </div>
                     </div>
-
+                   
                     <!-- desktop interface -->
                     <div style="position: relative;">
                         <ul class="nav_bar">
@@ -203,19 +203,21 @@
                             </li>
 
                             <li>
-                                    @if (session('userInfo'))
-                                    <div class="text popup-profile">
-                                        @if (session('userInfo')['avatar'])
-                                            <img class="nav-user-img"
-                                                src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                                        @else
-                                            <img class="nav-user-img" src="{{ asset('img/omg.jpeg') }}"
-                                                alt="">
-                                        @endif
-                                    </div>
-                                @else
-                                    <div class="text popup-login">LOGIN</div>
-                                @endif
+                                @if (session('userInfo'))
+                                <div class="text popup-profile">
+                                    @if (session('userInfo')['avatar'])
+                                        <img class="nav-user-img"
+                                            src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                    @elseif(!$infouser->avatar == null)
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                            alt="ảnh">
+                                    @else
+                                    <img class="nav-user-img" src="{{asset('img/humanicon.png')}}" alt="">
+                                    @endif
+                                </div>
+                            @else
+                                <div class="text popup-login">LOGIN</div>
+                            @endif
                             </li>
                     </div>
                     </ul>
