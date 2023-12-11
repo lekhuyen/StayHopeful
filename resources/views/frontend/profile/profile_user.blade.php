@@ -27,8 +27,7 @@
                                         <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
                                         <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
-                                <button class="profile-edit-info">Edit Profile</button>
-                                <button class="profile-edit-info user-post-form">Post</button>
+                                
                             </div>
                             
                         </div>
@@ -113,19 +112,22 @@
                                     @endif
                                 </div>
 
-                                <div class="like_post_profile" data-post-id="{{ $post->id }}">
-                                    @if ($post->likes->contains('id_user', auth()->user()->id))
-                                        <div>
-                                            <i class="fa-solid fa-heart like_icon"  data-post-id="{{ $post->id }}"></i>
-                                        </div>
-                                    @else
-                                        <div>
-                                            <i class="fa-regular fa-heart dislike_icon" data-post-id="{{ $post->id }}"></i>
-                                        </div>
+                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}" style="cursor: pointer">
+
+                                    {{-- ! phân biệt user đã like --}}
+                                    @if(auth()->user())
+                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                            <div>
+                                                <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
+                                            </div>
+                                        @else
+                                            <div>
+                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                            </div>
+                                        @endif
                                     @endif
-    
                                     <div class="like_count">
-                                        <span class="count_like" data-post-id="{{ $post->id }}"></span>
+                                        <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
                                     </div>
                                 </div>
 
@@ -182,6 +184,6 @@
     </div>
 
     @include('frontend/profile/popup_profile')
-
+    @include('frontend/login/login')
     @include('frontend.profile.form_post')
 @endsection

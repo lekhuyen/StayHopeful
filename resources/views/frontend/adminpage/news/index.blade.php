@@ -1,8 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
 <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>List News</h2>
+        <h1>List News</h1>
         <a class="btn btn-primary "href="{{route('news-image-trash')}}" target="_blank">Trash Image</a>
         @can('news_add')
             <a class="btn btn-primary "href="{{route('news.create')}}">Create News</a>
