@@ -11,10 +11,10 @@ class AboutusController extends Controller
         return view("frontend.aboutus.aboutus");
     }
 
-    public function whoweare() {
+    public function aboutus_whoweare() {
         $teamMembers = aboutusteam::all();
 
-        return view('frontend.aboutus.whoweare', compact('teamMembers'));
+        return view('frontend.aboutus.aboutus_whoweare', compact('teamMembers'));
     }
 
     public function showTeamMemberDetail($id)

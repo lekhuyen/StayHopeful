@@ -10,12 +10,16 @@ use Illuminate\Support\Facades\File;
 class AboutusteamController extends Controller
 {
     public function aboutus_team_index() {
-        $aboutusteams = aboutusteam::all();
+        $aboutusteams = aboutusteam::paginate(5); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 
-    public function aboutus_team_detail($id){
+    public function aboutus_team_detail($id)
+    {
+        // dd("Trying to access aboutus_team_detail with ID: $id");
+
         $aboutusteam = aboutusteam::find($id);
+
         return view('frontend.aboutus.whoweare_detail', compact('aboutusteam'));
     }
 
@@ -62,7 +66,7 @@ class AboutusteamController extends Controller
         }
         $aboutusteams = aboutusteam::all();
 
-        return view("aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
+        return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
 
     }
 
@@ -139,4 +143,13 @@ class AboutusteamController extends Controller
         return redirect()->route("aboutusteam.index")->with("success", "Team member deleted successfully");
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Paginate the query results
+        $aboutusteams = Aboutusteam::where('name', 'like', "%$search%")->paginate(5);
+
+        return view('frontend.aboutusteam.index', compact('aboutusteams'));
+    }
 }
