@@ -53,7 +53,7 @@ return [
         'Dashboard',
         'Feedback',
         'Volunteer',
-        'About Us'
+        'About'
     ],
 
     'module_children'=> [

@@ -1,7 +1,9 @@
-h1 {
+h1,
+h4 {
     color: cornflowerblue;
     text-align: center;
 }
+
 
 .volunteer-detail {
     margin-bottom: 30px;
@@ -31,6 +33,6 @@ h1 {
 
 @media (min-width: 1280px) {
     .body__volunteer {
-        overflow-x:hidden;
+        overflow-x: hidden;
     }
 }
