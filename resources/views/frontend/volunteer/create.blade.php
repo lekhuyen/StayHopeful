@@ -20,32 +20,33 @@
                         <div class="grid_container_social__network">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check1" name="finding_source"
-                                    value="newspaper" {{old('finding_source')=='newspaper'?'checked':''}} checked>
+                                    value="newspaper" {{ old('finding_source') == 'newspaper' ? 'checked' : '' }} checked>
                                 <label class="form-check-label" for="check1">Newspaper</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check2" name="finding_source"
-                                    value="email"  {{old('finding_source')=='email'?'checked':''}}>
+                                    value="email" {{ old('finding_source') == 'email' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="check2">Email</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check3" name="finding_source"
-                                    value="advertisement" {{old('finding_source')=='advertisement'?'checked':''}}>
+                                    value="advertisement" {{ old('finding_source') == 'advertisement' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="check3">Advertisement</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check4" name="finding_source"
-                                    value="online" {{old('finding_source')=='online'?'checked':''}}>
+                                    value="online" {{ old('finding_source') == 'online' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="check4">Online Search</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check5" name="finding_source"
-                                    value="Referred by Friend"  {{old('finding_source')=='Referred by Friend'?'checked':''}}>
+                                    value="Referred by Friend"
+                                    {{ old('finding_source') == 'Referred by Friend' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="check5">Referred by Friend</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="check6" name="finding_source"
-                                    value="other" {{old('finding_source')=='other'?'checked':''}}>
+                                    value="other" {{ old('finding_source') == 'other' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="check6">Other</label>
                             </div>
 
@@ -59,7 +60,8 @@
                             <input type="text" class="form-control voting__label" id="phone" placeholder="Phone"
                                 name="phone">
                             <input type="text" class="form-control voting__label" id="email" placeholder="Email"
-                                {{ $user ? 'readonly' : '' }} name="email" value="{{ old('email', $user ? $user['email'] : '') }}">
+                                {{ $user ? 'readonly' : '' }} name="email"
+                                value="{{ old('email', $user ? $user['email'] : '') }}">
                         </div>
                         <div>
                             @error('phone')
@@ -75,13 +77,13 @@
                         <label for="volunteer_before">Have you ever been a part of us before?</label>
                         <div class="container__checkbox">
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="volunteer" name="enrolled"
-                                    value="1" checked {{old('enrolled')=='1'?'checked':''}}>
+                                <input type="radio" class="form-check-input" id="volunteer" name="enrolled" value="1"
+                                    checked {{ old('enrolled') == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="volunteer">Already</label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="nonvolunteer" name="enrolled"
-                                    value="0" {{old('enrolled')=='0'?'checked':''}}>Not Yet
+                                    value="0" {{ old('enrolled') == '0' ? 'checked' : '' }}>Not Yet
                                 <label class="form-check-label" for="nonvolunteer"></label>
                             </div>
                         </div>
@@ -93,8 +95,29 @@
                                         aria-label="Floating label select example" name="project_id">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
+                                            @php
+                                                $isActive = false; // Khởi tạo biến kiểm tra active
+                                            @endphp
+                                            @php
+                                                $isActive = false; // Khởi tạo biến kiểm tra active
+                                                $count = 0;
+                                            @endphp
+                                            @foreach ($volunteers as $itemPro)
+                                                @if ($item->id === $itemPro->project_id)
+                                                    @php
+                                                        $count++;
+                                                    @endphp
+                                                    @if ($count >= $item->quantity)
+                                                        @php
+                                                            $isActive = true; // Nếu có giá trị giống nhau, đặt isActive thành true
+                                                        @endphp
+                                                        {{-- @break --}}
+                                                    @endif
+                                                @endif
+                                            @endforeach
                                             <option value="{{ $item->id }}"
-                                                {{ $project_id == $item->id ? 'selected' : '' }}>{{ $item->title }}
+                                                {{ $project_id == $item->id ? 'selected' : '' }}
+                                                {{ $isActive ? 'disabled' : '' }}>{{ $item->title }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -123,11 +146,12 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Relatives</span>
                                 <input type="text" class="form-control voting__label" id="name1"
-                                    placeholder="Name" name="rel_name" value="{{old("rel_name")}}" >
+                                    placeholder="Name" name="rel_name" value="{{ old('rel_name') }}">
                                 <input type="text" class="form-control voting__label" id="phone1"
-                                    placeholder="Phone" name="rel_phone" value="{{old("rel_phone")}}" >
+                                    placeholder="Phone" name="rel_phone" value="{{ old('rel_phone') }}">
                                 <input type="text" class="form-control voting__label" id="relationship"
-                                    placeholder="Relationship" name="rel_relationship" value="{{old("rel_relationship")}}">
+                                    placeholder="Relationship" name="rel_relationship"
+                                    value="{{ old('rel_relationship') }}">
                             </div>
                             <div>
                                 @error('rel_name')
