@@ -195,8 +195,6 @@ Route::group(['prefix' => 'admin/'], function () {
 });
 
 
-//
-
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
     Route::get('index', [CategoryController::class, 'index'])->name('category.index')->middleware('can:category_list');

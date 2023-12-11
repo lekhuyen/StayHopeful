@@ -15,9 +15,9 @@
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-                                    
+
                                     <span class="profile-username-text">{{ auth()->user()->name }}</span>
-                                    
+
                                 </div>
                                 <div class="profile-info">
                                     @if (session('userInfo'))
@@ -93,17 +93,18 @@
                                         </div>
                                     </div>
                                     <div class="edit-post-user">
-                                        
+
                                         <a class="edit_form-post"data-id="{{ $post->id }} ">Edit</a>
                                         <a class="delete_form-post"data-id="{{ $post->id }} ">Delete</a>
-                                        
+
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
                                     </div>
                                     @if ($post->images->count() > 0)
                                         @foreach ($post->images as $image)
-                                            <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
+                                            <div
+                                                style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
                                                 <img width="80%" height="400px" src="{{ asset($image->image) }}"
                                                     alt="">
                                             </div>
@@ -111,24 +112,27 @@
                                     @endif
                                 </div>
 
-                                <div class="like_post_profile" data-post-id="{{ $post->id }}">
-                                    @if ($post->likes->contains('id_user', auth()->user()->id))
-                                        <div>
-                                            <i class="fa-solid fa-heart like_icon"  data-post-id="{{ $post->id }}"></i>
-                                        </div>
-                                    @else
-                                        <div>
-                                            <i class="fa-regular fa-heart dislike_icon" data-post-id="{{ $post->id }}"></i>
-                                        </div>
+                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}" style="cursor: pointer">
+
+                                    {{-- ! phân biệt user đã like --}}
+                                    @if(auth()->user())
+                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                            <div>
+                                                <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
+                                            </div>
+                                        @else
+                                            <div>
+                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                            </div>
+                                        @endif
                                     @endif
-    
                                     <div class="like_count">
-                                        <span class="count_like" data-post-id="{{ $post->id }}"></span>
+                                        <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
                                     </div>
                                 </div>
 
                             </div>
-                            
+
                         </div>
                     @endforeach
 
