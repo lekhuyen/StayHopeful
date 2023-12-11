@@ -57,10 +57,10 @@
         <div class="col-lg-6 col-md-12 col-sm-12 middle">
             <h4>Our Contact</h4>
             <hr>
-            <p>Stayhopeful</p>
+            <p>StayHopeful.com</p>
             <p>Hotline: <a href="tel:+0987654321" style="text-decoration: none; color: white">0987654321</a></p>
             <p>Email: <a href="mailto:stayhopful@gmail.com"
-                    style="text-decoration: none; color: white;">stayhopeful@gmail.com</a></p>
+                    style="text-decoration: none; color: white;">contact@StayHopeful.org</a></p>
             <p>Head Office Address: </p>
             <div class="map-container" style="padding-bottom: 20px">
                 <iframe

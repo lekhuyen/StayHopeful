@@ -4,7 +4,7 @@
     <div class="container mt-3">
         <h1>Category List</h1>
         @can('category_add')
-            <a href="{{ route('category.create') }}" class="btn btn-primary">Create Category</a>
+            <a href="{{ route('category.create') }}" class="btn btn-primary">Create</a>
         @endcan
         <table class="table table-hover">
             <thead>
@@ -34,7 +34,6 @@
             </tbody>
 
         </table>
-        {{ $categories->links() }}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

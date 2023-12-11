@@ -14,7 +14,6 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate(6);
         $categories = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->limit(5)->get();
         $blogs = News::orderBy('id', 'desc')->get();
@@ -112,7 +111,7 @@ class BlogController extends Controller
             $query->where('title', 'like', '%' . $keywork . '%')
                 ->orWhere('description', 'like', '%' . $keywork . '%');
         })->get();
-        
+
         if($projects->count() > 0){
             return view('frontend.search.index', compact('projects'));
         } else {

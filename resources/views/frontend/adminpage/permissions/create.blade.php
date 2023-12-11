@@ -20,7 +20,7 @@
             </div>
             <div class="col-lg-12">
                 <input type="checkbox" class="checkall">
-                CheckAll
+                Check All
             </div>
             <div class="col-lg-12">
                 <div class="card border-dark mb-3" style="max-width: 100%;">

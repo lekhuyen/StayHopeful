@@ -9,7 +9,7 @@
         @if (session('error'))
             <div class="text-danger">{{ session('error') }}</div>
         @endif
-        <h1 style="font-weight: 700">Manager User</h1>
+        <h1>Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
@@ -45,15 +45,17 @@
                             @foreach ($user as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>@if ($item->avatar == null)
-                                        <img src="{{ asset('img/user.png') }}" class="image-hover" width="50px"
-                                            height="50px"
-                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
-                                            @else
-                                            <img src="{{ asset($item->avatar)}}" class="image-hover" width="50px"
-                                            height="50px"
-                                            style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
-                                    @endif</td>
+                                    <td>
+                                        @if ($item->avatar == null)
+                                            <img src="{{ asset('img/user.png') }}" class="image-hover" width="50px"
+                                                height="50px"
+                                                style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
+                                        @else
+                                            <img src="{{ asset($item->avatar) }}" class="image-hover" width="50px"
+                                                height="50px"
+                                                style="border-radius: 50%; margin-right: 20px">{{ $item->name }}
+                                        @endif
+                                    </td>
                                     <td>{{ $item->email }}</td>
                                     <td>
                                         @if ($item->role == '1')
@@ -89,6 +91,7 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
+                    {{ $user->links() }}
                 </div>
             </div>
         </div>

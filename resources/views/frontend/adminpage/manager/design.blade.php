@@ -5,7 +5,7 @@
 
 
     <div class="container">
-        <h1 style="font-weight: 700">Slider Design</h1>
+        <h1>Slider Design</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
@@ -74,7 +74,7 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{-- {{ $sliders->links() }} --}}
+                    {{ $sliders->links() }}
                 </div>
             </div>
         </div>

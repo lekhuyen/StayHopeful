@@ -3,13 +3,14 @@
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
     <div class="container">
-        <h1 style="font-weight: 700">Donate List</h1>
+        <h1>Donate List</h1>
         <div class="row">
             <div class="col-lg-6">
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User name" id="search" name="search" class="form-control input-search">
+                        <input type="search" placeholder="Search User name" id="search" name="search"
+                            class="form-control input-search">
                     </div>
                 </div>
             </div>
@@ -57,26 +58,29 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
+                    {{ $donateinfo->links() }}
                 </div>
             </div>
         </div>
     </div>
     <script>
-        $(document).ready(function(){
-            $('#search').on('keyup',function(){
+        $(document).ready(function() {
+            $('#search').on('keyup', function() {
                 $value = $(this).val();
-                if($value){
+                if ($value) {
                     $('.data_all').hide();
                     $('.searchdata').show();
-                }else{
+                } else {
                     $('.data_all').show();
                     $('.searchdata').hide();
                 }
                 $.ajax({
                     type: "GET",
                     url: "/admin/searchlistdonate",
-                    data: {'search':$value},
-                    success: function(data){
+                    data: {
+                        'search': $value
+                    },
+                    success: function(data) {
                         $('#content').html(data);
                     }
                 })
