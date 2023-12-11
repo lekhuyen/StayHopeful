@@ -39,6 +39,7 @@ class UserPostController extends Controller
         // }
         $user = session()->get('userInfo');
 // dd($user['id']);
+// dd($user);
         return view('frontend.post_page.index', compact('posts', 'comments'));
     }
 
