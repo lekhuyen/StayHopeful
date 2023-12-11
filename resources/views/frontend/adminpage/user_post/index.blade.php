@@ -21,13 +21,9 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
-<<<<<<< HEAD
-                            {{-- <a class="btn btn-secondary" href="">{{ $post->user->name }}</a> --}}
-=======
-                            
+
                             <a class="btn btn-secondary" href="">{{ $post->user->name }}</a>
-                            
->>>>>>> 5ee5dcb40ebd7dc2fbd3a58011ae5bf2b0e7d989
+
                         </td>
                         <td>
                             @if ($post->status == 1)
