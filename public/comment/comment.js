@@ -18,6 +18,15 @@ var editPost = document.querySelectorAll('.edit_post')
 var editPostForm = document.querySelectorAll('.edit-post-user')
 var profileForm = document.querySelector('.profile-form')
 
+//popup alert remove
+var exitAlertBtn = document.querySelector('.exit-user-post-alert-btn');
+var addPostSuccess = document.querySelector(".container-user-post-notification");
+exitAlertBtn.addEventListener('click', function () {
+    addPostSuccess.classList.remove("showAlert");
+});
+addPostSuccess.addEventListener('click', function () {
+    addPostSuccess.classList.remove("showAlert");
+});
 
 
 editPost.forEach((item, key) => {
