@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('admincss/dashboardlayout.css') }}">
 
     <div class="container">
-        <h1 style="font-weight: 700">Dashboard</h1>
+        <h1>Dashboard</h1>
         <div class="row">
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
@@ -52,7 +52,7 @@
                             </div>
                             <div class="chart-dashboard">
                                 <canvas id="charttwo"></canvas>
-                                <div class="chart-value" > 
+                                <div class="chart-value" >
                                     {{-- style="background: #f77676; color: #d93737" --}}
                                     {{-- <svg aria-hidden="true"
                                         focusable="false" data-prefix="fas" data-icon="caret-down"
