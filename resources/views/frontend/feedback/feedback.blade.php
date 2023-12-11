@@ -1,5 +1,4 @@
 @extends('frontend.site')
-@section('title', 'Feedback')
 @section('main')
 <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 
@@ -8,6 +7,7 @@
             <div class="alert alert-success feedback-alert">
                 <strong>Success!</strong> {{ session('success') }}
             </div>
+
         @endif
 
         <div class="container-fluid-feedback">
