@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
 
+    {{-- profile --}}
+    <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
 
 
     {{-- css contactus --}}
@@ -335,39 +337,85 @@
 
 {{-- like user post(profile page) --}}
 <script>
+    // $(document).ready(function() {
+    //     $('.like_post_profile').each(function() {
+    //         var postId = $(this).data('post-id');
+
+    //         var likeButton = $('.like_post_profile[data-post-id="' + postId + '"]');
+
+    //         var countElement = $('.count_like[data-post-id="' + postId + '"]');
+
+    //         var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
+
+    //         var dislike_icons = $('.dislike_icon[data-post-id="' + postId + '"]');
+
+    //         var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
+
+
+    //         if (userLikeStatus === 'liked') {
+    //             like_icons.addClass('show');
+    //             dislike_icons.removeClass('show');
+    //         } else if (userLikeStatus === 'disliked') {
+    //             like_icons.removeClass('show');
+    //             dislike_icons.addClass('show');
+    //         }
+
+    //         var likesCount = localStorage.getItem('likesCount_' + postId);
+    //         if (likesCount !== null) {
+    //             if (likesCount == 0) {
+    //                 countElement.text('');
+    //             } else {
+    //                 countElement.text(likesCount);
+    //             }
+    //         }
+
+    //         $(document).on('click', '.like_post_profile[data-post-id="' + postId + '"]', function(e) {
+    //             e.preventDefault();
+    //             var post_id = $(this).data('post-id');
+    //             var _csrf = '{{ csrf_token() }}';
+    //             var _loginUrl = '{{ route('post.like') }}';
+
+    //             $.ajax({
+    //                 url: _loginUrl,
+    //                 type: 'POST',
+    //                 data: {
+    //                     post_id: post_id,
+    //                     _token: _csrf
+    //                 },
+    //                 success: function(data) {
+    //                     if (data.like_user === 1) {
+    //                         like_icons.addClass('show');
+    //                         dislike_icons.removeClass('show');
+    //                         localStorage.setItem('likeStatus_' + post_id, 'liked');
+    //                     } else {
+    //                         like_icons.removeClass('show');
+    //                         dislike_icons.addClass('show');
+
+    //                         localStorage.setItem('likeStatus_' + post_id,
+    //                             'disliked');
+    //                     }
+    //                     if (data.count == 0) {
+    //                         countElement.text('');
+    //                     } else {
+    //                         countElement.text(data.count);
+    //                     }
+    //                     localStorage.setItem('likesCount_' + post_id, data.count);
+    //                 }
+    //             });
+    //         });
+    //     });
+    // });
+
+    // like-user 
     $(document).ready(function() {
-        $('.like_post_profile').each(function() {
+        $('.like_post').each(function() {
             var postId = $(this).data('post-id');
-
-            var likeButton = $('.like_post_profile[data-post-id="' + postId + '"]');
-
+            var likeButton = $('.like_post[data-post-id="' + postId + '"]');
             var countElement = $('.count_like[data-post-id="' + postId + '"]');
-
             var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
+            var iconContainer = $('.icon_container[data-post-id="' + postId + '"]');
 
-            var dislike_icons = $('.dislike_icon[data-post-id="' + postId + '"]');
-
-            var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
-
-
-            if (userLikeStatus === 'liked') {
-                like_icons.addClass('show');
-                dislike_icons.removeClass('show');
-            } else if (userLikeStatus === 'disliked') {
-                like_icons.removeClass('show');
-                dislike_icons.addClass('show');
-            }
-
-            var likesCount = localStorage.getItem('likesCount_' + postId);
-            if (likesCount !== null) {
-                if (likesCount == 0) {
-                    countElement.text('');
-                } else {
-                    countElement.text(likesCount);
-                }
-            }
-
-            $(document).on('click', '.like_post_profile[data-post-id="' + postId + '"]', function(e) {
+            $(document).on('click', '.like_post[data-post-id="' + postId + '"]', function(e) {
                 e.preventDefault();
                 var post_id = $(this).data('post-id');
                 var _csrf = '{{ csrf_token() }}';
@@ -382,22 +430,18 @@
                     },
                     success: function(data) {
                         if (data.like_user === 1) {
-                            like_icons.addClass('show');
-                            dislike_icons.removeClass('show');
-                            localStorage.setItem('likeStatus_' + post_id, 'liked');
+                            // like_icons.addClass('show');
+                            likeButton.addClass('active');
                         } else {
-                            like_icons.removeClass('show');
-                            dislike_icons.addClass('show');
-
-                            localStorage.setItem('likeStatus_' + post_id,
-                                'disliked');
+                            // like_icons.addClass('show');
+                            like_icons.addClass('dislike_icon_color');
+                            likeButton.removeClass('active');
                         }
                         if (data.count == 0) {
                             countElement.text('');
                         } else {
                             countElement.text(data.count);
                         }
-                        localStorage.setItem('likesCount_' + post_id, data.count);
                     }
                 });
             });

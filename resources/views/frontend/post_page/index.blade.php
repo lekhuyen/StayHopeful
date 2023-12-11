@@ -44,14 +44,16 @@
                             <div class="like_post" data-post-id="{{ $post->id }}">
 
                                 {{-- ! phân biệt user đã like --}}
-                                @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
-                                    <div>
-                                        <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
-                                    </div>
-                                @else
-                                    <div>
-                                        <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
-                                    </div>
+                                @if(auth()->user())
+                                    @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                        <div>
+                                            <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
+                                        </div>
+                                    @else
+                                        <div>
+                                            <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                        </div>
+                                    @endif
                                 @endif
                                 <div class="like_count">
                                     <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
