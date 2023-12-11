@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
     <div class="container">
         <h1 style="font-weight: 700">Donate List</h1>
@@ -29,7 +30,7 @@
                                 <td>Message <div class="question-container">
                                         <i class="fa-solid fa-question"></i>
                                         <div class="info-tooltip">
-                                            Bấm vào message để hiện thỉ message
+                                            Click to view Message Details
                                         </div>
                                     </div>
                                 </td>

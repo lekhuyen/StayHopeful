@@ -1,9 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>Project List</h2>
+        <h1>Project List</h1>
         <a class="btn btn-primary "href="{{ route('projectAd-image') }}" target="_blank">Unused Image</a>
         <a class="btn btn-primary "href="{{ route('project-trash') }}" target="_blank">Unused Project</a>
         @can('project_add')

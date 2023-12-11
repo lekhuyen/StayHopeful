@@ -1,8 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>Add Roles</h2>
+        <h1>Add Roles</h1>
         <a class="btn btn-primary"href="{{route('roles.index')}}">Roles List</a>
         <form action="{{route('permissions.store')}}" method="POST">
             @csrf
