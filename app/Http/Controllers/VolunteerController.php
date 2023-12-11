@@ -2,29 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VolunteerMail;
 use App\Models\Project;
 use App\Models\User;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class VolunteerController extends Controller
 {
     public function index()
     {
         $volunteers = Volunteer::all();
-        // dd($volunteers);
         $arrayPeopleVolunteer = [];
         foreach ($volunteers as $key => $item) {
-            // array_push($arrayPeopleVolunteer, $item->project_id);
             $arrayPeopleVolunteer[$key]["project"] = $item->project_id;
             $arrayPeopleVolunteer[$key]["value"] = $item->project_id;
         }
-        // dd($arrayPeopleVolunteer);
         $summedCounts = [];
 
         // Loop through the array to count occurrences of each project
         foreach ($arrayPeopleVolunteer as $item) {
-            $projectId = $item['project'];
+            $projectId = $item['project']; //$projectId la 1 tai lan chay 1 (vi du thoi nha)
 
             // If the project ID exists in the summedCounts array, increment count
             if (array_key_exists($projectId, $summedCounts)) {
@@ -34,7 +33,7 @@ class VolunteerController extends Controller
                 $summedCounts[$projectId] = 1;
             }
         }
-// dd($summedCounts);
+        dd($summedCounts[2]);
         // $summedCounts will contain the summed counts for each project ID
         $projects = Project::all();
         return view("frontend.volunteer.index", compact('projects','summedCounts'));
@@ -45,7 +44,8 @@ class VolunteerController extends Controller
         $projects  = Project::all();
         $project_id = session()->get("project_id");
         $user = session()->get("userInfo");
-        return view("frontend.volunteer.create", compact("projects", "project_id", "user"));
+        $volunteers = Volunteer::all();
+        return view("frontend.volunteer.create", compact("projects", "project_id", "user","volunteers"));
     }
 
     public function store(Request $request)
@@ -59,8 +59,12 @@ class VolunteerController extends Controller
             "rel_name" => "required",
             "rel_relationship" => "required",
             "rel_phone" => "required",
+            "project_id"=>"required"
         ]);
+
         Volunteer::create($request->all());
+        $project = Project::find($request->project_id);
+
         $findUser =  User::where('email', $request->email)->first();
         if ($findUser != null) {
             $findUser->is_volunteer = true;
@@ -73,12 +77,19 @@ class VolunteerController extends Controller
             $userCreate->is_volunteer = true;
             $userCreate->save();
         }
+        // $subject = $project->title;
+
+        // $message = "cam on ban da dang ky su kien nay";
+        // $projectId = 123;
+        Mail::to($request->email)->send(new VolunteerMail($project));
         return redirect()->back()->with("success", "Thanks for being a part of us.");
     }
 
     public function detail($id)
     {
-        $volunteers = Volunteer::all();
-        return view('frontend.volunteer.detail', compact('volunteers'));
+        $volunteers = Volunteer::where("project_id","=",$id)->get();
+        return response()->json([
+            "volunteers"=>$volunteers
+        ]);
     }
 }

@@ -6,7 +6,7 @@ return [
         'category_add'=> 'category_add',
         'category_edit'=> 'category_edit',
 
-        
+
         'project_list'=> 'project_list',
         'project_add'=> 'project_add',
         'project_edit'=> 'project_edit',
@@ -20,8 +20,8 @@ return [
         'user_add'=>'user_add',
         'user_delete'=>'user_delete',
         'user_list'=>'user_list',
-        'user_edit'=>'user_edit',     
-        
+        'user_edit'=>'user_edit',
+
         'roles_list'=>'roles_list',
         'roles_add'=>'roles_add',
         'roles_delete'=>'roles_delete',
@@ -50,10 +50,13 @@ return [
         'Roles',
         'Donate',
         'Permissions',
-        'Dashboard'
+        'Dashboard',
+        'Feedback',
+        'Volunteer',
+        'About Us'
     ],
 
-    'module_childrent'=> [
+    'module_children'=> [
         'List',
         'Add',
         'Edit',
