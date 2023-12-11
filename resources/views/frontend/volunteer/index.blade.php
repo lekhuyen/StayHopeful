@@ -28,13 +28,13 @@
 
                                     @if ($item->id == $key)
                                         @if ($item->quantity == $itemPro)
-                                            <span>Da full</span>
-                                            <a class="btn btn-info">View List Volunteer</a>
+                                            <span>Available</span>
+                                            <a class="btn btn-info" href="{{route("volunteer.detail", $item->id)}}">View List Volunteer</a>
                                         @break
                                         @endif
                                     @else
-                                        <span>Con tuyen</span>
-                                        <a class="btn btn-info">View List Volunteer</a>
+                                        <span>Unavailable</span>
+                                        <a class="btn btn-info" href="{{route("volunteer.detail", $item->id)}}">View List Volunteer</a>
                                     @break
                                 @endif
                         @endforeach
