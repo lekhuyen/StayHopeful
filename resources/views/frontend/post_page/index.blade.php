@@ -74,8 +74,8 @@
     </div>
     @include('frontend/profile/post_form')
 
-    @include('frontend/login/login');
-    @include('frontend/profile/popup_profile');
+    @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
 
 
 
@@ -239,7 +239,7 @@
     $(document).ready(function() {
         $('.like_post').each(function() {
             var postId = $(this).data('post-id');
-
+            
             var likeButton = $('.like_post[data-post-id="' + postId + '"]');
 
             var countElement = $('.count_like[data-post-id="' + postId + '"]');
@@ -250,7 +250,7 @@
 
             var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
 
-
+            
             if (userLikeStatus === 'liked') {
                 like_icons.addClass('show');
                 dislike_icons.removeClass('show');
@@ -258,8 +258,6 @@
                 like_icons.removeClass('show');
                 dislike_icons.addClass('show');
             }
-
-
             // else{
             //     var currentUserLiked = @json($post->likes->where('id_user', auth()->user()->id)->count() > 0);
             //     if (currentUserLiked) {
@@ -300,8 +298,7 @@
                             like_icons.removeClass('show');
                             dislike_icons.addClass('show');
 
-                            localStorage.setItem('likeStatus_' + post_id,
-                                'disliked');
+                            localStorage.setItem('likeStatus_' + post_id, 'disliked');
                         }
                         if (data.count == 0) {
                             countElement.text('');
