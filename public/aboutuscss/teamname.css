@@ -2,7 +2,7 @@
     text-align: center;
 }
 /* # Introduction */
-.introduction span {
+.teamname_introduction span {
     display: block;
     font-size: 1.2em;
     line-height: 1.6;
@@ -45,6 +45,25 @@
     color: black;
 }
 
+@media (max-width: 767px) {
+    /* Styles for screens smaller than 768px (e.g., iPhones) */
+
+    .carousel-item img {
+        width: 100%; /* Make the images fill the width of the container */
+        height: auto; /* Maintain the aspect ratio of the images */
+    }
+
+    .carousel-caption {
+        max-width: 100%; /* Make the caption width 100% for smaller screens */
+        text-align: center; /* Center the text within the caption */
+        padding: 10px; /* Add some padding to the caption */
+    }
+
+    .carousel-caption h5,
+    .carousel-caption p {
+        font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+}
 /* # Current Projects and Future Plans */
 
 
