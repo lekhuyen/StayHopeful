@@ -19,7 +19,7 @@
         <div class="sub-menu">
             <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
             <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
-            <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Story</a>
+            <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Story</a>
         </div>
     </div>
     <div class="item">
