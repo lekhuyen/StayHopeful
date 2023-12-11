@@ -6,11 +6,10 @@
 
     <div class="container__voting mt-5">
         <div class="row row__voting">
-            {{-- <div class="col-lg-12 d-flex justify-content-center"> --}}
             <h1 class="h1_title__voting">Volunteer Form</h1>
             @if (session('success'))
                 <div class="alert alert-success">
-                    <strong>Success!</strong>{{ session('success') }}
+                    <strong>Success! {{ session('success') }}</strong>
                 </div>
             @endif
             <div class="voting__form">
@@ -87,20 +86,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="form-floating container__availdays">
-                                <select class="form-select" id="sel1" name="sellist">
-                                    <option><a href="#">Monday</a></option>
-                                    <option><a href="#">Tuesday</a></option>
-                                    <option><a href="#">Wednesday</a></option>
-                                    <option><a href="#">Thursday</a></option>
-                                    <option><a href="#">Friday</a></option>
-                                    <option><a href="#">Saturday</a></option>
-                                    <option><a href="#">Sunday</a></option>
-                                </select>
-                                <label for="sel1" class="form-label voting__label">Which days are you
-                                    available?</label>
-                            </div> --}}
-
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <div class="form-floating">
@@ -160,8 +145,6 @@
                     </div>
                 </form>
             </div>
-
-            {{-- </div> --}}
         </div>
     </div>
 
