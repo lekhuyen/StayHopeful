@@ -19,5 +19,6 @@ class CreateRoleSeeder extends Seeder
             ['name' => 'developer', 'display_name'=>'Phát triển hệ thống'],
             ['name' => 'content', 'display_name'=>'Chỉnh sửa nội dung'],
         ]);
+        
     }
 }

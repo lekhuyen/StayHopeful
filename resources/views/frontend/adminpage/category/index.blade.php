@@ -1,7 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>Category List</h2>
+        <h1>Category List</h1>
         @can('category_add')
             <a href="{{ route('category.create') }}" class="btn btn-primary">Create Category</a>
         @endcan
