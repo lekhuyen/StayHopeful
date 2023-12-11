@@ -25,10 +25,10 @@
             <div class="col-lg-12">
                 <div class="card border-dark mb-3" style="max-width: 100%;">
                     <div class="row">
-                        @foreach (config('permissions.module_childrent') as $item)
+                        @foreach (config('permissions.module_children') as $item)
                             <div class="card-body text-dark col-md-3">
                                 <label>
-                                    <input class="checkbox_childrent" name="module_childrent[]" type="checkbox" value="{{$item}}">
+                                    <input class="checkbox_childrent" name="module_children[]" type="checkbox" value="{{$item}}">
                                     {{$item}}
                                 </label>
                             </div>

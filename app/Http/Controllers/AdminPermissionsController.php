@@ -16,7 +16,7 @@ class AdminPermissionsController extends Controller
             'display_name'=>$request->name,
             'parent_id'=>0,
         ]);
-        foreach ($request->module_childrent as $value) {
+        foreach ($request->module_children as $value) {
             Permissions::create([
                 'name'=>$value,
                 'display_name'=>$value,
