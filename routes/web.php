@@ -94,9 +94,9 @@ Route::post('/contact',[ContactusController::class,'create'])->name('contact.cre
 
 
 // Aboutus
-Route::get('/aboutus',[AboutusController::class,'index'])->name('aboutus.index');
+Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
-Route::get('/aboutus/whoweare', [AboutUsController::class, 'whoweare'])->name('aboutus.whoweare');
+Route::get('/aboutus/whoweare', [AboutUsController::class, 'aboutus_whoweare'])->name('aboutus.aboutus_whoweare');
 
 Route::get('/aboutus/whoweare/johndoe', [AboutUsController::class, 'johndoe'])->name('aboutus.johndoe');
 
@@ -119,11 +119,14 @@ Route::get('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, "ab
 
 Route::put('/aboutusteam/edit/{aboutusteam}', [AboutusTeamController::class, 'aboutus_team_update'])->name('aboutusteam.update');
 
+Route::get('/aboutusteam/search', [AboutusTeamController::class, 'search'])->name('aboutusteam.search');  // Place search route before the detail route
+
 Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class, "aboutus_team_delete"])->name("aboutusteam.delete");
 
 Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
 
-Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.whoweare.detail');
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail');
+
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
@@ -140,6 +143,7 @@ Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('s
 Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index');
 Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create');
 Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store');
+Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail');
 
 
 // project
@@ -171,7 +175,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::put('managerdesign/{slider}', [AdminPageController::class, 'update_slider'])->name('admin.update_slider')->middleware('can:slider_add');
     Route::get('managerdesign/{id}', [AdminPageController::class, 'getSliderImage'])->name('get.slider.image');
     Route::delete('managerdesign/{slider}', [AdminPageController::class, 'delete_slider'])->name('admin.delete_slider')->middleware('can:slider_delete');
-    
+
     Route::post('changeuserstatus/{id}', [AdminPageController::class, 'changeUserStatus'])->name('admin.changeUserStatus');
     Route::get('listuser', [AdminPageController::class, 'viewlistuser'])->name('admin.listuser');
     Route::post('listuser', [AdminPageController::class, 'registeruser'])->name('admin.registeruser');
@@ -186,7 +190,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
     Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
-    
+
 
 });
 

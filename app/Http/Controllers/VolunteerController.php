@@ -73,6 +73,12 @@ class VolunteerController extends Controller
             $userCreate->is_volunteer = true;
             $userCreate->save();
         }
-        return redirect()->back()->with("success", "Cam on ban da dang ky");
+        return redirect()->back()->with("success", "Thanks for being a part of us.");
+    }
+
+    public function detail($id)
+    {
+        $volunteers = Volunteer::all();
+        return view('frontend.volunteer.detail', compact('volunteers'));
     }
 }

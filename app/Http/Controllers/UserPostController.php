@@ -19,6 +19,7 @@ class UserPostController extends Controller
     public function detail_post($id)
     {
         $post = UserPost::find($id);
+    
         return view('frontend.adminpage.user_post.post_detail', compact('post'));
     }
 
@@ -36,7 +37,8 @@ class UserPostController extends Controller
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
 
         // }
-
+        $user = session()->get('userInfo');
+// dd($user['id']);
         return view('frontend.post_page.index', compact('posts', 'comments'));
     }
 

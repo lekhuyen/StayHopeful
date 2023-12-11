@@ -10,6 +10,11 @@
             <strong class="text-success">{{ session('success') }}</strong>
         </div>
     @endif
+
+    <a href="{{ route('feedback.index') }}" class="about-us-link"
+        style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
+
     <form action="{{ route('sensitive.store') }}" method="post">
         @csrf
         <div class="sensitive__container">

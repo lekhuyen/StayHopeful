@@ -1,9 +1,7 @@
 .fb-detail-title {
-    background: linear-gradient(to right, #4eb1ea, #0189d8);
-    color: aliceblue;
-    padding: 20px;
+    color: cornflowerblue;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .fb__sensitive{

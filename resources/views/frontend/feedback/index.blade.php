@@ -1,8 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('title', 'Feedback List')
-<link rel="stylesheet" href="{{ asset('feedbackcss/feedback_detail.css') }}">
 @section('admin_content')
-    <h4 class="fb-detail-title">Feedback List</h4>
+
+    <link rel="stylesheet" href="{{ asset('feedbackcss/feedback_detail.css') }}">
+
+    <h1 class="fb-detail-title">Feedback List</h1>
     <table class="table">
         <thead>
             <tr>

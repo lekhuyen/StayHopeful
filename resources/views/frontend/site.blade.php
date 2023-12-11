@@ -29,7 +29,7 @@
 
 
     {{-- css contactus --}}
-    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    
 
     {{-- cssblog --}}
     {{-- cssblog --}}
@@ -117,7 +117,7 @@
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{ route('aboutus.whoweare') }}" class="sub-item">Our Team</a>
+                                    <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Team</a>
                                     <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
                                     <a href="{{ route('blog.index') }}" class="sub-item">News</a>
                                 </div>
