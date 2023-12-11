@@ -80,19 +80,17 @@
 .like_post {
     display: flex;
     align-items: center;
-    /* position: relative; */
 }
 .like_icon {
-    /* position: absolute; */
     color: red;
 }
 .dislike_icon_color{
-    color: gray;
+    color: black;
 }
-.like_icon,
+/* .like_icon,
 .dislike_icon {
     display: none;
-}
+} */
 
 .show {
     display: inline-block; 

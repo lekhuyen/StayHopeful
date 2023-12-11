@@ -54,8 +54,7 @@
                                     </div>
                                 @endif
                                 <div class="like_count">
-                                    <span class="count_like"
-                                        data-post-id="{{ $post->id }}">{{ $post->likes->count() }}</span>
+                                    <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
                                 </div>
                             </div>
 
@@ -258,11 +257,10 @@
                     },
                     success: function(data) {
                         if (data.like_user === 1) {
-
-                            like_icons.addClass('show');
+                            // like_icons.addClass('show');
                             likeButton.addClass('active');
                         } else {
-                            like_icons.addClass('show');
+                            // like_icons.addClass('show');
                             like_icons.addClass('dislike_icon_color');
                             likeButton.removeClass('active');
                         }
