@@ -16,24 +16,24 @@
                             <div class="profile-user">
                                 <div class="profile-username">
                                     
-                                    <span class="profile-username-text">{{ auth()->user()->name }}</span>
+                                    <span class="profile-username-text">{{ $user->name }}</span>
                                     
                                 </div>
                                 <div class="profile-info">
-                                    @if (session('userInfo'))
-                                        <p class="info-text">Email: <span
-                                                class="info-text-user">{{ session('userInfo')['email'] }}</span></p>
-                                    @endif
-                                    <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                    <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                    <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
+                                        <p class="info-text">Email: 
+                                            <span class="info-text-user">{{ $user->email }}</span>
+                                        </p>
+                                        <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
+                                        <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
+                                        <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
                                 <button class="profile-edit-info">Edit Profile</button>
                                 <button class="profile-edit-info user-post-form">Post</button>
                             </div>
+                            
                         </div>
                     </div>
-                    <div class="profile-listdonate">
+                    {{-- <div class="profile-listdonate">
                         <span class="listdonate">List Donate</span>
                         <div class="profile-table" id="style-1">
                             <table class="table table-striper">
@@ -59,7 +59,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
                     @foreach ($posts as $post)
                         <div class="profile-aboutme post_user-web">
 
@@ -88,16 +88,18 @@
                                                     {{ $post->updated_at }}</p>
                                             </div>
                                         </div>
-                                        <div class="edit_post">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                        </div>
+                                        @if($post->user->id == auth()->user()->id)
+                                            <div class="edit_post">
+                                                <i class="fa-solid fa-ellipsis"></i>
+                                            </div>
+                                        @endif
                                     </div>
+                                    
                                     <div class="edit-post-user">
-                                        
-                                        <a class="edit_form-post"data-id="{{ $post->id }} ">Edit</a>
-                                        <a class="delete_form-post"data-id="{{ $post->id }} ">Delete</a>
-                                        
+                                        <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
+                                        <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
                                     </div>
+                                    
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
                                     </div>
@@ -138,7 +140,7 @@
         </div>
     </div>
 
-    {{-- <div class="modal-user-post-1">
+    <div class="modal-user-post-1">
         <div class="modal_inner-post">
             <div class="post-header">
 
@@ -177,8 +179,7 @@
 
             </form>
         </div>
-    </div> --}}
-    @include('frontend/profile/post_form')
+    </div>
 
     @include('frontend/profile/popup_profile')
 

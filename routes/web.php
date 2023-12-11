@@ -67,6 +67,9 @@ Route::post('/change-password', [AuthloginController::class, 'change_password'])
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
+//profile rieng cua user
+Route::get('/profile/{id}', [AuthloginController::class, 'user_profile'])->name('user.profile');
+
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
 Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
@@ -77,12 +80,12 @@ Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name(
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/blog_finished', [BlogController::class, 'blog_finished'])->name('blog.blog_finished');
 Route::get('/blog/blog_detail', [BlogController::class, 'blog_detail'])->name('blog.blog_detail');
-Route::get('/news-detail/{id}', [BlogController::class, 'news_detail'])->name('news-detail');
+Route::get('/news-detail/{id}-{slug}', [BlogController::class, 'news_detail'])->name('news-detail');
 
 
 
 //detail-page
-Route::get('/detail/{id}', [BlogController::class, 'viewdetail'])->name('detail.post');
+Route::get('/detail/{id}-{slug}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
 // Contact
 Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');

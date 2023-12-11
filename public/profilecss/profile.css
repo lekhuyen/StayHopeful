@@ -95,6 +95,20 @@
     display: inline-block; 
 }
 
+/* like - profile */
+.like_post_profile {
+    border-top: 1px solid #ccc;
+    padding: 5px 0;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+
 /* button profile */
 .profile-edit-info {
     position: absolute;
@@ -145,20 +159,20 @@
 
 .profile-aboutme {
     position: relative;
-    margin-top: 50px;
+    margin-top: 25px;
     width: 100%;
-    min-height: 350px;
     background-color: transparent;
 }
 
 .profile-aboutme-set {
     width: 90%;
-    min-height: 265px;
+    min-height: 150px;
     margin-left: 50px;
     background-color: transparent;
     text-overflow: ellipsis;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
 
 }
 
@@ -328,7 +342,7 @@
     border-bottom: 1px solid #043e84;
 }
 .post-header-title {
-    height: 100%;
+    /* height: 100%; */
     text-align: center;
 }
 .post-header-title h1 {
@@ -369,6 +383,7 @@
 
 .post-uset-body {
     display: flex;
+    align-items: center;
 }
 /* .user-name-post {
     display: flex;
@@ -443,6 +458,9 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgb(201, 197, 197);
     display: none;
+}
+.edit-post-user a {
+    text-decoration: none;
 }
 .show-edit-form {
     display: block;
@@ -602,4 +620,30 @@
     border: none;
     background-color: #e6e3e3;
     border-radius: 10px;
+}
+
+
+/* input new post */
+.input_new-post {
+    margin-bottom: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
+.input_new-post div {
+    width: 80%;
+    height: 70%;
+    border-radius: 20px;
+    background-color: #eae3e3;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: rgb(156, 153, 153);
+}
+.input_new-post div:hover {
+    background-color: #f2e5e5;
 }

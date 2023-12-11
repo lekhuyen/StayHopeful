@@ -218,4 +218,15 @@ class AuthloginController extends Controller
 
 
     }
+
+
+    public function user_profile($postId){
+        $posts = UserPost::where('user_id', $postId)->get();
+        $user = User::find($postId);
+        if ($posts) {
+            return view('frontend.profile.profile_user', compact('posts', 'user'));
+        } else {
+            return abort(404); 
+        }
+    }
 }
