@@ -41,7 +41,7 @@
                         @endif
                         <div class="post_like-comment-post" style="margin-bottom:20px; cursor:pointer">
 
-                            <div class="like_post" data-post-id="{{ $post->id }}">
+                            <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
 
                                 {{-- ! phân biệt user đã like --}}
                                 @if(auth()->user())
@@ -237,14 +237,14 @@
     })
 
     $(document).ready(function() {
-        $('.like_post').each(function() {
+        $('.like_post-1').each(function() {
             var postId = $(this).data('post-id');
-            var likeButton = $('.like_post[data-post-id="' + postId + '"]');
+            var likeButton = $('.like_post-1[data-post-id="' + postId + '"]');
             var countElement = $('.count_like[data-post-id="' + postId + '"]');
             var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
             var iconContainer = $('.icon_container[data-post-id="' + postId + '"]');
 
-            $(document).on('click', '.like_post[data-post-id="' + postId + '"]', function(e) {
+            $(document).on('click', '.like_post-1[data-post-id="' + postId + '"]', function(e) {
                 e.preventDefault();
                 var post_id = $(this).data('post-id');
                 var _csrf = '{{ csrf_token() }}';

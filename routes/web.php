@@ -306,8 +306,6 @@ Route::group(['prefix'=> 'post/'], function(){
 
     Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
 
-    //show-post(web)
-    Route::get('post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
 
     // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
@@ -321,8 +319,12 @@ Route::group(['prefix'=> 'post/'], function(){
 
 });
 
+//show-post(web)
+Route::get('/post/post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
+
 //like-user-post
 Route::post('like',[UserPostController::class,'like'])->name('post.like');
+
 
 
 //edit-post(user)
