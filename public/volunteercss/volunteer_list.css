@@ -10,3 +10,27 @@ h1 {
 .btn_volunteer_return {
     text-align: center;
 }
+
+@media (min-width: 600px) {
+    .body__volunteer {
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 768px) {
+    .body__volunteer {
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 992px) {
+    .body__volunteer {
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 1280px) {
+    .body__volunteer {
+        overflow-x:hidden;
+    }
+}
