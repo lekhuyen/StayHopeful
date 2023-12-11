@@ -2,10 +2,18 @@
 @section('title', 'Post')
 <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
 @section('main')
+<div class="container">
+    
+</div>
     <div class="container" style="margin-top: 100px; padding: 0">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8" style="padding: 0; border-radius: 5px; ">
+                {{-- new post(user) --}}
+                <div class="input_new-post">
+                    <div type="text">New post..</div>
+                </div>
+
                 @foreach ($posts as $post)
                     <div style="padding: 0; background-color:#f1ebeb; border-radius: 5px; ">
                         <div class="post-uset-body"
@@ -64,6 +72,7 @@
             <div class="col-lg-2"></div>
         </div>
     </div>
+    @include('frontend/profile/post_form')
 
     @include('frontend/login/login');
     @include('frontend/profile/popup_profile');
