@@ -1,7 +1,10 @@
 @extends('frontend.adminpage.index')
+@include("frontend/login/login")
+@include('frontend/profile/popup_profile')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>roles list</h2>
+        <h1>Roles List</h1>
         @can('roles_add')
             <a href="{{route('roles.create')}}" class="btn btn-primary">Add</a>
         @endcan

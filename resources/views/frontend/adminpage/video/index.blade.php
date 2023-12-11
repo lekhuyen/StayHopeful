@@ -1,9 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 <div class="container">
     <div class="row">
         <div class="container mt-3">
-            <h2>List Video</h2>
+            <h1>List Video</h1>
             <a class="btn btn-primary "href="{{route('video-trash')}}" target="_blank">Trash Video</a>
             {{-- <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a> --}}
             @can('video_add')

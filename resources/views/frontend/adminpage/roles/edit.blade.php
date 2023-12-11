@@ -1,4 +1,6 @@
 @extends('frontend.adminpage.index')
+@include("frontend/login/login")
+@include('frontend/profile/popup_profile')
 @section('admin_content')
 
     <div class="container mt-3">

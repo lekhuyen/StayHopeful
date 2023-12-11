@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/managerdesign.css') }}">
 
 

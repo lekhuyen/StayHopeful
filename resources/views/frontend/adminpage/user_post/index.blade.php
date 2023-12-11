@@ -1,7 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h2>User Post List</h2>
+        <h1>User Post List</h1>
         <a class="btn btn-primary "href="{{route('post-trash')}}" target="_blank">Trash</a>
         <table class="table table-hover">
             <thead>
