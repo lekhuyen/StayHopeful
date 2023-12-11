@@ -106,8 +106,7 @@ class UserPostController extends Controller
             }
         }
 
-
-        return back()->with('success', 'Tao thanh cong, bai viet dang cho duyet');
+        return back()->with("isPending", true);
     }
 
     //duyet bai viet

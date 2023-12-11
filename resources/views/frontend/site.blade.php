@@ -31,7 +31,7 @@
 
 
     {{-- css contactus --}}
-    
+
 
     {{-- cssblog --}}
     {{-- cssblog --}}
@@ -121,7 +121,6 @@
                                     <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
                                     <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Team</a>
                                     <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
-                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
                                 </div>
                             </div>
 
@@ -131,25 +130,24 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('project.index', 1) }}" class="sub-item">Our Projects</a>
                                     <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
-                                    <a href="{{ route('video.index') }}" class="sub-item">Video Gallery</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">DONORS</a>
+                                <a class="nav-menu-title">SUPPORT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
-                                    <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
-                                    <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
+                                    <a href="{{ route('detail.donate') }}" class="sub-item">Donate</a>
+                                    <a href="{{route('feedback.create')}}" class="sub-item">Feedback</a>
+                                    <a href="{{route('volunteer.create')}}" class="sub-item">Volunteer</a>
                                 </div>
                             </div>
 
                             <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">STAYHOPEFUL</a>
+                                <a class="nav-menu-title">RESOURCES</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     <a href="{{route('blog.index')}}" class="sub-item">News</a>
-                                    <a href="{{route('feedback.create')}}" class="sub-item">Feedback</a>
-                                    <a href="{{route('volunteer.create')}}" class="sub-item">Volunteer</a>
+                                    <a href="{{ route('video.index') }}" class="sub-item">Video Gallery</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
@@ -158,11 +156,11 @@
                                 <div class="nav-sub-menu-title">
                                     <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
                                     <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{route('detail.donate')}}" class="sub-item">Get Involved</a>
+                                    <a href="{{route('volunteer.create')}}" class="sub-item">Volunteer</a>
                                 </div>
                             </div>
                             <div class="nav-mobile-interface">
-                                <a href="#" class="nav-menu-title">CATEGORY</a>
+                                <a href="#" class="nav-menu-title">OUR PROJECT</a>
                                 <i class="fas fa-angle-right dropdown"></i>
                                 <div class="nav-sub-menu-title">
                                     {{-- @if($categories->count() > 0)
@@ -249,8 +247,8 @@
                     <div class="footer_header">
                         <h2>QUICK LINKS</h2>
                         <ul>
-                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
                             <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
+                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
                             <li><a href="{{ route('feedback.create') }}">Feedback</a></li>
                             <li><a href="{{ route('volunteer.create') }}">Volunteer</a></li>
                             <li></li>
@@ -408,7 +406,7 @@
     //     });
     // });
 
-    // like-user 
+    // like-user
     $(document).ready(function() {
         $('.like_post').each(function() {
             var postId = $(this).data('post-id');

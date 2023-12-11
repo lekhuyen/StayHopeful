@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
 <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h1>List News</h1>
+        <h1>News List</h1>
         <a class="btn btn-primary "href="{{route('news-image-trash')}}" target="_blank">Trash Image</a>
         @can('news_add')
             <a class="btn btn-primary "href="{{route('news.create')}}">Create News</a>
