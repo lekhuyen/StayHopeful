@@ -123,5 +123,5 @@
             </div>
         </div>
 
-@include("frontend/login/login");
+@include("frontend/login/login")
 @endsection

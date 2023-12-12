@@ -230,9 +230,9 @@
     </div>
 
     @if (session('isVerified'))
-        @include('frontend/login/login', ['isVerified', true]);
+        @include('frontend/login/login', ['isVerified', true])
     @else
-        @include('frontend/login/login');
+        @include('frontend/login/login')
         @include('frontend/profile/popup_profile')
     @endif
 
