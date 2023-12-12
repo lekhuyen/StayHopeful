@@ -42,9 +42,9 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="9" style="text-align:center">Trash emtry</td>
+                    <td colspan="9" style="text-align:center">Empty</td>
                 </tr>
-                
+
             @endforelse
         </tbody>
     </table>

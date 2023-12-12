@@ -2,8 +2,8 @@
 @section('admin_content')
 
     <div class="container mt-3">
-        <h2>Update Project</h2>
         <a class="btn btn-primary"href="{{ route('projectAd.index') }}">Project List</a>
+        <h1  style="color:cornflowerblue; text-align:center">Update Project</h1>
         <form action="{{route('projectAd.update',$project->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -24,7 +24,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="money"> Cần huy động:</label>
+                <label for="money">Goals:</label>
                 <input type="number" class="form-control" id="money" placeholder="Enter money" name="money"
                     value="{{ $project->money }}">
                 @error('money')
@@ -32,7 +32,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="money2"> Đã góp được :</label>
+                <label for="money2">Received:</label>
                 <input type="number" class="form-control" id="money2" placeholder="Enter money2" name="money2"
                     value="{{ $project->money2 }}">
                 @error('money2')

@@ -37,7 +37,7 @@ class VolunteerController extends Controller
         // $summedCounts will contain the summed counts for each project ID
         $projects = Project::all();
         $projects = Project::paginate(6);
-        return view("frontend.volunteer.index", compact('projects','summedCounts'));
+        return view("frontend.volunteer.index", compact('projects', 'summedCounts'));
     }
 
     public function create()
@@ -46,21 +46,26 @@ class VolunteerController extends Controller
         $project_id = session()->get("project_id");
         $user = session()->get("userInfo");
         $volunteers = Volunteer::all();
-        return view("frontend.volunteer.create", compact("projects", "project_id", "user","volunteers"));
+        return view("frontend.volunteer.create", compact("projects", "project_id", "user", "volunteers"));
     }
 
     public function store(Request $request)
     {
+        $messages = [
+            "phone.required" => "Please input a valid phone number with at least 10 digits.",
+            "rel_phone.required" => "Please input a valid phone number with at least 10 digits."
+        ];
+
         $request->validate([
             "finding_source" => "required",
-            "name" => "required",
-            "phone" => "required",
-            "email" => "required",
-            "volunteer_description" => "required",
-            "rel_name" => "required",
-            "rel_relationship" => "required",
-            "rel_phone" => "required",
-            "project_id"=>"required"
+            "name" => "bail|required|min:3|max:10",
+            "phone" => 'bail|required|regex:/^(\d{10}$)/',
+            "email" => "bail|required|email",
+            "volunteer_description" => "bail|required|min:3|max:255",
+            "rel_name" => "bail|required|min:3|max:10",
+            "rel_relationship" => "bail|required|min:3|max:10",
+            "rel_phone" => 'bail|required|regex:/^(\d{10}$)/',
+            "project_id" => "required"
         ]);
 
         Volunteer::create($request->all());
@@ -88,9 +93,9 @@ class VolunteerController extends Controller
 
     public function detail($id)
     {
-        $volunteers = Volunteer::where("project_id","=",$id)->get();
+        $volunteers = Volunteer::where("project_id", "=", $id)->get();
         return response()->json([
-            "volunteers"=>$volunteers
+            "volunteers" => $volunteers
         ]);
     }
 }

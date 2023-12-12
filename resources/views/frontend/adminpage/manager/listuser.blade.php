@@ -1,7 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
+
     <div class="container">
         @if (session('success'))
             <div class="text-success">{{ session('success') }}</div>
@@ -9,7 +10,6 @@
         @if (session('error'))
             <div class="text-danger">{{ session('error') }}</div>
         @endif
-        <h1>Manager User</h1>
         <div class="row d-flex justify-content-between mt-5 position-relative">
             <div class="col-lg-6">
                 <div class="search">
@@ -22,15 +22,16 @@
             </div>
             <div class="col-lg-6 ">
                 <div class="btnsearch position-absolute " style="right: 0;">
-                    <button class="btn-search " data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
+                    <button class="btn-search" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
                             class="fa-solid fa-plus"></i><span>Add New Account</span></button>
                 </div>
             </div>
         </div>
         <div class="row row-rs">
             <div class="col-12 mt-5">
+                <h1 style="color: cornflowerblue; text-align:center">User List</h1>
                 <div class="form-table">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -67,19 +68,19 @@
                                     <td>
                                         @if ($item->status == '1')
                                             <button data-user-id="{{ $item->id }}" data-status="0"
-                                                class="btn btn-success change-status">Active</button>
+                                                class="badge bg-success rounded-pill change-status">Active</button>
                                         @else
                                             <button data-user-id="{{ $item->id }}" data-status="1"
-                                                class="btn btn-danger change-status">Banned</button>
+                                                class="badge rounded-pill bg-danger change-status">Banned</button>
                                         @endif
                                     </td>
                                     <td style="text-align: center">
-                                        <a href="#" data-user-id="{{ $item->id }}" class="btn btn-success"
+                                        <a href="#" data-user-id="{{ $item->id }}" class="btn btn-warning"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-solid fa-pen"></i>
+                                            <i class="fa-regular fa-pen-to-square"></i></i>
                                         </a>
                                         <a href="{{ route('admin.deleteuser', $item->id) }}" class="btn btn-danger">
-                                            <i class="fa-solid fa-trash"></i>
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </a>
                                     </td>
 
@@ -91,7 +92,6 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
-                    {{ $user->links() }}
                 </div>
             </div>
         </div>

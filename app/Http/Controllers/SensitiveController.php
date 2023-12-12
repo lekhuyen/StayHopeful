@@ -18,7 +18,7 @@ class SensitiveController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'word'=>'required',
+            'word'=>'bail|required|min:3|max:255',
             'status'=>'required',
         ]);
         Sensitive::create($request->all());

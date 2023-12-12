@@ -1,11 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <div class="container mt-3">
-        <h1>Admin List</h1>
         @can('user_add')
-            <a href="{{ route('staff.create') }}" class="btn btn-primary">Add</a>
+            <a href="{{ route('staff.create') }}" class="btn btn-primary">Add New User</a>
         @endcan
+        <h1 style="color:cornflowerblue; text-align:center">Admin List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -24,10 +24,10 @@
                         <td><span>{{ $user->email }}</span></td>
                         <td>
                             @can('user_delete')
-                                <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                             @endcan
                             @can('user_edit')
-                                <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                             @endcan
                         </td>
                     </tr>
