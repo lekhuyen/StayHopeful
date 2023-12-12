@@ -15,21 +15,21 @@
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-                                    
+
                                     <span class="profile-username-text">{{ $user->name }}</span>
-                                    
+
                                 </div>
                                 <div class="profile-info">
-                                        <p class="info-text">Email: 
+                                        <p class="info-text">Email:
                                             <span class="info-text-user">{{ $user->email }}</span>
                                         </p>
                                         <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
                                         <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
                                         <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                     {{-- <div class="profile-listdonate">
@@ -66,14 +66,14 @@
 
                                 <div style="padding: 0; border-radius: 5px; position: relative;">
                                     <div class="post-uset-body"
-                                        style="text-align:left; 
-                                        display: flex; 
+                                        style="text-align:left;
+                                        display: flex;
                                         align-items:center;
                                         justify-content: space-between;
                                         ">
                                         <div
-                                            style="text-align:left; 
-                                                    display: flex; 
+                                            style="text-align:left;
+                                                    display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
                                                 <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
@@ -93,12 +93,12 @@
                                             </div>
                                         @endif
                                     </div>
-                                    
+
                                     <div class="edit-post-user">
                                         <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
                                         <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
                                     </div>
-                                    
+
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
                                     </div>
@@ -132,7 +132,7 @@
                                 </div>
 
                             </div>
-                            
+
                         </div>
                     @endforeach
 

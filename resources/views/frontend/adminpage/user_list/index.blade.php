@@ -1,11 +1,13 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <div class="container mt-3">
         @can('user_add')
             <a href="{{ route('staff.create') }}" class="btn btn-primary">Add New User</a>
         @endcan
-        <h1 style="color:cornflowerblue; text-align:center">Admin List</h1>
+        <h1>Admin List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -23,11 +25,13 @@
                         <td><span>{{ $user->name }}</span></td>
                         <td><span>{{ $user->email }}</span></td>
                         <td>
-                            @can('user_delete')
-                                <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-                            @endcan
                             @can('user_edit')
-                                <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i
+                                        class="fa-regular fa-pen-to-square"></i></a>
+                            @endcan
+                            @can('user_delete')
+                                <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i
+                                        class="fa-solid fa-trash-can"></i></a>
                             @endcan
                         </td>
                     </tr>

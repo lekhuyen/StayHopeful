@@ -1,10 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
-        <a class="btn btn-primary"href="{{ route('projectAd.index') }}">Project List</a>
-        <h1  style="color:cornflowerblue; text-align:center">Update Project</h1>
-        <form action="{{route('projectAd.update',$project->id)}}" method="POST" enctype="multipart/form-data">
+        <a href="{{ route('projectAd.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
+        <h1>Update Project</h1>
+        <form action="{{ route('projectAd.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3">
@@ -64,7 +65,9 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary submit-project">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary submit-project">Submit</button>
+            </div>
         </form>
 
         {{-- xoa ảnh con --}}
@@ -83,29 +86,31 @@
     </div>
 @endsection
 @section('ckeditor')
-<script>
-    ClassicEditor
-            .create( document.querySelector('#description-project-update'))
-            .catch( error => {
-                    console.error( error );
-            } );
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description-project-update'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $('.delete-btn').click(function(e){
+    $(document).ready(function() {
+        $('.delete-btn').click(function(e) {
             e.preventDefault();
             var imageContainer = $(this).closest('.image-container')
             var imageId = imageContainer.data('image-id');
 
             $.ajax({
-                type:'GET',
+                type: 'GET',
                 url: '{{ route('delete_ImgChild', ':id') }}'.replace(':id', imageId),
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: {
-                    imgId:imageId
+                    imgId: imageId
                 },
                 success: function(data) {
                     imageContainer.remove();

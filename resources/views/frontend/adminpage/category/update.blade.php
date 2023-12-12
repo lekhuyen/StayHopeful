@@ -1,9 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
     <div class="container mt-3">
-        <div style="margin-bottom: 20px"> <a href="{{ route('category.index') }}"> <i class="fa fa-arrow-left"> Go Back</i></a>
+        <div style="margin-bottom: 20px"> <a href="{{ route('category.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
         </div>
-        <h1 style="color:cornflowerblue; text-align:center">Edit Category</h1>
+        <h1>Edit Category</h1>
         <form action="{{ route('category.update', $category->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -15,7 +17,9 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
 @endsection
