@@ -1,22 +1,27 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+
     <div class="container mt-3">
+        <div style="margin-bottom: 20px">
+            <a class="btn btn-primary "href="{{ route('projectAd-image') }}">Unused Image</a>
+            <a class="btn btn-primary "href="{{ route('project-trash') }}">Unused Project</a>
+            @can('project_add')
+                <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Add New Project</a>
+            @endcan
+        </div>
         <h1>Project List</h1>
-        <a class="btn btn-primary "href="{{ route('projectAd-image') }}" target="_blank">Unused Image</a>
-        <a class="btn btn-primary "href="{{ route('project-trash') }}" target="_blank">Unused Project</a>
-        @can('project_add')
-            <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create</a>
-        @endcan
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Đã góp được</th>
-                    <th>Cần huy động</th>
+                    <th>Received</th>
+                    <th>Goals</th>
                     <th>Status</th>
                     <th>Image</th>
                     <th>Category</th>
@@ -51,24 +56,24 @@
                             </td>
                         @endif
                         <td>
+                            @can('project_edit')
+                                <a class="btn btn-warning" href="{{ route('projectAd.edit', $project->id) }}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
                             @can('project_delete')
                                 <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
-                                    class="fa-solid fa-trash-can"></i></button>
-                            @endcan
-                            @can('project_edit')
-                                <a class="btn btn-info" href="{{ route('projectAd.edit', $project->id) }}"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
+                                        class="fa-solid fa-trash-can"></i></button>
                             @endcan
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="9" style="text-align:center">Project emtry</td>
+                        <td colspan="9" style="text-align:center">Empty</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
-        {{ $projects->links() }}
+        {{-- {{ $projects->links() }} --}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

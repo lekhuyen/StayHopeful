@@ -1,11 +1,12 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-<link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
     <div class="container mt-3">
-        <h1>Category List</h1>
         @can('category_add')
-            <a href="{{ route('category.create') }}" class="btn btn-primary">Create</a>
+            <a href="{{ route('category.create') }}" class="btn btn-primary">Create New Category</a>
         @endcan
+        <h1>Category List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -18,17 +19,19 @@
                     <tr class="category-table">
                         <td>{{ $category->name }}</td>
                         <td>
-                            @can('category_delete')
-                                <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
-                            @endcan
                             @can('category_edit')
-                                <a class="btn btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-warning" href="{{ route('category.edit', $category->id) }}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                            @endcan
+                            @can('category_delete')
+                                <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i
+                                        class="fa-solid fa-trash-can"></i></i></button>
                             @endcan
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Category emtry</td>
+                        <td colspan="2">Category emty</td>
                     </tr>
                 @endforelse
             </tbody>

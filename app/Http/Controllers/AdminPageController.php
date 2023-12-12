@@ -95,7 +95,7 @@ class AdminPageController extends Controller
     public function viewmanagerdesign()
     {
         $sliders = Sliders::all();
-        $sliders = Sliders::paginate(3);
+        // $sliders = Sliders::paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
 
@@ -120,8 +120,8 @@ class AdminPageController extends Controller
         return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
     // public function viewnav(){
-        
-        
+
+
     //     return view('frontend.site', compact('infouser'));
     // }
 
@@ -210,7 +210,6 @@ class AdminPageController extends Controller
     public function viewlistuser()
     {
         $user = User::all();
-        $user = User::paginate(3);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
@@ -230,7 +229,7 @@ class AdminPageController extends Controller
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::all();
-        $donateinfo = DonateInfo::paginate(4);
+        // $donateinfo = DonateInfo::paginate(4);
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 

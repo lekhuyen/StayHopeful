@@ -14,7 +14,7 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy('status', 'desc')->paginate(4);
+        $posts = UserPost::orderBy('status', 'desc')->get();
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id)
@@ -44,7 +44,7 @@ class UserPostController extends Controller
         return view('frontend.post_page.index', compact('posts', 'comments'));
     }
 
-    // like - user - post 
+    // like - user - post
 
     public function like(Request $request)
     {
@@ -236,7 +236,7 @@ class UserPostController extends Controller
     }
     public function updateprofile(Request $request, $id)
     {
-        
+
         $age = $request->age;
         $phone = $request->phone;
         $address = $request->address;
@@ -255,9 +255,9 @@ class UserPostController extends Controller
                 $image->move($PublicImagePath, $fileName);
                 $imagePath = 'images/' . $fileName;
                 $user->avatar = $imagePath;
-            
+
         }
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Update Successfully');
     }
 }

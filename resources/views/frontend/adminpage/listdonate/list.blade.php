@@ -1,20 +1,22 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
+
     <div class="container">
-        <h1>Donate List</h1>
-        <div class="row">
+        <div class="row" style="margin-bottom: 20px">
             <div class="col-lg-6">
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User name" id="search" name="search"
+                        <input type="search" placeholder="Enter Name to Search" id="search" name="search"
                             class="form-control input-search">
                     </div>
                 </div>
             </div>
         </div>
+
+        <h1>Donate List</h1>
         <div class="row">
             <div class="col-lg-12 mt-5">
                 <div class="form-table">
@@ -58,7 +60,7 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
-                    {{ $donateinfo->links() }}
+                    {{-- {{ $donateinfo->links() }} --}}
                 </div>
             </div>
         </div>

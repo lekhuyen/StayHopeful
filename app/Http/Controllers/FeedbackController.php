@@ -10,7 +10,8 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedback = Feedback::paginate(4);
+        // $feedback = Feedback::paginate(4);
+        $feedback = Feedback::all();
         $feedbacks = Feedback::all();
         $sensitives_word = Sensitive::all();
         $words = $sensitives_word->pluck('word');
@@ -33,7 +34,7 @@ class FeedbackController extends Controller
     {
         $request->validate([
             'email' => 'bail|required|email',
-            'content' => 'required',
+            'content' => 'bail|required|min:3|max:255',
             'star' => 'required',
         ]);
         Feedback::create($request->all());

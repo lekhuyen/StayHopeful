@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AboutusteamController extends Controller
 {
     public function aboutus_team_index() {
-        $aboutusteams = aboutusteam::paginate(5); // Use paginate for pagination
+        $aboutusteams = aboutusteam::paginate(10); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 
@@ -64,7 +64,7 @@ class AboutusteamController extends Controller
             }
             
         }
-        $aboutusteams = aboutusteam::all();
+        $aboutusteams = aboutusteam::paginate(10);
 
         return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
 

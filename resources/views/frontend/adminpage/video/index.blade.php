@@ -4,12 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="container mt-3">
+                <div style="margin-bottom: 20px">
+                    <a class="btn btn-primary "href="{{ route('video-trash') }}">Unused Video</a>
+                    @can('video_add')
+                        <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create New Video</a>
+                    @endcan
+                </div>
+
                 <h1>Video List</h1>
-                <a class="btn btn-primary "href="{{ route('video-trash') }}" target="_blank">Trash Video</a>
-                {{-- <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a> --}}
-                @can('video_add')
-                    <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create Video</a>
-                @endcan
                 <table class="table table-striper">
                     <thead>
                         <tr>
@@ -25,18 +27,19 @@
                                         height="100"></video>
                                 </td>
                                 <td>
-                                    @can('video_delete')
-                                        <button class="btn btn-danger delete-video"
-                                            data-id="{{ $video->id }}">DELETE</button>
-                                    @endcan
                                     @can('video_edit')
-                                        <a class="btn btn-primary" href="{{ route('video-list.edit', $video->id) }}">EDIT</a>
+                                        <a class="btn btn-warning" href="{{ route('video-list.edit', $video->id) }}"><i
+                                                class="fa-regular fa-pen-to-square"></i></a>
+                                    @endcan
+                                    @can('video_delete')
+                                        <button class="btn btn-danger delete-video" data-id="{{ $video->id }}"><i
+                                                class="fa-solid fa-trash-can"></i></button>
                                     @endcan
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" style="text-align:center">Trash emtry</td>
+                                <td colspan="2" style="text-align:center">Empty</td>
                             </tr>
                         @endforelse
                     </tbody>
