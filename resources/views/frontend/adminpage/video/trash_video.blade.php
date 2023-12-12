@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <h1>Trash</h1>
+                <h1 style="color:cornflowerblue; text-align:center">Trash</h1>
                 @forelse ($videos as $video)
                     <tr>
                         <td>
@@ -22,7 +22,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2" style="text-align:center">Trash emtry</td>
+                        <td colspan="2" style="text-align:center">Empty</td>
                     </tr>
                 @endforelse
             </tbody>

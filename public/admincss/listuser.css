@@ -29,38 +29,43 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-    .btnsearch{
+    .btnsearch {
         margin-top: 20px;
         margin-bottom: 50px;
         padding-left: 25px;
         left: 0;
     }
-    .row-rs{
+
+    .row-rs {
         margin-top: 50px;
     }
 }
+
 @media screen and (max-width: 991px) {
-    .btnsearch{
+    .btnsearch {
         margin-top: 20px;
         padding-left: 5px;
         left: 0;
     }
-    .btn-search{
+
+    .btn-search {
         width: 100%;
     }
-    .row-rs{
+
+    .row-rs {
         margin-top: 50px;
     }
 }
-.form-table{
+
+/* .form-table{
     width: auto;
-    /* height: 400px; */
+    height: 400px;
     background-color: #ffffff;
     border-radius: 20px;
-}
-table tr{
+} */
+/* table tr{
     text-align: center;
-}
+} */
 
 .table>:not(caption)>*>* {
     padding: 1.5rem 0.5rem;
@@ -68,6 +73,7 @@ table tr{
     vertical-align: middle;
 
 }
+
 /* searchinput */
 .search-container {
     position: relative;
@@ -75,8 +81,14 @@ table tr{
 
 .search-icon {
     position: absolute;
-    right:  10px; /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
+    right: 10px;
+    /* Điều chỉnh khoảng cách từ biểu tượng đến lề trái của container */
     top: 50%;
     transform: translateY(-50%);
-    color: #555; /* Màu của biểu tượng */
+    color: #555;
+    /* Màu của biểu tượng */
+}
+
+.change-status {
+    border: none;
 }

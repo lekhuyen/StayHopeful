@@ -120,8 +120,8 @@ class AdminPageController extends Controller
         return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
     // public function viewnav(){
-        
-        
+
+
     //     return view('frontend.site', compact('infouser'));
     // }
 
@@ -210,7 +210,6 @@ class AdminPageController extends Controller
     public function viewlistuser()
     {
         $user = User::all();
-        $user = User::paginate(3);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 

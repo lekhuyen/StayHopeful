@@ -1,12 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h1>Admin List</h1>
         @can('user_add')
             <a href="{{ route('staff.create') }}" class="btn btn-primary">Add New User</a>
         @endcan
+        <h1 style="color:cornflowerblue; text-align:center">Admin List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>

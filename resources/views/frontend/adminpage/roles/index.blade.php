@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 
     <div class="container mt-3">
-        <h1>Roles List</h1>
         @can('roles_add')
-            <a href="{{ route('roles.create') }}" class="btn btn-primary">Add</a>
+            <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New Role</a>
         @endcan
+        <h1>Roles List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -28,10 +28,12 @@
                         <td><span>{{ $role->display_name }}</span></td>
                         <td>
                             @can('roles_delete')
-                                <a href="{{ route('roles.delete', $role->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                <a href="{{ route('roles.delete', $role->id) }}" class="btn btn-danger"><i
+                                        class="fa-solid fa-trash-can"></i></a>
                             @endcan
                             @can('roles_edit')
-                                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning"><i
+                                        class="fa-regular fa-pen-to-square"></i></a>
                             @endcan
                         </td>
                     </tr>
