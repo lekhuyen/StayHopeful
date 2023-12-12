@@ -1,10 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <div class="container mt-3">
-        <div style="margin-bottom:20px"><a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a></div>
-        <h1 style="color: cornflowerblue; text-align:center">Add New User</h1>
+        <div style="margin-bottom:20px"><a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> Go
+                    Back</i></a></div>
+        <h1 style="color: cornflowerblue; text-align:center">New User</h1>
         <form action="{{ route('staff.store') }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
@@ -39,11 +40,10 @@
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-
-
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
 @endsection

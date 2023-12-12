@@ -1,10 +1,12 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
     <div class="container mt-3">
         @can('category_add')
             <a href="{{ route('category.create') }}" class="btn btn-primary">Create New Category</a>
         @endcan
-        <h1 style="color:cornflowerblue; text-align:center">Category List</h1>
+        <h1>Category List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -22,7 +24,8 @@
                                         class="fa-solid fa-pen-to-square"></i></a>
                             @endcan
                             @can('category_delete')
-                                <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></i></button>
+                                <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i
+                                        class="fa-solid fa-trash-can"></i></i></button>
                             @endcan
                         </td>
                     </tr>

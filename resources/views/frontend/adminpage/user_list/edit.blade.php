@@ -2,14 +2,15 @@
 @section('admin_content')
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
-            <a class="btn btn-primary"href="{{ route('staff.index') }}">News List</a>
+            <a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
         </div>
-        <h1 style="color: cornflowerblue; text-align:center">Add user</h1>
+        <h1 style="color: cornflowerblue; text-align:center">Edit User</h1>
         <form action="{{ route('staff.update', $user->id) }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{ $user->name }}">
+                <input type="text" class="form-control" placeholder="Enter name" name="name"
+                    value="{{ $user->name }}">
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -41,11 +42,10 @@
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-
-
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
 @endsection

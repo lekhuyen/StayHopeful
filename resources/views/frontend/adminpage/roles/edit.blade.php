@@ -2,9 +2,12 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
     <div class="container mt-3">
-        <a class="btn btn-primary" href="{{ route('roles.index') }}">Roles List</a>
-        <h1 style="color:cornflowerblue; text-align:center">Edit User Permission</h1>
+        <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> Go
+                Back</i></a>
+        <h1>Edit Permission</h1>
         <form action="{{ route('roles.update', $roles->id) }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
@@ -49,10 +52,10 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
-
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <div class="d-flex justify-content-center btn__center" >
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
         </form>
     </div>
 @endsection

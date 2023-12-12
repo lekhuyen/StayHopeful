@@ -44,71 +44,70 @@
 
         <ul class="ul__sidebar list-unstyled px-2">
             <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa fa-home" style="padding-right: 20px"></i> Dashboard</a></li>
+                        class="fa fa-home" style="padding-right: 6px"></i>Dashboard</a></li>
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>
-                        Add Permissions</a></li>
+                            class="fa-solid fa-clipboard-user" style="padding-right: 10px"></i>Permissions</a></li>
             @endcan
             @can('user_list')
                 <li><a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-person" style="padding-right: 20px"></i>Admin
+                            class="fa-solid fa-person" style="padding-right: 10px"></i>Admin
                         List</a></li>
             @endcan
             @can('roles_list')
                 <li><a href="{{ route('roles.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-clipboard-user" style="padding-right: 20px"></i>Roles
+                            class="fa-solid fa-clipboard-user" style="padding-right: 10px"></i>Role
                         List</a></li>
             @endcan
 
             <li><a href="{{ route('admin.listuser') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-users" style="padding-right: 20px"></i>User List</a></li>
+                        class="fa-solid fa-users" style="padding-right: 10px"></i>User List</a></li>
             <li><a href="{{ route('post.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-users" style="padding-right: 20px"></i>User
-                    Posts</a></li>
+                        class="fa-solid fa-users" style="padding-right: 10px"></i>User
+                    Post</a></li>
             @can('category_list')
                 <li><a href="{{ route('category.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase" style="padding-right: 20px"></i>Category List</a></li>
+                            class="fa-solid fa-briefcase" style="padding-right: 10px"></i>Category List</a></li>
             @endcan
             @can('project_list')
                 <li><a href="{{ route('projectAd.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-brands fa-usps" style="padding-right: 20px"></i>Project
+                            class="fa-brands fa-usps" style="padding-right: 10px"></i>Project
                         List</a></li>
             @endcan
             @can('slider_list')
                 <li><a href="{{ route('admin.managerdesign') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-desktop" style="padding-right: 20px"></i>Slider</a></li>
+                            class="fa-solid fa-desktop" style="padding-right: 10px"></i>Slider</a></li>
             @endcan
 
             @can('news_list')
                 <li><a href="{{ route('news.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-briefcase" style="padding-right: 20px"></i>News
+                            class="fa-solid fa-briefcase" style="padding-right: 10px"></i>News
                         List</a></li>
             @endcan
 
             @can('video_list')
                 <li><a href="{{ route('video-list.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-video" style="padding-right: 20px"></i>Video
+                            class="fa-solid fa-video" style="padding-right: 10px"></i>Video
                         Gallery</a></li>
             @endcan
 
             <li><a href="{{ route('admin.listdonate') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-money-bill" style="padding-right: 20px"></i>
+                        class="fa-solid fa-money-bill" style="padding-right: 6px"></i>
                     Donate List</a></li>
 
             <li><a href="{{ route('feedback.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-message" style="padding-right: 20px"></i>Feedback
+                        class="fa-solid fa-message" style="padding-right: 10px"></i>Feedback
                     List</a></li>
 
             <li><a href="{{ route('volunteer.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-handshake-angle" style="padding-right: 20px"></i>Volunteer
+                        class="fa-solid fa-handshake-angle" style="padding-right: 10px"></i>Volunteer
                     List</a></li>
 
             <li><a href="{{ route('aboutusteam.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-regular fa-address-card" style="padding-right: 20px"></i>About Us</a></li>
+                        class="fa-regular fa-address-card" style="padding-right: 10px"></i>About Us</a></li>
 
             <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-envelope" style="padding-right: 20px"></i>
+                        class="fa-solid fa-envelope" style="padding-right: 10px"></i>
                     MailBox</a></li>
         </ul>
         <hr class="h-color mx-2">
@@ -131,20 +130,21 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             @if (session('userInfo'))
-                            <div class="text popup-profile">
-                                @if (session('userInfo')['avatar'])
-                                    <img class="nav-user-img"
-                                        src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                                @elseif(!$infouser->avatar == null)
-                                    <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                                        alt="ảnh">
-                                @else
-                                <img class="nav-user-img" src="{{asset('img/convitne.jpg')}}" alt="">
-                                @endif
-                            </div>
-                        @else
-                            <div class="text popup-login">LOGIN</div>
-                        @endif
+                                <div class="text popup-profile">
+                                    @if (session('userInfo')['avatar'])
+                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
+                                            alt="">
+                                    @elseif(!$infouser->avatar == null)
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                            alt="ảnh">
+                                    @else
+                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
+                                            alt="">
+                                    @endif
+                                </div>
+                            @else
+                                <div class="text popup-login">LOGIN</div>
+                            @endif
                             @if (session('userInfo'))
                                 <h4>{{ session('userInfo')['name'] }}</h4>
                             @endif
@@ -167,7 +167,7 @@
 <div class="container-fluid" style="background: linear-gradient(to bottom, #245abe, #578fd9); margin-left: 105px;">
     <div class="container">
         <div class="row ">
-            <div class="col-lg-12 " >
+            <div class="col-lg-12 ">
                 <div class="footer-text">
                     <span>Copyright © 2023 All Rights Reserved by StayHopeFul</span>
                 </div>

@@ -1,12 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/managerdesign.css') }}">
 
 
     <div class="container">
-        <h1>Slider Design</h1>
-        <div class="row d-flex justify-content-between mt-5 position-relative">
+        <div class="row d-flex justify-content-between mt-5 position-relative" style="margin-bottom: 20px">
             <div class="col-lg-6">
                 <div class="search">
                     <div class="search-container">
@@ -26,6 +25,7 @@
             </div>
         </div>
         <div class="row row-rs">
+            <h1>Slider Design</h1>
             <div class="col-lg-12 mt-5">
                 <div class="form-table ">
                     <table class="table table-striper">
@@ -33,13 +33,12 @@
                             <tr>
                                 <td>ID</td>
                                 <td>Image</td>
-                                <td>Image Name</td>
+                                <td>Name</td>
                                 <td>Action</td>
                                 <td></td>
                             </tr>
                         </thead>
                         <tbody class="data_all">
-
                             @foreach ($sliders as $slider)
                                 <tr>
                                     <td>{{ $slider->id }}</td>
@@ -50,8 +49,8 @@
                                         @can('slider_edit')
                                             <a href="#" data-slider-id="{{ $slider->id }}" class="edit-slider"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <button type="button" class="btn btn-success" style="margin-right: 10px;">
-                                                    <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
+                                                <button type="button" class="btn btn-warning" style="margin-right: 10px;">
+                                                    <i class="fa-solid fa-pen-to-square""></i>
                                                 </button>
                                             </a>
                                         @endcan
@@ -64,7 +63,7 @@
                                             @csrf
                                             @can('slider_delete')
                                                 <button type="submit" class="btn btn-danger">
-                                                    <i class="fa-solid fa-x" style="color: #ffffff;"></i>
+                                                    <i class="fa-solid fa-trash-can"></i>
                                                 </button>
                                             @endcan
                                         </form>
@@ -74,7 +73,7 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{ $sliders->links() }}
+                    {{-- {{ $sliders->links() }} --}}
                 </div>
             </div>
         </div>
@@ -84,7 +83,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Slider</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Image</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form method="POST" enctype="multipart/form-data"
@@ -127,7 +126,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thêm Slider</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">New Slider</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" enctype="multipart/form-data" action="{{ route('admin.create_slider') }}">
@@ -193,24 +192,24 @@
     <script>
         $(document).ready(function() {
             $('.edit-slider').on('click', function(event) {
-            var id = $(this).data('slider-id');
-            var form = $('#exampleModal form');
-            var action = form.attr('action');
-            form.attr('action', action.replace(/\/\d+$/, '/' + id));
+                var id = $(this).data('slider-id');
+                var form = $('#exampleModal form');
+                var action = form.attr('action');
+                form.attr('action', action.replace(/\/\d+$/, '/' + id));
 
-            $.ajax({
-                type: 'GET',
-                url: '/admin/managerdesign/' + id,
-                success: function(response) {
-                    console.log(response);
-                    $('#current-image').attr('src', response.url);
-                    $('#name-image-change').val(response.slider_name);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            })
-        });
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/managerdesign/' + id,
+                    success: function(response) {
+                        console.log(response);
+                        $('#current-image').attr('src', response.url);
+                        $('#name-image-change').val(response.slider_name);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                })
+            });
         });
 
         function previewImage() {

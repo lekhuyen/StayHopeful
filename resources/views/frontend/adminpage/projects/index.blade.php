@@ -2,16 +2,18 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
+
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
-            <a class="btn btn-primary "href="{{ route('projectAd-image') }}" target="_blank">Unused Image</a>
-            <a class="btn btn-primary "href="{{ route('project-trash') }}" target="_blank">Unused Project</a>
+            <a class="btn btn-primary "href="{{ route('projectAd-image') }}">Unused Image</a>
+            <a class="btn btn-primary "href="{{ route('project-trash') }}">Unused Project</a>
             @can('project_add')
                 <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Add New Project</a>
             @endcan
         </div>
-        <h1 style="color:cornflowerblue; text-align:center">Project List</h1>
+        <h1>Project List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>

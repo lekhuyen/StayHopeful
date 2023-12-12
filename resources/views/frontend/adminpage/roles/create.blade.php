@@ -6,7 +6,7 @@
 
     <div class="container mt-3">
         <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
-        <h1 style="color: cornflowerblue; text-align:center">Add Roles</h1>
+        <h1 style="color: cornflowerblue; text-align:center">New Role</h1>
         <form action="{{ route('roles.store') }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
@@ -49,10 +49,10 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
-
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
         </form>
     </div>
 @endsection
