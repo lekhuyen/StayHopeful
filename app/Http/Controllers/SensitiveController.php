@@ -9,11 +9,11 @@ class SensitiveController extends Controller
 {
     public function index() {
         $sensitives = Sensitive::all();
-        return view ('sensitive.index', compact('sensitives'));
+        return view ('frontend.sensitive.index', compact('sensitives'));
     }
 
     public function create() {
-        return view ('sensitive.create');
+        return view ('frontend.sensitive.create');
     }
 
     public function store(Request $request) {

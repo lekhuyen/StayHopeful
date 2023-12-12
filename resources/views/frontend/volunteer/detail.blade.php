@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 
-    <a href="{{ route('volunteer.index') }}" class="about-us-link"
-        style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+    <a href="{{ route('volunteer.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
         <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
 
     <h1 class="fb-detail-title">Volunteer Detail List</h1>

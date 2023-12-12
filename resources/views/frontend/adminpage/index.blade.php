@@ -47,16 +47,16 @@
                         class="fa fa-home" style="padding-right: 6px"></i>Dashboard</a></li>
             @can('permissions_add')
                 <li><a href="{{ route('permissions.create') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-clipboard-user" style="padding-right: 10px"></i>Permissions</a></li>
-            @endcan
-            @can('user_list')
-                <li><a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fa-solid fa-person" style="padding-right: 10px"></i>Admin
-                        List</a></li>
+                            class="fa-solid fa-clipboard-user" style="padding-right: 10px"></i>Permission</a></li>
             @endcan
             @can('roles_list')
                 <li><a href="{{ route('roles.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
                             class="fa-solid fa-clipboard-user" style="padding-right: 10px"></i>Role
+                        List</a></li>
+            @endcan
+            @can('user_list')
+                <li><a href="{{ route('staff.index') }}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-person" style="padding-right: 10px"></i>Admin
                         List</a></li>
             @endcan
 

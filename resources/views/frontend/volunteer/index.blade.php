@@ -40,9 +40,8 @@
                         <td>{{ $item->quantity }}</td>
                         <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
-                                data-bs-target="#myModal" data-id="{{ $item->id }}">
-                                View Volunteer List
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#myModal" data-id="{{ $item->id }}"><i class="fa-solid fa-info"></i>
                             </button>
                         </td>
 

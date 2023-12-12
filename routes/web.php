@@ -95,7 +95,7 @@ Route::post('/contact',[ContactusController::class,'create'])->name('contact.cre
 
 
 // Aboutus user
-Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index'); 
+Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus.index');
 
 Route::get('/aboutus/whoweare', [AboutUsController::class, 'aboutus_whoweare'])->name('aboutus.aboutus_whoweare');
 
@@ -136,7 +136,7 @@ Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('fee
 Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
 
 //sensitive admin
-Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
+Route::get('/sensitive', [SensitiveController::class, 'index'])->name('frontend.sensitive.index');
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
 
@@ -308,7 +308,7 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
     Route::post('updateuser/{id}',[UserPostController::class,'updateprofile'])->name('post.updateprofile');
 
-    
+
     // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
     Route::get('post-cho-duyet/{id}',[UserPostController::class,'choduyet'])->name('post.choduyet');

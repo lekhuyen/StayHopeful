@@ -6,8 +6,8 @@
 
 
     <div class="container mt-3">
+        <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         <h1>Team Member List</h1>
-        <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">New Team</a>
 
         <!-- Search Form -->
         <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
@@ -17,7 +17,7 @@
             </div>
         </form>
 
-        <table class="table table-dark mt-3 text-center" id="teamTable">
+        <table class="table table-hover mt-3 text-center" id="teamTable">
             <thead>
                 <tr>
                     <th onclick="sortTable(0)">
@@ -31,8 +31,8 @@
                     <th onclick="sortTable(4)">Skill</th>
                     <th onclick="sortTable(5)">Status</th>
                     <th onclick="sortTable(6)">Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -47,9 +47,9 @@
                         <td>{{ $item->skill }}</td>
                         <td>
                             @if ($item->status)
-                                <span class="badge bg-success">Active</span>
+                                <span class="badge rounded-pill bg-success">Active</span>
                             @else
-                                <span class="badge bg-danger">Inactive</span>
+                                <span class="badge rounded-pill bg-danger">Inactive</span>
                             @endif
                         </td>
                         <td>
@@ -59,22 +59,21 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-warning"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
                             <form action="{{ route('aboutusteam.delete', $item->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this team member?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-info">Delete</button>
+                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-
         </table>
-
         <!-- Below your table -->
         <div class="d-flex justify-content-between mt-3">
             <div>

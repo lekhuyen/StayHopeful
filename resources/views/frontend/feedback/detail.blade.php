@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 
-    <a href="{{ route('feedback.index') }}" class="about-us-link"
-        style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+    <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
         <i class="fa fa-long-arrow-left"> Go Back</i></a>
 
     <div class="container mt-3">

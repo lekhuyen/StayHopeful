@@ -15,7 +15,7 @@
             {{-- introduction_1 --}}
 
             <div class="row">
-                <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none">
+                <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none">
                     <i class="fa fa-arrow-left" style="margin-right: 5px; text-decoration: none"></i> Go back
                 </a>
                 <div class="col-md-10 offset-md-1 introduction_1">
@@ -117,7 +117,7 @@
                             allowfullscreen></iframe>
                     </div>
                 </div>
-                <a href="{{ route('aboutus.index') }}" class="about-us-link" style="display: inline-block; margin-top: 10px; text-decoration: none;">
+                <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-top: 10px; text-decoration: none;">
                     <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go back
                 </a>
             </div>
