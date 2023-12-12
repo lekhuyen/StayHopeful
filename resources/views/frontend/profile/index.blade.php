@@ -8,9 +8,9 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
-            <p>
+            <p style="top: 26%;">
+                Thank you &#128150;<br> 
                 Sincerely appreciate your support in aiding and assisting others.
-                <br> Thank you &#128150;
             </p>
         </div>
     </div>
