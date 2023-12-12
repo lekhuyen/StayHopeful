@@ -25,7 +25,7 @@
                             @endcan
                             @can('category_delete')
                                 <button class="btn btn-danger delete-category" data-id="{{ $category->id }}"><i
-                                        class="fa-solid fa-trash-can"></i></i></button>
+                                        class="fa-solid fa-trash-can"></i></button>
                             @endcan
                         </td>
                     </tr>
@@ -35,8 +35,8 @@
                     </tr>
                 @endforelse
             </tbody>
-
         </table>
+        {{ $categories->links() }}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

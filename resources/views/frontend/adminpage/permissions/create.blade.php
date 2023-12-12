@@ -1,11 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <div style="margin-bottom: 20px">
         <a class="btn btn-primary"href="{{ route('roles.index') }}">Role List</a>
     </div>
     <div class="container mt-3">
-        <h1 style="color:cornflowerblue">Add New Role</h1>
+        <h1>Add New Permission</h1>
         <form action="{{ route('permissions.store') }}" method="POST">
             @csrf
             <div class="col-lg-12 mb-3 mt-3">

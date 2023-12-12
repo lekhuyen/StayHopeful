@@ -73,7 +73,7 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{-- {{ $sliders->links() }} --}}
+                    {{ $sliders->links() }}
                 </div>
             </div>
         </div>

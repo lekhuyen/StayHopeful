@@ -13,7 +13,7 @@
     <div class="container mt-3 teamname_introduction">
         {{-- introduction_1 --}}
         <div class="row">
-            <a href="{{ route('aboutus.aboutus_whoweare') }}" class="about-us-link" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+            <a href="{{ route('aboutus.aboutus_whoweare') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
             </a>
             <div class="col-md-8 offset-md-2">

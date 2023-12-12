@@ -2,23 +2,20 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('feedbackcss/create__sensitive.css') }}">
 
-    <a href="{{ route('sensitive.index') }}" class="btn btn-light"></a>
+    <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
     @if (session('success'))
         <div class="alert alert-success">
             <strong class="text-success">{{ session('success') }}</strong>
         </div>
     @endif
-
-    <a href="{{ route('feedback.index') }}" class="about-us-link"
-        style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
-
     <form action="{{ route('sensitive.store') }}" method="post">
         @csrf
         <div class="sensitive__container">
-            <h1>Add Sensitive Word Form</h1>
+            <h1>New Sensitive Word</h1>
             <div class="mb-3 mt-3">
                 <label for="word">Word:</label>
                 <input type="text" class="form-control" id="word" value="{{ old('word') }}"
