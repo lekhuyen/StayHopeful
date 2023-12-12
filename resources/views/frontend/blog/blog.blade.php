@@ -1,7 +1,10 @@
 @extends('frontend.site')
 @section('title', 'Blog')
 @section('main')
+
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
+{{-- css --}}
 
     <div class="container" style="margin-top: 100px">
         <div class="row">

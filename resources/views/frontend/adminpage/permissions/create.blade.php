@@ -1,6 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
+
     <div style="margin-bottom: 20px">
         <a class="btn btn-primary"href="{{ route('roles.index') }}">Role List</a>
     </div>

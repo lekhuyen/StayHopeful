@@ -1,8 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container">
         @if (session('success'))

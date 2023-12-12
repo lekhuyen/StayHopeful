@@ -1,6 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         <a href="{{ route('news.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>

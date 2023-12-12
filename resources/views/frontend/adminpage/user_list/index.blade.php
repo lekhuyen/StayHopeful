@@ -1,8 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
+{{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+{{-- css --}}
+
     <div class="container mt-3">
         @can('user_add')
             <a href="{{ route('staff.create') }}" class="btn btn-primary">Add New User</a>

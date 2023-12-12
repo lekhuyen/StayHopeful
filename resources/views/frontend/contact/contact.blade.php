@@ -1,6 +1,9 @@
 @extends('frontend.site')
 @section('title', 'Contact')
 @section('main')
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    {{-- css contactus --}}
     @if (session('success'))
         <div class="pop-background">
             <div class="popup-success">

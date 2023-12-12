@@ -2,8 +2,10 @@
 @section('title', 'Volunteer Form')
 @section('main')
 
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer.css') }}">
-
+    {{-- css --}}
+    
     <div class="container__voting mt-5">
         <div class="row row__voting">
             <h1 class="h1_title__voting">Volunteer Form</h1>

@@ -1,6 +1,9 @@
 @extends('frontend.site')
 @section('main')
-    <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+     {{-- profile css--}}
+     <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+     {{-- profile css--}}
+     
     @if (session('success'))
     <div class="container-user-post-notification showAlert">
         <div class="user-post-status-success">

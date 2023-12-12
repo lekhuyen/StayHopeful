@@ -1,6 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+
+{{-- css --}}
+<link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         <a class="btn btn-primary "href="{{ route('post-trash') }}">Unused Post</a>

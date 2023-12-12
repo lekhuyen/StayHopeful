@@ -1,6 +1,8 @@
 @extends('frontend.site')
 @section('main')
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         @if (session('success'))
