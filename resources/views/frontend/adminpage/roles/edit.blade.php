@@ -39,12 +39,12 @@
                             @foreach ($permissions->permissionsChildrent as $permissionsChildrent)
                                 <div class="card-body text-dark col-md-3">
                                     <label>
-                                        <input 
-                                            class="checkbox_childrent" 
-                                            name="permission_id[]" 
-                                            type="checkbox" 
+                                        <input
+                                            class="checkbox_childrent"
+                                            name="permission_id[]"
+                                            type="checkbox"
                                             value="{{$permissionsChildrent->id}}"
-                                            {{$permissionsChecked->contains('id', $permissionsChildrent->id) ? 'checked' : ''}} 
+                                            {{$permissionsChecked->contains('id', $permissionsChildrent->id) ? 'checked' : ''}}
                                             >
                                     </label>
                                     {{$permissionsChildrent->name}}
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 @endforeach
-                
+
             </div>
 
             <button type="submit" class="btn btn-primary mb-3">Submit</button>
