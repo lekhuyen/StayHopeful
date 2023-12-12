@@ -2,10 +2,10 @@
 @section('admin_content')
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div style="margin-bottom: 20px">
-        <a class="btn btn-primary"href="{{ route('roles.index') }}">Roles List</a>
+        <a class="btn btn-primary"href="{{ route('roles.index') }}">Role List</a>
     </div>
     <div class="container mt-3">
-        <h1 style="color:cornflowerblue">Add Roles</h1>
+        <h1 style="color:cornflowerblue">Add New Role</h1>
         <form action="{{ route('permissions.store') }}" method="POST">
             @csrf
             <div class="col-lg-12 mb-3 mt-3">
@@ -38,10 +38,10 @@
                         @endforeach
                     </div>
                 </div>
-
             </div>
-
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
         </form>
     </div>
 @endsection

@@ -1,7 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('title', 'Feedback List')
 @section('admin_content')
-
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback_detail.css') }}">
 
     <h1 class="fb-detail-title">Feedback List</h1>
@@ -12,7 +11,7 @@
                 <th>Email</th>
                 <th>Content</th>
                 <th>Star</th>
-                <th></th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -22,13 +21,13 @@
                     <td>{{ $item->email }}</td>
                     <td class="fb-content">{{ $item->content }}</td>
                     <td>{{ $item->star }}</td>
-                    <td><a href="{{ route('feedback.detail', $item->id) }}" class="btn btn-warning">Detail</a></td>
+                    <td><a href="{{ route('feedback.detail', $item->id) }}" class="btn btn-warning btn-sm">Detail</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    {{-- {{ $feedback->links() }} --}}
     <p id="countBadfb">Total Bad Feedback: {{ $count }}/{{ $feedbacks->count() }}</p>
-    {{ $feedback->links() }}
     <div class="fb__sensitive">
         <a class="btn btn-primary btn-add-1" href="{{ route('sensitive.index') }}">Sensitive Word List</a>
         <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.create') }}">Add a Sensitive Word</a>
