@@ -43,11 +43,12 @@
                         </a>
                     </div>
                 @endforeach
-                {{$projects->links()}}
+                
+                {{ $projects->links() }}
+
             @endif
         </div>
     </div>
-
 
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')

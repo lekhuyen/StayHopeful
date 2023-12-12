@@ -25,14 +25,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         View::composer('*', function ($view) {
-            // Check if the user is logged in
             if (Auth::check()) {
-                // Get the authenticated user
                 $user = Auth::user();
 
                 $view->with('infouser', $user);
             } else {
-                // If not logged in, set 'infouser' to null or whatever value you want
                 $view->with('infouser', null);
             }
         });
