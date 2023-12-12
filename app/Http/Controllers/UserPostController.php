@@ -245,6 +245,10 @@ class UserPostController extends Controller
         $user->phone = $phone;
         $user->address = $address;
         if ($request->hasFile('images')) {
+            if (File::exists($user->avatar)) {
+                $imagePath = public_path($user->avatar);
+                File::delete($imagePath);
+            }
             $image = $request->file('images');
                 $fileName = time() . '_' . $image->getClientOriginalName();
                 $PublicImagePath = public_path("images");
