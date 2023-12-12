@@ -258,6 +258,6 @@ class UserPostController extends Controller
 
         }
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Update Successfully');
     }
 }

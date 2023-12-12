@@ -3,18 +3,31 @@
 @section('main')
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
     @if (session('error'))
-    <div class="pop-background">
-        <div class="popup-success">
-            <div class="exit" id="click-exit">&#10005;</div>
-            <div class="icon-succes"><i class="fa-solid fa-xmark" style="color: #fff;"></i></div>
-            <h2>Error :(</h2>
-            <div class="text-error">Payment Error Please Try Again</div>
-            <div class="popupbutton">
-                <button class="btn-popup" id="click-exit-ok">OK</button>
+    <div class="container-error-notification showAlert">
+        <div class="status-error">
+            <div class="exit-alert-btn">
+                <i class="fa-solid fa-xmark"></i>
             </div>
+            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+            <p>
+                Payment have been error please try again! &#128542;
+            </p>
         </div>
     </div>
     @endif
+    @error('amount')
+    <div class="container-error-notification showAlert">
+        <div class="status-error">
+            <div class="exit-alert-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+            <p>
+                {{$message}}
+            </p>
+        </div>
+    </div>
+    @enderror
     <div class="container">
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
@@ -95,7 +108,6 @@
                                         aria-label="Floating label select example" name="type">
                                         <option selected>Select Contribution Type</option>
                                         <option value="Bank">Online money transfer</option>
-                                        <option value="Artifacts">Artifacts</option>
                                     </select>
                                     <label>Select Type</label>
                                     <div class="background-icon">

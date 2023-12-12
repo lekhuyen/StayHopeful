@@ -1,7 +1,19 @@
 @extends('frontend.site')
 @section('main')
     <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
-
+    @if (session('success'))
+    <div class="container-error-notification showAlert">
+        <div class="status-error">
+            <div class="exit-alert-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+            <p>
+                Sincerely appreciate your support in aiding and assisting others. Thank you &#128150;
+            </p>
+        </div>
+    </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -12,7 +24,7 @@
                                 @if ($userupdate->avatar)
                                 <img src="{{ asset($userupdate->avatar) }}" alt="hình nè cậu" class="profile-image-set">
                                 @else
-                                <img src="{{asset('img/humanicon.png')}}" alt="" class="profile-image-set">
+                                <img src="{{asset('img/convitne.jpg')}}" alt="" class="profile-image-set">
                                 @endif
                             </div>
                         </div>
