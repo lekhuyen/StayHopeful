@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-<link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
@@ -18,11 +18,14 @@
                 @forelse ($videos as $video)
                     <tr>
                         <td>
-                            <video id="" src="{{ asset($video->video) }}" controls width="200" height="100"></video>
+                            <video id="" src="{{ asset($video->video) }}" controls width="200"
+                                height="100"></video>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('video-untrash', $video->id) }}">RESTORE</a>
-                            <a class="btn btn-danger" href="{{ route('video-forcedelete', $video->id) }}">DELETE</a>
+                            <a class="btn btn-secondary" href="{{ route('video-untrash', $video->id) }}"><i
+                                    class="fa-solid fa-clock-rotate-left"></i></a>
+                            <a class="btn btn-danger" href="{{ route('video-forcedelete', $video->id) }}"><i
+                                    class="fa-solid fa-trash-can"></i></a>
                         </td>
                     </tr>
                 @empty

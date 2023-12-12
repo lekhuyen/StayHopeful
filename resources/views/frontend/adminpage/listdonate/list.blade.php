@@ -60,7 +60,7 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
-                    {{-- {{ $donateinfo->links() }} --}}
+                    {{ $donateinfo->links() }}
                 </div>
             </div>
         </div>

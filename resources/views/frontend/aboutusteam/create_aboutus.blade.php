@@ -2,14 +2,13 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
-        <h1 class="mb-4">Team Member Creating Form</h1>
-        <a href="{{ route('aboutusteam.index') }}" class="about-us-link"
-            style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
+        <a href="{{ route('aboutusteam.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
             <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back
         </a>
+        <h1>Add New Member</h1>
         <form method="POST" enctype="multipart/form-data" action="{{ route('aboutusteam.store') }}">
             @csrf
 
@@ -65,8 +64,9 @@
                     <label class="form-check-label" for="radio2">Inactive</label>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
 

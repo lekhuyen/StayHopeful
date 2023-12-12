@@ -8,7 +8,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Post ID</th>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>User</th>
                     <th>Status</th>

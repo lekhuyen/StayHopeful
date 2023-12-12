@@ -2,6 +2,7 @@
 @section('admin_content')
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container">
         @if (session('success'))
@@ -23,13 +24,13 @@
             <div class="col-lg-6 ">
                 <div class="btnsearch position-absolute " style="right: 0;">
                     <button class="btn-search" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
-                            class="fa-solid fa-plus"></i><span>Add New Account</span></button>
+                            class="fa-solid fa-plus"></i><span>Create New User</span></button>
                 </div>
             </div>
         </div>
         <div class="row row-rs">
             <div class="col-12 mt-5">
-                <h1 style="color: cornflowerblue; text-align:center">User List</h1>
+                <h1>User List</h1>
                 <div class="form-table">
                     <table class="table table-hover">
                         <thead>
@@ -83,15 +84,12 @@
                                             <i class="fa-solid fa-trash-can"></i>
                                         </a>
                                     </td>
-
                                 </tr>
                             @endforeach
-
-
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
-
                     </table>
+                    {{ $user->links() }}
                 </div>
             </div>
         </div>
@@ -102,7 +100,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create new account</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">New Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="{{ route('admin.registeruser') }}">
@@ -147,7 +145,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Account User</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 @foreach ($user as $item)
