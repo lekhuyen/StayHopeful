@@ -164,8 +164,8 @@
     @yield('ckeditor')
 
 </div>
-<div class="container-fluid" style="background: linear-gradient(to bottom, #245abe, #578fd9); margin-left: 105px;">
-    <div class="container">
+<div class="container-fluid footer" style="background: linear-gradient(to bottom, #245abe, #578fd9);">
+    <div class="container footer-container">
         <div class="row ">
             <div class="col-lg-12 " >
                 <div class="footer-text">
