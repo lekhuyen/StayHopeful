@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Route;
 //frontend
 
 Route::get('/', [AdminPageController::class, 'sliderview'])->name('/');
+Route::get('/nav', [AdminPageController::class, 'viewnav'])->name('nav');
 // Route::get('/category-list', [AdminPageController::class, 'category']);
 //donatedetail
 
@@ -305,8 +306,9 @@ Route::group(['prefix'=> 'post/'], function(){
     Route::post('dalete/{id}',[UserPostController::class,'delete'])->name('post.delete');
 
     Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
+    Route::post('updateuser/{id}',[UserPostController::class,'updateprofile'])->name('post.updateprofile');
 
-
+    
     // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
     Route::get('post-cho-duyet/{id}',[UserPostController::class,'choduyet'])->name('post.choduyet');

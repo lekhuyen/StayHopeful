@@ -131,17 +131,20 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             @if (session('userInfo'))
-                                <div class="text popup-profile">
-                                    @if (session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
-                                            alt="">
-                                    @else
-                                        <img class="nav-user-img" src="{{ asset('img/omg.jpeg') }}" alt="">
-                                    @endif
-                                </div>
-                            @else
-                                <div class="text popup-login" style="cursor: pointer">LOGIN</div>
-                            @endif
+                            <div class="text popup-profile">
+                                @if (session('userInfo')['avatar'])
+                                    <img class="nav-user-img"
+                                        src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                @elseif($infouser)
+                                    <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                        alt="">
+                                @else
+                                <img class="nav-user-img" src="{{asset('img/humanicon.png')}}" alt="">
+                                @endif
+                            </div>
+                        @else
+                            <div class="text popup-login">LOGIN</div>
+                        @endif
                         </li>
                     </ul>
 
