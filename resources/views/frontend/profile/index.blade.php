@@ -12,7 +12,7 @@
                                 @if ($userupdate->avatar)
                                 <img src="{{ asset($userupdate->avatar) }}" alt="hình nè cậu" class="profile-image-set">
                                 @else
-                                <img src="{{asset('img/humanicon.png')}}" alt="" class="profile-image-set">
+                                <img src="{{asset('img/convitne.jpg')}}" alt="" class="profile-image-set">
                                 @endif
                             </div>
                         </div>

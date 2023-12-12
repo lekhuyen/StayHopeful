@@ -157,12 +157,7 @@ hr.h-color {
 
 
 
-.footer{
-    position: fixed;
-    bottom: 0;
-    z-index: 2;
-}
-.footer-container{
+/* .footer-container{
     margin-left: 200px;
 }
 .footer-text {
