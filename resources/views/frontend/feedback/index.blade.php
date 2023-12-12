@@ -27,7 +27,9 @@
         </tbody>
     </table>
     <p id="countBadfb">Total Bad Feedback: {{ $count }}/{{ $feedbacks->count() }}</p>
-    {{ $feedback->links() }}
+    <div class="row">
+        <div class="text-right">{{ $feedback->links() }}</div>
+    </div>
     <div class="fb__sensitive">
         <a class="btn btn-primary btn-add-1" href="{{ route('frontend.sensitive.index') }}">Sensitive Word List</a>
         <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.create') }}">Add New Sensitive Word</a>

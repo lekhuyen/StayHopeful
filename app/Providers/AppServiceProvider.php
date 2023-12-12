@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrap();
         View::composer('*', function ($view) {
             // Check if the user is logged in
             if (Auth::check()) {
@@ -36,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('infouser', null);
             }
         });
+        Paginator::useBootstrap();
     }
 }

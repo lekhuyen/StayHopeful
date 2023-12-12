@@ -1,7 +1,7 @@
 @extends('frontend.site')
 @section('main')
 
-    
+
     <div class="container">
         <div class="row" style="margin-top: 130px">
             <div class="col-lg-2"></div>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    @include('frontend/login/login')
-    @include('frontend/profile/popup_profile');
-    <script src="{{ asset('js/countdonate.js') }}"></script>
+    @include("frontend/login/login")
+    @include('frontend/profile/popup_profile')
+    <script src="{{asset('js/countdonate.js')}}"></script>
 @endsection
