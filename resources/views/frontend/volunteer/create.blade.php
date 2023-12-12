@@ -58,19 +58,20 @@
                                 value="{{ old('name', $user ? $user['name'] : '') }}" id="name" placeholder="Name"
                                 {{ $user ? 'readonly' : '' }} name="name">
                             <input type="text" class="form-control voting__label" id="phone" placeholder="Phone"
-                                name="phone">
+                                {{ $user ? 'readonly' : '' }} name="phone"
+                                value="{{ old('phone', $user ? $user['phone'] : '') }}">
                             <input type="text" class="form-control voting__label" id="email" placeholder="Email"
                                 {{ $user ? 'readonly' : '' }} name="email"
                                 value="{{ old('email', $user ? $user['email'] : '') }}">
                         </div>
                         <div>
+                            @error('name')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                             @error('phone')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             @error('email')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                            @error('name')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>

@@ -33,7 +33,7 @@ class FeedbackController extends Controller
     {
         $request->validate([
             'email' => 'bail|required|email',
-            'content' => 'required',
+            'content' => 'bail|required|min:3|max:255',
             'star' => 'required',
         ]);
         Feedback::create($request->all());
