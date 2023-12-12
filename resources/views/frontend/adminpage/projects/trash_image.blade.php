@@ -14,7 +14,7 @@
             </thead>
             <tbody>
                 <div style="margin-bottom: 20px">
-                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
                 </div>
                 <h1>Unused</h1>
                 @foreach ($images as $image)

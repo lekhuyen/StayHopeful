@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 
     <a href="{{ route('volunteer.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
+        <i class="fa fa-long-arrow-left">GO BACK</i></a>
 
     <h1 class="fb-detail-title">Volunteer Detail List</h1>
     <table class="table">

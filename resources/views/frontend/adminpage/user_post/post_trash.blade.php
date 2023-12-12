@@ -5,7 +5,7 @@
 
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('post.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+            <a href="{{ route('post.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
         </div>
         <table class="table table-hover">
             <h1>Unused</h1>

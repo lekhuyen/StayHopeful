@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
-        <a href="{{ route('projectAd.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
+        <a href="{{ route('projectAd.index') }}"><i class="fa fa-long-arrow-left"> GO BACK</i></a>
         <h1>Update Project</h1>
         <form action="{{ route('projectAd.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf

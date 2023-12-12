@@ -9,7 +9,7 @@
     <div class="container mt-3 our_founder " data-aos="zoom-in">
         <h2 class="text-center aboutus_ourfounder_h2">Our Founder</h2>
         <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-            <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back
+            <i class="fa fa-long-arrow-left" ></i>GO BACK
         </a>
         <div class="col-md-10 offset-md-1 our_founder">
             <span>

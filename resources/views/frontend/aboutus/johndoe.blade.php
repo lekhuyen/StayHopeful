@@ -16,7 +16,7 @@
 
             <div class="row">
                 <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none">
-                    <i class="fa fa-arrow-left" style="margin-right: 5px; text-decoration: none"></i> Go back
+                    <i class="fa fa-long-arrow-left" style="margin-right: 5px; text-decoration: none"></i> GO BACK
                 </a>
                 <div class="col-md-10 offset-md-1 introduction_1">
 
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-top: 10px; text-decoration: none;">
-                    <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go back
+                    <i class="fa fa-long-arrow-left" ></i> GO BACK
                 </a>
             </div>
         </div>

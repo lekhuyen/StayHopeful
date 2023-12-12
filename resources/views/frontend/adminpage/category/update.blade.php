@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
-        <div style="margin-bottom: 20px"> <a href="{{ route('category.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
+        <div style="margin-bottom: 20px"> <a href="{{ route('category.index') }}"><i class="fa fa-long-arrow-left"> GO BACK</i></a>
         </div>
         <h1>Edit Category</h1>
         <form action="{{ route('category.update', $category->id) }}" method="POST">

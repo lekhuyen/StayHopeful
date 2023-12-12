@@ -6,7 +6,7 @@
 
     <a href="{{ route('feedback.index') }}"
         style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
+        <i class="fa fa-long-arrow-left"> GO BACK</i></a>
 
     <div class="sensitive-detail">
         <h1>Sensitive Word List</h1>

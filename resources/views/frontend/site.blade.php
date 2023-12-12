@@ -103,7 +103,7 @@
                                 </div>
 
                                 <div style="display: flex; align-items: center;">
-                                    <button class="login-nav" style="margin-right: 5px;">SIGN UP</button>
+                                    <button class="login-nav" ">SIGN UP</button>
                                     <button class="register-nav">LOGIN</button>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- desktop interface -->
                     <div style="position: relative;">
                         <ul class="nav_bar">
