@@ -12,7 +12,7 @@
 {{-- icon fontawsome --}}
 
 {{-- jquery --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 {{-- jquery --}}
 
@@ -135,16 +135,19 @@
                                 @if (session('userInfo')['avatar'])
                                     <img class="nav-user-img"
                                         src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                                @elseif($infouser)
+                                @elseif(!$infouser->avatar == null)
                                     <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                                        alt="">
+                                        alt="ảnh">
                                 @else
-                                <img class="nav-user-img" src="{{asset('img/humanicon.png')}}" alt="">
+                                <img class="nav-user-img" src="{{asset('img/convitne.jpg')}}" alt="">
                                 @endif
                             </div>
                         @else
                             <div class="text popup-login">LOGIN</div>
                         @endif
+                            @if (session('userInfo'))
+                                <h4>{{ session('userInfo')['name'] }}</h4>
+                            @endif
                         </li>
                     </ul>
 
@@ -161,10 +164,18 @@
     @yield('ckeditor')
 
 </div>
-<footer class="footer">
-    <div class="text-footer">StayHopeful</div>
-</footer>
+<div class="container-fluid" style="background: linear-gradient(to bottom, #245abe, #578fd9); margin-left: 105px;">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-12 " >
+                <div class="footer-text">
+                    <span>Copyright © 2023 All Rights Reserved by StayHopeFul</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="{{ asset('js/sidebar.js') }}"></script>
-@include('frontend/login/login');
-@include('frontend/profile/popup_profile');
+@include('frontend/login/login')
+@include('frontend/profile/popup_profile')
 <script></script>

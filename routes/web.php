@@ -164,8 +164,8 @@ Route::post('/search', [BlogController::class, 'search'])->name('search_project'
 
 //admin
 Route::group(['prefix' => 'admin/'], function () {
-    // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
-    Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
+    Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
+    Route::get('/dashboard', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
     Route::get('/managermail', [AdminPageController::class, 'viewmail'])->name('admin.viewmail');
     Route::get('/replymail/{id}', [AdminPageController::class, 'getreplymail'])->name('admin.getreplymail');
     Route::post('/replymail/{id}', [AdminPageController::class, 'sendreplymail'])->name('admin.sendreplymail');
