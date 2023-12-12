@@ -27,8 +27,12 @@ class detaildonateController extends Controller
 
     public function payment(Request $request)
     {
+
         $request->validate([
             'amount' => 'required|numeric|min:0',
+        ], [
+            'amount.numeric' => 'Please enter a valid number.',
+            'amount.min' => 'Please enter a number greater than 0.',
         ]);
         $data = $request->all();
         session()->put('userinfo', $data);
@@ -81,9 +85,9 @@ class detaildonateController extends Controller
 
             Mail::to($tomail)->send(new EmailDonate($message));
             $username = "";
-            if($userinfo['hidename'] == "Anonymous"){
+            if ($userinfo['hidename'] == "Anonymous") {
                 $username = $userinfo['hidename'];
-            }else{
+            } else {
                 $username = $userinfo['fullname'];
             }
             $donateinfo = new DonateInfo();
@@ -98,8 +102,8 @@ class detaildonateController extends Controller
             $donateinfo->amount = $userinfo['amount'];
             $donateinfo->message = $userinfo['message'];
             $donateinfo->save();
-            $findUser =  User::where('email', $request->$userinfo['email'])->first();
-            if($findUser){
+            $findUser = User::where('email', $request->$userinfo['email'])->first();
+            if ($findUser) {
                 $findUser->is_sponsor = true;
                 $findUser->save();
             }
@@ -110,7 +114,7 @@ class detaildonateController extends Controller
             return redirect()->back()->with('error', 'Error');
         }
     }
-    
+
 
 
     // public function viewlistdonate()

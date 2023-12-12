@@ -202,3 +202,8 @@ h2 small {
     font-size: 18px;
     font-weight: 700;
 }
+/* popup */
+.status-error p {
+    
+    color: #27AE60 !important;
+}
