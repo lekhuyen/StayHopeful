@@ -2,8 +2,8 @@
 @section('admin_content')
 
     <div class="container mt-3">
-        <h2>Add Project</h2>
-        <a class="btn btn-primary"href="{{route('projectAd.index')}}">Project List</a>
+        <a href="{{route('projectAd.index')}}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+        <h1 style="color:cornflowerblue; text-align:center">New Project</h1>
         <form action="{{route('projectAd.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
@@ -21,15 +21,15 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="money"> Cần huy động:</label>
-                <input type="number" class="form-control" id="money" placeholder="Enter money" name="money">
+                <label for="money"> Goals:</label>
+                <input type="number" class="form-control" id="money" placeholder="Enter goals" name="money">
                 @error('money')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="money2"> Đã góp được :</label>
-                <input type="number" class="form-control" id="money2" placeholder="Enter money2" name="money2">
+                <label for="money2"> Received:</label>
+                <input type="number" class="form-control" id="money2" placeholder="Enter received amount" name="money2">
                 @error('money2')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -37,7 +37,7 @@
             <div class="mb-3 mt-3">
                 <label>Status :</label>
                 <select name="status">
-                    <option>Choose Status</option>
+                    <option>Choose</option>
                     <option value="1">Finish</option>
                     <option value="0">Unfinished</option>
                 </select>
@@ -55,9 +55,9 @@
             <div class="mb-3 mt-3">
                 <label>Category:</label>
                 <select name="category_id">
-                    <option>Choose Category</option>
+                    <option>Choose</option>
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>                 
+                        <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
                 @error('category_id')
@@ -69,7 +69,7 @@
     </div>
 
 @endsection
-    
+
 @section('ckeditor')
 <script>
     ClassicEditor

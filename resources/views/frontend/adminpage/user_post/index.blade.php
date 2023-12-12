@@ -2,8 +2,8 @@
 @section('admin_content')
 <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <div class="container mt-3">
-        <h1>User Post List</h1>
         <a class="btn btn-primary "href="{{route('post-trash')}}" target="_blank">Trash</a>
+        <h1 style="color:cornflowerblue; text-align:center">User Post</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -42,7 +42,7 @@
                         </td>
 
                         <td>
-                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-info" target="_blank">Details</a>
+                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-info btn-sm" target="_blank">Details</a>
                         </td>
                         <td>
                             <button class="btn btn-danger delete-post" data-id="{{$post->id}}"><i class="fa-solid fa-trash-can"></i></button>
@@ -50,12 +50,11 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="9" style="text-align:center">Post emtry</td>
+                        <td colspan="9" style="text-align:center">Empty</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
-        {{$posts->links()}}
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

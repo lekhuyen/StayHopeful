@@ -4,7 +4,7 @@
 
     <div class="container mt-3">
         <div style="margin-bottom:20px"><a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a></div>
-        <h2 style="color: cornflowerblue">Add New User</h2>
+        <h1 style="color: cornflowerblue; text-align:center">Add New User</h1>
         <form action="{{ route('staff.store') }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
