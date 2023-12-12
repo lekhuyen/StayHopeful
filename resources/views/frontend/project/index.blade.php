@@ -8,7 +8,7 @@
     <div class="container" style="margin-top: 100px">
         <div class="row">
             @include('frontend.search.search_input')
-            
+
             @if ($projects->count() > 0)
                 @foreach ($projects as $project)
                     <div class="col-xxl-4 col-xl-4 col-lg-3" style="margin-bottom: 20px">
@@ -44,7 +44,7 @@
                         </a>
                     </div>
                 @endforeach
-                
+
                 {{ $projects->links() }}
 
             @endif

@@ -1,21 +1,20 @@
 @extends('frontend.site')
 @section('title', 'teamname')
 @section('main')
-
-
+<link rel="stylesheet" href="{{ asset('general/general.css') }}">
 <link rel="stylesheet" href="{{asset('aboutuscss/teamname.css')}}">
 {{-- teamname.css --}}
-<br>
-<br>
-<br>
+
+<div class="row">
+    <div class="btn__back">
+    <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn__go_back">
+        <i class="fa fa-long-arrow-left"></i>GO BACK</a>
+</div>
 <h1 class="aboutus_teammember_h1">Meet Jane Smith, The Chief Marketing Officer</h1>
 
     <div class="container mt-3 teamname_introduction">
         {{-- introduction_1 --}}
-        <div class="row">
-            <a href="{{ route('aboutus.aboutus_whoweare') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-                <i class="fa fa-arrow-left" style="margin-right: 5px;"></i> Go Back
-            </a>
+
             <div class="col-md-8 offset-md-2">
                 <span class="introduction_1">
                     Jane Smith, a dynamic and creative individual, discovered her passion for marketing at a young age. Growing up in a bustling city, she was exposed to the diverse tapestry of cultures and ideas. Jane's academic journey led her to excel in marketing and communications, and she soon became known for her innovative approach to branding.
@@ -27,10 +26,10 @@
         </div>
     </div>
 
-    <hr>
 
-    <div class="container mt-3 the_past">
-        <h5>Meeting the Founder:</h5>
+
+    <div class="container mt-3 mb-3 the_past">
+        <h5>Meeting the Founder</h5>
         <div class="clearfix">
             <span class="col-md-8 offset-md-2">
                 Jane's path crossed with John Doe, the founder of the donation website, at a charity event in the city. Intrigued by the innovative approach of the platform, Jane struck up a conversation with John. They found common ground in their passion for creating positive change and realized the potential of combining their skills to amplify the impact of the donation website.
@@ -40,63 +39,8 @@
             </span>
         </div>
     </div>
-    <hr>
 
-    <div class="col-md-6 offset-md-3 aboutus_carousel_p">
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/janesmith1.jpg') }}" class="teamname1"
-                        alt="janesmith1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide 1</h5>
-                        <p class="carousel_p">Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/janesmith1.jpg') }}" class="teamname1"
-                        alt="janesmith1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide 1</h5>
-                        <p class="carousel_p">Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/janesmith1.jpg') }}" class="teamname1"
-                        alt="janesmith1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide 1</h5>
-                        <p class="carousel_p">Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-
-
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-
-    <hr>
-    <div class="container mt-3 becoming_the_founder_main">
+    <div class="container mt-3 mb-3 becoming_the_founder_main">
         <h5>Current Projects and Future Plans</h5>
         <div class="plans">
             <span class="col-md-8 offset-md-2">

@@ -1,7 +1,24 @@
-h1, h5 {
+h1,
+h5 {
     color: cornflowerblue;
     text-align: center;
 }
-.btn__center{
+
+.btn__center {
     margin-bottom: 5px;
 }
+
+.btn__go_back {
+    color: gray;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.btn__go_back i {
+    margin-right: 5px;
+}
+
+.btn__back {
+    margin-top: 70px;
+}
+

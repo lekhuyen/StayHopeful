@@ -5,7 +5,7 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer.css') }}">
     {{-- css --}}
-    
+
     <div class="container__voting mt-5">
         <div class="row row__voting">
             <h1 class="h1_title__voting">Volunteer Form</h1>
@@ -59,12 +59,12 @@
                             <input type="text" class="form-control voting__label"
                                 value="{{ old('name', $user ? $user['name'] : '') }}" id="name" placeholder="Name"
                                 {{ $user ? 'readonly' : '' }} name="name">
-                            <input type="text" class="form-control voting__label" id="phone" placeholder="Phone"
-                                {{ $user ? 'readonly' : '' }} name="phone"
-                                value="{{ old('phone', $user ? $user['phone'] : '') }}">
-                            <input type="text" class="form-control voting__label" id="email" placeholder="Email"
-                                {{ $user ? 'readonly' : '' }} name="email"
-                                value="{{ old('email', $user ? $user['email'] : '') }}">
+                            <input type="text" class="form-control voting__label"
+                                value="{{ old('phone', $user ? $user['phone'] : '') }}" id="phone" placeholder="Phone"
+                                {{ $user ? 'readonly' : '' }} name="phone">
+                            <input type="text" class="form-control voting__label"
+                                value="{{ old('email', $user ? $user['email'] : '') }}" id="email" placeholder="Email"
+                                {{ $user ? 'readonly' : '' }} name="email">
                         </div>
                         <div>
                             @error('name')

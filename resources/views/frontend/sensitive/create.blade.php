@@ -9,7 +9,7 @@
     {{-- css --}}
     
     <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back</a>
+        <i class="fa fa-long-arrow-left" ></i>GO BACK</a>
     @if (session('success'))
         <div class="alert alert-success">
             <strong class="text-success">{{ session('success') }}</strong>

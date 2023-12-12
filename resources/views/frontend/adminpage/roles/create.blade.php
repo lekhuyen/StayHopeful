@@ -9,7 +9,7 @@
 {{-- css --}}
 
     <div class="container mt-3">
-        <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+        <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
         <h1>New Role</h1>
         <form action="{{ route('roles.store') }}" method="POST">
             @csrf

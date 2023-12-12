@@ -6,7 +6,7 @@
 
     <div class="container mt-3">
         <a href="{{ route('aboutusteam.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-            <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Go Back
+            <i class="fa fa-long-arrow-left" ></i>GO BACK
         </a>
         <h1>Add New Member</h1>
         <form method="POST" enctype="multipart/form-data" action="{{ route('aboutusteam.store') }}">
