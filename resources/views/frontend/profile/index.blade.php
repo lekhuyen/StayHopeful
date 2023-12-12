@@ -2,14 +2,15 @@
 @section('main')
     <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
     @if (session('success'))
-    <div class="container-error-notification showAlert">
-        <div class="status-error">
-            <div class="exit-alert-btn">
+    <div class="container-user-post-notification showAlert">
+        <div class="user-post-status-success">
+            <div class="exit-user-post-alert-btn">
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
-            <p>
-                Sincerely appreciate your support in aiding and assisting others. Thank you &#128150;
+            <p style="top: 26%;">
+                Thank you &#128150;<br> 
+                Sincerely appreciate your support in aiding and assisting others.
             </p>
         </div>
     </div>
