@@ -5,7 +5,9 @@
     <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('indexcss/indexdonate.css') }}">
     {{-- keenslider --}}
-
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
+    {{-- css --}}
     
     <div class="PostSlide">
         <div class="innerContainer active">

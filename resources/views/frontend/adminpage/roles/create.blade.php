@@ -2,8 +2,11 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>

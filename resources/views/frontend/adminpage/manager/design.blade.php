@@ -1,8 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/managerdesign.css') }}">
-
+{{-- css --}}
 
     <div class="container">
         <div class="row d-flex justify-content-between mt-5 position-relative" style="margin-bottom: 20px">

@@ -2,9 +2,12 @@
 @section('admin_content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js">
     </script>
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/dashboardlayout.css') }}">
-
+    {{-- css --}}
+    
     <div class="container">
         <h1>Dashboard</h1>
         <div class="row">
