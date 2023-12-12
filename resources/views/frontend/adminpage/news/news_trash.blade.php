@@ -7,7 +7,7 @@
 
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('news.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
+            <a href="{{ route('news.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
         </div>
 
         <table class="table table-hover">

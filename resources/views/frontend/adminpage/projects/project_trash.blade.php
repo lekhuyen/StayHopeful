@@ -9,7 +9,7 @@
 
     <div class="container mt-3">
         <table class="table table-hover">
-            <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
+            <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
             <h1>Unused</h1>
             <thead>
                 <tr>

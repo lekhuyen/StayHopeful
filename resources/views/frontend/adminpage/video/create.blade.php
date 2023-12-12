@@ -6,7 +6,7 @@
 {{-- css --}}
 
     <div class="container mt-3">
-        <a href="{{ route('video-list.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
+        <a href="{{ route('video-list.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
 
         <h1>New Video</h1>
         <form action="{{ route('video-list.store') }}" method="POST" enctype="multipart/form-data">

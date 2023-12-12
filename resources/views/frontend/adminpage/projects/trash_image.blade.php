@@ -6,7 +6,7 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
-    
+
     <div class="container mt-3">
         <table class="table table-hover">
             <thead>
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <div style="margin-bottom: 20px">
-                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> GO BACK</i></a>
+                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
                 </div>
                 <h1>Unused</h1>
                 @foreach ($images as $image)

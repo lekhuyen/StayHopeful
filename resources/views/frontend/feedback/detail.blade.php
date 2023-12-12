@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     {{-- css --}}
     <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-long-arrow-left"> GO BACK</i></a>
+        <i class="fa fa-long-arrow-left"> </i>GO BACK</a>
 
     <div class="container mt-3">
 

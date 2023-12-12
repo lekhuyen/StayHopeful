@@ -4,7 +4,7 @@
 
 <div style="padding-top: 80px; margin-left: 40px">
     <a href="{{ route('blog.index') }}" class="btn__go_back">
-        <i class="fa fa-long-arrow-left"> GO BACK</i></a>
+        <i class="fa fa-long-arrow-left"> </i>GO BACK</a>
 </div>
 
     <div class="container">
