@@ -1,3 +1,16 @@
+<div class="container-user-post-notification {{session('isPending')?'showAlert':''}}">
+    <div class="user-post-status-success">
+        <div class="exit-user-post-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+        <p>
+            New post created successfully !
+            <br>
+            Please wait a few minutes for Admin to censored.
+        </p>
+    </div>
+</div>
 <div class="modal-user-post-1">
     <div class="modal_inner-post">
         <div class="post-header">

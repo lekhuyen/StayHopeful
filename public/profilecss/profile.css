@@ -1,3 +1,61 @@
+/* notification user post is pending */
+.container-user-post-notification{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 11;
+}
+.showAlert{
+    display: block;
+}
+.user-post-status-success{
+    background: white;
+    border: 2px solid #2d63c2;
+    border-radius: 20px;
+    position: fixed;
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.user-post-status-success p{
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    color: green;
+}
+.exit-user-post-alert-btn{
+    /* display: flex;
+    justify-content: flex-end; */
+    width: fit-content;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    z-index: 12;
+    /* font-size: 20px;
+    color: #2d63c2;
+    cursor: pointer; */
+}
+.exit-user-post-alert-btn i{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    color: #2d63c2;
+    cursor: pointer;
+}
+.img-alert{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -35%;
+}
+
+/* profile */
 .profile-form {
     margin-top: 150px;
     width: 100%;
@@ -76,7 +134,7 @@
 }
 
 /* LIKE POST */
-
+.like_post-1,
 .like_post {
     display: flex;
     align-items: center;
@@ -186,7 +244,12 @@
     padding-left: 50px;
     color: #FDD835;
 }
-
+.profile-post{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+}
 /* button aboutme */
 
 .profile-edit-aboutme {
@@ -596,6 +659,7 @@
     margin: 0 10px;
     display: flex;
 }
+.like_post-1,
 .like_post {
     margin-right: 10px;
 }
@@ -603,7 +667,11 @@
     display: flex;
     margin: 20px;
 }
+
 .like_post.active i{
+    color: red;
+}
+.like_post-1.active i{
     color: red;
 }
 .comment_body {

@@ -67,7 +67,21 @@
     <div class="profile-popup">
         <div class="profile-menu">
             <div class="user-info">
-                <img src="{{ asset('img/img1.jpg') }}" alt="">
+                @if (session('userInfo'))
+                <div class="text popup-profile">
+                    @if (session('userInfo')['avatar'])
+                        <img class="nav-user-img"
+                            src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                    @elseif(!$infouser->avatar == null)
+                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                            alt="ảnh">
+                    @else
+                    <img class="nav-user-img" src="{{asset('img/humanicon.png')}}" alt="">
+                    @endif
+                </div>
+            @else
+                <div class="text popup-login">LOGIN</div>
+            @endif
                 @if (session('userInfo'))
                     <h4>{{ session('userInfo')['name'] }}</h4>
                 @endif
@@ -77,6 +91,14 @@
                 <a href="{{ route('auth.profile') }}" class="profile-menu-link">
                     <i class="fa-solid fa-user"></i>
                     <p>Profile</p>
+                    <span>></span>
+                </a>
+            </div>
+            <hr>
+            <div>
+                <a href="{{ route('post.detail.web') }}" class="profile-menu-link">
+                    <i class="fa-solid fa-users"></i>
+                    <p>User Post</p>
                     <span>></span>
                 </a>
             </div>

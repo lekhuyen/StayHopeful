@@ -32,25 +32,25 @@
 
                                 {{-- // Thoát khỏi vòng lặp khi tìm thấy giá trị giống nhau --}}
                             @endif
-                            @endif
-                        @endforeach
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->title }}</td>
-                            <td>{{ $item->quantity }}</td>
-                            <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#myModal" data-id="{{ $item->id }}">
-                                    View List Volunteer
-                                </button>
-                            </td>
-
-                        </tr>
+                        @endif
                     @endforeach
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->quantity }}</td>
+                        <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#myModal" data-id="{{ $item->id }}">
+                                View Volunteer List
+                            </button>
+                        </td>
+
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-
+        {{$projects->links()}}
     </div>
 </div>
 <div class="modal" id="myModal">
@@ -58,7 +58,7 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h4 class="modal-title">List Volunteer</h4>
+                <h4 class="modal-title">Volunteer List</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body body__volunteer">
@@ -111,10 +111,10 @@
                 </table>
             `)
             let output;
-            if(data && data.volunteers.length > 0){
+            if (data && data.volunteers.length > 0) {
                 $(".table_volunteer").show()
                 data.volunteers.map((item, index) => {
-                output += `
+                    output += `
                 <tr>
                     <td>${item.id}</td>
                     <td>${item.finding_source}</td>
@@ -128,10 +128,11 @@
                     <td>${item.rel_relationship}</td>
                 </tr>
                 `
-            });
-            $('.volunteer_detail').html(output);
-            }else{
-                $('.body__volunteer').html("<p class='text-center'>Have no volunteer register this project</p>");
+                });
+                $('.volunteer_detail').html(output);
+            } else {
+                $('.body__volunteer').html(
+                "<p class='text-center'>Have no volunteer register for this project yet.</p>");
             }
 
 
@@ -139,22 +140,7 @@
         }
     });
 </script>
+
+@include('frontend/login/login')
+@include('frontend/profile/popup_profile')
 @endsection
-
-{{-- @foreach ($summedCounts as $key => $itemPro)
-
-
-
-    @if ($item->id == $key)
-    @if ($item->quantity == $itemPro)
-        <td>Da full</td>
-        <td><a class="btn btn-info">View List Volunteer</a></td>
-    @break
-
-@else
-    <td>Dang nhan</td>
-    <td><a class="btn btn-info">View List Volunteer</a></td>
-@break
-
-@endif
-@endforeach --}}

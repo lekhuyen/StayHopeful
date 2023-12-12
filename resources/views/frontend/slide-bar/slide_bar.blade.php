@@ -18,25 +18,25 @@
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
             <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
+            <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Team</a>
             <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
-            <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Story</a>
         </div>
     </div>
     <div class="item">
         <a href="{{ route('contact.index') }}" class="menu-title-a">EXPLORE</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
-            <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
-            <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-            <a href="{{ route('volunteer.create') }}" class="sub-item">Vonlunteer</a>
+            <a href="{{ route('project.index', 1) }}" class="sub-item">Our Projects</a>
+            <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
         </div>
     </div>
     <div class="item">
-        <a class="menu-title-a">DONORS</a>
+        <a class="menu-title-a">SUPPORT</a>
         <i class="fas fa-angle-right dropdown"></i>
         <div class="sub-menu">
-            <a href="{{ route('detail.donate') }}" class="sub-item">Donate Form</a>
-            <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
+            <a href="{{ route('detail.donate') }}" class="sub-item">Donate</a>
+            <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
+            <a href="{{ route('volunteer.create') }}" class="sub-item">Volunteer</a>
         </div>
     </div>
     <div class="item">
@@ -58,7 +58,8 @@
             <img src="{{ asset($project->images[0]->image) }}" alt="">
         </div>
         <div class="post-title-child">
-            <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}">{{ $project->title }}</a>
+            <a
+                href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}">{{ $project->title }}</a>
         </div>
     </div>
 @endforeach

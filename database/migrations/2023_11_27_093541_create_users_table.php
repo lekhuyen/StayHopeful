@@ -20,6 +20,9 @@ return new class extends Migration
             $table->boolean('status')->default(false);
             $table->string('verified_token');
             $table->string('avatar')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('phone')->nullable();
+            $table->integer('age')->nullable();
             $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });

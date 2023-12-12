@@ -7,7 +7,7 @@
         <a class="btn btn-primary "href="{{ route('projectAd-image') }}" target="_blank">Unused Image</a>
         <a class="btn btn-primary "href="{{ route('project-trash') }}" target="_blank">Unused Project</a>
         @can('project_add')
-            <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create Category</a>
+            <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create</a>
         @endcan
         <table class="table table-hover">
             <thead>

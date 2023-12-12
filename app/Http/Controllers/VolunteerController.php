@@ -33,9 +33,10 @@ class VolunteerController extends Controller
                 $summedCounts[$projectId] = 1;
             }
         }
-        dd($summedCounts[2]);
+        // dd($summedCounts[2]);
         // $summedCounts will contain the summed counts for each project ID
         $projects = Project::all();
+        $projects = Project::paginate(6);
         return view("frontend.volunteer.index", compact('projects','summedCounts'));
     }
 

@@ -9,7 +9,11 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="profile-image-user">
-                                <img src="{{ asset('img/omg.jpeg') }}" alt="hình nè cậu" class="profile-image-set">
+                                @if ($userupdate->avatar)
+                                <img src="{{ asset($userupdate->avatar) }}" alt="hình nè cậu" class="profile-image-set">
+                                @else
+                                <img src="{{asset('img/humanicon.png')}}" alt="" class="profile-image-set">
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -22,17 +26,18 @@
                                 <div class="profile-info">
                                     @if (session('userInfo'))
                                         <p class="info-text">Email: <span
-                                                class="info-text-user">{{ session('userInfo')['email'] }}</span></p>
+                                                class="info-text-user">{{$userupdate->email }}</span></p>
+                                    
+                                    <p class="info-text">Age: <span class="info-text-user">{{$userupdate->age}}</span></p>
+                                    <p class="info-text">Phone : <span class="info-text-user">{{$userupdate->phone}}</span></p>
+                                    <p class="info-text">Address : <span class="info-text-user">{{$userupdate->address}}</span></p>
                                     @endif
-                                    <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                    <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                    <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
                                 </div>
-                                <button class="profile-edit-info">Edit Profile</button>
-                                <button class="profile-edit-info user-post-form">Post</button>
+                                <button class="profile-edit-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="profile-listdonate">
                         <span class="listdonate">List Donate</span>
                         <div class="profile-table" id="style-1">
@@ -59,6 +64,9 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="profile-post">
+                        <button class="profile-edit-info user-post-form">Post</button>
                     </div>
                     @foreach ($posts as $post)
                         <div class="profile-aboutme post_user-web">
@@ -182,6 +190,46 @@
             </form>
         </div>
     </div> --}}
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Profile Edit</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  method="post" action="{{route('post.updateprofile', session('userInfo')['id'])}}" enctype="multipart/form-data">
+                    @csrf
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" value="{{$userupdate->email}}">
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="age" class="form-label">Age:</label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter age" name="age" value="{{$userupdate->age}}">
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="phone" class="form-label">Phone:</label>
+                    <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" value="{{$userupdate->phone}}">
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value="{{$userupdate->address}}">
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="images" class="form-label">Change Avatar:</label>
+                    <input type="file" class="form-control" id="images" placeholder="Choose Image" name="images">
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
     @include('frontend/profile/post_form')
 
     @include('frontend/profile/popup_profile')

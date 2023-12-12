@@ -30,6 +30,9 @@ class User extends Authenticatable
         "is_volunteer",
         'is_sponsor',
         'status',
+        'phone',
+        'age',
+        'address',
         'verified_token',
         'avatar',
         'deleted_at'
