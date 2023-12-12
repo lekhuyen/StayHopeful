@@ -1,9 +1,14 @@
 @extends('frontend.site')
 @section('main')
+<link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
+<div style="padding-top: 80px; margin-left: 40px">
+    <a href="{{ route('blog.index') }}" class="btn__go_back">
+        <i class="fa fa-long-arrow-left"> GO BACK</i></a>
+</div>
 
     <div class="container">
-        <div class="row" style="margin-top: 130px">
+        <div class="row" style="margin-top: 20px">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 post-detail-1"
                 style="background-color: rgb(248,248,248);

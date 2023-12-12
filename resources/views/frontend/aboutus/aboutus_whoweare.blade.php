@@ -1,16 +1,16 @@
 @extends('frontend.site')
 @section('title', 'whoweare')
 @section('main')
-
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus_whoweare.css') }}">
     {{-- Our Founder sector --}}
-    <br>
-    <br>
-    <div class="container mt-3 our_founder " data-aos="zoom-in">
-        <h2 class="text-center aboutus_ourfounder_h2">Our Founder</h2>
-        <a href="{{ route('aboutus.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-            <i class="fa fa-long-arrow-left" ></i>GO BACK
-        </a>
+    <div class="btn__back">
+        <a href="{{ route('aboutus.index') }}" class="btn__go_back">
+            <i class="fa fa-long-arrow-left"></i>GO BACK</a>
+    </div>
+    <div class="container our_founder " data-aos="zoom-in">
+
+        <h1 class="text-center aboutus_ourfounder_h2">Our Founder</h1>
         <div class="col-md-10 offset-md-1 our_founder">
             <span>
                 Welcome to the heart of <strong>StayHopeful</strong>. Behind every impactful initiative and transformative
@@ -38,7 +38,7 @@
                         inception. His leadership and commitment inspire our team to create a world where hope and
                         compassion thrive. Learn more about John's journey and dedication in the Read More section below.
                     </p>
-                    <a href="{{ route('aboutus.johndoe') }}" class="btn btn-primary">Learn More</a>
+                    <a href="{{ route('aboutus.johndoe') }}" class="btn btn-outline-info">Learn More</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
 
     <!-- Robert Johnson Card -->
     <div class="container mt-3 robert_johnsonc_card">
-        <h2>Financial Team</h2>
+        <h1>Financial Team</h1>
         <br>
         <div class="row" data-aos="fade-right">
             <div class="col-md-6">
@@ -64,7 +64,7 @@
                                 <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive
                                     experience in finance and strategic planning. His innovative thinking has significantly
                                     contributed to our organization's success.</p>
-                                <a href="{{ route('aboutus.robertjohnson') }}" class="btn btn-primary">View Details</a>
+                                <a href="{{ route('aboutus.robertjohnson') }}" class="btn btn-outline-info">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 
     <!-- Jane Smith Card -->
     <div class="container mt-3 jane_smith_card">
-        <h2>Marketing Team</h2>
+        <h1>Marketing Team</h1>
         <br>
         <div class="row" data-aos="fade-right">
             <div class="col-md-6">
@@ -115,7 +115,7 @@
                                 <p class="card-text">Jane Smith is our Chief Marketing Officer, bringing a creative and
                                     strategic approach to our outreach efforts. Her dedication has played a crucial role in
                                     expanding our reach and impact.</p>
-                                <a href="{{ route('aboutus.janesmith') }}" class="btn btn-primary">View Details</a>
+                                <a href="{{ route('aboutus.janesmith') }}" class="btn btn-outline-info">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
 
     <!-- Kai Greene Card -->
     <div class="container mt-3 kai_greene_card">
-        <h2>Lead Developer Team</h2>
+        <h1>Lead Developer Team</h1>
         <br>
         <div class="row" data-aos="fade-right">
             <div class="col-md-6">
@@ -167,7 +167,7 @@
                                 <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our
                                     technological initiatives. Their expertise has been instrumental in driving our digital
                                     transformation.</p>
-                                <a href="{{ route('aboutus.kaigreene') }}" class="btn btn-primary">View Details</a>
+                                <a href="{{ route('aboutus.kaigreene') }}" class="btn btn-outline-info">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
 
     <!-- Oliver Hudson Card -->
     <div class="container mt-3 oliver_hudson_card">
-        <h2>Creative Team</h2>
+        <h1>Creative Team</h1>
         <br>
         <div class="row" data-aos="fade-right">
             <div class="col-md-6">
@@ -219,7 +219,7 @@
                                 <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend
                                     of artistic vision and strategic thinking to our projects. Their creativity adds a
                                     distinctive touch to our initiatives.</p>
-                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-primary">View Details</a>
+                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-outline-info">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
     <hr class="whoweare_hr">
 
     <div class="container mt-3 volunteer_team_members" data-aos="fade-right">
-        <h2>Volunteer Member</h2>
+        <h1>Volunteer Member</h1>
         <br>
         <!-- Volunteer Team Members -->
         <div class="row row-cols-1 row-cols-md-6 g-2 volunteer_team_card">
