@@ -168,7 +168,7 @@
         </p>
     </footer> --}}
 
-<div class="container footer__dashboard">
+<div class="container footer__dashboard gx-0">
     <div class="footer__dashboard__content">
         <p>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
     </div>

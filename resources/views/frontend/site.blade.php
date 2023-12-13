@@ -223,87 +223,6 @@
                                 </ul>
                             </div>
 
-<<<<<<< HEAD
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <div>@yield('main')</div>
-
-    {{-- footer --}}
-
-    <div class="container-fluid" style="background: linear-gradient(to bottom, #245abe, #578fd9);; margin-top: 150px;">
-        <div class="container">
-            <div class="row" style="padding: 50px 0; color: white;">
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer_header">
-                        <h2>STAYHOPEFUL</h2>
-                        <span>Charity Fund was established under Decision No. 24/QD-BNV dated January 5, 2018. Stay
-                            Hopeful is an expanded version of Ho Chi Minh City Charity Fund. The Fund has a nationwide
-                            scope of operations.
-                        </span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer_header">
-                        <h2>QUICK LINKS</h2>
-                        <ul>
-                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
-                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
-                            <li><a href="{{ route('feedback.create') }}">Feedback</a></li>
-                            <li><a href="{{ route('volunteer.create') }}">Volunteer</a></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer_header">
-                        <h2>EXPLORE</h2>
-                        <ul>
-                            <li><a href="{{ route('contact.index', 1) }}">About Us</a></li>
-                            <li><a href="{{ route('blog.index') }}">News</a></li>
-                            <li><a href="{{ route('detail.listdonate') }}">Donate List</a></li>
-                            <li><a href="{{ route('video.index') }}">Video Gallery</a></li>
-                            <li><a></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer_header">
-                        <h2>STAYHOPEFUL CHARITY FUND</h2>
-                        <ul>
-                            <li><i class="fa-solid fa-map"></i>5th Floor, No. 7 – 9 – 11 Mai Thị Lựu Street, Đa Kao
-                                Ward, District 1,
-                                Hồ Chí Minh City</li>
-                            <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
-                            <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
-                            <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="footer-end">
-        <div class="container container-1">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-end">
-                        <h6>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
-                        <div class="media-icon">
-                            <a href=""><i class="fa-brands fa-square-facebook"
-                                    style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-youtube"
-                                    style="cursor: pointer; background-color: #e22b26; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-twitter"
-                                    style="cursor: pointer; background-color: #0591fc; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-instagram"
-                                    style="cursor: pointer; background-color: #d67d51; color: white;"></i></a>
-=======
->>>>>>> 19aedfa6b9619ab88787701780227229fa176ef0
                         </div>
                     </div>
                 </div>
@@ -374,7 +293,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-end">
-                            <h6>©2023 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
+                            <h6>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
                             <div class="media-icon">
                                 <a href=""><i class="fa-brands fa-square-facebook"
                                         style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
@@ -399,7 +318,7 @@
     $(document).ready(function() {
         $('#search').on('keyup', function() {
             $value = $(this).val();
-            
+
             if ($value) {
                 $('#search-ajax').show();
             } else {
