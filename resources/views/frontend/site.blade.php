@@ -203,7 +203,7 @@
                             <li>
                                 @if (session('userInfo'))
                                 <div class="text popup-profile">
-                                    @if (session('userInfo')['avatar'])
+                                    @if (session('userInfo')['avatar'] != null)
                                         <img class="nav-user-img"
                                             src="{{ asset(session('userInfo')['avatar']) }}" alt="">
                                     @elseif(!$infouser->avatar == null)

@@ -16,10 +16,10 @@ input:focus {
 
 
 .btn-search {
-    background: #03A9F4;
+    background: #0275d8;
     border-radius: 20px;
     border-style: none;
-    padding: 5px;
+    padding: 10px;
     color: #fff;
     font-weight: 600;
 }

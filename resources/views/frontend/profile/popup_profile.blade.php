@@ -148,7 +148,7 @@
                         if (response.status == 'success') {
                             changePasswordSuccess.classList.add("showAlert");
                             popupChangePassword.classList.remove('showChangePassword');
-                            // window.location.href = "{{ route('/') }}"; 
+                            // window.location.href = "{{ route('/') }}";
                             $('#old-password').val(''),
                                 $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')

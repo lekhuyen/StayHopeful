@@ -8,18 +8,19 @@
     {{-- css --}}
 
     <div class="container mt-3">
+        <div class="btn__back">
+            <a href="{{ route('projectAd.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO BACK</a>
+        </div>
+        
         <table class="table table-hover">
+            <h1>Unused Project Image</h1>
             <thead>
                 <tr>
-                    <th>Project Image</th>
+                    <th>Image</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <div style="margin-bottom: 20px">
-                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
-                </div>
-                <h1>Unused</h1>
                 @foreach ($images as $image)
                     <tr>
                         <td>
