@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
     {{-- css --}}
 
-    <div class="container mt-3">
+    <div class="container mt-3 ">
         <h1>Project List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Category</th>
                     <th>Title</th>
-                    <th>Description</th>
+                    <th>Content</th>
+                    <th>Image</th>
                     <th>Received</th>
                     <th>Goals</th>
                     <th>Status</th>
-                    <th>Image</th>
-                    <th>Category</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -28,8 +28,18 @@
                 @forelse ($projects as $project)
                     <tr class="project-table">
                         <td>{{ $project->id }}</td>
+                        @if ($project->category->id == $project->category_id)
+                            <td><span class="pj__description">
+                                    {{ $project->category->name }}
+                                </span></td>
+                        @endif
                         <td><span class="pj__description">{{ $project->title }}</span></td>
                         <td><span class="pj__description">{!! $project->description !!}</span></td>
+                        <td>
+                            @if ($project->images->count() > 0)
+                                <img src="{{ asset($project->images[0]->image) }}" width="100">
+                            @endif
+                        </td>
                         <td>{{ $project->money }}</td>
                         <td>{{ $project->money2 }}</td>
                         <td>
@@ -41,16 +51,6 @@
                                         class="badge bg-warning">Unfinished</span></a>
                             @endif
                         </td>
-                        <td>
-                            @if ($project->images->count() > 0)
-                                <img src="{{ asset($project->images[0]->image) }}" width="100">
-                            @endif
-                        </td>
-                        @if ($project->category->id == $project->category_id)
-                            <td>
-                                {{ $project->category->name }}
-                            </td>
-                        @endif
                         <td>
                             @can('project_edit')
                                 <a class="btn btn-warning" href="{{ route('projectAd.edit', $project->id) }}"><i

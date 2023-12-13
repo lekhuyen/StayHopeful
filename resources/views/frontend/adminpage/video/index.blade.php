@@ -2,25 +2,19 @@
 @section('admin_content')
 
 {{-- css --}}
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 {{-- css --}}
 
     <div class="container">
         <div class="row">
             <div class="container mt-3">
-                <div style="margin-bottom: 20px">
-                    <a class="btn btn-primary "href="{{ route('video-trash') }}">Unused Video</a>
-                    @can('video_add')
-                        <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create New Video</a>
-                    @endcan
-                </div>
-
                 <h1>Video List</h1>
                 <table class="table table-striper">
                     <thead>
                         <tr>
                             <th>Video</th>
                             <th>Action</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +27,7 @@
                                 <td>
                                     @can('video_edit')
                                         <a class="btn btn-warning" href="{{ route('video-list.edit', $video->id) }}"><i
-                                                class="fa-regular fa-pen-to-square"></i></a>
+                                                class="fa-solid fa-pen-to-square"></i></a>
                                     @endcan
                                     @can('video_delete')
                                         <button class="btn btn-danger delete-video" data-id="{{ $video->id }}"><i
@@ -48,6 +42,13 @@
                         @endforelse
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center btn__center">
+                    <a class="btn btn-primary "href="{{ route('video-trash') }}">Unused Video</a>
+                    @can('video_add')
+                        <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create New Video</a>
+                    @endcan
+                </div>
+
             </div>
         </div>
     </div>

@@ -20,7 +20,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="description">Description:</label>
+                <label for="description">Content:</label>
                 <textarea type="tetx" class="form-control" id="description-project-create" placeholder="Enter description"
                     name="description"></textarea>
                 @error('description')

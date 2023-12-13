@@ -13,7 +13,7 @@
                 <i class="fa fa-long-arrow-left"></i>GO BACK</a>
         </div>
 
-        <h1>Edit Permission</h1>
+        <h1>Edit Role & Permission</h1>
         <form action="{{ route('roles.update', $roles->id) }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">

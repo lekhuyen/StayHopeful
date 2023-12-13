@@ -6,7 +6,7 @@
 
     <div class="container mt-3">
         <div class="btn__back">
-            <a href="{{ route('category.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
+            <a href="{{ route('category.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
         </div>
         <h1>New Category</h1>
         <form action="{{ route('category.store') }}" method="POST">

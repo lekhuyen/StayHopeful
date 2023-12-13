@@ -1,12 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer_list.css') }}">
     {{-- css --}}
-    
+
     <div class="volunteer-detail">
         <h1>Project Volunteer</h1>
         <div class="container mt-3">
@@ -17,7 +14,7 @@
                         <th>Title</th>
                         <th>Quantity</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Detail</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +40,7 @@
                         <td>{{ $item->quantity }}</td>
                         <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
                                 data-bs-target="#myModal" data-id="{{ $item->id }}"><i class="fa-solid fa-info"></i>
                             </button>
                         </td>
@@ -60,7 +57,7 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h4 class="modal-title">Volunteer List</h4>
+                <h4 class="modal-title">Volunteer Detail List</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body body__volunteer">

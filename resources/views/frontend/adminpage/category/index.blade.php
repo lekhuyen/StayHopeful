@@ -29,7 +29,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Category emty</td>
+                        <td colspan="2">Empty</td>
                     </tr>
                 @endforelse
             </tbody>

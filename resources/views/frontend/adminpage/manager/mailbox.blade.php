@@ -19,7 +19,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Telephone</th>
-                            <th>Sent Day</th>
+                            <th>Sent Date</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

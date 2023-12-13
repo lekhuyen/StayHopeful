@@ -80,7 +80,7 @@
                                     <td style="text-align: center">
                                         <a href="#" data-user-id="{{ $item->id }}" class="btn btn-warning"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square"></i></i>
+                                            <i class="fa-solid fa-pen-to-square"></i></i>
                                         </a>
                                         <a href="{{ route('admin.deleteuser', $item->id) }}" class="btn btn-danger">
                                             <i class="fa-solid fa-trash-can"></i>
