@@ -88,8 +88,48 @@ class AdminPageController extends Controller
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();
         $usercountchart = $this->usercountchart();
+        $todayRegistrations = DB::table('users')
+        ->whereDate('created_at', now()->toDateString())
+        ->count();
 
-        return view('frontend.adminpage.manager.dashboard', compact('usercount', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
+        $yesterdayRegistrations = DB::table('users')
+        ->whereDate('created_at', '<', now()->toDateString())
+        ->count();
+
+    $growthPercentage = 0;
+    if ($yesterdayRegistrations > 0) {
+        $growthPercentage = (($todayRegistrations - $yesterdayRegistrations) / $yesterdayRegistrations) * 100;
+    }
+    
+    // tinh % của donate
+    $todaydonate = DB::table('donate_infos')
+    ->whereDate('created_at', now()->toDateString())
+    ->sum('amount');
+    $todaydonate2 = DB::table('donate_infos')
+    ->whereDate('created_at', now()->toDateString())
+    ->count();
+    $perviousdonate = DB::table('donate_infos')
+    ->whereDate('created_at', '<' ,now()->toDateString())
+    ->sum('amount');
+    // dump($todaydonate);
+    // dump($perviousdonate);
+    $donatepercentage = 0;
+    if($perviousdonate > 0){
+        $donatepercentage = (($todaydonate - $perviousdonate) / $perviousdonate) * 100;
+    }
+    // tinh % của project
+    $todayproject = DB::table('projects')
+    ->whereMonth('created_at',now()->month)
+    ->count();
+    $perviousproject = DB::table('projects')
+    ->whereMonth('created_at','<' ,now()->month)
+    ->count();
+    $projectprecenttage = 0;
+    if($perviousproject > 0){
+        $projectprecenttage = (($todayproject - $perviousproject) / $perviousproject) * 100;
+    }
+
+        return view('frontend.adminpage.manager.dashboard', compact('usercount','projectprecenttage','donatepercentage','growthPercentage', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
     public function viewmanagerdesign()
@@ -487,9 +527,9 @@ class AdminPageController extends Controller
         return $output;
     }
     public function searchhome(Request $request)
-    {
-        $searchproject = Project::where('title', 'like', '%' . $request->search . '%')
-            ->get();
+{
+   
+        $searchproject = Project::where('title', 'like', '%' . $request->search . '%')->get();
 
         $output = '';
         foreach ($searchproject as $project) {
@@ -504,6 +544,10 @@ class AdminPageController extends Controller
                             </a>
                         </div>';
         }
+
         return $output;
-    }
+
+    
+}
+
 }
