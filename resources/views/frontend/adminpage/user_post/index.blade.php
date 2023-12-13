@@ -33,7 +33,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-outline-info btn-sm"><i
+                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-outline-info btn-lg"><i
                                     class="fa-solid fa-info"></i></a>
                         </td>
                         <td>
@@ -58,6 +58,10 @@
                 @endforelse
             </tbody>
         </table>
+
+        <div class="general__pagination">
+            {{$posts->links()}}
+        </div>
 
         <div class="d-flex justify-content-center btn__center">
             <a class="btn btn-primary "href="{{ route('post-trash') }}">Unused Post</a>

@@ -3,6 +3,7 @@
 @section('main')
 
     {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
     {{-- css --}}
 
@@ -23,7 +24,8 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="text-right">
+
+                <div class="general__pagination">
                     {{ $blogs->links() }}
                 </div>
             </div>

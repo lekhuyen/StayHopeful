@@ -9,6 +9,7 @@
     </div>
 
     <div class="container mt-3">
+        <h1>Unused Video</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -17,7 +18,6 @@
                 </tr>
             </thead>
             <tbody>
-                <h1>Unused</h1>
                 @forelse ($videos as $video)
                     <tr>
                         <td>

@@ -73,7 +73,11 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{ $sliders->links() }}
+
+                    <div class="general__pagination">
+                        {{ $sliders->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -109,7 +113,7 @@
                                 <img id="image-preview" src="" width="100">
                             </div>
                             <div class="mb-3 mt-3">
-                                <label for="name-image-change" class="form-label">Name Image:</label>
+                                <label for="name-image-change" class="form-label">Image Name:</label>
                                 <input type="text" class="form-control" id="name-image-change"
                                     placeholder="Enter New Image Name" name="nameimage">
                             </div>
