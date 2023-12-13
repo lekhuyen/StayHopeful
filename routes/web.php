@@ -192,9 +192,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
     Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
 
-
 });
-
 
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
