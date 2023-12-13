@@ -2,14 +2,17 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container mt-3">
-        <a href="{{ route('roles.index') }}"><i class="fas fa-long-arrow-alt-left"> Go
-                Back</i></a>
+
+        <div class="btn__back">
+            <a href="{{ route('roles.index') }}" class="btn__go_back">
+                <i class="fa fa-long-arrow-left"></i>GO BACK</a>
+        </div>
+
         <h1>Edit Permission</h1>
         <form action="{{ route('roles.update', $roles->id) }}" method="POST">
             @csrf
@@ -56,7 +59,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="d-flex justify-content-center btn__center" >
+            <div class="d-flex justify-content-center btn__center">
                 <button type="submit" class="btn btn-primary mb-3">Submit</button>
             </div>
         </form>

@@ -7,15 +7,8 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
     {{-- css --}}
-    
+
     <div class="container mt-3">
-        <div style="margin-bottom: 20px">
-            <a class="btn btn-primary "href="{{ route('projectAd-image') }}">Unused Image</a>
-            <a class="btn btn-primary "href="{{ route('project-trash') }}">Unused Project</a>
-            @can('project_add')
-                <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Add New Project</a>
-            @endcan
-        </div>
         <h1>Project List</h1>
         <table class="table table-hover">
             <thead>
@@ -77,6 +70,13 @@
             </tbody>
         </table>
         {{ $projects->links() }}
+        <div class="d-flex justify-content-center btn__center" style="gap: 10px;">
+            <a class="btn btn-primary "href="{{ route('projectAd-image') }}">Unused Image</a>
+            <a class="btn btn-primary "href="{{ route('project-trash') }}">Unused Project</a>
+            @can('project_add')
+                <a href="{{ route('projectAd.create') }}" class="btn btn-primary">Create New Project</a>
+            @endcan
+        </div>
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
