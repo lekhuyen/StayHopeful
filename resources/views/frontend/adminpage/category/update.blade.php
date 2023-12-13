@@ -1,18 +1,20 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('category.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
+
     <div class="container mt-3">
-        <div style="margin-bottom: 20px"> <a href="{{ route('category.index') }}"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
-        </div>
         <h1>Edit Category</h1>
         <form action="{{ route('category.update', $category->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3">
-                <label for="category">Category:</label>
+                <label for="category">Category Name:</label>
                 <input type="tetx" class="form-control" id="category" placeholder="Enter category" name="name"
                     value="{{ $category->name }}">
                 @error('name')

@@ -1,5 +1,5 @@
 @extends('frontend.site')
-@section('title', 'whoweare')
+@section('title', 'About Us')
 @section('main')
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus_whoweare.css') }}">

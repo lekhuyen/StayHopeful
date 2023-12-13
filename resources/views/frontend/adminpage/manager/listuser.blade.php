@@ -1,11 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container">
         @if (session('success'))
@@ -27,7 +26,7 @@
             <div class="col-lg-6 ">
                 <div class="btnsearch position-absolute " style="right: 0;">
                     <button class="btn-search" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
-                            class="fa-solid fa-plus"></i><span>Create New User</span></button>
+                            class="fa-solid fa-plus"></i><span>Create New User Account</span></button>
                 </div>
             </div>
         </div>
@@ -81,7 +80,7 @@
                                     <td style="text-align: center">
                                         <a href="#" data-user-id="{{ $item->id }}" class="btn btn-warning"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-regular fa-pen-to-square"></i></i>
+                                            <i class="fa-solid fa-pen-to-square"></i></i>
                                         </a>
                                         <a href="{{ route('admin.deleteuser', $item->id) }}" class="btn btn-danger">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -92,7 +91,10 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{ $user->links() }}
+
+                    <div class="general__pagination">
+                        {{ $user->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,8 +105,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">New User Account</h5>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="{{ route('admin.registeruser') }}">
                     @csrf
@@ -129,15 +131,15 @@
                             <label for="role-register" class="form-label">Role:</label>
                             <select class="form-select" id="role-register" aria-label="Default select example"
                                 name="role" value="{{ old('role') == 'role' ? 'selected' : '' }}">
-                                <option selected>Select Role</option>
+                                <option selected>Select</option>
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -148,8 +150,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit User Account</h5>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 @foreach ($user as $item)
                     <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
@@ -180,7 +183,7 @@
                     <div class="mb-3 mt-3">
                         <label for="role-register" class="form-label">Role:</label>
                         <select class="form-select" aria-label="Default select example" id="role-update" name="role">
-                            <option selected>Select Role</option>
+                            <option selected>Select</option>
                             <option value="0">User</option>
                             <option value="1">Admin</option>
                         </select>
@@ -188,8 +191,8 @@
                 </div>
 
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
                 </form>
             </div>

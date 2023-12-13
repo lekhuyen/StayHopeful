@@ -4,10 +4,10 @@
 {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 {{-- css --}}
-
+{{-- 
     <div style="margin-bottom: 20px">
         <a class="btn btn-primary"href="{{ route('roles.index') }}">Role List</a>
-    </div>
+    </div> --}}
     <div class="container mt-3">
         <h1>Add New Permission</h1>
         <form action="{{ route('permissions.store') }}" method="POST">

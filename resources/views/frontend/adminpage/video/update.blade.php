@@ -1,12 +1,15 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('video-list.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO
+            BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <a href="{{ route('video-list.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
 
         <h1>Update Video</h1>
         <form action="{{ route('video-list.update', $videos->id) }}" method="POST" enctype="multipart/form-data">
@@ -24,7 +27,7 @@
             </div>
         </form>
 
-        {{-- xoa video con --}}
+        {{-- current video container --}}
         <div class="mb-3 mt-3">
             <label>Current Video:</label>
             @if ($videos->count() > 0)

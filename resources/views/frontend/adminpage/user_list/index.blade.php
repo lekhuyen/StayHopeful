@@ -1,20 +1,15 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container mt-3">
-        @can('user_add')
-            <a href="{{ route('staff.create') }}" class="btn btn-primary">Add New User</a>
-        @endcan
         <h1>Admin List</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Action</th>
@@ -30,7 +25,7 @@
                         <td>
                             @can('user_edit')
                                 <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i
-                                        class="fa-regular fa-pen-to-square"></i></a>
+                                        class="fa-solid fa-pen-to-square"></i></a>
                             @endcan
                             @can('user_delete')
                                 <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i
@@ -41,6 +36,14 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $users->links() }}
+        <div class="general__pagination">
+            {{ $users->links() }}
+        </div>
+
+        <div class="d-flex justify-content-center btn__center">
+            @can('user_add')
+                <a href="{{ route('staff.create') }}" class="btn btn-primary">Create New Admin Account</a>
+            @endcan
+        </div>
     </div>
 @endsection

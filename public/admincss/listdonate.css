@@ -110,7 +110,7 @@ input:focus {
     color: white;
     padding: 5px;
     border-radius: 5px;
-    width: 150px; /* Điều chỉnh kích thước của tooltip */
+    width: 150px; /*adjust size of tooltip */
   }
 
   .question-container:hover .info-tooltip {

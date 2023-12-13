@@ -1,5 +1,5 @@
 @extends('frontend.site')
-@section('title', 'foundername')
+@section('title', 'Founder')
 @section('main')
 
 
@@ -8,7 +8,7 @@
     {{-- foundername.css --}}
 
     <div class="btn__back">
-        <a href="{{ route('aboutus.index') }}" class="btn__go_back">
+        <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn__go_back">
             <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
 

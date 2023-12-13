@@ -2,14 +2,15 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     {{-- css --}}
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('feedbackcss/create__sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
-    
-    <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-long-arrow-left" ></i>GO BACK</a>
+
+    <div class="btn__back">
+        <a href="{{ route('feedback.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
+
     @if (session('success'))
         <div class="alert alert-success">
             <strong class="text-success">{{ session('success') }}</strong>

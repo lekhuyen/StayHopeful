@@ -6,17 +6,17 @@
 {{-- css --}}
 
     <div class="container mt-3">
-        <div style="margin-bottom: 20px">
-            <a href="{{ route('news.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
+        <div class="btn__back">
+            <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
         </div>
 
         <table class="table table-hover">
-            <h1>Unused</h1>
+            <h1>Unused News</h1>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Description</th>
+                    <th>Content</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>

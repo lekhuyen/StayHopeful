@@ -6,8 +6,11 @@
 {{-- css --}}
 
     <div class="container mt-3">
-        <a href="{{ route('news.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
-        <h1>Update News</h1>
+        <div class="btn__back">
+            <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
+        </div>
+
+        <h1>Edit News</h1>
         <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -20,7 +23,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="description">Description:</label>
+                <label for="description">Content:</label>
                 <textarea type="tetx" class="form-control" id="description-project-update" placeholder="Enter description"
                     name="description">{{ $news->description }}</textarea>
                 @error('description')

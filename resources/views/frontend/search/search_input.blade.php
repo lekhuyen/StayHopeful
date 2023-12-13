@@ -2,9 +2,9 @@
     <form action="{{route('search_project')}}" method="POST">
         @csrf
         <div class="search_input-project">
-                <input name="keywork" type="text" placeholder="Search">
+                <input name="keywork" type="text" placeholder="Input Project Name to Search">
                 <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass" style="color: cornflowerblue"></i>
                 </div>
 
             </div>

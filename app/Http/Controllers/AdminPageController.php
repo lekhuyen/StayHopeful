@@ -441,7 +441,7 @@ class AdminPageController extends Controller
                 <td>
                     <a href="#" data-slider-id="' . $slider->id . '" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <button type="button" class="btn btn-success" style="margin-right: 10px;">
-                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
                         </button>
                     </a>
                 </td>
