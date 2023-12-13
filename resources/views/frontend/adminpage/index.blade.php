@@ -31,7 +31,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
 {{-- font --}}
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('admincss/sidebar.css') }}">
+{{-- css --}}
 {{-- siderbar --}}
 <div class="main-container d-flex">
     <div class="sidebar" id="side_nav">

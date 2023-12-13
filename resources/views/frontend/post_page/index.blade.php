@@ -1,6 +1,8 @@
 @extends('frontend.site')
 @section('title', 'Post')
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+{{-- css --}}
 @section('main')
     <div class="container" style="margin-top: 100px; padding: 0">
         <div class="row">

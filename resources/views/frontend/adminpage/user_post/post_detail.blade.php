@@ -1,11 +1,14 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         <div class="row">
             <div style="margin-bottom: 20px">
-                <a href="{{ route('post.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+                <a href="{{ route('post.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
             </div>
             <h1>Post Detail</h1>
             <div class="col-lg-12" style="margin-top: 30px;">

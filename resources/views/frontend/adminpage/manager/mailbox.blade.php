@@ -2,8 +2,11 @@
 @section('admin_content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 <link rel="stylesheet" href="{{asset('admincss/mailbox.css')}}">
+{{-- css --}}
 
 <div class="container">
     <div class="row">

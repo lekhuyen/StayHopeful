@@ -1,9 +1,12 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
 
     <div class="container mt-3">
-        <a href="{{ route('projectAd.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
+        <a href="{{ route('projectAd.index') }}"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
         <h1>Update Project</h1>
         <form action="{{ route('projectAd.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -1,7 +1,9 @@
 @extends('frontend.site')
 @section('title', 'Donate Form')
 @section('main')
+     {{-- donate css --}}
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/donate.css') }}">
+     {{-- donate css --}}
     @if (session('error'))
     <div class="container-error-notification showAlert">
         <div class="status-error">

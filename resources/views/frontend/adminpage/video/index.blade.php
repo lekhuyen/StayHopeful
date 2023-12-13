@@ -1,6 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+{{-- css --}}
+
     <div class="container">
         <div class="row">
             <div class="container mt-3">

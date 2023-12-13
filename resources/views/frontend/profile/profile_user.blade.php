@@ -1,7 +1,8 @@
 @extends('frontend.site')
 @section('main')
-    <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
-
+{{-- profile css--}}
+ <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+{{-- profile css--}}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -33,7 +33,7 @@ class BlogController extends Controller
         $project = Project::find($id);
         $comments = $project->comments;
         $category = $project->category;
-        $category = Category::paginate(2);
+        // $category = Category::paginate(2);
         $projects = Project::where('category_id', $category->id)
             ->where('id', '!=', $project->id)
             ->orderBy('id', 'desc')
@@ -90,7 +90,7 @@ class BlogController extends Controller
     // project
     public function project_index()
     {
-        $projects = Project::orderBy('id', 'desc')->get();
+        $projects = Project::orderBy('id', 'desc')->paginate(6);
         return view('frontend.project.index', compact('projects'));
     }
 

@@ -1,10 +1,13 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+{{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+            <a href="{{ route('staff.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
         </div>
         <h1>Edit User</h1>
         <form action="{{ route('staff.update', $user->id) }}" method="POST">

@@ -1,5 +1,9 @@
 @extends('frontend.comment.comment')
+
+{{-- css --}}
 <link rel="stylesheet" href="{{asset("volunteercss/blog_detail.css")}}">
+{{-- css --}}
+
 @section('detail-post')
 @section('post-title')
     <div class="container-fluid margin-navbar">

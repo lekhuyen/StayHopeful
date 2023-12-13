@@ -1,8 +1,11 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+   
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
-
+    {{-- css --}}
+    
     <div class="container">
         <div class="row" style="margin-bottom: 20px">
             <div class="col-lg-6">

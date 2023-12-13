@@ -2,7 +2,10 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
 
     <div class="container mt-3">
         <table class="table table-hover">
@@ -14,7 +17,7 @@
             </thead>
             <tbody>
                 <div style="margin-bottom: 20px">
-                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
+                    <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
                 </div>
                 <h1>Unused</h1>
                 @foreach ($images as $image)

@@ -11,10 +11,14 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- icon --}}
+    
     {{-- ajax --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- ajax --}}
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/listdonate.css') }}">
+    {{-- css --}}
     @if (session('success'))
     <div class="container-error-notification showAlert">
         <div class="status-error">

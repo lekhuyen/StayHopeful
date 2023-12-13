@@ -42,7 +42,8 @@ class AdminPageController extends Controller
         $mail = Contactus::where('id', '=', $id)->select('*')->first();
         return view('frontend.adminpage.manager.replymail', compact('mail'));
     }
-    public function viewmaildetail($id){
+    public function viewmaildetail($id)
+    {
         $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
         return view('frontend.adminpage.manager.maildetail', compact('mail'));
     }
@@ -66,7 +67,6 @@ class AdminPageController extends Controller
         Mail::to($email)->send(new MailReply($message, $subject));
 
         return redirect()->route('admin.viewmail')->with('success', 'Send Mail Success');
-
     }
 
 
@@ -149,7 +149,6 @@ class AdminPageController extends Controller
             $userinfo->imageURL = asset('img/humanicon.png');
         }
         return response()->json(['userinfoCollection' => $userinfoCollection]);
-
     }
     public function create_slider(Request $request)
     {
@@ -162,7 +161,6 @@ class AdminPageController extends Controller
             $slider->url_image = 'images/' . $filename;
             $slider->slider_name = $request->nameimg;
             $slider->save();
-
         }
 
         return redirect()->back()->with('success', 'Slider created successfully');
@@ -183,8 +181,6 @@ class AdminPageController extends Controller
         $slider->save();
 
         return redirect()->back()->with('success', 'Success update Sliders');
-
-
     }
     public function delete_slider(Sliders $slider)
     {
@@ -277,7 +273,6 @@ class AdminPageController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->back()->with('success', 'Delete User successfully');
-
     }
 
 

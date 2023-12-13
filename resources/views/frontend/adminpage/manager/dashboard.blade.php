@@ -2,8 +2,11 @@
 @section('admin_content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js">
     </script>
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/dashboardlayout.css') }}">
+    {{-- css --}}
 
     <div class="container">
         <h1>Dashboard</h1>
@@ -142,17 +145,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bigchart">
-                    <div class="flexbigchart">
+                    <h1>Total Donate</h1>
+                    {{-- <div class="flexbigchart">
                         <div class="textbigchart">Total Donate</div>
                         <div class="selectbigchart">
-                            {{-- <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
-                            </select> --}}
+                            </select>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="bigchart-show">
                         <canvas id="chartbig"></canvas>
                     </div>
@@ -162,14 +166,15 @@
 
         <div class="row">
             <div class="col-lg-12 project-table">
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-12 project-table-head">
-                        <p class="mt-3">List Project</p>
+                        <p class="mt-3">Total Project</p>
                     </div>
-                </div>
+                </div> --}}
+                <h1>Total Project</h1>
                 <div class="row">
                     <div class="col-lg-12 mb-3 mt-3">
-                        <input type="search" name="search" placeholder="Search By name" id="search"
+                        <input type="search" name="search" placeholder="Input Name to search" id="search"
                             class="input-search"><button class="btn-search"><i
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
