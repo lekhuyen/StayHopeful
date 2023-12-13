@@ -28,7 +28,7 @@
                         <td>
                             @can('roles_edit')
                                 <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning"><i
-                                        class="fa-regular fa-pen-to-square"></i></a>
+                                        class="fa-solid fa-pen-to-square"></i></a>
                             @endcan
                             @can('roles_delete')
                                 <a href="{{ route('roles.delete', $role->id) }}" class="btn btn-danger"><i
@@ -39,6 +39,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="general__pagination">
+            {{ $roles->links() }}
+        </div>
         <div class="d-flex justify-content-center btn__center">
             @can('roles_add')
                 <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New Role</a>

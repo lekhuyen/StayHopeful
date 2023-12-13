@@ -69,7 +69,11 @@
                 @endforelse
             </tbody>
         </table>
-        {{ $projects->links() }}
+
+        <div class="general__pagination">
+            {{ $projects->links() }}
+        </div>
+
         <div class="d-flex justify-content-center btn__center" style="gap: 10px;">
             <a class="btn btn-primary "href="{{ route('projectAd-image') }}">Unused Image</a>
             <a class="btn btn-primary "href="{{ route('project-trash') }}">Unused Project</a>

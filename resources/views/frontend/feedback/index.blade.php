@@ -1,8 +1,8 @@
 @extends('frontend.adminpage.index')
-@section('title', 'Feedback List')
 @section('admin_content')
 
     {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('feedbackcss/feedback_detail.css') }}">
     {{-- css --}}
 
@@ -24,14 +24,14 @@
                     <td>{{ $item->email }}</td>
                     <td class="fb-content">{{ $item->content }}</td>
                     <td>{{ $item->star }}</td>
-                    <td><a href="{{ route('feedback.detail', $item->id) }}" class="btn btn-outline-info btn-sm"><i
+                    <td><a href="{{ route('feedback.detail', $item->id) }}" class="btn btn-outline-info btn-lg"><i
                                 class="fa-solid fa-info"></i></a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
     <p id="countBadfb">Total Bad Feedback: {{ $count }}/{{ $feedbacks->count() }}</p>
-    <div class="feedback__pagination">
+    <div class="general__pagination">
         {{ $feedback->links() }}
     </div>
     <div class="fb__sensitive">

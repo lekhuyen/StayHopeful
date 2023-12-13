@@ -43,7 +43,11 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $news->links() }}
+
+        <div class="general__pagination">
+            {{ $news->links() }}
+        </div>
+
         <div class="d-flex justify-content-center btn__center">
             <a class="btn btn-primary "href="{{ route('news-image-trash') }}">Unused Image</a>
             <a class="btn btn-primary "href="{{ route('news-trash') }}">Unused News</a>

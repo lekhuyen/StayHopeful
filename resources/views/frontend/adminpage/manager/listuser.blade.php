@@ -91,7 +91,10 @@
                         </tbody>
                         <tbody id="content" class="searchdata"></tbody>
                     </table>
-                    {{ $user->links() }}
+
+                    <div class="general__pagination">
+                        {{ $user->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,7 +131,7 @@
                             <label for="role-register" class="form-label">Role:</label>
                             <select class="form-select" id="role-register" aria-label="Default select example"
                                 name="role" value="{{ old('role') == 'role' ? 'selected' : '' }}">
-                                <option selected>Select Role</option>
+                                <option selected>Select</option>
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
                             </select>
@@ -147,7 +150,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit User Account</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -180,7 +183,7 @@
                     <div class="mb-3 mt-3">
                         <label for="role-register" class="form-label">Role:</label>
                         <select class="form-select" aria-label="Default select example" id="role-update" name="role">
-                            <option selected>Select Role</option>
+                            <option selected>Select</option>
                             <option value="0">User</option>
                             <option value="1">Admin</option>
                         </select>

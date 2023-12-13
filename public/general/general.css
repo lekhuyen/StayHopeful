@@ -6,7 +6,7 @@ h5 {
 
 .btn__center {
     margin-bottom: 5px;
-    gap:10px;
+    gap: 10px;
 }
 
 .btn__go_back {
@@ -23,3 +23,7 @@ h5 {
     margin-top: 70px;
 }
 
+.general__pagination {
+    display: flex;
+    justify-content: end;
+}

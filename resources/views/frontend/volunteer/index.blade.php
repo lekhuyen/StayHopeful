@@ -1,6 +1,7 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
     {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('volunteercss/volunteer_list.css') }}">
     {{-- css --}}
 
@@ -40,7 +41,7 @@
                         <td>{{ $item->quantity }}</td>
                         <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-outline-info btn-lg" data-bs-toggle="modal"
                                 data-bs-target="#myModal" data-id="{{ $item->id }}"><i class="fa-solid fa-info"></i>
                             </button>
                         </td>
@@ -49,7 +50,11 @@
                 @endforeach
             </tbody>
         </table>
-        {{$projects->links()}}
+
+        <div class="general__pagination">
+            {{ $projects->links() }}
+        </div>
+
     </div>
 </div>
 <div class="modal" id="myModal">
@@ -131,7 +136,7 @@
                 $('.volunteer_detail').html(output);
             } else {
                 $('.body__volunteer').html(
-                "<p class='text-center'>Have no volunteer register for this project yet.</p>");
+                    "<p class='text-center'>Have no volunteer register for this project yet.</p>");
             }
 
 

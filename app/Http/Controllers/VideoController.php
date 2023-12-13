@@ -10,7 +10,7 @@ class VideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::orderBy('id', 'desc')->get();
+        $videos = Video::orderBy('id', 'desc')->paginate(4);
         return view('frontend.adminpage.video.index', compact('videos'));
     }
     public function create()
@@ -102,7 +102,7 @@ class VideoController extends Controller
         if (File::exists($video->video)) {
             File::delete($video->video);
         }
-        
+
         return back();
     }
 }

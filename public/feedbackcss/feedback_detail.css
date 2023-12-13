@@ -12,7 +12,3 @@
 a {
     white-space: nowrap;
 }
-.feedback__pagination{
-    display: flex;
-    justify-content: end;
-}

@@ -1,9 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container">
         <div class="row">
@@ -42,6 +41,9 @@
                         @endforelse
                     </tbody>
                 </table>
+                <div class="general__pagination">
+                    {{ $videos->links() }}
+                </div>
                 <div class="d-flex justify-content-center btn__center">
                     <a class="btn btn-primary "href="{{ route('video-trash') }}">Unused Video</a>
                     @can('video_add')

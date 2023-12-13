@@ -14,7 +14,7 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy('status', 'desc')->get();
+        $posts = UserPost::orderBy('status', 'desc')->paginate(4);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id)

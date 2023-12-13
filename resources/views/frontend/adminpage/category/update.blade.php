@@ -14,7 +14,7 @@
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3">
-                <label for="category">Category:</label>
+                <label for="category">Category Name:</label>
                 <input type="tetx" class="form-control" id="category" placeholder="Enter category" name="name"
                     value="{{ $category->name }}">
                 @error('name')

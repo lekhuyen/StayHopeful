@@ -2,7 +2,6 @@
 @section('admin_content')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- css --}}
 
     <div class="container mt-3">
@@ -37,7 +36,10 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $users->links() }}
+        <div class="general__pagination">
+            {{ $users->links() }}
+        </div>
+
         <div class="d-flex justify-content-center btn__center">
             @can('user_add')
                 <a href="{{ route('staff.create') }}" class="btn btn-primary">Create New Admin Account</a>

@@ -12,7 +12,7 @@
         <form action="{{ route('category.store') }}" method="POST">
             @csrf
             <div class="mb-3 mt-3">
-                <label for="category">Category:</label>
+                <label for="category">Category Name:</label>
                 <input type="tetx" class="form-control" id="category" placeholder="Enter category" name="name">
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
