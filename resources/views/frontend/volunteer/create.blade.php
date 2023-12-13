@@ -14,6 +14,7 @@
                     <strong>Success! {{ session('success') }}</strong>
                 </div>
             @endif
+            {{-- @dd( $infouser) --}}
             <div class="voting__form">
                 <form action="{{ route('volunteer.store') }}" method="post">
                     @csrf
@@ -59,9 +60,8 @@
                             <input type="text" class="form-control voting__label"
                                 value="{{ old('name', $user ? $user['name'] : '') }}" id="name" placeholder="Name"
                                 {{ $user ? 'readonly' : '' }} name="name">
-                            <input type="text" class="form-control voting__label"
-                                value="{{ old('phone', $user ? $user['phone'] : '') }}" id="phone" placeholder="Phone"
-                                {{ $user ? 'readonly' : '' }} name="phone">
+                            <input type="text" class="form-control voting__label" value="{{ old('phone') }}"
+                                id="phone" placeholder="Phone" name="phone">
                             <input type="text" class="form-control voting__label"
                                 value="{{ old('email', $user ? $user['email'] : '') }}" id="email" placeholder="Email"
                                 {{ $user ? 'readonly' : '' }} name="email">

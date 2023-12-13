@@ -8,12 +8,16 @@
     {{-- css --}}
 
     <div class="container mt-3">
+        <div class="btn__back">
+            <a href="{{ route('projectAd.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO
+                BACK</a>
+        </div>
+
         <table class="table table-hover">
-            <a href="{{ route('projectAd.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
-            <h1>Unused</h1>
+            <h1>Unused Project</h1>
             <thead>
                 <tr>
-                    <th>Project ID</th>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Received</th>

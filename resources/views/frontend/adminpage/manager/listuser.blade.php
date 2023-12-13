@@ -1,11 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('admincss/listuser.css') }}">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container">
         @if (session('success'))
@@ -27,7 +26,7 @@
             <div class="col-lg-6 ">
                 <div class="btnsearch position-absolute " style="right: 0;">
                     <button class="btn-search" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i
-                            class="fa-solid fa-plus"></i><span>Create New User</span></button>
+                            class="fa-solid fa-plus"></i><span>Create New User Account</span></button>
                 </div>
             </div>
         </div>
@@ -103,8 +102,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">New User Account</h5>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="{{ route('admin.registeruser') }}">
                     @csrf
@@ -136,8 +135,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -149,7 +148,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 @foreach ($user as $item)
                     <form method="POST" action="{{ route('admin.updateuser', ['id' => $item->id]) }}">
@@ -188,8 +188,8 @@
                 </div>
 
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
                 </form>
             </div>

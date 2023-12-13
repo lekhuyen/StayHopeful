@@ -1,12 +1,10 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
-<link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
 
     <div class="container mt-3">
-        <a class="btn btn-primary "href="{{ route('post-trash') }}">Unused Post</a>
         <h1>User Post</h1>
         <table class="table table-hover">
             <thead>
@@ -59,6 +57,10 @@
                 @endforelse
             </tbody>
         </table>
+
+        <div class="d-flex justify-content-center btn__center">
+            <a class="btn btn-primary "href="{{ route('post-trash') }}">Unused Post</a>
+        </div>
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

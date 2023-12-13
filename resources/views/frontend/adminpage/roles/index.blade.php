@@ -2,16 +2,12 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
     <div class="container mt-3">
-        @can('roles_add')
-            <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New Role</a>
-        @endcan
         <h1>Role List</h1>
         <table class="table table-hover">
             <thead>
@@ -43,5 +39,10 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center btn__center">
+            @can('roles_add')
+                <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New Role</a>
+            @endcan
+        </div>
     </div>
 @endsection

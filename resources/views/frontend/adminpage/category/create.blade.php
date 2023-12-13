@@ -1,13 +1,12 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 
     <div class="container mt-3">
-        <div style="margin-bottom: 20px">
-            <a href="{{ route('category.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
+        <div class="btn__back">
+            <a href="{{ route('category.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
         </div>
         <h1>New Category</h1>
         <form action="{{ route('category.store') }}" method="POST">
