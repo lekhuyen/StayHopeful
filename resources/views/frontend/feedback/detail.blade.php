@@ -1,32 +1,33 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     {{-- css --}}
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
-    <a href="{{ route('feedback.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+
+    <div class="btn__back">
+        <a href="{{ route('feedback.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-
         <h1>Feedback Detail</h1>
-        <button class="btn btn-danger d-none btn-bad-feedback">Bad Feedback</button>
-
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Email</th>
                     <th>Content</th>
                     <th>Star</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td> {{ $feedback->email }}</td>
+                    <td>{{ $feedback->email }}</td>
                     <td>{{ $feedback->content }}</td>
-                    <td> {{ $feedback->star }}</td>
+                    <td>{{ $feedback->star }}</td>
+                    <td>
+                        <button class="btn btn-danger d-none btn-bad-feedback">Bad Feedback</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -26,7 +26,7 @@
                         <td>
                             @can('user_edit')
                                 <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i
-                                        class="fa-regular fa-pen-to-square"></i></a>
+                                        class="fa-solid fa-pen-to-square"></i></a>
                             @endcan
                             @can('user_delete')
                                 <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i

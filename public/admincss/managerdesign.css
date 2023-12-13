@@ -15,7 +15,7 @@ input:focus {
 }
 
 .btn-search {
-    background: #03A9F4;
+    background: #0275d8;
     border-radius: 20px;
     border-style: none;
     padding: 10px;
@@ -40,18 +40,15 @@ input:focus {
 
 }
 
-
-
-
 .icon {
     margin-left: 20px;
 }
 
-table {
+/* table {
 
     justify-content: center;
     align-items: center;
-}
+} */
 
 @media screen and (max-width: 768px) {
     .btnsearch {

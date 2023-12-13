@@ -6,6 +6,7 @@ h5 {
 
 .btn__center {
     margin-bottom: 5px;
+    gap:10px;
 }
 
 .btn__go_back {

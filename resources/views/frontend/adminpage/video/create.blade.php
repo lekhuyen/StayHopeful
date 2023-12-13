@@ -5,14 +5,17 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 {{-- css --}}
 
-    <div class="container mt-3">
-        <a href="{{ route('video-list.index') }}"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
+<div class="btn__back">
+    <a href="{{ route('video-list.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO
+        BACK</a>
+</div>
 
+    <div class="container mt-3">
         <h1>New Video</h1>
         <form action="{{ route('video-list.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 mt-3">
-                <label>Video:</label>
+                <label>New Video:</label>
                 <input type="file" class="form-control" placeholder="Choose video" name="video[]" multiple>
                 @error('video')
                     <span class="text-danger">{{ $message }}</span>
