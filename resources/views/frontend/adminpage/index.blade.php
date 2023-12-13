@@ -167,12 +167,19 @@
             © 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.
         </p>
     </footer> --}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="footer__dashboard__content">
+            <p class="footer__text">© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
+        </div>
+    </div>
 
-<div class="container footer__dashboard gx-0">
+</div>
+{{-- <div class="container footer__dashboard gx-0">
     <div class="footer__dashboard__content">
         <p>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
     </div>
-</div>
+</div> --}}
 
 <script src="{{ asset('js/sidebar.js') }}"></script>
 @include('frontend/login/login')
