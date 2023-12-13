@@ -293,7 +293,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-end">
-                            <h6>©2023 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
+                            <h6>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
                             <div class="media-icon">
                                 <a href=""><i class="fa-brands fa-square-facebook"
                                         style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
@@ -318,7 +318,7 @@
     $(document).ready(function() {
         $('#search').on('keyup', function() {
             $value = $(this).val();
-            
+
             if ($value) {
                 $('#search-ajax').show();
             } else {

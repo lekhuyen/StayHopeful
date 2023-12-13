@@ -1,9 +1,8 @@
-
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -18,6 +17,7 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
 #side_nav {
     position: fixed;
     background: #000;
@@ -49,7 +49,6 @@ html {
 
 .content {
     width: 100%;
-
 }
 
 .show-menu::-webkit-scrollbar {
@@ -66,12 +65,13 @@ html {
     background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 }
-.ul__sidebar li:hover{
+
+.ul__sidebar li:hover {
     background-color: #fff;
 }
-.ul__sidebar li a:hover{
-    color: #000 ;
 
+.ul__sidebar li a:hover {
+    color: #000;
 }
 
 hr.h-color {
@@ -103,7 +103,6 @@ hr.h-color {
     overflow: hidden;
     transition: height 0.3s ease-in-out;
     position: relative;
-
 }
 
 .show-menu {
@@ -137,7 +136,7 @@ hr.h-color {
 
 } */
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
     #side_nav {
         margin-left: -250px;
         position: fixed;
@@ -151,29 +150,54 @@ hr.h-color {
     .dashboard-content {
         margin-left: 0;
     }
-
-    
 }
 
-
-
- .footer-container{
+.footer-container {
     margin-left: 200px;
- }
+}
+
 .footer-text {
-    
     text-align: center;
     color: #fff;
     font-size: 20px;
 }
 
+@media (max-width: 767px) {
+}
 
-@media(max-width: 767px) {}
-
-@media(max-width: 574px) {}
+@media (max-width: 574px) {
+}
 
 .nav-user-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+
+.container.footer__dashboard {
+    height: 460px;
+    position: relative;
+}
+
+.footer__dashboard__content {
+    position: absolute;
+    bottom: 0;
+    background-color: #000;
+    right: 0;
+    left: 0;
+    height: 80px;
+    border-top: 3px solid #082603;
+    width: 110%;
+}
+
+.footer__dashboard__content p {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: #082603;
+    font-size: 150%;
+    font-family: "Baskerville Old Face";
+    color: whitesmoke;
 }
