@@ -120,3 +120,11 @@ body {
     font-size: 20px;
     color: rgb(212, 204, 204);
 }
+
+input:focus {
+    outline: none;
+    border: solid 2px cornflowerblue;
+    box-shadow: 20px 20px 20px #ccc;
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    -webkit-box-shadow: 5px 5px 5px cornflowerblue;
+}
