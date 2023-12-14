@@ -103,7 +103,7 @@
                         </div>
                         <div class="container" style="margin-left: -10px; width:103%">
                                 {{-- <div class="form-floating"> --}}
-                                    <label class="form-label" for="votingSelect" style="margin-bottom:5px">Select Project</label>
+                                    <label class="form-label" for="votingSelect" style="margin-bottom:5px">Select Project:</label>
                                     <select class="form-select" id="votingSelect" name="project_id">
                                         @foreach ($projects as $item)
                                             @php
