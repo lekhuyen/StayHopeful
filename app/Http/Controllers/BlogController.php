@@ -39,8 +39,8 @@ class BlogController extends Controller
             ->limit(5)
             ->get();
         $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
-
-        // dd($volunterCountRegisterByProject);
+//dd($project->quantity);
+        // dd($volunterCountRegisterByProject->count());
         session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
@@ -48,19 +48,21 @@ class BlogController extends Controller
             $checkUserProject = 1;
         }
 
-        if ($user) {
-            $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
-            //dd($volunteerPersonByProjects);
-            if ($volunteerPersonByProjects->count() > 0) {
-                foreach ($volunteerPersonByProjects as $key => $projectItem) {
-                    $projectId = $projectItem->project_id;
-                    if($projectId == $id){
-                        $checkUserProject = 1;
-                        break;
-                    }
-                }
-            }
-        }
+        // if ($user) {
+        //     $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
+        //     //dd($volunteerPersonByProjects);
+        //     if ($volunteerPersonByProjects->count() > 0) {
+        //         foreach ($volunteerPersonByProjects as $key => $projectItem) {
+        //             $projectId = $projectItem->project_id;
+        //             if($projectId == $id){
+
+        //                // dd("lot vao day");
+        //                 $checkUserProject = 1;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
         return view('frontend.detail-post.detail', compact('categories', 'project', 'projects', 'comments', 'checkUserProject'));
     }
     public function viewmarquee()
