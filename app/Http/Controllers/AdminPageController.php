@@ -77,7 +77,8 @@ class AdminPageController extends Controller
         $project = Project::selectRaw('COUNT(id) as total_projects, COUNT(CASE WHEN status = 1 THEN 1 END) as status_1')
             ->groupBy('status')
             ->get();
-        $usercount = User::count();
+        $userCount = User::withTrashed()->count();
+
         $allproject = Project::all();
 
         $totalproject = $project->sum('total_projects');
@@ -89,47 +90,60 @@ class AdminPageController extends Controller
         $chartcompleted = $this->chartcompleted();
         $usercountchart = $this->usercountchart();
         $todayRegistrations = DB::table('users')
-        ->whereDate('created_at', now()->toDateString())
-        ->count();
+            ->whereDate('created_at', now()->toDateString())
+            ->count();
 
         $yesterdayRegistrations = DB::table('users')
-        ->whereDate('created_at', '<', now()->toDateString())
-        ->count();
+            ->whereDate('created_at', '<', now()->toDateString())
+            ->count();
 
-    $growthPercentage = 0;
-    if ($yesterdayRegistrations > 0) {
-        $growthPercentage = (($todayRegistrations - $yesterdayRegistrations) / $yesterdayRegistrations) * 100;
-    }
-    
-    // tinh % của donate
-    $todaydonate = DB::table('donate_infos')
-    ->whereDate('created_at', now()->toDateString())
-    ->sum('amount');
-    $todaydonate2 = DB::table('donate_infos')
-    ->whereDate('created_at', now()->toDateString())
-    ->count();
-    $perviousdonate = DB::table('donate_infos')
-    ->whereDate('created_at', '<' ,now()->toDateString())
-    ->sum('amount');
-    // dump($todaydonate);
-    // dump($perviousdonate);
-    $donatepercentage = 0;
-    if($perviousdonate > 0){
-        $donatepercentage = (($todaydonate - $perviousdonate) / $perviousdonate) * 100;
-    }
-    // tinh % của project
-    $todayproject = DB::table('projects')
-    ->whereMonth('created_at',now()->month)
-    ->count();
-    $perviousproject = DB::table('projects')
-    ->whereMonth('created_at','<' ,now()->month)
-    ->count();
-    $projectprecenttage = 0;
-    if($perviousproject > 0){
-        $projectprecenttage = (($todayproject - $perviousproject) / $perviousproject) * 100;
-    }
+        $growthPercentage = 0;
+        if ($yesterdayRegistrations > 0) {
+            $growthPercentage = (($todayRegistrations - $yesterdayRegistrations) / $yesterdayRegistrations) * 100;
+        }
 
-        return view('frontend.adminpage.manager.dashboard', compact('usercount','projectprecenttage','donatepercentage','growthPercentage', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
+        // tinh % của donate
+        $todaydonate = DB::table('donate_infos')
+            ->whereDate('created_at', now()->toDateString())
+            ->sum('amount');
+        $todaydonate2 = DB::table('donate_infos')
+            ->whereDate('created_at', now()->toDateString())
+            ->count();
+        $perviousdonate = DB::table('donate_infos')
+            ->whereDate('created_at', '<', now()->toDateString())
+            ->sum('amount');
+        // dump($todaydonate);
+        // dump($perviousdonate);
+        $donatepercentage = 0;
+        if ($perviousdonate > 0) {
+            $donatepercentage = (($todaydonate - $perviousdonate) / $perviousdonate) * 100;
+        }
+        // tinh % của project
+        $todayproject = DB::table('projects')
+            ->whereMonth('created_at', now()->month)
+            ->count();
+        $perviousproject = DB::table('projects')
+            ->whereMonth('created_at', '<', now()->month)
+            ->count();
+        $projectprecenttage = 0;
+        if ($perviousproject > 0) {
+            $projectprecenttage = (($todayproject - $perviousproject) / $perviousproject) * 100;
+        }
+        // tính % project hoàn thành
+        $todaystatus = DB::table('projects')
+            ->whereMonth('created_at', now()->month)
+            ->where('status', '=', 1)
+            ->count();
+        $previousstatus = DB::table('projects')
+            ->whereMonth('created_at', '<', now()->month)
+            ->where('status', '=', 1)
+            ->count();
+        $statusprecentage = 0;
+
+        if ($previousstatus > 0) {
+            $statusprecentage = (($todaystatus - $previousstatus) / $previousstatus) * 100;
+        }
+        return view('frontend.adminpage.manager.dashboard', compact('userCount', 'statusprecentage', 'projectprecenttage', 'donatepercentage', 'growthPercentage', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
     public function viewmanagerdesign()
@@ -340,7 +354,8 @@ class AdminPageController extends Controller
     }
     public function usercountchart()
     {
-        $usercount = User::selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
+        $usercount = User::withTrashed()
+            ->selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
             ->groupBy('days')
             ->get();
 
@@ -350,6 +365,7 @@ class AdminPageController extends Controller
         foreach ($usercount as $count) {
             $days[] = date('l', strtotime("Sunday + {$count->day} days"));
             $userCounts[] = $count->total_users;
+
         }
 
         $data = [
@@ -527,8 +543,8 @@ class AdminPageController extends Controller
         return $output;
     }
     public function searchhome(Request $request)
-{
-   
+    {
+
         $searchproject = Project::where('title', 'like', '%' . $request->search . '%')->get();
 
         $output = '';
@@ -547,7 +563,7 @@ class AdminPageController extends Controller
 
         return $output;
 
-    
-}
+
+    }
 
 }
