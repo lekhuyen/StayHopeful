@@ -1,23 +1,24 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
 
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
 
-    <div class="container mt-3">
+    <div class="container mt-3 table-responsive">
         <div class="btn__back">
-            <a href="{{ route('post.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-alt-left"> </i>GO BACK</a>
+            <a href="{{ route('post.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
         </div>
+
         <table class="table table-hover">
-            <h1>Unused</h1>
+            <h1>Unused User Post</h1>
             <thead>
                 <tr>
-                    <th>Post ID</th>
-                    <th>Title</th>
+                    <th>ID</th>
                     <th>User</th>
-                    <th>Status</th>
+                    <th>Content</th>
                     <th>Image</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -25,10 +26,17 @@
                 @forelse ($posts as $post)
                     <tr class="project-table">
                         <td>{{ $post->id }}</td>
-                        <td>{{ $post->title }}</td>
                         <td>
                             <a style="cursor: pointer; text-decoration: none; color:cornflowerblue"
                                 href="{{ route('auth.profile') }}">{{ $post->user->name }}</a>
+                        </td>
+                        <td>{{ $post->title }}</td>
+                        <td>
+                            @if ($post->images->count() > 0)
+                                @foreach ($post->images as $image)
+                                    <img src="{{ asset($image->image) }}" width="100" height="100px">
+                                @endforeach
+                            @endif
                         </td>
                         <td>
                             @if ($post->status == 1)
@@ -36,13 +44,6 @@
                                 </span>
                             @else
                                 <span data-duyet="{{ $post->id }}" class="badge rounded-pill bg-success">Approved</span>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($post->images->count() > 0)
-                                @foreach ($post->images as $image)
-                                    <img src="{{ asset($image->image) }}" width="100" height="100px">
-                                @endforeach
                             @endif
                         </td>
                         <td>

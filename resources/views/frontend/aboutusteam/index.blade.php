@@ -2,18 +2,17 @@
 @section('admin_content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
 
     <div class="container mt-3">
-        <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         <h1>Team Member List</h1>
 
         <!-- Search Form -->
         <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
             <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search by name">
-                <button type="submit" class="btn btn-secondary">Search</button>
+                <input type="text" name="search" class="form-control" placeholder="Input Name to search">
+                <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
 
@@ -25,8 +24,8 @@
                     <th onclick="sortTable(2)">Age</th>
                     <th onclick="sortTable(3)">Email</th>
                     <th onclick="sortTable(4)">Skill</th>
-                    <th onclick="sortTable(5)">Status</th>
                     <th onclick="sortTable(6)">Image</th>
+                    <th onclick="sortTable(5)">Status</th>
                     <th>Action</th>
                     <th></th>
                 </tr>
@@ -42,16 +41,16 @@
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->skill }}</td>
                         <td>
+                            @if ($item->images->count() > 0)
+                                <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail"
+                                    alt="Image" />
+                            @endif
+                        </td>
+                        <td>
                             @if ($item->status)
                                 <span class="badge rounded-pill bg-success">Active</span>
                             @else
                                 <span class="badge rounded-pill bg-danger">Inactive</span>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($item->images->count() > 0)
-                                <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail"
-                                    alt="Image" />
                             @endif
                         </td>
                         <td>
@@ -99,6 +98,10 @@
                     @endif
                 </ul>
             </div>
+        </div>
+
+        <div class="d-flex justify-content-center btn__center">
+            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         </div>
     </div>
 

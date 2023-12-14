@@ -19,7 +19,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Description</th>
+                    <th>Content</th>
                     <th>Received</th>
                     <th>Goals</th>
                     <th>Status</th>

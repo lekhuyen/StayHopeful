@@ -29,12 +29,15 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Category emty</td>
+                        <td colspan="2">Empty</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
-        {{ $categories->links() }}
+
+        <div class="general__pagination">
+            {{ $categories->links() }}
+        </div>
 
         <div class="d-flex justify-content-center btn__center">
             @can('category_add')

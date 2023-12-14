@@ -2,7 +2,6 @@
 @section('admin_content')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- css --}}
 
     <div class="container mt-3">
@@ -26,7 +25,7 @@
                         <td>
                             @can('user_edit')
                                 <a href="{{ route('staff.edit', $user->id) }}" class="btn btn-warning"><i
-                                        class="fa-regular fa-pen-to-square"></i></a>
+                                        class="fa-solid fa-pen-to-square"></i></a>
                             @endcan
                             @can('user_delete')
                                 <a href="{{ route('staff.delete', $user->id) }}" class="btn btn-danger"><i
@@ -37,7 +36,10 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $users->links() }}
+        <div class="general__pagination">
+            {{ $users->links() }}
+        </div>
+
         <div class="d-flex justify-content-center btn__center">
             @can('user_add')
                 <a href="{{ route('staff.create') }}" class="btn btn-primary">Create New Admin Account</a>

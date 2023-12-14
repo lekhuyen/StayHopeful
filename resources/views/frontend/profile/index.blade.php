@@ -12,8 +12,8 @@
             </div>
             <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
             <p style="top: 26%;">
-                Thank you &#128150;<br> 
-                Sincerely appreciate your support in aiding and assisting others.
+                Update Profile Success &#128525;<br> 
+                
             </p>
         </div>
     </div>

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
+            $table->string('user_email');
+            $table->foreignId('user_email')->constrained('users')->onDelete('cascade');
+            $table->string('otp')->nullable();
+            $table->integer('otp_attemps')->nullable();
             $table->timestamps();
         });
     }
