@@ -8,7 +8,7 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     {{-- css --}}
-    
+
     <div class="PostSlide">
         <div class="innerContainer active">
             <div class="slider">
@@ -203,7 +203,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: rgb(36,90,190); margin-top: 100px;">
+    <div class="container-fluid" style="background-color: rgb(36,90,190); margin-top: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

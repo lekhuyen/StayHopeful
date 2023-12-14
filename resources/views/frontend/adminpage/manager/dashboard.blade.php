@@ -213,7 +213,7 @@
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-                <div class="row project">
+                <div class="row project__table">
                     <div class="col-lg-12 ">
                         <table class="table table-striped">
                             <thead>

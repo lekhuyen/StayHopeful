@@ -47,6 +47,7 @@
 
 
     <div class="col-lg-8 post-detail-1">
+        {{-- @dd($checkUserProject); --}}
 
         <span>{!! $project->description !!}</span>
         @foreach ($project->images as $image)
