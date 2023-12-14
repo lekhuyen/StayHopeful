@@ -160,19 +160,27 @@
 
     {{-- ckeditor --}}
     @yield('ckeditor')
-
 </div>
-<div class="container-fluid footer" style="background: linear-gradient(to bottom, #245abe, #578fd9);">
-    <div class="container footer-container">
-        <div class="row ">
-            <div class="col-lg-12 ">
-                <div class="footer-text">
-                    <span>Copyright © 2023 All Rights Reserved by StayHopeFul</span>
-                </div>
-            </div>
+
+{{-- <footer class="footer__dashboard">
+        <p class="footer__dashboard__content">
+            © 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.
+        </p>
+    </footer> --}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="footer__dashboard__content">
+            <p class="footer__text">© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
         </div>
     </div>
+
 </div>
+{{-- <div class="container footer__dashboard gx-0">
+    <div class="footer__dashboard__content">
+        <p>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
+    </div>
+</div> --}}
+
 <script src="{{ asset('js/sidebar.js') }}"></script>
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
