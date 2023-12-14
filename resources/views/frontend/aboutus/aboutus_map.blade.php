@@ -21,13 +21,13 @@
 
     // Adding markers for different continents with clickable names
     var markers = [
-        L.marker([37.7749, -122.4194], { icon: animatedIcon }).bindPopup('<a href="#">North America - USA</a>'),
-        L.marker([-14.2350, -51.9253], { icon: animatedIcon }).bindPopup('<a href="#">South America - Brazil</a>'),
-        L.marker([51.1657, 10.4515], { icon: animatedIcon }).bindPopup('<a href="#">Europe - Germany</a>'),
-        L.marker([-25.2744, 133.7751], { icon: animatedIcon }).bindPopup('<a href="#">Australia - Australia</a>'),
-        L.marker([4.7100, -74.0721], { icon: animatedIcon }).bindPopup('<a href="#">South America - Colombia</a>'),
-        L.marker([25.2048, 55.2708], { icon: animatedIcon }).bindPopup('<a href="#">Asia - UAE</a>'),
-        L.marker([-30.5595, 22.9375], { icon: animatedIcon }).bindPopup('<a href="#">Africa - South Africa</a>')
+        L.marker([37.7749, -122.4194], { icon: animatedIcon }).bindPopup('<a href="https://www.cnbc.com/weather-and-natural-disasters/">North America - USA</a>'),
+        L.marker([-14.2350, -51.9253], { icon: animatedIcon }).bindPopup('<a href="https://floodlist.com/america/brazil-floods-santa-catarina-october-2023">South America - Brazil</a>'),
+        L.marker([51.1657, 10.4515], { icon: animatedIcon }).bindPopup('<a href="https://www.theguardian.com/world/2022/jul/13/floods-then-and-now-photographs-germany-ahr-valley-flooding-disaster-july-2021">Europe - Germany</a>'),
+        L.marker([-25.2744, 133.7751], { icon: animatedIcon }).bindPopup('<a href="https://clearinsurance.com.au/australias-biggest-natural-disasters-in-history/">Australia - Australia</a>'),
+        L.marker([4.7100, -74.0721], { icon: animatedIcon }).bindPopup('<a href="https://www.aljazeera.com/news/2023/7/18/heavy-rains-cause-landslides-in-colombia-killing-at-least-eight">South America - Colombia</a>'),
+        L.marker([14.0583, 108.2772], { icon: animatedIcon }).bindPopup('<a href="https://e.vnexpress.net/vietnam-natural-disaster/tag-1036455.html">Asia - Vietnam</a>'),
+        L.marker([-30.5595, 22.9375], { icon: animatedIcon }).bindPopup('<a href="https://www.bloomberg.com/news/articles/2023-11-08/south-africa-declares-national-disasters-after-floods-storms?leadSource=uverify%20wall">Africa - South Africa</a>')
     ];
 
     var markerGroup = L.layerGroup(markers).addTo(map);
