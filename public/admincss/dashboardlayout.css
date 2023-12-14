@@ -1,18 +1,8 @@
-
-/* .dashboard__admin{
-height: 120vh;
-overflow-y: scroll;
-} */
-/* .project__table{
-    height: 50vh;
-overflow-y: scroll;
-} */
 .textcard {
     bottom: 0;
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
-
 }
 
 .textcard2 {
@@ -24,7 +14,6 @@ overflow-y: scroll;
     background-color: #ffffff;
     border-radius: 10px;
     margin-top: 80px;
-
 }
 
 .project-table-head {
@@ -34,7 +23,11 @@ overflow-y: scroll;
     width: 100%;
     height: 50px;
     background: rgb(79, 195, 247);
-    background: linear-gradient(90deg, rgba(79, 195, 247, 1) 47%, rgba(2, 136, 209, 1) 58%);
+    background: linear-gradient(
+        90deg,
+        rgba(79, 195, 247, 1) 47%,
+        rgba(2, 136, 209, 1) 58%
+    );
     border-radius: 10px;
 }
 
@@ -42,23 +35,23 @@ overflow-y: scroll;
     font-size: 23px;
     font-weight: 600;
     color: #ffffff;
-
 }
 
 .input-search {
     border-style: none;
-    background-color: #ECEFF1;
+    /* background-color: whitesmoke; */
     width: 28%;
     border-radius: 10px;
     text-indent: 20px;
 }
 
 .btn-search {
-    padding: 7px;
-    border-radius: 20px;
-    color: #ffffff;
-    background-color: #29B6F6;
+    background: none;
     border-style: none;
+    color: cornflowerblue;
+    position: absolute;
+    top: 18px;
+    right: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -81,7 +74,7 @@ overflow-y: scroll;
     width: 100%;
     height: 100px;
     background-color: transparent;
-    margin-top: 15px
+    margin-top: 15px;
 }
 .chart-value {
     position: absolute;
@@ -90,14 +83,14 @@ overflow-y: scroll;
     align-items: center;
     top: -10px;
     right: 10px;
-    color: #388E3C;
+    color: #388e3c;
     font-weight: 600;
     font-size: 12px;
     width: 60px;
     text-align: center;
     height: 20px;
     border-radius: 20px;
-    background-color: #A5D6A7;
+    background-color: #a5d6a7;
 }
 .bigchart {
     margin-top: 30px;
@@ -139,4 +132,30 @@ overflow-y: scroll;
     background-color: #ffffff;
     box-shadow: 5px 5px 5px 5px #ccc;
     border: 3px solid cornflowerblue;
+}
+
+.dashboard__searchbar {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin-bottom: 30px; */
+    position: relative;
+}
+
+.dashboard__searchbar input {
+    width: 40%;
+    outline: none;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    padding: 5px 40px 5px 20px;
+}
+
+input:focus {
+    outline: none;
+    border: solid 2px cornflowerblue;
+    box-shadow: 20px 20px 20px #ccc;
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    -webkit-box-shadow: 5px 5px 5px cornflowerblue;
 }
