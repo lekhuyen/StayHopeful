@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 
+    <div class="btn__back">
+        <a href="{{ route('roles.index') }}" class="btn__go_back">
+            <i class="fa fa-long-arrow-left"></i>GO BACK</a>
+    </div>
+
     <div class="container mt-3">
-
-        <div class="btn__back">
-            <a href="{{ route('roles.index') }}" class="btn__go_back">
-                <i class="fa fa-long-arrow-left"></i>GO BACK</a>
-        </div>
-
         <h1>Edit Role & Permission</h1>
         <form action="{{ route('roles.update', $roles->id) }}" method="POST">
             @csrf

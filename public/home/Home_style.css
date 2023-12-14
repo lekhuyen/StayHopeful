@@ -1003,10 +1003,17 @@ button.carousel-control-next {
     font-size: 18px;
     border: none;
     outline: none;
-    background: lightskyblue;
+    background: #a5b1c2;
     color: white;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+#myBackToTopBtn:hover {
+    background-color:#d1d8e0;
+    box-shadow: 5px 10px 10px #778ca3;
+    transform: scale(1.5);
 }
 /* back to top button ending */

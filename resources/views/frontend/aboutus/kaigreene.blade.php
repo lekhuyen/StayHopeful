@@ -8,6 +8,7 @@
         <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn__go_back">
             <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
+    
     <h1 class="aboutus_teammember_h1">Meet Kai Greene, A Lead Developer</h1>
 
     <div class="container mt-3 teamname_introduction">

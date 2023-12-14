@@ -50,8 +50,9 @@
     border-style: none;
     color: cornflowerblue;
     position: absolute;
-    top: 18px;
-    right: 20px;
+    top: 14px;
+    right: 25px;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -139,7 +140,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* margin-bottom: 30px; */
     position: relative;
 }
 
