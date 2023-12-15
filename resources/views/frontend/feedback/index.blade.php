@@ -35,7 +35,7 @@
         {{ $feedback->links() }}
     </div>
     <div class="fb__sensitive">
-        <a class="btn btn-primary btn-add-1" href="{{ route('frontend.sensitive.index') }}">Sensitive Word List</a>
+        <a class="btn btn-primary btn-add-1" href="{{ route('sensitive.index') }}">Sensitive Word List</a>
         <a class="btn btn-primary btn-add-2" href="{{ route('sensitive.create') }}">Add New Sensitive Word</a>
     </div>
     <script>
