@@ -24,9 +24,10 @@ class AboutusteamController extends Controller
     }
 
     public function aboutus_team_create() {
+
         return view("frontend.aboutusteam.create_aboutus");
     }
-    
+
     public function aboutus_team_store(Request $request) {
         $request->validate ([
             "name" => "required",
@@ -34,7 +35,7 @@ class AboutusteamController extends Controller
             "email" => "required|email",
             "skill" => "required",
             "status" => "required|in:0,1",
-            "description" => "nullable", 
+            "description" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
@@ -62,9 +63,9 @@ class AboutusteamController extends Controller
                 $newImage->aboutus_id = $aboutus->id;
                 $newImage->save();
             }
-            
+
         }
-        $aboutusteams = aboutusteam::all();
+        $aboutusteams = aboutusteam::paginate(5);
 
         return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
 
@@ -100,16 +101,16 @@ class AboutusteamController extends Controller
             //delete old images if they existed
                 if ($aboutusteam->images->count() > 0) {
                     foreach ($aboutusteam->images as $image) {
-    
+
                         // delete trong servce
                         if (File::exists($image->url_image)) {
                             File::delete($image->url_image);
                         }
-    
+
                         $image->delete(); //delete trong database
                     }
                 }
-            
+
             foreach ($request->file("images") as $item) {
                 $filename = time()."_".$item->getClientOriginalName();
                 $destinationPath = public_path("img/aboutus_images");

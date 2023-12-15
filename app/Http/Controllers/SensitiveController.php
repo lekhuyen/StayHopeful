@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class SensitiveController extends Controller
 {
     public function index() {
-        $sensitives = Sensitive::all();
+        // $sensitives = Sensitive::all();
+        $sensitives = Sensitive::orderBy('id','desc')->paginate(6);
         return view ('frontend.sensitive.index', compact('sensitives'));
     }
 

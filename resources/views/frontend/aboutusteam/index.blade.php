@@ -4,7 +4,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
-
     <div class="container mt-3">
         <h1>Team Member List</h1>
 
@@ -74,34 +73,9 @@
             </tbody>
         </table>
         <!-- Below your table -->
-        <div class="d-flex justify-content-between mt-3">
-            <div>
-                <ul class="pagination">
-                    @if ($aboutusteams->currentPage() > 1)
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $aboutusteams->previousPageUrl() }}" rel="prev">Previous</a>
-                        </li>
-                    @endif
 
-                    @foreach (range(1, $aboutusteams->lastPage()) as $page)
-                        @if ($page == $aboutusteams->currentPage())
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">{{ $page }}</span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link" href="{{ $aboutusteams->url($page) }}">{{ $page }}</a>
-                            </li>
-                        @endif
-                    @endforeach
-
-                    @if ($aboutusteams->hasMorePages())
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $aboutusteams->nextPageUrl() }}" rel="next">Next</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
+        <div class="general__pagination">
+            {{ $aboutusteams->links() }}
         </div>
 
         <div class="d-flex justify-content-center btn__center">

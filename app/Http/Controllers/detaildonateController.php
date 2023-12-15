@@ -84,12 +84,12 @@ class detaildonateController extends Controller
             $message = $userinfo['project'];
 
             Mail::to($tomail)->send(new EmailDonate($message));
-            $username = "";
-            if ($userinfo['hidename'] == "Anonymous") {
-                $username = $userinfo['hidename'];
-            } else {
-                $username = $userinfo['fullname'];
-            }
+            $username = $userinfo['fullname'];
+            // if ($userinfo['hidename'] == "Anonymous") {
+            //     $username = $userinfo['hidename'];
+            // } else {
+            //     $username = $userinfo['fullname'];
+            // }
             $donateinfo = new DonateInfo();
             $donateinfo->name = $username;
             $donateinfo->email = $userinfo['email'];

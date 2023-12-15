@@ -32,6 +32,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="general__pagination">
+                {{ $sensitives->links() }}
+            </div>
         </div>
         <div class="btn__container">
             <div class="btn_sensitive_create"><a href="{{ route('sensitive.create') }}" class="btn btn-primary">Add
