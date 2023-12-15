@@ -54,7 +54,7 @@
                         </div>
                         <div class="hide-name-info">
                             <div class="hide-text">
-                                <input type="checkbox" name="hidename" value="Anonymous"
+                                <input type="checkbox" name="fullname" value="Anonymous"
                                     style="transform: scale(1.5); margin-right: 20px"> Donate Anonymously
                             </div>
                         </div>
@@ -62,8 +62,14 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Email <span class="req"> *</span> </span>
                                 <div class="form-floating">
+                                    @if (Auth::user())
+                                    <input type="text" class="form-control" required name="email" disabled
+                                    value="{{ old('email', Auth::user()->email) }}"
+                                    >
+                                    @else
                                     <input type="text" class="form-control" required name="email"
                                         value="{{ old('email') }}">
+                                    @endif
                                     <label>Enter Email</label>
                                     <div class="background-icon">
                                         <div class="profile-text-icon"><i class="fa-solid fa-envelope-open-text"></i></div>

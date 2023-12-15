@@ -92,7 +92,7 @@ class AuthloginController extends Controller
     public function viewprofile()
     {
         $userInfo = session()->get('userInfo');
-
+        $usercheck = Auth::user();
         if ($userInfo && isset($userInfo['id'])) {
             $user = $userInfo['id'];
             $userupdate = User::where("id", '=', $user)->select('*')->first();
@@ -102,7 +102,7 @@ class AuthloginController extends Controller
                 ->where('status', 0)
                 ->get();
 
-            $userinfo = DonateInfo::all();
+            $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->first();
             return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
