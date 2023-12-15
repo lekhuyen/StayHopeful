@@ -707,7 +707,9 @@
 .comment_body p {
     margin-bottom: 0;
 }
-
+#input_reply-comment {
+    position: relative;
+}
 #input_reply-comment textarea {
     width: 100%;
     height: 80px;
