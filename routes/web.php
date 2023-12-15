@@ -336,8 +336,15 @@ Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user
 Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');
 
 // comment post-user
-Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])->name('post.comment');
-// Route::get('/post/comment/{id}',[CommentPostController::class,'get_comment'])->name('get.comment');
+// Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])->name('post.comment');
+Route::post('/store-comment/{id}', [CommentPostController::class, 'storeComment'])->name('store-comment');
+//reply
+Route::post('/store-comment-reply/{id}', [CommentPostController::class, 'storeCommentReply'])->name('store-comment_reply');
+//show comment
+Route::get('/comments/{postId}', [CommentPostController::class, 'showComments'])->name('show-comments');
+
+
+Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');
 
 
 //ds nv

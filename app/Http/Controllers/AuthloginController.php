@@ -213,7 +213,7 @@ class AuthloginController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Failed to change password'
+                'message' => 'Post not Found'
             ]);
         }
 
