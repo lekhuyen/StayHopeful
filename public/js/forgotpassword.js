@@ -12,7 +12,7 @@ exitSendOtpBtn.addEventListener('click', function () {
     containerPopup.classList.add('showLogin');
 });
 exitSendOtpForm.addEventListener('click', function () {
-    forgotPasswordForm.classList.remove("showForgotPassword");
+    forgotPasswordEmailForm.classList.remove("showForgotPassword");
     containerPopup.classList.add('showLogin');
 });
 //show reset password form
@@ -20,9 +20,9 @@ var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
 var resetPasswordForm = document.querySelector('.container-reset-password-form');
 var exitResetPasswordFormBtn = document.querySelector('.exit-reset-password-form');
 var exitResetPasswordForm = document.querySelector('.modal-inner-reset-password-form');
-sentOtpSuccessfully.addEventListener('click', function () {
-    resetPasswordForm.classList.add("showFormResetPassword");
-});
+// sentOtpSuccessfully.addEventListener('click', function () {
+//     resetPasswordForm.classList.add("showFormResetPassword");
+// });
 exitResetPasswordFormBtn.addEventListener('click', function () {
     resetPasswordForm.classList.remove("showFormResetPassword");
 });
