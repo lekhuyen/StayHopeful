@@ -33,15 +33,14 @@ class BlogController extends Controller
         $project = Project::find($id);
         $comments = $project->comments;
         $category = $project->category;
-        $category = Category::paginate(2);
         $projects = Project::where('category_id', $category->id)
             ->where('id', '!=', $project->id)
             ->orderBy('id', 'desc')
             ->limit(5)
             ->get();
         $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
-
-        // dd($volunterCountRegisterByProject);
+//dd($project->quantity);
+        // dd($volunterCountRegisterByProject->count());
         session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
@@ -49,19 +48,21 @@ class BlogController extends Controller
             $checkUserProject = 1;
         }
 
-        if ($user) {
-            $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
-            //dd($volunteerPersonByProjects);
-            if ($volunteerPersonByProjects->count() > 0) {
-                foreach ($volunteerPersonByProjects as $key => $projectItem) {
-                    $projectId = $projectItem->project_id;
-                    if($projectId == $id){
-                        $checkUserProject = 1;
-                        break;
-                    }
-                }
-            }
-        }
+        // if ($user) {
+        //     $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
+        //     //dd($volunteerPersonByProjects);
+        //     if ($volunteerPersonByProjects->count() > 0) {
+        //         foreach ($volunteerPersonByProjects as $key => $projectItem) {
+        //             $projectId = $projectItem->project_id;
+        //             if($projectId == $id){
+
+        //                // dd("lot vao day");
+        //                 $checkUserProject = 1;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
         return view('frontend.detail-post.detail', compact('categories', 'project', 'projects', 'comments', 'checkUserProject'));
     }
     public function viewmarquee()
@@ -90,7 +91,7 @@ class BlogController extends Controller
     // project
     public function project_index()
     {
-        $projects = Project::orderBy('id', 'desc')->get();
+        $projects = Project::orderBy('id', 'desc')->paginate(6);
         return view('frontend.project.index', compact('projects'));
     }
 

@@ -31,43 +31,43 @@ exitLogin.addEventListener('click', function () {
 })
 }
 
-//popup forgot password
-var forgotPasswordLink = document.querySelector('.a-forgot-pass');
-var forgotPasswordEmailForm = document.querySelector('.container-reset-password-email-input');
-var exitSendOtpBtn = document.querySelector('.exit-reset-password-email-input-btn');
-var exitSendOtpForm = document.querySelector('.modal-inner-reset-password-email-input');
-forgotPasswordLink.addEventListener('click', function () {
-    forgotPasswordEmailForm.classList.add("showForgotPassword");
-    containerPopup.classList.remove('showLogin');
-});
-exitSendOtpBtn.addEventListener('click', function () {
-    forgotPasswordEmailForm.classList.remove("showForgotPassword");
-    containerPopup.classList.add('showLogin');
-});
-exitSendOtpForm.addEventListener('click', function () {
-    forgotPasswordForm.classList.remove("showForgotPassword");
-    containerPopup.classList.add('showLogin');
-});
-//show reset password form
-var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
-var resetPasswordForm = document.querySelector('.container-reset-password-form');
-var exitResetPasswordFormBtn = document.querySelector('.exit-reset-password-form');
-var exitResetPasswordForm = document.querySelector('.modal-inner-reset-password-form');
-sentOtpSuccessfully.addEventListener('click', function () {
-    resetPasswordForm.classList.add("showFormResetPassword");
-});
-exitResetPasswordFormBtn.addEventListener('click', function () {
-    resetPasswordForm.classList.remove("showFormResetPassword");
-});
-exitResetPasswordForm.addEventListener('click', function () {
-    resetPasswordForm.classList.remove("showFormResetPassword");
-});
-//resend otp popup
-var linkResendPassword = document.querySelector('.link-resend-otp');
-linkResendPassword.addEventListener('click', function () {
-    resetPasswordForm.classList.remove("showFormResetPassword");
-    forgotPasswordEmailForm.classList.add("showForgotPassword");
-});
+// //popup forgot password
+// var forgotPasswordLink = document.querySelector('.div-forgot-pass');
+// var forgotPasswordEmailForm = document.querySelector('.container-reset-password-email-input');
+// var exitSendOtpBtn = document.querySelector('.exit-reset-password-email-input-btn');
+// var exitSendOtpForm = document.querySelector('.modal-inner-reset-password-email-input');
+// forgotPasswordLink.addEventListener('click', function () {
+//     forgotPasswordEmailForm.classList.add("showForgotPassword");
+//     containerPopup.classList.remove('showLogin');
+// });
+// exitSendOtpBtn.addEventListener('click', function () {
+//     forgotPasswordEmailForm.classList.remove("showForgotPassword");
+//     containerPopup.classList.add('showLogin');
+// });
+// exitSendOtpForm.addEventListener('click', function () {
+//     forgotPasswordForm.classList.remove("showForgotPassword");
+//     containerPopup.classList.add('showLogin');
+// });
+// //show reset password form
+// var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
+// var resetPasswordForm = document.querySelector('.container-reset-password-form');
+// var exitResetPasswordFormBtn = document.querySelector('.exit-reset-password-form');
+// var exitResetPasswordForm = document.querySelector('.modal-inner-reset-password-form');
+// sentOtpSuccessfully.addEventListener('click', function () {
+//     resetPasswordForm.classList.add("showFormResetPassword");
+// });
+// exitResetPasswordFormBtn.addEventListener('click', function () {
+//     resetPasswordForm.classList.remove("showFormResetPassword");
+// });
+// exitResetPasswordForm.addEventListener('click', function () {
+//     resetPasswordForm.classList.remove("showFormResetPassword");
+// });
+// //resend otp popup
+// var linkResendPassword = document.querySelector('.link-resend-otp');
+// linkResendPassword.addEventListener('click', function () {
+//     resetPasswordForm.classList.remove("showFormResetPassword");
+//     forgotPasswordEmailForm.classList.add("showForgotPassword");
+// });
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-alert-btn');
 var registerSuccess = document.querySelector(".container-register-notification");
@@ -113,7 +113,7 @@ function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 function validatePassword(password) {
-    return /^[A-Za-z]\w{7,14}$/.test(password);
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/.test(password);
 }
 function setSuccess(ele) {
     ele.parentNode.classList.add('success');
@@ -138,6 +138,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerName);
+        setError(registerName, '');
     }
 
     // Kiểm tra trường email
@@ -150,6 +151,7 @@ function setError(ele, message) {
     } 
     else {
         setSuccess(registerEmail);
+        setError(registerEmail,'');
     }
 
     // Kiểm tra trường password
@@ -161,6 +163,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerPassword);
+        setError(registerPassword,'');
     }
 
     // Kiểm tra trường confirm password
@@ -172,6 +175,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerConfirmPassword);
+        setError(registerConfirmPassword,'');
     }
     return isCheck;
 }
@@ -194,6 +198,7 @@ function checkLogin() {
         isCheck = false;
     } else {
         setSuccess(loginEmail);
+        setError(loginEmail,'');
     }
 
     // Kiểm tra trường password
@@ -202,6 +207,7 @@ function checkLogin() {
         isCheck = false;
     } else {
         setSuccess(loginPassword);
+        setError(loginPassword,'');
     }
     return isCheck;
 }

@@ -1,11 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-
+    {{-- css --}}
     <div class="container mt-3">
-        @can('category_add')
-            <a href="{{ route('category.create') }}" class="btn btn-primary">Create New Category</a>
-        @endcan
         <h1>Category List</h1>
         <table class="table table-hover">
             <thead>
@@ -31,12 +29,22 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Category emty</td>
+                        <td colspan="2">Empty</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
-        {{ $categories->links() }}
+
+        <div class="general__pagination">
+            {{ $categories->links() }}
+        </div>
+
+        <div class="d-flex justify-content-center btn__center">
+            @can('category_add')
+                <a href="{{ route('category.create') }}" class="btn btn-primary">Create New Category</a>
+            @endcan
+        </div>
+
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

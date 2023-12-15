@@ -15,8 +15,10 @@ use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\NewsController;
 
+use App\Http\Controllers\OtpController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\SensitiveController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\VolunteerController;
@@ -65,6 +67,9 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 Route::post('/change-password', [AuthloginController::class, 'change_password'])->name('auth.changepassword');
+//forgot password
+Route::post('/send-otp', [OtpController::class, 'sendOtp'])->name('auth.send_otp');
+Route::post('/verify-otp', [OtpController::class, 'verifyOtp'])->name('auth.verify_otp');
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
@@ -89,8 +94,8 @@ Route::get('/news-detail/{id}-{slug}', [BlogController::class, 'news_detail'])->
 Route::get('/detail/{id}-{slug}', [BlogController::class, 'viewdetail'])->name('detail.post');
 
 // Contact
-Route::get('/contact',[ContactusController::class,'index'])->name('contact.index');
-Route::post('/contact',[ContactusController::class,'create'])->name('contact.create');
+Route::get('/contact', [ContactusController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactusController::class, 'create'])->name('contact.create');
 // Contact
 
 
@@ -136,9 +141,15 @@ Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('fee
 Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
 
 //sensitive admin
-Route::get('/sensitive', [SensitiveController::class, 'index'])->name('frontend.sensitive.index');
+Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
+Route::get('/sensitive/delete/{id}', [SensitiveController::class, 'delete'])->name('sensitive.delete');
+Route::get('/sensitive/edit/{id}', [SensitiveController::class, 'edit'])->name('sensitive.edit');
+Route::put('/sensitive/update/{id}', [SensitiveController::class, 'update'])->name('sensitive.update');
+Route::get('/sensitive/status/{id}', [SensitiveController::class, 'editStatus'])->name('sensitive.status');
+
+
 
 //volunteer form
 Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin
@@ -191,10 +202,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
     Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
-
-
 });
-
 
 //caregory Admin page
 Route::group(['prefix' => 'category/'], function () {
@@ -275,65 +283,63 @@ Route::group(['prefix' => 'news/'], function () {
 });
 
 // video-adminpage
-Route::group(['prefix'=> 'video-list/'], function(){
-    Route::get('index',[VideoController::class,'index'])->name('video-list.index')->middleware('can:video_list');
+Route::group(['prefix' => 'video-list/'], function () {
+    Route::get('index', [VideoController::class, 'index'])->name('video-list.index')->middleware('can:video_list');
 
-    Route::get('create',[VideoController::class,'create'])->name('video-list.create')->middleware('can:video_add');
+    Route::get('create', [VideoController::class, 'create'])->name('video-list.create')->middleware('can:video_add');
 
-    Route::post('store',[VideoController::class,'store'])->name('video-list.store');
+    Route::post('store', [VideoController::class, 'store'])->name('video-list.store');
 
-    Route::get('edit/{id}',[VideoController::class,'edit'])->name('video-list.edit')->middleware('can:video_edit');
+    Route::get('edit/{id}', [VideoController::class, 'edit'])->name('video-list.edit')->middleware('can:video_edit');
 
-    Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
+    Route::put('update/{id}', [VideoController::class, 'update'])->name('video-list.update');
 
-    Route::post('delete/{id}',[VideoController::class,'delete'])->name('video-list.delete')->middleware('can:video_delete');
+    Route::post('delete/{id}', [VideoController::class, 'delete'])->name('video-list.delete')->middleware('can:video_delete');
 
     //softDelete
-    Route::get('video-trash',[VideoController::class,'video_trash'])->name('video-trash');
-    Route::get('video_untrash/{id}',[VideoController::class,'video_untrash'])->name('video-untrash');
-    Route::get('video-forcedelete/{id}',[VideoController::class,'video_forcedelete'])->name('video-forcedelete');
-
+    Route::get('video-trash', [VideoController::class, 'video_trash'])->name('video-trash');
+    Route::get('video_untrash/{id}', [VideoController::class, 'video_untrash'])->name('video-untrash');
+    Route::get('video-forcedelete/{id}', [VideoController::class, 'video_forcedelete'])->name('video-forcedelete');
 });
 
 
 //user-post
 
-Route::group(['prefix'=> 'post/'], function(){
-    Route::get('index',[UserPostController::class,'index'])->name('post.index');
+Route::group(['prefix' => 'post/'], function () {
+    Route::get('index', [UserPostController::class, 'index'])->name('post.index');
 
-    Route::post('store',[UserPostController::class,'store'])->name('post.store');
+    Route::post('store', [UserPostController::class, 'store'])->name('post.store');
 
-    Route::post('dalete/{id}',[UserPostController::class,'delete'])->name('post.delete');
+    Route::post('dalete/{id}', [UserPostController::class, 'delete'])->name('post.delete');
 
-    Route::get('detail/{id}',[UserPostController::class,'detail_post'])->name('post.detail');
-    Route::post('updateuser/{id}',[UserPostController::class,'updateprofile'])->name('post.updateprofile');
+    Route::get('detail/{id}', [UserPostController::class, 'detail_post'])->name('post.detail');
+    Route::post('updateuser/{id}', [UserPostController::class, 'updateprofile'])->name('post.updateprofile');
 
 
     // Route::put('update/{id}',[VideoController::class,'update'])->name('video-list.update');
 
-    Route::get('post-cho-duyet/{id}',[UserPostController::class,'choduyet'])->name('post.choduyet');
-    Route::get('post-da-duyet/{id}',[UserPostController::class,'daduyet'])->name('post.duyet');
+    Route::get('post-cho-duyet/{id}', [UserPostController::class, 'choduyet'])->name('post.choduyet');
+    Route::get('post-da-duyet/{id}', [UserPostController::class, 'daduyet'])->name('post.duyet');
 
     // //softDelete
-    Route::get('post-trash',[UserPostController::class,'post_trash'])->name('post-trash');
-    Route::get('post_untrash/{id}',[UserPostController::class,'post_untrash'])->name('post-untrash');
-    Route::get('post-forcedelete/{id}',[UserPostController::class,'post_forcedelete'])->name('post-forcedelete');
-
+    Route::get('post-trash', [UserPostController::class, 'post_trash'])->name('post-trash');
+    Route::get('post_untrash/{id}', [UserPostController::class, 'post_untrash'])->name('post-untrash');
+    Route::get('post-forcedelete/{id}', [UserPostController::class, 'post_forcedelete'])->name('post-forcedelete');
 });
- //show-post(web)
- Route::get('/post/post-detail',[UserPostController::class,'show_post_home'])->name('post.detail.web');
+//show-post(web)
+Route::get('/post/post-detail', [UserPostController::class, 'show_post_home'])->name('post.detail.web');
 
-Route::group(['middleware' => 'user_auth'], function(){
-   //like-user-post
-Route::post('like',[UserPostController::class,'like'])->name('post.like');
+Route::group(['middleware' => 'user_auth'], function () {
+    //like-user-post
+    Route::post('like', [UserPostController::class, 'like'])->name('post.like');
 });
 
 
 
 //edit-post(user)
-Route::get('/post/delete_image/{id}',[UserPostController::class,'delete_post_image'])->name('delete.post_image');
-Route::get('/post/delete_post/{id}',[UserPostController::class,'delete_post_user'])->name('delete.post_user');
-Route::put('/post/edit',[UserPostController::class,'edit_post'])->name('edit.post');
+Route::get('/post/delete_image/{id}', [UserPostController::class, 'delete_post_image'])->name('delete.post_image');
+Route::get('/post/delete_post/{id}', [UserPostController::class, 'delete_post_user'])->name('delete.post_user');
+Route::put('/post/edit', [UserPostController::class, 'edit_post'])->name('edit.post');
 
 // comment post-user
 // Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])->name('post.comment');
@@ -349,29 +355,27 @@ Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->
 
 //ds nv
 
-Route::group(['prefix'=> 'staff/'], function(){
-    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
-    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
-    Route::get('index',[UserAdminController::class,'index'])->name('staff.index')->middleware('can:user_list');
-    Route::get('create',[UserAdminController::class,'create'])->name('staff.create')->middleware('can:user_add');
-    Route::post('store',[UserAdminController::class,'store'])->name('staff.store');
-    Route::get('edit/{id}',[UserAdminController::class,'edit'])->name('staff.edit')->middleware('can:user_edit');
-    Route::post('update/{id}',[UserAdminController::class,'update'])->name('staff.update');
-    Route::get('delete/{id}',[UserAdminController::class,'delete'])->name('staff.delete')->middleware('can:user_delete');
-
+Route::group(['prefix' => 'staff/'], function () {
+    Route::get('index', [UserAdminController::class, 'index'])->name('staff.index')->middleware('can:user_list');
+    Route::get('create', [UserAdminController::class, 'create'])->name('staff.create')->middleware('can:user_add');
+    Route::get('index', [UserAdminController::class, 'index'])->name('staff.index')->middleware('can:user_list');
+    Route::get('create', [UserAdminController::class, 'create'])->name('staff.create')->middleware('can:user_add');
+    Route::post('store', [UserAdminController::class, 'store'])->name('staff.store');
+    Route::get('edit/{id}', [UserAdminController::class, 'edit'])->name('staff.edit')->middleware('can:user_edit');
+    Route::post('update/{id}', [UserAdminController::class, 'update'])->name('staff.update');
+    Route::get('delete/{id}', [UserAdminController::class, 'delete'])->name('staff.delete')->middleware('can:user_delete');
 });
 //roles
-Route::group(['prefix'=> 'roles/'], function(){
-    Route::get('index',[AdminRoleController::class,'index'])->name('roles.index')->middleware('can:roles_list');
-    Route::get('create',[AdminRoleController::class,'create'])->name('roles.create')->middleware('can:roles_add');
-    Route::post('store',[AdminRoleController::class,'store'])->name('roles.store');
-    Route::get('edit/{id}',[AdminRoleController::class,'edit'])->name('roles.edit')->middleware('can:roles_edit');
-    Route::post('update/{id}',[AdminRoleController::class,'update'])->name('roles.update');
-    Route::get('delete/{id}',[AdminRoleController::class,'delete'])->name('roles.delete')->middleware('can:roles_delete');
-
+Route::group(['prefix' => 'roles/'], function () {
+    Route::get('index', [AdminRoleController::class, 'index'])->name('roles.index')->middleware('can:roles_list');
+    Route::get('create', [AdminRoleController::class, 'create'])->name('roles.create')->middleware('can:roles_add');
+    Route::post('store', [AdminRoleController::class, 'store'])->name('roles.store');
+    Route::get('edit/{id}', [AdminRoleController::class, 'edit'])->name('roles.edit')->middleware('can:roles_edit');
+    Route::post('update/{id}', [AdminRoleController::class, 'update'])->name('roles.update');
+    Route::get('delete/{id}', [AdminRoleController::class, 'delete'])->name('roles.delete')->middleware('can:roles_delete');
 });
-Route::group(['prefix'=> 'permissions/'], function(){
-    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
-    Route::get('create',[AdminPermissionsController::class,'create'])->name('permissions.create')->middleware('can:permissions_add');
-    Route::post('store',[AdminPermissionsController::class,'store'])->name('permissions.store');
+Route::group(['prefix' => 'permissions/'], function () {
+    Route::get('create', [AdminPermissionsController::class, 'create'])->name('permissions.create')->middleware('can:permissions_add');
+    Route::get('create', [AdminPermissionsController::class, 'create'])->name('permissions.create')->middleware('can:permissions_add');
+    Route::post('store', [AdminPermissionsController::class, 'store'])->name('permissions.store');
 });

@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 class AdminRoleController extends Controller
 {
     public function index(){
-        $roles = Role::all();
+        $roles = Role::paginate(6);
         return view('frontend.adminpage.roles.index', compact('roles'));
     }
     public function create(){
         $permissionsParent = Permissions::where('parent_id', 0)->get();
-        
+
         return view('frontend.adminpage.roles.create', compact('permissionsParent'));
     }
     public function store(Request $request){
@@ -24,7 +24,7 @@ class AdminRoleController extends Controller
 
         $roles->save();
         $roles->permissions()->attach($request->permission_id);
-        
+
         return redirect()->route('roles.index');
     }
     public function edit($id){
@@ -41,7 +41,7 @@ class AdminRoleController extends Controller
         ]);
         $roles = Role::find($id);
         $roles->permissions()->sync($request->permission_id);
-        
+
         return redirect()->route('roles.index');
     }
 
@@ -53,5 +53,5 @@ class AdminRoleController extends Controller
     }
 
 
-    
+
 }

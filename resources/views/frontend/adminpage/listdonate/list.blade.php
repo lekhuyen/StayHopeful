@@ -1,7 +1,9 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/listdonate.css') }}">
+    {{-- css --}}
 
     <div class="container">
         <div class="row" style="margin-bottom: 20px">
@@ -20,7 +22,7 @@
         <div class="row">
             <div class="col-lg-12 mt-5">
                 <div class="form-table">
-                    <table class="table table-striper">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -30,12 +32,13 @@
                                 <td>Project</td>
                                 <td>Method</td>
                                 <td>Amount</td>
-                                <td>Message <div class="question-container">
-                                        <i class="fa-solid fa-question"></i>
+                                <td>Detail
+                                    {{-- <div class="question-container">
+                                        <i class="fa-solid fa-question btn-outline-info"></i>
                                         <div class="info-tooltip">
-                                            Click to view Message Details
+                                            Please click the icon to view more
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </td>
                             </tr>
                         </thead>
@@ -49,7 +52,8 @@
                                     <td>{{ $item->project_id }}</td>
                                     <td>{{ $item->method }}</td>
                                     <td>{{ $item->amount }}</td>
-                                    <td class="clickmessage">{{ $item->message }}</td>
+                                    <td class="clickmessage"><a class="btn btn-outline-info btn-lg"><i
+                                                class="fa-solid fa-info"></i></a></td>
 
                                 </tr>
                                 <tr class="message-hide">
@@ -60,7 +64,11 @@
                         <tbody id="content" class="searchdata"></tbody>
 
                     </table>
-                    {{ $donateinfo->links() }}
+
+                    <div class="general__pagination">
+                        {{ $donateinfo->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>

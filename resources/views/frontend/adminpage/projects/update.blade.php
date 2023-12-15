@@ -1,9 +1,15 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('projectAd.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <a href="{{ route('projectAd.index') }}"><i class="fa fa-arrow-left"> Go Back</i></a>
         <h1>Update Project</h1>
         <form action="{{ route('projectAd.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -17,7 +23,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="description">Description:</label>
+                <label for="description">Content:</label>
                 <textarea type="tetx" class="form-control" id="description-project-update" placeholder="Enter description"
                     name="description">{{ $project->description }}</textarea>
                 @error('description')

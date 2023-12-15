@@ -31,7 +31,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
 {{-- font --}}
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('admincss/sidebar.css') }}">
+{{-- css --}}
 {{-- siderbar --}}
 <div class="main-container d-flex">
     <div class="sidebar" id="side_nav">
@@ -107,8 +109,7 @@
                         class="fa-regular fa-address-card" style="padding-right: 10px"></i>About Us</a></li>
 
             <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-envelope" style="padding-right: 10px"></i>
-                    MailBox</a></li>
+                        class="fa-solid fa-envelope" style="padding-right: 10px"></i>Mail Box</a></li>
         </ul>
         <hr class="h-color mx-2">
     </div>
@@ -145,9 +146,6 @@
                             @else
                                 <div class="text popup-login">LOGIN</div>
                             @endif
-                            @if (session('userInfo'))
-                                <h4>{{ session('userInfo')['name'] }}</h4>
-                            @endif
                         </li>
                     </ul>
 
@@ -162,20 +160,18 @@
 
     {{-- ckeditor --}}
     @yield('ckeditor')
-
 </div>
-<div class="container-fluid footer" style="background: linear-gradient(to bottom, #245abe, #578fd9);">
-    <div class="container footer-container">
-        <div class="row ">
-            <div class="col-lg-12 ">
-                <div class="footer-text">
-                    <span>Copyright © 2023 All Rights Reserved by StayHopeFul</span>
-                </div>
-            </div>
+
+{{-- beginning of footer  --}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="footer__dashboard__content">
+            <p class="footer__text">© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</p>
         </div>
     </div>
 </div>
+{{-- ending of footer  --}}
+
 <script src="{{ asset('js/sidebar.js') }}"></script>
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
-<script></script>

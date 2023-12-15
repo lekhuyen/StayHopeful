@@ -1,3 +1,6 @@
+ {{-- profile css--}}
+ <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+{{-- profile css--}}
 <div class="container-user-post-notification {{session('isPending')?'showAlert':''}}">
     <div class="user-post-status-success">
         <div class="exit-user-post-alert-btn">

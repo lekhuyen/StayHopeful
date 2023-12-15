@@ -1,11 +1,15 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('video-list.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <div style="margin-bottom: 20px">
-            <a href="{{ route('video-list.index') }}"><i class="fas fa-long-arrow-alt-left"> Go Back</i></a>
-        </div>
+        <h1>Unused Video</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -14,7 +18,6 @@
                 </tr>
             </thead>
             <tbody>
-                <h1>Unused</h1>
                 @forelse ($videos as $video)
                     <tr>
                         <td>

@@ -2,8 +2,11 @@
 @section('title', 'Projects')
 @section('main')
     @include('frontend.info_donate.info_donate')
-    <link rel="stylesheet" href="{{asset('blogcss/blog_finished.css')}}">
 
+    {{-- css --}}
+    <link rel="stylesheet" href="{{asset('blogcss/blog_finished.css')}}">
+    {{-- css --}}
+    
     <div class="container" style="margin-top: 100px">
         <div class="row">
             @include('frontend.search.search_input')
