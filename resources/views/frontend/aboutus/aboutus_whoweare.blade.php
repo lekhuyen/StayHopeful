@@ -8,8 +8,8 @@
         <a href="{{ route('aboutus.index') }}" class="btn__go_back">
             <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
-    <div class="container our_founder " data-aos="zoom-in">
 
+    <div class="container our_founder " data-aos="zoom-in">
         <h1 class="text-center aboutus_ourfounder_h2">Our Founder</h1>
         <div class="col-md-10 offset-md-1 our_founder">
             <span>
@@ -21,14 +21,12 @@
         </div>
 
         <div class="container mt-5 johndoe_card">
-
             <div class="row mt-4">
                 <!-- Founder's Picture -->
                 <div class="col-md-4 text-center">
                     <img class="img-fluid rounded-circle founder-img" src="{{ asset('img/aboutus_founder.jpg') }}"
                         alt="founder">
                 </div>
-
                 <!-- Introduction -->
                 <div class="col-md-8">
                     <br>
@@ -219,7 +217,8 @@
                                 <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend
                                     of artistic vision and strategic thinking to our projects. Their creativity adds a
                                     distinctive touch to our initiatives.</p>
-                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-outline-info">View Details</a>
+                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-outline-info">View
+                                    Details</a>
                             </div>
                         </div>
                     </div>

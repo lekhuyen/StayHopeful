@@ -1,15 +1,15 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
 
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <div class="btn__back">
-            <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
-        </div>
-
         <h1>Edit News</h1>
         <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
             @csrf

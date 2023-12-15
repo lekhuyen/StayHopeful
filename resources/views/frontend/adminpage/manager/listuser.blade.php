@@ -17,9 +17,9 @@
             <div class="col-lg-6">
                 <div class="search">
                     <div class="search-container">
-                        <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search User Name" id="search" name="search"
+                        <input type="search" placeholder="Input User Name to search" id="search" name="search"
                             class="form-control input-search">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     </div>
                 </div>
             </div>

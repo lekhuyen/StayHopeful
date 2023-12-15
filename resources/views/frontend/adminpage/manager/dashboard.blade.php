@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Dashboard</h1>
         <div class="row">
-            
+
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
                     style="width: 100%;height: 100%;background-color: #5856d6;
@@ -38,14 +38,15 @@
                                         {{ $growthPercentage }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                        data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180"
-                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                        style="width: 10px; height: 20px;">
-                                       <path fill="currentColor"
-                                             d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                       </path>
-                                   </svg>
+                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
+                                            class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
                                         {{ $growthPercentage }}%
                                     </div>
                                 @endif
@@ -70,28 +71,29 @@
                             <div class="chart-dashboard">
                                 <canvas id="charttwo"></canvas>
                                 @if ($projectprecenttage > 0)
-                                <div class="chart-value">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
-                                        class="svg-inline--fa fa-caret-up fa-w-10 me-1" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                        style="width: 10px; height: 20px;">
-                                        <path fill="currentColor"
-                                            d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                        </path>
-                                    </svg>
-                                    {{number_format($projectprecenttage, 2)}}%
-                                </div>
+                                    <div class="chart-value">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
+                                            class="svg-inline--fa fa-caret-up fa-w-10 me-1" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($projectprecenttage, 2) }}%
+                                    </div>
                                 @else
-                                <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                    style="width: 10px; height: 20px;">
-                                   <path fill="currentColor"
-                                         d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                   </path>
-                               </svg>
-                                    {{number_format($projectprecenttage, 2)}}%
-                                </div>
+                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
+                                            class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($projectprecenttage, 2) }}%
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -115,29 +117,30 @@
                             <div class="chart-dashboard">
                                 <canvas id="chartthree"></canvas>
                                 @if ($donatepercentage > 0)
-                                <div class="chart-value"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1" role="img"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                    style="width: 10px; height: 20px;">
-                                    <path fill="currentColor"
-                                        d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                    </path>
-                                </svg>
-                                {{number_format($donatepercentage, 2)}}%
-                                </div>
+                                    <div class="chart-value"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($donatepercentage, 2) }}%
+                                    </div>
                                 @else
-                                <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                    style="width: 10px; height: 20px;">
-                                   <path fill="currentColor"
-                                         d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                   </path>
-                               </svg>
-                               {{number_format($donatepercentage, 2)}}%
-                            </div>
+                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
+                                            class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($donatepercentage, 2) }}%
+                                    </div>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
@@ -159,27 +162,28 @@
                             <div class="chart-dashboard">
                                 <canvas id="chartfour"></canvas>
                                 @if ($statusprecentage > 0)
-                                <div class="chart-value"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1" role="img"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                    style="width: 10px; height: 20px;">
-                                    <path fill="currentColor"
-                                        d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                    </path>
-                                </svg>
-                                {{number_format($statusprecentage, 2)}}%
-                                </div>
+                                    <div class="chart-value"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($statusprecentage, 2) }}%
+                                    </div>
                                 @else
-                                <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="caret-up" class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
-                                    style="width: 10px; height: 20px;">
-                                   <path fill="currentColor"
-                                         d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
-                                   </path>
-                               </svg>
-                               {{number_format($statusprecentage, 2)}}%
-                            </div>
+                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
+                                            class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                            style="width: 10px; height: 20px;">
+                                            <path fill="currentColor"
+                                                d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z">
+                                            </path>
+                                        </svg>
+                                        {{ number_format($statusprecentage, 2) }}%
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -219,13 +223,13 @@
                 </div> --}}
                 <h1>Total Project</h1>
                 <div class="row">
-                    <div class="col-lg-12 mb-3 mt-3">
+                    <div class="col-lg-12 mb-3 mt-3 dashboard__searchbar">
                         <input type="search" name="search" placeholder="Input Name to search" id="search"
-                            class="input-search"><button class="btn-search"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                            class="input-search">
+                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row project__table">
                     <div class="col-lg-12 ">
                         <table class="table table-striped">
                             <thead>

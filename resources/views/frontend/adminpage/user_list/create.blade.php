@@ -1,14 +1,14 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-
-{{-- css --}}
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-{{-- css --}}
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('staff.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"></i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <div class="btn__back">
-            <a href="{{ route('staff.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"></i>GO BACK</a>
-        </div>
         <h1>New Admin Account</h1>
         <form action="{{ route('staff.store') }}" method="POST">
             @csrf

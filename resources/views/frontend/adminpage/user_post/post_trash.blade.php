@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 
-    <div class="container mt-3 table-responsive">
-        <div class="btn__back">
-            <a href="{{ route('post.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
-        </div>
+    <div class="btn__back">
+        <a href="{{ route('post.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
 
+    <div class="container mt-3 table-responsive">
         <table class="table table-hover">
             <h1>Unused User Post</h1>
             <thead>

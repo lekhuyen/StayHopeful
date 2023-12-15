@@ -1,11 +1,11 @@
 @extends('frontend.site')
-@section('title', 'Thư viện Video')
+@section('title', 'Video Gallery')
 
 @section('main')
     <div class="container" style="margin-top: 100px">
         <div class="row">
             <div class="col-lg-12" style="margin-top: 70px; border-bottom: 1px solid #ccc">
-                <h3 style="font-size: 28px; color: #245abe; text-transform: uppercase"> THƯ VIỆN VIDEO</h3>
+                <h3 style="font-size: 28px; color: #245abe; text-transform: uppercase">VIDEO GALLERY</h3>
             </div>
         </div>
     </div>
