@@ -64,7 +64,10 @@
                                 <div class="form-floating">
                                     @if (Auth::user())
                                     <input type="text" class="form-control" required name="email" disabled
-                                    value="{{ old('email', Auth::user()->email) }}"
+                                    value="{{Auth::user()->email }}"
+                                    >
+                                    <input type="hidden" class="form-control"  name="emailget" 
+                                    value="{{Auth::user()->email }}"
                                     >
                                     @else
                                     <input type="text" class="form-control" required name="email"
