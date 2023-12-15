@@ -43,7 +43,7 @@ class OtpController extends Controller
                 return response()->json(['status' => 'success',
                                          'message' => 'OTP sent successfully',
                                          'email' => $emailUser]);
-            }else if ($user->otp_attempts < 3 && $otpUser->updated_at->diffInMinutes(Carbon::now()) > 1){
+            }else if ($user->otp_attempts < 5 && $otpUser->updated_at->diffInMinutes(Carbon::now()) > 1){
                 $sendUpdateOtpEmail = $otpUser->user_email;
                 $otpUser->otp = $otp;
                 $otpUser->expired_at = $expiredAt;
@@ -57,11 +57,11 @@ class OtpController extends Controller
                                          'message' => 'OTP resend successfully',
                                          'email' => $email]);
 
-            }else if ($user->otp_attempts >= 3 && $otpUser->created_at->isToday()) {
+            }else if ($user->otp_attempts >= 5 && $otpUser->created_at->isToday()) {
                 // Nếu đã vượt quá số lần cho phép, trả về thông báo hoặc thực hiện các hành động khác
-                return response()->json(['status' => 'daily_error', 'message' => 'Một ngày chỉ được gửi OTP tối đa 3 lần']);
+                return response()->json(['status' => 'daily_error', 'message' => 'Một ngày chỉ được gửi OTP tối đa 5 lần']);
             }else if ($otpUser->updated_at && $otpUser->updated_at->diffInMinutes(Carbon::now()) < 1) {
-                return response()->json(['status' => 'time_error', 'message' => 'Bạn chỉ có thể gửi OTP mỗi 2 phút một lần']);
+                return response()->json(['status' => 'time_error', 'message' => 'Bạn chỉ có thể gửi OTP mỗi 1 phút một lần']);
             }
         }
     }

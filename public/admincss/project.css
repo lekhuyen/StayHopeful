@@ -17,3 +17,7 @@
     width: 300px;
     text-overflow: ellipsis;
 }
+
+.status__project{
+    width: 80px;
+}

@@ -40,10 +40,10 @@
                             @if ($post->status == 1)
                                 <span data-choduyet="{{ $post->id }}" class="post-choduyet"
                                     style="cursor: pointer"><span
-                                        class="badge bg-warning rounded-pill">Pending</span></span>
+                                        class="badge bg-warning rounded-pill status__userpost">Pending</span></span>
                             @else
                                 <span data-duyet="{{ $post->id }}" class="post-daduyet"><span
-                                        class="badge bg-success rounded-pill">Approved</span></span>
+                                        class="badge bg-success rounded-pill status__userpost">Approved</span></span>
                             @endif
                         </td>
                         <td>

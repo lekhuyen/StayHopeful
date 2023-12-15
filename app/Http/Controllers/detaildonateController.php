@@ -100,6 +100,17 @@ class detaildonateController extends Controller
             if ($project) {
                 $donateinfo->project_id = $project->id;
             }
+            // $userLogin = session()->get('userInfo');
+            // $findUser=null;
+            // if($userLogin){
+            //     $findUser = User::where('email','=', $userLogin['email'])->first();
+            // }else{
+            //     $findUser = User::where('email','=', $userinfo['email'])->first();
+            // }
+            // if ($findUser) {
+            //     $findUser->is_sponsor = true;
+            //     $findUser->save();
+            // }
             $donateinfo->method = $userinfo['type'];
             $donateinfo->amount = $userinfo['amount'];
             $donateinfo->message = $userinfo['message'];

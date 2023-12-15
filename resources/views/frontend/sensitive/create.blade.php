@@ -8,7 +8,7 @@
     {{-- css --}}
 
     <div class="btn__back">
-        <a href="{{ route('feedback.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
+        <a href="{{ route('sensitive.index') }}" class="btn__go_back"><i class="fa fa-long-arrow-left"> </i>GO BACK</a>
     </div>
 
     @if (session('success'))
