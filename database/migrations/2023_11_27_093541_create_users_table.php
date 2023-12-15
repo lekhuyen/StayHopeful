@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('role')->default(0);
             $table->boolean('status')->default(false);
             $table->string('verified_token');
+            $table->unsignedInteger('otp_attempts')->default(0);
             $table->string('avatar')->nullable();
             $table->string('address')->nullable();
             $table->integer('phone')->nullable();
