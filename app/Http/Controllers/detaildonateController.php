@@ -7,6 +7,7 @@ use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -82,16 +83,18 @@ class detaildonateController extends Controller
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $tomail = $userinfo['email'];
             $message = $userinfo['project'];
-
+            $user = Auth::user();
+            // dd($userinfo);
             Mail::to($tomail)->send(new EmailDonate($message));
-            $username = $userinfo['fullname'];
-            // if ($userinfo['hidename'] == "Anonymous") {
-            //     $username = $userinfo['hidename'];
-            // } else {
-            //     $username = $userinfo['fullname'];
-            // }
+            $username = "";
+            if ($userinfo['fullname'] != "Anonymous") {
+                $username = $userinfo['fullname'];
+            } else {
+                $username = $userinfo['hidename'];
+            }
             $donateinfo = new DonateInfo();
             $donateinfo->name = $username;
+            $donateinfo->user_id = 2;
             $donateinfo->email = $userinfo['email'];
             $donateinfo->phone = $userinfo['phone'];
             $project = Project::where('title', $userinfo['project'])->first();
@@ -104,7 +107,7 @@ class detaildonateController extends Controller
             $donateinfo->save();
             $findUser = User::where('email', $request->$userinfo['email'])->first();
             if ($findUser) {
-                $findUser->is_sponsor = true;
+                $findUser->is_sponsor = false;
                 $findUser->save();
             }
             return redirect()->route('detail.listdonate')->with('success', 'Success Payment');

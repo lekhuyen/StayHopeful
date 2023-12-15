@@ -202,6 +202,8 @@
         $(document).ready(function() {
             $('#search').on('keyup', function() {
                 $value = $(this).val();
+                console.log($value);
+
                 if ($value) {
                     $('.data_all').hide();
                     $('#content').show();
