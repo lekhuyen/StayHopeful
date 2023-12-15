@@ -139,11 +139,11 @@ class detaildonateController extends Controller
                 $donateinfo->amount = $userinfo['amount'];
                 $donateinfo->message = $userinfo['message'];
                 $donateinfo->save();
-                $findUser = User::where('email', $userinfo['email'])->first();
-                if ($findUser) {
-                    $findUser->is_sponsor = false;
-                    $findUser->save();
-                }
+                // $findUser = User::where('email', $userinfo['email'])->first();
+                // if ($findUser) {
+                //     $findUser->is_sponsor = false;
+                //     $findUser->save();
+                // }
             }
             return redirect()->route('detail.listdonate')->with('success', 'Success Payment');
 
