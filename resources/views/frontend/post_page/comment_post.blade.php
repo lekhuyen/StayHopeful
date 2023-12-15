@@ -45,7 +45,10 @@
 
             {{-- !comment --}}
             <div class="commnent_post_body">
-                @include('frontend.post_page.list_comment', ['comments'=>$post->comments, 'post'=>$post])
+                @include('frontend.post_page.list_comment', [
+                    'comments' => $post->comments,
+                    'post' => $post,
+                ])
                 {{-- <div class="comment_post">
                     <a href="">
                         <img width="60"
@@ -97,7 +100,7 @@
             </div>
         </div>
 
-        <form id="form_comment-texarena" method="post" data-id="{{$post->id}}">
+        <form id="form_comment-texarena" method="post" data-id="{{ $post->id }}">
             @csrf
             <div id="input_comment-post-1">
                 <textarea class="content_comment" name="content" id="" cols="" rows="10" placeholder="comment.."></textarea>
@@ -110,7 +113,6 @@
     </div>
 
     <script>
-        
         //comment
         var _csrf = '{{ csrf_token() }}';
         $(document).ready(function() {
@@ -118,30 +120,39 @@
                 post_id = $(this).data('id');
                 e.preventDefault();
                 var content = $('.content_comment').val();
-                var _loginUrl = '{{ route('store-comment',':id') }}'.replace(':id', post_id);
-                
+                var _loginUrl = '{{ route('store-comment', ':id') }}'.replace(':id', post_id);
+
                 $.ajax({
                     type: 'POST',
                     url: _loginUrl,
                     data: {
-                        content:content,
+                        content: content,
                         _token: _csrf
                     },
                     success: function(data) {
                         $('.commnent_post_body').html(data);
-                        $('.content_comment').val('');                        
+                        $('.content_comment').val('');
                     },
                     error: function(error) {
                         alert(error);
                     }
                 });
             });
+
+            $('.content_comment').on('keydown', function(e) {
+                if (e.keyCode == 13 && !e.shiftKey) {
+
+                    e.preventDefault();
+
+                    $('#form_comment-texarena').submit();
+                }
+            });
         });
 
 
         $(document).ready(function() {
             $('.btn_reply-submit').on('submit', function(e) {
-            // $('.btn_reply-submit').submit(function(e) {
+                // $('.btn_reply-submit').submit(function(e) {
                 e.preventDefault();
                 // post_id = $(this).data('post-id');
 
@@ -151,16 +162,16 @@
 
                 var content = $(commentContent_id).val();
 
-                // var _loginUrl = '{{ route('store-comment_reply',':id') }}'.replace(':id', post_id);
+                // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
                 var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
 
-                
+
                 $.ajax({
                     type: 'POST',
                     url: _loginUrl,
                     data: {
-                        content:content,
-                        comment_id:comment_id,
+                        content: content,
+                        comment_id: comment_id,
                         _token: _csrf
                     },
                     success: function(data) {
@@ -187,6 +198,8 @@
                                 </form>
                             </div>
                         </div>`
+
+
                         $('.replies-container[data-id="' + comment_id + '"]').append(html);
                         $('.content_reply-' + comment_id).val('');
                         $('.form_reply').slideUp();
@@ -196,6 +209,80 @@
                         alert(error);
                     }
                 });
+            });
+
+
+            // $('.content_reply').on('keydown', function(e) {
+            //     if (e.keyCode === 13 && !e.shiftKey) {
+            //         e.preventDefault();
+            //         $('.btn_reply-submit').submit();
+            //     }
+            // })
+        });
+
+        $(document).ready(function() {
+            $('.content_reply').on('keydown', function(e) {
+
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                // post_id = $(this).data('post-id');
+
+                comment_id = $(this).data('id');
+
+                var commentContent_id = '.content_reply-' + comment_id;
+
+                var content = $(commentContent_id).val();
+
+                // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
+                var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: _loginUrl,
+                    data: {
+                        content: content,
+                        comment_id: comment_id,
+                        _token: _csrf
+                    },
+                    success: function(data) {
+                        var html = `<div>
+                            <a href="">
+                                <img width="60"
+                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                    alt="">
+                            </a>
+                            <div class="comment_body">
+                                <a href="">User Name</a>
+                                <p>${data[0].content}</p>
+                                <p class="reply_comment_post">
+                                    Reply
+                                </p>
+    
+                                <form action="" style="display: none">
+                                    <div id="input_reply-comment">
+                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                        <div class="btn_icon-submit">
+                                            <i class="fa-solid fa-location-arrow"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>`
+
+                        
+                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                        $('.content_reply-' + comment_id).val('');
+                        $('.form_reply').slideUp();
+                        // console.log(data[0].content);
+                    },
+                    error: function(error) {
+                        alert(error);
+                    }
+                });
+                }
+                // $('.btn_reply-submit').submit(function(e) {
+                
             });
         });
 

@@ -14,7 +14,7 @@
 
             <form style="display: none" class="form_reply-{{$comment->id}} form_reply btn_reply-submit" data-id="{{$comment->id}}">
                 <div id="input_reply-comment">
-                    <textarea id="" cols="" rows="10" placeholder="comment.." class="content_reply-{{$comment->id}}" data-id="{{$comment->id}}"></textarea>
+                    <textarea cols="" rows="10" placeholder="comment.." class="content_reply-{{$comment->id}} content_reply" data-id="{{$comment->id}}"></textarea>
                     <button class="btn_icon-submit" data-id="{{ $comment->id}}">
                         <i class="fa-solid fa-location-arrow"></i>
                     </button>
