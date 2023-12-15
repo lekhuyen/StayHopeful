@@ -8,7 +8,7 @@
     <br>
     {{-- Mission sector --}}
     <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
-        <h1>Our mission</h1>
+        <h1>Our mission 123</h1>
 
         <span class="mission">
             At <strong>StayHopeful</strong>, we are dedicated to creating positive and lasting change in the world.

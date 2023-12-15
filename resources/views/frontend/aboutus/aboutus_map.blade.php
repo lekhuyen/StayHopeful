@@ -33,6 +33,7 @@
     var markerGroup = L.layerGroup(markers).addTo(map);
 </script>
 
+
 <style>
     .animated-icon {
         width: 20px;
