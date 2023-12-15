@@ -15,6 +15,7 @@ use App\Http\Controllers\detaildonateController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\NewsController;
 
+use App\Http\Controllers\OtpController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VideoController;use App\Http\Controllers\SensitiveController;
 use App\Http\Controllers\UserAdminController;
@@ -65,6 +66,9 @@ Route::get('/auth/facebook/callback', [AuthloginController::class, 'handlefacebo
 // Route::get('/verify_email', [AuthloginController::class, 'abc'])->name('verify.email');
 Route::get('/verified/{verify_token}', [AuthloginController::class, 'verified_email'])->name('auth.verified_email');
 Route::post('/change-password', [AuthloginController::class, 'change_password'])->name('auth.changepassword');
+//forgot password
+Route::post('/send-otp', [OtpController::class, 'sendOtp'])->name('auth.send_otp');
+Route::post('/verify-otp', [OtpController::class, 'verifyOtp'])->name('auth.verify_otp');
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 

@@ -150,7 +150,7 @@
                             popupChangePassword.classList.remove('showChangePassword');
                             // window.location.href = "{{ route('/') }}";
                             $('#old-password').val(''),
-                                $('#new-password-change').val('')
+                            $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
                         } else if (response.status == 'error') {
                             errorAlert.classList.add("showAlert");
