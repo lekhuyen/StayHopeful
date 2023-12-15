@@ -20,6 +20,8 @@
                         <th>ID</th>
                         <th>Word</th>
                         <th>Status</th>
+                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +30,16 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->word }}</td>
                             <td>{{ $item->status ? 'Active' : 'Deactive' }}</td>
+                            <td>
+                                {{-- @can('category_edit') --}}
+                                <a class="btn btn-warning" href="{{ route('sensitive.edit', $item->id) }}">
+                                <i class="fa-solid fa-pen-to-square"></i></a>
+                                {{-- @endcan --}}
+                                {{-- @can('category_delete') --}}
+                                <button class="btn btn-danger" data-id="{{ $item->id }}">
+                                <i class="fa-solid fa-trash-can"></i></button>
+                                {{-- @endcan --}}
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -38,8 +50,7 @@
         </div>
         <div class="btn__container">
             <div class="btn_sensitive_create"><a href="{{ route('sensitive.create') }}" class="btn btn-primary">Add
-                    sensitive
-                    word</a></div>
+                    Sensitive Word</a></div>
         </div>
     </div>
 @endsection
