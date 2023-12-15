@@ -81,9 +81,10 @@ class detaildonateController extends Controller
         //Nếu trạng thái ($response['status']) là 'COMPLETED',
         // nghĩa là việc thanh toán đã hoàn tất thành công.
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-            $tomail = $userinfo['email'];
-            $message = $userinfo['project'];
+           
             $user = Auth::user();
+            $tomail = $userinfo['emailget'];
+            $message = $userinfo['project'];
             Mail::to($tomail)->send(new EmailDonate($message));
             if($user){
                 $username = "";
@@ -92,9 +93,11 @@ class detaildonateController extends Controller
             } else {
                 $username = $userinfo['fullname'];
             }
+            
             $donateinfo = new DonateInfo();
             $donateinfo->name = $username;
             $donateinfo->email = $user->email;
+            $donateinfo->user_id = $user->id;
             $donateinfo->phone = $userinfo['phone'];
             $project = Project::where('title', $userinfo['project'])->first();
             if ($project) {
@@ -127,6 +130,9 @@ class detaildonateController extends Controller
                 } else {
                     $username = $userinfo['fullname'];
                 }
+                $tomail = $userinfo['email'];
+                $message = $userinfo['project'];
+                Mail::to($tomail)->send(new EmailDonate($message));
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $username;
                 $donateinfo->email = $userinfo['email'];
