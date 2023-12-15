@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 
-    <div class="container mt-3">
-        <div class="btn__back">
-            <a href="{{ route('projectAd.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO BACK</a>
-        </div>
+    <div class="btn__back">
+        <a href="{{ route('projectAd.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"> </i>GO BACK</a>
+    </div>
 
+    <div class="container mt-3">
         <h1>New Project</h1>
         <form action="{{ route('projectAd.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

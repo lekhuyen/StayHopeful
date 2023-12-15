@@ -176,4 +176,3 @@
 <script src="{{ asset('js/sidebar.js') }}"></script>
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
-<script></script>

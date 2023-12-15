@@ -9,9 +9,8 @@
             <i class="fa fa-long-arrow-left"></i> GO BACK
         </a>
     </div>
-    <h1 class="aboutus_teammember_h1">Meet Robert Johnson, A Financial Expert</h1>
 
-    <br>
+    <h1 class="aboutus_teammember_h1">Meet Robert Johnson, A Financial Expert</h1>
     <div class="container mt-3 teamname_introduction">
         {{-- introduction_1 --}}
         <div class="row">
