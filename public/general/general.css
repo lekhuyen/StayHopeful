@@ -27,3 +27,8 @@ h5 {
     display: flex;
     justify-content: end;
 }
+
+.status__userpost,
+.status__about {
+    width: 70px;
+}

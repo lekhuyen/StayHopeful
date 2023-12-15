@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\File;
 
 class AboutusteamController extends Controller
 {
-    public function aboutus_team_index() {
-        $aboutusteams = aboutusteam::paginate(5); // Use paginate for pagination
+    public function aboutus_team_index()
+    {
+        $aboutusteams = aboutusteam::orderBy('id', 'desc')->paginate(5); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 
@@ -23,13 +24,15 @@ class AboutusteamController extends Controller
         return view('frontend.aboutus.whoweare_detail', compact('aboutusteam'));
     }
 
-    public function aboutus_team_create() {
+    public function aboutus_team_create()
+    {
 
         return view("frontend.aboutusteam.create_aboutus");
     }
 
-    public function aboutus_team_store(Request $request) {
-        $request->validate ([
+    public function aboutus_team_store(Request $request)
+    {
+        $request->validate([
             "name" => "required",
             "age" => "required|numeric",
             "email" => "required|email",
@@ -51,11 +54,11 @@ class AboutusteamController extends Controller
         $aboutus->save();
         if ($request->hasFile("images")) {
             foreach ($request->file("images") as $item) {
-                $filename = time()."_".$item->getClientOriginalName();
+                $filename = time() . "_" . $item->getClientOriginalName();
                 $destinationPath = public_path("img/aboutus_images");
 
                 $item->move($destinationPath, $filename);
-                $imagePath = "img/aboutus_images/".$filename;
+                $imagePath = "img/aboutus_images/" . $filename;
 
                 $newImage = new aboutusimage();
                 $newImage->url_image = $imagePath;
@@ -63,22 +66,22 @@ class AboutusteamController extends Controller
                 $newImage->aboutus_id = $aboutus->id;
                 $newImage->save();
             }
-
         }
         $aboutusteams = aboutusteam::paginate(5);
 
         return view("frontend.aboutusteam.index", compact("aboutusteams"))->with("success", "Team created successfully");
-
     }
 
 
 
-    public function aboutus_team_edit(aboutusteam $aboutusteam) {
+    public function aboutus_team_edit(aboutusteam $aboutusteam)
+    {
         return view("frontend.aboutusteam.edit_aboutus", compact("aboutusteam"));
     }
 
-    public function aboutus_team_update(Request $request, aboutusteam $aboutusteam) {
-        $request->validate ([
+    public function aboutus_team_update(Request $request, aboutusteam $aboutusteam)
+    {
+        $request->validate([
             "name" => "required",
             "age" => "required|numeric",
             "email" => "required|email",
@@ -99,24 +102,24 @@ class AboutusteamController extends Controller
         if ($request->hasFile("images")) {
 
             //delete old images if they existed
-                if ($aboutusteam->images->count() > 0) {
-                    foreach ($aboutusteam->images as $image) {
+            if ($aboutusteam->images->count() > 0) {
+                foreach ($aboutusteam->images as $image) {
 
-                        // delete trong servce
-                        if (File::exists($image->url_image)) {
-                            File::delete($image->url_image);
-                        }
-
-                        $image->delete(); //delete trong database
+                    // delete trong servce
+                    if (File::exists($image->url_image)) {
+                        File::delete($image->url_image);
                     }
+
+                    $image->delete(); //delete trong database
                 }
+            }
 
             foreach ($request->file("images") as $item) {
-                $filename = time()."_".$item->getClientOriginalName();
+                $filename = time() . "_" . $item->getClientOriginalName();
                 $destinationPath = public_path("img/aboutus_images");
 
                 $item->move($destinationPath, $filename);
-                $imagePath = "img/aboutus_images/".$filename;
+                $imagePath = "img/aboutus_images/" . $filename;
 
                 $newImage = new aboutusimage();
                 $newImage->url_image = $imagePath;
@@ -125,7 +128,7 @@ class AboutusteamController extends Controller
                 $newImage->save();
             }
         }
-        return redirect()->route("aboutusteam.index")->with("success","Team created successfully");
+        return redirect()->route("aboutusteam.index")->with("success", "Team created successfully");
     }
 
     public function aboutus_team_delete(aboutusteam $aboutusteam)

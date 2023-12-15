@@ -51,9 +51,9 @@
                         </td>
                         <td>
                             @if ($item->status)
-                                <span class="badge rounded-pill bg-success">Active</span>
+                                <span class="badge rounded-pill bg-success status__about">Active</span>
                             @else
-                                <span class="badge rounded-pill bg-danger">Inactive</span>
+                                <span class="badge rounded-pill bg-danger status__about">Inactive</span>
                             @endif
                         </td>
                         <td>

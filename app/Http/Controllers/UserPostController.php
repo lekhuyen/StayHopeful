@@ -14,13 +14,12 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy('status', 'desc')->paginate(4);
+        $posts = UserPost::orderBy('id', 'desc')->paginate(2);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id)
     {
         $post = UserPost::find($id);
-
         return view('frontend.adminpage.user_post.post_detail', compact('post'));
     }
 

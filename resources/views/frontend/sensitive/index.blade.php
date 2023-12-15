@@ -29,16 +29,19 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->word }}</td>
-                            <td>{{ $item->status ? 'Active' : 'Deactive' }}</td>
                             <td>
-                                {{-- @can('category_edit') --}}
+                                @if ($item->status)
+                                    <a class="badge rounded-pill bg-success status__sensitive"
+                                        href="{{ route('sensitive.status', $item->id) }}">Active</a>
+                                @else
+                                    <a class="badge rounded-pill bg-danger status__sensitive"
+                                        href="{{ route('sensitive.status', $item->id) }}">Deactive</a>
+                                @endif
+                            <td>
                                 <a class="btn btn-warning" href="{{ route('sensitive.edit', $item->id) }}">
-                                <i class="fa-solid fa-pen-to-square"></i></a>
-                                {{-- @endcan --}}
-                                {{-- @can('category_delete') --}}
-                                <button class="btn btn-danger" data-id="{{ $item->id }}">
-                                <i class="fa-solid fa-trash-can"></i></button>
-                                {{-- @endcan --}}
+                                    <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-danger" href="{{ route('sensitive.delete', $item->id) }}">
+                                    <i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
                     @endforeach

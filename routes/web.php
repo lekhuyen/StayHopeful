@@ -140,9 +140,12 @@ Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name
 Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
-Route::post('/sensitive/delete/{id}', [SensitiveController::class, 'delete'])->name('sensitive.delete');
+Route::get('/sensitive/delete/{id}', [SensitiveController::class, 'delete'])->name('sensitive.delete');
 Route::get('/sensitive/edit/{id}', [SensitiveController::class, 'edit'])->name('sensitive.edit');
 Route::put('/sensitive/update/{id}', [SensitiveController::class, 'update'])->name('sensitive.update');
+Route::get('/sensitive/status/{id}', [SensitiveController::class, 'editStatus'])->name('sensitive.status');
+
+
 
 //volunteer form
 Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin

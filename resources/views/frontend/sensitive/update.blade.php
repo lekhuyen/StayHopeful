@@ -10,14 +10,15 @@
 
     <div class="container mt-3">
         <h1>Update Sensitive Word</h1>
-        <form action="{{ route('sensitive.update', $sensitives->id) }}" method="POST">
+        <form action="{{ route('sensitive.update', $sensitive) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3">
                 <label for="sensitive">Sensitive Word:</label>
-                <input type="text" class="form-control" id="sensitive" value="{{ $sensitives->name }}" placeholder="Enter Sensitive Word" name="name"
-                    value="{{ $sensitives->name }}">
-                @error('name')
+                <input type="text" class="form-control" id="sensitive"
+                 value="{{ $sensitive->word }}" placeholder="Enter Sensitive Word" name="word"
+                >
+                @error('word')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

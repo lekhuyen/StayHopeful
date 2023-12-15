@@ -23,7 +23,7 @@ class VolunteerController extends Controller
 
         // Loop through the array to count occurrences of each project
         foreach ($arrayPeopleVolunteer as $item) {
-            $projectId = $item['project']; //$projectId la 1 tai lan chay 1 (vi du thoi nha)
+            $projectId = $item['project']; 
 
             // If the project ID exists in the summedCounts array, increment count
             if (array_key_exists($projectId, $summedCounts)) {
@@ -35,8 +35,8 @@ class VolunteerController extends Controller
         }
         // dd($summedCounts[2]);
         // $summedCounts will contain the summed counts for each project ID
-        $projects = Project::all();
-        $projects = Project::paginate(6);
+        $projects = Project::orderBy('id','desc')->paginate(6);
+        // $projects = Project::paginate(6);
         return view("frontend.volunteer.index", compact('projects', 'summedCounts'));
     }
 

@@ -104,4 +104,5 @@ input:focus {
 
 .change-status {
     border: none;
+    width: 70px;
 }

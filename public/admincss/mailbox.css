@@ -2,3 +2,9 @@
 .table{
     vertical-align: middle;
 }
+
+.status__mailbox{
+    width: 100px;
+    border: none;
+    color:white;
+}

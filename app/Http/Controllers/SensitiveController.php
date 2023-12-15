@@ -31,15 +31,16 @@ class SensitiveController extends Controller
 
     public function delete($id)
     {
-        $sensitives = Sensitive::find($id);
-        $sensitives->delete($id);
+        $sensitive = Sensitive::find($id);
+        $sensitive->delete();
         return redirect()->route('sensitive.index')->with('success','Deleted successfully.');
     }
 
     public function edit($id)
     {
-        $sensitives = Sensitive::find($id);
-        return view('frontend.sensitive.update', compact('sensitives'));
+        $sensitive = Sensitive::find($id);
+        // dd($sensitive);
+        return view('frontend.sensitive.update', compact('sensitive'));
     }
 
     public function update(Request $request, $id)
@@ -51,4 +52,13 @@ class SensitiveController extends Controller
         $sensitives->update($request->all());
         return redirect()->route('sensitive.index')->with('success', 'Updated Successfully');
     }
+    public function editStatus($id)
+    {
+        $sensitive = Sensitive::find($id);
+        $status = $sensitive->status?false:true;
+        $sensitive->status = $status;
+        $sensitive->save();
+        return redirect()->route('sensitive.index')->with('success', 'Updated Successfully');
+    }
+
 }
