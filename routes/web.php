@@ -321,7 +321,7 @@ Route::group(['prefix' => 'post/'], function () {
     Route::get('post-cho-duyet/{id}', [UserPostController::class, 'choduyet'])->name('post.choduyet');
     Route::get('post-da-duyet/{id}', [UserPostController::class, 'daduyet'])->name('post.duyet');
 
-    // //softDelete
+    //softDelete
     Route::get('post-trash', [UserPostController::class, 'post_trash'])->name('post-trash');
     Route::get('post_untrash/{id}', [UserPostController::class, 'post_untrash'])->name('post-untrash');
     Route::get('post-forcedelete/{id}', [UserPostController::class, 'post_forcedelete'])->name('post-forcedelete');
@@ -342,7 +342,6 @@ Route::get('/post/delete_post/{id}', [UserPostController::class, 'delete_post_us
 Route::put('/post/edit', [UserPostController::class, 'edit_post'])->name('edit.post');
 
 // comment post-user
-// Route::post('/post/comment/{id}',[CommentPostController::class,'post_comment'])->name('post.comment');
 Route::post('/store-comment/{id}', [CommentPostController::class, 'storeComment'])->name('store-comment');
 //reply
 Route::post('/store-comment-reply/{id}', [CommentPostController::class, 'storeCommentReply'])->name('store-comment_reply');

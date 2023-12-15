@@ -12,7 +12,7 @@
                 Reply
             </p>
 
-            <form style="display: none" class="form_reply-{{$comment->id}} form_reply btn_reply-submit" data-post-id="{{ $post->id}}" data-id="{{$comment->id}}">
+            <form style="display: none" class="form_reply-{{$comment->id}} form_reply btn_reply-submit" data-id="{{$comment->id}}">
                 <div id="input_reply-comment">
                     <textarea id="" cols="" rows="10" placeholder="comment.." class="content_reply-{{$comment->id}}" data-id="{{$comment->id}}"></textarea>
                     <button class="btn_icon-submit" data-id="{{ $comment->id}}">
@@ -20,8 +20,7 @@
                     </button>
                 </div>
             </form>
-            {{-- @include('frontend.post_page.comment_reply', ['']) --}}
-            @foreach ($comment->replies as $reply)
+            {{-- @foreach ($comment->replies as $reply)
                 @php
                     $checkComment = false;
                 @endphp
@@ -31,32 +30,35 @@
                         $checkComment = true;
                     @endphp
                 @endif
-                @if ($checkComment)
-                    <div class="comment_post">
-                        <a href="">
-                            <img width="60"
-                                src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                alt="">
-                        </a>
-                        <div class="comment_body">
-                            <a href="">User Name</a>
-                            <p>{{ $reply->content }}</p>
-                            <p class="reply_comment_post">
-                                Reply
-                            </p>
-
-                            <form action="" style="display: none">
-                                <div id="input_reply-comment">
-                                    <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                    <div class="btn_icon-submit">
-                                        <i class="fa-solid fa-location-arrow"></i>
+                @if ($checkComment) --}}
+                    <div class="comment_post replies-container" data-id="{{$comment->id}}" style="display: block">
+                        @include('frontend.post_page.comment_reply', ['comment'=>$comment->replies])
+                        {{-- <div>
+                            <a href="">
+                                <img width="60"
+                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                    alt="">
+                            </a>
+                            <div class="comment_body">
+                                <a href="">User Name</a>
+                                <p>{{ $reply->content }}</p>
+                                <p class="reply_comment_post">
+                                    Reply
+                                </p>
+    
+                                <form action="" style="display: none">
+                                    <div id="input_reply-comment">
+                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                        <div class="btn_icon-submit">
+                                            <i class="fa-solid fa-location-arrow"></i>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                        </div> --}}
                     </div>
-                @endif
-            @endforeach
+                {{-- @endif
+            @endforeach --}}
 
         </div>
     </div>

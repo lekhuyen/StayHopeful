@@ -140,9 +140,10 @@
 
 
         $(document).ready(function() {
-            $('.btn_reply-submit').submit(function(e) {
+            $('.btn_reply-submit').on('submit', function(e) {
+            // $('.btn_reply-submit').submit(function(e) {
                 e.preventDefault();
-                post_id = $(this).data('post-id');
+                // post_id = $(this).data('post-id');
 
                 comment_id = $(this).data('id');
 
@@ -150,7 +151,9 @@
 
                 var content = $(commentContent_id).val();
 
-                var _loginUrl = '{{ route('store-comment_reply',':id') }}'.replace(':id', post_id);
+                // var _loginUrl = '{{ route('store-comment_reply',':id') }}'.replace(':id', post_id);
+                var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
+
                 
                 $.ajax({
                     type: 'POST',
@@ -161,9 +164,33 @@
                         _token: _csrf
                     },
                     success: function(data) {
-                        // $('.commnent_post_body').html(data);
-                        // $('.content_comment').val('');                        
-                        console.log(data);
+                        var html = `<div>
+                            <a href="">
+                                <img width="60"
+                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                    alt="">
+                            </a>
+                            <div class="comment_body">
+                                <a href="">User Name</a>
+                                <p>${data[0].content}</p>
+                                <p class="reply_comment_post">
+                                    Reply
+                                </p>
+    
+                                <form action="" style="display: none">
+                                    <div id="input_reply-comment">
+                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                        <div class="btn_icon-submit">
+                                            <i class="fa-solid fa-location-arrow"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>`
+                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                        $('.content_reply-' + comment_id).val('');
+                        $('.form_reply').slideUp();
+                        // console.log(data[0].content);
                     },
                     error: function(error) {
                         alert(error);
