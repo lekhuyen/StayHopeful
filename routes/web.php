@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\AboutuspageController;
 use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPermissionsController;
@@ -132,6 +133,35 @@ Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_det
 
 Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
 
+// About Us Page
+
+Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
+
+Route::get('/aboutus_page_main/{id}', [AboutuspageController::class, 'Aboutus_page_main'])->name('aboutus_page_main');
+
+// About Us main Page
+Route::get('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_create_main'])->name('aboutuspage.create_main');
+
+Route::post('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_store_main'])->name('aboutuspage.store_main');
+
+Route::get('/aboutus_page_table/edit_main/{mainPages}', [AboutuspageController::class, 'aboutus_page_edit_main'])->name('aboutuspage.edit_main');
+
+Route::put('/aboutus_page_table/edit/{mainPages}', [AboutuspageController::class, 'aboutus_page_update_main'])->name('aboutuspage.update_main');
+
+Route::delete('/aboutus_page_table/delete/{mainPages}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_main');
+
+Route::get('/aboutus_page_detail/{id}', [AboutuspageController::class, 'Aboutus_page_detail'])->name('aboutuspage.detail');
+
+// About Us (about us) Page
+Route::get('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_create_aboutus'])->name('aboutuspage.create_aboutus');
+
+Route::post('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_store_aboutus'])->name('aboutuspage.store_aboutus');
+
+Route::get('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_edit_aboutus'])->name('aboutuspage.edit_aboutus');
+
+Route::put('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_update_aboutus'])->name('aboutuspage.update_aboutus');
+
+Route::delete('/aboutus_page_table/delete/{aboutuspage}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_aboutus');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin

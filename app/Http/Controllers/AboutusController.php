@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\aboutuspage;
 use App\Models\aboutusteam;
 use Illuminate\Http\Request;
 
 class AboutusController extends Controller
 {
     public function index() {
-        return view("frontend.aboutus.aboutus");
+        $aboutuspages = aboutuspage::all();  // Fetch all aboutus pages
+
+        return view("frontend.aboutus.aboutus", compact("aboutuspages"));
     }
 
     public function aboutus_whoweare() {

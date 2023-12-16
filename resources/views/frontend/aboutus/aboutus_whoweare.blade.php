@@ -48,7 +48,7 @@
     <div class="container mt-3 robert_johnsonc_card">
         <h1>Financial Team</h1>
         <br>
-        <div class="row" data-aos="fade-right">
+        <div class="row justify-content-center" data-aos="fade-right">
             <div class="col-md-6">
                 <div class="card robert_johnsonc_picture">
                     <div class="row g-0">
@@ -100,7 +100,7 @@
     <div class="container mt-3 jane_smith_card">
         <h1>Marketing Team</h1>
         <br>
-        <div class="row" data-aos="fade-right">
+        <div class="row justify-content-center" data-aos="fade-right">
             <div class="col-md-6">
                 <div class="card jane_smith_picture">
                     <div class="row g-0">
@@ -152,7 +152,7 @@
     <div class="container mt-3 kai_greene_card">
         <h1>Lead Developer Team</h1>
         <br>
-        <div class="row" data-aos="fade-right">
+        <div class="row justify-content-center" data-aos="fade-right">
             <div class="col-md-6">
                 <div class="card kai_greene_picture">
                     <div class="row g-0">
@@ -203,7 +203,7 @@
     <div class="container mt-3 oliver_hudson_card">
         <h1>Creative Team</h1>
         <br>
-        <div class="row" data-aos="fade-right">
+        <div class="row justify-content-center" data-aos="fade-right">
             <div class="col-md-6">
                 <div class="card oliver_hudson_picture">
                     <div class="row g-0">

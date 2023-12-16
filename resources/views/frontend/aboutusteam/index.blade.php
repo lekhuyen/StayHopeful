@@ -7,7 +7,9 @@
 
     <div class="container mt-3">
         <h1>Team Member List</h1>
-
+        <div class="d-flex justify-content-center btn__center">
+            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
+        </div>
         <!-- Search Form -->
         <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
             <div class="input-group">
@@ -98,10 +100,6 @@
                     @endif
                 </ul>
             </div>
-        </div>
-
-        <div class="d-flex justify-content-center btn__center">
-            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         </div>
     </div>
 

@@ -8,135 +8,76 @@
     <br>
     {{-- Mission sector --}}
     <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
-        <h1>Our mission 123</h1>
-
-        <span class="mission">
-            At <strong>StayHopeful</strong>, we are dedicated to creating positive and lasting change in the world.
-            Our mission is to extend a helping hand to those facing the challenges of disease, combat animal cruelty, and
-            provide relief in the aftermath of natural disasters.
-            We believe in the power of collective compassion to heal, protect, and rebuild lives.
-            Through strategic initiatives and community-driven support, we strive to make a meaningful impact, fostering a
-            world where every individual, animal, and community can thrive despite adversity.
-            Join us in our mission to bring hope, healing, and resilience to those in need.
-        </span>
-
-        <img src="{{ asset('img/aboutus_main.jpg') }}" alt="aboutus_main" class="aboutus-image-main">
+        @foreach ($aboutuspages as $aboutusmain)
+            <div>
+                @if ($aboutusmain->section === 'main')
+                    <h1>{{ $aboutusmain->title }}</h1>
+                    <span class="mission">{{ $aboutusmain->description }}</span>
+                    @if ($aboutusmain->images->count() > 0)
+                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main">
+                    @endif
+                @endif
+            </div>
+            <br>
+        @endforeach
     </div>
 
-    <div style="margin-top: 20px">
-        {{-- About us sector --}}
-        <h1>About Us</h1>
-        <div class="container about-story1" data-aos="zoom-in-left">
-            <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-                <div class="col story1">
-
-                    <div>
-
-                        <span> As a large group of passionate individuals, we founded <strong>StayHopeful</strong> with a
-                            shared
-                            commitment to making a difference. Inspired by the stories of resilience in the face of
-                            adversity,
-                            we set out on a mission to combat diseases, end animal cruelty, and respond to natural
-                            disasters.
-                            Over the years, we've faced challenges head-on, but the stories of transformation keep us
-                            driven.</span>
-                    </div>
-
+    {{-- About Us Sector --}}
+    <div class="container-fluid mt-3">
+        @php
+            $aboutUsCounter = 1;
+        @endphp
+    
+        @foreach ($aboutuspages as $aboutusmain)
+            @if ($aboutusmain->section == 'aboutus')
+                <div style="margin-top: 20px">
+                    <h1>{{ $aboutusmain->title }}</h1>
+                    @if ($aboutUsCounter % 2 == 0)
+                        <div class="container about-story2" data-aos="zoom-in-right">
+                            <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
+                                <div class="col aboutus2">
+                                    <div><!-- aboutus's Picture 2-->
+                                        @if ($aboutusmain->images->count() > 0)
+                                            <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image2">
+                                        @endif
+                                    </div>
+                                </div>
+    
+                                <div class="col story2">
+                                    <div>
+                                        <div>
+                                            <span>{{ $aboutusmain->description }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="container about-story1" data-aos="zoom-in-left">
+                            <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
+                                <div class="col story1">
+                                    <div>
+                                        <span>{{ $aboutusmain->description }}</span>
+                                    </div>
+                                </div>
+    
+                                <div class="col">
+                                    <div><!-- aboutus's Picture 1-->
+                                        @if ($aboutusmain->images->count() > 0)
+                                            <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image1">
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+    
+                    @php
+                        $aboutUsCounter++;
+                    @endphp
                 </div>
-
-                <div class="col">
-                    <div><!-- aboutus's Picture 1-->
-                        <img src="{{ asset('img/aboutus1.jpg') }}" alt="aboutus1" class="aboutus-image1">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container about-story2" data-aos="zoom-in-right">
-        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-            <div class="col aboutus2">
-                <div><!-- aboutus's Picture 2-->
-                    <img src="{{ asset('img/aboutus2.jpg') }}" alt="aboutus2" class="aboutus-image2">
-                </div>
-
-            </div>
-
-            <div class="col story2">
-                <div>
-                    <div>
-                        <span>Meet <strong>Sarah, a survivor of heart disease</strong>. Through the generosity of donors
-                            like you, we were able to provide life-saving treatment and support her on the journey to
-                            recovery. Sarah's story is just one example of the impact we can make together.</span>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container about-story3" data-aos="zoom-in-left">
-        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-            <div class="col story3">
-                <div>
-
-                    <div>
-
-                        <span>From humble beginnings, our organization has grown, forming partnerships with local
-                            communities and international organizations. Together, we've responded to natural disasters,
-                            rescued animals from abusive situations, and brought hope to countless lives.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col aboutus1">
-                <div><!-- aboutus's Picture 3-->
-                    <img src="{{ asset('img/aboutus3.jpg') }}" alt="aboutus3" class="aboutus-image3">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container about-story4" data-aos="zoom-in-right">
-        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-            <div class="col aboutus2">
-                <div><!-- aboutus's Picture 4-->
-                    <img src="{{ asset('img/aboutus4.jpg') }}" alt="aboutus4" class="aboutus-image4">
-                </div>
-
-            </div>
-
-            <div class="col story4">
-                <div>
-                    <div>
-                        <span>Our commitment to transparency means that every donation you make goes directly to where it's
-                            needed most. We envision a future where diseases are eradicated, animals are treated with
-                            compassion, and communities stand resilient in the face of disasters.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container about-story5" data-aos="fade-up">
-        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-            <div class="col story5">
-                <div>
-                    <div>
-
-                        <span>Join us on this incredible journey. Your support can be the turning point in someone's life,
-                            and together, we can create a world where every individual, human or animal, has the opportunity
-                            to thrive</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col aboutus1">
-                <div><!-- aboutus's Picture 5-->
-                    <img src="{{ asset('img/aboutus5.jpg') }}" alt="aboutus5" class="aboutus-image5">
-                </div>
-            </div>
-        </div>
+            @endif
+        @endforeach
     </div>
 
     <br>
