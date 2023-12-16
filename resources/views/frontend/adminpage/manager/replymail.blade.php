@@ -52,38 +52,6 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#message'))
-            .then(editor => {
-                // Flag to check if an image is present
-                let isImagePresent = false;
-
-                // Listen for changes in the editor content
-                editor.model.document.on('change', () => {
-                    // Get the HTML content
-                    const content = editor.getData();
-
-                    // Parse the content and extract image URLs
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(content, 'text/html');
-                    const images = doc.querySelectorAll('img');
-
-                    // Extract and update the image URL
-                    images.forEach(img => {
-                        const imageUrl = img.getAttribute('src');
-
-                        // Update the src attribute of the img tag
-                        document.getElementById('imagePreview').src = imageUrl;
-                        document.getElementById('imagePreview').hidden = false;
-
-                        // Set the flag to true if an image is present
-                        isImagePresent = true;
-                    });
-                });
-
-                // Attach the flag value to a hidden input field before form submission
-                document.querySelector('form').addEventListener('submit', () => {
-                    document.getElementById('isImagePresent').value = isImagePresent ? 1 : 0;
-                });
-            })
             .catch(error => {
                 console.error(error);
             });

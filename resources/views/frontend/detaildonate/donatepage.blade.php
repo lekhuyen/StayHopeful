@@ -17,6 +17,7 @@
                 </p>
             </div>
         </div>
+        {{session('error')}}
     @endif
     @error('amount')
         <div class="container-error-notification showAlert">
@@ -58,18 +59,19 @@
                                     style="transform: scale(1.5); margin-right: 20px"> Donate Anonymously
                             </div>
                         </div>
+                        
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Email <span class="req"> *</span> </span>
                                 <div class="form-floating">
                                     @if (Auth::user())
-                                        <input type="text" class="form-control" required name="email" disabled
+                                        <input type="text" class="form-control" required disabled
                                             value="{{ Auth::user()->email }}">
                                         <input type="hidden" class="form-control" name="emailget"
                                             value="{{ Auth::user()->email }}">
                                     @else
-                                        <input type="text" class="form-control" required name="email"
-                                            value="{{ old('email') }}">
+                                        <input type="text" class="form-control" required name="emailget"
+                                            value="{{ old('emailget') }}">
                                     @endif
                                     <label>Enter Email</label>
                                     <div class="background-icon">
@@ -100,7 +102,7 @@
                                     <select class="form-select" aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
-                                        <option value="{{ $item->id }}" {{ $project && $project->id == $item->id ? 'selected' : '' }}>
+                                        <option value="{{ $item->title }}" {{ $project && $project->title == $item->title ? 'selected' : '' }}>
                                             {{ $item->title }}
                                         </option>
                                         @endforeach
