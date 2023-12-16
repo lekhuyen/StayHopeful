@@ -50,15 +50,15 @@
                                 @if(auth()->user())
                                     @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
                                         <div>
-                                            <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
+                                            <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}" style="margin-right: 3px"></i>
                                         </div>
                                     @else
                                         <div>
-                                            <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                            <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}" style="margin-right: 3px"></i>
                                         </div>
                                     @endif
                                 @endif
-                                <div class="like_count">
+                                <div class="like_count" style="">
                                     <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
                                 </div>
                             </div>

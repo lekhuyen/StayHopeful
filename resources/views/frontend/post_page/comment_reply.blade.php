@@ -1,13 +1,15 @@
 @foreach ($comment as $reply)
-<div>
+<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
     <a href="">
-        <img width="60"
+        <img width="60" id="avatar_user"
             src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
             alt="">
     </a>
     <div class="comment_body">
-        <a href="">User Name</a>
-        <p>{{ $reply->content }}</p>
+        <div class="comment_background">
+            <a href="">User Name</a>
+            <p>{{ $reply->content }}</p>
+        </div>
         <p class="reply_comment_post">
             Reply
         </p>
