@@ -9,6 +9,7 @@
         <div class="comment_background">
             <a href="">{{$reply->user->name}}</a>
             <p>{{ $reply->content }}</p>
+            
         </div>
         <p class="reply_comment_post">
             Reply

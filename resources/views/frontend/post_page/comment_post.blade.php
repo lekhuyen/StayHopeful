@@ -52,9 +52,11 @@
             </div>
         </div>
 
-        <form id="form_comment-texarena" method="post" data-id="{{ $post->id }}">
+        <form method="post" id="form_comment-texarena" data-id="{{ $post->id }}">
             @csrf
             <div id="input_comment-post-1">
+                {{-- <input type="text" class="input_id-comment">
+                <input type="text" class="input_post-id" value="{{ $post->id }}"> --}}
                 <textarea class="content_comment" name="content" id="" cols="" rows="10" placeholder="comment.."></textarea>
                 <button class="submit_comment-post btn_icon-submit">
                     <i class="fa-solid fa-location-arrow"></i>
@@ -65,12 +67,84 @@
     </div>
 
     <script>
+        //delete-comment
+        $('.delete_comment-post-user').click(function() {
+            var comment_id = $(this).data('id')
+            var _csrf = '{{ csrf_token() }}';
+            var elementComment = $('.comment_post')
+            var _loginUrl = '{{ route('delete-comment', ':id') }}'.replace(':id', comment_id);
+            
+            $.ajax({
+                type: 'DELETE',
+                url: _loginUrl,
+                data: {
+                    _token: _csrf
+                },
+                success: function(data) {
+                    // console.log(data);
+                    if(data.status == 'success'){
+                        $('#comment_parent-post[data-id="' + comment_id + '"]').remove();
+                    }
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        })
+//edit comment
+        // $('.edit_comment-post-user').click(function() {
+        //     var comment_id = $(this).data('id')
+        //     var _csrf = '{{ csrf_token() }}';
+        //     var elementComment = $('.comment_post')
+        //     var _loginUrl = '{{ route('edit-comment', ':id') }}'.replace(':id', comment_id);
+            
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: _loginUrl,
+        //         data: {
+        //             _token: _csrf
+        //         },
+        //         success: function(data) {
+        //             // console.log(data.comment.content);
+        //             if(data.status == 'success'){
+        //                 $('.content_comment').val(data.comment.content);
+        //                 $('.input_id-comment').val(data.comment.id);
+        //                 // $('.input_post-id').val(data.comment.post_id);
+        //                 // $('.input_user-id').val(data.comment.user_id);
+        //             }
+        //         },
+        //         error: function(error) {
+        //             alert(error);
+        //         }
+        //     });
+        // })
+
+
+        //show edit comment
+        $(document).ready(function() {
+            $('.menu-edit-delete').each(function(index, element) {
+                $(element).click(function() {
+                    $('.edit_delete-post').eq(index).toggle('show')
+                });
+            })
+        })
+
+
+        // $('.modal_inner-comment-post').click(function(){
+
+        //     $('.edit_delete-post').removeClass('show')
+        // })
+
+
         //comment
         var _csrf = '{{ csrf_token() }}';
         $(document).ready(function() {
             $('#form_comment-texarena').submit(function(e) {
-                post_id = $(this).data('id');
                 e.preventDefault();
+                post_id = $(this).data('id');
+                // var comment_id = $('.input_id-comment').val();
+                // var post_id = $('.input_post-id').val();
+
                 var content = $('.content_comment').val();
                 var _loginUrl = '{{ route('store-comment', ':id') }}'.replace(':id', post_id);
 
@@ -119,7 +193,6 @@
 
                 var content = $(commentContent_id).val();
 
-                // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
                 var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
                 if (content.trim() !== '') {
                     $.ajax({
@@ -139,7 +212,7 @@
                                 </a>
                                 <div class="comment_body">
                                     <div class="comment_background">
-                                        <a href="">{{auth()->user()->name}}</a>
+                                        <a href="">{{ auth()->user()->name }}</a>
                                         <p>${data[0].content}</p>
                                     </div>
                                     <p class="reply_comment_post">
@@ -183,7 +256,7 @@
             // })
         });
 
-        //keucode
+        //keycode
         $(document).ready(function() {
             $('.content_reply').on('keydown', function(e) {
 
@@ -210,7 +283,7 @@
                             _token: _csrf
                         },
                         success: function(data) {
-                                var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
+                            var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
                                 <a href="">
                                     <img width="60" id="avatar_user"
                                         src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
@@ -218,7 +291,7 @@
                                 </a>
                                 <div class="comment_body">
                                     <div class="comment_background">
-                                        <a href="">{{auth()->user()->name}}</a>
+                                        <a href="">{{ auth()->user()->name }}</a>
                                         <p>${data[0].content}</p>
                                     </div>
                                     <p class="reply_comment_post">
@@ -263,12 +336,12 @@
             $(formReply).slideDown();
         })
 
-        
+
         $('.content_reply').blur(function() {
             $('.form_reply').slideUp();
             // $(this).val('');
         })
-        
+
 
         $(document).ready(function() {
             $('.modal_inner-comment-post').click(function(e) {

@@ -700,8 +700,57 @@
     border-radius: 5px;
     width: 90%;
     overflow-wrap: break-word;
+    position: relative;
 }
-
+.delete_comment-post {
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    z-index: 99;
+    transform: translateY(-50%);
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete_comment-post:hover {
+    background-color: rgb(240,242,245);
+    cursor: pointer;
+}
+.edit_delete-post {
+    position: absolute;
+    right: -26px;
+    top: 120%;
+    width: 70px;
+    background-color: rgb(240,242,245);
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.comment_background:hover .menu-edit-delete {
+    display: block;
+}
+.menu-edit-delete {
+    display: none;
+}
+/* .edit_delete-post-1::after {
+    content: '';
+    position: absolute;
+    border-color: transparent transparent rgb(240,242,245) transparent;
+    border-style: solid;
+    border-width: 14px 14px;
+    right: -29px;
+    top: 13px;
+} */
+.edit_delete-post p {
+    width: 100%;
+    text-align: center;
+}
+.edit_delete-post p:hover {
+    background-color: rgb(217, 218, 220);
+}
 .post_like-comment-post {
     border-top: 1px solid #ccc;
     padding: 5px 0;
@@ -716,6 +765,7 @@
 .comment_post {
     display: flex;
     margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .like_post.active i{
