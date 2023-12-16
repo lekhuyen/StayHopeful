@@ -63,15 +63,13 @@
                                 <span class="info-text">Email <span class="req"> *</span> </span>
                                 <div class="form-floating">
                                     @if (Auth::user())
-                                    <input type="text" class="form-control" required name="email" disabled
-                                    value="{{Auth::user()->email }}"
-                                    >
-                                    <input type="hidden" class="form-control"  name="emailget" 
-                                    value="{{Auth::user()->email }}"
-                                    >
+                                        <input type="text" class="form-control" required name="email" disabled
+                                            value="{{ Auth::user()->email }}">
+                                        <input type="hidden" class="form-control" name="emailget"
+                                            value="{{ Auth::user()->email }}">
                                     @else
-                                    <input type="text" class="form-control" required name="email"
-                                        value="{{ old('email') }}">
+                                        <input type="text" class="form-control" required name="email"
+                                            value="{{ old('email') }}">
                                     @endif
                                     <label>Enter Email</label>
                                     <div class="background-icon">
@@ -94,14 +92,17 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="form-donate-info">
                             <div class="form-info-detail">
-                                <span class="info-text">Select <span class="req"> *</span></span>
+                                <span class="info-text">Select Project<span class="req"> *</span></span>
                                 <div class="form-floating">
                                     <select class="form-select" aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
-                                            <option value="{{ $item->title }}">{{ $item->title }}</option>
+                                        <option value="{{ $item->id }}" {{ $project && $project->id == $item->id ? 'selected' : '' }}>
+                                            {{ $item->title }}
+                                        </option>
                                         @endforeach
                                     </select>
                                     <label>Select Type</label>
@@ -112,22 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-donate-info">
-                            <div class="form-info-detail">
-                                <span class="info-text">Select <span class="req"> *</span></span>
-                                <div class="form-floating">
-                                    <select class="form-select" aria-label="Floating label select example" name="type">
-                                        <option selected>Select Contribution Type</option>
-                                        <option value="Bank">Online money transfer</option>
-                                    </select>
-                                    <label>Select Type</label>
-                                    <div class="background-icon">
-                                        <div class="profile-text-icon"><i class="fa-solid fa-earth-asia"></i></div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Amount <span class="req"> *</span> </span>
@@ -147,8 +133,7 @@
                             <div class="form-info-detail">
                                 <span class="info-text">Message</span>
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="floatingTextarea" name="message"
-                                        style="height: 150px">{{ old('message') }}</textarea>
+                                    <textarea class="form-control" id="floatingTextarea" name="message" style="height: 150px">{{ old('message') }}</textarea>
                                     <label for="floatingTextarea">Write Your Message</label>
                                 </div>
                             </div>
