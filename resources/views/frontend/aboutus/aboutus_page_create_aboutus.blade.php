@@ -10,7 +10,7 @@
 
 
 <div class="container mt-3">
-  <h1>About us sector form</h1>
+  <h1>About Us Form</h1>
   <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.store_aboutus') }}">
     @csrf
     

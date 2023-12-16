@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\AboutuspageController;
+use App\Http\Controllers\AboutuspageiconController;
 use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPermissionsController;
@@ -162,6 +163,19 @@ Route::get('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::
 Route::put('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_update_logo'])->name('aboutuspage.update_logo');
 Route::delete('/aboutus_page_table/delete/{logoPages}', [AboutuspageController::class, 'aboutus_page_delete_logo'])->name('aboutuspage.delete_logo');
 
+// About Us introcall Page
+Route::get('/aboutus_page_table/create_introcall', [AboutuspageController::class, 'aboutus_page_create_introcall'])->name('aboutuspage.create_introcall');
+Route::post('/aboutus_page_table/create_introcall', [AboutuspageController::class, 'aboutus_page_store_call'])->name('aboutuspage.store_introcall');
+Route::get('/aboutus_page_table/edit_introcall/{introcallPages}', [AboutuspageController::class, 'aboutus_page_edit_introcall'])->name('aboutuspage.edit_introcall');
+Route::put('/aboutus_page_table/edit_introcall/{introcallPages}', [AboutuspageController::class, 'aboutus_page_update_introcall'])->name('aboutuspage.update_introcall');
+Route::delete('/aboutus_page_table/delete/{introcallPages}', [AboutuspageController::class, 'aboutus_page_delete_call'])->name('aboutuspage.delete_introcall');
+
+// About Us left call Page
+Route::get('/aboutus_page_table/create_leftcall', [AboutuspageController::class, 'aboutus_page_create_leftcall'])->name('aboutuspage.create_leftcall');
+Route::post('/aboutus_page_table/create_leftcall', [AboutuspageController::class, 'aboutus_page_store_leftcall'])->name('aboutuspage.store_leftcall');
+Route::get('/aboutus_page_table/edit_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_edit_leftcall'])->name('aboutuspage.edit_leftcall');
+Route::put('/aboutus_page_table/edit_introcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_update_leftcall'])->name('aboutuspage.update_leftcall');
+Route::delete('/aboutus_page_table/delete/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_delete_leftcall'])->name('aboutuspage.delete_leftcall');
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user
