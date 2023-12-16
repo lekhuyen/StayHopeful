@@ -63,25 +63,25 @@
     </div>
 </div>
 {{-- profile popup dropdown --}}
+
 <div class="popup-profile-container" style="z-index: 10;">
     <div class="profile-popup">
         <div class="profile-menu">
             <div class="user-info">
                 @if (session('userInfo'))
-                <div class="text popup-profile">
-                    @if (session('userInfo')['avatar'])
-                        <img class="nav-user-img"
-                            src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                    @elseif(!$infouser->avatar == null)
-                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                            alt="ảnh">
-                    @else
-                    <img class="nav-user-img" src="{{asset('img/convitne.jpg')}}" alt="">
-                    @endif
-                </div>
-            @else
-                <div class="text popup-login">LOGIN</div>
-            @endif
+                    <div class="text popup-profile">
+                        @if (session('userInfo')['avatar'])
+                            <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                        @elseif($infouser && $infouser->avatar != null)
+                            <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
+                        @else
+                            <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
+                        @endif
+                    </div>
+                @else
+                    <div class="text popup-login">LOGIN</div>
+                @endif
+
                 @if (session('userInfo'))
                     <h4>{{ session('userInfo')['name'] }}</h4>
                 @endif
@@ -149,10 +149,10 @@
                             popupChangePassword.classList.remove('showChangePassword');
                             // window.location.href = "{{ route('/') }}";
                             $('#old-password').val(''),
-                            $('#new-password-change').val('')
+                                $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
                         } else if (response.status == 'error') {
-                            setError(oldPassword,'Invalid Password');
+                            setError(oldPassword, 'Invalid Password');
                         }
                     },
                     error: function(error) {

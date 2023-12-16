@@ -104,12 +104,14 @@
                                 </thead>
                                 <tbody>
                                     @if ($userinfo)
+                                        @foreach ($userinfo as $item)
                                         <tr>
-                                            <td>{{ $userinfo->id }}</td>
-                                            <td>{{ $userinfo->users->name }}</td>
-                                            <td>{{ $userinfo->project->title }}</td>
-                                            <td style="color: #27AE60;">{{ $userinfo->amount }}$</td>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->users->name }}</td>
+                                            <td>{{ $item->project->title }}</td>
+                                            <td style="color: #27AE60;">{{ $item->amount }}$</td>
                                         </tr>
+                                        @endforeach
                                     @else
                                         <tr>
                                             <td colspan="4">You Dont Have Any Donate Yes! :(</td>

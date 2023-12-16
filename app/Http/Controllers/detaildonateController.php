@@ -14,22 +14,23 @@ use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class detaildonateController extends Controller
 {
 
-    public function index($id)
+    public function index()
+    {
+        $projects = Project::all();
+        $project = null;
+        return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
+       
+    }
+
+
+    public function donatepage($id)
     {
         $project = Project::where('id', '=', $id)->select('*')->first();
         $projects = Project::all();
 
-        
-        return view('frontend.detaildonate.donatepage', compact('projects','project')); // Change 'projects' to 'project'
-    }
-    
 
-public function donatepage()
-{
-    $projects = Project::all();
-    $project = null;
-    return view('frontend.detaildonate.donatepage', compact('projects','project'));
-}
+        return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
+    }
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
@@ -72,70 +73,62 @@ public function donatepage()
         if (isset($response['id']) && $response['id'] != null) {
             foreach ($response['links'] as $link) {
                 if ($link['rel'] === 'approve') {
+                    // dd($data);
                     return redirect()->away($link['href']);
+
                 }
             }
         } else {
+
             return redirect()->back()->with('error', 'Payment not accepted')->withInput();
         }
     }
     public function paymentsuccess(Request $request)
     {
-        $userinfo = session()->get('userinfo');
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request->token);
 
 
-        //Kiểm Tra Kết Quả Thanh Toán:
-        //Nếu trạng thái ($response['status']) là 'COMPLETED',
-        // nghĩa là việc thanh toán đã hoàn tất thành công.
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-           
             $user = Auth::user();
+            $userinfo = session()->get('userinfo');
+
+
             $tomail = $userinfo['emailget'];
             $message = $userinfo['project'];
             $name = $userinfo['fullname'];
             Mail::to($tomail)->send(new EmailDonate($message,$name));
-            if($user){
+            if ($user) {
                 $username = "";
-            if ($userinfo['fullname'] == "Anonymous") {
-                $username = "Anonymous";
+                if ($userinfo['fullname'] == "Anonymous") {
+                    $username = "Anonymous";
+                } else {
+                    $username = $userinfo['fullname'];
+                }
+    
+                $donateinfo = new DonateInfo();
+                $donateinfo->name = $username;
+                $donateinfo->email = $user->email;
+                $donateinfo->user_id = $user->id;
+                $donateinfo->phone = $userinfo['phone'];
+                $project = Project::where('title', $userinfo['project'])->first();
+                if ($project) {
+                    $donateinfo->project_id = $project->id;
+                }
+
+                $donateinfo->method = "bank";
+                $donateinfo->amount = $userinfo['amount'];
+                $donateinfo->message = $userinfo['message'];
+                $donateinfo->save();
+                $findUser = User::where('email', $user->email)->first();
+                if ($findUser) {
+                    $findUser->is_sponsor = true;
+                    $findUser->save();
+                }
             } else {
-                $username = $userinfo['fullname'];
-            }
-            
-            $donateinfo = new DonateInfo();
-            $donateinfo->name = $username;
-            $donateinfo->email = $user->email;
-            $donateinfo->user_id = $user->id;
-            $donateinfo->phone = $userinfo['phone'];
-            $project = Project::where('title', $userinfo['project'])->first();
-            if ($project) {
-                $donateinfo->project_id = $project->id;
-            }
-            // $userLogin = session()->get('userInfo');
-            // $findUser=null;
-            // if($userLogin){
-            //     $findUser = User::where('email','=', $userLogin['email'])->first();
-            // }else{
-            //     $findUser = User::where('email','=', $userinfo['email'])->first();
-            // }
-            // if ($findUser) {
-            //     $findUser->is_sponsor = true;
-            //     $findUser->save();
-            // }
-            $donateinfo->method = $userinfo['type'];
-            $donateinfo->amount = $userinfo['amount'];
-            $donateinfo->message = $userinfo['message'];
-            $donateinfo->save();
-            $findUser = User::where('email', $user->email)->first();
-            if ($findUser) {
-                $findUser->is_sponsor = true;
-                $findUser->save();
-            }
-            }else{
+    
                 $username = "";
                 if ($userinfo['fullname'] == "Anonymous") {
                     $username = "Anonymous";
@@ -145,21 +138,17 @@ public function donatepage()
 
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $username;
-                $donateinfo->email = $userinfo['email'];
+                $donateinfo->email = $userinfo['emailget'];
                 $donateinfo->phone = $userinfo['phone'];
                 $project = Project::where('title', $userinfo['project'])->first();
                 if ($project) {
                     $donateinfo->project_id = $project->id;
                 }
-                $donateinfo->method = $userinfo['type'];
+                $donateinfo->method = "bank";
                 $donateinfo->amount = $userinfo['amount'];
                 $donateinfo->message = $userinfo['message'];
                 $donateinfo->save();
-                // $findUser = User::where('email', $userinfo['email'])->first();
-                // if ($findUser) {
-                //     $findUser->is_sponsor = false;
-                //     $findUser->save();
-                // }
+
             }
             return redirect()->route('detail.listdonate')->with('success', 'Success Payment');
 
@@ -168,116 +157,5 @@ public function donatepage()
             return redirect()->back()->with('error', 'Error');
         }
     }
-
-
-
-    // public function viewlistdonate()
-    // {
-    //     return view('frontend.detaildonate.listdonate');
-    // }
-    // public function thanhtoan(Request $request)
-    // {
-    //     $fullname = "";
-    //     if ($request->hidename == "hidename") {
-    //         $fullname = $request->hidename;
-    //     } else {
-    //         $fullname = $request->fullname;
-    //     }
-    //     $email = $request->email;
-    //     $phone = $request->phone;
-    //     $project = $request->project;
-    //     $type = $request->type;
-    //     $amounttotal = $request->amount;
-    //     $message = $request->message;
-
-    //     if (isset($_POST['redirect'])) {
-    //         $order_id = rand(10000000, 99999999);
-    //         error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-    //         date_default_timezone_set('Asia/Ho_Chi_Minh');
-
-    //         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    //         $vnp_Returnurl = "http://127.0.0.1:8000/";
-    //         $vnp_TmnCode = "JDTIQ2LS";
-    //         $vnp_HashSecret = "GOZHPSSCWYEILRDETJAJTHHDVAHUZAWW";
-
-    //         $vnp_TxnRef = $order_id;
-    //         $vnp_OrderInfo = $project;
-    //         $vnp_OrderType = "card";
-    //         $vnp_Amount = $amounttotal * 100;
-    //         $vnp_Locale = "en";
-    //         $vnp_BankCode = "";
-    //         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
-    //         $inputData = array(
-    //             "vnp_Version" => "2.1.0",
-    //             "vnp_TmnCode" => $vnp_TmnCode,
-    //             "vnp_Amount" => $vnp_Amount,
-    //             "vnp_Command" => "pay",
-    //             "vnp_CreateDate" => date('YmdHis'),
-    //             "vnp_CurrCode" => "VND",
-    //             "vnp_IpAddr" => $vnp_IpAddr,
-    //             "vnp_Locale" => $vnp_Locale,
-    //             "vnp_OrderInfo" => $vnp_OrderInfo,
-    //             "vnp_OrderType" => $vnp_OrderType,
-    //             "vnp_ReturnUrl" => $vnp_Returnurl,
-    //             "vnp_TxnRef" => $vnp_TxnRef,
-
-    //         );
-
-    //         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-    //             $inputData['vnp_BankCode'] = $vnp_BankCode;
-    //         }
-
-    //         //var_dump($inputData);
-    //         ksort($inputData);
-    //         $query = "";
-    //         $i = 0;
-    //         $hashdata = "";
-    //         foreach ($inputData as $key => $value) {
-    //             if ($i == 1) {
-    //                 $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
-    //             } else {
-    //                 $hashdata .= urlencode($key) . "=" . urlencode($value);
-    //                 $i = 1;
-    //             }
-    //             $query .= urlencode($key) . "=" . urlencode($value) . '&';
-    //         }
-
-    //         $vnp_Url = $vnp_Url . "?" . $query;
-    //         if (isset($vnp_HashSecret)) {
-    //             $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret); //
-    //             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
-    //         }
-    //         $returnData = array(
-    //             'code' => '00'
-    //             ,
-    //             'message' => 'success'
-    //             ,
-    //             'data' => $vnp_Url
-    //         );
-    //         if ($returnData['code'] == '00') {
-    //             $tomail = $request->email;
-
-    //             Mail::to($tomail)->send(new EmailDonate());
-    //             return redirect()->back()->with('success', 'Send Mail Success');
-    //         }
-    //         if (isset($_POST['redirect'])) {
-    // $donateinfo = new DonateInfo();
-    // $donateinfo->name = $fullname;
-    // $donateinfo->email = $email;
-    // $donateinfo->phone = $phone;
-    // $donateinfo->project_id = $project;
-    // $donateinfo->method = $type;
-    // $donateinfo->amount = $amounttotal;
-    // $donateinfo->message = $message;
-    // $donateinfo->save();
-
-    //             return redirect($vnp_Url)->withInput();
-
-
-    //         } else {
-    //             return response()->json($returnData);
-    //         }
-    //     }
-    // }
 
 }

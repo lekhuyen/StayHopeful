@@ -133,14 +133,11 @@
                             @if (session('userInfo'))
                                 <div class="text popup-profile">
                                     @if (session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
-                                            alt="">
-                                    @elseif(!$infouser->avatar == null)
-                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                                            alt="ảnh">
+                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                    @elseif($infouser && $infouser->avatar != null)
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
                                     @else
-                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
-                                            alt="">
+                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
                                     @endif
                                 </div>
                             @else
