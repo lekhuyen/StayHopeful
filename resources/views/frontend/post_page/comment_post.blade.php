@@ -3,7 +3,7 @@
 
             <div class="comment_close-header-title">
                 <div class="post_comment-header-title">
-                    <h1>Bai cua</h1>
+                    <h1>Bai cua {{ $post->user->name }}</h1>
                 </div>
                 <div class="close-icon-comment">
                     <i class="fa-solid fa-xmark"></i>
@@ -44,59 +44,11 @@
             </div>
 
             {{-- !comment --}}
-            <div class="commnent_post_body">
+            <div class="commnent_post_body" style="padding-top: 15px">
                 @include('frontend.post_page.list_comment', [
                     'comments' => $post->comments,
                     'post' => $post,
                 ])
-                {{-- <div class="comment_post">
-                    <a href="">
-                        <img width="60"
-                            src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                            alt="">
-                    </a>
-                    <div class="comment_body">
-                        <a href="">User Name</a>
-                        <p class="comment_content"></p>
-                        <p class="reply_comment_post">
-                            Reply
-                        </p>
-    
-                        <form action="" style="display: none">
-                            <div id="input_reply-comment">
-                                <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                <div class="btn_icon-submit">
-                                    <i class="fa-solid fa-location-arrow"></i>
-                                </div>
-                            </div>
-                        </form>
-    
-                        <div class="comment_post">
-                            <a href="">
-                                <img width="60"
-                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                    alt="">
-                            </a>
-                            <div class="comment_body">
-                                <a href="">User Name</a>
-                                <p></p>
-                                <p class="reply_comment_post">
-                                    Reply
-                                </p>
-    
-                                <form action="" style="display: none">
-    
-                                    <div id="input_reply-comment">
-                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                        <div class="btn_icon-submit">
-                                            <i class="fa-solid fa-location-arrow"></i>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
 
@@ -122,21 +74,26 @@
                 var content = $('.content_comment').val();
                 var _loginUrl = '{{ route('store-comment', ':id') }}'.replace(':id', post_id);
 
-                $.ajax({
-                    type: 'POST',
-                    url: _loginUrl,
-                    data: {
-                        content: content,
-                        _token: _csrf
-                    },
-                    success: function(data) {
-                        $('.commnent_post_body').html(data);
-                        $('.content_comment').val('');
-                    },
-                    error: function(error) {
-                        alert(error);
-                    }
-                });
+                if (content.trim() !== '') {
+                    $.ajax({
+                        type: 'POST',
+                        url: _loginUrl,
+                        data: {
+                            content: content,
+                            _token: _csrf
+                        },
+                        success: function(data) {
+                            $('.commnent_post_body').html(data);
+                            $('.content_comment').val('');
+                        },
+                        error: function(error) {
+                            alert(error);
+                        }
+                    });
+                } else {
+                    alert('Please enter some content before submitting.');
+                }
+
             });
 
             $('.content_comment').on('keydown', function(e) {
@@ -164,51 +121,57 @@
 
                 // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
                 var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
-
-
-                $.ajax({
-                    type: 'POST',
-                    url: _loginUrl,
-                    data: {
-                        content: content,
-                        comment_id: comment_id,
-                        _token: _csrf
-                    },
-                    success: function(data) {
-                        var html = `<div>
-                            <a href="">
-                                <img width="60"
-                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                    alt="">
-                            </a>
-                            <div class="comment_body">
-                                <a href="">User Name</a>
-                                <p>${data[0].content}</p>
-                                <p class="reply_comment_post">
-                                    Reply
-                                </p>
-    
-                                <form action="" style="display: none">
-                                    <div id="input_reply-comment">
-                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                        <div class="btn_icon-submit">
-                                            <i class="fa-solid fa-location-arrow"></i>
-                                        </div>
+                if (content.trim() !== '') {
+                    $.ajax({
+                        type: 'POST',
+                        url: _loginUrl,
+                        data: {
+                            content: content,
+                            comment_id: comment_id,
+                            _token: _csrf
+                        },
+                        success: function(data) {
+                            var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
+                                <a href="">
+                                    <img width="60" id="avatar_user"
+                                        src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                        alt="">
+                                </a>
+                                <div class="comment_body">
+                                    <div class="comment_background">
+                                        <a href="">{{auth()->user()->name}}</a>
+                                        <p>${data[0].content}</p>
                                     </div>
-                                </form>
-                            </div>
-                        </div>`
+                                    <p class="reply_comment_post">
+                                        Reply
+                                    </p>
+
+                                    <form action="" style="display: none">
+                                        <div id="input_reply-comment">
+                                            <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                            <div class="btn_icon-submit">
+                                                <i class="fa-solid fa-location-arrow"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>`
 
 
-                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
-                        $('.content_reply-' + comment_id).val('');
-                        $('.form_reply').slideUp();
-                        // console.log(data[0].content);
-                    },
-                    error: function(error) {
-                        alert(error);
-                    }
-                });
+                            $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                            $('.content_reply-' + comment_id).val('');
+                            $('.form_reply').slideUp();
+                            // console.log(data[0].content);
+                        },
+                        error: function(error) {
+                            alert(error);
+                        }
+                    });
+                } else {
+                    alert('Please enter some content before submitting.');
+                }
+
+
             });
 
 
@@ -220,69 +183,72 @@
             // })
         });
 
+        //keucode
         $(document).ready(function() {
             $('.content_reply').on('keydown', function(e) {
 
                 if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
-                // post_id = $(this).data('post-id');
+                    // post_id = $(this).data('post-id');
 
-                comment_id = $(this).data('id');
+                    comment_id = $(this).data('id');
 
-                var commentContent_id = '.content_reply-' + comment_id;
+                    var commentContent_id = '.content_reply-' + comment_id;
 
-                var content = $(commentContent_id).val();
+                    var content = $(commentContent_id).val();
 
-                // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
-                var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
+                    // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
+                    var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
 
 
-                $.ajax({
-                    type: 'POST',
-                    url: _loginUrl,
-                    data: {
-                        content: content,
-                        comment_id: comment_id,
-                        _token: _csrf
-                    },
-                    success: function(data) {
-                        var html = `<div>
-                            <a href="">
-                                <img width="60"
-                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                    alt="">
-                            </a>
-                            <div class="comment_body">
-                                <a href="">User Name</a>
-                                <p>${data[0].content}</p>
-                                <p class="reply_comment_post">
-                                    Reply
-                                </p>
-    
-                                <form action="" style="display: none">
-                                    <div id="input_reply-comment">
-                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                        <div class="btn_icon-submit">
-                                            <i class="fa-solid fa-location-arrow"></i>
-                                        </div>
+                    $.ajax({
+                        type: 'POST',
+                        url: _loginUrl,
+                        data: {
+                            content: content,
+                            comment_id: comment_id,
+                            _token: _csrf
+                        },
+                        success: function(data) {
+                                var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
+                                <a href="">
+                                    <img width="60" id="avatar_user"
+                                        src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                        alt="">
+                                </a>
+                                <div class="comment_body">
+                                    <div class="comment_background">
+                                        <a href="">{{auth()->user()->name}}</a>
+                                        <p>${data[0].content}</p>
                                     </div>
-                                </form>
-                            </div>
-                        </div>`
+                                    <p class="reply_comment_post">
+                                        Reply
+                                    </p>
 
-                        
-                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
-                        $('.content_reply-' + comment_id).val('');
-                        $('.form_reply').slideUp();
-                        // console.log(data[0].content);
-                    },
-                    error: function(error) {
-                        alert(error);
-                    }
-                });
+                                    <form action="" style="display: none">
+                                        <div id="input_reply-comment">
+                                            <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                            <div class="btn_icon-submit">
+                                                <i class="fa-solid fa-location-arrow"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>`
+
+
+                            $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                            $('.content_reply-' + comment_id).val('');
+                            $('.form_reply').slideUp();
+                            // console.log(data[0].content);
+                        },
+                        error: function(error) {
+                            alert(error);
+                        }
+                    });
                 }
                 // $('.btn_reply-submit').submit(function(e) {
-                
+
             });
         });
 
@@ -296,6 +262,13 @@
             $('.form_reply').slideUp();
             $(formReply).slideDown();
         })
+
+        
+        $('.content_reply').blur(function() {
+            $('.form_reply').slideUp();
+            // $(this).val('');
+        })
+        
 
         $(document).ready(function() {
             $('.modal_inner-comment-post').click(function(e) {
