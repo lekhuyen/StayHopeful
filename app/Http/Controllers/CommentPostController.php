@@ -10,34 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentPostController extends Controller
 {
-    // public function post_comment(Request $request,$post_id){
-    //     $user_id = session('userInfo')['id'];
-    //     $validator = Validator::make($request->all(), [
-    //         'content'=>'required',
-    //     ],[
-    //         'content.required'=> 'Noi dung khong duoc de trong',
-    //     ]);
-    //     if($validator->passes()){
-    //         $data = [
-    //             'user_id'=> $user_id,
-    //             'content'=> $request->content,
-    //             'post_id'=>$post_id,
-    //             'isReply'=>$request->isReply,
-    //             'comment_id'=>$request->commentid,
-    //             'reply_id'=>$request->reply_id ? $request->reply_id:0
-    //         ];
-
-    // $comment = CommentPost::create($data);            
-    // if($comment){
-    //     $comments = CommentPost::where(['post_id'=>$post_id])->orderBy('id', 'desc')->get();
-
-    // return view('frontend.post_page.list_comment', compact('comments'));
-    // return response()->json($comments);
-    // }
-    //     }
-    //     return response()->json(['error'=> $validator->errors()->first()]);
-    // }
-
 
     public function storeComment(Request $request, $post_id)
     {
@@ -105,5 +77,32 @@ class CommentPostController extends Controller
                 'message' => 'Post not found',
             ]);
         }
+    }
+
+
+
+    //delete-comment
+    public function deleteComments($id){
+        $comment = CommentPost::find($id);
+        if($comment){
+            $comment->delete();
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+        return response()->json(['error' =>'Comment not found']);
+
+    }
+    public function editComments($id){
+        $comment = CommentPost::find($id);
+        if($comment){
+            
+            return response()->json([
+                'status' => 'success',
+                'comment' => $comment,
+            ]);
+        }
+        return response()->json(['error' =>'Comment not found']);
+
     }
 }

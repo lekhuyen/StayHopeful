@@ -66,7 +66,7 @@
                             <div id="comment_post" data-id="{{ $post->id }}">
                                 {{-- <i class="fa-regular fa-comment"></i> --}}
                                 <span>
-                                    {{ $post->comments->count() + $post->replies->count()}}
+                                    {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count()}}
                                     Comment
                                 </span>
                             </div>
