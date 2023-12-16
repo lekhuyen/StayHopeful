@@ -42,7 +42,7 @@
                                                 class="btn btn-outline-dark btn-md"><i class="fas fa-reply"></i></a>
                                         @else
                                             <button disabled
-                                                class="btn btn-warning">Reply</button>
+                                                class="btn btn-outline-dark btn-md"><i class="fas fa-reply"></i></button>
                                             <a href="{{ route('admin.viewmaildetail', $item->id) }}"
                                                 class="btn btn-outline-info btn-lg"><i class="fa-solid fa-info"></i></a>
                                         @endif
