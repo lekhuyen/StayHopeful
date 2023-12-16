@@ -33,7 +33,7 @@ class detaildonateController extends Controller
             'amount' => 'required|numeric|min:0',
         ], [
             'amount.numeric' => 'Please enter a valid number.',
-            'amount.min' => 'Please enter a number greater than 0.',
+            'amount.min' => 'Please enter a Amount greater than 0.',
         ]);
         $data = $request->all();
         session()->put('userinfo', $data);
@@ -81,34 +81,75 @@ class detaildonateController extends Controller
         //Nếu trạng thái ($response['status']) là 'COMPLETED',
         // nghĩa là việc thanh toán đã hoàn tất thành công.
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-            $tomail = $userinfo['email'];
-            $message = $userinfo['project'];
+           
             $user = Auth::user();
-            // dd($userinfo);
+            $tomail = $userinfo['emailget'];
+            $message = $userinfo['project'];
             Mail::to($tomail)->send(new EmailDonate($message));
-            $username = "";
-            if ($userinfo['fullname'] != "Anonymous") {
-                $username = $userinfo['fullname'];
+            if($user){
+                $username = "";
+            if ($userinfo['fullname'] == "Anonymous") {
+                $username = "Anonymous";
             } else {
-                $username = $userinfo['hidename'];
+                $username = $userinfo['fullname'];
             }
+            
             $donateinfo = new DonateInfo();
             $donateinfo->name = $username;
-            $donateinfo->user_id = 2;
-            $donateinfo->email = $userinfo['email'];
+            $donateinfo->email = $user->email;
+            $donateinfo->user_id = $user->id;
             $donateinfo->phone = $userinfo['phone'];
             $project = Project::where('title', $userinfo['project'])->first();
             if ($project) {
                 $donateinfo->project_id = $project->id;
             }
+            // $userLogin = session()->get('userInfo');
+            // $findUser=null;
+            // if($userLogin){
+            //     $findUser = User::where('email','=', $userLogin['email'])->first();
+            // }else{
+            //     $findUser = User::where('email','=', $userinfo['email'])->first();
+            // }
+            // if ($findUser) {
+            //     $findUser->is_sponsor = true;
+            //     $findUser->save();
+            // }
             $donateinfo->method = $userinfo['type'];
             $donateinfo->amount = $userinfo['amount'];
             $donateinfo->message = $userinfo['message'];
             $donateinfo->save();
-            $findUser = User::where('email', $request->$userinfo['email'])->first();
+            $findUser = User::where('email', $user->email)->first();
             if ($findUser) {
-                $findUser->is_sponsor = false;
+                $findUser->is_sponsor = true;
                 $findUser->save();
+            }
+            }else{
+                $username = "";
+                if ($userinfo['fullname'] == "Anonymous") {
+                    $username = "Anonymous";
+                } else {
+                    $username = $userinfo['fullname'];
+                }
+                $tomail = $userinfo['email'];
+                $message = $userinfo['project'];
+                Mail::to($tomail)->send(new EmailDonate($message));
+                $donateinfo = new DonateInfo();
+                $donateinfo->name = $username;
+                $donateinfo->email = $userinfo['email'];
+                $donateinfo->phone = $userinfo['phone'];
+                $project = Project::where('title', $userinfo['project'])->first();
+                if ($project) {
+                    $donateinfo->project_id = $project->id;
+                }
+                $donateinfo->method = $userinfo['type'];
+                $donateinfo->amount = $userinfo['amount'];
+                $donateinfo->message = $userinfo['message'];
+                $donateinfo->save();
+                // $findUser = User::where('email', $userinfo['email'])->first();
+                // if ($findUser) {
+                //     $findUser->is_sponsor = false;
+                //     $findUser->save();
+                // }
             }
             return redirect()->route('detail.listdonate')->with('success', 'Success Payment');
 

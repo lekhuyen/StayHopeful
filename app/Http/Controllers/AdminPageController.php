@@ -148,7 +148,7 @@ class AdminPageController extends Controller
 
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::paginate(3);
+        $sliders = Sliders::orderBy('id','desc')->paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
 
@@ -258,7 +258,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::paginate(4);
+        $user = User::orderBy('id','desc')->paginate(4);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
@@ -277,7 +277,7 @@ class AdminPageController extends Controller
     //donate admin
     public function viewlistdonate()
     {
-        $donateinfo = DonateInfo::paginate(3);
+        $donateinfo = DonateInfo::paginate(6);
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 

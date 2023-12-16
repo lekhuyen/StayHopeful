@@ -49,7 +49,7 @@ errorAlert.addEventListener('click', function () {
  
 
  function validatePassword(password) {
-    return /^[A-Za-z]\w{7,14}$/.test(password);
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/.test(password);
 }
 function setSuccess(ele) {
     ele.parentNode.classList.add('success');
@@ -77,6 +77,7 @@ function checkChangePassword() {
         isCheck = false;
     } else {
         setSuccess(oldPassword);
+        setError(oldPassword,'');
     }
 
     // Kiểm tra trường password
@@ -88,7 +89,9 @@ function checkChangePassword() {
         isCheck = false;
     } else {
         setSuccess(newPassword);
+        setError(newPassword,'');
     }
+
     // Kiểm tra trường confirm password
     if (confirmNewPasswordValue == '') {
         setError(confirmNewPassword,'Confirm Password không được để trống');
@@ -98,6 +101,7 @@ function checkChangePassword() {
         isCheck = false;
     } else {
         setSuccess(confirmNewPassword);
+        setError(confirmNewPassword,'');
     }
 
     return isCheck;

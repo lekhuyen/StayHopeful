@@ -8,10 +8,11 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8" style="padding: 0; border-radius: 5px; ">
-                {{-- new post(user) --}}
+                {{-- * new post(user) --}}
                 <div class="input_new-post">
                     <div type="text">New post..</div>
                 </div>
+                {{-- * new post(user) --}}
                 @foreach ($posts as $post)
                     <div style="padding: 0; background-color:#f1ebeb; border-radius: 5px; ">
                         <div class="post-uset-body"
@@ -67,7 +68,6 @@
                                 <span>Comment</span>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
             </div>
@@ -83,99 +83,21 @@
 
     {{-- comment --}}
     <div class="modal-user-Comment-post">
-        <div class="modal_inner-comment-post">
-            <div class="post-header">
-
-                <div class="comment_close-header-title">
-                    <div class="post_comment-header-title">
-                        <h1>Bai cua</h1>
-                    </div>
-                    <div class="close-icon-comment">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </div>
-
-            </div>
-            <div id="commnent_post_body">
-                @include('frontend.post_page.list_comment', ['comments' => $comments])
-                {{-- <div class="comment_post">
-                    <a href="">
-                        <img width="60"
-                            src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                            alt="">
-                    </a>
-                    <div class="comment_body">
-                        <a href="">User Name</a>
-                        <p class="comment_content">Content</p>
-                        <p class="reply_comment_post">
-                            Reply
-                        </p>
-
-                        <form action="" style="display: none">
-
-                            <div id="input_reply-comment">
-                                <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                <div class="btn_icon-submit">
-                                    <i class="fa-solid fa-location-arrow"></i>
-                                </div>
-                            </div>
-                        </form>
-
-                        
-                        <div class="comment_post">
-                            <a href="">
-                                <img width="60"
-                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                    alt="">
-                            </a>
-                            <div class="comment_body">
-                                <a href="">User Name</a>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, nesciunt. Beatae
-                                    facilis,
-                                    ipsa animi dolorem at soluta corporis atque
-                                    expedita repudiandae voluptates pariatur, odit laborum. Quos voluptatum possimus sed
-                                    vitae!
-                                </p>
-                                <p class="reply_comment_post">
-                                    Reply
-                                </p>
-
-                                <form action="" style="display: none">
-
-                                    <div id="input_reply-comment">
-                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                        <div class="btn_icon-submit">
-                                            <i class="fa-solid fa-location-arrow"></i>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
-
-            <form id="form_comment-texarena">
-                <div id="input_comment-post-1">
-                    <textarea class="content_comment" name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                    <div class="submit_comment-post btn_icon-submit">
-                        <i class="fa-solid fa-location-arrow"></i>
-                    </div>
-                </div>
-            </form>
-
-        </div>
+        {{-- <div class="modal_inner-comment-post"></div> --}}
     </div>
 
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     var post_id;
+
+
+//get- post
     $(document).on('click', '#comment_post', function() {
         post_id = $(this).data('id');
         $('.modal-user-Comment-post').addClass('show-comment');
-        var _loginUrl = '{{ route('post.detail.web') }}';
+        var _loginUrl = '{{ route('show_comment-post',':id') }}'.replace(':id', post_id);
+        
         $.ajax({
             url: _loginUrl,
             type: 'GET',
@@ -184,59 +106,18 @@
             },
             success: function(data) {
                 if (data.status == 'error') {
-                    console.log(data.message);
+                    alert(data.message);
+                } else {
+                    $('.modal-user-Comment-post').html(data);
                 }
+                
             }
 
         })
 
     })
 
-
-    $(document).ready(function() {
-        $('.submit_comment-post').click(function(e) {
-            e.preventDefault();
-            var _csrf = '{{ csrf_token() }}';
-            var content = $('.content_comment').val();
-            var _loginUrl = '{{ route('post.comment', ':id') }}'.replace(':id', post_id);
-
-            $.ajax({
-                url: _loginUrl,
-                type: 'POST',
-                data: {
-                    content: content,
-                    _token: _csrf
-                },
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                    } else {
-                        $('#commnent_post_body').html(data);
-                        $('.content_comment').val('');
-                    }
-                }
-
-            })
-        })
-    })
-
-    $(document).ready(function() {
-        $('.close-icon-comment').click(function() {
-            $('.modal-user-Comment-post').removeClass('show-comment');
-
-        })
-    })
-    $(document).ready(function() {
-        $('.modal-user-Comment-post').click(function() {
-            $(this).removeClass('show-comment');
-        })
-    })
-    $(document).ready(function() {
-        $('.modal_inner-comment-post').click(function(e) {
-            e.stopPropagation();
-        })
-    })
-
+//like
     $(document).ready(function() {
         $('.like_post-1').each(function() {
             var postId = $(this).data('post-id');

@@ -6,14 +6,15 @@
     {{-- css --}}
 
     <div class="volunteer-detail">
-        <h1>Project Volunteer</h1>
+        <h1>Project Volunteer List</h1>
         <div class="container mt-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
-                        <th>Quantity</th>
+                        <th>Requirement</th>
+                        <th>Volunteer Quantity</th>
                         <th>Status</th>
                         <th>Detail</th>
                     </tr>
@@ -38,8 +39,9 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->title }}</td>
-                        <td>{{ $item->quantity }}</td>
-                        <td><span>{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
+                        <td class="text-center">{{ $item->quantity }}</td>
+                        <td class="text-center"></td>
+                        <td><span style="font-style: oblique">{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
                         <td>
                             <button type="button" class="btn btn-outline-info btn-lg" data-bs-toggle="modal"
                                 data-bs-target="#myModal" data-id="{{ $item->id }}"><i class="fa-solid fa-info"></i>

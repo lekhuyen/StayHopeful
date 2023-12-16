@@ -45,10 +45,10 @@
                         <td>
                             @if ($project->status == 1)
                                 <a data-finish="{{ $project->id }}" class="project-finish"><span
-                                        class="badge bg-success">Finished</span></a>
+                                        class="badge bg-success status__project">Finished</span></a>
                             @else
                                 <a data-unfinish="{{ $project->id }}" class="project-unfinish"><span
-                                        class="badge bg-warning">Unfinished</span></a>
+                                        class="badge bg-warning status__project">Unfinished</span></a>
                             @endif
                         </td>
                         <td>

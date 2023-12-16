@@ -129,7 +129,6 @@
     //alert
     var changePasswordSuccess = document.querySelector(".container-change-password-notification");
     var errorAlert = document.querySelector(".container-error-notification");
-
     //change password ajax request
     $(document).ready(function() {
         $('#changePasswordForm').submit(function(e) {
@@ -153,10 +152,11 @@
                             $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
                         } else if (response.status == 'error') {
-                            errorAlert.classList.add("showAlert");
+                            setError(oldPassword,'Invalid Password');
                         }
                     },
                     error: function(error) {
+                        errorAlert.classList.add("showAlert");
                         console.log(response.message);
                     }
                 });

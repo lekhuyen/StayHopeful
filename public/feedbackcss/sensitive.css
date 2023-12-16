@@ -17,3 +17,11 @@ h1 {
     color: cornflowerblue;
     text-align: center;
 }
+.status__sensitive{
+    text-decoration: none;
+    width: 70px;
+}
+.status__sensitive:hover{
+    cursor: pointer;
+    color: black;
+}
