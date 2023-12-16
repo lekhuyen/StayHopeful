@@ -44,7 +44,7 @@ class AdminPageController extends Controller
     }
     public function viewmaildetail($id)
     {
-        $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
+        $mail = Contactus::find($id);
         return view('frontend.adminpage.manager.maildetail', compact('mail'));
     }
     public function sendreplymail(Request $request, $id)
@@ -65,11 +65,8 @@ class AdminPageController extends Controller
         $detail->contact_id = $id;
         $detail->save();
         Mail::to($email)->send(new MailReply($message, $subject));
-
         return redirect()->route('admin.viewmail')->with('success', 'Send Mail Success');
     }
-
-
 
     public function viewdashboard()
     {
@@ -78,13 +75,10 @@ class AdminPageController extends Controller
             ->groupBy('status')
             ->get();
         $userCount = User::withTrashed()->count();
-
         $allproject = Project::all();
-
         $totalproject = $project->sum('total_projects');
         $totalstatus = $project->sum('status_1');
         $totalamount = $amount->sum('amount');
-
         $bigchart = $this->bigchart();
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();

@@ -16,9 +16,9 @@
                     <table class="table table-striper">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                {{-- <th>Name</th> --}}
                                 <th>Email</th>
-                                <th>Telephone</th>
+                                {{-- <th>Telephone</th> --}}
                                 <th>Sent Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -27,9 +27,9 @@
                         <tbody>
                             @foreach ($mail as $item)
                                 <tr>
-                                    <td>{{ $item->name }}</td>
+                                    {{-- <td>{{ $item->name }}</td> --}}
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->phone }}</td>
+                                    {{-- <td>{{ $item->phone }}</td> --}}
                                     <td>{{ $item->created_at }}</td>
                                     <td>
                                         @if ($item->status == 0)
@@ -43,12 +43,12 @@
                                     <td>
                                         @if ($item->status == 0)
                                             <a href="{{ route('admin.getreplymail', $item->id) }}"
-                                                class="btn btn-warning">Reply</a>
+                                                class="btn btn-outline-dark btn-md"><i class="fas fa-reply"></i></a>
                                         @else
                                             <a href="{{ route('admin.getreplymail', $item->id) }}"
-                                                class="btn btn-warning">Reply</a>
+                                                class="btn btn-outline-dark btn-md"><i class="fas fa-reply"></i></a>
                                             <a href="{{ route('admin.viewmaildetail', $item->id) }}"
-                                                class="btn btn-primary">Detail</a>
+                                                class="btn btn-outline-info btn-lg"><i class="fa-solid fa-info"></i></a>
                                         @endif
                                     </td>
                                 </tr>
