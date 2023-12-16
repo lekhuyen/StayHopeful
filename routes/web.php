@@ -137,32 +137,29 @@ Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberD
 // About Us Page
 
 Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
-
 Route::get('/aboutus_page_main/{id}', [AboutuspageController::class, 'Aboutus_page_main'])->name('aboutus_page_main');
 
 // About Us main Page
 Route::get('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_create_main'])->name('aboutuspage.create_main');
-
 Route::post('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_store_main'])->name('aboutuspage.store_main');
-
 Route::get('/aboutus_page_table/edit_main/{mainPages}', [AboutuspageController::class, 'aboutus_page_edit_main'])->name('aboutuspage.edit_main');
-
 Route::put('/aboutus_page_table/edit/{mainPages}', [AboutuspageController::class, 'aboutus_page_update_main'])->name('aboutuspage.update_main');
-
 Route::delete('/aboutus_page_table/delete/{mainPages}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_main');
-
 Route::get('/aboutus_page_detail/{id}', [AboutuspageController::class, 'Aboutus_page_detail'])->name('aboutuspage.detail');
 
 // About Us (about us) Page
 Route::get('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_create_aboutus'])->name('aboutuspage.create_aboutus');
-
 Route::post('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_store_aboutus'])->name('aboutuspage.store_aboutus');
-
 Route::get('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_edit_aboutus'])->name('aboutuspage.edit_aboutus');
-
 Route::put('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_update_aboutus'])->name('aboutuspage.update_aboutus');
+Route::delete('/aboutus_page_table/delete/{aboutuspage}', [AboutuspageController::class, 'aboutus_page_delete_aboutus'])->name('aboutuspage.delete_aboutus');
 
-Route::delete('/aboutus_page_table/delete/{aboutuspage}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_aboutus');
+// About Us (logo) Page
+Route::get('/aboutus_page_table/create_logo', [AboutuspageController::class, 'aboutus_page_create_logo'])->name('aboutuspage.create_logo');
+Route::post('/aboutus_page_table/create_logo', [AboutuspageController::class, 'aboutus_page_store_logo'])->name('aboutuspage.store_logo');
+Route::get('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_edit_logo'])->name('aboutuspage.edit_logo');
+Route::put('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_update_logo'])->name('aboutuspage.update_logo');
+Route::delete('/aboutus_page_table/delete/{logoPages}', [AboutuspageController::class, 'aboutus_page_delete_logo'])->name('aboutuspage.delete_logo');
 
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin

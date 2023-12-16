@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('aboutuspages', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description')->nullable(); // Make it nullable
-            $table->string('section')->default('main'); // Add the 'section' column with a default value of 'main'
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('section')->default('main');
             $table->timestamps();
         });
     }
 
-    
     public function down(): void
     {
         Schema::dropIfExists('aboutuspages');

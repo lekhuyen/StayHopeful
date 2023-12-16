@@ -1,8 +1,8 @@
 @extends('frontend.site')
 @section('title', 'About Us')
 @section('main')
-    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
-    <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('general/general.css') }}">
+<link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
 
     <br>
     <br>
@@ -14,7 +14,7 @@
                     <h1>{{ $aboutusmain->title }}</h1>
                     <span class="mission">{{ $aboutusmain->description }}</span>
                     @if ($aboutusmain->images->count() > 0)
-                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main">
+                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main"  style="max-width: 30%;">
                     @endif
                 @endif
             </div>
@@ -25,13 +25,25 @@
     {{-- About Us Sector --}}
     <div class="container-fluid mt-3">
         @php
-            $aboutUsCounter = 1;
+            $aboutUsCounter = 0;
+            $firstTitle = null;
         @endphp
     
         @foreach ($aboutuspages as $aboutusmain)
+            @if ($aboutusmain->section == 'aboutus' && $aboutUsCounter == 0)
+                @php
+                    $firstTitle = $aboutusmain->title;
+                    $aboutUsCounter++;
+                @endphp
+            @endif
+        @endforeach
+
+        @foreach ($aboutuspages as $aboutusmain)
             @if ($aboutusmain->section == 'aboutus')
                 <div style="margin-top: 20px">
-                    <h1>{{ $aboutusmain->title }}</h1>
+                    @if ($aboutusmain->title == $firstTitle)
+                        <h1>{{ $aboutusmain->title }}</h1>
+                    @endif
                     @if ($aboutUsCounter % 2 == 0)
                         <div class="container about-story2" data-aos="zoom-in-right">
                             <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
@@ -101,50 +113,41 @@
     </div>
 
     <br>
-    {{-- logo_company --}}
     <div class="container mt-3 aboutus-logo">
-        <div class="position-relative py-2 px-4 col-md-6 offset-md-3 logo_info">
-            Our vision extends beyond immediate impact. We're committed to sustainable solutions that stand the test of
-            time. Your support not only transforms lives but also contributes to a more resilient and sustainable future. At
-            <strong>StayHopeful</strong>, we partner with organizations that share our dedication to environmental
-            well-being.
-            <svg width="20px" height="20px" viewBox="0 0 16 16"
-                class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-secondary)"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-            </svg>
-        </div>
-        <br>
-        <div class="row align-items-center">
-            <div class="col">
-                <a href="https://www.independent.co.uk/asia"><img src="{{ asset('img/logo_aboutus/logo_company1.PNG') }}"
-                        alt="logo_company1.PNG" class="logo_company"></a>
-            </div>
-            <div class="col">
-                <a href="https://www.theguardian.com/international"><img
-                        src="{{ asset('img/logo_aboutus/logo_company2.PNG') }}" alt="logo_company2.PNG"
-                        class="logo_company"></a>
-            </div>
-            <div class="col">
-                <a href="https://www.cbsnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company3.jpg') }}"
-                        alt="logo_company3.jpg" class="logo_company"></a>
-            </div>
-            <div class="col ">
-                <a href="https://nypost.com/"><img src="{{ asset('img/logo_aboutus/logo_company4.PNG') }}"
-                        alt="logo_company3.jpg" class="logo_company"></a>
-            </div>
-            <div class="col ">
-                <a href="https://www.usnews.com/"><img src="{{ asset('img/logo_aboutus/logo_company5.jpg') }}"
-                        alt="logo_company3.jpg" class="logo_company"></a>
-            </div>
-            <div class="col ">
-                <a href="https://e.vnexpress.net/"><img src="{{ asset('img/logo_aboutus/logo_company6.PNG') }}"
-                        alt="logo_company3.jpg" class="logo_company"></a>
-            </div>
+        @php
+            $aboutUsCounter = 0;
+            $firstTitle = null;
+        @endphp
+    
+        @foreach ($aboutuspages as $aboutusmain)
+            @if ($aboutusmain->section == 'aboutus' && $aboutUsCounter == 0)
+                @php
+                    $firstTitle = $aboutusmain->title;
+                    $aboutUsCounter++;
+                @endphp
+            @endif
+        @endforeach
+    
+        <div>
+            @if ($firstTitle)
+                <h1>{{ $firstTitle }}</h1>
+            @endif
+    
+            @foreach ($aboutuspages as $aboutusmain)
+                @if ($aboutusmain->section === 'logo')
+                    <div class="row">
+                        @foreach ($aboutusmain->images as $image)
+                            <div class="col-md-2 mb-3">
+                                <img src="{{ asset($image->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main img-fluid logo_company">
+                            </div>
+                        @endforeach
+                    </div>
+                    <br>
+                @endif
+            @endforeach
         </div>
     </div>
-
+    
     {{-- call to action sector --}}
     <div class="container mt-3 call_to_action">
         <h3>Join Us in Making a Difference!</h3>

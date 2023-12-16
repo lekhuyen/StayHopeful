@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Storage;
 class AboutuspageController extends Controller
 {
     public function aboutus_page_index() {
-        // Fetch data for both Main and About Us Pages
-        $mainPages = aboutuspage::where('section', 'main')->get();
-        $aboutUsPages = aboutuspage::where('section', 'aboutus')->get();
-    
-        // Pass both variables to the view
-        return view("frontend.aboutus.aboutus_page_index", compact("mainPages", "aboutUsPages"));
+        // Fetch data for Main, About Us, and Logo Pages
+        $mainPages = Aboutuspage::where('section', 'main')->get();
+        $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
+        $logoPages = Aboutuspage::where('section', 'logo')->get();
+
+        // Pass all variables to the view
+        return view("frontend.aboutus.aboutus_page_index", compact("mainPages", "aboutUsPages", "logoPages",));
     }
 
     //main
@@ -28,7 +29,7 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_main(Request $request)
     {
         $request->validate([
-            "title" => "required",
+            "title" => "nullable",
             "description" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
@@ -69,7 +70,7 @@ class AboutuspageController extends Controller
     {
 
         $request->validate([
-            "title" => "required",
+            "title" => "nullable",
             "description" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
@@ -140,36 +141,17 @@ class AboutuspageController extends Controller
         return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
     }
 
-    public function Aboutus_main_detail($id)
-    {
-        // Retrieve the main page from the database
-        $mainPages = aboutuspage::find($id);
-
-        // Pass the main page data to the view
-        return view('frontend.aboutus.aboutus_main_detail', compact('mainPages'));
-    }
-
-    public function Aboutus_aboutus_detail($id)
-    {
-        // Retrieve the about us page from the database
-        $aboutUsPages = aboutuspage::find($id);
-
-        // Pass the about us page data to the view
-        return view('frontend.aboutus.aboutus_aboutus_detail', compact('aboutUsPages'));
-    }
-
-
     //about us
-    public function aboutus_page_create_aboutus() {
+    public function aboutus_page_create_aboutus()
+    {
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         return view("frontend.aboutus.aboutus_page_create_aboutus", compact('aboutUsPages'));
     }
 
-
     public function aboutus_page_store_aboutus(Request $request)
     {
         $request->validate([
-            "title" => "required",
+            "title" => "nullable",
             "description" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
@@ -234,13 +216,14 @@ class AboutuspageController extends Controller
     }
 
     public function aboutus_page_edit_aboutus(aboutuspage $aboutUsPages) {
+        
         return view("frontend.aboutus.aboutus_page_edit_aboutus", compact("aboutUsPages"));
     }
     
     
     public function aboutus_page_update_aboutus(Request $request, aboutuspage $aboutUsPages) {
         $request->validate([
-            "title" => "required",
+            "title" => "nullable",
             "description" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
@@ -281,4 +264,111 @@ class AboutuspageController extends Controller
         return redirect()->route("aboutuspage.index")
             ->with("success", "About us page updated successfully");
     }
+
+    //logo sector left table
+    public function aboutus_page_create_logo() {
+        $logoPages = Aboutuspage::where('section', 'logo')->get();
+        return view("frontend.aboutus.aboutus_page_create_logo", compact('logoPages'));
+    }
+
+    public function aboutus_page_store_logo(Request $request)
+{
+    $request->validate([
+        "title" => "nullable",
+        "images" => "required",
+        "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+    ]);
+
+    $logoPages = new aboutuspage();
+    $logoPages->title = $request->title;
+    $logoPages->section = 'logo';
+    
+    $logoPages->save();
+
+    if ($request->hasFile("images")) {
+        foreach ($request->file("images") as $item) {
+            $filename = time() . "_" . $item->getClientOriginalName();
+            $destinationPath = public_path("img/aboutus_images");
+
+            $item->move($destinationPath, $filename);
+            $imagePath = "img/aboutus_images/" . $filename;
+
+            $newImage = new Aboutusimage();
+            $newImage->url_image = $imagePath;
+            $newImage->aboutus_id = $logoPages->id;
+            $newImage->save();
+        }
+    }
+
+    return redirect()->route('aboutuspage.index')->with("success", "About us page created successfully");
+}
+
+
+    public function aboutus_page_edit_logo(aboutuspage $logoPages) {
+        return view("frontend.aboutus.aboutus_page_edit_logo", compact("logoPages"));
+    }
+
+    public function aboutus_page_update_logo(Request $request, aboutuspage $logoPages)
+    {
+
+        $request->validate([
+            "title" => "nullable",
+            "images" => "required",
+            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+        ]);
+
+        $logoPages->title = $request->title;
+        $logoPages->save();
+
+        if ($request->hasFile("images")) {
+
+            if ($logoPages->images->count() > 0) {
+                foreach ($logoPages->images as $image) {
+                    $imageUrl = $image->url_image;
+            
+
+                    if (File::exists($imageUrl) && $image->aboutus_id === $logoPages->id) {
+                        File::delete($imageUrl);
+                    }
+            
+                    // Delete the image record
+                    $image->delete();
+                }
+            }
+
+            foreach ($request->file("images") as $item) {
+                $filename = time() . "_" . $item->getClientOriginalName();
+                $destinationPath = public_path("img/aboutus_images");
+
+                $item->move($destinationPath, $filename);
+                $imagePath = "img/aboutus_images/" . $filename;
+
+                $newImage = new Aboutusimage();
+                $newImage->url_image = $imagePath;
+                $newImage->aboutus_id = $logoPages->id;
+                $newImage->save();
+            }
+        }
+
+        return redirect()->route("aboutuspage.index")
+            ->with("success", "About us main page updated successfully");
+    }
+
+    public function aboutus_page_delete_logo(aboutuspage $logoPages)
+    {
+        // Delete related images
+        foreach ($logoPages->images as $image) {
+            if (File::exists($image->url_image)) {
+                File::delete($image->url_image);
+            }
+            $image->delete();
+        }
+
+        // Delete the main page
+        $logoPages->delete();
+
+        // Redirect to the index page with success message
+        return redirect()->route('aboutuspage.index')->with('success', 'Main page deleted successfully');
+    }
+
 }

@@ -8,9 +8,10 @@
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
+
 <div class="container mt-3">
-  <h1>Edit About Us Form</h1>
-  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.update_aboutus', $aboutUsPages) }}">
+  <h1>Edit Logo Picture form</h1>
+  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.update_logo', $logoPages) }}">
     @csrf
     @method("PUT")
 
@@ -19,24 +20,20 @@
           <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
     <br>
-    <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $aboutUsPages->title }}">
-    </div>
 
     <div class="mb-3">
-        <label for="description" class="form-label">Description:</label>
-        <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $aboutUsPages->description }}</textarea>
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $logoPages->title }}">
     </div>
 
     <div class="form-group mb-3">
       <label for="images">Current Images:</label>
-      @if ($aboutUsPages->images->count() > 0)
-          @foreach ($aboutUsPages->images as $item)
+      @if ($logoPages->images->count() > 0)
+          @foreach ($logoPages->images as $item)
               <img src="{{ asset($item->url_image) }}"
                    class="img-thumbnail"
                    width="100"
-                   alt="{{ $aboutUsPages->name }}"/>
+                   alt="{{ $logoPages->name }}"/>
           @endforeach
       @else
           <p>No image available</p>
@@ -51,22 +48,6 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
-
-<script>
-  tinymce.init({
-      selector: '.tinymce',
-      height: 300,  // Set the height of the editor
-      plugins: [
-          'advlist autolink lists link image charmap print preview anchor',
-          'searchreplace visualblocks code fullscreen',
-          'insertdatetime media table paste code help wordcount'
-      ],
-      toolbar: 'undo redo | formatselect | ' +
-          'bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | ' +
-          'bullist numlist outdent indent | removeformat | help',
-      forced_root_block: false,
-  });
-</script>
 
 @include('frontend/login/login')
 @endsection

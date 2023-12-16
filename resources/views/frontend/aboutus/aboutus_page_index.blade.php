@@ -8,7 +8,7 @@
     <h1>About Us Page</h1>
     <br>
     <br>
-    <h4>Main Page</h4>
+    <h4>Main Sector</h4>
     <a href="{{ route('aboutuspage.create_main') }}" class="btn btn-primary">Add Main sector</a>
 
     <table class="table table-dark mt-3" id="mainTable">
@@ -51,9 +51,11 @@
         </tbody>
     </table>
     <br>
+</div>
 
-    <h4>About us Page</h4>
-    <a href="{{ route('aboutuspage.create_aboutus') }}" class="btn btn-primary">Add About us sector</a>
+<div class="container mt-3">
+    <h4>About us Sector</h4>
+    <a href="{{ route('aboutuspage.create_aboutus') }}" class="btn btn-primary">Add logo sector</a>
     <table class="table table-dark mt-3" id="aboutUsTable">
         <thead>
             <tr>
@@ -93,6 +95,61 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Logo Sector</h4>
+            <a href="{{ route('aboutuspage.create_logo') }}" class="btn btn-primary">Add Logo sector</a>
+            <table class="table table-dark mt-3" id="combinedTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>View Description</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($logoPages as $logoitems)
+                        <tr>
+                            <td>{{ $logoitems->id }}</td>
+                            <td>
+                                @if ($logoitems->images->count() > 0)
+                                    <img src="{{ asset($logoitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
+                                @endif
+                            </td>
+                            <td>{{ $logoitems->title }}</td>
+                            <td>
+                                <a href="{{ route('aboutuspage.detail', $logoitems->id) }}" class="btn btn-primary">View Description</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('aboutuspage.edit_logo', $logoitems->id) }}" class="btn btn-warning">Edit</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('aboutuspage.delete_logo', $logoitems->id) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this sector?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{-- Join Us --}}
+<div class="container mt-3">
+    <h4>Join Us</h4>
+    {{-- <a href="{{ route('aboutuspage.create_main') }}" class="btn btn-primary">Add Main sector</a> --}}
+
 </div>
 
 @include('frontend/login/login')
