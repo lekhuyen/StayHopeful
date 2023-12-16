@@ -44,8 +44,9 @@ class AdminPageController extends Controller
     }
     public function viewmaildetail($id)
     {
+        $detail = Contactus::find($id);
         $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
-        return view('frontend.adminpage.manager.maildetail', compact('mail'));
+        return view('frontend.adminpage.manager.maildetail', compact('mail','detail'));
     }
     public function sendreplymail(Request $request, $id)
     {

@@ -109,7 +109,7 @@
                         class="fa-regular fa-address-card" style="padding-right: 10px"></i>About Us</a></li>
 
             <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
-                        class="fa-solid fa-envelope" style="padding-right: 10px"></i>Mail Box</a></li>
+                        class="fa-solid fa-envelope" style="padding-right: 10px"></i>Contact Mail Box</a></li>
         </ul>
         <hr class="h-color mx-2">
     </div>
@@ -133,14 +133,11 @@
                             @if (session('userInfo'))
                                 <div class="text popup-profile">
                                     @if (session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
-                                            alt="">
-                                    @elseif(!$infouser->avatar == null)
-                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                                            alt="ảnh">
+                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                    @elseif($infouser && $infouser->avatar != null)
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
                                     @else
-                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
-                                            alt="">
+                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
                                     @endif
                                 </div>
                             @else
