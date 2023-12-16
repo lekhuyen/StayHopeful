@@ -14,11 +14,22 @@ use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class detaildonateController extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
+        $project = Project::where('id', '=', $id)->select('*')->first();
         $projects = Project::all();
-        return view('frontend.detaildonate.donatepage', compact('projects'));
+
+        
+        return view('frontend.detaildonate.donatepage', compact('projects','project')); // Change 'projects' to 'project'
     }
+    
+
+public function donatepage()
+{
+    $projects = Project::all();
+    $project = null;
+    return view('frontend.detaildonate.donatepage', compact('projects','project'));
+}
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
@@ -85,7 +96,8 @@ class detaildonateController extends Controller
             $user = Auth::user();
             $tomail = $userinfo['emailget'];
             $message = $userinfo['project'];
-            Mail::to($tomail)->send(new EmailDonate($message));
+            $name = $userinfo['fullname'];
+            Mail::to($tomail)->send(new EmailDonate($message,$name));
             if($user){
                 $username = "";
             if ($userinfo['fullname'] == "Anonymous") {
@@ -130,9 +142,7 @@ class detaildonateController extends Controller
                 } else {
                     $username = $userinfo['fullname'];
                 }
-                $tomail = $userinfo['email'];
-                $message = $userinfo['project'];
-                Mail::to($tomail)->send(new EmailDonate($message));
+
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $username;
                 $donateinfo->email = $userinfo['email'];
