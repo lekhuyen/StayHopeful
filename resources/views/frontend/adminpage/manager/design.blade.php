@@ -11,7 +11,7 @@
                 <div class="search">
                     <div class="search-container">
                         <i class="fas fa-magnifying-glass search-icon"></i>
-                        <input type="search" placeholder="Search Category Name" id="search"
+                        <input type="search" placeholder="Input to search slider image" id="search"
                             class="form-control input-search" name="search">
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Save</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -155,7 +155,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-success" type="submit">Save</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </form>
             </div>
