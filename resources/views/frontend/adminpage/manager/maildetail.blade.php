@@ -14,19 +14,20 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>User Name</th>
                     <th>Phone Number</th>
                     <th>Email</th>
                     <th>Content</th>
+                    <th>Image</th>
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                        <td>{!! $mail->name !!}</td>
-                        <td>{!! $mail->phone !!}</td>
-                        <td>{!! $mail->email !!}</td>
-                        <td>{!! $mail->message !!}</td>
-                    </tr>
+                <tr>
+                    <td>{!! $detail->name !!}</td>
+                    <td>{!! $detail->phone !!}</td>
+                    <td>{!! $detail->email !!}</td>
+                    <td>{!! $mail->message !!}</td>
+                </tr>
             </tbody>
         </table>
     </div>
