@@ -16,9 +16,7 @@
                     <table class="table table-striper">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Telephone</th>
+                                <th>#</th>
                                 <th>Sent Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -27,9 +25,7 @@
                         <tbody>
                             @foreach ($mail as $item)
                                 <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->phone }}</td>
+                                    <td>{{$item->id}}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
                                         @if ($item->status == 0)
@@ -45,8 +41,8 @@
                                             <a href="{{ route('admin.getreplymail', $item->id) }}"
                                                 class="btn btn-warning">Reply</a>
                                         @else
-                                            <a href="{{ route('admin.getreplymail', $item->id) }}"
-                                                class="btn btn-warning">Reply</a>
+                                            <button disabled
+                                                class="btn btn-warning">Reply</button>
                                             <a href="{{ route('admin.viewmaildetail', $item->id) }}"
                                                 class="btn btn-primary">Detail</a>
                                         @endif
