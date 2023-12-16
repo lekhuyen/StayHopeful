@@ -31,16 +31,13 @@ class UserPostController extends Controller
             ->where('status', 0)
             ->get();
 
-        $comments = CommentPost::where(['post_id' => $request->post_id, 'reply_id' => 0])->orderBy('id', 'desc')->get();
+        // $comments = CommentPost::where(['post_id' => $request->post_id, 'reply_id' => 0])->orderBy('id', 'desc')->get();
         // if($comments->count() > 0 || $posts) {
         // } else {
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
 
         // }
-        $user = session()->get('userInfo');
-        // dd($user['id']);
-// dd($user);
-        return view('frontend.post_page.index', compact('posts', 'comments'));
+        return view('frontend.post_page.index', compact('posts'));
     }
 
     // like - user - post

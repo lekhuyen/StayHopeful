@@ -49,12 +49,12 @@
             <div class="reset-password-input-field">
                 <i class="fa-solid fa-key"></i>
                 <input id="new-password-reset" type="password" placeholder="New Password" name="new_password"/>
-                <small class="reset-password-validate"></small>
+                <small class="reset-password-otp-validate"></small>
             </div>
             <div class="reset-password-input-field">
                 <i class="fa-solid fa-key"></i>
                 <input id="confirm-new-password-reset" type="password" placeholder="Confirm New Password" name="confirm_new_password"/>
-                <small class="reset-password-validate"></small>
+                <small class="reset-password-otp-validate"></small>
             </div>
             <button id="btn-reset-password" type="submit" class="btn solid btn-reset-password-submit">Confirm</button>
             <p>Haven't receive OTP ?  <a class="link-resend-otp" href="#">Resend</a></p>
@@ -74,10 +74,10 @@
     // ajax send otp
     $('#inputEmailResetPassword').submit(function(e) {
         e.preventDefault();
-        // Perform client-side validation if needed
-        // let isValid = checkValidateRegister();
-        // if (isValid) {
-        // Send the form data to the server using Ajax
+        //Perform client-side validation if needed
+        let isValid = checkValidateEmailResetPass();
+        if (isValid) {
+        //Send the form data to the server using Ajax
         $.ajax({
             type: 'POST',
             url: "{{route('auth.send_otp')}}",
@@ -110,19 +110,15 @@
                 console.log(error);
             }
         });
-    //}
+    }
     });
 
     //confirm otp and change password ajax
     $('#resetPasswordForm').submit(function(e) {
         e.preventDefault();
-        // var email = $('#email_verify_otp').val();
-        // var otp = $('#reset-password-otp').val();
-        // var new_password = $('#new-password-reset').val();
-        console.log(email, otp, new_password);
         // Perform client-side validation if needed
-        // let isValid = checkValidateRegister();
-        // if (isValid) {
+        let isValid = checkResetPassword();
+        if (isValid) {
         // Send the form data to the server using Ajax
         $.ajax({
             type: 'POST',
@@ -150,7 +146,7 @@
                 console.log(error);
             }
         });
-    // }
+    }
     });
 });
 </script>

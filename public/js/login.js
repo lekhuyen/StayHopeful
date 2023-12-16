@@ -113,7 +113,7 @@ function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 function validatePassword(password) {
-    return /^[A-Za-z]\w{7,14}$/.test(password);
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/.test(password);
 }
 function setSuccess(ele) {
     ele.parentNode.classList.add('success');
@@ -138,6 +138,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerName);
+        setError(registerName, '');
     }
 
     // Kiểm tra trường email
@@ -150,6 +151,7 @@ function setError(ele, message) {
     } 
     else {
         setSuccess(registerEmail);
+        setError(registerEmail,'');
     }
 
     // Kiểm tra trường password
@@ -161,6 +163,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerPassword);
+        setError(registerPassword,'');
     }
 
     // Kiểm tra trường confirm password
@@ -172,6 +175,7 @@ function setError(ele, message) {
         isCheck = false;
     } else {
         setSuccess(registerConfirmPassword);
+        setError(registerConfirmPassword,'');
     }
     return isCheck;
 }
@@ -194,6 +198,7 @@ function checkLogin() {
         isCheck = false;
     } else {
         setSuccess(loginEmail);
+        setError(loginEmail,'');
     }
 
     // Kiểm tra trường password
@@ -202,6 +207,7 @@ function checkLogin() {
         isCheck = false;
     } else {
         setSuccess(loginPassword);
+        setError(loginPassword,'');
     }
     return isCheck;
 }
