@@ -7,7 +7,7 @@
         </a>
         <div class="comment_body">
             <div class="comment_background">
-                <a href="">User Name</a>
+                <a href="">{{$comment->user->name}}</a>
                 <p class="comment_content">{{ $comment->content }}</p>
             </div>
             <p class="reply_comment_post show_reply-form" data-id="{{ $comment->id}}">

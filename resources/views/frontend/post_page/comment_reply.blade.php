@@ -7,7 +7,7 @@
     </a>
     <div class="comment_body">
         <div class="comment_background">
-            <a href="">User Name</a>
+            <a href="">{{$reply->user->name}}</a>
             <p>{{ $reply->content }}</p>
         </div>
         <p class="reply_comment_post">

@@ -650,7 +650,7 @@
     height:80%;
     outline: none;
     border: none;
-    background-color: #e6e3e3;
+    background-color: rgb(240,242,245);
     border-radius: 10px;
     padding: 10px 40px 10px 20px;
 }
@@ -661,7 +661,7 @@
     right: 40px;
     cursor: pointer;
     border: none;
-    background-color: #e6e3e3;
+    background-color: rgb(240,242,245);
     color: rgb(70,145,206);
 }
 
@@ -681,7 +681,7 @@
 .btn_icon-submit-reply {
     border: none;
     right: 15px;
-    background-color: #e6e3e3;
+    background-color: rgb(240,242,245);
     color: rgb(70,145,206);
 }
 .reply_comment_post {
@@ -695,7 +695,7 @@
 }
 
 .comment_background {
-    background-color: #ccc;
+    background-color: rgb(240,242,245);
     padding: 0 10px;
     border-radius: 5px;
     width: 90%;
@@ -740,7 +740,7 @@
     height: 80px;
     outline: none;
     border: none;
-    background-color: #e6e3e3;
+    background-color: rgb(240,242,245);
     border-radius: 10px;
 }
 
