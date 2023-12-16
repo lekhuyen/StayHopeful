@@ -17,6 +17,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Content</th>
+                        <th></th>
+                        <th></th>
                         <th>Image</th>
                         <th>Status</th>
                     </tr>
@@ -25,6 +27,8 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
+                        <th></th>
+                        <th></th>
                         <td>
                             @if ($post->images->count() > 0)
                                 @foreach ($post->images as $image)

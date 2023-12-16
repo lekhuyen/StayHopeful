@@ -22,6 +22,9 @@ class UserPost extends Model
     protected function comments(){
         return $this->hasMany(CommentPost::class, 'post_id', 'id');
     }
+    protected function replies(){
+        return $this->hasMany(ReplyComment::class, 'post_id', 'id');
+    }
     protected function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

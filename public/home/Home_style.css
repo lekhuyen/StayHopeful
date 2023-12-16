@@ -1007,8 +1007,7 @@ button.carousel-control-next {
     color: white;
     cursor: pointer;
     padding: 5px 10px;
-    border-radius: 5px;
-    transition: transform 0.2s;
+    border-radius: 10px;
 }
 
 #myBackToTopBtn:hover {

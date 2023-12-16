@@ -304,7 +304,7 @@
     </div>
 
     {{-- back to top button beginning --}}
-    <button onclick="topFunction()" id="myBackToTopBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
+    <button onclick="topFunction()" id="myBackToTopBtn" title="Back to top"><i class="fas fa-angle-up"></i></button>
     {{-- back to top button ending --}}
 
 </body>

@@ -15,9 +15,8 @@
             @method('PUT')
             <div class="mb-3 mt-3">
                 <label for="sensitive">Sensitive Word:</label>
-                <input type="text" class="form-control" id="sensitive"
-                 value="{{ $sensitive->word }}" placeholder="Enter Sensitive Word" name="word"
-                >
+                <input type="text" class="form-control" id="sensitive" value="{{ $sensitive->word }}"
+                    placeholder="Enter Sensitive Word" name="word">
                 @error('word')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

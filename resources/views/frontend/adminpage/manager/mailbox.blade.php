@@ -16,7 +16,8 @@
                     <table class="table table-striper">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>ID</th>
+                                <th>Email</th>
                                 <th>Sent Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -25,26 +26,26 @@
                         <tbody>
                             @foreach ($mail as $item)
                                 <tr>
-                                    <td>{{$item->id}}</td>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->email }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
                                         @if ($item->status == 0)
-                                            {{-- <div class="text-danger">Not Approved</div> --}}
-                                            <button class="badge rounded-pill bg-danger status__mailbox">Not Approved</button>
+                                            <button class="badge rounded-pill bg-danger status__mailbox">Not
+                                                Approved</button>
                                         @else
-                                            {{-- <div class="text-success">Approved</div> --}}
                                             <button class="badge  rounded-pill bg-success status__mailbox">Approved</button>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($item->status == 0)
                                             <a href="{{ route('admin.getreplymail', $item->id) }}"
-                                                class="btn btn-warning">Reply</a>
+                                                class="btn btn-outline-dark btn-md"><i class="fas fa-reply"></i></a>
                                         @else
-                                            <button disabled
-                                                class="btn btn-warning">Reply</button>
+                                            <button disabled class="btn btn-outline-dark btn-md"><i
+                                                    class="fas fa-reply"></i></button>
                                             <a href="{{ route('admin.viewmaildetail', $item->id) }}"
-                                                class="btn btn-primary">Detail</a>
+                                                class="btn btn-outline-info btn-lg"><i class="fa-solid fa-info"></i></a>
                                         @endif
                                     </td>
                                 </tr>
