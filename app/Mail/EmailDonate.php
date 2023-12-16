@@ -16,9 +16,11 @@ class EmailDonate extends Mailable
 
     public $tomail;
     public $message;
-    public function __construct($message)
+    public $name;
+    public function __construct($message, $name)
     {
         $this->message = $message;
+        $this->name = $name;
     }
 
     /**
@@ -41,6 +43,7 @@ class EmailDonate extends Mailable
             view: 'frontend/sendmail/maildonate',
             with: [
                 'project' => $this->message,
+                'fullname' => $this->name
             ],
         );
     }

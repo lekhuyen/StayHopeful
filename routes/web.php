@@ -45,10 +45,11 @@ Route::get('/nav', [AdminPageController::class, 'viewnav'])->name('nav');
 // Route::get('/category-list', [AdminPageController::class, 'category']);
 //donatedetail
 
-Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate'); //view user
+Route::get('/donate', [detaildonateController::class, 'donatepage'])->name('detail.donate'); //view user
+Route::get('/donate/{id}', [detaildonateController::class, 'index'])->name('detail.getdonate'); //view user
 // Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
 
-Route::post('/donate', [detaildonateController::class, 'payment'])->name('detail.payment');
+Route::post('/donate/payment', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
 //listdonate
