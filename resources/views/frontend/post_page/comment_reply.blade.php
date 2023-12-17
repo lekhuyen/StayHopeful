@@ -25,20 +25,20 @@
                     </div>
                 </div>
             @endif
-
+            
         </div>
-        <p class="reply_comment_post">
+        {{-- <p class="reply_comment_post">
             Reply
-        </p>
+        </p> --}}
 
-        <form action="" style="display: none">
+        {{-- <form action="" style="display: none">
             <div id="input_reply-comment">
                 <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
                 <div class="btn_icon-submit">
                     <i class="fa-solid fa-location-arrow"></i>
                 </div>
             </div>
-        </form>
+        </form> --}}
     </div>
 </div>
 @endforeach

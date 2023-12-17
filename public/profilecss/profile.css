@@ -835,3 +835,9 @@
 #exampleModalLabel{
     color: cornflowerblue;
 }
+.hide-comment {
+    display: none;
+}
+.hide-edit-comment {
+    display: none;
+}
