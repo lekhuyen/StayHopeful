@@ -59,18 +59,19 @@
         </div>
     </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-1">
-                        <div class="section-title_video">
-                            <h4 class="donate__title">RECENT PROJECTS</h4>
-                        </div>
-                        <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
+    {{-- on going projects  --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
+                    <div class="section-title_video">
+                        <h4 class="donate__title">ON GOING PROJECTS</h4>
                     </div>
+                    <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- card -->
     <div class="container">
@@ -116,22 +117,20 @@
     </div>
 
 
-    <!-- su kien gan nhat -->
+    <!-- finished projects -->
 
-    <section>
-        <div class="container section-title-1-0">
-            <div class="row">
-                <div class="col-lg-12 section-title-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
                     <div class="section-title_video">
-                        <h4>FINISHED PROJECTS</h4>
+                        <h4 class="donate__title">FINISHED PROJECTS</h4>
                     </div>
-                    <div>
-                        <a href="{{ route('project.index', 1) }}">SEE MORE</a>
-                    </div>
+                    <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- card -->
     <div class="container">
@@ -174,28 +173,22 @@
                     </a>
                 </div>
             @endforeach
-
-
-
-
         </div>
     </div>
 
-    <!-- video -->
-    <section>
-        <div class="container section-title-1-0">
-            <div class="row">
-                <div class="col-lg-12 section-title-1">
+    <!-- video gallery -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
                     <div class="section-title_video">
-                        <h4>VIDEO GALLERY</h4>
+                        <h4 class="donate__title">VIDEO GALLERY</h4>
                     </div>
-                    <div>
-                        <a href="{{ route('video.index') }}">SEE MORE</a>
-                    </div>
+                    <a class="btn__more" href="{{ route('video.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div class="container">
         <div class="row">
