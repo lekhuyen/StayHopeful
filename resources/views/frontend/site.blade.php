@@ -198,7 +198,7 @@
                             </li>
 
                             <li>
-                                
+
                                 @if (session('userInfo'))
                                 <div class="text popup-profile">
                                     @if (session('userInfo')['avatar'])
@@ -257,7 +257,7 @@
                     <div class="footer_header">
                         <h2>EXPLORE</h2>
                         <ul>
-                            <li><a href="{{ route('contact.index', 1) }}">About Us</a></li>
+                            <li><a href="{{ route('aboutus.index', 1) }}">About Us</a></li>
                             <li><a href="{{ route('blog.index') }}">News</a></li>
                             <li><a href="{{ route('detail.listdonate') }}">Donate List</a></li>
                             <li><a href="{{ route('video.index') }}">Video Gallery</a></li>

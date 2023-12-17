@@ -9,8 +9,7 @@
 }
 
 .row__voting {
-    background: linear-gradient(0deg, rgb(212, 233, 250), lightskyblue 80%)
-        no-repeat;
+    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
     width: 60%;
     display: block;
     margin: auto;
