@@ -65,23 +65,26 @@
         href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css') }}"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- navbar -->
-    <div class="container-fluid header-nav" style="padding-left: 0;">
+    <div class="container-fluid header-nav" style="padding: 0;">
         <div class="row">
 
             <div class="col-lg-12">
                 <div style="position: fixed; z-index: 1000; width: 100%">
-
                     <!-- mobile interface -->
-                    <div class="test-nav">
-                        <div id="nav-toggle">
+                    <div class="nav-mobile-container">
+                        <input type="checkbox" name="" id="check">
+                        <div class="logo-container">
+                            <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
+                            style="margin-left: -55px;">
+                    
                             <div class="search-input-icon"
-                                style="display: flex; align-items: center; justify-content: space-between;">
+                                style="display: flex; align-items: center;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
-                                    <i class="fa-solid fa-bars"></i>
                                     <input type="search" placeholder="Search" name="search" id="search"
                                         class="search-home">
                                     <div class="search-ajax" id="search-ajax" style="display: none">
@@ -98,76 +101,118 @@
                                     </div>
 
                                 </div>
-
-                                <div style="display: flex; align-items: center;">
-                                    <button class="login-nav">SIGN UP</button>
-                                    <button class="register-nav">LOGIN</button>
-                                </div>
-                            </div>
+                            </div> 
                         </div>
-
-                        <div id="nav-mobile">
-                            <div class="nav-mobile-interface">
-                                <a href="{{ route('/') }}" class="nav-menu-title">HOME</a>
-                            </div>
-
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">ABOUT</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="{{ route('aboutus.index') }}" class="sub-item">About Us</a>
-                                    <a href="{{ route('aboutus.aboutus_whoweare') }}" class="sub-item">Our Team</a>
-                                    <a href="{{ route('contact.index') }}" class="sub-item">Location</a>
+                            <div class="nav-btn">
+                                <div class="nav-links">
+                                        <ul class="ul-mobile">
+                                            <li class="nav-link" style="--i: .6s">
+                                                    <a href="{{ route('/') }}" class="nav-menu-title">HOME</a>
+                                            </li>
+                                            <li class="nav-link" style="--i: .85s">
+                                                    <a class="nav-menu-title">ABOUT <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-mobile-ul">
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('aboutus.index') }}">About Us </a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('aboutus.aboutus_whoweare') }}">Our Team</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('contact.index') }}">Location</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                             </li>
+                                             <li class="nav-link" style="--i: 1.1s">
+                                                    <a class="nav-menu-title">EXPLORE <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-mobile-ul">
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('project.index', 1) }}">Our Projects</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('detail.listdonate') }}">Donate List</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                             </li>
+                                             <li class="nav-link" style="--i: 1.35s">
+                                                    <a class="nav-menu-title">SUPPORT <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-mobile-ul">
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('detail.donate') }}">Donate</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('feedback.create') }}">Feedback</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('volunteer.create') }}">Volunteer</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                   </div>
+                                             </li>
+                                            <li class="nav-link" style="--i: 1.6s">
+                                                    <a class="nav-menu-title">RESOURCES <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-mobile-ul">
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('blog.index') }}">News</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('video.index') }}">Video Gallery</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                            </li>
+                                            <li class="nav-link" style="--i: 1.85s">
+                                                    <a href="#" class="nav-menu-title">CONTACT <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-mobile-ul">
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('contact.index') }}">Contact</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('feedback.create') }}">Feedback</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="{{ route('volunteer.create') }}">Volunteer</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                            </li>
+                                            <li class="nav-link" style="--i: 2.1s">
+                                                    <a href="#" class="nav-menu-title">OUR PROJECT <i class="fa-solid fa-caret-down"></i></a>
+                                                    <div class="dropdown">
+                                                    {{-- <i class="fas fa-angle-right dropdown"></i> --}}
+                                                    {{-- <div class="nav-sub-menu-title"> --}}
+                                                        {{-- @if ($categories->count() > 0)
+                                                        @foreach ($categories as $category)
+                                                            <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
+                                                        @endforeach
+                                                        @endif --}}
+                                                     {{-- </div> --}}
+                                                    </div>
+                                            </li>
+                                        </ul>
+                                </div>
+                                <div class="log-sign" style="--i: 1.8s">
+                                    {{-- <a href="#" class="btn transparent">Log in</a> --}}
+                                    <a href="#" class="btn solid">LOGIN</a>
                                 </div>
                             </div>
-
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">EXPLORE</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="{{ route('project.index', 1) }}" class="sub-item">Our Projects</a>
-                                    <a href="{{ route('detail.listdonate') }}" class="sub-item">Donate List</a>
+                            <div class="hamburger-menu-container">
+                                <div class="hamburger-menu">
+                                    <div></div>
                                 </div>
                             </div>
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">SUPPORT</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="{{ route('detail.donate') }}" class="sub-item">Donate</a>
-                                    <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{ route('volunteer.create') }}" class="sub-item">Volunteer</a>
-                                </div>
-                            </div>
-
-                            <div class="nav-mobile-interface">
-                                <a class="nav-menu-title">RESOURCES</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="{{ route('blog.index') }}" class="sub-item">News</a>
-                                    <a href="{{ route('video.index') }}" class="sub-item">Video Gallery</a>
-                                </div>
-                            </div>
-                            <div class="nav-mobile-interface">
-                                <a href="#" class="nav-menu-title">CONTACT</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    <a href="{{ route('contact.index') }}" class="sub-item">Contact</a>
-                                    <a href="{{ route('feedback.create') }}" class="sub-item">Feedback</a>
-                                    <a href="{{ route('volunteer.create') }}" class="sub-item">Volunteer</a>
-                                </div>
-                            </div>
-                            <div class="nav-mobile-interface">
-                                <a href="#" class="nav-menu-title">OUR PROJECT</a>
-                                <i class="fas fa-angle-right dropdown"></i>
-                                <div class="nav-sub-menu-title">
-                                    {{-- @if ($categories->count() > 0)
-                                    @foreach ($categories as $category)
-                                        <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
-                                    @endforeach
-                                    @endif --}}
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- desktop interface -->
