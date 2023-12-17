@@ -115,20 +115,31 @@
 
                                 <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}" style="cursor: pointer">
 
-                                    {{-- ! phân biệt user đã like --}}
-                                    @if(auth()->user())
-                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
-                                            <div>
-                                                <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
-                                            </div>
-                                        @else
-                                            <div>
-                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
-                                            </div>
+                                    <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                        {{-- ! phân biệt user đã like --}}
+                                        @if (auth()->user())
+                                            @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                                <div>
+                                                    <i class="fa-solid fa-heart like_icon"
+                                                        data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                    <div class="like_count">
-                                        <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
+                                        <div class="like_count">
+                                            <span class="count_like"
+                                                data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="comment_post" data-id="{{ $post->id }}">
+                                        <span>
+                                            {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count() }}
+                                            Comment
+                                        </span>
                                     </div>
                                 </div>
 
@@ -184,6 +195,7 @@
         </div>
     </div>
 
+    
     @include('frontend/profile/popup_profile')
     @include('frontend/login/login')
     @include('frontend.profile.form_post')

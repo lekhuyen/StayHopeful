@@ -73,7 +73,7 @@
             var _csrf = '{{ csrf_token() }}';
             var elementComment = $('.comment_post')
             var _loginUrl = '{{ route('delete-comment', ':id') }}'.replace(':id', comment_id);
-            
+
             $.ajax({
                 type: 'DELETE',
                 url: _loginUrl,
@@ -82,7 +82,7 @@
                 },
                 success: function(data) {
                     // console.log(data);
-                    if(data.status == 'success'){
+                    if (data.status == 'success') {
                         $('#comment_parent-post[data-id="' + comment_id + '"]').remove();
                     }
                 },
@@ -91,13 +91,37 @@
                 }
             });
         })
-//edit comment
+
+        //delete-comment-reply
+        $('.delete_comment-reply-post-user').click(function() {
+            var reply_id = $(this).data('id')
+            var _csrf = '{{ csrf_token() }}';
+            var _loginUrl = '{{ route('delete-reply', ':id') }}'.replace(':id', reply_id);
+
+            $.ajax({
+                type: 'DELETE',
+                url: _loginUrl,
+                data: {
+                    _token: _csrf
+                },
+                success: function(data) {
+                    // console.log(data);
+                    if (data.status == 'success') {
+                        $('.reply_comment-post[data-id="' + reply_id + '"]').remove();
+                    }
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        })
+        //edit comment
         // $('.edit_comment-post-user').click(function() {
         //     var comment_id = $(this).data('id')
         //     var _csrf = '{{ csrf_token() }}';
         //     var elementComment = $('.comment_post')
         //     var _loginUrl = '{{ route('edit-comment', ':id') }}'.replace(':id', comment_id);
-            
+
         //     $.ajax({
         //         type: 'POST',
         //         url: _loginUrl,

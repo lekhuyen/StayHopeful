@@ -93,6 +93,18 @@ class CommentPostController extends Controller
         return response()->json(['error' =>'Comment not found']);
 
     }
+    
+    public function deleteReply($id){
+        $reply = ReplyComment::find($id);
+        if($reply){
+            $reply->delete();
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+        return response()->json(['error' =>'Comment not found']);
+
+    }
     public function editComments($id){
         $comment = CommentPost::find($id);
         if($comment){

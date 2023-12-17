@@ -23,14 +23,14 @@ class detaildonateController extends Controller
     }
 
 
-    public function donatepage($id)
-    {
-        $project = Project::where('id', '=', $id)->select('*')->first();
-        $projects = Project::all();
+    // public function donatepage($title)
+    // {
+    //     $project = Project::where('title',  $title)->select('*')->first();
+    //     $projects = Project::all();
 
 
-        return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
-    }
+    //     return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
+    // }
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::orderBy('amount', 'desc')->get();
@@ -48,7 +48,7 @@ class detaildonateController extends Controller
             'amount.min' => 'Please enter a Amount greater than 0.',
         ]);
         $data = $request->all();
-        session()->put('userinfo', $data);
+        session()->put('infopay', $data);
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -93,7 +93,7 @@ class detaildonateController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $user = Auth::user();
-            $userinfo = session()->get('userinfo');
+            $userinfo = session()->get('infopay');
 
 
             $tomail = $userinfo['emailget'];
@@ -139,11 +139,13 @@ class detaildonateController extends Controller
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $username;
                 $donateinfo->email = $userinfo['emailget'];
+                $donateinfo->user_id = null;
                 $donateinfo->phone = $userinfo['phone'];
                 $project = Project::where('title', $userinfo['project'])->first();
                 if ($project) {
                     $donateinfo->project_id = $project->id;
                 }
+
                 $donateinfo->method = "bank";
                 $donateinfo->amount = $userinfo['amount'];
                 $donateinfo->message = $userinfo['message'];

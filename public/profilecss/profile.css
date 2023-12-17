@@ -8,9 +8,11 @@
     display: none;
     z-index: 11;
 }
+
 .showAlert {
     display: block;
 }
+
 .user-post-status-success {
     background: white;
     border: 2px solid #2d63c2;
@@ -29,6 +31,7 @@
     left: 28%;
     color: green;
 }
+
 .exit-user-post-alert-btn {
     /* display: flex;
     justify-content: flex-end; */
@@ -41,6 +44,7 @@
     color: #2d63c2;
     cursor: pointer; */
 }
+
 .exit-user-post-alert-btn i {
     display: flex;
     justify-content: flex-end;
@@ -48,6 +52,7 @@
     color: #2d63c2;
     cursor: pointer;
 }
+
 .img-alert {
     width: 100%;
     height: 100%;
@@ -133,15 +138,14 @@
     font-size: 22px;
     font-weight: 600;
 }
+
 .blink {
     text-transform: uppercase;
-    background-image: linear-gradient(
-        -225deg,
-        #8e44ad 0%,
-        #a29bfe 29%,
-        #ff7675 67%,
-        #fff800 100%
-    );
+    background-image: linear-gradient(-225deg,
+            #8e44ad 0%,
+            #a29bfe 29%,
+            #ff7675 67%,
+            #fff800 100%);
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
@@ -153,6 +157,7 @@
     animation: textclip 2s linear infinite;
     display: inline-block;
 }
+
 @keyframes textclip {
     to {
         background-position: 200% center;
@@ -169,12 +174,15 @@
     display: flex;
     align-items: center;
 }
+
 .like_icon {
     color: red;
 }
+
 .dislike_icon_color {
     color: black;
 }
+
 /* .like_icon,
 .dislike_icon {
     display: none;
@@ -204,11 +212,9 @@
     right: 55px;
     align-items: center;
     appearance: none;
-    background-image: radial-gradient(
-        100% 100% at 100% 0,
-        #5adaff 0,
-        #5468ff 100%
-    );
+    background-image: radial-gradient(100% 100% at 100% 0,
+            #5adaff 0,
+            #5468ff 100%);
     border: 0;
     border-radius: 6px;
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -280,12 +286,14 @@
     padding-left: 50px;
     color: #fdd835;
 }
+
 .profile-post {
     position: relative;
     width: 100%;
     height: 100px;
     background-color: transparent;
 }
+
 /* button aboutme */
 
 .profile-edit-aboutme {
@@ -295,11 +303,9 @@
     right: 55px;
     align-items: center;
     appearance: none;
-    background-image: radial-gradient(
-        100% 100% at 100% 0,
-        #5adaff 0,
-        #5468ff 100%
-    );
+    background-image: radial-gradient(100% 100% at 100% 0,
+            #5adaff 0,
+            #5468ff 100%);
     border: 0;
     border-radius: 6px;
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -350,6 +356,7 @@
     background-color: transparent;
     margin-top: 50px;
 }
+
 /* scroll bar */
 #style-1::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -367,6 +374,7 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555;
 }
+
 .listdonate {
     width: 100%;
     height: 50px;
@@ -385,13 +393,11 @@
     overflow: auto;
 }
 
-.profile-table table thead tr th {
+.table thead tr th {
     background: rgb(85, 247, 79);
-    background: linear-gradient(
-        180deg,
-        rgba(85, 247, 79, 1) 30%,
-        rgba(2, 209, 120, 1) 86%
-    );
+    background: linear-gradient(180deg,
+            rgba(85, 247, 79, 1) 30%,
+            rgba(2, 209, 120, 1) 86%);
     position: sticky;
     top: 0;
 }
@@ -413,6 +419,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .modal-user-post-2 {
     position: fixed;
     top: 0;
@@ -431,11 +438,13 @@
         opacity: 0;
         transform: translateY(-600px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .modal_inner-post {
     background-color: white;
     inset: 0 0 0 auto;
@@ -448,15 +457,18 @@
 .post-header {
     border-bottom: 1px solid #043e84;
 }
+
 .post-header-title {
     /* height: 100%; */
     text-align: center;
 }
+
 .post-header-title h1 {
     font-size: 25px;
     color: #043e84;
     margin-bottom: 0;
 }
+
 .close-icon {
     display: flex;
     align-items: center;
@@ -476,9 +488,11 @@
     border-radius: 50%;
     transition: 0.5s;
 }
+
 .close-icon div:hover {
     background-color: #043e84;
 }
+
 .close-icon div:hover i {
     color: white;
 }
@@ -492,6 +506,7 @@
     display: flex;
     align-items: center;
 }
+
 /* .user-name-post {
     display: flex;
     align-items: center;
@@ -505,9 +520,11 @@
     clip-path: circle(30%);
     width: 60px;
 }
+
 .input-post-content {
     padding: 0 10px;
 }
+
 .input-post-content textarea {
     width: 700px;
     font-size: 20px;
@@ -516,9 +533,11 @@
     resize: none;
     min-height: 150px;
 }
+
 .user-post-image {
     padding-left: 10px;
 }
+
 .user-post-image input {
     cursor: pointer;
 }
@@ -535,6 +554,7 @@
 .show-post-form {
     display: flex;
 }
+
 .show-edit-post-form {
     display: flex;
 }
@@ -552,9 +572,11 @@
     cursor: pointer;
     transition: 0.5s;
 }
+
 .edit_post:hover {
     background-color: #f0eaea;
 }
+
 .edit-post-user {
     background-color: rgb(246, 246, 246);
     width: 100px;
@@ -566,12 +588,15 @@
     box-shadow: 0 0 10px rgb(201, 197, 197);
     display: none;
 }
+
 .edit-post-user a {
     text-decoration: none;
 }
+
 .show-edit-form {
     display: block;
 }
+
 .edit-post-user::after {
     content: "";
     position: absolute;
@@ -581,6 +606,7 @@
     right: 9px;
     top: -31px;
 }
+
 .edit-post-user a {
     display: block;
     color: black;
@@ -588,6 +614,7 @@
     opacity: 0.8;
     cursor: pointer;
 }
+
 .edit-post-user a:hover {
     background-color: #f0eaea;
 }
@@ -605,9 +632,11 @@
     align-items: center;
     justify-content: center;
 }
+
 .show-comment {
     display: flex;
 }
+
 .modal_inner-comment-post {
     background-color: white;
     width: 700px;
@@ -620,14 +649,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     animation: modalShowForm ease 0.4s;
 }
+
 #comment_reply-post {
     display: flex;
     margin-bottom: 10px;
 }
+
 #avatar_user {
     border-radius: 50px;
     width: 40px;
 }
+
 .post_comment-header-title {
     /* text-align: center; */
     font-size: 1.4rem;
@@ -640,6 +672,7 @@
     position: relative;
     height: 100%;
 }
+
 .post_comment-header-title h1 {
     font-size: 1.4rem;
     margin-bottom: 0;
@@ -656,11 +689,13 @@
 .close-icon-comment i {
     font-size: 20px;
 }
+
 #input_comment-post-1 {
     margin-bottom: 20px;
     text-align: center;
     position: relative;
 }
+
 #input_comment-post-1 textarea {
     width: 95%;
     height: 80%;
@@ -670,6 +705,7 @@
     border-radius: 10px;
     padding: 10px 40px 10px 20px;
 }
+
 .btn_icon-submit {
     position: absolute;
     top: 50%;
@@ -691,21 +727,25 @@
     color: black;
     font-weight: 500;
 }
+
 .comment_content {
     font-size: 15px;
 }
+
 .btn_icon-submit-reply {
     border: none;
     right: 15px;
     background-color: rgb(240, 242, 245);
     color: rgb(70, 145, 206);
 }
+
 .reply_comment_post {
     font-size: 13px;
     color: black;
     font-weight: 500;
     cursor: pointer;
 }
+
 .reply_comment_post:hover {
     color: rgb(13, 98, 242);
 }
@@ -718,6 +758,7 @@
     overflow-wrap: break-word;
     position: relative;
 }
+
 .delete_comment-post {
     position: absolute;
     right: -35px;
@@ -731,10 +772,12 @@
     justify-content: center;
     align-items: center;
 }
+
 .delete_comment-post:hover {
     background-color: rgb(240, 242, 245);
     cursor: pointer;
 }
+
 .edit_delete-post {
     position: absolute;
     right: -26px;
@@ -745,12 +788,15 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 .comment_background:hover .menu-edit-delete {
     display: block;
 }
+
 .menu-edit-delete {
     display: none;
 }
+
 /* .edit_delete-post-1::after {
     content: '';
     position: absolute;
@@ -764,9 +810,11 @@
     width: 100%;
     text-align: center;
 }
+
 .edit_delete-post p:hover {
     background-color: rgb(217, 218, 220);
 }
+
 .post_like-comment-post {
     border-top: 1px solid #ccc;
     padding: 5px 0;
@@ -774,10 +822,12 @@
     display: flex;
     justify-content: space-between;
 }
+
 .like_post-1,
 .like_post {
     margin-right: 10px;
 }
+
 .comment_post {
     display: flex;
     margin-left: 20px;
@@ -787,9 +837,11 @@
 .like_post.active i {
     color: red;
 }
+
 .like_post-1.active i {
     color: red;
 }
+
 .comment_body {
     margin-left: 10px;
     min-width: 20%;
@@ -798,9 +850,11 @@
 .comment_body p {
     margin-bottom: 0;
 }
+
 #input_reply-comment {
     position: relative;
 }
+
 #input_reply-comment textarea {
     width: 100%;
     height: 80px;
@@ -822,6 +876,7 @@
     border-radius: 20px;
     padding: 80px;
 }
+
 .input_new-post div {
     width: 100%;
     height: 70%;
@@ -842,6 +897,7 @@
     font-size: 30px;
     padding: 50px;
 }
+
 .input_new-post div:hover {
     background: darkblue;
     transform: scale(1.2, 1.2);
@@ -881,4 +937,22 @@
     margin: 0 50px 20px 50px;
     color:darkblue;
     font-size: 24px;
+}
+.profile-text-listdonate{
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+.listdonate-col{
+    padding: 50px;
+}
+@media screen and (max-width: 360px) {
+    .profile-edit-info {
+        bottom: -35px;
+        right: 0px;
+    }
+    .listdonate-col{
+        margin-top: 80px;
+        padding: 0;
+    }
 }

@@ -60,7 +60,7 @@
             </div>
         @else
             <div class="donate_link">
-                <a href="{{ route('detail.getdonate', $project->id) }}">DONATE</a>
+                <a href="{{ route('detail.getdonate') }}">DONATE</a>
                 @if ($checkUserProject)
                     <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else
@@ -68,21 +68,6 @@
                 @endif
             </div>
         @endif
-
-        {{-- @if (session('userInfo')) --}}
-        {{-- @else --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        {{-- @endif --}}
-
-        <div class="comment-access">
-            <a href="#">LOGIN TO LEAVE A COMMENT</a>
-        </div>
 
 
     </div>
