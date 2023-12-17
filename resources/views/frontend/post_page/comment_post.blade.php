@@ -115,33 +115,89 @@
                 }
             });
         })
-        //edit comment
-        // $('.edit_comment-post-user').click(function() {
-        //     var comment_id = $(this).data('id')
-        //     var _csrf = '{{ csrf_token() }}';
-        //     var elementComment = $('.comment_post')
-        //     var _loginUrl = '{{ route('edit-comment', ':id') }}'.replace(':id', comment_id);
 
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: _loginUrl,
-        //         data: {
-        //             _token: _csrf
-        //         },
-        //         success: function(data) {
-        //             // console.log(data.comment.content);
-        //             if(data.status == 'success'){
-        //                 $('.content_comment').val(data.comment.content);
-        //                 $('.input_id-comment').val(data.comment.id);
-        //                 // $('.input_post-id').val(data.comment.post_id);
-        //                 // $('.input_user-id').val(data.comment.user_id);
-        //             }
-        //         },
-        //         error: function(error) {
-        //             alert(error);
-        //         }
-        //     });
-        // })
+        //cancel
+        $('.cancel_edit-comment').click(function(){
+            var comment_id = $(this).data('id')
+            $('.edit_form-comment[data-id="' + comment_id + '"]').hide();
+            $('.comment_background[data-id="' + comment_id + '"]').show();
+        })
+
+        //edit comment
+        $('.edit_comment-post-user').click(function() {
+            var comment_id = $(this).data('id')
+            $('.edit_form-comment[data-id="' + comment_id + '"]').show();
+            $('.comment_background[data-id="' + comment_id + '"]').hide();
+            var _csrf = '{{ csrf_token() }}';
+            var elementComment = $('.comment_post')
+            var _loginUrl = '{{ route('edit-comment', ':id') }}'.replace(':id', comment_id);
+
+            $.ajax({
+                type: 'POST',
+                url: _loginUrl,
+                data: {
+                    _token: _csrf
+                },
+                success: function(data) {
+                    if(data.status == 'success'){
+                        $('.content_edit-comment').val(data.comment.content);
+                    }
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        })
+
+        $(document).ready(function() {
+            
+            $('.edit_form-comment').submit(function(e) {
+                e.preventDefault();
+                comment_id = $(this).data('id');
+                
+
+                var content = $('.content-edit-comment[data-id="' + comment_id + '"]').val();
+                var _loginUrl = '{{ route('update-comment-post', ':id') }}'.replace(':id', comment_id);
+
+                if (content.trim() !== '') {
+                    $.ajax({
+                        type: 'POST',
+                        url: _loginUrl,
+                        data: {
+                            content: content,
+                            _token: _csrf
+                        },
+                        success: function(data) {
+                            var html = `<p class="comment_content">${data.content}</p>`
+                            $('#comment_content-user-post[data-id="' + comment_id + '"]').html(html)
+
+                            $('.edit_form-comment[data-id="' + comment_id + '"]').hide();
+                            $('.comment_background[data-id="' + comment_id + '"]').show();
+
+                            $('.edit_delete-post').hide();
+                                
+                            
+                        },
+                        error: function(error) {
+                            alert(error);
+                        }
+                    });
+                } else {
+                    alert('Please enter some content before submitting.');
+                }
+
+            });
+
+            $('.content-edit-comment').on('keydown', function(e) {
+                comment_id = $(this).data('id');
+                if (e.keyCode == 13 && !e.shiftKey) {
+
+                    e.preventDefault();
+
+                    $('.edit_form-comment[data-id="'+comment_id+'"]').submit();
+                }
+            });
+        });
 
 
         //show edit comment

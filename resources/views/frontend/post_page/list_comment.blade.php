@@ -6,11 +6,11 @@
                 alt="">
         </a>
         <div class="comment_body">
-            <div class="comment_background">
+            <div class="comment_background" data-id="{{$comment->id}}">
                 <div style="min-width: 100px">
                     <a href="">{{$comment->user->name}}</a>
                 </div>
-                <div style="width: 100%">
+                <div style="width: 100%" id="comment_content-user-post" data-id="{{$comment->id}}">
                     <p class="comment_content">{{ $comment->content }}</p>
                 </div>
                 @if ($comment->user->id == auth()->user()->id)
@@ -24,8 +24,19 @@
                         </div>
                     </div>
                 @endif
-                
+
             </div>
+            {{-- !form edit comment --}}
+            <form style="margin-bottom: 10px; display: none" class="form_reply edit_form-comment" data-id="{{$comment->id}}">
+                <div id="input_reply-comment" style="width: 90%;">
+                    <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.." class="content_edit-comment content-edit-comment" data-id="{{$comment->id}}"></textarea>
+                    <button class="btn_icon-submit btn_icon-submit-reply" data-id="{{ $comment->id}}">
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </button>
+                </div>
+                <p class="cancel_edit-comment" data-id="{{$comment->id}}" style="cursor: pointer">Cancel</p>
+            </form>
+
             <p class="reply_comment_post show_reply-form" data-id="{{ $comment->id}}">
                 Reply
             </p>
@@ -39,9 +50,10 @@
                 </div>
             </form>
             
-                    <div class="comment_post replies-container" data-id="{{$comment->id}}" style="display: block">
-                        @include('frontend.post_page.comment_reply', ['comment'=>$comment->replies])
-                    </div>
+            {{-- !reply --}}
+            <div class="comment_post replies-container" data-id="{{$comment->id}}" style="display: block">
+                @include('frontend.post_page.comment_reply', ['comment'=>$comment->replies])
+            </div>
             
 
         </div>

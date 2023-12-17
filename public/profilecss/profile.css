@@ -575,9 +575,16 @@
     cursor: pointer;
     transition: 0.5s;
 }
-
+/* edit comment */
 .edit_post:hover {
     background-color: #f0eaea;
+}
+
+.hide-comment {
+    display: none;
+}
+.hide-edit-comment {
+    display: none;
 }
 
 .edit-post-user {
