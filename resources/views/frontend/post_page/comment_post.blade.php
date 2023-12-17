@@ -3,7 +3,7 @@
 
             <div class="comment_close-header-title">
                 <div class="post_comment-header-title">
-                    <h1>Bai cua {{ $post->user->name }}</h1>
+                    <h1>Post of {{ $post->user->name }}</h1>
                 </div>
                 <div class="close-icon-comment">
                     <i class="fa-solid fa-xmark"></i>
@@ -150,11 +150,11 @@
         })
 
         $(document).ready(function() {
-            
+
             $('.edit_form-comment').submit(function(e) {
                 e.preventDefault();
                 comment_id = $(this).data('id');
-                
+
 
                 var content = $('.content-edit-comment[data-id="' + comment_id + '"]').val();
                 var _loginUrl = '{{ route('update-comment-post', ':id') }}'.replace(':id', comment_id);
@@ -175,8 +175,8 @@
                             $('.comment_background[data-id="' + comment_id + '"]').show();
 
                             $('.edit_delete-post').hide();
-                                
-                            
+
+
                         },
                         error: function(error) {
                             alert(error);
