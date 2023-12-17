@@ -49,39 +49,40 @@
                                                     style="font-weight: 700">Volunteer</span></p>
                                         @elseif($userupdate->is_sponsor == 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Sponsor<span style="color: black">,</span> Volunteer</span></p>
+                                                    style="font-weight: 700">Sponsor<span style="color: black">,</span>
+                                                    Volunteer</span></p>
                                         @endif
                                         @if ($userupdate->email != null)
-                                        <p class="info-text">Email: <span
-                                            class="info-text-user">{{ $userupdate->email }}</span></p>
+                                            <p class="info-text">Email: <span
+                                                    class="info-text-user">{{ $userupdate->email }}</span></p>
                                         @else
-                                        <p class="info-text">Email: <span
-                                            class="info-text-user">Updated your information</span></p>
+                                            <p class="info-text">Email: <span class="info-text-user">Updated your
+                                                    information</span></p>
                                         @endif
 
                                         @if ($userupdate->age != null)
-                                        <p class="info-text">Age: <span
-                                            class="info-text-user">{{ $userupdate->age }}</span></p>
+                                            <p class="info-text">Age: <span
+                                                    class="info-text-user">{{ $userupdate->age }}</span></p>
                                         @else
-                                        <p class="info-text">Age: <span
-                                            class="info-text-user">Updated your information</span></p>
+                                            <p class="info-text">Age: <span class="info-text-user">Updated your
+                                                    information</span></p>
                                         @endif
 
                                         @if ($userupdate->phone != null)
-                                        <p class="info-text">Phone: <span
-                                            class="info-text-user">{{ $userupdate->phone }}</span></p>
+                                            <p class="info-text">Phone: <span
+                                                    class="info-text-user">{{ $userupdate->phone }}</span></p>
                                         @else
-                                        <p class="info-text">Phone: <span
-                                            class="info-text-user">Updated your information</span></p>
+                                            <p class="info-text">Phone: <span class="info-text-user">Updated your
+                                                    information</span></p>
                                         @endif
 
                                         @if ($userupdate->address != null)
-                                        <p class="info-text">Address: <span
-                                            class="info-text-user">{{ $userupdate->address }}</span></p>
+                                            <p class="info-text">Address: <span
+                                                    class="info-text-user">{{ $userupdate->address }}</span></p>
                                         @else
-                                        <p class="info-text">Address: <span
-                                            class="info-text-user">Updated your information</span></p>
-                                        @endif  
+                                            <p class="info-text">Address: <span class="info-text-user">Updated your
+                                                    information</span></p>
+                                        @endif
                                     @endif
                                 </div>
                                 <button class="profile-edit-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
@@ -105,12 +106,12 @@
                                 <tbody>
                                     @if ($userinfo)
                                         @foreach ($userinfo as $item)
-                                        <tr>
-                                            <td>{{ $item->id }}</td>
-                                            <td>{{ $item->users->name }}</td>
-                                            <td>{{ $item->project->title }}</td>
-                                            <td style="color: #27AE60;">{{ $item->amount }}$</td>
-                                        </tr>
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->users->name }}</td>
+                                                <td>{{ $item->project->title }}</td>
+                                                <td style="color: #27AE60;">{{ $item->amount }}$</td>
+                                            </tr>
                                         @endforeach
                                     @else
                                         <tr>
@@ -177,27 +178,34 @@
                                 </div>
 
                                 <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}"
-                                    style="cursor: pointer">
-
-                                    {{-- ! phân biệt user đã like --}}
-                                    @if (auth()->user())
-                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
-                                            <div>
-                                                <i class="fa-solid fa-heart like_icon"
-                                                    data-post-id="{{ $post->id }}"></i>
-                                            </div>
-                                        @else
-                                            <div>
-                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
-                                            </div>
+                                    style="cursor: pointer;">
+                                    <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                        {{-- ! phân biệt user đã like --}}
+                                        @if (auth()->user())
+                                            @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                                <div>
+                                                    <i class="fa-solid fa-heart like_icon"
+                                                        data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                    <div class="like_count">
-                                        <span class="count_like"
-                                            data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
+                                        <div class="like_count">
+                                            <span class="count_like"
+                                                data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="comment_post" data-id="{{ $post->id }}">
+                                        <span>
+                                            {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count() }}
+                                            Comment
+                                        </span>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
@@ -250,6 +258,13 @@
         </div>
     </div> --}}
 
+    {{-- comment --}}
+    <div class="modal-user-Comment-post">
+        {{-- <div class="modal_inner-comment-post"></div> --}}
+    </div>
+
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -301,3 +316,314 @@
 
     @include('frontend.profile.form_post')
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+
+    //get post
+    $(document).on('click', '#comment_post', function() {
+        post_id = $(this).data('id');
+        $('.modal-user-Comment-post').addClass('show-comment');
+        var _loginUrl = '{{ route('show_comment-post', ':id') }}'.replace(':id', post_id);
+
+        $.ajax({
+            url: _loginUrl,
+            type: 'GET',
+            data: {
+                post_id: post_id,
+            },
+            success: function(data) {
+                if (data.status == 'error') {
+                    alert(data.message);
+                } else {
+                    $('.modal-user-Comment-post').html(data);
+                }
+
+            }
+
+        })
+
+    })
+    //delete-comment
+    $('.delete_comment-post-user').click(function() {
+        var comment_id = $(this).data('id')
+        var _csrf = '{{ csrf_token() }}';
+        var elementComment = $('.comment_post')
+        var _loginUrl = '{{ route('delete-comment', ':id') }}'.replace(':id', comment_id);
+
+        $.ajax({
+            type: 'DELETE',
+            url: _loginUrl,
+            data: {
+                _token: _csrf
+            },
+            success: function(data) {
+                // console.log(data);
+                if (data.status == 'success') {
+                    $('#comment_parent-post[data-id="' + comment_id + '"]').remove();
+                }
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+    })
+
+    //delete-comment-reply
+    $('.delete_comment-reply-post-user').click(function() {
+        var reply_id = $(this).data('id')
+        var _csrf = '{{ csrf_token() }}';
+        var _loginUrl = '{{ route('delete-reply', ':id') }}'.replace(':id', reply_id);
+
+        $.ajax({
+            type: 'DELETE',
+            url: _loginUrl,
+            data: {
+                _token: _csrf
+            },
+            success: function(data) {
+                // console.log(data);
+                if (data.status == 'success') {
+                    $('.reply_comment-post[data-id="' + reply_id + '"]').remove();
+                }
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+    })
+
+
+
+    //show edit comment
+    $(document).ready(function() {
+        $('.menu-edit-delete').each(function(index, element) {
+            $(element).click(function() {
+                $('.edit_delete-post').eq(index).toggle('show')
+            });
+        })
+    })
+
+    //comment
+    var _csrf = '{{ csrf_token() }}';
+    $(document).ready(function() {
+        $('#form_comment-texarena').submit(function(e) {
+            e.preventDefault();
+            post_id = $(this).data('id');
+
+            var content = $('.content_comment').val();
+            var _loginUrl = '{{ route('store-comment', ':id') }}'.replace(':id', post_id);
+
+            if (content.trim() !== '') {
+                $.ajax({
+                    type: 'POST',
+                    url: _loginUrl,
+                    data: {
+                        content: content,
+                        _token: _csrf
+                    },
+                    success: function(data) {
+                        $('.commnent_post_body').html(data);
+                        $('.content_comment').val('');
+                    },
+                    error: function(error) {
+                        alert(error);
+                    }
+                });
+            } else {
+                alert('Please enter some content before submitting.');
+            }
+
+        });
+
+        $('.content_comment').on('keydown', function(e) {
+            if (e.keyCode == 13 && !e.shiftKey) {
+
+                e.preventDefault();
+
+                $('#form_comment-texarena').submit();
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('.btn_reply-submit').on('submit', function(e) {
+            // $('.btn_reply-submit').submit(function(e) {
+            e.preventDefault();
+            // post_id = $(this).data('post-id');
+
+            comment_id = $(this).data('id');
+
+            var commentContent_id = '.content_reply-' + comment_id;
+
+            var content = $(commentContent_id).val();
+
+            var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
+            if (content.trim() !== '') {
+                $.ajax({
+                    type: 'POST',
+                    url: _loginUrl,
+                    data: {
+                        content: content,
+                        comment_id: comment_id,
+                        _token: _csrf
+                    },
+                    success: function(data) {
+                        var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
+                            <a href="">
+                                <img width="60" id="avatar_user"
+                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                    alt="">
+                            </a>
+                            <div class="comment_body">
+                                <div class="comment_background">
+                                    <a href="">{{ auth()->user()->name }}</a>
+                                    <p>${data[0].content}</p>
+                                </div>
+                                <p class="reply_comment_post">
+                                    Reply
+                                </p>
+
+                                <form action="" style="display: none">
+                                    <div id="input_reply-comment">
+                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                        <div class="btn_icon-submit">
+                                            <i class="fa-solid fa-location-arrow"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>`
+
+
+                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                        $('.content_reply-' + comment_id).val('');
+                        $('.form_reply').slideUp();
+                        // console.log(data[0].content);
+                    },
+                    error: function(error) {
+                        alert(error);
+                    }
+                });
+            } else {
+                alert('Please enter some content before submitting.');
+            }
+
+
+        });
+
+
+        // $('.content_reply').on('keydown', function(e) {
+        //     if (e.keyCode === 13 && !e.shiftKey) {
+        //         e.preventDefault();
+        //         $('.btn_reply-submit').submit();
+        //     }
+        // })
+    });
+
+    //keycode
+    $(document).ready(function() {
+        $('.content_reply').on('keydown', function(e) {
+
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                // post_id = $(this).data('post-id');
+
+                comment_id = $(this).data('id');
+
+                var commentContent_id = '.content_reply-' + comment_id;
+
+                var content = $(commentContent_id).val();
+
+                // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
+                var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: _loginUrl,
+                    data: {
+                        content: content,
+                        comment_id: comment_id,
+                        _token: _csrf
+                    },
+                    success: function(data) {
+                        var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
+                            <a href="">
+                                <img width="60" id="avatar_user"
+                                    src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                    alt="">
+                            </a>
+                            <div class="comment_body">
+                                <div class="comment_background">
+                                    <a href="">{{ auth()->user()->name }}</a>
+                                    <p>${data[0].content}</p>
+                                </div>
+                                <p class="reply_comment_post">
+                                    Reply
+                                </p>
+
+                                <form action="" style="display: none">
+                                    <div id="input_reply-comment">
+                                        <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
+                                        <div class="btn_icon-submit">
+                                            <i class="fa-solid fa-location-arrow"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>`
+
+
+                        $('.replies-container[data-id="' + comment_id + '"]').append(html);
+                        $('.content_reply-' + comment_id).val('');
+                        $('.form_reply').slideUp();
+                        // console.log(data[0].content);
+                    },
+                    error: function(error) {
+                        alert(error);
+                    }
+                });
+            }
+            // $('.btn_reply-submit').submit(function(e) {
+
+        });
+    });
+
+
+
+
+
+    $('.show_reply-form').click(function() {
+        var comment_id = $(this).data('id');
+        var formReply = '.form_reply-' + comment_id;
+        $('.form_reply').slideUp();
+        $(formReply).slideDown();
+    })
+
+
+    $('.content_reply').blur(function() {
+        $('.form_reply').slideUp();
+        // $(this).val('');
+    })
+
+
+    $(document).ready(function() {
+        $('.modal_inner-comment-post').click(function(e) {
+            e.stopPropagation();
+        })
+    })
+
+    $(document).ready(function() {
+        $('.close-icon-comment').click(function() {
+            $('.modal-user-Comment-post').removeClass('show-comment');
+
+        })
+    })
+    $(document).ready(function() {
+        $('.modal-user-Comment-post').click(function() {
+            $(this).removeClass('show-comment');
+        })
+    })
+</script>

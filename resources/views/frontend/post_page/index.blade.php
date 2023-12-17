@@ -92,9 +92,9 @@
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+
+    
     var post_id;
-
-
 //get- post
     $(document).on('click', '#comment_post', function() {
         post_id = $(this).data('id');
