@@ -5,6 +5,7 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('blogcss/blog_finished.css') }}">
+    <link rel="stylesheet" href="{{asset('general/project.css')}}">
     {{-- css --}}
     
     <div class="container" style="margin-top: 100px">
