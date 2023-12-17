@@ -8,15 +8,12 @@
     <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     {{-- css --}}
 
-    <a href="{{ route('volunteer.index') }}" style="display: inline-block; margin-bottom: 10px; text-decoration: none;">
-        <i class="fa fa-long-arrow-left"></i>GO BACK</a>
-
     <h1 class="fb-detail-title">Volunteer Detail List</h1>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Finding Source</th>
+                <th>Source</th>
                 <th>Enrolled</th>
                 <th>Name</th>
                 <th>Phone</th>

@@ -200,18 +200,21 @@
                             <li>
 
                                 @if (session('userInfo'))
-                                <div class="text popup-profile">
-                                    @if (session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                                    @elseif($infouser && $infouser->avatar != null)
-                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
-                                    @else
-                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
-                                    @endif
-                                </div>
-                            @else
-                                <div class="text popup-login">LOGIN</div>
-                            @endif
+                                    <div class="text popup-profile">
+                                        @if (session('userInfo')['avatar'])
+                                            <img class="nav-user-img"
+                                                src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                        @elseif($infouser && $infouser->avatar != null)
+                                            <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                                alt="ảnh">
+                                        @else
+                                            <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
+                                                alt="">
+                                        @endif
+                                    </div>
+                                @else
+                                    <div class="text popup-login">LOGIN</div>
+                                @endif
                             </li>
                     </div>
                     </ul>
@@ -228,29 +231,19 @@
     {{-- footer --}}
 
     <div class="container-fluid"
-        style="background: linear-gradient(to bottom, #245abe, #578fd9);; margin-top: 150px;">
+        style="background: linear-gradient(
+        180deg,
+        rgba(17, 77, 172, 1) 0%,
+        rgba(155, 190, 230, 1) 100%
+    ); margin-top: 150px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>STAYHOPEFUL</h2>
-                        <span>Charity Fund was established under Decision No. 24/QD-BNV dated January 5, 2018. Stay
-                            Hopeful is an expanded version of Ho Chi Minh City Charity Fund. The Fund has a
-                            nationwide
-                            scope of operations.
-                        </span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer_header">
-                        <h2>QUICK LINKS</h2>
-                        <ul>
-                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
-                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
-                            <li><a href="{{ route('feedback.create') }}">Feedback</a></li>
-                            <li><a href="{{ route('volunteer.create') }}">Volunteer</a></li>
-                            <li></li>
-                        </ul>
+                        <h2>OUR STORY</h2>
+                        <span>StayHopeful Charity Fund was established under Decision No. 24/QD-BNV dated January 5,
+                            2018. StayHopeful is a nationwide scope of operations belongs to Ho Chi Minh City Charity
+                            Fund. </span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
@@ -267,13 +260,26 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer_header">
-                        <h2>STAYHOPEFUL CHARITY FUND</h2>
+                        <h2>SUPPORT</h2>
                         <ul>
-                            <li><i class="fa-solid fa-map"></i>5th Floor, No. 7 – 9 – 11 Mai Thi Luu Street, Da Kao
-                                Ward, District 1, Ho Chi Minh City</li>
-                            <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612 – Ext.227</li>
-                            <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li>
-                            <li><i class="fa-solid fa-envelope"></i>Email: contact@StayHopeful.org</li>
+                            <li><a href="{{ route('project.index', 1) }}">Projects</a></li>
+                            <li><a href="{{ route('detail.donate') }}">Donate</a></li>
+                            <li><a href="{{ route('feedback.create') }}">Feedback</a></li>
+                            <li><a href="{{ route('volunteer.create') }}">Volunteer</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="footer_header">
+                        <h2>STAYHOPEFUL</h2>
+                        <ul>
+                            <li><i class="fa-solid fa-map"></i>No. 22 Ben Nghe Street, Ward 2, District 1, Viet Nam
+                            </li>
+                            <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612</li>
+                            {{-- <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li> --}}
+                            <li><i class="fa-solid fa-envelope"></i><a href="{{ route('contact.index') }}">Email:
+                                    contact@StayHopeful.org</a></li>
                             <li></li>
                         </ul>
                     </div>
@@ -288,14 +294,10 @@
                     <div class="footer-end">
                         <h6>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
                         <div class="media-icon">
-                            <a href=""><i class="fa-brands fa-square-facebook"
-                                    style="cursor: pointer; background-color: #3B5998; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-youtube"
-                                    style="cursor: pointer; background-color: #e22b26; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-twitter"
-                                    style="cursor: pointer; background-color: #0591fc; color: white;"></i></a>
-                            <a href=""><i class="fa-brands fa-square-instagram"
-                                    style="cursor: pointer; background-color: #d67d51; color: white;"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

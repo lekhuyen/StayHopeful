@@ -61,8 +61,8 @@
 
                     <div class="fb-btn">
                         <div class="textcenter">
-                            <button type="submit" class="btn btn-success fb-setinput" name="feedback-btn"
-                                id="feedback-btn">SUBMIT
+                            <button type="submit" class="btn btn-primary fb-setinput" name="feedback-btn"
+                                id="feedback-btn">Submit
                             </button>
                         </div>
                     </div>

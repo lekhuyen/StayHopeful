@@ -26,8 +26,8 @@
                     <th onclick="sortTable(1)">Name</th>
                     <th onclick="sortTable(2)">Age</th>
                     <th onclick="sortTable(3)">Email</th>
-                    <th onclick="sortTable(4)">Skill</th>
                     <th onclick="sortTable(6)">Image</th>
+                    <th onclick="sortTable(4)">Skill</th>
                     <th onclick="sortTable(5)">Status</th>
                     <th>Action</th>
                     <th></th>
@@ -42,18 +42,18 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->age }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->skill }}</td>
                         <td>
                             @if ($item->images->count() > 0)
                                 <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail"
                                     alt="Image" />
                             @endif
                         </td>
+                        <td>{{ $item->skill }}</td>
                         <td>
                             @if ($item->status)
                                 <span class="badge rounded-pill bg-success status__about">Active</span>
                             @else
-                                <span class="badge rounded-pill bg-danger status__about">Inactive</span>
+                                <span class="badge rounded-pill bg-danger status__about">Deactive</span>
                             @endif
                         </td>
                         <td>

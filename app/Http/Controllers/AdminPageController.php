@@ -33,7 +33,8 @@ class AdminPageController extends Controller
     }
     public function viewmail()
     {
-        $mail = Contactus::all();
+        $mail = Contactus::orderBy('id', 'desc')->paginate(4);
+        // $mail = Contactus::all();
         return view('frontend.adminpage.manager.mailbox', compact('mail'));
     }
 
@@ -46,7 +47,7 @@ class AdminPageController extends Controller
     {
         $detail = Contactus::find($id);
         $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
-        return view('frontend.adminpage.manager.maildetail', compact('mail','detail'));
+        return view('frontend.adminpage.manager.maildetail', compact('mail', 'detail'));
     }
     public function sendreplymail(Request $request, $id)
     {
@@ -149,7 +150,7 @@ class AdminPageController extends Controller
 
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::orderBy('id','desc')->paginate(3);
+        $sliders = Sliders::orderBy('id', 'desc')->paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
 
@@ -259,7 +260,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::orderBy('id','desc')->paginate(4);
+        $user = User::orderBy('id', 'desc')->paginate(4);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
@@ -278,7 +279,7 @@ class AdminPageController extends Controller
     //donate admin
     public function viewlistdonate()
     {
-        $donateinfo = DonateInfo::orderBy('id','desc')->paginate(6);
+        $donateinfo = DonateInfo::orderBy('id', 'desc')->paginate(6);
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 
@@ -366,7 +367,6 @@ class AdminPageController extends Controller
         foreach ($usercount as $count) {
             $days[] = date('l', strtotime("Sunday + {$count->day} days"));
             $userCounts[] = $count->total_users;
-
         }
 
         $data = [
@@ -563,8 +563,5 @@ class AdminPageController extends Controller
         }
 
         return $output;
-
-
     }
-
 }

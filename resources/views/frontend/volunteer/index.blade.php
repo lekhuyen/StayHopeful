@@ -41,7 +41,7 @@
                         <td>{{ $item->title }}</td>
                         <td class="text-center">{{ $item->quantity }}</td>
                         <td class="text-center"></td>
-                        <td>
+                        <td style="font-style: oblique">
                             @if ($isActive)
                                 <span class="text-danger">Unavailable</span>
                             @else
@@ -107,7 +107,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Finding Source</th>
+                            <th>Source</th>
                             <th>Enrolled</th>
                             <th>Name</th>
                             <th>Phone</th>
@@ -130,13 +130,13 @@
                 <tr>
                     <td>${item.id}</td>
                     <td>${item.finding_source}</td>
-                    <td>${item.enrolled}</td>
+                    <td>${item.enrolled?'Already':'Not Yet'}</td>
                     <td>${item.name}</td>
                     <td>${item.phone}</td>
                     <td>${item.email}</td>
-                    <td>${item.volunteer_description}</td>
+                    <td style="font-style:oblique;">${item.volunteer_description}</td>
                     <td>${item.rel_name}</td>
-                    <td>${item.rel_phone}</td>
+                    <td style="font-style:oblique; font-weight: bold; color:#eb2f06">${item.rel_phone}</td>
                     <td>${item.rel_relationship}</td>
                 </tr>
                 `

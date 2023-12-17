@@ -18,7 +18,6 @@
                     <th>Phone Number</th>
                     <th>Email</th>
                     <th>Content</th>
-                    <th>Image</th>
                 </tr>
             </thead>
             <tbody>
