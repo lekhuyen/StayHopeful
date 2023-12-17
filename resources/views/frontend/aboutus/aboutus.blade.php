@@ -8,13 +8,13 @@
     <br>
     {{-- Mission sector --}}
     <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
-        @foreach ($aboutuspages as $aboutusmain)
+        @foreach ($mainPages as $aboutusmain)
             <div>
                 @if ($aboutusmain->section === 'main')
                     <h1>{{ $aboutusmain->title }}</h1>
                     <span class="mission">{{ $aboutusmain->description }}</span>
                     @if ($aboutusmain->images->count() > 0)
-                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main"  style="max-width: 30%;">
+                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main">
                     @endif
                 @endif
             </div>
@@ -29,7 +29,7 @@
             $firstTitle = null;
         @endphp
     
-        @foreach ($aboutuspages as $aboutusmain)
+        @foreach ($aboutUsPages as $aboutusmain)
             @if ($aboutusmain->section == 'aboutus' && $aboutUsCounter == 0)
                 @php
                     $firstTitle = $aboutusmain->title;
@@ -38,7 +38,7 @@
             @endif
         @endforeach
 
-        @foreach ($aboutuspages as $aboutusmain)
+        @foreach ($aboutUsPages as $aboutusmain)
             @if ($aboutusmain->section == 'aboutus')
                 <div style="margin-top: 20px">
                     @if ($aboutusmain->title == $firstTitle)
@@ -119,7 +119,7 @@
             $firstTitle = null;
         @endphp
     
-        @foreach ($aboutuspages as $aboutusmain)
+        @foreach ($logoPages as $aboutusmain)
             @if ($aboutusmain->section == 'logo' && $aboutUsCounter == 0)
                 @php
                     $firstTitle = $aboutusmain->title;
@@ -133,7 +133,7 @@
                 <h1>{{ $firstTitle }}</h1>
             @endif
     
-            @foreach ($aboutuspages as $aboutusmain)
+            @foreach ($logoPages as $aboutusmain)
                 @if ($aboutusmain->section === 'logo')
                     <div class="row align-items-center">
                         @foreach ($aboutusmain->images as $image)
@@ -150,15 +150,15 @@
     
     {{-- call to action sector --}}
     <div class="container mt-3 call_to_action">
-        @foreach ($aboutuspages as $aboutusmain)
-            @if ($aboutusmain->section === 'introcall')
+        @foreach ($leftcallPages as $aboutusmain)
+            @if ($aboutusmain->section === 'leftcall')
                 <h3>{{ $aboutusmain->title }}</h3>
                 <p>{{ $aboutusmain->description }}</p>
             @endif
         @endforeach
         <br>
 
-        @foreach ($aboutuspages as $aboutusmain)
+        @foreach ($leftcallPages as $aboutusmain)
             @if ($aboutusmain->section === 'leftcall')
 
                 <div class="row row-cols-1 row-cols-md-3 g-4">

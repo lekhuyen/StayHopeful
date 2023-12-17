@@ -15,8 +15,7 @@ class AboutuspageController extends Controller
         $mainPages = Aboutuspage::where('section', 'main')->get();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
-        $introcallPages = Aboutuspage::where('section', 'introcall')->get();
-        $leftcallPages = Aboutuspage::where('section', 'leftcall')->get();
+        $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         $introwhoPages = Aboutuspage::where('section', 'introwho')->get();
 
 
@@ -140,9 +139,12 @@ class AboutuspageController extends Controller
     {
         // Retrieve the team member from the database
         $aboutusmain = aboutuspage::find($id);
+        $aboutusmain = aboutuscalltoaction::find($id);
 
         // Pass the team member data to the view
         return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
+
+
     }
 
     //about us
@@ -471,7 +473,7 @@ class AboutuspageController extends Controller
 
     //left Call 
     public function aboutus_page_create_leftcall() {
-        $leftcallPages = Aboutuspage::where('section', 'leftcall')->get();
+        $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         return view("frontend.aboutus.aboutus_page_create_call_left", compact("leftcallPages"));
         
     }
@@ -490,94 +492,72 @@ class AboutuspageController extends Controller
         ]);
 
 
-        $leftcallPage = new Aboutuspage();
+        $leftcallPages = new aboutuscalltoaction();
         
 
-        $leftcallPage->title = $request->title;
-        $leftcallPage->description = $request->description;
-        
-        $leftcallPage->lefttitle = $request->lefttitle;
-        $leftcallPage->leftdescription = $request->leftdescription;
-        
-        $leftcallPage->middletitle = $request->middletitle;
-        $leftcallPage->middledescription = $request->middledescription;
+        $leftcallPages->title = $request->title;
+        $leftcallPages->description = $request->description;
 
-        $leftcallPage->righttitle = $request->righttitle;
-        $leftcallPage->rightdescription = $request->rightdescription;
+        $leftcallPages->lefttitle = $request->lefttitle;
+        $leftcallPages->leftdescription = $request->leftdescription;
+        
+        $leftcallPages->middletitle = $request->middletitle;
+        $leftcallPages->middledescription = $request->middledescription;
 
-        $leftcallPage->section = 'leftcall';
-        $leftcallPage->save();
+        $leftcallPages->righttitle = $request->righttitle;
+        $leftcallPages->rightdescription = $request->rightdescription;
+
+        $leftcallPages->section = 'leftcall';
+        $leftcallPages->save();
 
         // Retrieve the left call pages
-        $leftcallPages = Aboutuspage::all();
+
+        $leftcallPage = aboutuscalltoaction::where('section', 'leftcall')->get();
 
         // Redirect to the index page with the left call pages and a success message
-        return redirect()->route('aboutuspage.index')->with('leftcall', $leftcallPages)
+        return redirect()->route('aboutuspage.index')->with('leftcall', $leftcallPage)
             ->with("success", "Left call page created successfully");
     }
 
-    public function aboutus_page_edit_leftcall(aboutuspage $leftcallPages) {
+    public function aboutus_page_edit_leftcall(aboutuscalltoaction $leftcallPages) {
         return view("frontend.aboutus.aboutus_page_edit_call_left", compact("leftcallPages"));
     }
 
-    public function aboutus_page_update_leftcall(Request $request, aboutuspage $leftcallPages)
+    public function aboutus_page_update_leftcall(Request $request, aboutuscalltoaction $leftcallPages)
     {
-
+        dd($request);
         $request->validate([
             "title" => "nullable",
             "description" => "nullable",
+            "lefttitle" => "required", 
+            "leftdescription" => "required",
+            "middletitle" => "required", 
+            "middledescription" => "required",
+            "righttitle" => "required", 
+            "rightdescription" => "required",
 
         ]);
 
         $leftcallPages->title = $request->title;
         $leftcallPages->description = $request->description;
+
+        
+        $leftcallPages->lefttitle = $request->lefttitle;
+        $leftcallPages->leftdescription = $request->leftdescription;
+        
+        $leftcallPages->middletitle = $request->middletitle;
+        $leftcallPages->middledescription = $request->middledescription;
+
+        $leftcallPages->righttitle = $request->righttitle;
+        $leftcallPages->rightdescription = $request->rightdescription;
         $leftcallPages->save();
 
-        if ($request->hasFile("images")) {
-
-            if ($leftcallPages->images->count() > 0) {
-                foreach ($leftcallPages->images as $image) {
-                    $imageUrl = $image->url_image;
-            
-
-                    if (File::exists($imageUrl) && $image->aboutus_id === $leftcallPages->id) {
-                        File::delete($imageUrl);
-                    }
-            
-                    // Delete the image record
-                    $image->delete();
-                }
-            }
-
-            foreach ($request->file("images") as $item) {
-                $filename = time() . "_" . $item->getClientOriginalName();
-                $destinationPath = public_path("img/aboutus_images");
-
-                $item->move($destinationPath, $filename);
-                $imagePath = "img/aboutus_images/" . $filename;
-
-                $newImage = new Aboutusimage();
-                $newImage->url_image = $imagePath;
-                $newImage->aboutus_id = $leftcallPages->id;
-                $newImage->save();
-            }
-        }
-
-        return redirect()->route("aboutuspage.index")
-            ->with("success", "left call page updated successfully");
+        return redirect()->route("aboutuspage.index")->with("success", "left call page updated successfully");
     }
 
     
-    public function aboutus_page_delete_leftcall(aboutuspage $leftcallPages)
+    public function aboutus_page_delete_leftcall(aboutuscalltoaction $leftcallPages)
     {
-        // Delete related images
-        foreach ($leftcallPages->images as $image) {
-            if (File::exists($image->url_image)) {
-                File::delete($image->url_image);
-            }
-            $image->delete();
-        }
-
         // Delete the main page
         $leftcallPages->delete();
 

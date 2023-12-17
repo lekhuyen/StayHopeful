@@ -7,13 +7,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+
 
 <div class="container mt-3">
 
   <h1>Call to Action Left Form</h1>
-  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.store_leftcall', $leftcallPages) }}">
+  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.update_leftcall', $leftcallPages)}}">
     @csrf
     @method("PUT")
 
@@ -24,33 +25,43 @@
     <br>
 
     <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $leftcallPages->title }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $leftcallPages->description }}</textarea>
+    </div>
+
+    <div class="mb-3">
         <label for="lefttitle" class="form-label">Left Title:</label>
-        <input type="text" class="form-control" id="lefttitle" placeholder="Enter lefttitle" name="lefttitle" value="{{ $leftcallPages->title }}>
+        <input type="text" class="form-control" id="lefttitle" placeholder="Enter lefttitle" name="lefttitle" value="{{ $leftcallPages->lefttitle }}">
     </div>
 
     <div class="mb-3">
       <label for="leftdescription" class="form-label">Left Description:</label>
-      <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription">{{ $leftcallPages->title }}</textarea>
+      <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription">{{ $leftcallPages->leftdescription }}</textarea>
     </div>
 
     <div class="mb-3">
       <label for="middletitle" class="form-label">Middle Title:</label>
-      <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle" name="middletitle">
+      <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle" name="middletitle" value="{{ $leftcallPages->middletitle }}">
   </div>
 
   <div class="mb-3">
     <label for="middledescription" class="form-label">Middle Description:</label>
-    <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription" name="middledescription"></textarea>
+    <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription" name="middledescription">{{ $leftcallPages->middledescription }}</textarea>
   </div>
 
   <div class="mb-3">
     <label for="righttitle" class="form-label">Right Title:</label>
-    <input type="text" class="form-control" id="righttitle" placeholder="Enter righttitle" name="righttitle">
+    <input type="text" class="form-control" id="righttitle" placeholder="Enter righttitle" name="righttitle" value="{{ $leftcallPages->righttitle }}">
   </div>
 
   <div class="mb-3">
     <label for="rightdescription" class="form-label">Right Description:</label>
-    <textarea class="form-control tinymce" id="rightdescription" placeholder="Enter rightdescription" name="rightdescription"></textarea>
+    <textarea class="form-control tinymce" id="rightdescription" placeholder="Enter rightdescription" name="rightdescription">{{ $leftcallPages->rightdescription }}</textarea>
   </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

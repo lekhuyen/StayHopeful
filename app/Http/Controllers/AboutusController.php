@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\aboutuscalltoaction;
 use App\Models\aboutuspage;
 use App\Models\aboutusteam;
 use Illuminate\Http\Request;
@@ -9,9 +10,13 @@ use Illuminate\Http\Request;
 class AboutusController extends Controller
 {
     public function index() {
-        $aboutuspages = aboutuspage::all();  // Fetch all aboutus pages
-
-        return view("frontend.aboutus.aboutus", compact("aboutuspages"));
+        $mainPages = Aboutuspage::where('section', 'main')->get();
+        $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
+        $logoPages = Aboutuspage::where('section', 'logo')->get();
+        $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
+        $introwhoPages = Aboutuspage::where('section', 'introwho')->get();
+    
+        return view("frontend.aboutus.aboutus", compact("mainPages", "aboutUsPages", "logoPages", "introcallPages", "leftcallPages", "introwhoPages"));
     }
 
     public function aboutus_whoweare() {
