@@ -46,9 +46,8 @@ Route::get('/nav', [AdminPageController::class, 'viewnav'])->name('nav');
 // Route::get('/category-list', [AdminPageController::class, 'category']);
 //donatedetail
 
-Route::get('/donate', [detaildonateController::class, 'donatepage'])->name('detail.donate'); //view user
-Route::get('/donate/{id}', [detaildonateController::class, 'index'])->name('detail.getdonate'); //view user
-// Route::post('/donate', [detaildonateController::class, 'thanhtoan'])->name('detail.thanhtoan');
+Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate'); //view user
+Route::get('/donate/{id}', [detaildonateController::class, 'donatepage'])->name('detail.getdonate'); //view user
 
 Route::post('/donate/payment', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
@@ -389,6 +388,10 @@ Route::post('/store-comment/{id}', [CommentPostController::class, 'storeComment'
 Route::post('/store-comment-reply/{id}', [CommentPostController::class, 'storeCommentReply'])->name('store-comment_reply');
 //show comment
 Route::get('/comments/{postId}', [CommentPostController::class, 'showComments'])->name('show-comments');
+//delete -comment
+Route::delete('/delete-comments/{id}', [CommentPostController::class, 'deleteComments'])->name('delete-comment');
+//edit comment
+Route::post('/edit-comments/{id}', [CommentPostController::class, 'editComments'])->name('edit-comment');
 
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');

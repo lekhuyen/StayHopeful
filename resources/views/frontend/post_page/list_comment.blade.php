@@ -1,5 +1,5 @@
 @foreach ($comments as $comment)
-    <div class="comment_post">
+    <div class="comment_post" id="comment_parent-post" data-id="{{$comment->id}}">
         <a href="">
             <img id="avatar_user" width="60"
                 src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
@@ -9,6 +9,21 @@
             <div class="comment_background">
                 <a href="">{{$comment->user->name}}</a>
                 <p class="comment_content">{{ $comment->content }}</p>
+                @if ($comment->user->id == auth()->user()->id)
+                    <div class="delete_comment-post">
+                        <div class="menu-edit-delete">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+
+                        {{-- <div class="edit_delete-post-1"></div> --}}
+                        <div class="edit_delete-post" style="display: none">
+                            <p class="edit_comment-post-user" data-id="{{$comment->id}}">Edit</p>
+                            <p class="delete_comment-post-user" data-id="{{$comment->id}}">Delete</p>
+                        </div>
+                    </div>
+                @endif
+                {{-- <div class="edit_delete-post-1"></div> --}}
+                
             </div>
             <p class="reply_comment_post show_reply-form" data-id="{{ $comment->id}}">
                 Reply
