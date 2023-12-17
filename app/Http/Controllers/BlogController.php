@@ -17,7 +17,7 @@ class BlogController extends Controller
         $categories = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->limit(5)->get();
         $blogs = News::orderBy('id', 'desc')->get();
-        $blogs = News::paginate(7);
+        $blogs = News::orderBy('id', 'desc')->paginate(7);
         return view('frontend.blog.blog', compact('categories', 'projects', 'blogs'));
     }
 

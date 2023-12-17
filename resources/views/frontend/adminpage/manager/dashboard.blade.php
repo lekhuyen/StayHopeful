@@ -38,7 +38,7 @@
                                         {{ number_format($growthPercentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #C0392B"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -83,7 +83,7 @@
                                         {{ number_format($projectprecenttage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #C0392B"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -128,7 +128,7 @@
                                         {{ number_format($donatepercentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #C0392B"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -173,7 +173,7 @@
                                         {{ number_format($statusprecentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #C0392B"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
