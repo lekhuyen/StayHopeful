@@ -29,7 +29,7 @@ class AuthloginController extends Controller
         if ($status == 1) {
             // Attempt login with provided credentials
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                
+
                 session()->put("userInfo", $user->toArray());
                 // User logged in successfully
                 return response()->json([
@@ -115,27 +115,52 @@ class AuthloginController extends Controller
     }
     public function handleGoogleback()
     {
+        $usergoogle = Socialite::driver('google')->user();
+
         try {
-            $usergoogle = Socialite::driver('google')->user();
-            if ($usergoogle) {
-                $userGoogle = [
-                    'id' => $usergoogle->id,
+            $existingUser = User::where('email', $usergoogle->email)->first();
+
+            if ($existingUser) {
+                // Update existing user information if needed
+                $existingUser->update([
                     'name' => $usergoogle->name,
-                    'email' => $usergoogle->email,
                     'avatar' => $usergoogle->avatar,
+                    'password' => '123456',
                     'role' => 0,
                     'status' => 1,
                     'is_volunteer' => 0,
                     'is_sponsor' => 0,
-                ];
-                session()->put('userInfo', $userGoogle);
-                return redirect()->route('/');
+                ]);
+
+                $user = $existingUser;
             } else {
-                return redirect()->back()->with('error', 'Lỗi đăng nhập');
+                // Create a new user
+                $user = User::create([
+                    'name' => $usergoogle->name,
+                    'email' => $usergoogle->email,
+                    'avatar' => $usergoogle->avatar,
+                    'role' => 0,
+                    'password' => '123456',
+                    'status' => 1,
+                    'is_volunteer' => 0,
+                    'is_sponsor' => 0,
+                ]);
             }
-            ;
+            Auth::login($user);
+            session()->put('userInfo', [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+                'role' => 0,
+                'status' => 1,
+                'is_volunteer' => 0,
+                'is_sponsor' => 0,
+            ]);
+
+            return redirect()->route('/');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors('Lỗi đăng nhập email');
+            return redirect()->route('/')->with('error', $th->getMessage());
         }
     }
     //login bằng facebook
@@ -222,13 +247,14 @@ class AuthloginController extends Controller
     }
 
 
-    public function user_profile($postId){
+    public function user_profile($postId)
+    {
         $posts = UserPost::where('user_id', $postId)->get();
         $user = User::find($postId);
         if ($posts) {
             return view('frontend.profile.profile_user', compact('posts', 'user'));
         } else {
-            return abort(404); 
+            return abort(404);
         }
     }
 }
