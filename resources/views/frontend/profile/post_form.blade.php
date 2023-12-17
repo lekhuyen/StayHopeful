@@ -42,7 +42,7 @@
         <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="input-post-content">
-                <textarea name="title" id="" placeholder="content.."></textarea>
+                <textarea name="title" id="" placeholder="Write post"></textarea>
             </div>
             <div class="user-post-image">
                 <input type="file" multiple name="image[]">

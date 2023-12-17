@@ -30,7 +30,7 @@
             <div>
                 <input name="post_id" type="hidden" class="post_id" />
                 <div class="input-post-content">
-                    <textarea class="post-title" name="title" id="" placeholder="content.."></textarea>
+                    <textarea class="post-title" name="title" id="" placeholder="Write post"></textarea>
                 </div>
 
                 <div class="user_post-image" style="display: flex;justify-content: center; margin: 0 10px 20px 10px;">
@@ -218,7 +218,7 @@
     //             // images: formData
     //         },
     //         processData: false,
-    //         contentType: false,  
+    //         contentType: false,
     //         success: function(data) {
     //             console.log(data);
     //             // alert(data.success)
