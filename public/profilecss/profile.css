@@ -465,7 +465,7 @@
 
 .post-header-title h1 {
     font-size: 25px;
-    color: #043e84;
+    color: cornflowerblue;
     margin-bottom: 0;
 }
 
@@ -874,7 +874,7 @@
     border-radius: 5px;
     box-shadow: 5px 10px 18px darkblue;
     border-radius: 20px;
-    padding: 80px;
+    padding: 50px;
 }
 
 .input_new-post div {
@@ -895,14 +895,14 @@
     color: white;
     font-weight: 500;
     font-size: 30px;
-    padding: 50px;
+    padding: 30px;
 }
 
 .input_new-post div:hover {
     background: darkblue;
-    transform: scale(1.2, 1.2);
-    -webkit-transform: scale(1.2, 1.2);
-    -moz-transform: scale(1.2, 1.2);
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
 }
 
 #exampleModalLabel {
