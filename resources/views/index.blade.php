@@ -21,7 +21,7 @@
             </div>
             <div class="handles">
                 <span class="prev">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-left: 30px"
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="margin-left: 60px;"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
                             stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
@@ -29,7 +29,7 @@
                     </svg>
                 </span>
                 <span class="next">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 30px"
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="margin-right: 30px"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
                             stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
@@ -43,12 +43,12 @@
     </div>
     @if (session('error'))
     {{session('error')}}
-        
+
     @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-sm-12">
-                <div class="donate-home mt-0">
+                <div class="donate-home mt-0 mb-4">
                     <div class="donate-user-index">
                         <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
                             {{-- content donate user --}}

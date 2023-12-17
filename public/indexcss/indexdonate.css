@@ -95,7 +95,7 @@
 /* carousel */
 
 .handles svg path {
-    stroke: #e2e2e2 !important;
+    stroke: darkblue !important;
 }
 
 .dots span {
@@ -125,7 +125,7 @@
     margin: auto;
 }
 .innerContainer {
-    margin-top: 80px;
+    margin-top: 130px;
 }
 .PostSlide .innerContainer .slider .slide {
     display: block;
