@@ -165,7 +165,7 @@
                 </div>
 
                 <div class="post-header-title">
-                    <h1>Create Post</h1>
+                    <h1>New Post</h1>
                 </div>
             </div>
             <div class="post-uset-body">

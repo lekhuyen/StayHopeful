@@ -275,7 +275,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="{{ route('post.updateprofile', session('userInfo')['id']) }}"
@@ -302,14 +302,14 @@
                                 name="address" value="{{ $userupdate->address }}">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="images" class="form-label">Change Avatar:</label>
+                            <label for="images" class="form-label">New Profile Picture:</label>
                             <input type="file" class="form-control" id="images" placeholder="Choose Image"
                                 name="images">
                         </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>
                 </div>
             </div>

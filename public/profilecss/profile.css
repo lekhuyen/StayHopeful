@@ -930,7 +930,7 @@
     font-weight: 700;
     text-decoration: none;
     color: honeydew;
-    font-size: 50px;
+    font-size: 30px;
     font-style: oblique;
     font-family: Copperplate, Papyrus, fantasy;
 }
@@ -938,7 +938,7 @@
 .post__title {
     text-align: left;
     margin: 0 50px 20px 50px;
-    color: darkblue;
+    color: white;
     font-size: 24px;
 }
 .profile-text-listdonate {
