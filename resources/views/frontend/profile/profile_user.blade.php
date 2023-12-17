@@ -24,9 +24,9 @@
                                         <p class="info-text">Email:
                                             <span class="info-text-user">{{ $user->email }}</span>
                                         </p>
-                                        <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
+                                        <p class="info-text">Age: <span class="info-text-user">Not Updated Yet</span></p>
+                                        <p class="info-text">Phone : <span class="info-text-user">Not Updated Yet</span></p>
+                                        <p class="info-text">Address : <span class="info-text-user">Not Updated Yet</span></p>
                                 </div>
 
                             </div>
