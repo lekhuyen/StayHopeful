@@ -1,10 +1,11 @@
 .form-donate {
-    margin-top: 150px;
-    width: 80%;
+    margin-top: 120px;
+    width: 60%;
     background: linear-gradient(to right, #8ecdf2, #1aa1ef);
     border-radius: 20px;
     height: auto;
     overflow: hidden;
+    padding: 10px;
 }
 
 .form-donate-text {
@@ -189,7 +190,7 @@
     border-radius: 50%;
     border: 2.5px solid #fff;
     animation: run 1s ease-in;
-    
+
 }
 @keyframes run {
     0%{
@@ -198,7 +199,7 @@
     100%{
         border: 2.5px solid #fff;
         transform: rotate(360deg);
-        
+
     }
 }
 .container-change-password-notification{
