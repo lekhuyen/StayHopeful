@@ -235,7 +235,7 @@
         180deg,
         rgba(17, 77, 172, 1) 0%,
         rgba(155, 190, 230, 1) 100%
-    ); margin-top: 150px;">
+    ); margin-top: 30px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">

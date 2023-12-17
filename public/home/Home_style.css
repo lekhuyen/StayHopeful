@@ -469,16 +469,23 @@ button.carousel-control-next {
 .section-title-1 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgb(215, 210, 210);
-    height: 50px;
-}
+    justify-items: center;
 
+    height: 60px;
+    padding: 0 20px;
+    border-bottom: 1px solid rgb(215, 210, 210);
+    margin-bottom: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+.donate__title{
+    margin-bottom: 0;
+}
 .section-title_video h4 {
     color: #245abe;
 }
 
-.section-title-1 div a {
+.btn__more{
     text-decoration: none;
     color: white;
     border-radius: 10px;
@@ -489,8 +496,12 @@ button.carousel-control-next {
     transition: 0.3s;
 }
 
-.section-title-1 div a:hover {
-    background-color: #578fd9;
+.btn__more:hover {
+    background-color: darkblue;
+    color: white;
+    transform:scale(1.3,1.3);
+    -webkit-transform:scale(1.3,1.3);
+    -moz-transform:scale(1.3,1.3);
 }
 
 /* project */
@@ -501,11 +512,15 @@ button.carousel-control-next {
     width: 300px;
     margin: 40px 0;
     color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .project-count i {
     font-size: 40px;
-    color: #f06626;
+    color: #FF3800;
 }
 .total-money i {
     transform: translateY(10px);
@@ -514,12 +529,12 @@ button.carousel-control-next {
 .total-money i,
 .total-money span {
     font-size: 40px;
-    color: #27ae60;
+    color: #4cd137;
 }
 
 .project-count span {
     font-size: 40px;
-    color: #f06626;
+    color: #FF3800;
     margin-left: 5px;
 }
 
