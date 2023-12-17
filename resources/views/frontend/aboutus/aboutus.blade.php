@@ -7,7 +7,7 @@
     <br>
     <br>
     {{-- Mission sector --}}
-    <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
+    <div class="container mt-5 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
         <h1>Our mission</h1>
 
         <span class="mission">

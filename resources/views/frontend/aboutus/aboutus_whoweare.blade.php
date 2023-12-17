@@ -36,7 +36,7 @@
                         inception. His leadership and commitment inspire our team to create a world where hope and
                         compassion thrive. Learn more about John's journey and dedication in the Read More section below.
                     </p>
-                    <a href="{{ route('aboutus.johndoe') }}" class="btn btn-outline-info">Learn More</a>
+                    <a href="{{ route('aboutus.johndoe') }}" class="btn btn-outline-info btn__founder">Learn More</a>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                                 <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive
                                     experience in finance and strategic planning. His innovative thinking has significantly
                                     contributed to our organization's success.</p>
-                                <a href="{{ route('aboutus.robertjohnson') }}" class="btn btn-outline-info">View Details</a>
+                                <a href="{{ route('aboutus.robertjohnson') }}" class="btn btn-outline-info btn__founder">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                                 <p class="card-text">Jane Smith is our Chief Marketing Officer, bringing a creative and
                                     strategic approach to our outreach efforts. Her dedication has played a crucial role in
                                     expanding our reach and impact.</p>
-                                <a href="{{ route('aboutus.janesmith') }}" class="btn btn-outline-info">View Details</a>
+                                <a href="{{ route('aboutus.janesmith') }}" class="btn btn-outline-info btn__founder">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                                 <p class="card-text">Kai Greene, our Lead Developer, playing a key role in shaping our
                                     technological initiatives. Their expertise has been instrumental in driving our digital
                                     transformation.</p>
-                                <a href="{{ route('aboutus.kaigreene') }}" class="btn btn-outline-info">View Details</a>
+                                <a href="{{ route('aboutus.kaigreene') }}" class="btn btn-outline-info btn__founder">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                                 <p class="card-text">Oliver Hudson serves as our Creative Director, bringing a unique blend
                                     of artistic vision and strategic thinking to our projects. Their creativity adds a
                                     distinctive touch to our initiatives.</p>
-                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-outline-info">View
+                                <a href="{{ route('aboutus.oliverhudson') }}" class="btn btn-outline-info btn__founder">View
                                     Details</a>
                             </div>
                         </div>
