@@ -177,7 +177,7 @@
 } */
 
 .show {
-    display: inline-block; 
+    display: inline-block;
 }
 
 /* like - profile */
@@ -587,7 +587,7 @@
     display: none;
     align-items: center;
     justify-content: center;
-    
+
 }
 .show-comment {
     display: flex;
@@ -804,6 +804,7 @@
     justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0 10px #ccc;
+    border-radius: 20px;
 }
 .input_new-post div {
     width: 80%;

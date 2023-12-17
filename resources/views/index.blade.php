@@ -44,7 +44,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-sm-12">
-                <div class="donate-home">
+                <div class="donate-home mt-0">
                     <div class="donate-user-index">
                         <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
                             {{-- content donate user --}}
@@ -54,27 +54,27 @@
             </div>
         </div>
     </div>
-    <section>
-        <div class="container section-title-1-0">
+
+        <div class="container">
             <div class="row">
-                <div class="col-lg-12 section-title-1">
-                    <div class="section-title_video">
-                        <h4>RECENT PROJECTS</h4>
-                    </div>
-                    <div>
-                        <a href="{{ route('project.index', 1) }}">SEE MORE</a>
+                <div class="col-lg-12">
+                    <div class="section-title-1">
+                        <div class="section-title_video">
+                            <h4 class="donate__title">RECENT PROJECTS</h4>
+                        </div>
+                        <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
     <!-- card -->
     <div class="container">
         <div class="row">
             @foreach ($projects as $project)
                 <div class=" col-xxl-4 col-xl-4 col-lg-6 large ">
-                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}" class="a-card">
+                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
+                        class="a-card">
                         <div class="card card_wapper" style="width: 26rem;">
                             @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
@@ -100,7 +100,7 @@
                                         ${{ number_format($project->money) }}
                                     </span>
                                 </p>
-                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}"
+                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                                     class="btn btn-primary btn-primary-1">Details</a>
                             </div>
                         </div>
@@ -134,7 +134,8 @@
         <div class="row">
             @foreach ($project_finish as $project)
                 <div class="col-xxl-3 col-xl-3">
-                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}" class="a-card">
+                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
+                        class="a-card">
                         <div class="card card_wapper" style="width: 19.5rem;">
                             @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
@@ -162,7 +163,7 @@
                                         ${{ number_format($project->money) }}
                                     </span>
                                 </p>
-                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}"
+                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                                     class="btn btn-primary btn-primary-1">Details</a>
                             </div>
                         </div>
@@ -203,7 +204,12 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: rgb(36,90,190); margin-top: 40px;">
+    <div class="container-fluid"
+        style="background: linear-gradient(
+            90deg,
+            rgba(17, 77, 172, 1) 0%,
+            rgba(155, 190, 230, 1) 100%
+        );  margin-top: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -211,20 +217,20 @@
                         <h3>STAYHOPEFUL ALREADY HELPED:</h3>
                     </div>
                 </div>
-                <div class="col-lg-12" style="display: flex; align-content: center">
+                <div class="col-lg-12" style="display: flex; align-content: center; justify-content:center">
                     <div class="statistical">
                         <div class="project-count">
                             <i class="fa-solid fa-globe"></i>
                             <span>123</span>
                         </div>
-                        <span style="font-size: 18px;">CASES</span>
+                        <span style="font-size: 30px;">CASES</span>
                     </div>
                     <div class="statistical">
                         <div class="total-money">
                             <i class="fa-regular fa-face-smile"></i>
                             <span class="odometer" id="odometer"></span>
                         </div>
-                        <span style="font-size: 18px;">USD</span>
+                        <span style="font-size: 30px;">USD</span>
                     </div>
                 </div>
             </div>
@@ -245,4 +251,4 @@
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
     <script src="{{ asset('js/indexslider.js') }}"></script>
     <script src="{{ asset('js/countdonate.js') }}"></script>
-    @stop()
+@stop()
