@@ -102,7 +102,7 @@ class AuthloginController extends Controller
                 ->where('status', 0)
                 ->get();
 
-            $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->get();
+            $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->paginate(5);
             return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
