@@ -60,7 +60,7 @@
             </div>
         @else
             <div class="donate_link">
-                <a href="{{ route('detail.getdonate', $project->id) }}">DONATE</a>
+                <a href="{{ route('detail.donate') }}">DONATE</a>
                 @if ($checkUserProject)
                     <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else

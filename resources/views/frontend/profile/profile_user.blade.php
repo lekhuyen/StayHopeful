@@ -24,9 +24,9 @@
                                         <p class="info-text">Email:
                                             <span class="info-text-user">{{ $user->email }}</span>
                                         </p>
-                                        <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
+                                        <p class="info-text">Age: <span class="info-text-user">Not Updated Yet</span></p>
+                                        <p class="info-text">Phone : <span class="info-text-user">Not Updated Yet</span></p>
+                                        <p class="info-text">Address : <span class="info-text-user">Not Updated Yet</span></p>
                                 </div>
 
                             </div>
@@ -182,7 +182,7 @@
             <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-post-content">
-                    <textarea name="title" id="" placeholder="content.."></textarea>
+                    <textarea name="title" id="" placeholder="Write post"></textarea>
                 </div>
                 <div class="user-post-image">
                     <input type="file" multiple name="image[]">
@@ -195,7 +195,7 @@
         </div>
     </div>
 
-    
+
     @include('frontend/profile/popup_profile')
     @include('frontend/login/login')
     @include('frontend.profile.form_post')

@@ -90,10 +90,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="profile-listdonate">
-                        <span class="listdonate">List Donate</span>
-                        <div class="profile-table" id="style-1">
+                    {{-- <div class="profile-text-listdonate">
+                    </div> --}}
+                    <div class="row listdonate-col">
+                        <div class="col-12 ">
+                            <span class="listdonate">List Donate</span>
                             <table class="table table-striper">
                                 <thead>
                                     <tr>
@@ -120,8 +121,12 @@
                                     @endif
                                 </tbody>
                             </table>
+                            {{ $userinfo->links() }}
+
                         </div>
                     </div>
+
+
                     <div class="profile-post">
                         <button class="profile-edit-info user-post-form">Post</button>
                     </div>
