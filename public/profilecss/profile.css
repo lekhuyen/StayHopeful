@@ -882,7 +882,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    box-shadow: 5px 10px 18px darkblue;
+    box-shadow: 5px 10px 18px rgba(155, 190, 230, 1);
     border-radius: 20px;
     padding: 30px;
 }
