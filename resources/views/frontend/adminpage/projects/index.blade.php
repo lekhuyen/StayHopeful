@@ -40,8 +40,8 @@
                                 <img src="{{ asset($project->images[0]->image) }}" width="100">
                             @endif
                         </td>
-                        <td>{{ $project->money }}</td>
                         <td>{{ $project->money2 }}</td>
+                        <td>{{ $project->money }}</td>
                         <td>
                             @if ($project->status == 1)
                                 <a data-finish="{{ $project->id }}" class="project-finish"><span
