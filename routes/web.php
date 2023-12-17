@@ -349,6 +349,8 @@ Route::post('/store-comment-reply/{id}', [CommentPostController::class, 'storeCo
 Route::get('/comments/{postId}', [CommentPostController::class, 'showComments'])->name('show-comments');
 //delete -comment
 Route::delete('/delete-comments/{id}', [CommentPostController::class, 'deleteComments'])->name('delete-comment');
+//delete-reply
+Route::delete('/delete-reply/{id}', [CommentPostController::class, 'deleteReply'])->name('delete-reply');
 //edit comment
 Route::post('/edit-comments/{id}', [CommentPostController::class, 'editComments'])->name('edit-comment');
 

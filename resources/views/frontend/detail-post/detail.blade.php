@@ -69,21 +69,6 @@
             </div>
         @endif
 
-        {{-- @if (session('userInfo')) --}}
-        {{-- @else --}}
-        <div class="comment-icon">
-            <i class="fa-regular fa-comment"></i>
-            <span>2</span>
-        </div>
-        <div class="comment-access">
-            <a href="#">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
-        </div>
-        {{-- @endif --}}
-
-        <div class="comment-access">
-            <a href="#">LOGIN TO LEAVE A COMMENT</a>
-        </div>
-
 
     </div>
     @include('frontend/login/login')
