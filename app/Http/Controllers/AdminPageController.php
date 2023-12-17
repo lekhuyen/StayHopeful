@@ -278,7 +278,7 @@ class AdminPageController extends Controller
     //donate admin
     public function viewlistdonate()
     {
-        $donateinfo = DonateInfo::paginate(6);
+        $donateinfo = DonateInfo::orderBy('id','desc')->paginate(6);
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 

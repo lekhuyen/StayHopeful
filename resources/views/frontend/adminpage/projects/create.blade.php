@@ -46,8 +46,8 @@
                 <label>Status :</label>
                 <select name="status">
                     <option>Choose</option>
-                    <option value="1">Finish</option>
-                    <option value="0">Unfinished</option>
+                    <option value="1">Finished</option>
+                    <option value="0" selected>On Going</option>
                 </select>
                 @error('status')
                     <span class="text-danger">{{ $message }}</span>
