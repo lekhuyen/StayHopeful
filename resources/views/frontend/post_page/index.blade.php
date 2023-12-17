@@ -10,11 +10,11 @@
             <div class="col-lg-8" style="padding: 0; border-radius: 5px; ">
                 {{-- * new post(user) --}}
                 <div class="input_new-post">
-                    <div type="text">New post..</div>
+                    <div type="text">Create new post</div>
                 </div>
                 {{-- * new post(user) --}}
                 @foreach ($posts as $post)
-                    <div style="padding: 0; background-color:#f1ebeb; border-radius: 5px; ">
+                    <div style="padding: 0; background-color:#f1ebeb; border-radius: 20px; ">
                         <div class="post-uset-body"
                             style="text-align:left;
                                 display: flex;
@@ -100,7 +100,7 @@
         post_id = $(this).data('id');
         $('.modal-user-Comment-post').addClass('show-comment');
         var _loginUrl = '{{ route('show_comment-post',':id') }}'.replace(':id', post_id);
-        
+
         $.ajax({
             url: _loginUrl,
             type: 'GET',
@@ -113,7 +113,7 @@
                 } else {
                     $('.modal-user-Comment-post').html(data);
                 }
-                
+
             }
 
         })

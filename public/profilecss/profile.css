@@ -1,6 +1,6 @@
 /* notification user post is pending */
-.container-user-post-notification{
-    position:fixed;
+.container-user-post-notification {
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -8,10 +8,10 @@
     display: none;
     z-index: 11;
 }
-.showAlert{
+.showAlert {
     display: block;
 }
-.user-post-status-success{
+.user-post-status-success {
     background: white;
     border: 2px solid #2d63c2;
     border-radius: 20px;
@@ -23,13 +23,13 @@
     overflow: hidden;
 }
 
-.user-post-status-success p{
+.user-post-status-success p {
     position: absolute;
     top: 28%;
     left: 28%;
     color: green;
 }
-.exit-user-post-alert-btn{
+.exit-user-post-alert-btn {
     /* display: flex;
     justify-content: flex-end; */
     width: fit-content;
@@ -41,14 +41,14 @@
     color: #2d63c2;
     cursor: pointer; */
 }
-.exit-user-post-alert-btn i{
+.exit-user-post-alert-btn i {
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
     color: #2d63c2;
     cursor: pointer;
 }
-.img-alert{
+.img-alert {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -57,7 +57,7 @@
 
 /* profile */
 .profile-form {
-    margin-top: 150px;
+    margin-top: 100px;
     width: 100%;
     background-color: #fffdfd;
     box-shadow: 10px 10px 10px 10px #ccc;
@@ -91,13 +91,14 @@
     width: 100%;
     height: 500px;
     background-color: transparent;
-
 }
 
 .profile-username {
     width: 80%;
     height: 100px;
-    background-color: #3949AB;
+    background: linear-gradient(56deg, rgba(34,83,150,1) 8%, rgba(104,171,237,1) 65%);
+    border: 1px solid #54a0ff;
+    border-radius: 20px;
     margin-left: 50px;
     transform: translateY(50px);
 }
@@ -125,17 +126,17 @@
 }
 
 .info-text {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
 }
-.blink{
+.blink {
     text-transform: uppercase;
     background-image: linear-gradient(
-      -225deg,
-      #231557 0%,
-      #44107a 29%,
-      #ff1361 67%,
-      #fff800 100%
+        -225deg,
+        #8e44ad 0%,
+        #a29bfe 29%,
+        #ff7675 67%,
+        #fff800 100%
     );
     background-size: auto auto;
     background-clip: border-box;
@@ -147,13 +148,12 @@
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
     display: inline-block;
-
 }
 @keyframes textclip {
     to {
-      background-position: 200% center;
+        background-position: 200% center;
     }
-  }
+}
 
 .info-text-user {
     font-weight: normal;
@@ -168,7 +168,7 @@
 .like_icon {
     color: red;
 }
-.dislike_icon_color{
+.dislike_icon_color {
     color: black;
 }
 /* .like_icon,
@@ -177,7 +177,7 @@
 } */
 
 .show {
-    display: inline-block; 
+    display: inline-block;
 }
 
 /* like - profile */
@@ -193,7 +193,6 @@
     left: 0;
 }
 
-
 /* button profile */
 .profile-edit-info {
     position: absolute;
@@ -201,10 +200,16 @@
     right: 55px;
     align-items: center;
     appearance: none;
-    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        #5adaff 0,
+        #5468ff 100%
+    );
     border: 0;
     border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
@@ -219,7 +224,7 @@
     padding-right: 16px;
     text-align: left;
     text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
+    transition: box-shadow 0.15s, transform 0.15s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -229,11 +234,13 @@
 }
 
 .profile-edit-info:focus {
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
 .profile-edit-info:hover {
-    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
     transform: translateY(-2px);
 }
 
@@ -258,7 +265,6 @@
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     position: relative;
-
 }
 
 .aboutme {
@@ -268,9 +274,9 @@
     font-size: 23px;
     font-weight: 600;
     padding-left: 50px;
-    color: #FDD835;
+    color: #fdd835;
 }
-.profile-post{
+.profile-post {
     position: relative;
     width: 100%;
     height: 100px;
@@ -285,10 +291,16 @@
     right: 55px;
     align-items: center;
     appearance: none;
-    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        #5adaff 0,
+        #5468ff 100%
+    );
     border: 0;
     border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
@@ -303,7 +315,7 @@
     padding-right: 16px;
     text-align: left;
     text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
+    transition: box-shadow 0.15s, transform 0.15s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -313,11 +325,13 @@
 }
 
 .profile-edit-aboutme:focus {
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
 .profile-edit-aboutme:hover {
-    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
     transform: translateY(-2px);
 }
 
@@ -333,24 +347,21 @@
     margin-top: 50px;
 }
 /* scroll bar */
-#style-1::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
 }
 
-#style-1::-webkit-scrollbar
-{
-	width: 5px;
-	background-color: #F5F5F5;
+#style-1::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f5f5f5;
 }
 
-#style-1::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
 }
 .listdonate {
     width: 100%;
@@ -359,7 +370,7 @@
     font-size: 23px;
     font-weight: 600;
     padding-left: 50px;
-    color: #FDD835;
+    color: #fdd835;
 }
 
 .profile-table {
@@ -372,15 +383,18 @@
 
 .profile-table table thead tr th {
     background: rgb(85, 247, 79);
-    background: linear-gradient(180deg, rgba(85, 247, 79, 1) 30%, rgba(2, 209, 120, 1) 86%);
+    background: linear-gradient(
+        180deg,
+        rgba(85, 247, 79, 1) 30%,
+        rgba(2, 209, 120, 1) 86%
+    );
     position: sticky;
     top: 0;
 }
 
-.profile-table table{
+.profile-table table {
     border-collapse: collapse;
 }
-
 
 /* -------------------------user-post-------------------------- */
 .modal-user-post-1 {
@@ -389,7 +403,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(246,246,246, .4);
+    background-color: rgb(246, 246, 246, 0.4);
     display: none;
     /* display: flex; */
     align-items: center;
@@ -401,22 +415,21 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(246,246,246, .4);
+    background-color: rgb(246, 246, 246, 0.4);
     display: none;
     /* display: flex; */
     align-items: center;
     justify-content: center;
 }
 
-
 @keyframes modalShowForm {
     from {
         opacity: 0;
-        transform: translateY(-600px)
+        transform: translateY(-600px);
     }
     to {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
     }
 }
 .modal_inner-post {
@@ -425,7 +438,7 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: modalShowForm ease .4s ;
+    animation: modalShowForm ease 0.4s;
 }
 
 .post-header {
@@ -448,7 +461,7 @@
     font-size: 15px;
 }
 
-.close-icon div{
+.close-icon div {
     width: 25px;
     height: 25px;
     display: flex;
@@ -457,7 +470,7 @@
     justify-content: center;
     background-color: #ccc;
     border-radius: 50%;
-    transition: .5s;
+    transition: 0.5s;
 }
 .close-icon div:hover {
     background-color: #043e84;
@@ -479,12 +492,12 @@
     display: flex;
     align-items: center;
 } */
-.user-name-post p{
+.user-name-post p {
     margin-bottom: 0;
     font-weight: 500;
 }
 
-.avatar-user-post img{
+.avatar-user-post img {
     clip-path: circle(30%);
     width: 60px;
 }
@@ -533,13 +546,13 @@
     justify-content: center;
     margin: 20px;
     cursor: pointer;
-    transition: .5s;
+    transition: 0.5s;
 }
 .edit_post:hover {
     background-color: #f0eaea;
 }
-.edit-post-user  {
-    background-color: rgb(246,246,246);
+.edit-post-user {
+    background-color: rgb(246, 246, 246);
     width: 100px;
     position: absolute;
     top: 75px;
@@ -556,9 +569,9 @@
     display: block;
 }
 .edit-post-user::after {
-    content: '';
+    content: "";
     position: absolute;
-    border-color: transparent transparent rgb(246,246,246) transparent;
+    border-color: transparent transparent rgb(246, 246, 246) transparent;
     border-style: solid;
     border-width: 16px 14px;
     right: 9px;
@@ -568,7 +581,7 @@
     display: block;
     color: black;
     font-weight: 500;
-    opacity: .8;
+    opacity: 0.8;
     cursor: pointer;
 }
 .edit-post-user a:hover {
@@ -582,12 +595,11 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(246,246,246, .4);
+    background-color: rgb(246, 246, 246, 0.4);
     /* display: flex; */
     display: none;
     align-items: center;
     justify-content: center;
-    
 }
 .show-comment {
     display: flex;
@@ -602,7 +614,7 @@
     display: grid;
     grid-template-rows: 35px 1fr 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: modalShowForm ease .4s;
+    animation: modalShowForm ease 0.4s;
 }
 #comment_reply-post {
     display: flex;
@@ -647,10 +659,10 @@
 }
 #input_comment-post-1 textarea {
     width: 95%;
-    height:80%;
+    height: 80%;
     outline: none;
     border: none;
-    background-color: rgb(240,242,245);
+    background-color: rgb(240, 242, 245);
     border-radius: 10px;
     padding: 10px 40px 10px 20px;
 }
@@ -661,8 +673,8 @@
     right: 40px;
     cursor: pointer;
     border: none;
-    background-color: rgb(240,242,245);
-    color: rgb(70,145,206);
+    background-color: rgb(240, 242, 245);
+    color: rgb(70, 145, 206);
 }
 
 .btn_icon-submit i {
@@ -681,8 +693,8 @@
 .btn_icon-submit-reply {
     border: none;
     right: 15px;
-    background-color: rgb(240,242,245);
-    color: rgb(70,145,206);
+    background-color: rgb(240, 242, 245);
+    color: rgb(70, 145, 206);
 }
 .reply_comment_post {
     font-size: 13px;
@@ -691,11 +703,11 @@
     cursor: pointer;
 }
 .reply_comment_post:hover {
-    color: rgb(13,98,242);
+    color: rgb(13, 98, 242);
 }
 
 .comment_background {
-    background-color: rgb(240,242,245);
+    background-color: rgb(240, 242, 245);
     padding: 0 10px;
     border-radius: 5px;
     width: 90%;
@@ -716,7 +728,7 @@
     align-items: center;
 }
 .delete_comment-post:hover {
-    background-color: rgb(240,242,245);
+    background-color: rgb(240, 242, 245);
     cursor: pointer;
 }
 .edit_delete-post {
@@ -724,7 +736,7 @@
     right: -26px;
     top: 120%;
     width: 70px;
-    background-color: rgb(240,242,245);
+    background-color: rgb(240, 242, 245);
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -768,10 +780,10 @@
     margin-bottom: 20px;
 }
 
-.like_post.active i{
+.like_post.active i {
     color: red;
 }
-.like_post-1.active i{
+.like_post-1.active i {
     color: red;
 }
 .comment_body {
@@ -790,10 +802,9 @@
     height: 80px;
     outline: none;
     border: none;
-    background-color: rgb(240,242,245);
+    background-color: rgb(240, 242, 245);
     border-radius: 10px;
 }
-
 
 /* input new post */
 .input_new-post {
@@ -804,6 +815,7 @@
     justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0 10px #ccc;
+    border-radius: 20px;
 }
 .input_new-post div {
     width: 80%;
@@ -818,4 +830,8 @@
 }
 .input_new-post div:hover {
     background-color: #f2e5e5;
+}
+
+#exampleModalLabel{
+    color: cornflowerblue;
 }

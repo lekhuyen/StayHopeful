@@ -13,11 +13,11 @@
                 <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
                 <p style="top: 26%;">
                     Update Profile Success &#128525;<br>
-
                 </p>
             </div>
         </div>
     @endif
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -26,37 +26,37 @@
                         <div class="col-lg-6">
                             <div class="profile-image-user">
                                 @if ($userupdate->avatar)
-                                    <img src="{{ asset($userupdate->avatar) }}" alt="hình nè cậu" class="profile-image-set">
+                                    <img src="{{ asset($userupdate->avatar) }}" alt="profile picture"
+                                        class="profile-image-set">
                                 @else
-                                    <img src="{{ asset('img/convitne.jpg') }}" alt="" class="profile-image-set">
+                                    <img src="{{ asset('img/convitne.jpg') }}" alt="default picture"
+                                        class="profile-image-set">
                                 @endif
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-
                                     <span class="profile-username-text">{{ auth()->user()->name }}</span>
-
                                 </div>
                                 <div class="profile-info">
                                     @if (session('userInfo'))
                                         @if ($userupdate->is_sponsor == 1 && $userupdate->is_volunteer != 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Sponsor</span></p>
+                                                    style="font-weight: 700">Donor</span></p>
                                         @elseif ($userupdate->is_sponsor != 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
                                                     style="font-weight: 700">Volunteer</span></p>
                                         @elseif($userupdate->is_sponsor == 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Sponsor<span style="color: black">,</span>
+                                                    style="font-weight: 700">Donor<span style="color: black"> and</span>
                                                     Volunteer</span></p>
                                         @endif
                                         @if ($userupdate->email != null)
                                             <p class="info-text">Email: <span
                                                     class="info-text-user">{{ $userupdate->email }}</span></p>
                                         @else
-                                            <p class="info-text">Email: <span class="info-text-user">Updated your
+                                            <p class="info-text">Email: <span class="info-text-user">Please update your
                                                     information</span></p>
                                         @endif
 
@@ -64,7 +64,7 @@
                                             <p class="info-text">Age: <span
                                                     class="info-text-user">{{ $userupdate->age }}</span></p>
                                         @else
-                                            <p class="info-text">Age: <span class="info-text-user">Updated your
+                                            <p class="info-text">Age: <span class="info-text-user">Please update your
                                                     information</span></p>
                                         @endif
 
@@ -72,7 +72,7 @@
                                             <p class="info-text">Phone: <span
                                                     class="info-text-user">{{ $userupdate->phone }}</span></p>
                                         @else
-                                            <p class="info-text">Phone: <span class="info-text-user">Updated your
+                                            <p class="info-text">Phone: <span class="info-text-user">Please update your
                                                     information</span></p>
                                         @endif
 
@@ -80,7 +80,7 @@
                                             <p class="info-text">Address: <span
                                                     class="info-text-user">{{ $userupdate->address }}</span></p>
                                         @else
-                                            <p class="info-text">Address: <span class="info-text-user">Updated your
+                                            <p class="info-text">Address: <span class="info-text-user">Please update your
                                                     information</span></p>
                                         @endif
                                     @endif
@@ -97,7 +97,7 @@
                             <table class="table table-striper">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Project</th>
                                         <th>Amount</th>
@@ -132,14 +132,14 @@
 
                                 <div style="padding: 0; border-radius: 5px; position: relative;">
                                     <div class="post-uset-body"
-                                        style="text-align:left; 
-                                        display: flex; 
+                                        style="text-align:left;
+                                        display: flex;
                                         align-items:center;
                                         justify-content: space-between;
                                         ">
                                         <div
-                                            style="text-align:left; 
-                                                    display: flex; 
+                                            style="text-align:left;
+                                                    display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
                                                 <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
@@ -269,7 +269,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Profile Edit</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -19,7 +19,7 @@ class detaildonateController extends Controller
         $projects = Project::all();
         $project = null;
         return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
-       
+
     }
 
 
@@ -33,7 +33,7 @@ class detaildonateController extends Controller
     }
     public function viewlistdonate()
     {
-        $donateinfo = DonateInfo::orderBy('amount', 'DESC')->get();
+        $donateinfo = DonateInfo::orderBy('amount', 'desc')->get();
         return view('frontend.detaildonate.listdonate', compact('donateinfo'));
     }
 
@@ -107,7 +107,7 @@ class detaildonateController extends Controller
                 } else {
                     $username = $userinfo['fullname'];
                 }
-    
+
                 $donateinfo = new DonateInfo();
                 $donateinfo->name = $username;
                 $donateinfo->email = $user->email;
@@ -128,7 +128,7 @@ class detaildonateController extends Controller
                     $findUser->save();
                 }
             } else {
-    
+
                 $username = "";
                 if ($userinfo['fullname'] == "Anonymous") {
                     $username = "Anonymous";

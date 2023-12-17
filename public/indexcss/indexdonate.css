@@ -12,7 +12,7 @@
     width: auto;
     height: 50px;
     background-color: transparent;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .donate-user-index {
@@ -115,7 +115,7 @@
 
 .PostSlide {
     max-width: 1300px;
-    margin: 10px auto 40px;
+    margin: 100px auto 10px auto;
 }
 
 .PostSlide .innerContainer .slider {

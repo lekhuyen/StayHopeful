@@ -12,7 +12,7 @@ a:hover {
     border-color: #1a5fb4 !important;
     border-style: solid !important;
     border-width: 4px !important;
- 
+
 }
 .contact-input-form input{
     border-color: #1a5fb4;
@@ -41,7 +41,8 @@ a:hover {
 }
 
 .middle {
-    background:  linear-gradient(to bottom, #1a5fb4, #78a9e9 );
+    /* background:  linear-gradient(to bottom, #1a5fb4, #78a9e9 ); */
+    background: linear-gradient(to left, #8ecdf2, #1a5fb4);
     font-size: 18px;
     color: #ffffff;
     padding-top: 30px;
@@ -68,8 +69,11 @@ a:hover {
 }
 
 .pink-button:hover{
-    background-color: #4f8ddd !important;
-    border-color: #4f8ddd !important;
+    background-color: #8ecdf2 !important;
+    border-color: #8ecdf2 !important;
+    transform:scale(1.3,1.3);
+    -webkit-transform:scale(1.3,1.3);
+    -moz-transform:scale(1.3,1.3);
 }
 
 .search {
@@ -134,7 +138,7 @@ iframe {
 }
 .popup-success h2{
     color: #2ECC71;
-    
+
 }
 
 @keyframes scale {
@@ -176,7 +180,7 @@ iframe {
     border-radius: 50%;
     border: 2.5px solid #fff;
     animation: run 0.8s ease-in;
-    
+
 }
 @keyframes run {
     0%{
@@ -185,7 +189,7 @@ iframe {
     100%{
         border: 2.5px solid #fff;
         transform: rotate(360deg);
-        
+
     }
 }
 .text-error{

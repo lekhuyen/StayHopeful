@@ -40,7 +40,7 @@ html {
 
 #side_nav::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-image: linear-gradient(0deg, rgba(153,98,244,1) 0%, rgba(57,85,201,1) 21%, rgba(0,212,255,1) 93%);
+    background-image: linear-gradient(0deg, rgba(153,98,244,1) 0%, rgba(57,85,201,1) 21%, cornflowerblue 93%);
     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 }
 
