@@ -38,10 +38,10 @@
                         <td>{{ $project->money2 }}</td>
                         <td>
                             @if ($project->status == 1)
-                                <a data-finish="{{ $project->id }}" class="btn btn-primary project-finish">Finish</a>
+                                <a data-finish="{{ $project->id }}" class="btn btn-success project-finish">Finished</a>
                             @else
                                 <a data-unfinish="{{ $project->id }}"
-                                    class="btn btn-warning project-unfinish">Unfinished</a>
+                                    class="btn btn-danger project-unfinish">On Going</a>
                             @endif
                         </td>
                         <td>

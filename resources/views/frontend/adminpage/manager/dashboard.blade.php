@@ -250,9 +250,9 @@
                                         <td>{{ $project->created_at }}</td>
                                         <td>
                                             @if ($project->status == 1)
-                                                <div class="text-succes">Finish</div>
+                                                <div class="text-success">Finished</div>
                                             @else
-                                                <div class="text-danger">Unfinish</div>
+                                                <div class="text-danger">On Going</div>
                                             @endif
                                         </td>
                                     </tr>

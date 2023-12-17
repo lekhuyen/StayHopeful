@@ -48,7 +48,7 @@
                                         class="badge bg-success status__project">Finished</span></a>
                             @else
                                 <a data-unfinish="{{ $project->id }}" class="project-unfinish"><span
-                                        class="badge bg-warning status__project">Unfinished</span></a>
+                                        class="badge bg-danger status__project">On Going</span></a>
                             @endif
                         </td>
                         <td>

@@ -41,7 +41,13 @@
                         <td>{{ $item->title }}</td>
                         <td class="text-center">{{ $item->quantity }}</td>
                         <td class="text-center"></td>
-                        <td><span style="font-style: oblique">{{ $isActive ? 'Unavailable' : 'Available' }}</span></td>
+                        <td>
+                            @if ($isActive)
+                                <span class="text-danger">Unavailable</span>
+                            @else
+                                <span class="text-success">Available</span>
+                            @endif
+                        </td>
                         <td>
                             <button type="button" class="btn btn-outline-info btn-lg" data-bs-toggle="modal"
                                 data-bs-target="#myModal" data-id="{{ $item->id }}"><i class="fa-solid fa-info"></i>
