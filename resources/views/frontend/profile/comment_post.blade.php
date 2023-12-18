@@ -45,7 +45,7 @@
 
             {{-- !comment --}}
             <div class="commnent_post_body" style="padding-top: 15px">
-                @include('frontend.post_page.list_comment', [
+                @include('frontend.profile.list_comment', [
                     'comments' => $post->comments,
                     'post' => $post,
                 ])
@@ -115,101 +115,13 @@
         })
 
         //cancel
-        $('.cancel_edit-comment').click(function() {
+        $('.cancel_edit-comment').click(function(){
             var comment_id = $(this).data('id')
             $('.edit_form-comment[data-id="' + comment_id + '"]').hide();
             $('.comment_background[data-id="' + comment_id + '"]').show();
-            $('.edit_delete-post[data-id="' + comment_id + '"]').hide();
-
-        })
-        //cancel-reply
-        $('.cancel_edit-comment-reply').click(function() {
-            var reply_id = $(this).data('id')
-            $('.show_form-edit-reply[data-id="' + reply_id + '"]').hide();
-            $('.comment_background[data-id="' + reply_id + '"]').show();
-            $('.edit_delete-post[data-id="' + reply_id + '"]').hide();
-
         })
 
-        //edit comment-reply
-        $('.edit_comment-reply-post-user').click(function() {
-            var reply_id = $(this).data('id')
-            $('.show_form-edit-reply[data-id="' + reply_id + '"]').show();
-            $('.comment_background[data-id="' + reply_id + '"]').hide();
-            var _csrf = '{{ csrf_token() }}';
-            var elementComment = $('.comment_post')
-            var _loginUrl = '{{ route('edit-reply', ':id') }}'.replace(':id', reply_id);
-
-            $.ajax({
-                type: 'POST',
-                url: _loginUrl,
-                data: {
-                    _token: _csrf
-                },
-                success: function(data) {
-                    if (data.status == 'success') {
-                        $('.content_reply').val(data.reply.content);
-                    }
-                },
-                error: function(error) {
-                    alert(error);
-                }
-            });
-        })
-
-        $(document).ready(function() {
-
-            $('.btn_edit-reply').submit(function(e) {
-                e.preventDefault();
-                reply_id = $(this).data('id');
-
-
-                var content = $('.content_reply[data-id="' + reply_id + '"]').val();
-                var _loginUrl = '{{ route('update-comment-reply-post', ':id') }}'.replace(':id', reply_id);
-
-                if (content.trim() !== '') {
-                    $.ajax({
-                        type: 'POST',
-                        url: _loginUrl,
-                        data: {
-                            content: content,
-                            _token: _csrf
-                        },
-                        success: function(data) {
-                            var html = `<p class="comment_reply-content">${data.content}</p>`
-                            $('#comment_reply-content-user-post[data-id="' + reply_id + '"]').html(html)
-
-                            
-                            $('.show_form-edit-reply[data-id="' + reply_id + '"]').hide();
-                            $('.comment_background[data-id="' + reply_id + '"]').show();
-                            $('.edit_delete-post').hide();
-
-
-                        },
-                        error: function(error) {
-                            alert(error);
-                        }
-                    });
-                } else {
-                    alert('Please enter some content before submitting.');
-                }
-
-            });
-
-            $('.content_reply').on('keydown', function(e) {
-                reply_id = $(this).data('id');
-                if (e.keyCode == 13 && !e.shiftKey) {
-
-                    e.preventDefault();
-
-                    $('.btn_edit-reply[data-id="' + reply_id + '"]').submit();
-                }
-            });
-        });
-
-
-
-        //edit comment ----------
+        //edit comment
         $('.edit_comment-post-user').click(function() {
             var comment_id = $(this).data('id')
             $('.edit_form-comment[data-id="' + comment_id + '"]').show();
@@ -225,7 +137,7 @@
                     _token: _csrf
                 },
                 success: function(data) {
-                    if (data.status == 'success') {
+                    if(data.status == 'success'){
                         $('.content_edit-comment').val(data.comment.content);
                     }
                 },
@@ -255,8 +167,7 @@
                         },
                         success: function(data) {
                             var html = `<p class="comment_content">${data.content}</p>`
-                            $('#comment_content-user-post[data-id="' + comment_id + '"]').html(
-                                html)
+                            $('#comment_content-user-post[data-id="' + comment_id + '"]').html(html)
 
                             $('.edit_form-comment[data-id="' + comment_id + '"]').hide();
                             $('.comment_background[data-id="' + comment_id + '"]').show();
@@ -281,11 +192,11 @@
 
                     e.preventDefault();
 
-                    $('.edit_form-comment[data-id="' + comment_id + '"]').submit();
+                    $('.edit_form-comment[data-id="'+comment_id+'"]').submit();
                 }
             });
         });
-        // ----------------------
+
 
         //show edit comment
         $(document).ready(function() {
@@ -340,7 +251,7 @@
             });
         });
 
-        // reply
+
         $(document).ready(function() {
             $('.btn_reply-submit').on('submit', function(e) {
                 // $('.btn_reply-submit').submit(function(e) {
@@ -480,13 +391,10 @@
                         }
                     });
                 }
+                // $('.btn_reply-submit').submit(function(e) {
 
             });
         });
-
-
-
-
 
         $('.show_reply-form').click(function() {
             var comment_id = $(this).data('id');

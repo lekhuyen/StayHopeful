@@ -28,7 +28,7 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'desc')->get();
+        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'asc')->get();
             if ($comments) {
                 return view('frontend.post_page.list_comment', compact('comments'));
                 // return response()->json($comments);
@@ -54,16 +54,12 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'desc')->get();
+        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'asc')->get();
             if ($replyComment) {
-                // return view('frontend.post_page.list_comment', compact('replyComment'));
                 return response()->json($replyComment);
             }
         return response()->json(['error' => $validator->errors()->first()]);
     }
-
-
-
 
 
     public function get_comment($post_id)
@@ -138,6 +134,42 @@ class CommentPostController extends Controller
             if ($comment) {
                 // return view('frontend.post_page.list_comment', compact('comments'));
                 return response()->json($comment);
+            }
+        return response()->json(['error' => $validator->errors()->first()]);
+    }
+
+    // edit-reply
+    public function editReply($id){
+        $reply = ReplyComment::find($id);
+        if($reply){
+            
+            return response()->json([
+                'status' => 'success',
+                'reply' => $reply,
+            ]);
+        }
+        return response()->json(['error' =>'reply not found']);
+
+    }
+
+    public function updateReply(Request $request, $post_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'content' => 'required',
+        ], [
+            'content.required' => 'Noi dung khong duoc de trong',
+        ]);
+        // $user_id = auth()->user()->id;
+        if ($validator->passes()) {
+            $reply = ReplyComment::find($post_id);
+            $reply->update([
+                'content' => $request->content,
+            ]);
+            
+        }
+        $reply = ReplyComment::find($post_id);
+            if ($reply) {
+                return response()->json($reply);
             }
         return response()->json(['error' => $validator->errors()->first()]);
     }

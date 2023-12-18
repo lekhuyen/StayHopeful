@@ -75,7 +75,8 @@
                         @elseif($infouser && $infouser->avatar != null)
                             <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
                         @else
-                            <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
+                            <img class="nav-user-img" src="{{ asset('img/humanicon.png') }}" alt="">
+                            
                         @endif
                     </div>
                 @else

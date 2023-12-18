@@ -18,7 +18,7 @@
                         <div class="menu-edit-delete">
                             <i class="fa-solid fa-ellipsis"></i>
                         </div>
-                        <div class="edit_delete-post" style="display: none" data-id="{{$comment->id}}">
+                        <div class="edit_delete-post" style="display: none">
                             <p class="edit_comment-post-user" data-id="{{$comment->id}}">Edit</p>
                             <p class="delete_comment-post-user" data-id="{{$comment->id}}">Delete</p>
                         </div>
@@ -41,7 +41,7 @@
                 Reply
             </p>
 
-            <form style="display: none; margin-bottom: 10px;" class="form_reply-{{$comment->id}} form_reply btn_reply-submit" data-id="{{$comment->id}}">
+            <form style="display: none; margin-bottom: 10px;" class="form_reply-{{$comment->id}} form_reply btn_reply-submit" data-id="{{$comment->id}}" data-post-id="{{$post->id}}">
                 <div id="input_reply-comment" style="width: 90%;">
                     <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.." class="content_reply-{{$comment->id}} content_reply" data-id="{{$comment->id}}"></textarea>
                     <button class="btn_icon-submit btn_icon-submit-reply" data-id="{{ $comment->id}}">
@@ -52,7 +52,7 @@
             
             {{-- !reply --}}
             <div class="comment_post replies-container" data-id="{{$comment->id}}" style="display: block">
-                @include('frontend.post_page.comment_reply', ['comment'=>$comment->replies])
+                @include('frontend.prfile.comment_reply', ['comment'=>$comment->replies])
             </div>
             
 
