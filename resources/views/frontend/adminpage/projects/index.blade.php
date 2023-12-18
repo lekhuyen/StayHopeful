@@ -13,8 +13,8 @@
 
     <h1>Project List</h1>
     <div class="d-flex flex-row-reverse gap-3">
-        <a class="btn btn-info btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
-        <a class="btn btn-warning btn-sm" href="{{ route('projectAd.index_sort', 'deactive') }}">Deactive Event</a>
+        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'deactive') }}">Deactive Event</a>
+        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
     </div>
     @if (session('success'))
         <div class="alert alert-success">
@@ -33,7 +33,6 @@
                 <th>Goals</th>
                 <th>Status</th>
                 <th>Event</th>
-
                 <th>Action</th>
             </tr>
         </thead>
@@ -66,11 +65,9 @@
                     </td>
                     <td>
                         @if ($project->status_event == 1)
-                            <a class="project-finish"><span class="badge bg-success status__project">Hoat
-                                    dong</span></a>
+                            <a class="project__volunteer__status"><span class="tbtn btn-primary btn-sm status__project">Active</span></a>
                         @else
-                            <a class="project-unfinish"><span class="badge bg-danger status__project">Khong hoat
-                                    dong</span></a>
+                            <a class="project__volunteer__status"><span class="btn btn-dark btn-sm status__project">Deactive</span></a>
                         @endif
                     </td>
                     <td>
@@ -84,7 +81,7 @@
                         @endcan
                         {{-- @can('project_active') --}}
                         @if ($project->status == 1)
-                            <a class="btn btn-warning" href="{{ route('projectAd.edit_event', $project->id) }}"><i
+                            <a class="btn btn-secondary" href="{{ route('projectAd.edit_event', $project->id) }}"><i
                                     class="fas fa-user-edit"></i></a>
                         @endif
 

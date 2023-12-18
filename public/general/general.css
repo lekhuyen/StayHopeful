@@ -32,3 +32,8 @@ h5 {
 .status__about {
     width: 70px;
 }
+
+.project__volunteer__status{
+    text-decoration: none;
+    font-style: oblique;
+}
