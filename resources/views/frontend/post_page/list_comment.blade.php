@@ -18,7 +18,7 @@
                         <div class="menu-edit-delete">
                             <i class="fa-solid fa-ellipsis"></i>
                         </div>
-                        <div class="edit_delete-post" style="display: none">
+                        <div class="edit_delete-post" style="display: none" data-id="{{$comment->id}}">
                             <p class="edit_comment-post-user" data-id="{{$comment->id}}">Edit</p>
                             <p class="delete_comment-post-user" data-id="{{$comment->id}}">Delete</p>
                         </div>
