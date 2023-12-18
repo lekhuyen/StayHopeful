@@ -78,7 +78,7 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio2" name="status" value="0"
                     @if ($aboutusteam->status == '0') checked @endif>
-                <label class="form-check-label" for="radio2">Inactive</label>
+                <label class="form-check-label" for="radio2">Deactive</label>
             </div>
         </div>
         <div class="d-flex justify-content-center btn__center">

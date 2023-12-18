@@ -119,4 +119,5 @@ class BlogController extends Controller
             return view('frontend.search.not_result', compact('keywork'));
         }
     }
+
 }

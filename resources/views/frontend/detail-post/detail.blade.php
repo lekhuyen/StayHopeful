@@ -64,7 +64,11 @@
                 @if ($checkUserProject)
                     <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else
+                    @if ($project->status_event == 1)
                     <a href="{{ route('volunteer.create') }}" class="btn_volunter">VOLUNTEER</a>
+                    @else
+                    <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
+                    @endif
                 @endif
             </div>
         @endif

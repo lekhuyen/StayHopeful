@@ -198,4 +198,49 @@ class ProjectController extends Controller
 
         return response()->json(['error' => ['Updated fails']]);
     }
+    public function showEditEvent($id)
+    {
+        $project = Project::find($id);
+        return view("frontend.adminpage.projects.edit_event", compact('project'));
+    }
+    public function activeEvent(Request $request, Project $project)
+    {
+        $request->validate([
+            "start_date" => "required|date|before:end_date",
+            "end_date" => "required|date|after:start_date",
+            "quantity" => "required|numeric|min:2",
+            "status_event" => "required",
+
+        ]);
+        $project->update($request->all());
+        if ($request->status_event == 1) {
+            return redirect()->route("projectAd.index")->with("success", "Su kien da duoc open");
+        } else {
+            return redirect()->route("projectAd.index")->with("success", "Su kien da duoc close");
+        }
+
+        // $project = Project::find($id);
+        // if($project->status == 1){
+        //     $project->status_event  =$project->status_event? false:true;
+        //     $project->save();
+        //     if($project->status_event == true){
+        //         return redirect()->route("projectAd.index")->with("success","Su kien da duoc open");
+        //     }else{
+        //         return redirect()->route("projectAd.index")->with("success","Su kien da duoc close");
+        //     }
+        // }else{
+        //     return redirect()->route("projectAd.index")->with("success","project chua quyen gop du tien de hoat dong cho su kien");
+        // }
+    }
+    public function sortEvent($type)
+    {
+        $projects = Project::orderBy('id', 'desc')->paginate(6);
+
+        if ($type == "active") {
+            $projects = Project::where("status_event", '=', 1)->paginate(6);
+        } else {
+            $projects = Project::where("status_event", '=', 0)->paginate(6);
+        }
+        return view('frontend.adminpage.projects.index', compact('projects'));
+    }
 }
