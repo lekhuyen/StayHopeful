@@ -20,17 +20,6 @@
         <br>
 
         <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
-        </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
-            <textarea class="form-control tinymce" id="description" placeholder="Enter description"
-                name="description"></textarea>
-        </div>
-
-        <div class="mb-3">
             <label for="middletitle" class="form-label">Founder Name:</label>
             <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle"
                 name="middletitle">

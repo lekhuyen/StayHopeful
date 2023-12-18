@@ -12,8 +12,9 @@
             <div>
                 @if ($mainitem->section === 'Main Section')
                     <h1>{{ $mainitem->title }}</h1>
-                    <span class="mission">{{ $mainitem->description }}</span>
-                    
+                    <div class="text-center">
+                        <span class="mission">{{ $mainitem->description }}</span>
+                    </div>
                     @foreach ($mainitem->images as $image)
                         <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
                     @endforeach
@@ -45,8 +46,9 @@
                 <div>
                     @if ($mainitem->section === 'About Us Section')
                         <h1>{{ $mainitem->title }}</h1>
-                        <span class="mission">{{ $mainitem->description }}</span>
-                        
+                        <div class="text-center">
+                            <span class="mission">{{ $mainitem->description }}</span>
+                        </div> 
                         <div class="text-center">
                             @foreach ($mainitem->images as $image)
                                 <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
@@ -107,26 +109,6 @@
     </div>
 
     <br>
-    {{-- Map Section --}}
-    <div class="container mt-3 aboutus_map_section">
-        <div class="row">
-            <div class="col-md-6 aboutus-text">
-                <h1>Our Journey</h1>
-                <p>At <strong>StayHopeFul</strong>, we are on a mission to create positive change across multiple fronts.
-                    Our commitment extends to promoting sustainability, empowering communities by providing access to
-                    education, healthcare, and economic opportunities, delivering humanitarian aid in times of crisis,
-                    advocating for the welfare of animals, and working towards global health equity.</p>
-                <p>Explore the map below to see the tangible impact of our initiatives. Each marked location represents a
-                    step forward in our journey towards a better, more sustainable world. Join us in making a difference for
-                    the communities, ecosystems, and lives we serve.</p>
-            </div>
-            <div class="col-md-6 aboutus-map">
-                @include('frontend.aboutus.aboutus_map')
-            </div>
-        </div>
-    </div>
-
-    <br>
     <div class="container mt-3 aboutus-logo">
         @php
             $aboutUsCounter = 0;
@@ -142,6 +124,26 @@
             @endif
         @endforeach
     
+        <div>
+            @foreach ($mainPages as $mainitem)
+                <div>
+                    @if ($mainitem->section === 'Logo Section')
+                        <h1>{{ $mainitem->title }}</h1>
+                        <div class="text-center">
+                            <span class="mission">{{ $mainitem->description }}</span>
+                        </div>
+                        <div class="text-center">
+                            @foreach ($mainitem->images as $image)
+                                <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                            @endforeach 
+                        </div>
+
+                    @endif
+                </div>
+                <br>
+            @endforeach
+        </div>
+        <br>
         <div>
             @if ($firstTitle)
                 <h1>{{ $firstTitle }}</h1>
@@ -164,11 +166,20 @@
     
     {{-- call to action sector --}}
     <div class="container mt-3 call_to_action">
-        @foreach ($leftcallPages as $aboutusmain)
-            @if ($aboutusmain->section === 'leftcall')
-                <h3>{{ $aboutusmain->title }}</h3>
-                <p>{{ $aboutusmain->description }}</p>
-            @endif
+        @foreach ($mainPages as $mainitem)
+            <div>
+                @if ($mainitem->section === 'Main Section')
+                    <h1>{{ $mainitem->title }}</h1>
+                    <div class="text-center">
+                        <span class="mission">{{ $mainitem->description }}</span>
+                    </div>
+                    @foreach ($mainitem->images as $image)
+                        <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 50%; max-width: 300px;">
+                    @endforeach
+
+                @endif
+            </div>
+            <br>
         @endforeach
         <br>
 
@@ -191,7 +202,7 @@
                                         d="M256 48a160 160 0 1 1 0 320 160 160 0 1 1 0-320zm0 368A208 208 0 1 0 256 0a208 208 0 1 0 0 416zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.6-64-64-64c-13.6 18.2-29.8 34.3-48 48h48c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V416c0-8.8 7.2-16 16-16h48c-18.2-13.7-34.3-29.8-48-48zM276 104c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V312c0 11 9 20 20 20s20-9 20-20V298.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V104z" />
                                 </svg>
                             </div>
-                            <div class="card-body call_to_action_card">
+                            <div class="card-body text-center ">
                                 <h5 class="card-title">{{ $aboutusmain->lefttitle }}</h5>
                                 <p class="card-text card-text-p">{{ $aboutusmain->leftdescription }}</p>
                                 <a href="{{ route('detail.donate') }}"
@@ -214,7 +225,7 @@
                                         d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9c.1-.2 .2-.3 .3-.5z" />
                                 </svg>
                             </div>
-                            <div class="card-body call_to_action_card">
+                            <div class="card-body text-center">
                                 <h5 class="card-title">{{ $aboutusmain->middletitle }}</h5>
                                 <p class="card-text card-text-p">{{ $aboutusmain->middledescription }}</p>
                                 <a href="{{ route('feedback.create') }}"
@@ -239,7 +250,7 @@
                                 </svg>
                             </div>
         
-                            <div class="card-body call_to_action_card">
+                            <div class="card-body text-center">
                                 <h5 class="card-title">{{ $aboutusmain->righttitle }}</h5>
                                 <p class="card-text card-text-p">{{ $aboutusmain->rightdescription }}</p>
                                 <a href="{{ route('volunteer.create') }}"
@@ -253,18 +264,23 @@
         
     </div>
 
-    {{-- Our Team sector --}}
+    {{-- Team Section --}}
 
     <div class="container-fluid mt-3 aboutus_our_team" data-aos="fade-right">
-        @foreach ($teamPage as $teamitems)
-            <h2 class="aboutus-h2">{{ $teamitems->title }}</h2>
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <span>
-                        {{ $teamitems->description }}
-                    </span>
-                </div>
+        @foreach ($mainPages as $mainitem)
+            <div>
+                @if ($mainitem->section === 'Team Section')
+                    <h1>{{ $mainitem->title }}</h1>
+                    <div class="text-center">
+                        <span class="mission">{{ $mainitem->description }}</span>
+                    </div>
+                    @foreach ($mainitem->images as $image)
+                        <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                    @endforeach
+
+                @endif
             </div>
+            <br>
         @endforeach
 
         <br>
@@ -307,30 +323,37 @@
 
     <hr>
     {{-- Accordion sector --}}
-    <div class="container mt-3" data-aos="zoom-in">
-        <h2>Questions you often encounter</h2>
-        {{-- Accordion --}}
-        <div class="accordion" id="projectAccordion">
-            <!-- Projects Funded -->
-            <div class="accordion-item">
-                @foreach ($questionPages as $questionitems)
-                    <h2 class="accordion-header" id="projectFundedHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#projectFundedCollapse" aria-expanded="true"
-                            aria-controls="projectFundedCollapse">
-                            <i class="bi bi-check-square"></i>{{ $questionitems->title }}
-                        </button>
-                    </h2>
-                    <div id="projectFundedCollapse" class="accordion-collapse collapse show"
-                        aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
-                        <div class="accordion-body">
-                            {{ $questionitems->description }}
-                        </div>
+<div class="container mt-3" data-aos="zoom-in">
+    <h2>Questions you often encounter</h2>
+    {{-- Accordion --}}
+    <div class="accordion" id="projectAccordion">
+        <!-- Projects Funded -->
+        @foreach ($questionPages as $index => $questionitems)
+            <div class="accordion-item" id="accordionItem{{ $index }}">
+                <h2 class="accordion-header" id="questionHeading{{ $questionitems->id }}">
+                    <button class="accordion-button" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#questionCollapse{{ $questionitems->id }}"
+                        aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                        aria-controls="questionCollapse{{ $questionitems->id }}">
+                        <i class="bi bi-check-square"></i>{{ $questionitems->title }}
+                    </button>
+                </h2>
+                <div id="questionCollapse{{ $questionitems->id }}" class="accordion-collapse collapse @if($index === 0) show @endif"
+                    aria-labelledby="questionHeading{{ $questionitems->id }}" data-bs-parent="#projectAccordion">
+                    <div class="accordion-body">
+                        {{ $questionitems->description }}
                     </div>
-                @endforeach
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
+
+    <script>
+        // JavaScript script to add 'glowing' class to the first accordion item
+        document.getElementById('accordionItem0').classList.add('glowing');
+    </script>
+</div>
+
 
 
         @include('frontend/login/login')

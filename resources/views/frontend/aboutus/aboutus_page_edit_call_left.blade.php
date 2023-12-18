@@ -23,16 +23,6 @@
     <br>
 
     <div class="mb-3">
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $leftcallPages->title }}">
-    </div>
-
-    <div class="mb-3">
-      <label for="description" class="form-label">Description:</label>
-      <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $leftcallPages->description }}</textarea>
-    </div>
-
-    <div class="mb-3">
         <label for="lefttitle" class="form-label">Left Title:</label>
         <input type="text" class="form-control" id="lefttitle" placeholder="Enter lefttitle" name="lefttitle" value="{{ $leftcallPages->lefttitle }}">
     </div>

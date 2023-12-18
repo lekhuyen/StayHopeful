@@ -21,11 +21,6 @@
     <br>
 
     <div class="mb-3">
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
-    </div>
-
-    <div class="mb-3">
         <label for="images" class="form-label">Image:</label>
         <input type="file" class="form-control" id="images" multiple name="images[]"/>
     </div>

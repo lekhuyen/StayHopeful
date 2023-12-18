@@ -21,11 +21,6 @@
     </div>
     <br>
 
-    <div class="mb-3">
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $logoPages->title }}">
-    </div>
-
     <div class="form-group mb-3">
       <label for="images">Current Images:</label>
       @if ($logoPages->images->count() > 0)

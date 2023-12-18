@@ -18,7 +18,6 @@ class AboutuspageController extends Controller
         $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
         $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
         $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
-        $mainquestionPage = Aboutuspage::where('section', 'mainquestion')->get();
         $questionPages = Aboutuspage::where('section', 'question')->get();
         // Pass all variables to the view
         return view("frontend.aboutus.aboutus_page_index", compact("mainPages", "aboutUsPages", "logoPages",
@@ -269,16 +268,13 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_logo(Request $request)
     {
         $request->validate([
-            "title" => "nullable",
-            "images" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $logoPage = new Aboutuspage();
-        $logoPage->title = $request->title;
-        $logoPage->section = 'logo';
-
-        $logoPage->save();
+        $logoPages = new Aboutuspage();
+        $logoPages->section = 'logo';
+        $logoPages->save();
 
         if ($request->hasFile("images")) {
             foreach ($request->file("images") as $item) {
@@ -290,47 +286,40 @@ class AboutuspageController extends Controller
 
                 $newImage = new Aboutusimage();
                 $newImage->url_image = $imagePath;
-                $newImage->aboutus_id = $logoPage->id;
+                $newImage->aboutus_id = $logoPages->id;
                 $newImage->save();
             }
         }
 
-        $mainPages = Aboutuspage::where('section', 'logo')->get();
-
-        return redirect()->route('aboutuspage.index')->with("success", $logoPage)
-        ->with("success", "Logo page created successfully");
+        return redirect()->route('aboutuspage.index')->with("success", "Logo page created successfully");
     }
 
-    public function aboutus_page_edit_logo(Aboutuspage $logoPage)
+    public function aboutus_page_edit_logo(Aboutuspage $logoPages)
     {
-        return view("frontend.aboutus.aboutus_page_edit_logo", compact("logoPage"));
+        return view("frontend.aboutus.aboutus_page_edit_logo", compact("logoPages"));
     }
 
-    public function aboutus_page_update_logo(Request $request, Aboutuspage $logoPage) // Adjusted parameter name
+    public function aboutus_page_update_logo(Request $request, Aboutuspage $logoPages)
     {
         $request->validate([
-            "title" => "nullable",
-            "images" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $logoPage->title = $request->title;
-        $logoPage->save();
-
         if ($request->hasFile("images")) {
-            if ($logoPage->images->count() > 0) {
-                foreach ($logoPage->images as $image) {
-                    $imageUrl = $image->url_image;
+            // Delete existing images if any
+            foreach ($logoPages->images as $image) {
+                $imageUrl = $image->url_image;
 
-                    if (File::exists($imageUrl) && $image->aboutus_id === $logoPage->id) {
-                        File::delete($imageUrl);
-                    }
-
-                    // Delete the image record
-                    $image->delete();
+                if (File::exists($imageUrl) && $image->aboutus_id === $logoPages->id) {
+                    File::delete($imageUrl);
                 }
+
+                // Delete the image record
+                $image->delete();
             }
 
+            // Upload and associate new images
             foreach ($request->file("images") as $item) {
                 $filename = time() . "_" . $item->getClientOriginalName();
                 $destinationPath = public_path("img/aboutus_images");
@@ -340,19 +329,18 @@ class AboutuspageController extends Controller
 
                 $newImage = new Aboutusimage();
                 $newImage->url_image = $imagePath;
-                $newImage->aboutus_id = $logoPage->id;
+                $newImage->aboutus_id = $logoPages->id;
                 $newImage->save();
             }
         }
 
-        return redirect()->route("aboutuspage.index")
-            ->with("success", "About us logo page updated successfully");
+        return redirect()->route("aboutuspage.index")->with("success", "About us logo page updated successfully");
     }
 
-    public function aboutus_page_delete_logo(Aboutuspage $logoPage) // Adjusted parameter name
+    public function aboutus_page_delete_logo(Aboutuspage $logoPages)
     {
         // Delete related images
-        foreach ($logoPage->images as $image) {
+        foreach ($logoPages->images as $image) {
             if (File::exists($image->url_image)) {
                 File::delete($image->url_image);
             }
@@ -360,11 +348,12 @@ class AboutuspageController extends Controller
         }
 
         // Delete the logo page
-        $logoPage->delete();
+        $logoPages->delete();
 
         // Redirect to the index page with success message
         return redirect()->route('aboutuspage.index')->with('success', 'Logo page deleted successfully');
     }
+
 
 
     //left Call 
@@ -377,22 +366,15 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_leftcall(Request $request)
     {
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-            "lefttitle" => "required", 
-            "leftdescription" => "required",
-            "middletitle" => "required", 
-            "middledescription" => "required",
-            "righttitle" => "required", 
-            "rightdescription" => "required",
+            "lefttitle" => "nullable", 
+            "leftdescription" => "nullable",
+            "middletitle" => "nullable", 
+            "middledescription" => "nullable",
+            "righttitle" => "nullable", 
+            "rightdescription" => "nullable",
         ]);
 
-
         $leftcallPages = new aboutuscalltoaction();
-        
-
-        $leftcallPages->title = $request->title;
-        $leftcallPages->description = $request->description;
 
         $leftcallPages->lefttitle = $request->lefttitle;
         $leftcallPages->leftdescription = $request->leftdescription;
@@ -406,36 +388,26 @@ class AboutuspageController extends Controller
         $leftcallPages->section = 'leftcall';
         $leftcallPages->save();
 
-        // Retrieve the left call pages
-
-        $leftcallPage = aboutuscalltoaction::where('section', 'leftcall')->get();
-
-        // Redirect to the index page with the left call pages and a success message
-        return redirect()->route('aboutuspage.index')->with('leftcall', $leftcallPage)
+        // No need to query again, use the existing $leftcallPages object
+        return redirect()->route('aboutuspage.index')->with('leftcall', $leftcallPages)
             ->with("success", "Left call page created successfully");
     }
 
-    public function aboutus_page_edit_leftcall(aboutuscalltoaction $leftcallPages) {
-        return view("frontend.aboutus.aboutus_page_edit_call_left", compact("leftcallPages"));
-    }
+        public function aboutus_page_edit_leftcall(aboutuscalltoaction $leftcallPages) {
+            return view("frontend.aboutus.aboutus_page_edit_call_left", compact("leftcallPages"));
+        }
 
     public function aboutus_page_update_leftcall(Request $request, aboutuscalltoaction $leftcallPages)
     {
 
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-            "lefttitle" => "required", 
-            "leftdescription" => "required",
-            "middletitle" => "required", 
-            "middledescription" => "required",
-            "righttitle" => "required", 
-            "rightdescription" => "required",
-
+            "lefttitle" => "nullable", 
+            "leftdescription" => "nullable",
+            "middletitle" => "nullable", 
+            "middledescription" => "nullable",
+            "righttitle" => "nullable", 
+            "rightdescription" => "nullable",
         ]);
-
-        $leftcallPages->title = $request->title;
-        $leftcallPages->description = $request->description;
 
         
         $leftcallPages->lefttitle = $request->lefttitle;
@@ -471,8 +443,7 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_team(Request $request)
     {
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
+
             "middletitle" => "nullable",
             "middledescription" => "nullable",
             "images" => "required",
@@ -480,8 +451,7 @@ class AboutuspageController extends Controller
         ]);
 
         $teamPage = new aboutuscalltoaction();
-        $teamPage->title = $request->title;
-        $teamPage->description = $request->description;
+
         $teamPage->middletitle = $request->middletitle;
         $teamPage->middledescription = $request->middledescription;
         $teamPage->section = 'team';
@@ -512,14 +482,12 @@ class AboutuspageController extends Controller
     public function aboutus_page_update_team(Request $request, aboutuscalltoaction $teamPage)
     {   
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
+            "middletitle" => "nullable",
+            "middledescription" => "nullable",
             "images" => "required",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $teamPage->title = $request->title;
-        $teamPage->description = $request->description;
         $teamPage->middletitle = $request->middletitle;
         $teamPage->middledescription = $request->middledescription;
         $teamPage->save();
@@ -710,7 +678,7 @@ class AboutuspageController extends Controller
     }
 
     public function aboutus_page_edit_teampic2(Aboutuspage $teampic2Page) {
-        return view("frontend.aboutus.aboutus_page_edit_teampic1", compact("teampic2Page"));
+        return view("frontend.aboutus.aboutus_page_edit_teampic2", compact("teampic2Page"));
     }
 
     public function aboutus_page_update_teampic2(Request $request, Aboutuspage $teampic2Page)
@@ -770,70 +738,6 @@ class AboutuspageController extends Controller
 
         // Redirect to the index page with success message
         return redirect()->route('aboutuspage.index')->with('success', 'Team picture 2 page deleted successfully');
-    }
-
-    //Main Question sector
-    public function aboutus_page_create_mainquestion() {
-        $mainquestionPage = Aboutuspage::where('section', 'mainquestion')->get();
-        return view("frontend.aboutus.aboutus_page_create_mainquestion", compact("mainquestionPage"));
-        
-    }
-
-    public function aboutus_page_store_mainquestion(Request $request)
-    {
-        $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-        ]);
-
-
-        $mainquestionPage = new Aboutuspage();
-
-        $mainquestionPage->title = $request->title;
-        $mainquestionPage->description = $request->description;
-
-        $mainquestionPage->section = 'mainquestion';
-        $mainquestionPage->save();
-
-        // Retrieve the left call pages
-
-        $mainquestionPage = Aboutuspage::where('section', 'mainquestion')->get();
-
-        // Redirect to the index page with the left call pages and a success message
-        return redirect()->route('aboutuspage.index')->with('mainquestion', $mainquestionPage)
-            ->with("success", "Main Question page created successfully");
-    }
-
-    public function aboutus_page_edit_mainquestion(Aboutuspage $mainquestionPage) {
-        return view("frontend.aboutus.aboutus_page_edit_mainquestion", compact("mainquestionPage"));
-    }
-
-    public function aboutus_page_update_mainquestion(Request $request, Aboutuspage $mainquestionPage)
-    {
-
-        $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-
-
-        ]);
-
-        $mainquestionPage->title = $request->title;
-        $mainquestionPage->description = $request->description;
-
-        $mainquestionPage->save();
-
-        return redirect()->route("aboutuspage.index")->with("success", "Question page updated successfully");
-    }
-
-    
-    public function aboutus_page_delete_mainquestion(Aboutuspage $mainquestionPage)
-    {
-        // Delete the main page
-        $mainquestionPage->delete();
-
-        // Redirect to the index page with success message
-        return redirect()->route('aboutuspage.index')->with('success', 'Question page deleted successfully');
     }
 
     // Question sector

@@ -190,13 +190,6 @@ Route::get('/aboutus_page_table/edit_teampic2/{teampic2Page}', [AboutuspageContr
 Route::put('/aboutus_page_table/edit_teampic2/{teampic2Page}', [AboutuspageController::class, 'aboutus_page_update_teampic2'])->name('aboutuspage.update_teampic2');
 Route::delete('/aboutus_page_table/delete_teampic2/{teampic2Page}', [AboutuspageController::class, 'aboutus_page_delete_teampic2'])->name('aboutuspage.delete_teampic2');
 
-//About Us Main Question Page
-Route::get('/aboutus_page_table/create_mainquestion', [AboutuspageController::class, 'aboutus_page_create_mainquestion'])->name('aboutuspage.create_mainquestion');
-Route::post('/aboutus_page_table/create_mainquestion', [AboutuspageController::class, 'aboutus_page_store_mainquestion'])->name('aboutuspage.store_mainquestion');
-Route::get('/aboutus_page_table/edit_mainquestion/{questionPages}', [AboutuspageController::class, 'aboutus_page_edit_mainquestion'])->name('aboutuspage.edit_mainquestion');
-Route::put('/aboutus_page_table/edit_mainquestion/{questionPages}', [AboutuspageController::class, 'aboutus_page_update_mainquestion'])->name('aboutuspage.update_mainquestion');
-Route::delete('/aboutus_page_table/delete_mainquestion/{questionPages}', [AboutuspageController::class, 'aboutus_page_delete_mainquestion'])->name('aboutuspage.delete_mainquestion');
-
 //About Us Question Page
 Route::get('/aboutus_page_table/create_question', [AboutuspageController::class, 'aboutus_page_create_question'])->name('aboutuspage.create_question');
 Route::post('/aboutus_page_table/create_question', [AboutuspageController::class, 'aboutus_page_store_question'])->name('aboutuspage.store_question');
