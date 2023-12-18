@@ -45,7 +45,7 @@
 
             {{-- !comment --}}
             <div class="commnent_post_body" style="padding-top: 15px">
-                @include('frontend.post_page.list_comment', [
+                @include('frontend.profile.list_comment', [
                     'comments' => $post->comments,
                     'post' => $post,
                 ])
@@ -206,13 +206,6 @@
                 });
             })
         })
-
-
-        // $('.modal_inner-comment-post').click(function(){
-
-        //     $('.edit_delete-post').removeClass('show')
-        // })
-
 
         //comment
         var _csrf = '{{ csrf_token() }}';
@@ -402,10 +395,6 @@
 
             });
         });
-
-
-
-
 
         $('.show_reply-form').click(function() {
             var comment_id = $(this).data('id');
