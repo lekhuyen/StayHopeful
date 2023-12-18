@@ -8,6 +8,46 @@
 <div id="spinner-container" style="display: none;">
     <div id="spinner"></div>
 </div>
+
+<div class="container-send-email-notification">
+    <div class="send-email-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+            <p>
+                Sent OTP Successfully !
+                <br>
+                Please check your email to receive your OTP.
+            </p>
+    </div>
+</div>
+<div class="container-reset-pass-notification">
+    <div class="reset-pass-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+            <p>
+                Reset Password Successfully !
+                <br>
+                Please input your new password next time you login.
+            </p>
+    </div>
+</div>
+<div class="container-error-notification">
+    <div class="status-error">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+        <p>
+            Somethings went wrong !
+            <br>
+            Please try again later.
+        </p>
+    </div>
+</div>
 {{-- input email forgot pass form --}}
 <div class="container-reset-password-email-input">
     <div class="modal-inner-reset-password-email-input"></div>
@@ -70,6 +110,12 @@
 <script>
     var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
     var resetPasswordForm = document.querySelector('.container-reset-password-form');
+
+    //alert
+    var sendEmailSuccess = document.querySelector(".container-send-email-notification");
+    var resetPassSuccess = document.querySelector(".container-reset-pass-notification");
+    var errorAlert = document.querySelector(".container-error-notification");
+
     $(document).ready(function() {
     // ajax send otp
     $('#inputEmailResetPassword').submit(function(e) {
@@ -91,22 +137,27 @@
             success: function(response) {
                 $('#spinner-container').hide();
                 if(response.status == 'success'){
+                    sendEmailSuccess.classList.add("showAlert");
                     resetPasswordForm.classList.add("showFormResetPassword");
                     $('#reset-password-email').val('');
                     console.log(response.message);
                 }else if (response.status == 'update_success'){
+                    sendEmailSuccess.classList.add("showAlert");
                     resetPasswordForm.classList.add("showFormResetPassword");
                     $('#reset-password-email').val('');
                     console.log(response.message);
                 } else if (response.status == 'daily_error'){
+                    setError(resetPassEmail,'You have reached the limited! Please try again tomorrow');
                     console.log(response.message);
                 } else if (response.status == 'time_error'){
+                    setError(resetPassEmail,'Please wait 2 minutes before request a new OTP');
                     console.log(response.message);
                 }
                 $('#email_verify_otp').val(response.email)
             },
             error: function(error) {
                 $('#spinner-container').hide();
+                errorAlert.classList.remove("showAlert");
                 console.log(error);
             }
         });
@@ -135,6 +186,10 @@
             success: function(response) {
                 $('#spinner-container').hide();
                 if(response.status == 'success'){
+                    resetPassSuccess.classList.remove("showAlert");
+                    $('#reset-password-otp').val(''),
+                    $('#new-password-reset').val('')
+                     $('#confirm-new-password-reset').val('')
                     console.log(response.message);
                 } else if (response.status == 'error'){
                     console.log(response.message);
@@ -143,6 +198,8 @@
                 }
             },
             error: function(error) {
+                $('#spinner-container').hide();
+                errorAlert.classList.remove("showAlert");
                 console.log(error);
             }
         });

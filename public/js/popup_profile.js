@@ -84,7 +84,10 @@ function checkChangePassword() {
     if (newPasswordValue == '') {
         setError(newPassword,'Password không được để trống');
         isCheck = false;
-    } else if (!validatePassword(newPasswordValue)) {
+    } else if (newPasswordValue == oldPasswordValue) {
+        setError(newPassword,'Password mới không được trùng với password cũ');
+        isCheck = false;
+    }else if (!validatePassword(newPasswordValue)) {
         setError(newPassword,'Password không đúng định dạng');
         isCheck = false;
     } else {

@@ -1,7 +1,7 @@
 .form-donate {
     margin-top: 120px;
     width: 60%;
-    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
+    background: #19508f;
     border-radius: 20px;
     height: auto;
     overflow: hidden;
@@ -29,7 +29,8 @@
 }
 
 .info-text {
-    color: rgba(0,0,0,.9);
+    /* color: rgba(0,0,0,.9); */
+    color: white;
     font-size: 19px;
     font-weight: 400;
 }
@@ -53,25 +54,25 @@
     padding: 10px;
     font-size: 25px;
     font-weight: 700;
-    background-color: #1652F0;
-    border: 1px solid #1652F0;
+    background-color: #7ea7ee;
+    border: 1px solid #7ea7ee;
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
     font-family: "JetBrains Mono",monospace;
     border-radius: 8px;
 
 }
 .form-info-btn:focus{
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    box-shadow: #7ea7ee 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #7ea7ee 0 -3px 0 inset;
 
 }
 
 .form-info-btn:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #7ea7ee 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
 .form-info-btn:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
+  box-shadow: #7ea7ee 0 3px 7px inset;
   transform: translateY(2px);
 }
 .background-icon-big{
@@ -106,6 +107,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-right: 20px;
+    color: white;
 }
 .req{
     font-size: 25px;
@@ -124,6 +126,7 @@
     background-color: transparent;
     font-size: 20px;
     margin-left: 20px;
+    color: white;
 }
 .pop-background{
     position: fixed;

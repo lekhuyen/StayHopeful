@@ -410,6 +410,7 @@
 
 /* -------------------------user-post-------------------------- */
 .modal-user-post-1 {
+    z-index: 999;
     position: fixed;
     top: 0;
     right: 0;

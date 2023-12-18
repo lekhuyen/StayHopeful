@@ -79,8 +79,9 @@
                     <div class="nav-mobile-container">
                         <input type="checkbox" name="" id="check">
                         <div class="logo-container">
-                            <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
-                                style="margin-left: -55px;">
+                            {{-- <div class="logo-nav-mobile"> --}}
+                                <img class="logo" src="{{ asset('img/logo.PNG') }}" alt="">
+                            {{-- </div> --}}
 
                             <div class="search-input-icon" style="display: flex; align-items: center;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
@@ -100,6 +101,24 @@
                                     </div>
 
                                 </div>
+                            </div>
+                            <div class="log-sign">
+                                @if (session('userInfo'))
+                                    <a href="{{ route('auth.profile') }}" class="btn solid">PROFILE</a> 
+                                    @if (session('userInfo')['avatar'])
+                                        <img class="nav-user-img"
+                                            src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                    @elseif($infouser && $infouser->avatar != null)
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                            alt="ảnh">
+                                    @else
+                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
+                                            alt="">
+                                    @endif
+                            @else
+                                <div class="btn solid popup-login-responsive">LOGIN</div>
+                            @endif
+                                {{-- <a href="#" class="btn solid">LOGIN</a> --}}
                             </div>
                         </div>
                         <div class="nav-btn">
@@ -199,21 +218,17 @@
                                                             <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
                                                         @endforeach
                                                         @endif --}}
-                                            {{-- </div> --}}
-                                        </div>
-                                    </li>
-                                </ul>
+                                                     {{-- </div> --}}
+                                                    </div>
+                                            </li>
+                                        </ul>
+                                </div>
                             </div>
-                            <div class="log-sign" style="--i: 1.8s">
-                                {{-- <a href="#" class="btn transparent">Log in</a> --}}
-                                <a href="#" class="btn solid">LOGIN</a>
+                            <div class="hamburger-menu-container">
+                                <div class="hamburger-menu">
+                                    <div></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="hamburger-menu-container">
-                            <div class="hamburger-menu">
-                                <div></div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- desktop interface -->
@@ -277,11 +292,7 @@
     {{-- footer --}}
 
     <div class="container-fluid"
-        style="background: linear-gradient(
-        180deg,
-        rgba(17, 77, 172, 1) 0%,
-        rgba(155, 190, 230, 1) 100%
-    ); margin-top: 30px;">
+        style="background: #123b6a; margin-top: 30px;">
         <div class="container">
             <div class="row" style="padding: 50px 0; color: white;">
                 <div class="col-lg-3 col-md-6 col-12">

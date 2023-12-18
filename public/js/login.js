@@ -13,10 +13,16 @@ sign_in_btn.addEventListener('click', () => {
 
 // popup
 var popupLogin = document.querySelector('.popup-login');
+var popupLoginResponsive = document.querySelector('.popup-login-responsive');
 var containerPopup = document.querySelector('.container-popup');
 var exitBtn = document.querySelector('.exit-btn');
 var exitLogin = document.querySelector('.modal-inner');
 //console.log(containerPopup);
+if(popupLoginResponsive){
+    popupLoginResponsive.addEventListener('click', function () {
+        containerPopup.classList.add('showLogin');
+    });
+}
 if(popupLogin)
 {
 popupLogin.addEventListener('click', function () {

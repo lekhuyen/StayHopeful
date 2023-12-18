@@ -100,7 +100,7 @@
 }
 .change-password-popup{
     /* background: linear-gradient(to bottom, #245abe, #95b5df); */
-    background: #2d63c2;
+    background: #123b6a;
     border: 2px solid white;
     border-radius: 20px;
     position: fixed;
@@ -195,7 +195,7 @@
     border: none;
     outline: none;
     border-radius: 40px;
-    background-color: #5995fd;
+    background-color: #95b5df;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -256,7 +256,7 @@
     max-height: 300px;
 } */
 .profile-menu{
-    background: linear-gradient(to top, #245abe, #95b5df);
+    background: linear-gradient(to bottom, #123b6a, #165baa);
     padding: 10px;
     margin: 5px;
     border-radius: 10%;
