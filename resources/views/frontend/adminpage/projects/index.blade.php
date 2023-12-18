@@ -12,10 +12,10 @@
 <div class="container mt-3 ">
 
     <h1>Project List</h1>
-   <div class="d-flex flex-row-reverse gap-3">
-    <a class="btn btn-info" href="{{ route('projectAd.index_sort', "active") }}">Active Event</a>
-    <a class="btn btn-warning" href="{{ route('projectAd.index_sort', "deactive") }}">DeActive Event</a>
-   </div>
+    <div class="d-flex flex-row-reverse gap-3">
+        <a class="btn btn-info btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-warning btn-sm" href="{{ route('projectAd.index_sort', 'deactive') }}">Deactive Event</a>
+    </div>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

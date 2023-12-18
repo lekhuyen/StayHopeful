@@ -214,9 +214,9 @@ class ProjectController extends Controller
         ]);
         $project->update($request->all());
         if ($request->status_event == 1) {
-            return redirect()->route("projectAd.index")->with("success", "Su kien da duoc open");
+            return redirect()->route("projectAd.index")->with("success", "The event is opening.");
         } else {
-            return redirect()->route("projectAd.index")->with("success", "Su kien da duoc close");
+            return redirect()->route("projectAd.index")->with("success", "The event is already closed.");
         }
 
         // $project = Project::find($id);

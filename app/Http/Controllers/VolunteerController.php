@@ -89,10 +89,6 @@ class VolunteerController extends Controller
             $userCreate->is_volunteer = true;
             $userCreate->save();
         }
-        // $subject = $project->title;
-
-        // $message = "cam on ban da dang ky su kien nay";
-        // $projectId = 123;
         Mail::to($request->email)->send(new VolunteerMail($project));
         return redirect()->back()->with("success", "Thanks for being a part of us.");
     }
