@@ -2,6 +2,7 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
+@section('title','Edit Permission')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}

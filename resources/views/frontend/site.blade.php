@@ -81,7 +81,7 @@
                         <div class="logo-container">
                             <img class="logo" src="{{ asset('img/logo.PNG') }}" alt=""
                             style="margin-left: -55px;">
-                    
+
                             <div class="search-input-icon"
                                 style="display: flex; align-items: center;">
                                 <div class="search-input-icon-child" style="display: flex; align-items: center;">
@@ -101,7 +101,7 @@
                                     </div>
 
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                             <div class="nav-btn">
                                 <div class="nav-links">
@@ -339,10 +339,10 @@
                     <div class="footer-end">
                         <h6>© 2018 STAYHOPEFUL CHARITY FUND. All rights reserved.</h6>
                         <div class="media-icon">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/TuThienGroup/?locale=vi_VN"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/watch?v=H1s_Z8hsdmo&t=138s"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com/thien_oanh?lang=en"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/explore/locations/2371602169547650/co-so-tu-thien-xa-hoi-thien-duyen/"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

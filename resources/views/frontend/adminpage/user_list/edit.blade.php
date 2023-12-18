@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title','Edit Admin Account')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}

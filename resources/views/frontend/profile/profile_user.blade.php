@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="profile-image-user">
-                                <img src="{{ asset('img/omg.jpeg') }}" alt="hình nè cậu" class="profile-image-set">
+                                <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture" class="profile-image-set">
                             </div>
                         </div>
                         <div class="col-lg-6">

@@ -399,7 +399,7 @@
 }
 
 .table thead tr th {
-    background-color:rgba(155, 190, 230, 1);
+    background-color: rgba(155, 190, 230, 1);
     color: white;
     position: sticky;
     top: 0;
@@ -906,7 +906,7 @@
 }
 
 .input_new-post div:hover {
-    background: darkblue;
+    background: cornflowerblue;
     transform: scale(1.1, 1.1);
     -webkit-transform: scale(1.1, 1.1);
     -moz-transform: scale(1.1, 1.1);
@@ -917,11 +917,13 @@
 }
 
 .user__post {
+    margin-bottom: 10px;
     padding: 0;
     background-color: #f1ebeb;
     border-radius: 20px;
-    background-color:rgba(155, 190, 230, 1);
-    color: white;
+    border: 1px solid rgba(155, 190, 230, 1);
+    background-color: white;
+    color: rgba(155, 190, 230, 1);
 }
 
 .user__name {
@@ -929,7 +931,7 @@
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
-    color: honeydew;
+    color: rgba(155, 190, 230, 1);
     font-size: 30px;
     font-style: oblique;
     font-family: Copperplate, Papyrus, fantasy;
@@ -938,9 +940,10 @@
 .post__title {
     text-align: left;
     margin: 0 50px 20px 50px;
-    color: white;
-    font-size: 24px;
+    color: black;
+    font-size: 20px;
 }
+
 .profile-text-listdonate {
     width: 100%;
     height: auto;

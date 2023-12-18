@@ -2,6 +2,7 @@
 @include('frontend/login/login')
 @include('frontend/profile/popup_profile')
 @section('admin_content')
+@section('title','New Role')
 
 {{-- css --}}
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
