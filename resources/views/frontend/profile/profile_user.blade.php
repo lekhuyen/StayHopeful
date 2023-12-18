@@ -10,7 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="profile-image-user">
-                                <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture" class="profile-image-set">
+                                @if ($user->avatar != null)
+                                    <img src="{{ asset($user->avatar) }}" alt="profile picture" class="profile-image-set">
+                                @else
+                                    <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture"
+                                        class="profile-image-set">
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -24,9 +29,9 @@
                                     <p class="info-text">Email:
                                         <span class="info-text-user">{{ $user->email }}</span>
                                     </p>
-                                    <p class="info-text">Age: <span class="info-text-user">Not Updated Yet</span></p>
-                                    <p class="info-text">Phone : <span class="info-text-user">Not Updated Yet</span></p>
-                                    <p class="info-text">Address : <span class="info-text-user">Not Updated Yet</span></p>
+                                    <p class="info-text">Age: <span class="info-text-user">Private</span></p>
+                                    <p class="info-text">Phone : <span class="info-text-user">Private</span></p>
+                                    <p class="info-text">Address : <span class="info-text-user">Private</span></p>
                                 </div>
 
                             </div>
@@ -77,9 +82,14 @@
                                                     display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
-                                                <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
-                                                    alt="" width="50"
-                                                    style=" width: 80px;clip-path: circle(30%);">
+                                               
+                                                @if ($user->avatar != null)
+                                                    <img src="{{ asset($user->avatar) }}" alt="profile picture"
+                                                        width="50">
+                                                @else
+                                                    <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture"
+                                                        style=" width: 80px;clip-path: circle(30%);">
+                                                @endif
                                             </a>
                                             <div>
                                                 <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">

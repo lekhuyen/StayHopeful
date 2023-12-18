@@ -22,6 +22,7 @@
                     <a href="" class="avatar-user-post" style="margin: 10px 0 10px 50px; text-decoration: none;">
                         <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
                             style=" width: 80px;clip-path: circle(30%);">
+
                     </a>
                     <div class="user-name-post">
                         <a href=""

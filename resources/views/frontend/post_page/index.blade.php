@@ -22,8 +22,27 @@
                                 ">
                             <a href="{{ route('user.profile', $post->user_id) }}" class="avatar-user-post"
                                 style="margin: 10px 0 10px 50px; text-decoration: none;">
-                                <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
-                                    style=" width: 80px;clip-path: circle(30%);">
+                                {{-- <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
+                                    style=" width: 80px;clip-path: circle(30%);"> --}}
+                                @php
+                                    $check = false;
+                                @endphp
+                                @foreach ($user as $item)
+                                    @if (!$check)
+                                        @if ($post->user_id == $item->id)
+                                            <img src="{{ asset($post->user->avatar) }}" alt="" width="50"
+                                                style=" width: 80px;clip-path: circle(30%);">
+                                                @php
+                                                $check = true;
+                                            @endphp
+                                        @elseif ($post->user_id == $item->id && $item->avatar == null)
+                                            <img src="{{ asset('img/humanicon.png') }}" alt="">
+                                            @php
+                                                $check = true;
+                                            @endphp
+                                        @endif
+                                    @endif
+                                @endforeach
                             </a>
                             <div class="user-name-post">
                                 <a href="{{ route('user.profile', $post->user_id) }}"
@@ -94,10 +113,8 @@
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-
-
     var post_id;
-//get- post
+    //get- post
     $(document).on('click', '#comment_post', function() {
         post_id = $(this).data('id');
         $('.modal-user-Comment-post').addClass('show-comment');
