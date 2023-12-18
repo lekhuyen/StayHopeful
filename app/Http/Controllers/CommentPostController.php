@@ -56,7 +56,6 @@ class CommentPostController extends Controller
         }
         $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'asc')->get();
             if ($replyComment) {
-                // return view('frontend.post_page.list_comment', compact('replyComment'));
                 return response()->json($replyComment);
             }
         return response()->json(['error' => $validator->errors()->first()]);
