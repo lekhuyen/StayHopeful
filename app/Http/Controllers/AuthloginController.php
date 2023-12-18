@@ -125,11 +125,6 @@ class AuthloginController extends Controller
                 $existingUser->update([
                     'name' => $usergoogle->name,
                     'avatar' => $usergoogle->avatar,
-                    'password' => '123456',
-                    'role' => 0,
-                    'status' => 1,
-                    'is_volunteer' => 0,
-                    'is_sponsor' => 0,
                 ]);
 
                 $user = $existingUser;

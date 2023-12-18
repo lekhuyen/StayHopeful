@@ -116,7 +116,7 @@
                                         @endforeach
                                     @else
                                         <tr>
-                                            <td colspan="4">You Dont Have Any Donate Yes! :(</td>
+                                            <td colspan="4">You Dont Have Any Donate Yet! </td>
                                         </tr>
                                     @endif
                                 </tbody>
@@ -235,7 +235,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
-                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="{{ route('post.updateprofile', session('userInfo')['id']) }}"
@@ -284,7 +285,6 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-
     //get post
     $(document).on('click', '#comment_post', function() {
         post_id = $(this).data('id');
