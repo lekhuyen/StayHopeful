@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AboutusController extends Controller
 {
     public function index() {
-        $mainPages = Aboutuspage::where('section', 'main')->get();
+        $mainPages = Aboutuspage::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();

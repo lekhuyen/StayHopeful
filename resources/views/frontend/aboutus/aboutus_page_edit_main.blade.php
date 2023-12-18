@@ -10,7 +10,7 @@
 
 
 <div class="container mt-3">
-  <h1>About Us Edit Main form</h1>
+  <h1>Main Form</h1>
   <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.update_main', $mainPages) }}">
     @csrf
     @method("PUT")
@@ -20,17 +20,18 @@
           <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
     <br>
+
+    
+
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $mainPages->title }}">
     </div>
 
     <div class="mb-3">
-        <label for="description" class="form-label">Description:</label>
-        <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $mainPages->description }}</textarea>
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $mainPages->description }}</textarea>
     </div>
-
-
 
     <div class="form-group mb-3">
       <label for="images">Current Images:</label>
@@ -51,6 +52,18 @@
         <input type="file" class="form-control" id="new_images" multiple name="images[]"/>
     </div>
 
+    <div class="mb-3">
+      <label for="section" class="form-label">Section:</label>
+      <select class="form-control" id="section" name="section">
+          <option value="Main Section" @if ($mainPages->section == 'Main Section') selected @endif>Main Section</option>
+          <option value="About Us Section" @if ($mainPages->section == 'About Us Section') selected @endif>About Us Section</option>
+          <option value="Logo Section" @if ($mainPages->section == 'Logo Section') selected @endif>Logo Section</option>
+          <option value="Join Us Section" @if ($mainPages->section == 'Join Us Section') selected @endif>Join Us Section</option>
+          <option value="Team Section" @if ($mainPages->section == 'Team Section') selected @endif>Team Section</option>
+          <option value="Question Section" @if ($mainPages->section == 'Question Section') selected @endif>Question Section</option>
+      </select>
+  </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
@@ -67,7 +80,7 @@
       toolbar: 'undo redo | formatselect | ' +
           'bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist outdent indent | removeformat | help',
-      forced_root_block : false,
+      forced_root_block : false,   
   });
 </script>
 

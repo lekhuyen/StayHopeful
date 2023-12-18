@@ -19,10 +19,7 @@
           <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
     <br>
-    <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $aboutUsPages->title }}">
-    </div>
+
 
     <div class="mb-3">
         <label for="description" class="form-label">Description:</label>

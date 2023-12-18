@@ -8,14 +8,16 @@
     <br>
     {{-- Mission sector --}}
     <div class="container mt-3 about-main col-md-8 offset-md-2" data-aos="zoom-in-down">
-        @foreach ($mainPages as $aboutusmain)
+        @foreach ($mainPages as $mainitem)
             <div>
-                @if ($aboutusmain->section === 'main')
-                    <h1>{{ $aboutusmain->title }}</h1>
-                    <span class="mission">{{ $aboutusmain->description }}</span>
-                    @if ($aboutusmain->images->count() > 0)
-                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image-main">
-                    @endif
+                @if ($mainitem->section === 'Main Section')
+                    <h1>{{ $mainitem->title }}</h1>
+                    <span class="mission">{{ $mainitem->description }}</span>
+                    
+                    @foreach ($mainitem->images as $image)
+                        <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                    @endforeach
+
                 @endif
             </div>
             <br>
@@ -37,59 +39,71 @@
                 @endphp
             @endif
         @endforeach
-
-        @foreach ($aboutUsPages as $aboutusmain)
-            @if ($aboutusmain->section == 'aboutus')
-                <div style="margin-top: 20px">
-                    @if ($aboutusmain->title == $firstTitle)
-                        <h1>{{ $aboutusmain->title }}</h1>
-                    @endif
-                    @if ($aboutUsCounter % 2 == 0)
-                        <div class="container about-story2" data-aos="zoom-in-right">
-                            <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-                                <div class="col aboutus2">
-                                    <div><!-- aboutus's Picture 2-->
-                                        @if ($aboutusmain->images->count() > 0)
-                                            <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image2">
-                                        @endif
-                                    </div>
-                                </div>
     
-                                <div class="col story2">
-                                    <div>
-                                        <div>
-                                            <span>{{ $aboutusmain->description }}</span>
-                                        </div>
-                                    </div>
+        <div style="margin-top: 20px">
+            @foreach ($mainPages as $mainitem)
+                <div>
+                    @if ($mainitem->section === 'About Us Section')
+                        <h1>{{ $mainitem->title }}</h1>
+                        <span class="mission">{{ $mainitem->description }}</span>
+                        
+                        <div class="text-center">
+                            @foreach ($mainitem->images as $image)
+                                <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                            @endforeach 
+                        </div>
+
+                    @endif
+                </div>
+                <br>
+            @endforeach
+            <br>
+    
+            @foreach ($aboutUsPages as $aboutusmain)
+                @if ($aboutUsCounter % 2 == 0)
+                    <div class="container about-story2" data-aos="zoom-in-right">
+                        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
+                            <div class="col aboutus2">
+                                <div><!-- aboutus's Picture 2-->
+                                    @if ($aboutusmain->images->count() > 0)
+                                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image2">
+                                    @endif
                                 </div>
                             </div>
-                        </div>
-                    @else
-                        <div class="container about-story1" data-aos="zoom-in-left">
-                            <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
-                                <div class="col story1">
+    
+                            <div class="col story2">
+                                <div>
                                     <div>
                                         <span>{{ $aboutusmain->description }}</span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="container about-story1" data-aos="zoom-in-left">
+                        <div class="row row-cols-1 row-cols-md-2 g-10 align-items-center">
+                            <div class="col story1">
+                                <div>
+                                    <span>{{ $aboutusmain->description }}</span>
+                                </div>
+                            </div>
     
-                                <div class="col">
-                                    <div><!-- aboutus's Picture 1-->
-                                        @if ($aboutusmain->images->count() > 0)
-                                            <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image1">
-                                        @endif
-                                    </div>
+                            <div class="col">
+                                <div><!-- aboutus's Picture 1-->
+                                    @if ($aboutusmain->images->count() > 0)
+                                        <img src="{{ asset($aboutusmain->images[0]->url_image) }}" alt="{{ $aboutusmain->title }}" class="aboutus-image1">
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                    @endif
-    
-                    @php
-                        $aboutUsCounter++;
-                    @endphp
-                </div>
-            @endif
-        @endforeach
+                    </div>
+                @endif
+                @php
+                    $aboutUsCounter++;
+                @endphp
+            @endforeach
+        </div>
     </div>
 
     <br>

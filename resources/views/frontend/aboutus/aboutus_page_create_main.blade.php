@@ -37,6 +37,18 @@
         <input type="file" class="form-control" id="images" multiple name="images[]"/>
     </div>
 
+    <div class="mb-3">
+      <label for="section" class="form-label">Section:</label>
+      <select class="form-control" id="section" name="section">
+          <option value="Main Section" @selected(old('section') == 'Main Section')>Main Section</option>
+          <option value="About Us Section" @selected(old('section') == 'About Us Section')>About Us Section</option>
+          <option value="Logo Section" @selected(old('section') == 'Logo Section')>Logo Section</option>
+          <option value="Join Us Section" @selected(old('section') == 'Join Us Section')>Join Us Section</option>
+          <option value="Team Section" @selected(old('section') == 'Team Section')>Team Section</option>
+          <option value="Question Section" @selected(old('section') == 'Question Section')>Question Section</option>
+      </select>
+  </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

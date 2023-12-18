@@ -19,6 +19,7 @@
                 <th>Title</th>
                 <th>View Description</th>
                 <th>Image</th>
+                <th>Section</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -35,6 +36,9 @@
                     @if ($item->images->count() > 0)
                         <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
                     @endif
+                </td>
+                <td>
+                    {{ $item->section }}
                 </td>
                 <td>
                     <a href="{{ route('aboutuspage.edit_main', $item->id) }}" class="btn btn-warning">Edit</a>
@@ -55,13 +59,12 @@
 </div>
 
 <div class="container mt-3">
-    <h4>About us Sector</h4>
+    <h4>About Us Section</h4>
     <a href="{{ route('aboutuspage.create_aboutus') }}" class="btn btn-primary">Add logo sector</a>
     <table class="table table-dark mt-3" id="aboutUsTable">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
                 <th>View Description</th> 
                 <th>Image</th>
                 <th>Edit</th>
@@ -72,7 +75,6 @@
             @foreach ($aboutUsPages as $items)
                 <tr>
                     <td>{{ $items->id }}</td>
-                    <td>{{ $items->title }}</td>
                     <td>
                         <a href="{{ route('aboutuspage.detail', $items->id) }}" class="btn btn-primary">View Description</a>
                     </td>
@@ -101,7 +103,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-12">
-            <h4>Logo Sector</h4>
+            <h4>Logo Section</h4>
             <a href="{{ route('aboutuspage.create_logo') }}" class="btn btn-primary">Add Logo sector</a>
             <table class="table table-dark mt-3" id="combinedTable">
                 <thead>
@@ -148,7 +150,7 @@
 
 {{-- Join Us --}}
 <div class="container mt-3">
-    <h4>Join Us Sector</h4>
+    <h4>Join Us Section</h4>
     <a href="{{ route('aboutuspage.create_leftcall') }}" class="btn btn-primary">Add Box</a>
     <div>
 
@@ -264,7 +266,7 @@
 </div>
 
 <div class="container mt-3">
-    <h4>Team Sector</h4>
+    <h4>Team Section</h4>
     <a href="{{ route('aboutuspage.create_team') }}" class="btn btn-primary">Add Founder</a>
     <a href="{{ route('aboutuspage.create_teampic1') }}" class="btn btn-primary">Add Left Picture</a>
     <a href="{{ route('aboutuspage.create_teampic2') }}" class="btn btn-primary">Add Right Picture</a>
@@ -397,7 +399,7 @@
         </tbody>
     </table>
 
-    <h4>Question</h4>
+    <h4>Question Section</h4>
     <a href="{{ route('aboutuspage.create_question') }}" class="btn btn-primary">Add Question</a>
     <table class="table table-dark mt-3" id="mainTable">
         <thead>

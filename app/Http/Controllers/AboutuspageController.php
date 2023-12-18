@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\File;
 class AboutuspageController extends Controller
 {
     public function aboutus_page_index() {
-        $mainPages = Aboutuspage::where('section', 'main')->get();
+        $mainPages = Aboutuspage::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
@@ -27,7 +27,7 @@ class AboutuspageController extends Controller
 
     //main
     public function aboutus_page_create_main() {
-        $mainPages = Aboutuspage::where('section', 'main')->get();
+        $mainPages = Aboutuspage::all();
         return view("frontend.aboutus.aboutus_page_create_main", compact("mainPages"));
     }
 
@@ -36,14 +36,15 @@ class AboutuspageController extends Controller
         $request->validate([
             "title" => "nullable",
             "description" => "nullable",
-            "images" => "required|array",
+            "section" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
         $mainPage = new Aboutuspage();
         $mainPage->title = $request->title;
         $mainPage->description = $request->description;
-        $mainPage->section = 'main';
+        $mainPage->section = $request->section;
         $mainPage->save();
 
         if ($request->hasFile("images")) {
@@ -61,8 +62,7 @@ class AboutuspageController extends Controller
             }
         }
 
-        $mainPages = Aboutuspage::where('section', 'main')->get();
-
+        $mainPages = Aboutuspage::all();
         return redirect()->route('aboutuspage.index')->with('mainPages', $mainPages)
         ->with("success", "Main page created successfully");
     }
@@ -76,29 +76,20 @@ class AboutuspageController extends Controller
         $request->validate([
             "title" => "nullable",
             "description" => "nullable",
-            "images" => "required",
+            "section" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
         $mainPages->title = $request->title;
         $mainPages->description = $request->description;
+        $mainPages->section = $request->section;
         $mainPages->save();
 
         if ($request->hasFile("images")) {
 
-            if ($mainPages->images->count() > 0) {
-                foreach ($mainPages->images as $image) {
-                    $imageUrl = $image->url_image;
-            
-
-                    if (File::exists($imageUrl) && $image->aboutus_id === $mainPages->id) {
-                        File::delete($imageUrl);
-                    }
-            
-                    // Delete the image record
-                    $image->delete();
-                }
-            }
+            // Delete existing images if any
+            $mainPages->images()->delete();
 
             foreach ($request->file("images") as $item) {
                 $filename = time() . "_" . $item->getClientOriginalName();
@@ -156,14 +147,14 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_aboutus(Request $request)
     {
         $request->validate([
-            "title" => "required",
+
             "description" => "nullable",
-            "images" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
         $aboutuspage = new aboutuspage();
-        $aboutuspage->title = $request->title;
+
         $aboutuspage->description = $request->description;
         $aboutuspage->section = 'aboutus';
         $aboutuspage->save();
@@ -227,13 +218,12 @@ class AboutuspageController extends Controller
     
     public function aboutus_page_update_aboutus(Request $request, aboutuspage $aboutUsPages) {
         $request->validate([
-            "title" => "nullable",
+
             "description" => "nullable",
-            "images" => "required",
+            "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
     
-        $aboutUsPages->title = $request->title;
         $aboutUsPages->description = $request->description;
         $aboutUsPages->save();
     
