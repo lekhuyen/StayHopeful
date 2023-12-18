@@ -21,7 +21,7 @@
             </div>
             <div class="handles">
                 <span class="prev">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-left: 30px"
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="margin-left: 60px;"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
                             stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
@@ -29,7 +29,7 @@
                     </svg>
                 </span>
                 <span class="next">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 30px"
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="margin-right: 30px"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
                             stroke="rgb(55 65 81/1)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
@@ -41,10 +41,14 @@
             </div>
         </div>
     </div>
+    @if (session('error'))
+    {{session('error')}}
+
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-sm-12">
-                <div class="donate-home">
+                <div class="donate-home mt-0 mb-4">
                     <div class="donate-user-index">
                         <div class="keen-slider" id="my-keen-slider" data-keen-slider-v>
                             {{-- content donate user --}}
@@ -54,27 +58,28 @@
             </div>
         </div>
     </div>
-    <section>
-        <div class="container section-title-1-0">
-            <div class="row">
-                <div class="col-lg-12 section-title-1">
+
+    {{-- on going projects  --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
                     <div class="section-title_video">
-                        <h4>RECENT PROJECTS</h4>
+                        <h4 class="donate__title">ON GOING PROJECTS</h4>
                     </div>
-                    <div>
-                        <a href="{{ route('project.index', 1) }}">SEE MORE</a>
-                    </div>
+                    <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- card -->
     <div class="container">
         <div class="row">
             @foreach ($projects as $project)
                 <div class=" col-xxl-4 col-xl-4 col-lg-6 large ">
-                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}" class="a-card">
+                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
+                        class="a-card">
                         <div class="card card_wapper" style="width: 26rem;">
                             @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
@@ -100,7 +105,7 @@
                                         ${{ number_format($project->money) }}
                                     </span>
                                 </p>
-                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}"
+                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                                     class="btn btn-primary btn-primary-1">Details</a>
                             </div>
                         </div>
@@ -112,29 +117,28 @@
     </div>
 
 
-    <!-- su kien gan nhat -->
+    <!-- finished projects -->
 
-    <section>
-        <div class="container section-title-1-0">
-            <div class="row">
-                <div class="col-lg-12 section-title-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
                     <div class="section-title_video">
-                        <h4>FINISHED PROJECTS</h4>
+                        <h4 class="donate__title">FINISHED PROJECTS</h4>
                     </div>
-                    <div>
-                        <a href="{{ route('project.index', 1) }}">SEE MORE</a>
-                    </div>
+                    <a class="btn__more" href="{{ route('project.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- card -->
     <div class="container">
         <div class="row">
             @foreach ($project_finish as $project)
                 <div class="col-xxl-3 col-xl-3">
-                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}" class="a-card">
+                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
+                        class="a-card">
                         <div class="card card_wapper" style="width: 19.5rem;">
                             @if ($project->status == 0)
                                 <div class="project-status">ON GOING</div>
@@ -162,35 +166,29 @@
                                         ${{ number_format($project->money) }}
                                     </span>
                                 </p>
-                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title).'.html']) }}"
+                                <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                                     class="btn btn-primary btn-primary-1">Details</a>
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
-
-
-
-
         </div>
     </div>
 
-    <!-- video -->
-    <section>
-        <div class="container section-title-1-0">
-            <div class="row">
-                <div class="col-lg-12 section-title-1">
+    <!-- video gallery -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-1">
                     <div class="section-title_video">
-                        <h4>VIDEO GALLERY</h4>
+                        <h4 class="donate__title">VIDEO GALLERY</h4>
                     </div>
-                    <div>
-                        <a href="{{ route('video.index') }}">SEE MORE</a>
-                    </div>
+                    <a class="btn__more" href="{{ route('video.index', 1) }}">SEE MORE</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -203,7 +201,12 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: rgb(36,90,190); margin-top: 40px;">
+    <div class="container-fluid"
+        style="background: linear-gradient(
+            90deg,
+            rgba(17, 77, 172, 1) 0%,
+            rgba(155, 190, 230, 1) 100%
+        );  margin-top: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -211,20 +214,20 @@
                         <h3>STAYHOPEFUL ALREADY HELPED:</h3>
                     </div>
                 </div>
-                <div class="col-lg-12" style="display: flex; align-content: center">
+                <div class="col-lg-12" style="display: flex; align-content: center; justify-content:center">
                     <div class="statistical">
                         <div class="project-count">
                             <i class="fa-solid fa-globe"></i>
                             <span>123</span>
                         </div>
-                        <span style="font-size: 18px;">CASES</span>
+                        <span style="font-size: 30px;">CASES</span>
                     </div>
                     <div class="statistical">
                         <div class="total-money">
                             <i class="fa-regular fa-face-smile"></i>
                             <span class="odometer" id="odometer"></span>
                         </div>
-                        <span style="font-size: 18px;">USD</span>
+                        <span style="font-size: 30px;">USD</span>
                     </div>
                 </div>
             </div>
@@ -245,4 +248,4 @@
     <script src="{{ asset('js/getuserdonate.js') }}"></script>
     <script src="{{ asset('js/indexslider.js') }}"></script>
     <script src="{{ asset('js/countdonate.js') }}"></script>
-    @stop()
+@stop()

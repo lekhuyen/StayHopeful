@@ -4,35 +4,37 @@
 <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
 {{-- css --}}
 @section('main')
-    <div class="container" style="margin-top: 100px; padding: 0">
+    <div class="container" style="margin-top: 80px; padding: 0">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8" style="padding: 0; border-radius: 5px; ">
-                {{-- * new post(user) --}}
+                {{-- * create new post(user) --}}
                 <div class="input_new-post">
-                    <div type="text">New post..</div>
+                    <div type="text">Create new post</div>
                 </div>
                 {{-- * new post(user) --}}
                 @foreach ($posts as $post)
-                    <div style="padding: 0; background-color:#f1ebeb; border-radius: 5px; ">
+                    <div class="user__post">
                         <div class="post-uset-body"
                             style="text-align:left;
                                 display: flex;
                                 align-items:center;
                                 ">
-                            <a href="{{route('user.profile', $post->user_id)}}" class="avatar-user-post" style="margin: 10px 0 10px 50px; text-decoration: none;">
+                            <a href="{{ route('user.profile', $post->user_id) }}" class="avatar-user-post"
+                                style="margin: 10px 0 10px 50px; text-decoration: none;">
                                 <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
                                     style=" width: 80px;clip-path: circle(30%);">
                             </a>
                             <div class="user-name-post">
-                                <a href="{{route('user.profile', $post->user_id)}}" style="margin-bottom: 0; font-size: 20px; font-weight: 500; text-decoration: none; color: black">{{ $post->user->name }}</a>
+                                <a href="{{ route('user.profile', $post->user_id) }}"
+                                    class="user__name">{{ $post->user->name }}</a>
                                 <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
 
                             </div>
 
 
                         </div>
-                        <div style="text-align:left; margin: 0 50px 20px 50px;">
+                        <div class="post__title">
                             <span>{{ $post->title }}</span>
                         </div>
                         @if ($post->images->count() > 0)
@@ -46,27 +48,30 @@
 
                             <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
 
-                                {{-- ! phân biệt user đã like --}}
-                                @if(auth()->user())
+                                {{-- ! differentiate user already liked the post --}}
+                                @if (auth()->user())
                                     @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
                                         <div>
-                                            <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}" style="margin-right: 3px"></i>
+                                            <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"
+                                                style="margin-right: 3px"></i>
                                         </div>
                                     @else
                                         <div>
-                                            <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}" style="margin-right: 3px"></i>
+                                            <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"
+                                                style="margin-right: 3px"></i>
                                         </div>
                                     @endif
                                 @endif
                                 <div class="like_count" style="">
-                                    <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
+                                    <span class="count_like"
+                                        data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
                                 </div>
                             </div>
 
                             <div id="comment_post" data-id="{{ $post->id }}">
                                 {{-- <i class="fa-regular fa-comment"></i> --}}
                                 <span>
-                                    {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count()}}
+                                    {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count() }}
                                     Comment
                                 </span>
                             </div>
@@ -92,15 +97,15 @@
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+
+
     var post_id;
-
-
 //get- post
     $(document).on('click', '#comment_post', function() {
         post_id = $(this).data('id');
         $('.modal-user-Comment-post').addClass('show-comment');
-        var _loginUrl = '{{ route('show_comment-post',':id') }}'.replace(':id', post_id);
-        
+        var _loginUrl = '{{ route('show_comment-post', ':id') }}'.replace(':id', post_id);
+
         $.ajax({
             url: _loginUrl,
             type: 'GET',
@@ -113,14 +118,14 @@
                 } else {
                     $('.modal-user-Comment-post').html(data);
                 }
-                
+
             }
 
         })
 
     })
 
-//like
+    //like
     $(document).ready(function() {
         $('.like_post-1').each(function() {
             var postId = $(this).data('post-id');

@@ -12,7 +12,7 @@
     width: auto;
     height: 50px;
     background-color: transparent;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .donate-user-index {
@@ -95,7 +95,7 @@
 /* carousel */
 
 .handles svg path {
-    stroke: #e2e2e2 !important;
+    stroke: darkblue !important;
 }
 
 .dots span {
@@ -115,7 +115,7 @@
 
 .PostSlide {
     max-width: 1300px;
-    margin: 10px auto 40px;
+    margin: 100px auto 10px auto;
 }
 
 .PostSlide .innerContainer .slider {
@@ -125,7 +125,7 @@
     margin: auto;
 }
 .innerContainer {
-    margin-top: 80px;
+    margin-top: 130px;
 }
 .PostSlide .innerContainer .slider .slide {
     display: block;

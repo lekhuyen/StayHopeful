@@ -25,3 +25,7 @@ h1 {
     cursor: pointer;
     color: black;
 }
+
+.content__feedback__detail{
+    font-style: oblique;
+}

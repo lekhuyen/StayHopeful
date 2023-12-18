@@ -5,15 +5,16 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     <link rel="stylesheet" href="{{ asset('blogcss/blog_finished.css') }}">
+    <link rel="stylesheet" href="{{asset('general/project.css')}}">
     {{-- css --}}
-
+    
     <div class="container" style="margin-top: 100px">
         <div class="row">
             @include('frontend.search.search_input')
-
+            
             @if ($projects->count() > 0)
                 @foreach ($projects as $project)
-                    <div class="col-xxl-4 col-xl-4 col-lg-3" style="margin-bottom: 20px">
+                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-" style="margin-bottom: 20px">
                         <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                             class="a-card">
                             <div class="card card_wapper" style="width: 19.5rem;">

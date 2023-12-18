@@ -93,6 +93,18 @@ class CommentPostController extends Controller
         return response()->json(['error' =>'Comment not found']);
 
     }
+
+    public function deleteReply($id){
+        $reply = ReplyComment::find($id);
+        if($reply){
+            $reply->delete();
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+        return response()->json(['error' =>'Comment not found']);
+
+    }
     public function editComments($id){
         $comment = CommentPost::find($id);
         if($comment){
@@ -104,5 +116,29 @@ class CommentPostController extends Controller
         }
         return response()->json(['error' =>'Comment not found']);
 
+    }
+
+
+    public function updateComments(Request $request, $post_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'content' => 'required',
+        ], [
+            'content.required' => 'Noi dung khong duoc de trong',
+        ]);
+        // $user_id = auth()->user()->id;
+        if ($validator->passes()) {
+            $comment = CommentPost::find($post_id);
+            $comment->update([
+                'content' => $request->content,
+            ]);
+            
+        }
+        $comment = CommentPost::find($post_id);
+            if ($comment) {
+                // return view('frontend.post_page.list_comment', compact('comments'));
+                return response()->json($comment);
+            }
+        return response()->json(['error' => $validator->errors()->first()]);
     }
 }

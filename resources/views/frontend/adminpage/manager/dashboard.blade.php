@@ -14,7 +14,7 @@
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
                     style="width: 100%;height: 100%;background-color: #5856d6;
-                background-image: linear-gradient(45deg, #5856d6 0%, #6f67db 100%);">
+                background-image: linear-gradient(45deg, #5856d6 0%, #D6A2E8 100%);">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4 mt-2">
@@ -38,7 +38,7 @@
                                         {{ number_format($growthPercentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #ff3838"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -58,7 +58,7 @@
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
                     style="width: 100%;height: 100%; background-color: #39f;
-                background-image: linear-gradient(45deg, #39f 0%, #2982cc 100%);">
+                background-image: linear-gradient(45deg, #2980b9 0%, #70a1ff 100%);">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4 mt-2">
@@ -83,7 +83,7 @@
                                         {{ number_format($projectprecenttage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #ff3838"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -103,7 +103,7 @@
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
                     style="width: 100%;height: 100%; background-color: #2eb85c;
-                background-image: linear-gradient(45deg, #2eb85c 0%, #1b9e3e 100%);">
+                background-image: linear-gradient(45deg, #2eb85c 0%, #1abc9c 100%);">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4 mt-2">
@@ -128,7 +128,7 @@
                                         {{ number_format($donatepercentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #ff3838"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -149,7 +149,7 @@
             <div class="col-lg-6 col-xl-3 col-xxl-3 col-md-6 col-sm-12 mt-5">
                 <div class="card"
                     style="width: 100%;height: 100%;background-color: #e55353;
-                background-image: linear-gradient(45deg, #e55353 0%, #d93737 100%);">
+                background-image: linear-gradient(45deg, #e55353 0%, #e67e22 100%);">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4 mt-2">
@@ -173,7 +173,7 @@
                                         {{ number_format($statusprecentage, 2) }}%
                                     </div>
                                 @else
-                                    <div class="chart-value" style="background-color: #FF5722; color: #C0392B"><svg
+                                    <div class="chart-value" style="background-color: #fab1a0; color: #ff3838"><svg
                                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-up"
                                             class="svg-inline--fa fa-caret-up fa-w-10 me-1 fa-rotate-180" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
@@ -237,7 +237,7 @@
                                     <th>ID</th>
                                     <th>Project Name</th>
                                     <th>Total</th>
-                                    <th>Create_on</th>
+                                    <th>Created Date</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -248,11 +248,11 @@
                                         <td>{{ $project->title }}</td>
                                         <td>{{ $project->money2 }}</td>
                                         <td>{{ $project->created_at }}</td>
-                                        <td>
+                                        <td style="font-style: oblique">
                                             @if ($project->status == 1)
-                                                <div class="text-succes">Finish</div>
+                                                <div class="text-success">Finished</div>
                                             @else
-                                                <div class="text-danger">Unfinish</div>
+                                                <div class="text-danger">On Going</div>
                                             @endif
                                         </td>
                                     </tr>

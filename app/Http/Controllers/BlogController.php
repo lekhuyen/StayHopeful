@@ -17,7 +17,7 @@ class BlogController extends Controller
         $categories = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->limit(5)->get();
         $blogs = News::orderBy('id', 'desc')->get();
-        $blogs = News::paginate(7);
+        $blogs = News::orderBy('id', 'desc')->paginate(7);
         return view('frontend.blog.blog', compact('categories', 'projects', 'blogs'));
     }
 
@@ -91,7 +91,7 @@ class BlogController extends Controller
     // project
     public function project_index()
     {
-        $projects = Project::orderBy('id', 'desc')->paginate(6);
+        $projects = Project::orderBy('id', 'desc')->paginate(8);
         return view('frontend.project.index', compact('projects'));
     }
 

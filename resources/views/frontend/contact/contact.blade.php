@@ -10,7 +10,7 @@
                 <div class="exit" id="click-exit">&#10005;</div>
                 <div class="icon-succes"><i class="fa-solid fa-check" style="color: #fff;"></i></div>
                 <h2>Success!</h2>
-                <div class="text-error">Thank you for contacting us we will get back to you as soon as possible</div>
+                <div class="text-error">Thank you for contacting us! We will get back to you as soon as possible.</div>
                 <div class="popupbutton">
                     <button class="btn-popup" id="click-exit-ok">OK</button>
                 </div>

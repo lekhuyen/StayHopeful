@@ -28,7 +28,7 @@
                     @foreach ($sensitives as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->word }}</td>
+                            <td style="font-style: oblique">{{ $item->word }}</td>
                             <td>
                                 @if ($item->status)
                                     <a class="badge rounded-pill bg-success status__sensitive"

@@ -1,8 +1,8 @@
 @extends('frontend.site')
 @section('main')
-{{-- profile css--}}
- <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
-{{-- profile css--}}
+    {{-- profile css --}}
+    <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
+    {{-- profile css --}}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -21,12 +21,12 @@
 
                                 </div>
                                 <div class="profile-info">
-                                        <p class="info-text">Email:
-                                            <span class="info-text-user">{{ $user->email }}</span>
-                                        </p>
-                                        <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
+                                    <p class="info-text">Email:
+                                        <span class="info-text-user">{{ $user->email }}</span>
+                                    </p>
+                                    <p class="info-text">Age: <span class="info-text-user">Not Updated Yet</span></p>
+                                    <p class="info-text">Phone : <span class="info-text-user">Not Updated Yet</span></p>
+                                    <p class="info-text">Address : <span class="info-text-user">Not Updated Yet</span></p>
                                 </div>
 
                             </div>
@@ -88,7 +88,7 @@
                                                     {{ $post->updated_at }}</p>
                                             </div>
                                         </div>
-                                        @if($post->user->id == auth()->user()->id)
+                                        @if ($post->user->id == auth()->user()->id)
                                             <div class="edit_post">
                                                 <i class="fa-solid fa-ellipsis"></i>
                                             </div>
@@ -105,7 +105,8 @@
                                     </div>
                                     @if ($post->images->count() > 0)
                                         @foreach ($post->images as $image)
-                                            <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
+                                            <div
+                                                style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
                                                 <img width="80%" height="400px" src="{{ asset($image->image) }}"
                                                     alt="">
                                             </div>
@@ -113,22 +114,34 @@
                                     @endif
                                 </div>
 
-                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}"
+                                    style="cursor: pointer">
 
-                                    {{-- ! phân biệt user đã like --}}
-                                    @if(auth()->user())
-                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
-                                            <div>
-                                                <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
-                                            </div>
-                                        @else
-                                            <div>
-                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
-                                            </div>
+                                    <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                        {{-- ! phân biệt user đã like --}}
+                                        @if (auth()->user())
+                                            @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                                <div>
+                                                    <i class="fa-solid fa-heart like_icon"
+                                                        data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                    <div class="like_count">
-                                        <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
+                                        <div class="like_count">
+                                            <span class="count_like"
+                                                data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="comment_post" data-id="{{ $post->id }}">
+                                        <span>
+                                            {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count() }}
+                                            Comment
+                                        </span>
                                     </div>
                                 </div>
 
@@ -154,7 +167,7 @@
                 </div>
 
                 <div class="post-header-title">
-                    <h1>Create Post</h1>
+                    <h1>New Post</h1>
                 </div>
             </div>
             <div class="post-uset-body">
@@ -171,7 +184,7 @@
             <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-post-content">
-                    <textarea name="title" id="" placeholder="content.."></textarea>
+                    <textarea name="title" id="" placeholder="Write post"></textarea>
                 </div>
                 <div class="user-post-image">
                     <input type="file" multiple name="image[]">
@@ -183,6 +196,7 @@
             </form>
         </div>
     </div>
+
 
     @include('frontend/profile/popup_profile')
     @include('frontend/login/login')

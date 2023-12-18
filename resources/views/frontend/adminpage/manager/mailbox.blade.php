@@ -4,8 +4,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     {{-- css --}}
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
     <link rel="stylesheet" href="{{ asset('admincss/mailbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 
     <div class="container">
@@ -50,9 +50,11 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+                    <div class="general__pagination">
+                        {{ $mail->links() }}
+                    </div>
                 </div>
             </div>
         </div>

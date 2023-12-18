@@ -25,7 +25,7 @@
             </div>
 
             <div class="post-header-title">
-                <h1>Create Post</h1>
+                <h1>New Post</h1>
             </div>
         </div>
         <div class="post-uset-body">
@@ -42,7 +42,7 @@
         <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="input-post-content">
-                <textarea name="title" id="" placeholder="content.."></textarea>
+                <textarea name="title" id="" placeholder="Write post"></textarea>
             </div>
             <div class="user-post-image">
                 <input type="file" multiple name="image[]">
