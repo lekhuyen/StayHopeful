@@ -29,7 +29,7 @@
                                     <img src="{{ asset($userupdate->avatar) }}" alt="profile picture"
                                         class="profile-image-set">
                                 @else
-                                    <img src="{{ asset('img/convitne.jpg') }}" alt="default picture"
+                                    <img src="{{ asset('img/humanicon.png') }}" alt="default picture"
                                         class="profile-image-set">
                                 @endif
                             </div>
