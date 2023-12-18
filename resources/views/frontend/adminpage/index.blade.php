@@ -1,3 +1,5 @@
+<title>@yield('title')</title>
+
 {{-- bootstrap --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -133,11 +135,14 @@
                             @if (session('userInfo'))
                                 <div class="text popup-profile">
                                     @if (session('userInfo')['avatar'])
-                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                                        <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}"
+                                            alt="">
                                     @elseif($infouser && $infouser->avatar != null)
-                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
+                                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
+                                            alt="ảnh">
                                     @else
-                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}" alt="">
+                                        <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
+                                            alt="">
                                     @endif
                                 </div>
                             @else

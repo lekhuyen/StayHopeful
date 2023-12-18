@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title','Dashboard')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     {{-- css --}}
