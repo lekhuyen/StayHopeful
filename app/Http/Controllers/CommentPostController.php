@@ -137,4 +137,40 @@ class CommentPostController extends Controller
             }
         return response()->json(['error' => $validator->errors()->first()]);
     }
+
+    // edit-reply
+    public function editReply($id){
+        $reply = ReplyComment::find($id);
+        if($reply){
+            
+            return response()->json([
+                'status' => 'success',
+                'reply' => $reply,
+            ]);
+        }
+        return response()->json(['error' =>'reply not found']);
+
+    }
+
+    public function updateReply(Request $request, $post_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'content' => 'required',
+        ], [
+            'content.required' => 'Noi dung khong duoc de trong',
+        ]);
+        // $user_id = auth()->user()->id;
+        if ($validator->passes()) {
+            $reply = ReplyComment::find($post_id);
+            $reply->update([
+                'content' => $request->content,
+            ]);
+            
+        }
+        $reply = ReplyComment::find($post_id);
+            if ($reply) {
+                return response()->json($reply);
+            }
+        return response()->json(['error' => $validator->errors()->first()]);
+    }
 }

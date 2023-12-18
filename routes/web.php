@@ -354,6 +354,9 @@ Route::delete('/delete-reply/{id}', [CommentPostController::class, 'deleteReply'
 //edit comment
 Route::post('/edit-comments/{id}', [CommentPostController::class, 'editComments'])->name('edit-comment');
 Route::post('/update-comment-post/{id}', [CommentPostController::class, 'updateComments'])->name('update-comment-post');
+//edit-reply comment
+Route::post('/edit-reply/{id}', [CommentPostController::class, 'editReply'])->name('edit-reply');
+Route::post('/update-comment-reply-post/{id}', [CommentPostController::class, 'updateReply'])->name('update-comment-reply-post');
 
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');
