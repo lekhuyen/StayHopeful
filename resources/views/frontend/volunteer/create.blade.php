@@ -19,7 +19,11 @@
             <strong>Success! {{ session('success') }}</strong>
         </div>
     @endif
-
+    @if (session('warning'))
+        <div class="alert alert-warning">
+            <strong>Warning! {{ session('warning') }}</strong>
+        </div>
+    @endif
     <div class="container__voting">
         <div class="row row__voting">
             <h1 class="h1_title__voting">Volunteer Form</h1>

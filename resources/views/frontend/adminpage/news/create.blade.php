@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title','Create News')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
@@ -7,7 +8,7 @@
     <div class="btn__back">
         <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
     </div>
-    
+
     <div class="container mt-3">
         <h1>Create News</h1>
         <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">

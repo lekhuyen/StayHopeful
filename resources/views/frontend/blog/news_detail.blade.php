@@ -1,5 +1,6 @@
 @extends('frontend.site')
 @section('main')
+@section('title','News Detail')
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
 <div style="padding-top: 80px; margin-left: 40px">

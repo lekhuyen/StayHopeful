@@ -23,7 +23,7 @@ class VolunteerController extends Controller
 
         // Loop through the array to count occurrences of each project
         foreach ($arrayPeopleVolunteer as $item) {
-            $projectId = $item['project']; 
+            $projectId = $item['project'];
 
             // If the project ID exists in the summedCounts array, increment count
             if (array_key_exists($projectId, $summedCounts)) {
@@ -67,12 +67,18 @@ class VolunteerController extends Controller
             "rel_phone" => 'bail|required|regex:/^(\d{10}$)/',
             "project_id" => "required"
         ]);
-
+        // $userForProject = Volunteer::where(["email","=",$request->email,])->first();
+        $userForProject = Volunteer::where("email","=",$request->email,'and')->where('project_id','=',$request->project_id)->first();
+        if($userForProject != null){
+            return redirect()->back()->with("warning", "ban da tham gia su kien nay roi.Ok");
+        }
         Volunteer::create($request->all());
         $project = Project::find($request->project_id);
 
         $findUser =  User::where('email', $request->email)->first();
+
         if ($findUser != null) {
+
             $findUser->is_volunteer = true;
             $findUser->save();
         } else {
@@ -83,10 +89,6 @@ class VolunteerController extends Controller
             $userCreate->is_volunteer = true;
             $userCreate->save();
         }
-        // $subject = $project->title;
-
-        // $message = "cam on ban da dang ky su kien nay";
-        // $projectId = 123;
         Mail::to($request->email)->send(new VolunteerMail($project));
         return redirect()->back()->with("success", "Thanks for being a part of us.");
     }

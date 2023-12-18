@@ -13,7 +13,6 @@
                     <th>ID</th>
                     <th>User</th>
                     <th>Content</th>
-                    <th>Image</th>
                     <th>Detail</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -28,11 +27,6 @@
                                 href="{{ route('auth.profile') }}">{{ $post->user->name }}</a>
                         </td>
                         <td>{{ $post->title }}</td>
-                        <td>
-                            @if ($post->images->count() > 0)
-                                <img src="{{ asset($post->images[0]->image) }}" width="50%">
-                            @endif
-                        </td>
                         <td>
                             <a href="{{ route('post.detail', $post->id) }}" class="btn btn-outline-info btn-lg"><i
                                     class="fa-solid fa-info"></i></a>
