@@ -1,5 +1,5 @@
 @extends('frontend.site')
-@section('title', 'Blog')
+@section('title', 'News')
 @section('main')
 
     {{-- css --}}

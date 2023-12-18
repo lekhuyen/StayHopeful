@@ -1,11 +1,12 @@
 .btn__founder{
     border-radius: 50px;
+    transition: 1s;
 }
 
 .btn__founder:hover{
     color: white;
-    background-color: darkblue;
-    border-color: darkblue;
+    background-color:  rgba(155, 190, 230, 1) ;
+    border-color:  rgba(155, 190, 230, 1) ;
     transform: scale(1.5, 1.5);
     -webkit-transform: scale(1.5, 1.5);
     -moz-transform: scale(1.5, 1.5);
