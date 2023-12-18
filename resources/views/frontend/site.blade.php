@@ -253,7 +253,7 @@
                                             <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
                                                 alt="ảnh">
                                         @else
-                                            <img class="nav-user-img" src="{{ asset('img/convitne.jpg') }}"
+                                            <img class="nav-user-img" src="{{ asset('img/humanicon.png') }}"
                                                 alt="">
                                         @endif
                                     </div>
@@ -362,7 +362,7 @@
     $(document).ready(function() {
         $('#search').on('keyup', function() {
             $value = $(this).val();
-
+            // console.log($value);
             if ($value) {
                 $('#search-ajax').show();
             } else {
@@ -376,7 +376,6 @@
                     'search': $value
                 },
                 success: function(data) {
-                    console.log(data);
                     $('#search-ajax').html(data);
                 },
                 error: function(data) {

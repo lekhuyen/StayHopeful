@@ -62,7 +62,7 @@ class detaildonateController extends Controller
                 [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => session('userinfo')['amount'],
+                        "value" => session('infopay')['amount'],
                     ]
                 ]
             ]

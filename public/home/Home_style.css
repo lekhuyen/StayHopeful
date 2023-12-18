@@ -632,6 +632,11 @@ button.carousel-control-next {
 }
 
 @media (max-width: 540px) {
+    .search-ajax{
+        left: 0 !important;
+        width: 364px !important;
+        overflow-x: hidden !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -679,6 +684,12 @@ button.carousel-control-next {
     .card_wapper img {
         object-fit: cover;
         height: 400px;
+    }
+    /* search */
+    .search-ajax{
+        left: 0 !important;
+        width: 364px !important;
+        overflow-x: hidden !important;
     }
 }
 
@@ -1136,6 +1147,7 @@ div.search-input-icon {
     /* width: 90%; */
     height: 100%; 
     border-radius: 20px;
+    z-index: 2;
 }
 .search-input-icon-child input::placeholder{
     padding-left: 10px;
@@ -1161,15 +1173,16 @@ div.search-input-icon {
 /* search */
 .search-ajax {
     position: absolute;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 20px;
     width: 420px;
     height: 200px;
     background: #3498db;
     top: 50px;
-    left: 60px;
+    left: 0;
     z-index: 2;
-    overflow: auto;
+    overflow: scroll;
+    overflow-x: hidden ;
+
 }
 .result-search {
     width: 400px;
@@ -1188,7 +1201,7 @@ div.search-input-icon {
     justify-content: center;
     width: 90px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 50%; 
     overflow: hidden;
     background-color: transparent;
 }
@@ -1208,27 +1221,17 @@ div.search-input-icon {
 }
 
 .search-ajax::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
 }
 
 .search-ajax::-webkit-scrollbar-track {
-    background-color: #e4e4e4;
+    background-color: lightgray;
     border-radius: 100px;
 }
 
 .search-ajax::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-color: #3366ff;
-    background-image: -webkit-linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.5) 25%,
-        transparent 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0.5) 75%,
-        transparent 75%,
-        transparent
-    );
+    background-color: darkgray;
 }
 
 /* back to top button beginning */

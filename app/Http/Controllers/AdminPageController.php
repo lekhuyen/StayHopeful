@@ -551,7 +551,7 @@ class AdminPageController extends Controller
         $output = '';
         foreach ($searchproject as $project) {
             $output .= '<div class="result-search">
-                            <a href="' . route('detail.post', $project->id) . '">
+                            <a href="' . route('detail.post', [$project->id, Str::slug($project->title) . '.html']) . '">
                                 <div class="image-search">
                                     <img src="' . asset($project->images[0]->image) . '" alt="' . $project->title . '">
                                 </div>
