@@ -112,9 +112,6 @@
 
             <li><a href="{{ route('admin.viewmail') }}" class="text-decoration-none px-3 py-2 d-block"><i
                         class="fa-solid fa-envelope" style="padding-right: 10px"></i>Contact Mail Box</a></li>
-
-            <li><a  class="text-decoration-none px-3 py-2 d-block"><i
-                class="fa-solid fa-envelope" style="padding-right: 10px"></i>Event</a></li>
         </ul>
         <hr class="h-color mx-2">
     </div>
