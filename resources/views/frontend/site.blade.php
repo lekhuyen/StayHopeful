@@ -223,7 +223,12 @@
                                             </li>
                                         </ul>
                                 </div>
+                                <div class="log-sign-dropdown" style="--i: 1.8s">
+                                    {{-- <a href="#" class="btn transparent">Log in</a> --}}
+                                    <a href="#" class="btn solid">LOGIN</a>
+                                </div>
                             </div>
+                            
                             <div class="hamburger-menu-container">
                                 <div class="hamburger-menu">
                                     <div></div>
