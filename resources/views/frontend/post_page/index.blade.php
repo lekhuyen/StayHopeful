@@ -29,10 +29,7 @@
                                 <a href="{{ route('user.profile', $post->user_id) }}"
                                     class="user__name">{{ $post->user->name }}</a>
                                 <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
-
                             </div>
-
-
                         </div>
                         <div class="post__title">
                             <span>{{ $post->title }}</span>
