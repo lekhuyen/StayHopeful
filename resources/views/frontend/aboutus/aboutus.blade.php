@@ -240,46 +240,57 @@
     </div>
 
     {{-- Our Team sector --}}
+
     <div class="container-fluid mt-3 aboutus_our_team" data-aos="fade-right">
-        <h2 class="aboutus-h2">Who We Are</h2>
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <span>
-                    Welcome to <strong>StayHopeful</strong>, where our journey towards positive change began 2018. Over the
-                    years, we've evolved into a <strong>Empowering Communities: A Hub for Positive Change and
-                        Growth</strong> dedicated to making a lasting impact.
-                </span>
-                <br>
-                <span>
-                    Our story started with a vision held passionately by <strong>John Doe</strong>. Fueled by the potential
-                    to leverage technology, they laid the foundation for <strong>StayHopeful</strong> with the belief that
-                    will make a better Tomorrow.
-                </span>
-            </div>
-        </div>
-        <br>
-        <div class="row align-items-center aboutus_johndoe">
-            <div class="col d-none d-lg-block">
-                <img class="founder-img1" src="{{ asset('img/aboutus_founder1.jpg') }}" alt="founder1">
-            </div>
-            <div class="col">
-                <div class="card mb-3 aboutus_card_johndoe">
-                    <img class="founder-img" src="{{ asset('img/aboutus_founder.jpg') }}" alt="founder">
-                    <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online
-                            platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus
-                            where donors and causes converge</p>
-                        <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn btn-outline-info btn-sm our_team_button">Our
-                            Team</a>
-                    </div>
+        @foreach ($teamPage as $teamitems)
+            <h2 class="aboutus-h2">{{ $teamitems->title }}</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <span>
+                        {{ $teamitems->description }}
+                    </span>
                 </div>
             </div>
-            <div class="col d-none d-lg-block">
-                <img class="founder-img2" src="{{ asset('img/aboutus_founder2.jpg') }}" alt="founder2">
+        @endforeach
+
+        <br>
+        <div class="row align-items-center aboutus_johndoe">
+
+            @foreach ($teampic1Page as $teampic1)
+                <div class="col d-none d-lg-block">
+                    @if ($teampic1->images->count() > 0)
+                        <img src="{{ asset($teampic1->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
+                    @endif
+                </div>
+            @endforeach
+            
+            <div class="col">
+                @foreach ($teamPage as $teamitems)
+                    <div class="card mb-3 aboutus_card_johndoe">
+                        <div class="text-center">
+                            @if ($teamitems->images->count() > 0)
+                                <img src="{{ asset($teamitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
+                            @endif
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $teamitems->middletitle }}</h5>
+                            <p class="card-text">{{ $teamitems->middledescription }}</p>
+                            <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn btn-outline-info btn-sm our_team_button">Our Team</a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+
+            @foreach ($teampic2Page as $teampic2)
+                <div class="col d-none d-lg-block">
+                    @if ($teampic2->images->count() > 0)
+                        <img src="{{ asset($teampic2->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
+                    @endif
+                </div>
+            @endforeach
         </div>
     </div>
+
     <hr>
     {{-- Accordion sector --}}
     <div class="container mt-3" data-aos="zoom-in">
@@ -288,104 +299,24 @@
         <div class="accordion" id="projectAccordion">
             <!-- Projects Funded -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="projectFundedHeading">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#projectFundedCollapse" aria-expanded="true"
-                        aria-controls="projectFundedCollapse">
-                        <i class="bi bi-check-square"></i> 1. How Can I Make a Donation
-                    </button>
-                </h2>
-                <div id="projectFundedCollapse" class="accordion-collapse collapse show"
-                    aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        To make a donation, simply click on the <a href="{{ route('detail.donate') }}"
-                            style="text-decoration: none">Donate</a> button on our homepage. You'll be guided through a
-                        secure process to choose your donation amount and payment method.
-                    </div>
-                </div>
-            </div>
-
-            <!-- People Served -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="peopleServedHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#peopleServedCollapse" aria-expanded="false"
-                        aria-controls="peopleServedCollapse">
-                        <i class="bi bi-person"></i> 2. Where Does My Money Go?
-                    </button>
-                </h2>
-                <div id="peopleServedCollapse" class="accordion-collapse collapse" aria-labelledby="peopleServedHeading"
-                    data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Your donation makes a meaningful impact across critical areas. By supporting our Environmental
-                        Nonprofit, Humanitarian Aid Organization, and Animal Welfare initiatives, you are directly
-                        contributing to positive change. Our commitment to transparency means that funds are allocated to
-                        specific programs, including Patient Support and Care for those battling illnesses, Emergency Relief
-                        to aid communities in crisis, and Rehabilitation and Support for those rebuilding their lives.
-                        Together, we can create a lasting and transformative impact on the environment, humanity, and the
-                        welfare of animals. Thank you for being a vital part of our mission
-                    </div>
-                </div>
-            </div>
-
-            <!-- Countries Impacted -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="countriesImpactedHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#countriesImpactedCollapse" aria-expanded="false"
-                        aria-controls="countriesImpactedCollapse">
-                        <i class="bi bi-globe"></i> 3. Can I Specify How I Want My Donation to be Used?
-                    </button>
-                </h2>
-                <div id="countriesImpactedCollapse" class="accordion-collapse collapse"
-                    aria-labelledby="countriesImpactedHeading" data-bs-parent="#projectAccordion">
-                    <div class="accordion-body">
-                        Certainly! During the donation process, you can indicate any preferences or specify a particular
-                        program you'd like your donation to support
-                    </div>
-                </div>
-
-                <!-- Challenges Faced -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="challengesFacedHeading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#challengesFacedCollapse" aria-expanded="false"
-                            aria-controls="challengesFacedCollapse">
-                            <i class="bi bi-exclamation-circle"></i> 4. How Can I Contact StayHopeful for More Information?
+                @foreach ($questionPages as $questionitems)
+                    <h2 class="accordion-header" id="projectFundedHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#projectFundedCollapse" aria-expanded="true"
+                            aria-controls="projectFundedCollapse">
+                            <i class="bi bi-check-square"></i>{{ $questionitems->title }}
                         </button>
                     </h2>
-                    <div id="challengesFacedCollapse" class="accordion-collapse collapse"
-                        aria-labelledby="challengesFacedHeading" data-bs-parent="#projectAccordion">
+                    <div id="projectFundedCollapse" class="accordion-collapse collapse show"
+                        aria-labelledby="projectFundedHeading" data-bs-parent="#projectAccordion">
                         <div class="accordion-body">
-                            For more information, feel free to reach out to our team at <a
-                                href="mailto:contact@StayHopeful.org"
-                                style="text-decoration: none">contact@StayHopeful.org</a> or call us at Hotline :<a
-                                href="tel:+842839107612" style="text-decoration: none">+84-28 3910 7612</a> or Fax :<a
-                                href="tel:+8402839107614" style="text-decoration: none">84-028 3910 7614</a>. We're here
-                            to assist you.
+                            {{ $questionitems->description }}
                         </div>
                     </div>
-                </div>
-
-                <!-- Future Plans -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="futurePlansHeading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#futurePlansCollapse" aria-expanded="false"
-                            aria-controls="futurePlansCollapse">
-                            <i class="bi bi-arrow-right-circle"></i> 5. How Can I Get Involved Beyond Donating?
-                        </button>
-                    </h2>
-                    <div id="futurePlansCollapse" class="accordion-collapse collapse"
-                        aria-labelledby="futurePlansHeading" data-bs-parent="#projectAccordion">
-                        <div class="accordion-body">
-                            We appreciate your interest! Explore volunteer opportunities, attend events, or share our
-                            mission on social media to help us reach more supporters
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+    </div>
 
 
         @include('frontend/login/login')

@@ -14,9 +14,14 @@ class AboutusController extends Controller
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
-        $introwhoPages = Aboutuspage::where('section', 'introwho')->get();
-    
-        return view("frontend.aboutus.aboutus", compact("mainPages", "aboutUsPages", "logoPages", "introcallPages", "leftcallPages", "introwhoPages"));
+        $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
+        $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
+        $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
+        $mainquestionPage = Aboutuspage::where('section', 'mainquestion')->get();
+        $questionPages = Aboutuspage::where('section', 'question')->get();
+        // Pass all variables to the view
+        return view("frontend.aboutus.aboutus", compact("mainPages", "aboutUsPages", "logoPages",
+        "leftcallPages", "teamPage", "teampic1Page", "teampic2Page","mainquestionPage", "questionPages"));   
     }
 
     public function aboutus_whoweare() {

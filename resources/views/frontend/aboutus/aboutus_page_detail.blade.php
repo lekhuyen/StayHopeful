@@ -14,10 +14,14 @@
     <br>
     <div class="card">
         <div class="card-body text-center">
-            <h5 class="card-title">{{ $aboutusmain->title }}</h5>
-            <p class="card-text">{{ $aboutusmain->description }}</p>
-            @if ($aboutusmain->images->count() > 0)
-                <img src="{{ asset($aboutusmain->images[0]->url_image) }}" class="card-img-top img-fluid mx-auto d-block" alt="Image" style="max-width: 30%;">
+            @if ($aboutusmain)
+                <h5 class="card-title">{{ $aboutusmain->title }}</h5>
+                <p class="card-text">{{ $aboutusmain->description }}</p>
+                @if ($aboutusmain->images->count() > 0)
+                    @foreach ($aboutusmain->images as $image)
+                        <img src="{{ asset($image->url_image) }}" class="card-img-top img-fluid mx-auto d-block" alt="Image" style="max-width: 30%;">
+                    @endforeach
+                @endif
             @endif
         </div>
     </div>

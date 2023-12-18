@@ -1,6 +1,6 @@
 <?php
 
-// app\Models\aboutusimage.php
+// app\Models\Aboutusimage.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +20,11 @@ class Aboutusimage extends Model
     public function page()
     {
         return $this->belongsTo(Aboutuspage::class, 'aboutus_id');
+    }
+
+    public function callto()
+    {
+        return $this->belongsTo(Aboutuscalltoaction::class, 'aboutus_id');
     }
 
     use HasFactory;

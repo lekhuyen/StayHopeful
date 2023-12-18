@@ -11,8 +11,8 @@
 
 <div class="container mt-3">
 
-  <h1>Call to Action Left Form</h1>
-  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.store_leftcall') }}">
+  <h1>Question Form</h1>
+  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.store_question') }}">
     @csrf
     
     <div class="btn__back">
@@ -22,44 +22,14 @@
     <br>
 
     <div class="mb-3">
-      <label for="title" class="form-label">Title:</label>
+      <label for="title" class="form-label">Question:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
     </div>
 
     <div class="mb-3">
-      <label for="description" class="form-label">Description:</label>
+      <label for="description" class="form-label">Answer:</label>
       <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
     </div>
-
-    <div class="mb-3">
-        <label for="lefttitle" class="form-label">Left Title:</label>
-        <input type="text" class="form-control" id="lefttitle" placeholder="Enter lefttitle" name="lefttitle">
-    </div>
-
-    <div class="mb-3">
-      <label for="leftdescription" class="form-label">Left Description:</label>
-      <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label for="middletitle" class="form-label">Middle Title:</label>
-      <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle" name="middletitle">
-  </div>
-
-  <div class="mb-3">
-    <label for="middledescription" class="form-label">Middle Description:</label>
-    <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription" name="middledescription"></textarea>
-  </div>
-
-  <div class="mb-3">
-    <label for="righttitle" class="form-label">Right Title:</label>
-    <input type="text" class="form-control" id="righttitle" placeholder="Enter righttitle" name="righttitle">
-  </div>
-
-  <div class="mb-3">
-    <label for="rightdescription" class="form-label">Right Description:</label>
-    <textarea class="form-control tinymce" id="rightdescription" placeholder="Enter rightdescription" name="rightdescription"></textarea>
-  </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

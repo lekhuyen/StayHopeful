@@ -10,51 +10,36 @@
 
 
 <div class="container mt-3">
-  <h1>Main Form</h1>
-  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.store_main') }}">
+
+  <h1>Question Form</h1>
+  <form method="POST" enctype="multipart/form-data" action="{{ route('aboutuspage.update_mainquestion', $mainquestionPage) }}">
     @csrf
-    
+    @method("PUT")
+
     <div class="btn__back">
       <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
           <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
     <br>
 
-    
-
     <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $mainquestionPage->title }}">
     </div>
 
     <div class="mb-3">
       <label for="description" class="form-label">Description:</label>
-      <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
-    </div>
-
-    <div class="mb-3">
-        <label for="images" class="form-label">Image left:</label>
-        <input type="file" class="form-control" id="images" multiple name="images[]"/>
-    </div>
-
-    <div class="mb-3">
-        <label for="images" class="form-label">Image left:</label>
-        <input type="file" class="form-control" id="images" multiple name="images[]"/>
-    </div>
-
-    <div class="mb-3">
-        <label for="images" class="form-label">Image right:</label>
-        <input type="file" class="form-control" id="images" multiple name="images[]"/>
+      <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $mainquestionPage->description }}</textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
-<script>
+<script defer>
   tinymce.init({
       selector: '.tinymce',
-      height: 300,  // Set the height of the editor
+      height: 300,
       plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code fullscreen',
@@ -63,7 +48,7 @@
       toolbar: 'undo redo | formatselect | ' +
           'bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist outdent indent | removeformat | help',
-      forced_root_block : false,   
+      forced_root_block: false,
   });
 </script>
 
