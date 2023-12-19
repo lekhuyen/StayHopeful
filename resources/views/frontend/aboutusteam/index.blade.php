@@ -7,6 +7,12 @@
 
     <div class="container mt-3">
         <h1>Team Member List</h1>
+
+        <div class="btn__back text-end">
+            <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
+               GO TO ABOUT US PAGE <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+
         <div class="d-flex justify-content-center btn__center">
             <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         </div>
