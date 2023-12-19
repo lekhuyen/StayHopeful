@@ -1,5 +1,6 @@
 @extends('frontend.site')
 @section('main')
+@section('title','Feedback Form')
 {{-- css --}}
 <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
 {{-- css --}}

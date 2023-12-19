@@ -12,7 +12,7 @@ class FeedbackController extends Controller
     {
         $feedback = Feedback::orderBy('id','desc')->paginate(4);
         $feedbacks = Feedback::all();
-        $sensitives_word = Sensitive::all();
+        $sensitives_word = Sensitive::where("status",'=',1)->get();
         $words = $sensitives_word->pluck('word');
         $count = 0;
         foreach ($feedbacks as $key => $text) {

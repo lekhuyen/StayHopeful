@@ -1,5 +1,5 @@
 @extends('frontend.site')
-@section('title', 'Chi tiết')
+@section('title', 'Project Detail')
 
 @section('main')
 
@@ -93,7 +93,7 @@
                                 <span>noi dung binh luan</span>
                             </div>
                         </div>
-                        
+
                         <div class="comment-reply">
                             Trả lời
                         </div>
@@ -101,7 +101,7 @@
                     <div class="delete-edit-icon">
                         <div class="choose-icon">
                             <i class="fa-solid fa-ellipsis"></i>
-                        
+
                         </div>
                     </div>
                     <div class="delete-edit-comment-1">
@@ -112,14 +112,14 @@
                             </ul>
                         </div>
                         <div class="arrow">
-                            <svg height="50" viewBox="0 0 25 12" width="35" class="x10l6tqk xng853d xu8u0ou" fill="var(--card-background)" 
+                            <svg height="50" viewBox="0 0 25 12" width="35" class="x10l6tqk xng853d xu8u0ou" fill="var(--card-background)"
                                 style="transform: scale(1, -1) translate(0px, 0px);">
                                 <path d="M24.553.103c-2.791.32-5.922 1.53-7.78 3.455l-9.62 7.023c-2.45 2.54-5.78 1.645-5.78-2.487V2.085C1.373 1.191.846.422.1.102h24.453z">
                                     </path>
                                 </svg>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="comment-status">
@@ -167,7 +167,7 @@
                                     <span>${data.data.content}</span>
                                 </div>
                             </div>
-                            
+
                             <div class="comment-reply" id="${data.data.id}">
                                 Trả lời
                             </div>
@@ -175,7 +175,7 @@
                         <div class="delete-edit-icon">
                             <div class="choose-icon">
                                 <i class="fa-solid fa-ellipsis"></i>
-                            
+
                             </div>
                         </div>
                         <div class="delete-edit-comment-1">
@@ -186,15 +186,15 @@
                                 </ul>
                             </div>
                             <div class="arrow">
-                                <svg height="50" viewBox="0 0 25 12" width="35" class="x10l6tqk xng853d xu8u0ou" fill="var(--card-background)" 
+                                <svg height="50" viewBox="0 0 25 12" width="35" class="x10l6tqk xng853d xu8u0ou" fill="var(--card-background)"
                                     style="transform: scale(1, -1) translate(0px, 0px);">
                                     <path d="M24.553.103c-2.791.32-5.922 1.53-7.78 3.455l-9.62 7.023c-2.45 2.54-5.78 1.645-5.78-2.487V2.085C1.373 1.191.846.422.1.102h24.453z">
                                         </path>
                                     </svg>
                             </div>
                         </div>
-                    
-                    
+
+
                 </div>`;
                     $('.comment-body').append(comment)
                     $('.content-comment').val('');
@@ -206,7 +206,7 @@
 
     })
 
-    
+
 
 
 </script> --}}

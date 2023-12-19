@@ -24,14 +24,13 @@
     margin-bottom: 30px;
 }
 
-/* .fb-setinput {
-    border-radius: 20px;
-    background: linear-gradient(to right, #8ecdf2, #1aa1ef);
-    border: 1px solid white;
-} */
+.fb-setinput {
+    transition: 1s;
+}
 
 .fb-setinput:hover{
-    background-color: darkblue;
+    border: none;
+    background-color: rgba(155, 190, 230, 1);
     transform:scale(1.3,1.3);
     -webkit-transform:scale(1.3,1.3);
     -moz-transform:scale(1.3,1.3);

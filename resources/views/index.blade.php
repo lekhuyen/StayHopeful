@@ -202,11 +202,7 @@
     </div>
 
     <div class="container-fluid"
-        style="background: linear-gradient(
-            90deg,
-            rgba(17, 77, 172, 1) 0%,
-            rgba(155, 190, 230, 1) 100%
-        );  margin-top: 40px;">
+        style="background: #608ec3;  margin-top: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

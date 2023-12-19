@@ -295,6 +295,11 @@ Route::group(['prefix' => 'category/'], function () {
 
 //project admin page
 Route::group(['prefix' => 'project-post/'], function () {
+    Route::get('active-event/{id}', [ProjectController::class, 'showEditEvent'])->name('projectAd.edit_event');
+    Route::put('active-event/{project}', [ProjectController::class, 'activeEvent'])->name('projectAd.update_event');
+
+    Route::get('index-sort/{type}', [ProjectController::class, 'sortEvent'])->name('projectAd.index_sort');
+
     Route::get('index', [ProjectController::class, 'index'])->name('projectAd.index')->middleware('can:project_list');
 
     Route::get('create', [ProjectController::class, 'create'])->name('projectAd.create')->middleware('can:project_add');
@@ -428,6 +433,9 @@ Route::delete('/delete-reply/{id}', [CommentPostController::class, 'deleteReply'
 //edit comment
 Route::post('/edit-comments/{id}', [CommentPostController::class, 'editComments'])->name('edit-comment');
 Route::post('/update-comment-post/{id}', [CommentPostController::class, 'updateComments'])->name('update-comment-post');
+//edit-reply comment
+Route::post('/edit-reply/{id}', [CommentPostController::class, 'editReply'])->name('edit-reply');
+Route::post('/update-comment-reply-post/{id}', [CommentPostController::class, 'updateReply'])->name('update-comment-reply-post');
 
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');

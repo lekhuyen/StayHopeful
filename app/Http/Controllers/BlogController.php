@@ -39,8 +39,6 @@ class BlogController extends Controller
             ->limit(5)
             ->get();
         $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
-//dd($project->quantity);
-        // dd($volunterCountRegisterByProject->count());
         session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
@@ -55,8 +53,6 @@ class BlogController extends Controller
         //         foreach ($volunteerPersonByProjects as $key => $projectItem) {
         //             $projectId = $projectItem->project_id;
         //             if($projectId == $id){
-
-        //                // dd("lot vao day");
         //                 $checkUserProject = 1;
         //                 break;
         //             }
@@ -119,4 +115,5 @@ class BlogController extends Controller
             return view('frontend.search.not_result', compact('keywork'));
         }
     }
+
 }

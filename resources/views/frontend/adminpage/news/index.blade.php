@@ -1,5 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title','News List')
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('admincss/project.css') }}">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
