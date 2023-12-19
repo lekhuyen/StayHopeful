@@ -138,7 +138,6 @@ Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberD
 // About Us Page
 
 Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
-Route::get('/aboutus_page_main/{id}', [AboutuspageController::class, 'Aboutus_page_main'])->name('aboutus_page_main');
 
 // About Us main Page
 Route::get('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_create_main'])->name('aboutuspage.create_main');
@@ -197,7 +196,18 @@ Route::get('/aboutus_page_table/edit_question/{questionPages}', [AboutuspageCont
 Route::put('/aboutus_page_table/edit_question/{questionPages}', [AboutuspageController::class, 'aboutus_page_update_question'])->name('aboutuspage.update_question');
 Route::delete('/aboutus_page_table/delete_question/{questionPages}', [AboutuspageController::class, 'aboutus_page_delete_question'])->name('aboutuspage.delete_question');
 
+//About Us Member Page
+Route::get('/aboutus_page_table/aboutus_member_index', [AboutuspageController::class, 'aboutus_member_index'])->name('aboutusmember.index');
+Route::get('/aboutus_page_main/aboutus_member_index/{id}', [AboutuspageController::class, 'Aboutus_member_main'])->name('aboutus_member_main');
+Route::get('/aboutus_page_main/aboutus_member_index/aboutus_member_detail/{id}', [AboutuspageController::class, 'Aboutus_member_detail'])->name('aboutusmember.detail');
+Route::get('/aboutus/whoweare/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
 
+
+//About Us Founder Page
+Route::get('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_create_founder'])->name('aboutusmember.create_founder');
+Route::post('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_store_founder'])->name('aboutusmember.store_founder');
+
+Route::delete('/aboutus_page_table/aboutus_member_index/delete_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_delete_founder'])->name('aboutusmember.delete_founder');
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user

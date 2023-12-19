@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Aboutuscalltoaction extends Model
+class aboutustitle extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['title', 'description', 'section', 'lefttitle', 'leftdescription', 'middletitle', 'middledescription', 'righttitle', 'rightdescription', 'video'];
+    protected $fillable = ['title', 'description', 'section'];
 
     public function images()
     {
         return $this->hasMany(Aboutusimage::class, 'aboutus_id');
     }
+
+    use HasFactory;
 }

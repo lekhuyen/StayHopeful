@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('middledescription')->nullable();
             $table->string('righttitle')->nullable();
             $table->string('rightdescription')->nullable();
+            $table->string('video')->nullable(); // Add a field for video path or URL
             $table->timestamps();
         });
     }

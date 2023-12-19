@@ -13,7 +13,7 @@
                 @if ($mainitem->section === 'Main Section')
                     <h1>{{ $mainitem->title }}</h1>
                     <div class="text-center">
-                        <span class="mission">{{ $mainitem->description }}</span>
+                        <span>{{ $mainitem->description }}</span>
                     </div>
                     @foreach ($mainitem->images as $image)
                         <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
@@ -47,13 +47,11 @@
                     @if ($mainitem->section === 'About Us Section')
                         <h1>{{ $mainitem->title }}</h1>
                         <div class="text-center">
-                            <span class="mission">{{ $mainitem->description }}</span>
-                        </div> 
-                        <div class="text-center">
-                            @foreach ($mainitem->images as $image)
-                                <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
-                            @endforeach 
+                            <span>{{ $mainitem->description }}</span>
                         </div>
+                        @foreach ($mainitem->images as $image)
+                            <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                        @endforeach
 
                     @endif
                 </div>
@@ -168,7 +166,7 @@
     <div class="container mt-3 call_to_action">
         @foreach ($mainPages as $mainitem)
             <div>
-                @if ($mainitem->section === 'Main Section')
+                @if ($mainitem->section === 'Join Us Section')
                     <h1>{{ $mainitem->title }}</h1>
                     <div class="text-center">
                         <span class="mission">{{ $mainitem->description }}</span>

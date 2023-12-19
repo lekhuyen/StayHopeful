@@ -8,24 +8,29 @@
 
 <div class="container mt-3">
     <h1>About Us Page</h1>
+    <div class="btn__back text-end">
+        <a href="{{ route('aboutusmember.index') }}" class="btn__go_back">
+           GO TO MEMBER PAGE <i class="fa fa-long-arrow-right"></i></a>
+    </div>
     <br>
     <br>
-    <h4>Main Sector</h4>
-    <a href="{{ route('aboutuspage.create_main') }}" class="btn btn-primary">Add Main sector</a>
-    <table class="table table-dark mt-3" id="mainTable">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>View Description</th>
-                <th>Image</th>
-                <th>Section</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($mainPages as $item)
+    <div class="container mt-3">
+        <h4>Main Section</h4>
+        <a href="{{ route('aboutuspage.create_main') }}" class="btn btn-primary">Add Main Section</a>
+        <table class="table table-dark mt-3" id="mainTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>View Description</th>
+                    <th>Image</th>
+                    <th>Section</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($mainPages as $item)
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->title }}</td>
@@ -53,14 +58,16 @@
                 </td>
             </tr>
             @endforeach
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+        <br>
+    </div>
     <br>
 </div>
 
 <div class="container mt-3">
     <h4>About Us Section</h4>
-    <a href="{{ route('aboutuspage.create_aboutus') }}" class="btn btn-primary">Add logo sector</a>
+    <a href="{{ route('aboutuspage.create_aboutus') }}" class="btn btn-primary">Add About Us Section</a>
     <table class="table table-dark mt-3" id="aboutUsTable">
         <thead>
             <tr>
@@ -73,28 +80,28 @@
         </thead>
         <tbody>
             @foreach ($aboutUsPages as $items)
-                <tr>
-                    <td>{{ $items->id }}</td>
-                    <td>
-                        <a href="{{ route('aboutuspage.detail', $items->id) }}" class="btn btn-primary">View Description</a>
-                    </td>
-                    <td>
-                        @if ($items->images->count() > 0)
-                            <img src="{{ asset($items->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
-                        @endif
-                    </td>
-                    <td>
-                        <a href="{{ route('aboutuspage.edit_aboutus', $items->id) }}" class="btn btn-warning">Edit</a>
-                    </td>
-                    <td>
-                        <form action="{{ route('aboutuspage.delete_aboutus', $items->id) }}" method="POST"
-                            onsubmit="return confirm('Are you sure you want to delete this sector?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $items->id }}</td>
+                        <td>
+                            <a href="{{ route('aboutuspage.detail', $items->id) }}" class="btn btn-primary">View Description</a>
+                        </td>
+                        <td>
+                            @if ($items->images->count() > 0)
+                                <img src="{{ asset($items->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('aboutuspage.edit_aboutus', $items->id) }}" class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('aboutuspage.delete_aboutus', $items->id) }}" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this sector?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>  
             @endforeach
         </tbody>
     </table>
@@ -104,7 +111,7 @@
     <div class="row">
         <div class="col-md-12">
             <h4>Logo Section</h4>
-            <a href="{{ route('aboutuspage.create_logo') }}" class="btn btn-primary">Add Logo sector</a>
+            <a href="{{ route('aboutuspage.create_logo') }}" class="btn btn-primary">Add Logo Section</a>
             <table class="table table-dark mt-3" id="combinedTable">
                 <thead>
                     <tr>
@@ -147,16 +154,15 @@
 </div>
 
 {{-- Join Us --}}
-<div class="container mt-3">
-    <h4>Join Us Section</h4>
-    <a href="{{ route('aboutuspage.create_leftcall') }}" class="btn btn-primary">Add Box</a>
-</div>
+
 
 <div class="container mt-3">
-
-
-        @foreach ($leftcallPages as $aboutusmain)
+    <div class="card" style="padding: 30px; background-color: #e6f7ff">
         <div class="row">
+            <div class="col-auto">
+                <a href="{{ route('aboutuspage.create_leftcall') }}" class="btn btn-primary">Add Box</a>
+            </div>
+            @foreach ($leftcallPages as $aboutusmain)
             <div class="col-auto">
                 <a href="{{ route('aboutuspage.edit_leftcall', $aboutusmain->id) }}" class="btn btn-warning">Edit</a>
             </div>
@@ -244,6 +250,8 @@
                 </div>
             </div>
         @endforeach
+    </div>
+        
 
 </div>
 
@@ -323,6 +331,20 @@
                     @if ($pic1items->images->count() > 0)
                         <img src="{{ asset($pic1items->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
                     @endif
+
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <a href="{{ route('aboutuspage.edit_teampic1', $pic1items->id) }}" class="btn btn-warning">Edit</a>          
+                        </div>
+                        <div class="col-auto">
+                            <form action="{{ route('aboutuspage.delete_teampic1', $pic1items->id) }}" method="POST" 
+                                onsubmit="return confirm('Are you sure you want to delete this picture?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 @endforeach
             </div>
     
@@ -339,6 +361,19 @@
                         <p class="card-text">{{ $teamitems->middledescription }}</p>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <a href="{{ route('aboutuspage.edit_team', $teamitems->id) }}" class="btn btn-warning">Edit</a>
+                    </div>
+                    <div class="col-auto">
+                        <form action="{{ route('aboutuspage.delete_team', $teamitems->id) }}" method="POST" 
+                            onsubmit="return confirm('Are you sure you want to delete this sector?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
                 @endforeach
             </div>
     
@@ -347,6 +382,19 @@
                     @if ($pic2items->images->count() > 0)
                         <img src="{{ asset($pic2items->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
                     @endif
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <a href="{{ route('aboutuspage.edit_teampic2', $pic2items->id) }}" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="col-auto">
+                                <form action="{{ route('aboutuspage.delete_teampic2', $pic2items->id) }}" method="POST" 
+                                    onsubmit="return confirm('Are you sure you want to delete this sector?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                 @endforeach
             </div>
         </div>

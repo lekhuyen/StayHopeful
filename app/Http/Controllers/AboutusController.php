@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\aboutuscalltoaction;
 use App\Models\aboutuspage;
 use App\Models\aboutusteam;
+use App\Models\aboutustitle;
 use Illuminate\Http\Request;
 
 class AboutusController extends Controller
 {
     public function index() {
-        $mainPages = Aboutuspage::all();
+        $mainPages = aboutustitle::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();

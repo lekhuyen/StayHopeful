@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\aboutuscalltoaction;
 use App\Models\Aboutusimage;
 use App\Models\aboutuspage;
+use App\Models\aboutustitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AboutuspageController extends Controller
 {
     public function aboutus_page_index() {
-        $mainPages = Aboutuspage::all();
+        $mainPages = aboutustitle::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
         $logoPages = Aboutuspage::where('section', 'logo')->get();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
@@ -19,14 +21,33 @@ class AboutuspageController extends Controller
         $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
         $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
         $questionPages = Aboutuspage::where('section', 'question')->get();
+
+
         // Pass all variables to the view
         return view("frontend.aboutus.aboutus_page_index", compact("mainPages", "aboutUsPages", "logoPages",
-        "leftcallPages", "teamPage", "teampic1Page", "teampic2Page","mainquestionPage", "questionPages"));
+        "leftcallPages", "teamPage", "teampic1Page", "teampic2Page", "questionPages", ));
+    }
+
+    //About Us Member Main Page
+    public function aboutus_member_index() {
+        $ourfounderPages = Aboutuscalltoaction::all();
+        return view("frontend.aboutus.aboutus_member_index", compact("ourfounderPages"));
+    }
+
+    public function Aboutus_member_detail($id)
+    {
+        $aboutusmember = aboutuspage::find($id);
+
+        if (!$aboutusmember) {
+            $aboutusmember = aboutuscalltoaction::find($id);
+        }
+
+        return view('frontend.aboutus.aboutus_page_member_detail', compact('aboutusmember'));
     }
 
     //main
     public function aboutus_page_create_main() {
-        $mainPages = Aboutuspage::all();
+        $mainPages = aboutustitle::all();
         return view("frontend.aboutus.aboutus_page_create_main", compact("mainPages"));
     }
 
@@ -40,11 +61,11 @@ class AboutuspageController extends Controller
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $mainPage = new Aboutuspage();
-        $mainPage->title = $request->title;
-        $mainPage->description = $request->description;
-        $mainPage->section = $request->section;
-        $mainPage->save();
+        $mainPages = new aboutustitle();
+        $mainPages->title = $request->title;
+        $mainPages->description = $request->description;
+        $mainPages->section = $request->section;
+        $mainPages->save();
 
         if ($request->hasFile("images")) {
             foreach ($request->file("images") as $item) {
@@ -56,21 +77,21 @@ class AboutuspageController extends Controller
 
                 $newImage = new Aboutusimage();
                 $newImage->url_image = $imagePath;
-                $newImage->aboutus_id = $mainPage->id;
+                $newImage->aboutus_id = $mainPages->id;
                 $newImage->save();
             }
         }
 
-        $mainPages = Aboutuspage::all();
+        $mainPages = aboutustitle::all();
         return redirect()->route('aboutuspage.index')->with('mainPages', $mainPages)
         ->with("success", "Main page created successfully");
     }
 
-    public function aboutus_page_edit_main(aboutuspage $mainPages) {
+    public function aboutus_page_edit_main(aboutustitle $mainPages) {
         return view("frontend.aboutus.aboutus_page_edit_main", compact("mainPages"));
     }
 
-    public function aboutus_page_update_main(Request $request, Aboutuspage $mainPages)
+    public function aboutus_page_update_main(Request $request, aboutustitle $mainPages)
     {   
         $request->validate([
             "title" => "nullable",
@@ -87,8 +108,18 @@ class AboutuspageController extends Controller
 
         if ($request->hasFile("images")) {
 
-            // Delete existing images if any
-            $mainPages->images()->delete();
+            if ($mainPages->images->count() > 0) {
+                foreach ($mainPages->images as $image) {
+                    $imageUrl = $image->url_image;
+    
+                    if (File::exists($imageUrl) && $image->aboutus_id === $mainPages->id) {
+                        File::delete($imageUrl);
+                    }
+    
+                    // Delete the image record
+                    $image->delete();
+                }
+            }
 
             foreach ($request->file("images") as $item) {
                 $filename = time() . "_" . $item->getClientOriginalName();
@@ -108,7 +139,7 @@ class AboutuspageController extends Controller
             ->with("success", "About us main page updated successfully");
     }
     
-    public function aboutus_page_delete_main(aboutuspage $mainPages)
+    public function aboutus_page_delete_main(aboutustitle $mainPages)
     {
         // Delete related images
         foreach ($mainPages->images as $image) {
@@ -793,7 +824,6 @@ class AboutuspageController extends Controller
 
         return redirect()->route("aboutuspage.index")->with("success", "Question page updated successfully");
     }
-
     
     public function aboutus_page_delete_question(Aboutuspage $questionPages)
     {
@@ -802,5 +832,132 @@ class AboutuspageController extends Controller
 
         // Redirect to the index page with success message
         return redirect()->route('aboutuspage.index')->with('success', 'Question page deleted successfully');
+    }
+
+    //Founder
+    public function aboutus_page_create_founder() {
+        $ourfounderPages = aboutuscalltoaction::all();
+        return view("frontend.aboutus.aboutus_member_create_founder", compact("ourfounderPages"));
+        
+    }
+
+    public function aboutus_page_store_founder(Request $request)
+    {
+        $request->validate([
+            "title" => "nullable",
+            "description" => "nullable",
+
+            "leftdescription" => "nullable",
+            "middletitle" => "nullable",
+
+            "middledescription" => "nullable",
+            "images" => "nullable|array",
+
+            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
+        ]);
+
+        $ourfounderPages = new Aboutuscalltoaction();
+
+        $ourfounderPages->title = $request->title;
+        $ourfounderPages->description = $request->description;
+
+        $ourfounderPages->leftdescription = $request->leftdescription;
+        $ourfounderPages->middletitle = $request->middletitle;
+
+        $ourfounderPages->middledescription = $request->middledescription;
+        $ourfounderPages->save();
+
+        if ($request->hasFile("images")) {
+            foreach ($request->file("images") as $item) {
+                $filename = time() . "_" . $item->getClientOriginalName();
+                $destinationPath = public_path("img/aboutus_images");
+
+                $item->move($destinationPath, $filename);
+                $imagePath = "img/aboutus_images/" . $filename;
+
+                $newImage = new Aboutusimage();
+                $newImage->url_image = $imagePath;
+                $newImage->aboutus_id = $ourfounderPages->id;
+                $newImage->save();
+            }
+        }
+
+        if ($request->hasFile('video')) {
+            $videoPath = $request->file('video')->store('videos', 'public');
+            $ourfounderPages->video = $videoPath; // Assign the video path to the 'video' attribute
+        }
+
+        $ourfounderPages = Aboutuscalltoaction::all();
+
+        return redirect()->route('aboutusmember.index')->with('ourfounderPages', $ourfounderPages)
+            ->with("success", "Founder created successfully");
+    }
+
+        public function aboutus_page_edit_founder(aboutuscalltoaction $ourfounderPages) {
+            return view("frontend.aboutus.aboutus_member_edit_founder", compact("leftcallPages"));
+        }
+
+    public function aboutus_page_update_founder(Request $request, aboutuscalltoaction $ourfounderPages)
+    {
+
+        $request->validate([
+            "title" => "nullable",
+            "description" => "nullable",
+
+            "leftdescription" => "nullable",
+            "middletitle" => "nullable",
+
+            "middledescription" => "nullable",
+            "images" => "nullable|array",
+
+            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
+        ]);
+
+        $ourfounderPages->title = $request->title;
+        $ourfounderPages->description = $request->description;
+
+        $ourfounderPages->leftdescription = $request->leftdescription;
+        $ourfounderPages->middletitle = $request->middletitle;
+
+        $ourfounderPages->middledescription = $request->middledescription;
+        $ourfounderPages->save();
+
+        return redirect()->route("aboutusmember.index")->with("success", "Founder page updated successfully");
+    }
+
+
+    public function aboutus_page_delete_founder(aboutuscalltoaction $ourfounderPages)
+    {
+
+        // Delete related images
+        foreach ($ourfounderPages->images as $image) {
+            if (File::exists($image->url_image)) {
+                File::delete($image->url_image);
+            }
+            $image->delete();
+        }
+        // Delete the associated video file
+        if (!empty($ourfounderPages->video) && Storage::exists($ourfounderPages->video)) {
+            Storage::delete($ourfounderPages->video);
+        }
+        // Delete the main page
+        $ourfounderPages->delete();
+
+        // Redirect to the index page with success message
+        return redirect()->route('aboutusmember.index')->with('success', 'Founder page deleted successfully');
+    }
+
+    public function Aboutus_intro_detail($id)
+    {
+        $ourfounderPages = Aboutuscalltoaction::all();
+        $aboutusmember = aboutuspage::find($id);
+
+        if (!$aboutusmember) {
+            $aboutusmember = aboutuscalltoaction::find($id);
+        }
+
+        return view('frontend.aboutus.aboutus_member_intro_detail', compact('aboutusmember', 'ourfounderPages'));
     }
 }

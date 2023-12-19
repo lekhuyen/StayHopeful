@@ -27,5 +27,10 @@ class Aboutusimage extends Model
         return $this->belongsTo(Aboutuscalltoaction::class, 'aboutus_id');
     }
 
+    public function aboutustitle()
+    {
+        return $this->belongsTo(aboutustitle::class, 'aboutus_id');
+    }
+
     use HasFactory;
 }
