@@ -145,12 +145,9 @@
         </div>
         <br>
         <div>
-            @if ($firstTitle)
-                <h1>{{ $firstTitle }}</h1>
-            @endif
+
     
             @foreach ($logoPages as $aboutusmain)
-                @if ($aboutusmain->section === 'logo')
                     <div class="row align-items-center">
                         @foreach ($aboutusmain->images as $image)
                             <div class="col-md-2 mb-3">
@@ -159,7 +156,6 @@
                         @endforeach
                     </div>
                     <br>
-                @endif
             @endforeach
         </div>
     </div>

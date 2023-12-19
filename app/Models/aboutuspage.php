@@ -11,7 +11,7 @@ class Aboutuspage extends Model
 
     public function images()
     {
-        return $this->hasMany(Aboutusimage::class, "aboutus_id");
+        return $this->hasMany(aboutuspageimage::class, "aboutus_id");
     }
 
     use HasFactory;

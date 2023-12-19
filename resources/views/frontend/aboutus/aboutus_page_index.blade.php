@@ -115,7 +115,8 @@
         </tbody>
     </table>
 </div>
-
+<br>
+{{-- Logo --}}
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-12">
@@ -126,7 +127,6 @@
                     <tr>
                         <th>Id</th>
                         <th>Image</th>
-                        <th>View Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -139,9 +139,6 @@
                                 @if ($logoitems->images->count() > 0)
                                     <img src="{{ asset($logoitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
                                 @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('aboutuspage.detail', $logoitems->id) }}" class="btn btn-primary">View Description</a>
                             </td>
                             <td>
                                 <a href="{{ route('aboutuspage.edit_logo', $logoitems->id) }}" class="btn btn-warning">Edit</a>
@@ -166,6 +163,7 @@
 
 
 <div class="container mt-3">
+    <h2>Join Us</h2>
     <div class="card" style="padding: 30px; background-color: #e6f7ff">
         <div class="row">
             <div class="col-auto">

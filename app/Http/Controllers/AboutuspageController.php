@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\aboutuscalltoaction;
+use App\Models\Aboutuscalltoactionimage;
 use App\Models\Aboutusimage;
+use App\Models\aboutuslogo;
+use App\Models\aboutuslogoimage;
 use App\Models\aboutusmember;
+use App\Models\aboutusmemberimage;
 use App\Models\aboutuspage;
+use App\Models\aboutuspageimage;
 use App\Models\aboutustitle;
+use App\Models\aboutustitleimage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +23,8 @@ class AboutuspageController extends Controller
     public function aboutus_page_index() {
         $mainPages = aboutustitle::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
-        $logoPages = Aboutuspage::where('section', 'logo')->get();
+
+        $logoPages = aboutuslogo::all();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
         $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
@@ -38,10 +45,14 @@ class AboutuspageController extends Controller
 
     public function Aboutus_member_detail($id)
     {
-        $aboutusmember = aboutuspage::find($id);
+        $aboutusmember = aboutuspage::findall($id);
 
         if (!$aboutusmember) {
             $aboutusmember = aboutuscalltoaction::find($id);
+        }
+
+        if (!$aboutusmember) {
+            $aboutusmember - aboutuslogo::find($id);
         }
 
         return view('frontend.aboutus.aboutus_page_member_detail', compact('aboutusmember'));
@@ -77,7 +88,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutustitleimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $mainPages->id;
                 $newImage->save();
@@ -130,7 +141,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutustitleimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $mainPages->id;
                 $newImage->save();
@@ -199,7 +210,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutuspageimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $aboutuspage->id;
                 $newImage->save();
@@ -280,7 +291,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
     
-                $newImage = new Aboutusimage();
+                $newImage = new aboutuspageimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $aboutUsPages->id;
                 $newImage->save();
@@ -294,19 +305,19 @@ class AboutuspageController extends Controller
     //logo sector left table
     public function aboutus_page_create_logo()
     {
-        $logoPages = Aboutuspage::where('section', 'logo')->get();
+        $logoPages = aboutuslogo::all();
         return view("frontend.aboutus.aboutus_page_create_logo", compact('logoPages'));
     }
 
     public function aboutus_page_store_logo(Request $request)
     {
         $request->validate([
+            
             "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $logoPages = new Aboutuspage();
-        $logoPages->section = 'logo';
+        $logoPages = new aboutuslogo();
         $logoPages->save();
 
         if ($request->hasFile("images")) {
@@ -317,7 +328,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutuslogoimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $logoPages->id;
                 $newImage->save();
@@ -327,12 +338,12 @@ class AboutuspageController extends Controller
         return redirect()->route('aboutuspage.index')->with("success", "Logo page created successfully");
     }
 
-    public function aboutus_page_edit_logo(Aboutuspage $logoPages)
+    public function aboutus_page_edit_logo(aboutuslogo $logoPages)
     {
         return view("frontend.aboutus.aboutus_page_edit_logo", compact("logoPages"));
     }
 
-    public function aboutus_page_update_logo(Request $request, Aboutuspage $logoPages)
+    public function aboutus_page_update_logo(Request $request, aboutuslogo $logoPages)
     {
         $request->validate([
             "images" => "nullable|array",
@@ -360,7 +371,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutuslogoimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $logoPages->id;
                 $newImage->save();
@@ -370,7 +381,7 @@ class AboutuspageController extends Controller
         return redirect()->route("aboutuspage.index")->with("success", "About us logo page updated successfully");
     }
 
-    public function aboutus_page_delete_logo(Aboutuspage $logoPages)
+    public function aboutus_page_delete_logo(aboutuslogo $logoPages)
     {
         // Delete related images
         foreach ($logoPages->images as $image) {
@@ -498,7 +509,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teamPage->id;
                 $newImage->save();
@@ -548,7 +559,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teamPage->id;
                 $newImage->save();
@@ -596,7 +607,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teampic1Page->id;
                 $newImage->save();
@@ -645,7 +656,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teampic1Page->id;
                 $newImage->save();
@@ -697,7 +708,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teampic2Page->id;
                 $newImage->save();
@@ -746,7 +757,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new Aboutuscalltoactionimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $teampic2Page->id;
                 $newImage->save();
@@ -892,7 +903,7 @@ class AboutuspageController extends Controller
                 $item->move($destinationPath, $filename);
                 $imagePath = "img/aboutus_images/" . $filename;
 
-                $newImage = new Aboutusimage();
+                $newImage = new aboutusmemberimage();
                 $newImage->url_image = $imagePath;
                 $newImage->aboutus_id = $ourfounderPages->id;
                 $newImage->save();
@@ -945,7 +956,7 @@ class AboutuspageController extends Controller
                     $item->move($destinationPath, $filename);
                     $imagePath = "img/aboutus_images/" . $filename;
             
-                    $newImage = new Aboutusimage();
+                    $newImage = new aboutusmemberimage();
                     $newImage->url_image = $imagePath;
                     $ourfounderPages->images()->save($newImage);
                 }

@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aboutuscalltoaction extends Model
 {
-    use HasFactory;
+    
 
     protected $fillable = ['title', 'description', 'section', 'lefttitle', 'leftdescription', 'middletitle', 'middledescription', 'righttitle', 'rightdescription', 'video'];
 
     public function images()
     {
-        return $this->hasMany(Aboutusimage::class, 'aboutus_id');
+        return $this->hasMany(Aboutuscalltoactionimage::class, 'aboutus_id');
     }
+    
+    use HasFactory;
 }
