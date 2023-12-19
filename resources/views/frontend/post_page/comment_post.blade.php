@@ -20,9 +20,27 @@
                             align-items:center;
                             ">
                     <a href="" class="avatar-user-post" style="margin: 10px 0 10px 50px; text-decoration: none;">
-                        <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50"
-                            style=" width: 80px;clip-path: circle(30%);">
-
+                     
+                        @php
+                            $check = false;
+                        @endphp
+                        @foreach ($user as $item)
+                            @if (!$check)
+                                @if ($post->user_id == $item->id)
+                                    <img src="{{ asset($post->user->avatar) }}" alt="" width="50"
+                                        style=" width: 80px;clip-path: circle(30%);">
+                                    @php
+                                        $check = true;
+                                    @endphp
+                                @elseif ($post->user_id == $item->id && $item->avatar == null)
+                                    <img src="{{ asset('img/humanicon.png') }}" alt="" width="50"
+                                    style=" width: 80px;clip-path: circle(30%);">
+                                    @php
+                                        $check = true;
+                                    @endphp
+                                @endif
+                            @endif
+                        @endforeach
                     </a>
                     <div class="user-name-post">
                         <a href=""
@@ -68,7 +86,6 @@
     </div>
 
     <script>
-
         //xem them reply
         // $(document).ready(function() {
         //     var soReply = 0;
@@ -88,7 +105,7 @@
         //             // $('.replies-container[data-id="' + comment_id + '"]').append(html);
         //             // console.log(data);
         //             $('.more_reply[data-id="'+comment_id+'"]').append(data);
-                
+
         //         },
         //         error: function(error) {
         //             alert(error);
@@ -242,7 +259,7 @@
             });
         });
 
-        
+
 
         //edit comment ----------
         $('.edit_comment-post-user').click(function(e) {
@@ -324,7 +341,7 @@
         // ----------------------
 
         //show edit comment
-        $('.menu-edit-delete').click(function(e){
+        $('.menu-edit-delete').click(function(e) {
             e.stopPropagation();
         })
         $(document).ready(function() {
