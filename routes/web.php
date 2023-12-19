@@ -171,6 +171,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 
 //search bar project page
+Route::get('/search', [BlogController::class, 'search'])->name('search_projectview');
 Route::post('/search', [BlogController::class, 'search'])->name('search_project');
 
 
