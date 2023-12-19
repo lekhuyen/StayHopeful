@@ -49,7 +49,22 @@
                                     class="user__name">{{ $post->user->name }}</a>
                                 <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
                             </div>
+
+                            {{-- !edit-delete-post --}}
+                            @if($post->user->id == auth()->user()->id)
+                                <div class="edit__post-user">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            
+
+                            <div class="edit-post-user-1" id="edit-post-user" style="top: 60px; ">
+                                <a class="edit_form-post-1 edit_form-post-user"data-id="{{ $post->id }} ">Edit</a>
+                                <a class="delete_form-post-1"data-id="{{ $post->id }} ">Delete</a>
+                            </div>
+                            @endif
+                            {{-- !edit-delete-post --}}
                         </div>
+                        
                         <div class="post__title">
                             <span>{{ $post->title }}</span>
                         </div>
@@ -103,7 +118,8 @@
     @include('frontend/profile/post_form')
     @include('frontend/profile/popup_profile')
 
-
+{{-- !edit form --}}
+    @include('frontend.post_page.form_post')
 
     {{-- comment --}}
     <div class="modal-user-Comment-post">

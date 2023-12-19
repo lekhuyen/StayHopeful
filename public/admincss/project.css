@@ -4,7 +4,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-clamp: 1;
-    width: 120px;
+    width: 100px;
     text-overflow: ellipsis;
 }
 
@@ -18,6 +18,3 @@
     text-overflow: ellipsis;
 }
 
-.status__project{
-    width: 80px;
-}

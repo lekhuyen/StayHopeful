@@ -5,12 +5,14 @@
                 src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
                 alt="">
         </a>
+        
         <div class="comment_body">
             <div class="comment_background" data-id="{{ $comment->id }}">
                 <div style="min-width: 100px">
                     <a href="">{{ $comment->user->name }}</a>
                 </div>
-                <div style="width: 100%" id="comment_content-user-post" data-id="{{ $comment->id }}">
+                
+                <div style="width: 100%" id="comment_content-user-post" data-id="{{$comment->id}}">
                     <p class="comment_content">{{ $comment->content }}</p>
                 </div>
                 @if ($comment->user->id == auth()->user()->id)

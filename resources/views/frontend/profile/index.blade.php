@@ -134,7 +134,6 @@
                         <div class="profile-aboutme post_user-web">
 
                             <div class="profile-aboutme-set">
-
                                 <div style="padding: 0; border-radius: 5px; position: relative;">
                                     <div class="post-uset-body"
                                         style="text-align:left;
@@ -158,15 +157,14 @@
                                                     {{ $post->updated_at }}</p>
                                             </div>
                                         </div>
+                                        {{-- !edit post --}}
                                         <div class="edit_post">
                                             <i class="fa-solid fa-ellipsis"></i>
                                         </div>
                                     </div>
                                     <div class="edit-post-user">
-
                                         <a class="edit_form-post"data-id="{{ $post->id }} ">Edit</a>
                                         <a class="delete_form-post"data-id="{{ $post->id }} ">Delete</a>
-
                                     </div>
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>

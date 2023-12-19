@@ -439,12 +439,14 @@
 @keyframes modalShowForm {
     from {
         opacity: 0;
-        transform: translateY(-600px);
+        transform: scale(0.8);
+        /* transform: translateY(-600px); */
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
+        /* transform: translateY(0); */
     }
 }
 
@@ -598,8 +600,23 @@
     box-shadow: 0 0 10px rgb(201, 197, 197);
     display: none;
 }
+.edit-post-user-1 {
+    background-color: rgb(246, 246, 246);
+    width: 100px;
+    position: absolute;
+    top: 75px;
+    right: 17px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(201, 197, 197);
+    display: none;
+}
+
 
 .edit-post-user a {
+    text-decoration: none;
+}
+.edit-post-user-1 a {
     text-decoration: none;
 }
 
@@ -616,6 +633,15 @@
     right: 9px;
     top: -31px;
 }
+.edit-post-user-1::after {
+    content: "";
+    position: absolute;
+    border-color: transparent transparent rgb(246, 246, 246) transparent;
+    border-style: solid;
+    border-width: 16px 14px;
+    right: 9px;
+    top: -31px;
+}
 
 .edit-post-user a {
     display: block;
@@ -624,8 +650,18 @@
     opacity: 0.8;
     cursor: pointer;
 }
+.edit-post-user-1 a {
+    display: block;
+    color: black;
+    font-weight: 500;
+    opacity: 0.8;
+    cursor: pointer;
+}
 
 .edit-post-user a:hover {
+    background-color: #f0eaea;
+}
+.edit-post-user-1 a:hover {
     background-color: #f0eaea;
 }
 
@@ -657,7 +693,7 @@
     display: grid;
     grid-template-rows: 35px 1fr 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: modalShowForm ease 0.4s;
+    /* animation: modalShowForm ease 0.4s; */
 }
 
 #comment_reply-post {
@@ -841,7 +877,7 @@
 .comment_post {
     display: flex;
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .like_post.active i {
@@ -924,6 +960,8 @@
     border: 1px solid rgba(155, 190, 230, 1);
     background-color: white;
     color: rgba(155, 190, 230, 1);
+
+    position: relative;
 }
 
 .user__name {
@@ -951,6 +989,31 @@
 }
 .listdonate-col {
     padding: 50px;
+}
+
+/* edit post */
+.edit__post-user {
+    position: absolute;
+    right: 25px;
+    top: 15;
+    color: rgba(155, 190, 230, 1);
+    display: none;
+    /* display: flex; */
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+}
+.edit__post-user:hover {
+    color: rgb(15, 107, 212);
+    background-color: rgb(185, 215, 248);
+    border-radius: 50px;
+}
+.user__post:hover .edit__post-user {
+    display: flex;
+
 }
 @media screen and (max-width: 360px) {
     .profile-edit-info {
