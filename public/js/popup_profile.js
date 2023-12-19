@@ -16,15 +16,21 @@ errorAlert.addEventListener('click', function () {
  // popup profile
  var profileDropdown = document.querySelector('.profile-popup');
  var popupProfile = document.querySelector('.popup-profile');
+ var popupProfileMobile = document.querySelector('.popup-profile-mobile');
  var containerPopupProfile = document.querySelector('.popup-profile-container');
  //console.log(containerPopup);
+ if(popupProfile){
+ popupProfileMobile.addEventListener('click', function () {
+    containerPopupProfile.classList.add('showProfileDropdown');
+});
+ }
  if(popupProfile){
  popupProfile.addEventListener('click', function () {
      containerPopupProfile.classList.toggle('showProfileDropdown');
      // profileDropdown.classList.toggle('open-popup-profile');
  });
  containerPopupProfile.addEventListener('click', function () {
- containerPopupProfile.classList.remove('showProfileDropdown');
+     containerPopupProfile.classList.remove('showProfileDropdown');
  // profileDropdown.classList.remove('open-popup-profile');
  })
  }
