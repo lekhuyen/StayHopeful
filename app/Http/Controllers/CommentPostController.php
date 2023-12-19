@@ -28,7 +28,7 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'asc')->get();
+        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'desc')->get();
             if ($comments) {
                 return view('frontend.post_page.list_comment', compact('comments'));
                 // return response()->json($comments);
@@ -54,7 +54,7 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'asc')->get();
+        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'desc')->get();
             if ($replyComment) {
                 return response()->json($replyComment);
             }

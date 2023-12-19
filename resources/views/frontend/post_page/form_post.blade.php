@@ -23,32 +23,11 @@
             </div>
 
         </div>
+        {{-- !form edit post --}}
         <div id="form__edit-post">
             @include('frontend.post_page.form_edit-post')
         </div>
-        {{-- <form action="{{ route('edit.post') }}" method="post" enctype="multipart/form-data" id="form_edit-post">
-            @csrf
-            @method('PUT')
-            <div>
-                <input name="post_id" type="hidden" class="post_id-1" />
-                <div class="input-post-content">
-                    <textarea class="post-title" name="title" id="" placeholder="Write post"></textarea>
-                </div>
-
-                <div class="user_post-image" style="display: flex;justify-content: center; margin: 0 10px 20px 10px;">
-                    <div class="user-post-image user_post-image">
-                        
-
-                    </div>
-                </div>
-            </div>
-            <div class="user-post-image">
-                <input class="current_image_post" name="images[]" type="file" multiple>
-            </div>
-            <div class="submit-post">
-                <button type="submit" class="btn btn-primary submit_edit_form">Submit</button>
-            </div>
-        </form> --}}
+        
     </div>
 </div>
 

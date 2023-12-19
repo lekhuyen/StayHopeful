@@ -29,7 +29,7 @@
 
             </div>
             {{-- !form edit comment --}}
-            <form style="margin-bottom: 10px; display: none" class="form_reply edit_form-comment"
+            <form style="margin-bottom: 10px; display: none" class="edit_form-comment"
                 data-id="{{ $comment->id }}">
                 <div id="input_reply-comment" style="width: 90%;">
                     <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.."
@@ -44,7 +44,7 @@
             <p class="reply_comment_post show_reply-form" data-id="{{ $comment->id }}">
                 Reply
             </p>
-
+            {{-- !form submit comment --}}
             <form style="display: none; margin-bottom: 10px;"
                 class="form_reply-{{ $comment->id }} form_reply btn_reply-submit" data-id="{{ $comment->id }}">
                 <div id="input_reply-comment" style="width: 90%;">

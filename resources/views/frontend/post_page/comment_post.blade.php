@@ -32,7 +32,7 @@
                     </div>
 
                 </div>
-                
+
                 <div style="text-align:left; margin: 0 50px 20px 50px;">
                     <span>{{ $post->title }}</span>
                 </div>
@@ -135,7 +135,8 @@
         })
 
         //edit comment-reply
-        $('.edit_comment-reply-post-user').click(function() {
+        $('.edit_comment-reply-post-user').click(function(e) {
+            e.stopPropagation();
             var reply_id = $(this).data('id')
             $('.show_form-edit-reply[data-id="' + reply_id + '"]').show();
             $('.comment_background[data-id="' + reply_id + '"]').hide();
@@ -180,9 +181,10 @@
                         },
                         success: function(data) {
                             var html = `<p class="comment_reply-content">${data.content}</p>`
-                            $('#comment_reply-content-user-post[data-id="' + reply_id + '"]').html(html)
+                            $('#comment_reply-content-user-post[data-id="' + reply_id + '"]')
+                                .html(html)
 
-                            
+
                             $('.show_form-edit-reply[data-id="' + reply_id + '"]').hide();
                             $('.comment_background[data-id="' + reply_id + '"]').show();
                             $('.edit_delete-post').hide();
@@ -210,10 +212,11 @@
             });
         });
 
-
+        
 
         //edit comment ----------
-        $('.edit_comment-post-user').click(function() {
+        $('.edit_comment-post-user').click(function(e) {
+            e.stopPropagation();
             var comment_id = $(this).data('id')
             $('.edit_form-comment[data-id="' + comment_id + '"]').show();
             $('.comment_background[data-id="' + comment_id + '"]').hide();
@@ -291,6 +294,9 @@
         // ----------------------
 
         //show edit comment
+        $('.menu-edit-delete').click(function(e){
+            e.stopPropagation();
+        })
         $(document).ready(function() {
             $('.menu-edit-delete').each(function(index, element) {
                 $(element).click(function() {
@@ -367,37 +373,55 @@
                             _token: _csrf
                         },
                         success: function(data) {
-                            var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
-                                <a href="">
-                                    <img width="60" id="avatar_user"
-                                        src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                        alt="">
-                                </a>
-                                <div class="comment_body">
-                                    <div class="comment_background">
-                                        <a href="">{{ auth()->user()->name }}</a>
-                                        <p>${data[0].content}</p>
-                                    </div>
-                                    <p class="reply_comment_post">
-                                        Reply
-                                    </p>
+                            var html = `<div id="comment_reply-post comment_post" class="reply_comment-post" data-id="${ data[0].id }" style="margin-left: -19px; margin-top: 10px; display: flex">
+                                        <a href="">
+                                            <img width="60" id="avatar_user"
+                                                src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                                alt="">
+                                            
+                                        </a>
+                                        <div class="comment_body">
+                                            <div class="comment_background"  data-id="${ data[0].id }">
+                                                <div style="min-width: 100px">
+                                                    <a href="">{{ auth()->user()->name }}</a>
+                                                </div>
+                                                <div style="width: 100%" id="comment_reply-content-user-post"  data-id="${ data[0].id }">
+                                                    <p class="comment_reply-content">${data[0].content}</p>
+                                                </div>
 
-                                    <form action="" style="display: none">
-                                        <div id="input_reply-comment">
-                                            <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                            <div class="btn_icon-submit">
-                                                <i class="fa-solid fa-location-arrow"></i>
+                                                
+                                                <div class="delete_comment-post delete_comment-reply-post">
+                                                    <div class="menu-edit-delete">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </div>
+                                                    <div class="edit_delete-post" style="display: none"  data-id="${ data[0].id }">
+                                                        <p class="edit_comment-reply-post-user"  data-id="${ data[0].id }">Edit</p>
+                                                        <p class="delete_comment-reply-post-user"  data-id="${ data[0].id }">Delete</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                
                                             </div>
+                                            
+                                            <form style="display: none; margin-bottom: 10px;" class="form_reply-${ data[0].id } form_reply btn_reply-submit btn_edit-reply show_form-edit-reply"  data-id="${ data[0].id }">
+                                                <div id="input_reply-comment" style="width: 90%;">
+                                                    <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.." class="content_reply-${ data[0].id } content_reply"  data-id="${ data[0].id }"></textarea>
+                                                    <button class="btn_icon-submit btn_icon-submit-reply" data-id="${ data[0].id }">
+                                                        <i class="fa-solid fa-location-arrow"></i>
+                                                    </button>
+                                                </div>
+                                                <p class="cancel_edit-comment-reply"  data-id="${ data[0].id }" style="cursor: pointer">Cancel</p>
+                                            </form>
+
+                                            
                                         </div>
-                                    </form>
-                                </div>
-                            </div>`
+                                    </div>`
 
 
                             $('.replies-container[data-id="' + comment_id + '"]').append(html);
                             $('.content_reply-' + comment_id).val('');
                             $('.form_reply').slideUp();
-                            // console.log(data[0].content);
+
                         },
                         error: function(error) {
                             alert(error);
@@ -436,73 +460,104 @@
                     // var _loginUrl = '{{ route('store-comment_reply', ':id') }}'.replace(':id', post_id);
                     var _loginUrl = '{{ route('store-comment_reply', $post->id) }}';
 
+                    if (content.trim() !== '') {
+                        $.ajax({
+                            type: 'POST',
+                            url: _loginUrl,
+                            data: {
+                                content: content,
+                                comment_id: comment_id,
+                                _token: _csrf
+                            },
+                            success: function(data) {
+                                var html = `<div id="comment_reply-post comment_post" class="reply_comment-post" data-id="${ data[0].id }" style="margin-left: -19px; margin-top: 10px; display: flex">
+                                        <a href="">
+                                            <img width="60" id="avatar_user"
+                                                src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                                alt="">
+                                            
+                                        </a>
+                                        <div class="comment_body">
+                                            <div class="comment_background"  data-id="${ data[0].id }">
+                                                <div style="min-width: 100px">
+                                                    <a href="">{{ auth()->user()->name }}</a>
+                                                </div>
+                                                <div style="width: 100%" id="comment_reply-content-user-post"  data-id="${ data[0].id }">
+                                                    <p class="comment_reply-content">${data[0].content}</p>
+                                                </div>
 
-                    $.ajax({
-                        type: 'POST',
-                        url: _loginUrl,
-                        data: {
-                            content: content,
-                            comment_id: comment_id,
-                            _token: _csrf
-                        },
-                        success: function(data) {
-                            var html = `<div id="comment_reply-post" id="comment_post" style="margin-left: -19px; margin-top: 10px;">
-                                <a href="">
-                                    <img width="60" id="avatar_user"
-                                        src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
-                                        alt="">
-                                </a>
-                                <div class="comment_body">
-                                    <div class="comment_background">
-                                        <a href="">{{ auth()->user()->name }}</a>
-                                        <p>${data[0].content}</p>
-                                    </div>
-                                    <p class="reply_comment_post">
-                                        Reply
-                                    </p>
-
-                                    <form action="" style="display: none">
-                                        <div id="input_reply-comment">
-                                            <textarea name="" id="" cols="" rows="10" placeholder="comment.."></textarea>
-                                            <div class="btn_icon-submit">
-                                                <i class="fa-solid fa-location-arrow"></i>
+                                                
+                                                <div class="delete_comment-post delete_comment-reply-post">
+                                                    <div class="menu-edit-delete">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </div>
+                                                    <div class="edit_delete-post" style="display: none"  data-id="${ data[0].id }">
+                                                        <p class="edit_comment-reply-post-user"  data-id="${ data[0].id }">Edit</p>
+                                                        <p class="delete_comment-reply-post-user"  data-id="${ data[0].id }">Delete</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                
                                             </div>
+                                            
+                                            <form style="display: none; margin-bottom: 10px;" class="form_reply-${ data[0].id } form_reply btn_reply-submit btn_edit-reply show_form-edit-reply"  data-id="${ data[0].id }">
+                                                <div id="input_reply-comment" style="width: 90%;">
+                                                    <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.." class="content_reply-${ data[0].id } content_reply"  data-id="${ data[0].id }"></textarea>
+                                                    <button class="btn_icon-submit btn_icon-submit-reply" data-id="${ data[0].id }">
+                                                        <i class="fa-solid fa-location-arrow"></i>
+                                                    </button>
+                                                </div>
+                                                <p class="cancel_edit-comment-reply"  data-id="${ data[0].id }" style="cursor: pointer">Cancel</p>
+                                            </form>
+
+                                            
                                         </div>
-                                    </form>
-                                </div>
-                            </div>`
+                                    </div>`
 
 
-                            $('.replies-container[data-id="' + comment_id + '"]').append(html);
-                            $('.content_reply-' + comment_id).val('');
-                            $('.form_reply').slideUp();
-                            // console.log(data[0].content);
-                        },
-                        error: function(error) {
-                            alert(error);
-                        }
-                    });
+                                $('.replies-container[data-id="' + comment_id + '"]').append(
+                                    html);
+                                $('.content_reply-' + comment_id).val('');
+                                $('.form_reply').slideUp();
+                                // console.log(data[0].content);
+                            },
+                            error: function(error) {
+                                alert(error);
+                            }
+                        });
+                    } else {
+                        alert('Please enter some content before submitting.');
+                    }
+
                 }
+
 
             });
         });
 
 
 
+        $('.modal_inner-comment-post').click(function() {
+            $('.form_reply').slideUp();
+            $('.content_reply').val('');
+            $('.edit_delete-post').hide();
+        });
 
+        $('.content_reply').click(function(e) {
+            e.stopPropagation();
+        })
+        $('.btn_icon-submit').click(function(e) {
+            e.stopPropagation();
+        })
 
-        $('.show_reply-form').click(function() {
+        $('.show_reply-form').click(function(e) {
+            e.stopPropagation();
             var comment_id = $(this).data('id');
             var formReply = '.form_reply-' + comment_id;
             $('.form_reply').slideUp();
             $(formReply).slideDown();
         })
 
-
-        $('.content_reply').blur(function() {
-            $('.form_reply').slideUp();
-            // $(this).val('');
-        })
 
 
         $(document).ready(function() {
