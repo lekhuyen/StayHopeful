@@ -633,6 +633,10 @@ button.carousel-control-next {
     .log-sign{
         display: none !important;
     }
+    .log-sign-dropdown{
+        display: flex !important;
+    }
+    
 }
 
 @media (max-width: 540px) {
@@ -649,7 +653,9 @@ button.carousel-control-next {
         font-weight: 600;
         font-size: 15px;
     }
-
+    .nav-user-img{
+        display: none;
+    }
     .logo {
         margin-right: 0;
         display: none;
@@ -877,7 +883,8 @@ button.carousel-control-next {
     .log-sign-dropdown{
         position: absolute;
         right: 10%;
-        display: flex;
+        display: none;
+        /* display: flex; */
         align-items: center;
         flex: initial;
         padding: 1.5rem 1.5rem;
@@ -914,7 +921,7 @@ button.carousel-control-next {
         text-transform: uppercase;
     } */
     
-    .btn.solid{
+    .btn-mobile.solid{
         background-color: transparent;
         color: #fff;
         border: 1px solid white;
@@ -927,9 +934,10 @@ button.carousel-control-next {
         margin: 0 20px;
         transition: .3s;
         text-transform: uppercase;
+        cursor: pointer;
     }
     
-    .btn.solid:hover{
+    .btn-mobile.solid:hover{
         background-color: #fff;
         color: #123b6a;
     }

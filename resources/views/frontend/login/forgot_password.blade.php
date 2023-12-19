@@ -147,7 +147,7 @@
                     $('#reset-password-email').val('');
                     console.log(response.message);
                 } else if (response.status == 'daily_error'){
-                    setError(resetPassEmail,'You have reached the limited! Please try again tomorrow');
+                    setError(resetPassEmail,'You have reached the limited times! Please try again tomorrow');
                     console.log(response.message);
                 } else if (response.status == 'time_error'){
                     setError(resetPassEmail,'Please wait 2 minutes before request a new OTP');
@@ -157,7 +157,7 @@
             },
             error: function(error) {
                 $('#spinner-container').hide();
-                errorAlert.classList.remove("showAlert");
+                errorAlert.classList.add("showAlert");
                 console.log(error);
             }
         });
@@ -186,20 +186,19 @@
             success: function(response) {
                 $('#spinner-container').hide();
                 if(response.status == 'success'){
-                    resetPassSuccess.classList.remove("showAlert");
+                    resetPassSuccess.classList.add("showAlert");
+                    resetPasswordForm.classList.remove("showFormResetPassword");
                     $('#reset-password-otp').val(''),
                     $('#new-password-reset').val('')
                      $('#confirm-new-password-reset').val('')
                     console.log(response.message);
                 } else if (response.status == 'error'){
                     console.log(response.message);
-                }else if (response.status == 'expired'){
-                    console.log(response.message);
                 }
             },
             error: function(error) {
                 $('#spinner-container').hide();
-                errorAlert.classList.remove("showAlert");
+                errorAlert.classList.add("showAlert");
                 console.log(error);
             }
         });
