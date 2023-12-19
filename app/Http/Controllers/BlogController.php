@@ -46,19 +46,12 @@ class BlogController extends Controller
             $checkUserProject = 1;
         }
 
-        // if ($user) {
-        //     $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
-        //     //dd($volunteerPersonByProjects);
-        //     if ($volunteerPersonByProjects->count() > 0) {
-        //         foreach ($volunteerPersonByProjects as $key => $projectItem) {
-        //             $projectId = $projectItem->project_id;
-        //             if($projectId == $id){
-        //                 $checkUserProject = 1;
-        //                 break;
-        //             }
-        //         }
-        //     }
-        // }
+        if ($user) {
+            $volunteerPersonByProjects = Volunteer::where('email', $user['email'],"and")->where("project_id","=",$project->id)->first();
+             if($volunteerPersonByProjects != null){
+                $checkUserProject = 1;
+            }
+        }
         return view('frontend.detail-post.detail', compact('categories', 'project', 'projects', 'comments', 'checkUserProject'));
     }
     public function viewmarquee()
@@ -99,7 +92,7 @@ class BlogController extends Controller
         // return view('frontend.blog.news_detail', compact('categories', 'projects', 'new'));
     }
 
-    
+
     //search
     public function search(Request $request){
         $keywork = $request->keywork;
