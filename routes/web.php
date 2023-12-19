@@ -78,6 +78,7 @@ Route::get('/profile/{id}', [AuthloginController::class, 'user_profile'])->name(
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
+Route::get('/post-edit-1/{id}', [AuthloginController::class, 'post_edit_1'])->name('post.edit.1');
 Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
 // user middleware close
 

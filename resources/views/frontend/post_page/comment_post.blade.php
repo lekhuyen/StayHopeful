@@ -29,7 +29,9 @@
                         <p style="margin-bottom: 0; font-size: 15px; font-weight: 500;">{{ $post->updated_at }}</p>
 
                     </div>
+
                 </div>
+                
                 <div style="text-align:left; margin: 0 50px 20px 50px;">
                     <span>{{ $post->title }}</span>
                 </div>

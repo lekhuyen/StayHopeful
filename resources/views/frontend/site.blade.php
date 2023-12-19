@@ -155,8 +155,8 @@
                                                             </li>
                                                             <div class="arrow"></div>
                                                         </ul>
-                                                   </div>
-                                             </li>
+                                                </div>
+                                            </li>
                                             <li class="nav-link" style="--i: 1.6s">
                                                     <a class="nav-menu-title">RESOURCES <i class="fa-solid fa-caret-down"></i></a>
                                                     <div class="dropdown">
@@ -189,7 +189,7 @@
                                                     </div>
                                             </li>
                                             <li class="nav-link" style="--i: 2.1s">
-                                                    <a href="#" class="nav-menu-title">OUR PROJECT <i class="fa-solid fa-caret-down"></i></a>
+                                                    <a href="#" class="nav-menu-title">OUR PROJECT<i class="fa-solid fa-caret-down"></i></a>
                                                     <div class="dropdown">
                                                     {{-- <i class="fas fa-angle-right dropdown"></i> --}}
                                                     {{-- <div class="nav-sub-menu-title"> --}}
@@ -198,7 +198,7 @@
                                                             <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
                                                         @endforeach
                                                         @endif --}}
-                                                     {{-- </div> --}}
+                                                    {{-- </div> --}}
                                                     </div>
                                             </li>
                                         </ul>
