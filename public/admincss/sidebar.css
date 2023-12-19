@@ -182,7 +182,7 @@ hr.h-color {
 .footer__dashboard__content{
     position: fixed;
     bottom: 0;
-    height: 100px;
+    height: 70px;
     background: black;
     color: white;
     text-align: center;
