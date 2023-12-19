@@ -99,7 +99,7 @@ class BlogController extends Controller
         // return view('frontend.blog.news_detail', compact('categories', 'projects', 'new'));
     }
 
-
+    
     //search
     public function search(Request $request){
         $keywork = $request->keywork;
