@@ -9,7 +9,7 @@ class SensitiveController extends Controller
 {
     public function index()
     {
-        $sensitives = Sensitive::orderBy('id', 'desc')->paginate(6);
+        $sensitives = Sensitive::orderBy('id', 'desc')->paginate(3);
         return view('frontend.sensitive.index', compact('sensitives'));
     }
 

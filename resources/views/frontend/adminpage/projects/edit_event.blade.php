@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-@section('title', 'Update Volunteer Project')
+@section('title', 'Update Event for Volunteer')
 
 {{-- css --}}
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
@@ -11,7 +11,7 @@
 </div>
 
 <div class="container mt-3">
-    <h1>Update Volunteer Project</h1>
+    <h1>Update Event for Volunteer Project</h1>
     <form action="{{ route('projectAd.update_event', $project) }}" method="POST">
         @csrf
         @method('PUT')
