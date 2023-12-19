@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\aboutuscalltoaction;
 use App\Models\Aboutusimage;
+use App\Models\aboutusmember;
 use App\Models\aboutuspage;
 use App\Models\aboutustitle;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class AboutuspageController extends Controller
 
     //About Us Member Main Page
     public function aboutus_member_index() {
-        $ourfounderPages = Aboutuscalltoaction::all();
+        $ourfounderPages = aboutusmember::all();
         return view("frontend.aboutus.aboutus_member_index", compact("ourfounderPages"));
     }
 
@@ -837,7 +838,7 @@ class AboutuspageController extends Controller
 
     //Founder
     public function aboutus_page_create_founder() {
-        $ourfounderPages = aboutuscalltoaction::all();
+        $ourfounderPages = aboutusmember::all();
         return view("frontend.aboutus.aboutus_member_create_founder", compact("ourfounderPages"));
         
     }
@@ -856,7 +857,7 @@ class AboutuspageController extends Controller
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
         ]);
 
-        $ourfounderPages = new Aboutuscalltoaction();
+        $ourfounderPages = new aboutusmember();
 
         $ourfounderPages->title = $request->title;
         $ourfounderPages->description = $request->description;
@@ -897,18 +898,18 @@ class AboutuspageController extends Controller
                 $newImage->save();
             }
         }
-        $ourfounderPages = Aboutuscalltoaction::all();
+        $ourfounderPages = aboutusmember::all();
 
         return redirect()->route('aboutusmember.index')->with('ourfounderPages', $ourfounderPages)
             ->with("success", "Founder created successfully");
     }
 
 
-    public function aboutus_page_edit_founder(aboutuscalltoaction $ourfounderPages) {
+    public function aboutus_page_edit_founder(aboutusmember $ourfounderPages) {
         return view("frontend.aboutus.aboutus_member_edit_founder", compact("ourfounderPages"));
     }
 
-    public function aboutus_page_update_founder(Request $request, aboutuscalltoaction $ourfounderPages)
+    public function aboutus_page_update_founder(Request $request, aboutusmember $ourfounderPages)
     {
         $request->validate([
             "title" => "nullable",
@@ -971,7 +972,7 @@ class AboutuspageController extends Controller
     }
 
 
-    public function aboutus_page_delete_founder(aboutuscalltoaction $ourfounderPages)
+    public function aboutus_page_delete_founder(aboutusmember $ourfounderPages)
     {
         // Delete related images
         foreach ($ourfounderPages->images as $image) {
@@ -996,7 +997,7 @@ class AboutuspageController extends Controller
     
     public function Aboutus_intro_detail($id)
     {
-        $ourfounderPages = Aboutuscalltoaction::find($id);
+        $ourfounderPages = aboutusmember::find($id);
         $aboutusmember = aboutuspage::find($id);
 
         if (!$aboutusmember) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\aboutuscalltoaction;
+use App\Models\aboutusmember;
 use App\Models\aboutuspage;
 use App\Models\aboutusteam;
 use App\Models\aboutustitle;
@@ -27,7 +28,7 @@ class AboutusController extends Controller
 
     public function aboutus_whoweare() {
         $teamMembers = aboutusteam::all();
-        $ourfounderPages = Aboutuscalltoaction::all();
+        $ourfounderPages = aboutusmember::all();
         return view('frontend.aboutus.aboutus_whoweare', compact('teamMembers', 'ourfounderPages'));
     }
 

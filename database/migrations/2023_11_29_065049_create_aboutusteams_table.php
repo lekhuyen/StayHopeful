@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('skill');
             $table->boolean('status');
-            $table->string('description')->nullable(); // Make it nullable
+            $table->string('description', 2000)->nullable(); // Make it nullable
             $table->timestamps();
         });
     }

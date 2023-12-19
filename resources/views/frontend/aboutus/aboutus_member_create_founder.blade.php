@@ -19,13 +19,23 @@
         </div>
         <br>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="mb-3">
-            <label for="title" class="form-label">Founder Title:</label>
+            <label for="title" class="form-label">Member Title Name:</label>
             <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
         </div>
     
         <div class="mb-3">
-          <label for="description" class="form-label">Founder Description:</label>
+          <label for="description" class="form-label">Member Description:</label>
           <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
         </div>
 
@@ -35,13 +45,13 @@
         </div>
 
         <div class="mb-3">
-            <label for="middletitle" class="form-label">Founder Title Info:</label>
+            <label for="middletitle" class="form-label">Member Title Info:</label>
             <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle"
                 name="middletitle">
         </div>
 
         <div class="mb-3">
-            <label for="middledescription" class="form-label">Founder Description Info:</label>
+            <label for="middledescription" class="form-label">Member Description Info:</label>
             <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription"
                 name="middledescription"></textarea>
         </div>
@@ -88,5 +98,5 @@
     });
 </script>
 
-@include('frontend/login/login')
+    @include('frontend/login/login')
 @endsection

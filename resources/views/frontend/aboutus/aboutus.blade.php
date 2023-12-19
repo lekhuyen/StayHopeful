@@ -15,10 +15,12 @@
                     <div class="text-center">
                         <span>{{ $mainitem->description }}</span>
                     </div>
-                    @foreach ($mainitem->images as $image)
-                        <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
-                    @endforeach
-
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        @foreach ($mainitem->images as $image)
+                            <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" style="width: 60%;">
+                        @endforeach
+                    </div>
                 @endif
             </div>
             <br>
@@ -264,43 +266,24 @@
 
     {{-- Team Section --}}
 
-    <div class="container-fluid mt-3 aboutus_our_team" data-aos="fade-right">
-        @foreach ($mainPages as $mainitem)
-            <div>
-                @if ($mainitem->section === 'Team Section')
-                    <h1>{{ $mainitem->title }}</h1>
-                    <div class="text-center">
-                        <span class="mission">{{ $mainitem->description }}</span>
-                    </div>
-                    @foreach ($mainitem->images as $image)
-                        <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
-                    @endforeach
-
-                @endif
-            </div>
-            <br>
-        @endforeach
-
-        <br>
-        <div class="row align-items-center aboutus_johndoe">
-
-            @foreach ($teampic1Page as $teampic1)
-                <div class="col d-none d-lg-block">
+    <div class="container mt-3">
+        <div class="row align-items-center">
+            <div class="col-lg-3 d-none d-lg-block">
+                @foreach ($teampic1Page as $teampic1)
                     @if ($teampic1->images->count() > 0)
                         <img src="{{ asset($teampic1->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
                     @endif
-                </div>
-            @endforeach
-            
-            <div class="col">
+                @endforeach
+            </div>
+    
+            <div class="col-lg-6 d-flex justify-content-center">
                 @foreach ($teamPage as $teamitems)
                     <div class="card mb-3 aboutus_card_johndoe">
                         <div class="text-center">
                             @if ($teamitems->images->count() > 0)
                                 <img src="{{ asset($teamitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
                             @endif
-                        </div>
-                        <div class="card-body">
+    
                             <h5 class="card-title">{{ $teamitems->middletitle }}</h5>
                             <p class="card-text">{{ $teamitems->middledescription }}</p>
                             <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn btn-outline-info btn-sm our_team_button">Our Team</a>
@@ -308,21 +291,36 @@
                     </div>
                 @endforeach
             </div>
-
-            @foreach ($teampic2Page as $teampic2)
-                <div class="col d-none d-lg-block">
+    
+            <div class="col-lg-3 d-none d-lg-block">
+                @foreach ($teampic2Page as $teampic2)
                     @if ($teampic2->images->count() > 0)
                         <img src="{{ asset($teampic2->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
                     @endif
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
 
     <hr>
     {{-- Accordion sector --}}
-<div class="container mt-3" data-aos="zoom-in">
-    <h2>Questions you often encounter</h2>
+    <div class="container mt-3" data-aos="zoom-in">
+        @foreach ($mainPages as $mainitem)
+        <div>
+            @if ($mainitem->section === 'Question Section')
+                <h1>{{ $mainitem->title }}</h1>
+                <div class="text-center">
+                    <span>{{ $mainitem->description }}</span>
+                </div>
+                @foreach ($mainitem->images as $image)
+                    <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                @endforeach
+
+            @endif
+        </div>
+        <br>
+    @endforeach
+
     {{-- Accordion --}}
     <div class="accordion" id="projectAccordion">
         <!-- Projects Funded -->

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('aboutuspages', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->string('title', 255)->nullable();
+            $table->string('description', 2000)->nullable();
             $table->string('section')->default('main');
             $table->timestamps();
         });

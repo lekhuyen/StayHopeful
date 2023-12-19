@@ -260,69 +260,7 @@
     <a href="{{ route('aboutuspage.create_team') }}" class="btn btn-primary">Add Founder</a>
     <a href="{{ route('aboutuspage.create_teampic1') }}" class="btn btn-primary">Add Left Picture</a>
     <a href="{{ route('aboutuspage.create_teampic2') }}" class="btn btn-primary">Add Right Picture</a>
-
-    <table class="table table-dark mt-3" id="IntrocallTable">
-        <thead>
-            <tr>
-                <th>Edit Left Picture</th>
-                <th>Delete Left Picture</th>
-                <th>Edit Founder</th>
-                <th>Delete Founder</th>
-                <th>Edit Right Picture</th>
-                <th>Delete Right Picture</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                @foreach ($teampic1Page as $pic1items)
-                        <td>
-                            <a href="{{ route('aboutuspage.edit_teampic1', $pic1items->id) }}" class="btn btn-warning">Edit</a>          
-                        </td>
-
-                        <td>
-                            <form action="{{ route('aboutuspage.delete_teampic1', $pic1items->id) }}" method="POST" 
-                                onsubmit="return confirm('Are you sure you want to delete this picture?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                @endforeach
-
-                @foreach ($teamPage as $teamitems)
-                    <td>
-                        <a href="{{ route('aboutuspage.edit_team', $teamitems->id) }}" class="btn btn-warning">Edit</a>
-                    </td>
-
-                    <td>
-                        <form action="{{ route('aboutuspage.delete_team', $teamitems->id) }}" method="POST" 
-                            onsubmit="return confirm('Are you sure you want to delete this sector?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                @endforeach
-
-                @foreach ($teampic2Page as $pic2items)
-                <td>
-                    <a href="{{ route('aboutuspage.edit_teampic2', $pic2items->id) }}" class="btn btn-warning">Edit</a>
-                </td>
-
-                <td>
-                    <form action="{{ route('aboutuspage.delete_teampic2', $pic2items->id) }}" method="POST" 
-                        onsubmit="return confirm('Are you sure you want to delete this picture?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-                @endforeach
-            </tr>
-        </tbody>
-    </table>
     <br>
-
     <div class="container-fluid mt-3 aboutus_our_team" data-aos="fade-right">
         <div class="row align-items-center aboutus_johndoe">
     
@@ -348,32 +286,32 @@
                 @endforeach
             </div>
     
-            <div class="col-md-4 order-md-2 founder_img">
+            <div class="col-md-4 order-md-2 founder_img text-center">
                 @foreach ($teamPage as $teamitems)
-                <div class="card mb-3 aboutus_card_johndoe">
-                    <div class="text-center">
-                        @if ($teamitems->images->count() > 0)
-                            <img src="{{ asset($teamitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
-                        @endif
+                    <div class="card mb-3 aboutus_card_johndoe">
+                        <div class="text-center">
+                            @if ($teamitems->images->count() > 0)
+                                <img src="{{ asset($teamitems->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
+                            @endif
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $teamitems->middletitle }}</h5>
+                            <p class="card-text">{{ $teamitems->middledescription }}</p>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <a href="{{ route('aboutuspage.edit_team', $teamitems->id) }}" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="col-auto">
+                                <form action="{{ route('aboutuspage.delete_team', $teamitems->id) }}" method="POST" 
+                                    onsubmit="return confirm('Are you sure you want to delete this sector?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $teamitems->middletitle }}</h5>
-                        <p class="card-text">{{ $teamitems->middledescription }}</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <a href="{{ route('aboutuspage.edit_team', $teamitems->id) }}" class="btn btn-warning">Edit</a>
-                    </div>
-                    <div class="col-auto">
-                        <form action="{{ route('aboutuspage.delete_team', $teamitems->id) }}" method="POST" 
-                            onsubmit="return confirm('Are you sure you want to delete this sector?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                </div>
                 @endforeach
             </div>
     

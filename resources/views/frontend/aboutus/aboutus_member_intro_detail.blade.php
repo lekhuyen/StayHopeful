@@ -7,7 +7,7 @@
 
 <div class="btn__back">
     <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn__go_back">
-        <i class="fa fa-long-arrow-left"></i>GO BACK TO THE WhO We Are</a>
+        <i class="fa fa-long-arrow-left"></i>GO BACK</a>
 </div>
 
 
@@ -21,12 +21,7 @@
                         {{ $ourfounderPages->middledescription }}
                     </div>
                 </div>
-            </div>
-        </div>
-
-        {{-- Add the video container --}}
-        <div class="container mt-3 johndoe_introduction">
-            <div class="card">
+                <br>
                 @if ($ourfounderPages->video)
                     <div class="container mt-3 video-container text-center">
                         <video width="60%" height="auto" controls>
