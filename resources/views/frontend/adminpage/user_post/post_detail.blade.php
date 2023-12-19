@@ -17,6 +17,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Username</th>
                         <th>Content</th>
                         <th></th>
                         <th></th>
@@ -27,6 +28,10 @@
                 <tbody>
                     <tr>
                         <td>{{ $post->id }}</td>
+                        <td>
+                            <a style="text-decoration: none; color:cornflowerblue"
+                                href="{{ route('auth.profile') }}">{{ $post->user->name }}</a>
+                        </td>
                         <td>{{ $post->title }}</td>
                         <th></th>
                         <th></th>

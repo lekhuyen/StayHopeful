@@ -23,7 +23,7 @@
         <img src="{{ asset('img/aboutus_main.jpg') }}" alt="aboutus_main" class="aboutus-image-main">
     </div>
 
-    <div style="margin-top: 20px">
+    <div class="mb-0, mt-5" style="margin-top: 20px">
         {{-- About us sector --}}
         <h1>About Us</h1>
         <div class="container about-story1" data-aos="zoom-in-left">
@@ -148,7 +148,12 @@
                 <p>At <strong>StayHopeFul</strong>, we are on a mission to create positive change across multiple fronts.
                     Our commitment extends to promoting sustainability, empowering communities by providing access to
                     education, healthcare, and economic opportunities, delivering humanitarian aid in times of crisis,
-                    advocating for the welfare of animals, and working towards global health equity.</p>
+                    advocating for the welfare of animals, and working towards global health equity.
+                    <strong>StayHopeFul</strong> unlocks more than 5,000 fully vetted nonprofits ready for meaningful
+                    partnerships. We have the customizable tools and solutions you need to create and enhance
+                    your corporate giving strategy, empower your stakeholders, and support high-impact projects around the
+                    world.
+                </p>
                 <p>Explore the map below to see the tangible impact of our initiatives. Each marked location represents a
                     step forward in our journey towards a better, more sustainable world. Join us in making a difference for
                     the communities, ecosystems, and lives we serve.</p>
@@ -254,7 +259,8 @@
                     <div class="card-body call_to_action_card">
                         <h5 class="card-title">Feedback</h5>
                         <p class="card-text card-text-p">We value your feedback and insights! You can helps us
-                            understand your needs better and allows us to continuously enhance our projects and events to ser
+                            understand your needs better and allows us to continuously enhance our projects and events to
+                            ser
                             our community better.</p>
                         <a href="{{ route('feedback.create') }}"
                             class="btn btn-outline-info btn-sm call_to_action_button">Feedback</a>
@@ -321,7 +327,8 @@
                         <p class="card-text">John Doe, now known as The Founder, stands at the helm of a thriving online
                             platform. Born from a fusion of passion and purpose, the platform has become a virtual nexus
                             where donors and causes converge</p>
-                        <a href="{{ route('aboutus.aboutus_whoweare') }}" class="btn btn-outline-info btn-sm our_team_button">Our
+                        <a href="{{ route('aboutus.aboutus_whoweare') }}"
+                            class="btn btn-outline-info btn-sm our_team_button">Our
                             Team</a>
                     </div>
                 </div>

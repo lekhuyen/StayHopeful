@@ -9,7 +9,6 @@ class SensitiveController extends Controller
 {
     public function index()
     {
-        // $sensitives = Sensitive::all();
         $sensitives = Sensitive::orderBy('id', 'desc')->paginate(6);
         return view('frontend.sensitive.index', compact('sensitives'));
     }
@@ -39,7 +38,6 @@ class SensitiveController extends Controller
     public function edit($id)
     {
         $sensitive = Sensitive::find($id);
-        // dd($sensitive);
         return view('frontend.sensitive.update', compact('sensitive'));
     }
 

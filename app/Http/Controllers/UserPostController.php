@@ -37,7 +37,9 @@ class UserPostController extends Controller
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
 
         // }
-        return view('frontend.post_page.index', compact('posts'));
+        $user = User::all();
+
+        return view('frontend.post_page.index', compact('posts', 'user'));
     }
 
     // like - user - post

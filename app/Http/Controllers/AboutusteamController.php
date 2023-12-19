@@ -11,7 +11,7 @@ class AboutusteamController extends Controller
 {
     public function aboutus_team_index()
     {
-        $aboutusteams = aboutusteam::orderBy('id', 'desc')->paginate(5); // Use paginate for pagination
+        $aboutusteams = aboutusteam::orderBy('id', 'desc')->paginate(2); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 

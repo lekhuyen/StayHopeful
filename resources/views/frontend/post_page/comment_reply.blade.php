@@ -4,6 +4,7 @@
         <img width="60" id="avatar_user"
             src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
             alt="">
+        
     </a>
     <div class="comment_body">
         <div class="comment_background" data-id="{{$reply->id}}">

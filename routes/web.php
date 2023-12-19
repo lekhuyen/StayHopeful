@@ -222,6 +222,11 @@ Route::group(['prefix' => 'category/'], function () {
 
 //project admin page
 Route::group(['prefix' => 'project-post/'], function () {
+    Route::get('active-event/{id}', [ProjectController::class, 'showEditEvent'])->name('projectAd.edit_event');
+    Route::put('active-event/{project}', [ProjectController::class, 'activeEvent'])->name('projectAd.update_event');
+
+    Route::get('index-sort/{type}', [ProjectController::class, 'sortEvent'])->name('projectAd.index_sort');
+
     Route::get('index', [ProjectController::class, 'index'])->name('projectAd.index')->middleware('can:project_list');
 
     Route::get('create', [ProjectController::class, 'create'])->name('projectAd.create')->middleware('can:project_add');

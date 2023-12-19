@@ -128,3 +128,13 @@ input:focus {
     -moz-box-shadow: 5px 5px 5px #ccc;
     -webkit-box-shadow: 5px 5px 5px cornflowerblue;
 }
+
+@media (max-width: 768px) {
+    .search_input-project {
+        width: 100%;
+    }
+    .search_input-project input{
+        width: 100%;
+        margin-right: 0 !important;
+    }
+}
