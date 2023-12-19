@@ -70,7 +70,7 @@
 
         <div class="modal-header">
             <h4 class="modal-title">Volunteer Detail List</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <button type="button" class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body body__volunteer">
 
