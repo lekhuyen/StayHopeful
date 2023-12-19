@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CommentPost;
 use App\Models\ReplyComment;
+use App\Models\User;
 use App\Models\UserPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,8 +30,9 @@ class CommentPostController extends Controller
             
         }
         $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'desc')->get();
+        $user = User::all();
             if ($comments) {
-                return view('frontend.post_page.list_comment', compact('comments'));
+                return view('frontend.post_page.list_comment', compact('comments', 'user'));
                 // return response()->json($comments);
             }
         return response()->json(['error' => $validator->errors()->first()]);
@@ -65,8 +67,9 @@ class CommentPostController extends Controller
     public function get_comment($post_id)
     {
         $post = UserPost::find($post_id);
+        $user = User::all();
         if ($post) {
-            return view('frontend/post_page/comment_post', compact('post'));
+            return view('frontend/post_page/comment_post', compact('post', 'user'));
         } else {
             return response()->json([
                 'status' => 'error',
