@@ -200,7 +200,7 @@ Route::delete('/aboutus_page_table/delete_question/{questionPages}', [Aboutuspag
 Route::get('/aboutus_page_table/aboutus_member_index', [AboutuspageController::class, 'aboutus_member_index'])->name('aboutusmember.index');
 Route::get('/aboutus_page_main/aboutus_member_index/{id}', [AboutuspageController::class, 'Aboutus_member_main'])->name('aboutus_member_main');
 Route::get('/aboutus_page_main/aboutus_member_index/aboutus_member_detail/{id}', [AboutuspageController::class, 'Aboutus_member_detail'])->name('aboutusmember.detail');
-Route::get('/aboutus/whoweare/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
+Route::get('/aboutus/whoweare/member/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
 
 
 //About Us Founder Page

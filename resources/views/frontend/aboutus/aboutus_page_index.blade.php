@@ -31,6 +31,7 @@
             </thead>
             <tbody>
                 @foreach ($mainPages as $item)
+                
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->title }}</td>

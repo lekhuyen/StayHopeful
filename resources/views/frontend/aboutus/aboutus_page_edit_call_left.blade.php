@@ -56,21 +56,7 @@
   </form>
 </div>
 
-<script defer>
-  tinymce.init({
-      selector: '.tinymce', // Specify the class of the textarea you want to enhance
-      height: 300,
-      plugins: [
-          'advlist autolink lists link image charmap print preview anchor',
-          'searchreplace visualblocks code fullscreen',
-          'insertdatetime media table paste code help wordcount'
-      ],
-      toolbar: 'undo redo | formatselect | ' +
-          'bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | ' +
-          'bullist numlist outdent indent | removeformat | help',
-      forced_root_block: false,
-  });
-</script>
+
 
 @include('frontend/login/login')
 @endsection

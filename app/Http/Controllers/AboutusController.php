@@ -36,9 +36,10 @@ class AboutusController extends Controller
     {
         // Retrieve the team member from the database
         $teamMember = AboutusTeam::find($id);
+        $ourfounderPages = aboutusmember::find($id);
 
         // Pass the team member data to the view
-        return view('frontend.aboutus.detail_member', compact('teamMember'));
+        return view('frontend.aboutus.detail_member', compact('teamMember', 'ourfounderPages'));
     }
 
     public function johndoe()
