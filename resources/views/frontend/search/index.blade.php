@@ -3,6 +3,8 @@
 @section('main')
     @include('frontend.info_donate.info_donate')
     {{-- css --}}
+    <link rel="stylesheet" href="{{asset('general/project.css')}}">
+
     <link rel="stylesheet" href="{{asset('blogcss/blog_finished.css')}}">
     {{-- css --}}
 
@@ -46,7 +48,9 @@
                     </div>
                 @endforeach
             @endif
-            {{$projects->links()}}
+            <div class="general__pagination">
+                {{ $projects->links() }}
+            </div>
         </div>
     </div>
 

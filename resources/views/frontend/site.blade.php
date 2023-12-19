@@ -121,7 +121,6 @@
                                 {{-- <a href="#" class="btn solid">LOGIN</a> --}}
                             </div>
                         </div>
-<<<<<<< HEAD
                             <div class="nav-btn">
                                 <div class="nav-links">
                                         <ul class="ul-mobile">
@@ -307,7 +306,6 @@
                                             {{-- <i class="fas fa-angle-right dropdown"></i> --}}
                                             {{-- <div class="nav-sub-menu-title"> --}}
                                             {{-- @if ($categories->count() > 0)
->>>>>>> 4941438edd1d5fc35cbe184ddcce8d4f6f269896
                                                         @foreach ($categories as $category)
                                                             <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
                                                         @endforeach
