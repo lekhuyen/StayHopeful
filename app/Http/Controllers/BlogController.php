@@ -107,7 +107,7 @@ class BlogController extends Controller
         $projects = Project::where(function ($query) use ($keywork) {
             $query->where('title', 'like', '%' . $keywork . '%')
                 ->orWhere('description', 'like', '%' . $keywork . '%');
-        })->get();
+        })->paginate(8);
 
         if($projects->count() > 0){
             return view('frontend.search.index', compact('projects'));
