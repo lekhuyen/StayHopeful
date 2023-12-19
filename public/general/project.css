@@ -1,3 +1,7 @@
 b, strong{
     display: none;
 }
+.general__pagination {
+    display: flex;
+    justify-content: end;
+}

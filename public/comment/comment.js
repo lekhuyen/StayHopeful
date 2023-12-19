@@ -17,6 +17,9 @@ var modelFormPost = document.querySelector('.modal_inner-post')
 var editPost = document.querySelectorAll('.edit_post')
 var editPostForm = document.querySelectorAll('.edit-post-user')
 var profileForm = document.querySelector('.profile-form')
+//user-post(page)
+var editPostUser = document.querySelectorAll('.edit__post-user')
+var editPostFormUser = document.querySelectorAll('#edit-post-user')
 
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-user-post-alert-btn');
@@ -35,11 +38,25 @@ editPost.forEach((item, key) => {
         editPostForm[key].classList.toggle('show-edit-form')        
     })
 });
-// window.addEventListener('click', ()=>{
-//     editPostForm.forEach(item, ()=>{
-//         item.classList.remove('show-edit-form')
-//     })
-// })
+window.addEventListener('click', ()=>{
+    editPostForm.forEach((form) => {
+        form.classList.remove('show-edit-form');
+    });
+})
+
+//user-post(page)
+editPostUser.forEach((item, key) => {
+    item.addEventListener('click', (e)=>{ 
+        e.stopPropagation();
+        editPostFormUser[key].classList.toggle('show-edit-form')        
+    })
+});
+window.addEventListener('click', ()=>{
+    editPostFormUser.forEach((form) => {
+        form.classList.remove('show-edit-form');
+    });
+})
+
 
 // editPost.addEventListener('click', (e)=>{
 // })

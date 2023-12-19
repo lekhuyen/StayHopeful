@@ -37,6 +37,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // home
+// Route::get('/xacnhanotp', [AdminPageController::class, 'xacnhanotp'])->name('xacnhanotp');
+
 
 
 //frontend
@@ -80,6 +82,7 @@ Route::get('/profile/{id}', [AuthloginController::class, 'user_profile'])->name(
 
 Route::get('/profile', [AuthloginController::class, 'viewprofile'])->name('auth.profile');
 Route::get('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit');
+Route::get('/post-edit-1/{id}', [AuthloginController::class, 'post_edit_1'])->name('post.edit.1');
 Route::post('/post-edit/{id}', [AuthloginController::class, 'post_edit'])->name('post.edit.form');
 // user middleware close
 
@@ -246,6 +249,7 @@ Route::post('/comment/{id}', [CommentController::class, 'comment'])->name('comme
 
 
 //search bar project page
+Route::get('/search', [BlogController::class, 'search'])->name('search_projectview');
 Route::post('/search', [BlogController::class, 'search'])->name('search_project');
 
 
@@ -438,7 +442,8 @@ Route::post('/update-comment-post/{id}', [CommentPostController::class, 'updateC
 //edit-reply comment
 Route::post('/edit-reply/{id}', [CommentPostController::class, 'editReply'])->name('edit-reply');
 Route::post('/update-comment-reply-post/{id}', [CommentPostController::class, 'updateReply'])->name('update-comment-reply-post');
-
+//them reply
+Route::get('/more-reply/{id}', [CommentPostController::class, 'moreReply'])->name('more-reply');
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');
 

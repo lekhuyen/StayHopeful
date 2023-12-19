@@ -1,6 +1,6 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-@section('title', 'Update Project')
+@section('title', 'Update Event for Volunteer')
 
 {{-- css --}}
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
@@ -11,7 +11,7 @@
 </div>
 
 <div class="container mt-3">
-    <h1>Update Project</h1>
+    <h1>Update Event for Volunteer Project</h1>
     <form action="{{ route('projectAd.update_event', $project) }}" method="POST">
         @csrf
         @method('PUT')
@@ -46,7 +46,7 @@
         <div class="form-check">
             <input type="radio" class="form-check-input" id="active" name="status_event" value="0"
                 {{ old('status_event', $project->status_event  =='0'? 'checked' : '') }}>
-            <label class="form-check-label" for="active">DeActive</label>
+            <label class="form-check-label" for="active">Deactive</label>
         </div>
         <div class="d-flex justify-content-center btn__center">
             <button type="submit" class="btn btn-primary submit-project">Submit</button>

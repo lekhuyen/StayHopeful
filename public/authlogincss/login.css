@@ -229,6 +229,7 @@ form.sign-up-form{
 div.div-forgot-pass{
     text-decoration: none;
     color:#4481eb;
+    cursor: pointer;
 }
 div.div-forgot-pass:hover{
     /* text-decoration: underline; */

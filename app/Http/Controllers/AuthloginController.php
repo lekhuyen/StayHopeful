@@ -212,6 +212,13 @@ class AuthloginController extends Controller
         $image = $post->images;
         return response()->json(['post' => $post, 'images' => $image]);
     }
+    public function post_edit_1($post_id)
+    {
+        $post = UserPost::find($post_id);
+        // $image = $post->images;
+        return view('frontend.post_page.form_edit-post', compact('post'));
+        // return response()->json(['post' => $post, 'images' => $image]);
+    }
     public function change_password(Request $request)
     {
         $request->validate([

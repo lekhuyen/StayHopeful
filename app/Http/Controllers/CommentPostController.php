@@ -28,7 +28,7 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'asc')->get();
+        $comments = CommentPost::where(['post_id' => $post_id])->orderBy('id', 'desc')->get();
             if ($comments) {
                 return view('frontend.post_page.list_comment', compact('comments'));
                 // return response()->json($comments);
@@ -54,7 +54,7 @@ class CommentPostController extends Controller
             ]);
             
         }
-        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'asc')->get();
+        $replyComment = ReplyComment::where(['post_id' => $post_id, 'comment_id'=>$request->comment_id])->orderBy('id', 'desc')->get();
             if ($replyComment) {
                 return response()->json($replyComment);
             }
@@ -172,5 +172,21 @@ class CommentPostController extends Controller
                 return response()->json($reply);
             }
         return response()->json(['error' => $validator->errors()->first()]);
+    }
+
+    //xem them reply
+    public function moreReply(Request $request, $comment_id){
+        $comment = CommentPost::find($comment_id);
+        //so reply muon lay
+        $soReply = $request->soReply;
+        //so reply muon hien
+        $reply_count = 3;
+        $from = ($soReply-1)*$reply_count;
+        $replies = $comment->replies->skip($from)->take($reply_count);
+        
+        return view('frontend.post_page.them_reply', compact('replies'));
+        // return response()->json($replies);
+        
+
     }
 }

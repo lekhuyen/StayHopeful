@@ -99,7 +99,7 @@ class BlogController extends Controller
         // return view('frontend.blog.news_detail', compact('categories', 'projects', 'new'));
     }
 
-
+    
     //search
     public function search(Request $request){
         $keywork = $request->keywork;
@@ -107,7 +107,7 @@ class BlogController extends Controller
         $projects = Project::where(function ($query) use ($keywork) {
             $query->where('title', 'like', '%' . $keywork . '%')
                 ->orWhere('description', 'like', '%' . $keywork . '%');
-        })->get();
+        })->paginate(8);
 
         if($projects->count() > 0){
             return view('frontend.search.index', compact('projects'));

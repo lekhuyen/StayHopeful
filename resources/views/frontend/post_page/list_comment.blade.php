@@ -5,12 +5,14 @@
                 src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
                 alt="">
         </a>
+        
         <div class="comment_body">
             <div class="comment_background" data-id="{{ $comment->id }}">
                 <div style="min-width: 100px">
                     <a href="">{{ $comment->user->name }}</a>
                 </div>
-                <div style="width: 100%" id="comment_content-user-post" data-id="{{ $comment->id }}">
+                
+                <div style="width: 100%" id="comment_content-user-post" data-id="{{$comment->id}}">
                     <p class="comment_content">{{ $comment->content }}</p>
                 </div>
                 @if ($comment->user->id == auth()->user()->id)
@@ -27,7 +29,7 @@
 
             </div>
             {{-- !form edit comment --}}
-            <form style="margin-bottom: 10px; display: none" class="form_reply edit_form-comment"
+            <form style="margin-bottom: 10px; display: none" class="edit_form-comment"
                 data-id="{{ $comment->id }}">
                 <div id="input_reply-comment" style="width: 90%;">
                     <textarea style="padding: 10px 50px 10px 20px;" cols="" rows="10" name="content" placeholder="comment.."
@@ -42,7 +44,7 @@
             <p class="reply_comment_post show_reply-form" data-id="{{ $comment->id }}">
                 Reply
             </p>
-
+            {{-- !form submit comment --}}
             <form style="display: none; margin-bottom: 10px;"
                 class="form_reply-{{ $comment->id }} form_reply btn_reply-submit" data-id="{{ $comment->id }}">
                 <div id="input_reply-comment" style="width: 90%;">
@@ -55,10 +57,15 @@
             </form>
 
             {{-- !reply --}}
+            
             <div class="comment_post replies-container" data-id="{{ $comment->id }}" style="display: block">
-                @include('frontend.post_page.comment_reply', ['comment' => $comment->replies])
+                {{-- <div class="more_reply"  data-id="{{ $comment->id }}" style="{{ $comment->replies->count() < 3 ? 'display: none' : '' }}"> --}}
+                    @include('frontend.post_page.comment_reply', ['comment' => $comment->replies])
+                {{-- </div> --}}
             </div>
-
+            
+            {{-- <div class="xem_them" style="cursor: pointer" data-id="{{$comment->id}}">{{$comment->replies->count() == 0 ? '' : 'Xem them'}}</div> --}}
+            
 
         </div>
     </div>
