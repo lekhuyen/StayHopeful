@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
 <div class="container mt-3">
+    <br>
+    <br>
     <h1>Main Member Detail Page</h1>
     <br>
     <div class="btn__back">
@@ -65,14 +67,16 @@
     @endif
     <br>
 
-    @if ($aboutusmember)
+    @if ($aboutusmember && $aboutusmember->video)
         <h3>Video</h3>
         <div class="card">
             <div class="card-body text-center">
-                <div class="col-md-10 offset-md-1 ">
+                <div class="col-md-10 offset-md-1">
                     <div class="video-container">
-                        @foreach ($aboutusmember->video as $videos)
-                        <iframe width="560" height="315" src="{{ $aboutusmember->videos }}" frameborder="0" allowfullscreen></iframe>                            @endforeach
+                        <video width="560" height="315" controls>
+                            <source src="{{ asset('storage/' . $aboutusmember->video) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>

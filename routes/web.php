@@ -206,6 +206,8 @@ Route::get('/aboutus/whoweare/{id}', [AboutuspageController::class, 'Aboutus_int
 //About Us Founder Page
 Route::get('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_create_founder'])->name('aboutusmember.create_founder');
 Route::post('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_store_founder'])->name('aboutusmember.store_founder');
+Route::get('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_edit_founder'])->name('aboutusmember.edit_founder');
+Route::put('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_update_founder'])->name('aboutusmember.update_founder');
 
 Route::delete('/aboutus_page_table/aboutus_member_index/delete_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_delete_founder'])->name('aboutusmember.delete_founder');
 //feedback

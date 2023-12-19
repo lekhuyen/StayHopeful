@@ -9,67 +9,77 @@
             <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
 
-    <div class="container our_founder " data-aos="zoom-in">
-        <h1 class="text-center aboutus_ourfounder_h2">Our Founder</h1>
-        <div class="col-md-10 offset-md-1 our_founder">
-            <span>
-                Welcome to the heart of <strong>StayHopeful</strong>. Behind every impactful initiative and transformative
-                project, there's a team of dedicated individuals committed to making a positive difference. Together, we
-                share a common vision, diverse skills, and an unwavering commitment to creating a world where hope,
-                compassion, and resilience thrive.
-            </span>
-        </div>
-
-        <div class="container mt-5 johndoe_card">
-            <div class="row mt-4">
-                <!-- Founder's Picture -->
-                <div class="col-md-4 text-center">
-                    <img class="img-fluid rounded-circle founder-img" src="{{ asset('img/aboutus_founder.jpg') }}"
-                        alt="founder">
-                </div>
-                <!-- Introduction -->
-                <div class="col-md-8">
-                    <br>
-                    <p>
-                        Meet John Doe, the visionary behind <strong>StayHopeful</strong>. As the driving force behind the
-                        organization's mission, John's passion for making a positive impact has been evident since its
-                        inception. His leadership and commitment inspire our team to create a world where hope and
-                        compassion thrive. Learn more about John's journey and dedication in the Read More section below.
-                    </p>
-                    <a href="{{ route('aboutus.johndoe') }}" class="btn btn-outline-info btn__founder">Learn More</a>
-                </div>
+@foreach ($ourfounderPages as $founderitems)
+    @if ($founderitems->section === 'Founder')
+        <div class="container our_founder " data-aos="zoom-in">
+            <h1 class="text-center aboutus_ourfounder_h2">{{ $founderitems->title }}</h1>
+            <div class="col-md-10 offset-md-1 our_founder">
+                <span>
+                    {{ $founderitems->description }}
+                </span>
             </div>
-        </div>
-    </div>
-    <hr>
-    <!-- Team Members sector -->
 
-    <!-- Robert Johnson Card -->
-    <div class="container mt-3 robert_johnsonc_card">
-        <h1>Financial Team</h1>
-        <br>
-        <div class="row justify-content-center" data-aos="fade-right">
-            <div class="col-md-6">
-                <div class="card robert_johnsonc_picture">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ asset('img/Robert_Johnson.jpg') }}" class="img-fluid rounded-start"
-                                alt="Robert_Johnson">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Robert Johnson</h5>
-                                <p class="card-text">Robert Johnson, our Chief Financial Officer, brings extensive
-                                    experience in finance and strategic planning. His innovative thinking has significantly
-                                    contributed to our organization's success.</p>
-                                <a href="{{ route('aboutus.robertjohnson') }}" class="btn btn-outline-info btn__founder">View Details</a>
-                            </div>
-                        </div>
+            <div class="container mt-5 johndoe_card">
+                <div class="row mt-4">
+                    <!-- Founder's Picture -->
+                    <div class="col-md-4 text-center">
+                        @if ($founderitems->images->count() > 0)
+                            @foreach ($founderitems->images as $image)
+                                <img src="{{ asset($image->url_image) }}" class="card-img-top rounded-circle founder-img" alt="Image" style="max-width: 100%;">
+                            @endforeach
+                        @endif
+                    </div>
+                    <!-- Introduction -->
+                    <div class="col-md-8">
+                        <br>
+                        <p>
+                            {{ $founderitems->leftdescription }}
+                        </p>
+                        <a href="{{ route('aboutusintro.detail', $founderitems->id) }}" class="btn btn-outline-info btn__founder">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
+    @endif
+@endforeach
+    <!-- Team Members sector -->
 
+    <!-- Robert Johnson Card -->
+    <div class="container mt-3 robert_johnsonc_card">
+        @foreach ($ourfounderPages as $founderitems)
+            @if ($founderitems->section === 'Financial Team')
+                <h1>{{ $founderitems->section }}</h1>
+                <div class="col-md-10 offset-md-1">
+                    <span>
+                        {{ $founderitems->description }}
+                    </span>
+                </div>
+                <br>
+                <div class="row justify-content-center" data-aos="fade-right">
+                    <div class="col-md-6">
+                        <div class="card robert_johnsonc_picture">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    @if ($founderitems->images->count() > 0)
+                                        @foreach ($founderitems->images as $image)
+                                            <img src="{{ asset($image->url_image) }}" class="img-fluid rounded-start" alt="Image" style="max-width: 100%;">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $founderitems->title }}</h5>
+                                        <p class="card-text">{{ $founderitems->leftdescription }}</p>
+                                        <a href="{{ route('aboutusintro.detail', $founderitems->id) }}" class="btn btn-outline-info btn__founder">View Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
         <br>
 
         <!-- Financial Team Members -->

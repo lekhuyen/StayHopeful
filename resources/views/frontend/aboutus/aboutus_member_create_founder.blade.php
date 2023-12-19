@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
 <div class="container mt-3">
-    <h1>Founder Form</h1>
+    <h1>Member Form</h1>
     <form method="POST" enctype="multipart/form-data" action="{{ route('aboutusmember.store_founder') }}">
         @csrf
 
@@ -44,6 +44,18 @@
             <label for="middledescription" class="form-label">Founder Description Info:</label>
             <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription"
                 name="middledescription"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="section" class="form-label">Section:</label>
+            <select class="form-control" id="section" name="section">
+                <option value="Founder" @selected(old('section') == 'Founder')>Founder</option>
+                <option value="Financial Team" @selected(old('section') == 'Financial Team')>Financial Team</option>
+                <option value="Marketing Team" @selected(old('section') == 'Marketing Team')>Marketing Team</option>
+                <option value="Lead Developer Team" @selected(old('section') == 'Lead Developer Team')>Lead Developer Team</option>
+                <option value="Creative Team" @selected(old('section') == 'Creative Team')>Creative Team</option>
+                <option value="Volunteer Member" @selected(old('section') == 'Volunteer Member')>Volunteer Member</option>
+            </select>
         </div>
 
         <div class="mb-3">

@@ -27,8 +27,8 @@ class AboutusController extends Controller
 
     public function aboutus_whoweare() {
         $teamMembers = aboutusteam::all();
-
-        return view('frontend.aboutus.aboutus_whoweare', compact('teamMembers'));
+        $ourfounderPages = Aboutuscalltoaction::all();
+        return view('frontend.aboutus.aboutus_whoweare', compact('teamMembers', 'ourfounderPages'));
     }
 
     public function showTeamMemberDetail($id)

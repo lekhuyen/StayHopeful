@@ -8,6 +8,7 @@ use App\Models\aboutuspage;
 use App\Models\aboutustitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class AboutuspageController extends Controller
@@ -846,13 +847,11 @@ class AboutuspageController extends Controller
         $request->validate([
             "title" => "nullable",
             "description" => "nullable",
-
             "leftdescription" => "nullable",
             "middletitle" => "nullable",
-
             "middledescription" => "nullable",
+            "section" => "nullable",
             "images" => "nullable|array",
-
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
         ]);
@@ -861,13 +860,29 @@ class AboutuspageController extends Controller
 
         $ourfounderPages->title = $request->title;
         $ourfounderPages->description = $request->description;
-
         $ourfounderPages->leftdescription = $request->leftdescription;
         $ourfounderPages->middletitle = $request->middletitle;
-
         $ourfounderPages->middledescription = $request->middledescription;
+        $ourfounderPages->section = $request->section;
+        // Save the model to get an ID
         $ourfounderPages->save();
 
+        $videoPath = null; // Initialize the variable outside of the if block
+
+        // Handle video upload
+        if ($request->hasFile('video')) {
+            // Generate a unique filename for the video
+            $videoFilename = time() . "_" . $request->file('video')->getClientOriginalName();
+            
+            // Store the video with the generated filename
+            $videoPath = $request->file('video')->storeAs('videos', $videoFilename, 'public');
+
+            // Update the model with the video path
+            $ourfounderPages->video = $videoPath;
+            $ourfounderPages->save();
+        }
+
+        // Handle image upload
         if ($request->hasFile("images")) {
             foreach ($request->file("images") as $item) {
                 $filename = time() . "_" . $item->getClientOriginalName();
@@ -882,46 +897,74 @@ class AboutuspageController extends Controller
                 $newImage->save();
             }
         }
-
-        if ($request->hasFile('video')) {
-            $videoPath = $request->file('video')->store('videos', 'public');
-            $ourfounderPages->video = $videoPath; // Assign the video path to the 'video' attribute
-        }
-
         $ourfounderPages = Aboutuscalltoaction::all();
 
         return redirect()->route('aboutusmember.index')->with('ourfounderPages', $ourfounderPages)
             ->with("success", "Founder created successfully");
     }
 
-        public function aboutus_page_edit_founder(aboutuscalltoaction $ourfounderPages) {
-            return view("frontend.aboutus.aboutus_member_edit_founder", compact("leftcallPages"));
-        }
+
+    public function aboutus_page_edit_founder(aboutuscalltoaction $ourfounderPages) {
+        return view("frontend.aboutus.aboutus_member_edit_founder", compact("ourfounderPages"));
+    }
 
     public function aboutus_page_update_founder(Request $request, aboutuscalltoaction $ourfounderPages)
     {
-
         $request->validate([
             "title" => "nullable",
             "description" => "nullable",
-
             "leftdescription" => "nullable",
             "middletitle" => "nullable",
-
             "middledescription" => "nullable",
+            "section" => "nullable",
             "images" => "nullable|array",
-
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
+
         ]);
 
+    // Add this line to trim the description before saving
+
         $ourfounderPages->title = $request->title;
-        $ourfounderPages->description = $request->description;
-
-        $ourfounderPages->leftdescription = $request->leftdescription;
+        $ourfounderPages->description = trim($request->description);
+        $ourfounderPages->leftdescription = trim($request->leftdescription);
         $ourfounderPages->middletitle = $request->middletitle;
+        $ourfounderPages->middledescription =trim($request->middledescription);
+        $ourfounderPages->section = $request->section;
+        $ourfounderPages->save();
 
-        $ourfounderPages->middledescription = $request->middledescription;
+        // Insert new images
+        if ($request->hasFile("images")) {
+
+            if ($request->hasFile("images")) {
+                foreach ($request->file("images") as $item) {
+                    $filename = time() . "_" . $item->getClientOriginalName();
+                    $destinationPath = public_path("img/aboutus_images");
+            
+                    $item->move($destinationPath, $filename);
+                    $imagePath = "img/aboutus_images/" . $filename;
+            
+                    $newImage = new Aboutusimage();
+                    $newImage->url_image = $imagePath;
+                    $ourfounderPages->images()->save($newImage);
+                }
+            }
+        }
+
+        // Update or add the new video
+        if ($request->hasFile('video')) {
+            // Delete the existing video file
+            if (!empty($ourfounderPages->video) && Storage::exists($ourfounderPages->video)) {
+                Storage::delete($ourfounderPages->video);
+            }
+
+            // Upload the new video file
+            $videoPath = $request->file('video')->store('videos', 'public');
+
+            // Update the video path in the database
+            $ourfounderPages->video = $videoPath;
+        }
+
         $ourfounderPages->save();
 
         return redirect()->route("aboutusmember.index")->with("success", "Founder page updated successfully");
@@ -930,7 +973,6 @@ class AboutuspageController extends Controller
 
     public function aboutus_page_delete_founder(aboutuscalltoaction $ourfounderPages)
     {
-
         // Delete related images
         foreach ($ourfounderPages->images as $image) {
             if (File::exists($image->url_image)) {
@@ -938,10 +980,12 @@ class AboutuspageController extends Controller
             }
             $image->delete();
         }
+
         // Delete the associated video file
-        if (!empty($ourfounderPages->video) && Storage::exists($ourfounderPages->video)) {
+        if ($ourfounderPages->video && Storage::exists($ourfounderPages->video)) {
             Storage::delete($ourfounderPages->video);
         }
+
         // Delete the main page
         $ourfounderPages->delete();
 
@@ -949,9 +993,10 @@ class AboutuspageController extends Controller
         return redirect()->route('aboutusmember.index')->with('success', 'Founder page deleted successfully');
     }
 
+    
     public function Aboutus_intro_detail($id)
     {
-        $ourfounderPages = Aboutuscalltoaction::all();
+        $ourfounderPages = Aboutuscalltoaction::find($id);
         $aboutusmember = aboutuspage::find($id);
 
         if (!$aboutusmember) {
@@ -959,5 +1004,16 @@ class AboutuspageController extends Controller
         }
 
         return view('frontend.aboutus.aboutus_member_intro_detail', compact('aboutusmember', 'ourfounderPages'));
+    }
+
+    public function showMainMemberDetail($memberId)
+    {
+        // Your existing code to retrieve $aboutusmember...
+
+        // Assuming you have a method to get the video path for the member, adjust as needed
+        $videoPath = $this->getVideoPathForMember($memberId);
+
+        // Pass $aboutusmember and $videoPath to the view
+        return view('frontend.aboutus.aboutus_member_detail', compact('aboutusmember', 'videoPath'));
     }
 }

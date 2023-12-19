@@ -22,8 +22,9 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>View Description</th>
-                <th>Fully View</th>
+                <th>Member and Team</th>
                 <th>Image</th>
+                <th>Video</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -36,20 +37,24 @@
                 <td>
                     <!-- Add a placeholder for viewing the description -->
                     <a href="{{ route('aboutusmember.detail', $founderItem->id) }}" class="btn btn-primary">View Description</a>
-                    {{ $founderItem->description }}
                 </td>
-                <td>
-                    <!-- Fully View Button -->
-                    <a href="{{ route('aboutusintro.detail', $founderItem->id) }}" class="btn btn-primary">View All Description</a>
-                </td>
+                    <!-- Member and Team -->
+                <td>{{ $founderItem->section }}</td>
                 <td>
                     @if ($founderItem->images->count() > 0)
                         <img src="{{ asset($founderItem->images[0]->url_image) }}" width="100" class="img-thumbnail" alt="Image"/>
                     @endif
                 </td>
                 <td>
-                    <!-- Add button for editing -->
-                    {{-- <a href="{{ route('aboutusmember.edit_founder', $founderItem->id) }}" class="btn btn-warning">Edit</a> --}}
+                    <!--Video status -->
+                    @if ($founderItem->video)
+                        <span class="badge bg-success">Available</span>
+                    @else
+                        <span class="badge bg-danger">Not Available</span>
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('aboutusmember.edit_founder', $founderItem->id) }}" class="btn btn-warning">Edit</a>
                 </td>
                 <td>
                     <!-- Add button for deleting (you can use a form for better security) -->

@@ -47,7 +47,7 @@
           <option value="Team Section" @selected(old('section') == 'Team Section')>Team Section</option>
           <option value="Question Section" @selected(old('section') == 'Question Section')>Question Section</option>
       </select>
-  </div>
+    </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
