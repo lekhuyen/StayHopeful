@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // home
+// Route::get('/xacnhanotp', [AdminPageController::class, 'xacnhanotp'])->name('xacnhanotp');
+
 
 
 //frontend
