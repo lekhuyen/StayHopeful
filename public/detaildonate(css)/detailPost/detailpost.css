@@ -60,7 +60,7 @@
 
 /* nav right*/
 .nav-bar-right {
-    background: linear-gradient(to left ,#2052af, #74a7e9);
+    background: linear-gradient(to right, #123b6a, #165baa);
     padding: 0 !important;
 }
 .nav-bar-right h2{

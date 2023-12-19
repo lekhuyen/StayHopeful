@@ -29,7 +29,7 @@ class detaildonateController extends Controller
     //     $projects = Project::all();
 
 
-    //     return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
+    //     return view('frontend.detaildonate.donate_detail', compact('projects', 'project'));
     // }
     public function viewlistdonate()
     {

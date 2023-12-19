@@ -13,7 +13,7 @@
                                 @if ($user->avatar != null)
                                     <img src="{{ asset($user->avatar) }}" alt="profile picture" class="profile-image-set">
                                 @else
-                                    <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture"
+                                    <img src="{{ asset('img/humanicon.png') }}" alt="profile picture"
                                         class="profile-image-set">
                                 @endif
                             </div>
@@ -25,7 +25,19 @@
                                     <span class="profile-username-text">{{ $user->name }}</span>
 
                                 </div>
+                               
                                 <div class="profile-info">
+                                    @if ($user->is_sponsor == 1 && $user->is_volunteer != 1)
+                                    <p class="info-text">Role: <span class="info-text-user blink"
+                                            style="font-weight: 700">Donor</span></p>
+                                @elseif ($user->is_sponsor != 1 && $user->is_volunteer == 1)
+                                    <p class="info-text">Role: <span class="info-text-user blink"
+                                            style="font-weight: 700">Volunteer</span></p>
+                                @elseif($user->is_sponsor == 1 && $user->is_volunteer == 1)
+                                    <p class="info-text">Role: <span class="info-text-user blink"
+                                            style="font-weight: 700">Donor<span style="color: black"> and</span>
+                                            Volunteer</span></p>
+                                @endif
                                     <p class="info-text">Email:
                                         <span class="info-text-user">{{ $user->email }}</span>
                                     </p>
@@ -82,12 +94,12 @@
                                                     display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
-                                               
+
                                                 @if ($user->avatar != null)
                                                     <img src="{{ asset($user->avatar) }}" alt="profile picture"
                                                         width="50">
                                                 @else
-                                                    <img src="{{ asset('img/convitne.jpg') }}" alt="profile picture"
+                                                    <img src="{{ asset('img/humanicon.png') }}" alt="profile picture"
                                                         style=" width: 80px;clip-path: circle(30%);">
                                                 @endif
                                             </a>
