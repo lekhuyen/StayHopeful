@@ -68,6 +68,36 @@
     </div>
 
     <script>
+
+        //xem them reply
+        // $(document).ready(function() {
+        //     var soReply = 0;
+        //     $('.xem_them').on('click',function(e){
+        //         e.stopPropagation();
+        //         var comment_id = $(this).data('id');
+        //         soReply+=1;
+        //         var _loginUrl = '{{ route('more-reply', ':id') }}'.replace(':id', comment_id);
+        //         $.ajax({
+        //         type: 'GET',
+        //         url: _loginUrl,
+        //         data: {
+        //             soReply:soReply,
+        //             comment_id:comment_id
+        //         },
+        //         success: function(data) {
+        //             // $('.replies-container[data-id="' + comment_id + '"]').append(html);
+        //             // console.log(data);
+        //             $('.more_reply[data-id="'+comment_id+'"]').append(data);
+                
+        //         },
+        //         error: function(error) {
+        //             alert(error);
+        //         }
+        //     });
+        //     })
+        // });
+
+
         //delete-comment
         $('.delete_comment-post-user').click(function() {
             var comment_id = $(this).data('id')

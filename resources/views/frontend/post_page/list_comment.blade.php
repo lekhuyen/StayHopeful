@@ -57,10 +57,15 @@
             </form>
 
             {{-- !reply --}}
+            
             <div class="comment_post replies-container" data-id="{{ $comment->id }}" style="display: block">
-                @include('frontend.post_page.comment_reply', ['comment' => $comment->replies])
+                {{-- <div class="more_reply"  data-id="{{ $comment->id }}" style="{{ $comment->replies->count() < 3 ? 'display: none' : '' }}"> --}}
+                    @include('frontend.post_page.comment_reply', ['comment' => $comment->replies])
+                {{-- </div> --}}
             </div>
-
+            
+            {{-- <div class="xem_them" style="cursor: pointer" data-id="{{$comment->id}}">{{$comment->replies->count() == 0 ? '' : 'Xem them'}}</div> --}}
+            
 
         </div>
     </div>

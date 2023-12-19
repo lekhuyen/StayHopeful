@@ -564,4 +564,11 @@ class AdminPageController extends Controller
 
         return $output;
     }
+
+
+
+
+    // public function xacnhanotp(){
+    //     return view('frontend.login.otp');
+    // }
 }

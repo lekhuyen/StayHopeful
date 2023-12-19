@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // home
+// Route::get('/xacnhanotp', [AdminPageController::class, 'xacnhanotp'])->name('xacnhanotp');
+
 
 
 //frontend
@@ -364,7 +366,8 @@ Route::post('/update-comment-post/{id}', [CommentPostController::class, 'updateC
 //edit-reply comment
 Route::post('/edit-reply/{id}', [CommentPostController::class, 'editReply'])->name('edit-reply');
 Route::post('/update-comment-reply-post/{id}', [CommentPostController::class, 'updateReply'])->name('update-comment-reply-post');
-
+//them reply
+Route::get('/more-reply/{id}', [CommentPostController::class, 'moreReply'])->name('more-reply');
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');
 
