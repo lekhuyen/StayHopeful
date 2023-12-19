@@ -51,10 +51,10 @@ class VolunteerController extends Controller
 
     public function store(Request $request)
     {
-        $messages = [
-            "phone.required" => "Please input a valid phone number with at least 10 digits.",
-            "rel_phone.required" => "Please input a valid phone number with at least 10 digits."
-        ];
+        // $messages = [
+        //     "phone.required" => "Please input a valid phone number with at least 10 digits.",
+        //     "rel_phone.required" => "Please input a valid phone number with at least 10 digits."
+        // ];
 
         $request->validate([
             "finding_source" => "required",
@@ -66,6 +66,17 @@ class VolunteerController extends Controller
             "rel_relationship" => "bail|required|min:3|max:10",
             "rel_phone" => 'bail|required|regex:/^(\d{10}$)/',
             "project_id" => "required"
+        ],[
+            'required' => 'The :attribute cannot be blanked',
+            'rel_phone.required' => 'The relative phone cannot be blanked',
+            'rel_relationship.required' => 'The relative relationship cannot be blanked',
+            'rel_name.required' => 'The relative name cannot be blanked',
+            'min' => 'The :attribute at least :min char',
+            'max' => 'The :attribute must greater than :min char',
+
+
+
+
         ]);
         // $userForProject = Volunteer::where(["email","=",$request->email,])->first();
         $userForProject = Volunteer::where("email","=",$request->email,'and')->where('project_id','=',$request->project_id)->first();

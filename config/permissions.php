@@ -1,5 +1,6 @@
 <?php
 return [
+
     'access'=>[
         'category_list'=> 'category_list',
         'category_delete'=> 'category_delete',

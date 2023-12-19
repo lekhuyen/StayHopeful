@@ -34,6 +34,7 @@ class detaildonateController extends Controller
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::orderBy('amount', 'desc')->get();
+        // dd($donateinfo);
         return view('frontend.detaildonate.listdonate', compact('donateinfo'));
     }
 

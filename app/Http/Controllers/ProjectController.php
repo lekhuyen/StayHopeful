@@ -13,6 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->paginate(4);
+
         return view('frontend.adminpage.projects.index', compact('projects'));
     }
 
@@ -206,8 +207,8 @@ class ProjectController extends Controller
     public function activeEvent(Request $request, Project $project)
     {
         $request->validate([
-            "start_date" => "required|date|before:end_date",
-            "end_date" => "required|date|after:start_date",
+            "start_date" => "required|date|before_or_equal:end_date",
+            "end_date" => "required|date|after_or_equal:start_date",
             "quantity" => "required|numeric|min:2",
             "status_event" => "required",
 
@@ -238,8 +239,15 @@ class ProjectController extends Controller
 
         if ($type == "active") {
             $projects = Project::where("status_event", '=', 1)->paginate(6);
-        } else {
+        }
+        else if ($type == "deActive") {
             $projects = Project::where("status_event", '=', 0)->paginate(6);
+        }else if ($type == "finish") {
+            $projects = Project::where("status", '=', 1)->paginate(6);
+        } else if ($type == "ongoing") {
+            $projects = Project::where("status", '=', 0)->paginate(6);
+        } else {
+            $projects = Project::orderBy('id', 'desc')->paginate(6);
         }
         return view('frontend.adminpage.projects.index', compact('projects'));
     }
