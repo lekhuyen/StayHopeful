@@ -7,7 +7,7 @@
             @endphp
             @foreach ($user as $item)
                 @if (!$check)
-                    @if ($comment->user_id == $item->id)
+                    @if ($comment->user_id == $item->id && $item->avatar != null)
                         <img src="{{ asset($comment->user->avatar) }}" alt="" width="50"
                             style=" width: 80px;clip-path: circle(30%);">
                         @php

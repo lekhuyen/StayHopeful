@@ -1,6 +1,5 @@
     <div class="modal_inner-comment-post">
         <div class="post-header">
-
             <div class="comment_close-header-title">
                 <div class="post_comment-header-title">
                     <h1>Post of {{ $post->user->name }}</h1>
@@ -9,7 +8,6 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
-
         </div>
         <div id="commnent_post_body" style="overflow-y: scroll">
             {{-- ! user-post --}}
@@ -26,7 +24,7 @@
                         @endphp
                         @foreach ($user as $item)
                             @if (!$check)
-                                @if ($post->user_id == $item->id)
+                                @if ($post->user_id == $item->id && $item->avatar != null)
                                     <img src="{{ asset($post->user->avatar) }}" alt="" width="50"
                                         style=" width: 80px;clip-path: circle(30%);">
                                     @php

@@ -12,9 +12,29 @@
                 <h1>Edit Post</h1>
             </div>
         </div>
+       
         <div class="post-uset-body">
             <a href='#' class="avatar-user-post">
-                <img src="{{ asset('img/omg.jpeg') }}" alt="" width="50">
+                @php
+                    $check = false;
+                @endphp
+                @foreach ($user as $item)
+                    @if (!$check)
+                        @if (auth()->user()->id == $item->id && $item->avatar != null)
+                            <img src="{{ asset($item->avatar) }}" alt="" width="50"
+                                style=" width: 80px;clip-path: circle(30%);">
+                            @php
+                                $check = true;
+                            @endphp
+                        @elseif (auth()->user()->id == $item->id && $item->avatar == null)
+                            <img src="{{ asset('img/humanicon.png') }}" alt="" width="50"
+                                style=" width: 80px;clip-path: circle(30%);">
+                            @php
+                                $check = true;
+                            @endphp
+                        @endif
+                    @endif
+                @endforeach
             </a>
             <div class="user-name-post">
                 @if (session('userInfo'))
@@ -27,7 +47,7 @@
         <div id="form__edit-post">
             @include('frontend.post_page.form_edit-post')
         </div>
-        
+
     </div>
 </div>
 
@@ -57,7 +77,7 @@
         e.preventDefault();
         var post_id = $(this).data('id');
         var url = '{{ route('post.edit.1', ':id') }}'.replace(':id', post_id);
-        
+
         $.ajax({
             type: 'GET',
             url: url,
@@ -103,13 +123,13 @@
     })
 
 
-    
+
     function delete_image(e) {
         let clickedElement = e
 
         var image_Id = $(clickedElement).data('id');
         var url = '{{ route('delete.post_image', ':id') }}'.replace(':id', image_Id);
-        
+
         $.ajax({
             type: 'GET',
             url: url,
@@ -131,7 +151,4 @@
         })
 
     }
-
-
-    
 </script>
