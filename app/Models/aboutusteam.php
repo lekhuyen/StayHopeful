@@ -9,8 +9,10 @@ class aboutusteam extends Model
 {
     protected $fillable = ["name","age","email","skill", "status","description"];
 
-    public function images(){
-        return $this->hasMany(aboutusimage::class, "aboutus_id");
+    public function images()
+    {
+        return $this->hasMany(Aboutusimage::class, 'aboutus_id');
     }
     use HasFactory;
+    
 }
