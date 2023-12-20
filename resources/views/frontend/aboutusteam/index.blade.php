@@ -8,6 +8,14 @@
     <div class="container mt-3">
         <h1>Team Member List</h1>
 
+        <div class="btn__back text-end">
+            <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
+               GO TO ABOUT US PAGE <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+
+        <div class="d-flex justify-content-center btn__center">
+            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
+        </div>
         <!-- Search Form -->
         <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
             <div class="input-group">
@@ -19,11 +27,7 @@
         <table class="table table-hover mt-3 text-center" id="teamTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable(0)">
-                        Id
-                        <span class="arrow">&#x2191;</span>
-                        <span class="arrow">&#x2193;</span>
-                    </th>
+                    <th onclick="sortTable(0)">Id</th>
                     <th onclick="sortTable(1)">Name</th>
                     <th onclick="sortTable(2)">Age</th>
                     <th onclick="sortTable(3)">Email</th>
@@ -78,78 +82,60 @@
         <div class="general__pagination">
             {{ $aboutusteams->links() }}
         </div>
-
-        <div class="d-flex justify-content-center btn__center">
-            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
-        </div>
     </div>
 
     <script>
         $(document).ready(function() {
-            let arrowUp = "&#x2191;";
-            let arrowDown = "&#x2193;";
+        function convertToNumber(value) {
+            return isNaN(value) ? value : parseFloat(value);
+        }
 
-            function convertToNumber(value) {
-                return isNaN(value) ? value : parseFloat(value);
-            }
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("teamTable");
+            switching = true;
+            dir = "asc";
 
-            function sortTable(n) {
-                var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-                table = document.getElementById("teamTable");
-                switching = true;
-                dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
 
-                // Clear all arrows
-                $("#teamTable th .arrow").html("");
+                for (i = 1; i < rows.length - 1; i++) {
+                    shouldSwitch = false;
+                    x = convertToNumber(rows[i].getElementsByTagName("TD")[n].innerHTML);
+                    y = convertToNumber(rows[i + 1].getElementsByTagName("TD")[n].innerHTML);
 
-                while (switching) {
-                    switching = false;
-                    rows = table.rows;
-
-                    for (i = 1; i < rows.length - 1; i++) {
-                        shouldSwitch = false;
-                        x = convertToNumber(rows[i].getElementsByTagName("TD")[n].innerHTML);
-                        y = convertToNumber(rows[i + 1].getElementsByTagName("TD")[n].innerHTML);
-
-                        if (dir == "asc") {
-                            if (x > y) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else if (dir == "desc") {
-                            if (x < y) {
-                                shouldSwitch = true;
-                                break;
-                            }
+                    if (dir == "asc") {
+                        if (x > y) {
+                            shouldSwitch = true;
+                            break;
                         }
-                    }
-
-                    if (shouldSwitch) {
-                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                        switching = true;
-                        switchcount++;
-                    } else {
-                        if (switchcount == 0 && dir == "asc") {
-                            dir = "desc";
-                            switching = true;
+                    } else if (dir == "desc") {
+                        if (x < y) {
+                            shouldSwitch = true;
+                            break;
                         }
                     }
                 }
 
-                // Toggle arrow symbols
-                let currentArrow = $("#teamTable th").eq(n).find(".arrow").html();
-                $("#teamTable th .arrow").html("");
-                $("#teamTable th").eq(n).find(".arrow").html(currentArrow === arrowUp ? arrowDown : arrowUp);
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
             }
+        }
 
-            // Initial arrow symbols
-            $("#teamTable th:first-child .arrow").html(arrowUp);
-
-            $("#teamTable th").click(function() {
-                var index = $(this).index();
-                sortTable(index);
-            });
+        $("#teamTable th").click(function() {
+            var index = $(this).index();
+            sortTable(index);
         });
+    });
     </script>
 
     @include('frontend/login/login')
