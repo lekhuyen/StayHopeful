@@ -9,6 +9,19 @@
     <div id="spinner"></div>
 </div>
 {{-- alert --}}
+<div class="container-verify-email-notification {{session('isVerified')?'showAlert':''}}">
+    <div class="verify-email-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+            <p>
+                Verify Email Successfully !
+                <br>
+                Please login and start discover.
+            </p>
+    </div>
+</div>
 <div class="container-register-notification">
     <div class="register-status-success">
         <div class="exit-alert-btn">
@@ -80,11 +93,9 @@
                     <div class="div-forgot-pass" href="#">Forgot your password?</div>
                     <p class="social-text">Or Sign in with social platform</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                        
                         <a href="{{route('auth.google')}}" class="social-icon">
-                            <i class="fab fa-google"></i>
+                            <i class="fab fa-google" style="display: flex; justify-content: center"></i>
                         </a>
                     </div>
                 </form>
@@ -116,11 +127,9 @@
 
                     <p class="social-text">Or Sign up with social platform</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
+                        
+                        <a href="{{route('auth.google')}}" class="social-icon">
+                            <i class="fab fa-google" style="display: flex; justify-content: center"></i>
                         </a>
                     </div>
                 </form>
