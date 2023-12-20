@@ -172,17 +172,6 @@ class AboutuspageController extends Controller
         return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
     }
 
-    public function aboutus_member_main($id)
-    {
-        $aboutusmain = aboutuspage::find($id);
-
-        if (!$aboutusmain) {
-            $aboutusmain = aboutuscalltoaction::find($id);
-        }
-
-        return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
-    }
-
 
     //about us
     public function aboutus_page_create_aboutus()

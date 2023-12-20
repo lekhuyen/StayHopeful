@@ -85,7 +85,7 @@
         <!-- Financial Team Members -->
         <div class="row row-cols-1 row-cols-md-6 g-2 financial_team_members" data-aos="fade-right">
             @foreach ($teamMembers as $member)
-                @if ($member->skill === 'Marketing Team')
+                @if ($member->skill === 'Financial Team')
                     <div class="col">
                         <a href="{{ route('aboutus.aboutus_whoweare.detail', $member->id) }}" class="card-link">
                             <div class="card h-100">
