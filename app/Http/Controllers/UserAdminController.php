@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 class UserAdminController extends Controller
 {
     public function index(){
-        $users = User::where('status',1)->get();
+        $users = User::where('status',1)->orderBy('id','desc')->paginate(4);
         return view('frontend.adminpage.user_list.index', compact('users'));
     }
 

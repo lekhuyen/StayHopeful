@@ -11,22 +11,26 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- icon --}}
+    
     {{-- ajax --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     {{-- ajax --}}
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/listdonate.css') }}">
+    {{-- css --}}
     @if (session('success'))
-        <div class="pop-background">
-            <div class="popup-success">
-                <div class="exit" id="click-exit">&#10005;</div>
-                <div class="icon-succes"><i class="fa-solid fa-check" style="color: #fff;"></i></div>
-                <h2>Success!</h2>
-                <div class="text-error">Sincerely appreciate your support in aiding and assisting others. Thank you</div>
-                <div class="popupbutton">
-                    <button class="btn-popup" id="click-exit-ok">OK</button>
-                </div>
+    <div class="container-error-notification showAlert">
+        <div class="status-error">
+            <div class="exit-alert-btn">
+                <i class="fa-solid fa-xmark"></i>
             </div>
+            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+            <p>
+                Sincerely appreciate your support in aiding and assisting others. Thank you &#128150;
+            </p>
         </div>
+    </div>
     @endif
 
     <div class="container-fluid" style="padding: 0;">

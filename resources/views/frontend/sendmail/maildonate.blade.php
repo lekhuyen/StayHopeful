@@ -34,8 +34,7 @@
         </div>
         <div class="container" style="font-weight: bold;">
             
-            <span>November 20,2023</span>
-            <p>Dear Khuyen</p>
+            <p>Dear {!! $fullname !!}</p>
             <p>I am writing to express my heartfelt gratitude for your generous
                 support to our charitable project. Your contribution has played
                 a crucial role in making a positive impact on the lives of those
@@ -56,9 +55,9 @@
                 adversity, and together, we are making strides towards creating
                 a brighter and more compassionate world.</p>
             <p>With sincere gratitude,</p>
-            <p>Bắc Song Yeong</p>
+            <p>{!! $fullname !!}</p>
             <div style="line-height: 10px;">
-                <p>{!! $project !!}</p>
+                <p>Project: {!! $project !!}</p>
                 <p>(84-028) 3910 7614</p>
                 <p>contact@StayHopeful.org</p>
             </div>

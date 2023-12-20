@@ -36,7 +36,8 @@
         <div class="exit-change-password-btn">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
+        <div style="padding-bottom: 30px">
+            <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
             method="POST">
             @csrf
             <h2 class="change-password-form-title">Change Password</h2>
@@ -60,28 +61,30 @@
             </div>
             <button id="btn-change-password" type="submit" class="btn solid btn-change-password">Confirm</button>
         </form>
+        </div>
     </div>
 </div>
 {{-- profile popup dropdown --}}
+
 <div class="popup-profile-container" style="z-index: 10;">
     <div class="profile-popup">
         <div class="profile-menu">
             <div class="user-info">
                 @if (session('userInfo'))
-                <div class="text popup-profile">
-                    @if (session('userInfo')['avatar'])
-                        <img class="nav-user-img"
-                            src="{{ asset(session('userInfo')['avatar']) }}" alt="">
-                    @elseif(!$infouser->avatar == null)
-                        <img class="nav-user-img" src="{{ asset($infouser->avatar) }}"
-                            alt="ảnh">
-                    @else
-                    <img class="nav-user-img" src="{{asset('img/humanicon.png')}}" alt="">
-                    @endif
-                </div>
-            @else
-                <div class="text popup-login">LOGIN</div>
-            @endif
+                    <div class="text popup-profile">
+                        @if (session('userInfo')['avatar'])
+                            <img class="nav-user-img" src="{{ asset(session('userInfo')['avatar']) }}" alt="">
+                        @elseif($infouser && $infouser->avatar != null)
+                            <img class="nav-user-img" src="{{ asset($infouser->avatar) }}" alt="ảnh">
+                        @else
+                            <img class="nav-user-img" src="{{ asset('img/humanicon.png') }}" alt="">
+                            
+                        @endif
+                    </div>
+                @else
+                    <div class="text popup-login">LOGIN</div>
+                @endif
+
                 @if (session('userInfo'))
                     <h4>{{ session('userInfo')['name'] }}</h4>
                 @endif
@@ -129,7 +132,6 @@
     //alert
     var changePasswordSuccess = document.querySelector(".container-change-password-notification");
     var errorAlert = document.querySelector(".container-error-notification");
-
     //change password ajax request
     $(document).ready(function() {
         $('#changePasswordForm').submit(function(e) {
@@ -148,15 +150,16 @@
                         if (response.status == 'success') {
                             changePasswordSuccess.classList.add("showAlert");
                             popupChangePassword.classList.remove('showChangePassword');
-                            // window.location.href = "{{ route('/') }}"; 
+                            // window.location.href = "{{ route('/') }}";
                             $('#old-password').val(''),
                                 $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
                         } else if (response.status == 'error') {
-                            errorAlert.classList.add("showAlert");
+                            setError(oldPassword, 'Invalid Password');
                         }
                     },
                     error: function(error) {
+                        errorAlert.classList.add("showAlert");
                         console.log(response.message);
                     }
                 });

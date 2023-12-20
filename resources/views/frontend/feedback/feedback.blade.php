@@ -1,6 +1,9 @@
 @extends('frontend.site')
 @section('main')
+@section('title','Feedback Form')
+{{-- css --}}
 <link rel="stylesheet" href="{{ asset('feedbackcss/feedback.css') }}">
+{{-- css --}}
 
     <div class="container mt-3">
         @if (session('success'))
@@ -59,8 +62,8 @@
 
                     <div class="fb-btn">
                         <div class="textcenter">
-                            <button type="submit" class="btn btn-success fb-setinput" name="feedback-btn"
-                                id="feedback-btn">SUBMIT
+                            <button type="submit" class="btn btn-primary fb-setinput" name="feedback-btn"
+                                id="feedback-btn">Submit
                             </button>
                         </div>
                     </div>

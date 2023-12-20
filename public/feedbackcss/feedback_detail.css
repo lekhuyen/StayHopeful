@@ -6,8 +6,13 @@
 
 .fb__sensitive{
     text-align: center;
+    margin-bottom: 20px;
 }
 
 a {
     white-space: nowrap;
+}
+
+.fb-content{
+    font-style: oblique;
 }

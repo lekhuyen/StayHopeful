@@ -1,10 +1,29 @@
+.call_to_action_button {
+    border-radius: 50px;
+    transition: 1s;
+}
+.our_team_button {
+    border-radius: 50px;
+    width: 120px;
+    transition: 1s;
+}
+
+.call_to_action_button:hover,
+.our_team_button:hover {
+    color: white;
+    background-color:  rgba(155, 190, 230, 1) ;
+    border-color:  rgba(155, 190, 230, 1) ;
+    transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    -moz-transform: scale(1.5, 1.5);
+}
+
 /*  Mission sector  */
 .container.mt-3.about-main {
     text-align: center;
 }
 
 .about-main h1.aboutus-h1 {
-
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -32,7 +51,7 @@
 
 /* About Us sector */
 .aboutus-h2,
-.aboutus-h3{
+.aboutus-h3 {
     text-align: center;
 }
 
@@ -53,13 +72,11 @@
     text-align: justify;
 }
 
-
 .about-story1 h2,
 .about-story2 h2,
 .about-story3 h2,
 .about-story4 h2,
 .about-story5 h2 {
-
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -95,7 +112,6 @@
 .story5 {
     display: flex;
     align-items: center;
-
 }
 
 .story1 span,
@@ -106,20 +122,18 @@
     width: 70%; /* Adjust the width as needed */
     margin-right: auto;
     margin-left: auto;
-
     margin: 20px auto;
-    display: block
-
+    display: block;
 }
 
 .aboutus_map_section {
     padding: 40px 0;
 }
 
-
 .aboutus-text {
-    padding-right: 20px; /* Adjust as needed */
+    padding-right: 40px; /* Adjust as needed */
     text-align: justify;
+    margin: 20px auto;
 }
 
 /* logo_company */
@@ -129,18 +143,18 @@
 }
 
 .about-story1 {
-background-color: #e6f7ff; /* Soft blue background */
-color: #333; /* Dark text color */
+    background-color: #e6f7ff; /* Soft blue background */
+    color: #333; /* Dark text color */
 }
 
 .about-story2 {
-background-color: #f0f0f0; /* Light gray background */
-color: #333; /* Dark text color */
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
 }
 
 .about-story3 {
-background-color: #e6f7ff; /* Soft blue background */
-color: #333; /* Dark text color */
+    background-color: #e6f7ff; /* Soft blue background */
+    color: #333; /* Dark text color */
 }
 
 .logo_info {
@@ -251,7 +265,7 @@ color: #333; /* Dark text color */
 
 .aboutus_johndoe p {
     text-align: justify;
-} 
+}
 
 .founder-img {
     max-width: 100%;
@@ -261,7 +275,6 @@ color: #333; /* Dark text color */
     margin-right: auto;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-
 }
 
 .aboutus_our_team .card-title {
@@ -300,14 +313,13 @@ color: #333; /* Dark text color */
 }
 
 .aboutus-accordion-button {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     text-align: left;
 }
 
 .aboutus-accordion-button:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
-
 
 .accordion-body {
     border-top: 1px solid #dee2e6; /* Add a top border for separation between accordion items */
@@ -316,6 +328,12 @@ color: #333; /* Dark text color */
 .aboutus_johndoe a {
     margin-left: auto;
     margin-right: auto;
+<<<<<<< HEAD
     margin-left: 35%;
     margin-right: 35%;
 }
+=======
+    margin-left: 40%;
+    margin-right: 40%;
+}
+>>>>>>> 99ec9e181caa371ec182815ce6cce04ff10e6fd6

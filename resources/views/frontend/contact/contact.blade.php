@@ -1,19 +1,22 @@
 @extends('frontend.site')
 @section('title', 'Contact')
 @section('main')
+    {{-- css contactus --}}
+    <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
+    {{-- css contactus --}}
     @if (session('success'))
-        <div class="pop-background">
-            <div class="popup-success">
-                <div class="exit" id="click-exit">&#10005;</div>
-                <div class="icon-succes"><i class="fa-solid fa-check" style="color: #fff;"></i></div>
-                <h2>Success!</h2>
-                <div class="text-error">Thank you for contacting us we will get back to you as soon as possible</div>
-                <div class="popupbutton">
-                    <button class="btn-popup" id="click-exit-ok">OK</button>
-                </div>
+    <div class="container-user-post-notification showAlert">
+        <div class="user-post-status-success">
+            <div class="exit-user-post-alert-btn">
+                <i class="fa-solid fa-xmark"></i>
             </div>
+            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+            <p style="top: 26%;">
+                Thanks For Contact Us We Will Reply Soon As Well &#128525;<br>
+            </p>
         </div>
-    @endif
+    </div>
+@endif
 
     <div class="container mt-6">
         <form method="POST" action="{{ route('contact.create') }}">

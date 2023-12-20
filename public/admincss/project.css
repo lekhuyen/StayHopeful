@@ -1,8 +1,20 @@
 .pj__description {
-    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    /* number of lines to show */
-    line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 1;
+    width: 100px;
+    text-overflow: ellipsis;
 }
+
+.news__description{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 1;
+    width: 300px;
+    text-overflow: ellipsis;
+}
+

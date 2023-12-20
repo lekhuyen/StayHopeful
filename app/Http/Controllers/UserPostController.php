@@ -14,13 +14,12 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy('status', 'desc')->paginate(4);
+        $posts = UserPost::orderBy('id', 'desc')->paginate(2);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id)
     {
         $post = UserPost::find($id);
-
         return view('frontend.adminpage.user_post.post_detail', compact('post'));
     }
 
@@ -32,19 +31,18 @@ class UserPostController extends Controller
             ->where('status', 0)
             ->get();
 
-        $comments = CommentPost::where(['post_id' => $request->post_id, 'reply_id' => 0])->orderBy('id', 'desc')->get();
+        // $comments = CommentPost::where(['post_id' => $request->post_id, 'reply_id' => 0])->orderBy('id', 'desc')->get();
         // if($comments->count() > 0 || $posts) {
         // } else {
         //     return response()->json(['status' => 'error', 'message' => 'Loi']);
 
         // }
-        $user = session()->get('userInfo');
-        // dd($user['id']);
-// dd($user);
-        return view('frontend.post_page.index', compact('posts', 'comments'));
+        $user = User::all();
+
+        return view('frontend.post_page.index', compact('posts', 'user'));
     }
 
-    // like - user - post 
+    // like - user - post
 
     public function like(Request $request)
     {
@@ -236,11 +234,12 @@ class UserPostController extends Controller
     }
     public function updateprofile(Request $request, $id)
     {
-        
+        $name = $request->name;
         $age = $request->age;
         $phone = $request->phone;
         $address = $request->address;
         $user = User::find($id);
+        $user->name = $name;
         $user->age = $age;
         $user->phone = $phone;
         $user->address = $address;
@@ -255,9 +254,9 @@ class UserPostController extends Controller
                 $image->move($PublicImagePath, $fileName);
                 $imagePath = 'images/' . $fileName;
                 $user->avatar = $imagePath;
-            
+
         }
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Update Successfully');
     }
 }

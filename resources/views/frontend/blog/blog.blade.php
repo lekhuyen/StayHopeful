@@ -1,7 +1,11 @@
 @extends('frontend.site')
-@section('title', 'Blog')
+@section('title', 'News')
 @section('main')
-<link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
+
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('blogcss/blog.css') }}">
+    {{-- css --}}
 
     <div class="container" style="margin-top: 100px">
         <div class="row">
@@ -11,24 +15,33 @@
                         <img src="{{ asset($blog->images[0]->image) }}" class="blog-detail-img-2">
                         <div>
                             <div class="blog-detail-detail ">
-                                <h3 id="title">{{$blog->title}}</h3>
+                                <h3 id="title">{{ $blog->title }}</h3>
                             </div>
                             <div class="new-description">
-                                <a href="{{route('news-detail',[$blog->id, Str::slug($blog->title).'.html'])}}">{{strip_tags($blog->description)}}</a>
+                                <a
+                                    href="{{ route('news-detail', [$blog->id, Str::slug($blog->title) . '.html']) }}">{{ strip_tags($blog->description) }}</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                {{$blogs->links()}}
+
+                <div class="general__pagination">
+                    {{ $blogs->links() }}
+                </div>
             </div>
 
             {{-- slidebar --}}
             <div class="col-lg-4 nav-bar-right">
-                @include('frontend.slide-bar.slide_bar',['categories'=>$categories], ['projects'=>$projects])
+                @include(
+                    'frontend.slide-bar.slide_bar',
+                    ['categories' => $categories],
+                    ['projects' => $projects]
+                )
             </div>
         </div>
 
     </div>
-    @include("frontend/login/login");
-    @include("frontend/profile/popup_profile");
+
+    @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
 @endsection

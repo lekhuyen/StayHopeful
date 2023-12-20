@@ -17,7 +17,7 @@ class BlogController extends Controller
         $categories = Category::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->limit(5)->get();
         $blogs = News::orderBy('id', 'desc')->get();
-        $blogs = News::paginate(7);
+        $blogs = News::orderBy('id', 'desc')->paginate(7);
         return view('frontend.blog.blog', compact('categories', 'projects', 'blogs'));
     }
 
@@ -39,8 +39,6 @@ class BlogController extends Controller
             ->limit(5)
             ->get();
         $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
-
-        // dd($volunterCountRegisterByProject);
         session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
@@ -49,16 +47,9 @@ class BlogController extends Controller
         }
 
         if ($user) {
-            $volunteerPersonByProjects = Volunteer::where('email', $user['email'])->get();
-            //dd($volunteerPersonByProjects);
-            if ($volunteerPersonByProjects->count() > 0) {
-                foreach ($volunteerPersonByProjects as $key => $projectItem) {
-                    $projectId = $projectItem->project_id;
-                    if($projectId == $id){
-                        $checkUserProject = 1;
-                        break;
-                    }
-                }
+            $volunteerPersonByProjects = Volunteer::where('email', $user['email'],"and")->where("project_id","=",$project->id)->first();
+             if($volunteerPersonByProjects != null){
+                $checkUserProject = 1;
             }
         }
         return view('frontend.detail-post.detail', compact('categories', 'project', 'projects', 'comments', 'checkUserProject'));
@@ -89,8 +80,7 @@ class BlogController extends Controller
     // project
     public function project_index()
     {
-        $projects = Project::orderBy('id', 'desc')->get();
-        $projects = Project::paginate(8);
+        $projects = Project::orderBy('id', 'desc')->paginate(8);
         return view('frontend.project.index', compact('projects'));
     }
 
@@ -110,7 +100,7 @@ class BlogController extends Controller
         $projects = Project::where(function ($query) use ($keywork) {
             $query->where('title', 'like', '%' . $keywork . '%')
                 ->orWhere('description', 'like', '%' . $keywork . '%');
-        })->get();
+        })->paginate(8);
 
         if($projects->count() > 0){
             return view('frontend.search.index', compact('projects'));
@@ -118,4 +108,5 @@ class BlogController extends Controller
             return view('frontend.search.not_result', compact('keywork'));
         }
     }
+
 }

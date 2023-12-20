@@ -1,7 +1,8 @@
 @extends('frontend.site')
 @section('main')
+    {{-- profile css --}}
     <link rel="stylesheet" href="{{ asset('profilecss/profile.css') }}">
-
+    {{-- profile css --}}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -9,27 +10,44 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="profile-image-user">
-                                <img src="{{ asset('img/omg.jpeg') }}" alt="hình nè cậu" class="profile-image-set">
+                                @if ($user->avatar != null)
+                                    <img src="{{ asset($user->avatar) }}" alt="profile picture" class="profile-image-set">
+                                @else
+                                    <img src="{{ asset('img/humanicon.png') }}" alt="profile picture"
+                                        class="profile-image-set">
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="profile-user">
                                 <div class="profile-username">
-                                    
+
                                     <span class="profile-username-text">{{ $user->name }}</span>
-                                    
+
                                 </div>
+
                                 <div class="profile-info">
-                                        <p class="info-text">Email: 
-                                            <span class="info-text-user">{{ $user->email }}</span>
-                                        </p>
-                                        <p class="info-text">Age: <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Phone : <span class="info-text-user">Chưa cập nhật</span></p>
-                                        <p class="info-text">Address : <span class="info-text-user">Chưa cập nhật</span></p>
+                                    @if ($user->is_sponsor == 1 && $user->is_volunteer != 1)
+                                    <p class="info-text">Title: <span class="info-text-user blink"
+                                            style="font-weight: 700">Sponsor</span></p>
+                                @elseif ($user->is_sponsor != 1 && $user->is_volunteer == 1)
+                                    <p class="info-text">Title: <span class="info-text-user blink"
+                                            style="font-weight: 700">Volunteer</span></p>
+                                @elseif($user->is_sponsor == 1 && $user->is_volunteer == 1)
+                                    <p class="info-text">Title: <span class="info-text-user blink"
+                                            style="font-weight: 700">Sponsor<span style="color: black"> and</span>
+                                            Volunteer</span></p>
+                                @endif
+                                    <p class="info-text">Email:
+                                        <span class="info-text-user">{{ $user->email }}</span>
+                                    </p>
+                                    <p class="info-text">Age: <span class="info-text-user">Private</span></p>
+                                    <p class="info-text">Phone : <span class="info-text-user">Private</span></p>
+                                    <p class="info-text">Address : <span class="info-text-user">Private</span></p>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                     {{-- <div class="profile-listdonate">
@@ -66,19 +84,24 @@
 
                                 <div style="padding: 0; border-radius: 5px; position: relative;">
                                     <div class="post-uset-body"
-                                        style="text-align:left; 
-                                        display: flex; 
+                                        style="text-align:left;
+                                        display: flex;
                                         align-items:center;
                                         justify-content: space-between;
                                         ">
                                         <div
-                                            style="text-align:left; 
-                                                    display: flex; 
+                                            style="text-align:left;
+                                                    display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
-                                                <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
-                                                    alt="" width="50"
-                                                    style=" width: 80px;clip-path: circle(30%);">
+
+                                                @if ($user->avatar != null)
+                                                    <img src="{{ asset($user->avatar) }}" alt="profile picture"
+                                                        width="50">
+                                                @else
+                                                    <img src="{{ asset('img/humanicon.png') }}" alt="profile picture"
+                                                        style=" width: 80px;clip-path: circle(30%);">
+                                                @endif
                                             </a>
                                             <div>
                                                 <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">
@@ -87,24 +110,25 @@
                                                     {{ $post->updated_at }}</p>
                                             </div>
                                         </div>
-                                        @if($post->user->id == auth()->user()->id)
+                                        @if ($post->user->id == auth()->user()->id)
                                             <div class="edit_post">
                                                 <i class="fa-solid fa-ellipsis"></i>
                                             </div>
                                         @endif
                                     </div>
-                                    
+
                                     <div class="edit-post-user">
                                         <a class="edit_form-post"data-id="{{ $post->id }}">Edit</a>
                                         <a class="delete_form-post"data-id="{{ $post->id }}">Delete</a>
                                     </div>
-                                    
+
                                     <div style="text-align:left; margin: 0 50px 20px 50px;">
                                         <span>{{ $post->title }}</span>
                                     </div>
                                     @if ($post->images->count() > 0)
                                         @foreach ($post->images as $image)
-                                            <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
+                                            <div
+                                                style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px; margin-bottom: 40px;">
                                                 <img width="80%" height="400px" src="{{ asset($image->image) }}"
                                                     alt="">
                                             </div>
@@ -112,27 +136,39 @@
                                     @endif
                                 </div>
 
-                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                <div class="like_post post_like-comment-post" data-post-id="{{ $post->id }}"
+                                    style="cursor: pointer">
 
-                                    {{-- ! phân biệt user đã like --}}
-                                    @if(auth()->user())
-                                        @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
-                                            <div>
-                                                <i class="fa-solid fa-heart like_icon" data-post-id="{{ $post->id }}"></i>
-                                            </div>
-                                        @else
-                                            <div>
-                                                <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
-                                            </div>
+                                    <div class="like_post-1" data-post-id="{{ $post->id }}" style="cursor: pointer">
+                                        {{-- ! phân biệt user đã like --}}
+                                        @if (auth()->user())
+                                            @if ($post->likes->where('id_user', '=', auth()->user()->id)->first() != null)
+                                                <div>
+                                                    <i class="fa-solid fa-heart like_icon"
+                                                        data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <i class="fa-solid fa-heart" data-post-id="{{ $post->id }}"></i>
+                                                </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                    <div class="like_count">
-                                        <span class="count_like" data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count()}}</span>
+                                        <div class="like_count">
+                                            <span class="count_like"
+                                                data-post-id="{{ $post->id }}">{{ $post->likes->count() == 0 ? '' : $post->likes->count() }}</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="comment_post" data-id="{{ $post->id }}">
+                                        <span>
+                                            {{ $post->comments->count() + $post->replies->count() == 0 ? '' : $post->comments->count() + $post->replies->count() }}
+                                            Comment
+                                        </span>
                                     </div>
                                 </div>
 
                             </div>
-                            
+
                         </div>
                     @endforeach
 
@@ -153,7 +189,7 @@
                 </div>
 
                 <div class="post-header-title">
-                    <h1>Create Post</h1>
+                    <h1>New Post</h1>
                 </div>
             </div>
             <div class="post-uset-body">
@@ -170,7 +206,7 @@
             <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-post-content">
-                    <textarea name="title" id="" placeholder="content.."></textarea>
+                    <textarea name="title" id="" placeholder="Write post"></textarea>
                 </div>
                 <div class="user-post-image">
                     <input type="file" multiple name="image[]">
@@ -182,6 +218,7 @@
             </form>
         </div>
     </div>
+
 
     @include('frontend/profile/popup_profile')
     @include('frontend/login/login')

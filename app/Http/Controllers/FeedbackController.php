@@ -10,9 +10,9 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedback = Feedback::paginate(4);
+        $feedback = Feedback::orderBy('id','desc')->paginate(4);
         $feedbacks = Feedback::all();
-        $sensitives_word = Sensitive::all();
+        $sensitives_word = Sensitive::where("status",'=',1)->get();
         $words = $sensitives_word->pluck('word');
         $count = 0;
         foreach ($feedbacks as $key => $text) {
@@ -33,7 +33,7 @@ class FeedbackController extends Controller
     {
         $request->validate([
             'email' => 'bail|required|email',
-            'content' => 'required',
+            'content' => 'bail|required|min:3|max:255',
             'star' => 'required',
         ]);
         Feedback::create($request->all());

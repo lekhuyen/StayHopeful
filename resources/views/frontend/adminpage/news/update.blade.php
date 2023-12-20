@@ -1,10 +1,18 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title','Edit News')
+
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
+
+    <div class="btn__back">
+        <a href="{{ route('news.index') }}" class="btn__go_back"><i class="fas fa-long-arrow-left"></i>GO BACK</a>
+    </div>
 
     <div class="container mt-3">
-        <h2>Update Project</h2>
-        <a class="btn btn-primary"href="{{ route('news.index') }}">News List</a>
-        <form action="{{route('news.update',$news->id)}}" method="POST" enctype="multipart/form-data">
+        <h1>Edit News</h1>
+        <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3 mt-3">
@@ -16,7 +24,7 @@
                 @enderror
             </div>
             <div class="mb-3 mt-3">
-                <label for="description">Description:</label>
+                <label for="description">Content:</label>
                 <textarea type="tetx" class="form-control" id="description-project-update" placeholder="Enter description"
                     name="description">{{ $news->description }}</textarea>
                 @error('description')
@@ -31,8 +39,9 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-
-            <button type="submit" class="btn btn-primary submit-project">Submit</button>
+            <div class="d-flex justify-content-center btn__center">
+                <button type="submit" class="btn btn-primary submit-project">Submit</button>
+            </div>
         </form>
 
         {{-- xoa ảnh con --}}
@@ -51,29 +60,31 @@
     </div>
 @endsection
 @section('ckeditor')
-<script>
-    ClassicEditor
-            .create( document.querySelector('#description-project-update'))
-            .catch( error => {
-                    console.error( error );
-            } );
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description-project-update'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $('.delete-btn').click(function(e){
+    $(document).ready(function() {
+        $('.delete-btn').click(function(e) {
             e.preventDefault();
             var imageContainer = $(this).closest('.image-container')
             var imageId = imageContainer.data('image-id');
 
             $.ajax({
-                type:'GET',
+                type: 'GET',
                 url: '{{ route('delete_newsImgChild', ':id') }}'.replace(':id', imageId),
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: {
-                    imgId:imageId
+                    imgId: imageId
                 },
                 success: function(data) {
                     imageContainer.remove();

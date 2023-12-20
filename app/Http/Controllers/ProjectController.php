@@ -13,6 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->paginate(4);
+
         return view('frontend.adminpage.projects.index', compact('projects'));
     }
 
@@ -197,5 +198,57 @@ class ProjectController extends Controller
         }
 
         return response()->json(['error' => ['Updated fails']]);
+    }
+    public function showEditEvent($id)
+    {
+        $project = Project::find($id);
+        return view("frontend.adminpage.projects.edit_event", compact('project'));
+    }
+    public function activeEvent(Request $request, Project $project)
+    {
+        $request->validate([
+            "start_date" => "required|date|before_or_equal:end_date",
+            "end_date" => "required|date|after_or_equal:start_date",
+            "quantity" => "required|numeric|min:2",
+            "status_event" => "required",
+
+        ]);
+        $project->update($request->all());
+        if ($request->status_event == 1) {
+            return redirect()->route("projectAd.index")->with("success", "The event is opening.");
+        } else {
+            return redirect()->route("projectAd.index")->with("success", "The event is already closed.");
+        }
+
+        // $project = Project::find($id);
+        // if($project->status == 1){
+        //     $project->status_event  =$project->status_event? false:true;
+        //     $project->save();
+        //     if($project->status_event == true){
+        //         return redirect()->route("projectAd.index")->with("success","Su kien da duoc open");
+        //     }else{
+        //         return redirect()->route("projectAd.index")->with("success","Su kien da duoc close");
+        //     }
+        // }else{
+        //     return redirect()->route("projectAd.index")->with("success","project chua quyen gop du tien de hoat dong cho su kien");
+        // }
+    }
+    public function sortEvent($type)
+    {
+        $projects = Project::orderBy('id', 'desc')->paginate(6);
+
+        if ($type == "active") {
+            $projects = Project::where("status_event", '=', 1)->paginate(6);
+        }
+        else if ($type == "deActive") {
+            $projects = Project::where("status_event", '=', 0)->paginate(6);
+        }else if ($type == "finish") {
+            $projects = Project::where("status", '=', 1)->paginate(6);
+        } else if ($type == "ongoing") {
+            $projects = Project::where("status", '=', 0)->paginate(6);
+        } else {
+            $projects = Project::orderBy('id', 'desc')->paginate(6);
+        }
+        return view('frontend.adminpage.projects.index', compact('projects'));
     }
 }

@@ -14,7 +14,10 @@
         <div>
             <img width="100%"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkqnVSrepctO_TzCaW23UOMZP-iriQotD-akcLdz7B5x1lr6-1UTecRz5cOI9KSqkhxV4&usqp=CAU" />
-            <p style="color:crimson; text-align:center;">Thanks for being a part of us and enroll in {!! $messageMail !!} Project.</p>
+            <p style="color:crimson; text-align:center;">Thanks for being a part of us and enroll in
+                {!! $messageMail !!} Project.</p>
+            <p style="color:crimson; text-align:center;">Event Beginning Date: {!! $startDate !!}</p>
+            <p style="color:crimson; text-align:center;">Event Ending Date : {!! $endDate !!}</p>
             <a style="background-color:lightpink; color:cornflowerblue; border: none; padding: 5px;
             text-align: center; text-decoration: none; margin: 4px 2px; display: block;
             cursor: pointer; border-radius: 5px; font-size: 16px;"

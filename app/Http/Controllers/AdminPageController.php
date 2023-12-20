@@ -33,7 +33,8 @@ class AdminPageController extends Controller
     }
     public function viewmail()
     {
-        $mail = Contactus::all();
+        $mail = Contactus::orderBy('id', 'desc')->paginate(4);
+        // $mail = Contactus::all();
         return view('frontend.adminpage.manager.mailbox', compact('mail'));
     }
 
@@ -42,9 +43,11 @@ class AdminPageController extends Controller
         $mail = Contactus::where('id', '=', $id)->select('*')->first();
         return view('frontend.adminpage.manager.replymail', compact('mail'));
     }
-    public function viewmaildetail($id){
+    public function viewmaildetail($id)
+    {
+        $detail = Contactus::find($id);
         $mail = Contactdetail::where('contact_id', '=', $id)->select('*')->first();
-        return view('frontend.adminpage.manager.maildetail', compact('mail'));
+        return view('frontend.adminpage.manager.maildetail', compact('mail', 'detail'));
     }
     public function sendreplymail(Request $request, $id)
     {
@@ -66,7 +69,6 @@ class AdminPageController extends Controller
         Mail::to($email)->send(new MailReply($message, $subject));
 
         return redirect()->route('admin.viewmail')->with('success', 'Send Mail Success');
-
     }
 
 
@@ -77,7 +79,8 @@ class AdminPageController extends Controller
         $project = Project::selectRaw('COUNT(id) as total_projects, COUNT(CASE WHEN status = 1 THEN 1 END) as status_1')
             ->groupBy('status')
             ->get();
-        $usercount = User::count();
+        $userCount = User::withTrashed()->count();
+
         $allproject = Project::all();
 
         $totalproject = $project->sum('total_projects');
@@ -88,14 +91,66 @@ class AdminPageController extends Controller
         $chartproject = $this->chartproject();
         $chartcompleted = $this->chartcompleted();
         $usercountchart = $this->usercountchart();
+        $todayRegistrations = DB::table('users')
+            ->whereDate('created_at', now()->toDateString())
+            ->count();
 
-        return view('frontend.adminpage.manager.dashboard', compact('usercount', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
+        $yesterdayRegistrations = DB::table('users')
+            ->whereDate('created_at', '<', now()->toDateString())
+            ->count();
+
+        $growthPercentage = 0;
+        if ($yesterdayRegistrations > 0) {
+            $growthPercentage = (($todayRegistrations - $yesterdayRegistrations) / $yesterdayRegistrations) * 100;
+        }
+
+        // tinh % của donate
+        $todaydonate = DB::table('donate_infos')
+            ->whereDate('created_at', now()->toDateString())
+            ->sum('amount');
+        $todaydonate2 = DB::table('donate_infos')
+            ->whereDate('created_at', now()->toDateString())
+            ->count();
+        $perviousdonate = DB::table('donate_infos')
+            ->whereDate('created_at', '<', now()->toDateString())
+            ->sum('amount');
+        // dump($todaydonate);
+        // dump($perviousdonate);
+        $donatepercentage = 0;
+        if ($perviousdonate > 0) {
+            $donatepercentage = (($todaydonate - $perviousdonate) / $perviousdonate) * 100;
+        }
+        // tinh % của project
+        $todayproject = DB::table('projects')
+            ->whereMonth('created_at', now()->month)
+            ->count();
+        $perviousproject = DB::table('projects')
+            ->whereMonth('created_at', '<', now()->month)
+            ->count();
+        $projectprecenttage = 0;
+        if ($perviousproject > 0) {
+            $projectprecenttage = (($todayproject - $perviousproject) / $perviousproject) * 100;
+        }
+        // tính % project hoàn thành
+        $todaystatus = DB::table('projects')
+            ->whereMonth('created_at', now()->month)
+            ->where('status', '=', 1)
+            ->count();
+        $previousstatus = DB::table('projects')
+            ->whereMonth('created_at', '<', now()->month)
+            ->where('status', '=', 1)
+            ->count();
+        $statusprecentage = 0;
+
+        if ($previousstatus > 0) {
+            $statusprecentage = (($todaystatus - $previousstatus) / $previousstatus) * 100;
+        }
+        return view('frontend.adminpage.manager.dashboard', compact('userCount', 'statusprecentage', 'projectprecenttage', 'donatepercentage', 'growthPercentage', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
     public function viewmanagerdesign()
     {
-        $sliders = Sliders::all();
-        $sliders = Sliders::paginate(3);
+        $sliders = Sliders::orderBy('id', 'desc')->paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
 
@@ -120,8 +175,8 @@ class AdminPageController extends Controller
         return view('index', compact('slider', 'projects', 'project_finish', 'videos', 'totalamount', 'categories'));
     }
     // public function viewnav(){
-        
-        
+
+
     //     return view('frontend.site', compact('infouser'));
     // }
 
@@ -150,7 +205,6 @@ class AdminPageController extends Controller
             $userinfo->imageURL = asset('img/humanicon.png');
         }
         return response()->json(['userinfoCollection' => $userinfoCollection]);
-
     }
     public function create_slider(Request $request)
     {
@@ -163,7 +217,6 @@ class AdminPageController extends Controller
             $slider->url_image = 'images/' . $filename;
             $slider->slider_name = $request->nameimg;
             $slider->save();
-
         }
 
         return redirect()->back()->with('success', 'Slider created successfully');
@@ -184,8 +237,6 @@ class AdminPageController extends Controller
         $slider->save();
 
         return redirect()->back()->with('success', 'Success update Sliders');
-
-
     }
     public function delete_slider(Sliders $slider)
     {
@@ -209,8 +260,7 @@ class AdminPageController extends Controller
     }
     public function viewlistuser()
     {
-        $user = User::all();
-        $user = User::paginate(3);
+        $user = User::orderBy('id', 'desc')->paginate(4);
         return view('frontend.adminpage.manager.listuser', compact('user'));
     }
 
@@ -229,8 +279,7 @@ class AdminPageController extends Controller
     //donate admin
     public function viewlistdonate()
     {
-        $donateinfo = DonateInfo::all();
-        $donateinfo = DonateInfo::paginate(4);
+        $donateinfo = DonateInfo::orderBy('id', 'desc')->paginate(2);
         return view('frontend.adminpage.listdonate.list', compact('donateinfo'));
     }
 
@@ -280,7 +329,6 @@ class AdminPageController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->back()->with('success', 'Delete User successfully');
-
     }
 
 
@@ -308,7 +356,8 @@ class AdminPageController extends Controller
     }
     public function usercountchart()
     {
-        $usercount = User::selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
+        $usercount = User::withTrashed()
+            ->selectRaw('DAYOFWEEK(created_at) as days, count(*) as total_users')
             ->groupBy('days')
             ->get();
 
@@ -409,7 +458,7 @@ class AdminPageController extends Controller
                 <td>
                     <a href="#" data-slider-id="' . $slider->id . '" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <button type="button" class="btn btn-success" style="margin-right: 10px;">
-                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
                         </button>
                     </a>
                 </td>
@@ -496,13 +545,13 @@ class AdminPageController extends Controller
     }
     public function searchhome(Request $request)
     {
-        $searchproject = Project::where('title', 'like', '%' . $request->search . '%')
-            ->get();
+
+        $searchproject = Project::where('title', 'like', '%' . $request->search . '%')->get();
 
         $output = '';
         foreach ($searchproject as $project) {
             $output .= '<div class="result-search">
-                            <a href="' . route('detail.post', $project->id) . '">
+                            <a href="' . route('detail.post', [$project->id, Str::slug($project->title) . '.html']) . '">
                                 <div class="image-search">
                                     <img src="' . asset($project->images[0]->image) . '" alt="' . $project->title . '">
                                 </div>
@@ -512,6 +561,14 @@ class AdminPageController extends Controller
                             </a>
                         </div>';
         }
+
         return $output;
     }
+
+
+
+
+    // public function xacnhanotp(){
+    //     return view('frontend.login.otp');
+    // }
 }

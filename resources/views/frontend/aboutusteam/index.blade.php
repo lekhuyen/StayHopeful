@@ -1,23 +1,22 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
+@section('title', 'Team Member List')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
 
     <div class="container mt-3">
         <h1>Team Member List</h1>
-        <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">New Team</a>
 
         <!-- Search Form -->
         <form action="{{ route('aboutusteam.search') }}" method="GET" class="mt-3">
             <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search by name">
-                <button type="submit" class="btn btn-secondary">Search</button>
+                <input type="text" name="search" class="form-control" placeholder="Input Name to search">
+                <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
 
-        <table class="table table-dark mt-3 text-center" id="teamTable">
+        <table class="table table-hover mt-3 text-center" id="teamTable">
             <thead>
                 <tr>
                     <th onclick="sortTable(0)">
@@ -28,11 +27,11 @@
                     <th onclick="sortTable(1)">Name</th>
                     <th onclick="sortTable(2)">Age</th>
                     <th onclick="sortTable(3)">Email</th>
+                    <th onclick="sortTable(6)">Image</th>
                     <th onclick="sortTable(4)">Skill</th>
                     <th onclick="sortTable(5)">Status</th>
-                    <th onclick="sortTable(6)">Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -44,66 +43,44 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->age }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->skill }}</td>
-                        <td>
-                            @if ($item->status)
-                                <span class="badge bg-success">Active</span>
-                            @else
-                                <span class="badge bg-danger">Inactive</span>
-                            @endif
-                        </td>
                         <td>
                             @if ($item->images->count() > 0)
                                 <img src="{{ asset($item->images[0]->url_image) }}" width="100" class="img-thumbnail"
                                     alt="Image" />
                             @endif
                         </td>
+                        <td>{{ $item->skill }}</td>
                         <td>
-                            <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-info">Edit</a>
+                            @if ($item->status)
+                                <span class="badge rounded-pill bg-success status__about">Active</span>
+                            @else
+                                <span class="badge rounded-pill bg-danger status__about">Deactive</span>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('aboutusteam.edit_aboutus', $item->id) }}" class="btn btn-warning"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
                             <form action="{{ route('aboutusteam.delete', $item->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this team member?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-info">Delete</button>
+                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-
         </table>
-
         <!-- Below your table -->
-        <div class="d-flex justify-content-between mt-3">
-            <div>
-                <ul class="pagination">
-                    @if ($aboutusteams->currentPage() > 1)
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $aboutusteams->previousPageUrl() }}" rel="prev">Previous</a>
-                        </li>
-                    @endif
 
-                    @foreach (range(1, $aboutusteams->lastPage()) as $page)
-                        @if ($page == $aboutusteams->currentPage())
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">{{ $page }}</span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link" href="{{ $aboutusteams->url($page) }}">{{ $page }}</a>
-                            </li>
-                        @endif
-                    @endforeach
+        <div class="general__pagination">
+            {{ $aboutusteams->links() }}
+        </div>
 
-                    @if ($aboutusteams->hasMorePages())
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $aboutusteams->nextPageUrl() }}" rel="next">Next</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
+        <div class="d-flex justify-content-center btn__center">
+            <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
         </div>
     </div>
 

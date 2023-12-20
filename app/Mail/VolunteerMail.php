@@ -23,9 +23,6 @@ class VolunteerMail extends Mailable
      */
     public function __construct($content)
     {
-        // $this->subject = $subject;
-        // $this->message = $message;
-        // $this->$projectId = $projectId;
         $this->content = $content;
 
 
@@ -54,6 +51,8 @@ class VolunteerMail extends Mailable
             with: [
                 'messageMail' => $this->content->title,
                 'projectId' => $this->content->id,
+                'startDate' => $this->content->start_date,
+                'endDate' => $this->content->end_date,
             ],
         );
     }

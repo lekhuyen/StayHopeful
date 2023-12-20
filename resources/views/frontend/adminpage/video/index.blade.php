@@ -1,20 +1,20 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-    <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
+@section('title','Video List')
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('general/general.css') }}">
+    {{-- css --}}
+
     <div class="container">
         <div class="row">
             <div class="container mt-3">
                 <h1>Video List</h1>
-                <a class="btn btn-primary "href="{{ route('video-trash') }}" target="_blank">Trash Video</a>
-                {{-- <a class="btn btn-primary "href="{{route('project-trash')}}" target="_blank">Trash Project</a> --}}
-                @can('video_add')
-                    <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create Video</a>
-                @endcan
                 <table class="table table-striper">
                     <thead>
                         <tr>
                             <th>Video</th>
                             <th>Action</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,22 +25,33 @@
                                         height="100"></video>
                                 </td>
                                 <td>
-                                    @can('video_delete')
-                                        <button class="btn btn-danger delete-video"
-                                            data-id="{{ $video->id }}">DELETE</button>
-                                    @endcan
                                     @can('video_edit')
-                                        <a class="btn btn-primary" href="{{ route('video-list.edit', $video->id) }}">EDIT</a>
+                                        <a class="btn btn-warning" href="{{ route('video-list.edit', $video->id) }}"><i
+                                                class="fa-solid fa-pen-to-square"></i></a>
+                                    @endcan
+                                    @can('video_delete')
+                                        <button class="btn btn-danger delete-video" data-id="{{ $video->id }}"><i
+                                                class="fa-solid fa-trash-can"></i></button>
                                     @endcan
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" style="text-align:center">Trash emtry</td>
+                                <td colspan="2" style="text-align:center">Empty</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
+                <div class="general__pagination">
+                    {{ $videos->links() }}
+                </div>
+                <div class="d-flex justify-content-center btn__center">
+                    <a class="btn btn-primary "href="{{ route('video-trash') }}">Unused Video</a>
+                    @can('video_add')
+                        <a class="btn btn-primary" href="{{ route('video-list.create') }}">Create New Video</a>
+                    @endcan
+                </div>
+
             </div>
         </div>
     </div>

@@ -100,14 +100,14 @@
 }
 .change-password-popup{
     /* background: linear-gradient(to bottom, #245abe, #95b5df); */
-    background: #2d63c2;
+    background: #123b6a;
     border: 2px solid white;
     border-radius: 20px;
     position: fixed;
     top: 20%;
     left: 35%;
     width: 30%;
-    height: 60%;
+    /* height: 60%; */
     overflow: hidden;
 }
 .exit-change-password-btn{
@@ -129,8 +129,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 40px 30px 40px 30px;
-    overflow: hidden;
+    /* padding: 40px 30px 40px 30px; */
+    padding: 40px 30px 0 30px;
+
+    /* overflow: hidden; */
     z-index: 20;
 }
 .change-password-form-title{
@@ -195,7 +197,7 @@
     border: none;
     outline: none;
     border-radius: 40px;
-    background-color: #5995fd;
+    background-color: #95b5df;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -233,6 +235,7 @@
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 999;
 }
 
 .showProfileDropdown{
@@ -247,7 +250,7 @@
 }
 .profile-popup{
     position:absolute;
-    top: 8%;
+    top: 60px;
     right: 0;
     width: 280px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -256,7 +259,7 @@
     max-height: 300px;
 } */
 .profile-menu{
-    background: linear-gradient(to top, #245abe, #95b5df);
+    background: linear-gradient(to bottom, #123b6a, #165baa);
     padding: 10px;
     margin: 5px;
     border-radius: 10%;

@@ -10,9 +10,8 @@ class Project extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-
-    protected $fillable = [
-        'title', 'image', 'description','status', 'money', 'money2', 'category_id'
+ protected $fillable = [
+        'title', 'image', 'description','status', 'money', 'money2', 'category_id','start_date','end_date','status_event','quantity'
     ];
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');

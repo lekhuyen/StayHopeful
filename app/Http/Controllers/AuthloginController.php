@@ -29,7 +29,7 @@ class AuthloginController extends Controller
         if ($status == 1) {
             // Attempt login with provided credentials
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                
+
                 session()->put("userInfo", $user->toArray());
                 // User logged in successfully
                 return response()->json([
@@ -91,19 +91,20 @@ class AuthloginController extends Controller
     }
     public function viewprofile()
     {
-        $userInfo = session()->get('userInfo');
 
+        $userInfo = session()->get('userInfo');
+        $usercheck = Auth::user();
         if ($userInfo && isset($userInfo['id'])) {
-            $user = $userInfo['id'];
-            $userupdate = User::where("id", '=', $user)->select('*')->first();
+            $users = $userInfo['id'];
+            $userupdate = User::where("id", '=', $users)->select('*')->first();
 
             $posts = UserPost::orderBy('id', 'desc')
-                ->where('user_id', $user)
+                ->where('user_id', $users)
                 ->where('status', 0)
                 ->get();
-
-            $userinfo = DonateInfo::all();
-            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
+            $user = User::all();
+            $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->paginate(5);
+            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate', 'user'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
         }
@@ -115,27 +116,47 @@ class AuthloginController extends Controller
     }
     public function handleGoogleback()
     {
+        $usergoogle = Socialite::driver('google')->user();
+
         try {
-            $usergoogle = Socialite::driver('google')->user();
-            if ($usergoogle) {
-                $userGoogle = [
-                    'id' => $usergoogle->id,
+            $existingUser = User::where('email', $usergoogle->email)->first();
+
+            if ($existingUser) {
+                // Update existing user information if needed
+                $existingUser->update([
+                    'name' => $usergoogle->name,
+                    'avatar' => $usergoogle->avatar,
+                ]);
+
+                $user = $existingUser;
+            } else {
+                // Create a new user
+                $user = User::create([
                     'name' => $usergoogle->name,
                     'email' => $usergoogle->email,
                     'avatar' => $usergoogle->avatar,
                     'role' => 0,
+                    'password' => '123456',
                     'status' => 1,
                     'is_volunteer' => 0,
                     'is_sponsor' => 0,
-                ];
-                session()->put('userInfo', $userGoogle);
-                return redirect()->route('/');
-            } else {
-                return redirect()->back()->with('error', 'Lỗi đăng nhập');
+                ]);
             }
-            ;
+            Auth::login($user);
+            session()->put('userInfo', [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+                'role' => 0,
+                'status' => 1,
+                'is_volunteer' => 0,
+                'is_sponsor' => 0,
+            ]);
+
+            return redirect()->route('/');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors('Lỗi đăng nhập email');
+            return redirect()->route('/')->with('error', $th->getMessage());
         }
     }
     //login bằng facebook
@@ -181,6 +202,7 @@ class AuthloginController extends Controller
     public function logout()
     {
         session()->forget('userInfo');
+        Auth::logout();
         return redirect()->route('/');
     }
 
@@ -190,6 +212,13 @@ class AuthloginController extends Controller
         $post = UserPost::find($post_id);
         $image = $post->images;
         return response()->json(['post' => $post, 'images' => $image]);
+    }
+    public function post_edit_1($post_id)
+    {
+        $post = UserPost::find($post_id);
+        // $image = $post->images;
+        return view('frontend.post_page.form_edit-post', compact('post'));
+        // return response()->json(['post' => $post, 'images' => $image]);
     }
     public function change_password(Request $request)
     {
@@ -213,7 +242,7 @@ class AuthloginController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Failed to change password'
+                'message' => 'Post not Found'
             ]);
         }
 
@@ -221,13 +250,14 @@ class AuthloginController extends Controller
     }
 
 
-    public function user_profile($postId){
+    public function user_profile($postId)
+    {
         $posts = UserPost::where('user_id', $postId)->get();
         $user = User::find($postId);
         if ($posts) {
             return view('frontend.profile.profile_user', compact('posts', 'user'));
         } else {
-            return abort(404); 
+            return abort(404);
         }
     }
 }

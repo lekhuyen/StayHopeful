@@ -1,0 +1,39 @@
+h1,
+h5 {
+    color: #123b6a;
+    text-align: center;
+}
+
+.btn__center {
+    margin-bottom: 5px;
+    gap: 10px;
+}
+
+.btn__go_back {
+    color: gray;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.btn__go_back i {
+    margin-right: 5px;
+}
+
+.btn__back {
+    margin-top: 70px;
+}
+
+.general__pagination {
+    display: flex;
+    justify-content: end;
+}
+
+.status__userpost,
+.status__about {
+    width: 70px;
+}
+
+.project__volunteer__status{
+    text-decoration: none;
+    font-style: oblique;
+}
