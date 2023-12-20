@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\aboutuscalltoaction;
+use App\Models\aboutuslogo;
 use App\Models\aboutusmember;
 use App\Models\aboutuspage;
 use App\Models\aboutusteam;
@@ -14,16 +15,16 @@ class AboutusController extends Controller
     public function index() {
         $mainPages = aboutustitle::all();
         $aboutUsPages = Aboutuspage::where('section', 'aboutus')->get();
-        $logoPages = Aboutuspage::where('section', 'logo')->get();
+
+        $logoPages = aboutuslogo::all();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
         $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
         $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
-        $mainquestionPage = Aboutuspage::where('section', 'mainquestion')->get();
         $questionPages = Aboutuspage::where('section', 'question')->get();
         // Pass all variables to the view
         return view("frontend.aboutus.aboutus", compact("mainPages", "aboutUsPages", "logoPages",
-        "leftcallPages", "teamPage", "teampic1Page", "teampic2Page","mainquestionPage", "questionPages"));   
+        "leftcallPages", "teamPage", "teampic1Page", "teampic2Page", "questionPages"));   
     }
 
     public function aboutus_whoweare() {

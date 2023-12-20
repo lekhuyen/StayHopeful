@@ -45,15 +45,8 @@ class AboutuspageController extends Controller
 
     public function Aboutus_member_detail($id)
     {
-        $aboutusmember = aboutuspage::findall($id);
+        $aboutusmember = aboutusmember::find($id);
 
-        if (!$aboutusmember) {
-            $aboutusmember = aboutuscalltoaction::find($id);
-        }
-
-        if (!$aboutusmember) {
-            $aboutusmember - aboutuslogo::find($id);
-        }
 
         return view('frontend.aboutus.aboutus_page_member_detail', compact('aboutusmember'));
     }
@@ -169,6 +162,17 @@ class AboutuspageController extends Controller
     }
 
     public function Aboutus_page_detail($id)
+    {
+        $aboutusmain = aboutuspage::find($id);
+
+        if (!$aboutusmain) {
+            $aboutusmain = aboutuscalltoaction::find($id);
+        }
+
+        return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
+    }
+
+    public function aboutus_member_main($id)
     {
         $aboutusmain = aboutuspage::find($id);
 

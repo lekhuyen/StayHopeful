@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-QHhxXv+gHGDx4DIjMYG3UzUE8z2WfS10Iz//FTK9kl4pG1oRz6qwn6Klr8IxLhU8P1vnMCqyvlV5HAjRf/umUw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="container mt-3">
-    <h1>Member Page</h1>
+    <h1>About Us Founder Page</h1>
     <br>
     <br>
     <div class="btn__back">
