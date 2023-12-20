@@ -30,27 +30,40 @@
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" placeholder="Name" name="name"
                                 value="{{ old('name') }}">
+                             @error('name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
+                        
 
                         <div class="mb-3 mt-3">
                             <label for="countryCode">Phone Number:</label>
                             <div class="input-group">
                                 <input type="hidden" name="countryCode" id="hiddenCountryCode" value="+84">
                                 <input type="text" class="form-control rounded-start input-phone-number" id="phoneNumber"
-                                    placeholder="Phone Number" name="phone" value="{{ old('phoneNumber') }}">
+                                    placeholder="Phone Number" name="phone" value="{{ old('phone') }}">
                             </div>
+                            @error('phone')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3 mt-3 contact-input-form">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email"
                                 value="{{ old('email') }}">
+                            @error('email')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="message">Message:</label>
                             <textarea type="text" class="form-control textarea input-phone-number" id="message" placeholder="Message"
                                 name="message">{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary pink-button" style="margin-bottom: 30px">Send</button>
