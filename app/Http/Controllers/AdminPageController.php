@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Psy\Readline\Hoa\Console;
 
@@ -148,8 +149,10 @@ class AdminPageController extends Controller
         return view('frontend.adminpage.manager.dashboard', compact('userCount', 'statusprecentage', 'projectprecenttage', 'donatepercentage', 'growthPercentage', 'allproject', 'bigchart', 'chartproject', 'totalamount', 'totalproject', 'totalstatus', 'chartcompleted', 'usercountchart'));
     }
 
-    public function viewmanagerdesign()
+    public function viewmanagerdesign(Request $request)
+
     {
+        
         $sliders = Sliders::orderBy('id', 'desc')->paginate(3);
         return view('frontend.adminpage.manager.design', compact('sliders'));
     }
@@ -208,7 +211,10 @@ class AdminPageController extends Controller
     }
     public function create_slider(Request $request)
     {
-
+        $request->validate([
+            'image' => 'required|mimes:jpeg,png,jpg',
+            'nameimg' => 'required',
+        ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '-' . $image->getClientOriginalName();
@@ -223,17 +229,18 @@ class AdminPageController extends Controller
     }
     public function update_slider(Request $request, Sliders $slider)
     {
-        if ($request->hasFile('image')) {
+        
+        if ($request->hasFile('image_update')) {
             if (File::exists($slider->url_image)) {
                 $imagePath = public_path($slider->url_image);
                 File::delete($imagePath);
             }
-            $image = $request->file('image');
+            $image = $request->file('image_update');
             $filename = time() . '-' . $image->getClientOriginalName();
             $image->move(public_path('images'), $filename);
             $slider->url_image = 'images/' . $filename;
         }
-        $slider->slider_name = $request->nameimage;
+        $slider->slider_name = $request->nameimage_update;
         $slider->save();
 
         return redirect()->back()->with('success', 'Success update Sliders');
@@ -285,7 +292,20 @@ class AdminPageController extends Controller
 
     // register user
     public function registeruser(Request $request)
+
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $verify_token = Str::random(6);
         $hashpass = Hash::make($request->password);
         $user = new User();
