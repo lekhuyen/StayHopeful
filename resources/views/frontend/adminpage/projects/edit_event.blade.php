@@ -12,6 +12,7 @@
 
 <div class="container mt-3">
     <h1>Update Event for Volunteer Project</h1>
+    <h5 class="text-info">Project Name: {{  $project->title}}</h5>
     <form action="{{ route('projectAd.update_event', $project) }}" method="POST">
         @csrf
         @method('PUT')

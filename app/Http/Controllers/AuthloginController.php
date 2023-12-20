@@ -91,19 +91,20 @@ class AuthloginController extends Controller
     }
     public function viewprofile()
     {
+
         $userInfo = session()->get('userInfo');
         $usercheck = Auth::user();
         if ($userInfo && isset($userInfo['id'])) {
-            $user = $userInfo['id'];
-            $userupdate = User::where("id", '=', $user)->select('*')->first();
+            $users = $userInfo['id'];
+            $userupdate = User::where("id", '=', $users)->select('*')->first();
 
             $posts = UserPost::orderBy('id', 'desc')
-                ->where('user_id', $user)
+                ->where('user_id', $users)
                 ->where('status', 0)
                 ->get();
-
+            $user = User::all();
             $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->paginate(5);
-            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
+            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate', 'user'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
         }

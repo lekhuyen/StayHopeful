@@ -43,13 +43,13 @@
                                     @if (session('userInfo'))
                                         @if ($userupdate->is_sponsor == 1 && $userupdate->is_volunteer != 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor</span></p>
+                                                    style="font-weight: 700">Sponsor</span></p>
                                         @elseif ($userupdate->is_sponsor != 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
                                                     style="font-weight: 700">Volunteer</span></p>
                                         @elseif($userupdate->is_sponsor == 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor<span style="color: black"> and</span>
+                                                    style="font-weight: 700">Sponsor<span style="color: black"> and</span>
                                                     Volunteer</span></p>
                                         @endif
                                         @if ($userupdate->email != null)
@@ -241,6 +241,11 @@
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                name="name" value="{{ $userupdate->name }}">
+                        </div>
+                        <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="text" class="form-control" id="email" placeholder="Enter email"
                                 name="email" value="{{ $userupdate->email }}">
@@ -268,7 +273,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </form>
                 </div>
             </div>

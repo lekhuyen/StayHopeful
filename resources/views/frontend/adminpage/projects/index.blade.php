@@ -13,8 +13,12 @@
 
     <h1>Project List</h1>
     <div class="d-flex flex-row-reverse gap-3">
-        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'deactive') }}">Deactive Event</a>
-        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'deActive') }}">DeActive Event</a>
+        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'finish') }}">Finished</a>
+        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'ongoing') }}">Ongoing</a>
+        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'all') }}">All</a>
+
     </div>
     @if (session('success'))
         <div class="alert alert-success">
@@ -52,7 +56,7 @@
                             <img src="{{ asset($project->images[0]->image) }}" width="100">
                         @endif
                     </td>
-                    <td>{{ $project->money2 }}</td>
+                    <td>{{ $project->donateinfo->sum('amount') }}</td>
                     <td>{{ $project->money }}</td>
                     <td>
                         @if ($project->status == 1)

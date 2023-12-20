@@ -53,10 +53,18 @@
         @foreach ($project->images as $image)
             <img src="{{ asset($image->image) }}" alt="">
         @endforeach
-
-        @if ($project->donateinfo->sum('amount') >= $project->money)
+        @if ($project->donateinfo->sum('amount') >= $project->money || $project->status_event == 1)
             <div class="donate_link">
                 <button disabled>DONATE</button>
+                @if ($checkUserProject)
+                    <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
+                @else
+                    @if ($project->status_event == 1)
+                        <a href="{{ route('volunteer.create') }}" class="btn_volunter">VOLUNTEER</a>
+                    @else
+                        <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
+                    @endif
+                @endif
             </div>
         @else
             <div class="donate_link">
@@ -65,9 +73,9 @@
                     <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                 @else
                     @if ($project->status_event == 1)
-                    <a href="{{ route('volunteer.create') }}" class="btn_volunter">VOLUNTEER</a>
+                        <a href="{{ route('volunteer.create') }}" class="btn_volunter">VOLUNTEER</a>
                     @else
-                    <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
+                        <a href="" class= "btn_volunter_disabled">VOLUNTEER</a>
                     @endif
                 @endif
             </div>
