@@ -235,19 +235,19 @@ class ProjectController extends Controller
     }
     public function sortEvent($type)
     {
-        $projects = Project::orderBy('id', 'desc')->paginate(6);
+        $projects = Project::orderBy('id', 'desc')->paginate(4);
 
         if ($type == "active") {
-            $projects = Project::where("status_event", '=', 1)->paginate(6);
+            $projects = Project::where("status_event", '=', 1)->paginate(4);
         }
         else if ($type == "deActive") {
-            $projects = Project::where("status_event", '=', 0)->paginate(6);
+            $projects = Project::where("status_event", '=', 0)->paginate(4);
         }else if ($type == "finish") {
-            $projects = Project::where("status", '=', 1)->paginate(6);
+            $projects = Project::where("status", '=', 1)->paginate(4);
         } else if ($type == "ongoing") {
-            $projects = Project::where("status", '=', 0)->paginate(6);
+            $projects = Project::where("status", '=', 0)->paginate(4);
         } else {
-            $projects = Project::orderBy('id', 'desc')->paginate(6);
+            $projects = Project::orderBy('id', 'desc')->paginate(4);
         }
         return view('frontend.adminpage.projects.index', compact('projects'));
     }
