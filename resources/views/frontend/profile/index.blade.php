@@ -43,13 +43,13 @@
                                     @if (session('userInfo'))
                                         @if ($userupdate->is_sponsor == 1 && $userupdate->is_volunteer != 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor</span></p>
+                                                    style="font-weight: 700">Sponsor</span></p>
                                         @elseif ($userupdate->is_sponsor != 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
                                                     style="font-weight: 700">Volunteer</span></p>
                                         @elseif($userupdate->is_sponsor == 1 && $userupdate->is_volunteer == 1)
                                             <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor<span style="color: black"> and</span>
+                                                    style="font-weight: 700">Sponsor<span style="color: black"> and</span>
                                                     Volunteer</span></p>
                                         @endif
                                         @if ($userupdate->email != null)
