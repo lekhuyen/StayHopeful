@@ -18,7 +18,7 @@
                     <br>
                     <div class="d-flex justify-content-center">
                         @foreach ($mainitem->images as $image)
-                            <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" style="width: 60%;">
+                            <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" style="width: 100%;">
                         @endforeach
                     </div>
                 @endif
@@ -29,7 +29,9 @@
 
     {{-- About Us Sector --}}
     <div class="container-fluid mt-3">
-        @php
+    
+        <div>
+            @php
             $aboutUsCounter = 0;
             $firstTitle = null;
         @endphp
@@ -42,25 +44,18 @@
                 @endphp
             @endif
         @endforeach
-    
-        <div style="margin-top: 20px">
-            @foreach ($mainPages as $mainitem)
-                <div>
-                    @if ($mainitem->section === 'About Us Section')
-                        <h1>{{ $mainitem->title }}</h1>
-                        <div class="text-center">
-                            <span>{{ $mainitem->description }}</span>
-                        </div>
-                        @foreach ($mainitem->images as $image)
-                            <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
-                        @endforeach
 
-                    @endif
+            @foreach ($mainPages as $mainitem)
+                @if ($mainitem->section === 'About Us Section')
+                <h1>{{ $mainitem->title }}</h1>
+                <div class="text-center">
+                    <span>{{ $mainitem->description }}</span>
                 </div>
-                <br>
+                @foreach ($mainitem->images as $image)
+                    <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                @endforeach
+            @endif
             @endforeach
-            <br>
-    
             @foreach ($aboutUsPages as $aboutusmain)
                 @if ($aboutUsCounter % 2 == 0)
                     <div class="container about-story2" data-aos="zoom-in-right">
@@ -126,7 +121,6 @@
     
         <div>
             @foreach ($mainPages as $mainitem)
-                <div>
                     @if ($mainitem->section === 'Logo Section')
                         <h1>{{ $mainitem->title }}</h1>
                         <div class="text-center">
@@ -137,16 +131,13 @@
                                 <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
                             @endforeach 
                         </div>
-
                     @endif
-                </div>
-                <br>
             @endforeach
         </div>
         <br>
         <div>
 
-    
+
             @foreach ($logoPages as $aboutusmain)
                     <div class="row align-items-center">
                         @foreach ($aboutusmain->images as $image)
@@ -257,9 +248,8 @@
                 </div>
             @endif
         @endforeach
-        
     </div>
-
+    <br>
     {{-- Team Section --}}
 
     <div class="container mt-3">
