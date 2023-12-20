@@ -210,7 +210,7 @@
                         <h3>STAYHOPEFUL ALREADY HELPED:</h3>
                     </div>
                 </div>
-                <div class="col-lg-12" style="display: flex; align-content: center; justify-content:center">
+                <div class="col-lg-12 container__statistical">
                     <div class="statistical">
                         <div class="project-count">
                             <i class="fa-solid fa-globe"></i>
