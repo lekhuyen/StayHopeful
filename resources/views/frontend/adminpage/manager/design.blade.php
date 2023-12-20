@@ -132,9 +132,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+<<<<<<< HEAD
+                    <h5 class="modal-title" id="exampleModalLabel">Add Slider</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+=======
                     <h5 class="modal-title" id="exampleModalLabel">New Slider Image</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"
                         aria-label="Close"></button>
+>>>>>>> 99ec9e181caa371ec182815ce6cce04ff10e6fd6
                 </div>
                 <form method="POST" enctype="multipart/form-data" action="{{ route('admin.create_slider') }}">
                     @csrf
