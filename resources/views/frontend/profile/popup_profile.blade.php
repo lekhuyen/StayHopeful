@@ -154,6 +154,7 @@
                             $('#old-password').val(''),
                                 $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
+                            location.reload();
                         } else if (response.status == 'error') {
                             setError(oldPassword, 'Invalid Password');
                         }

@@ -234,6 +234,8 @@ class AuthloginController extends Controller
             // $user->update(['password' => $request->new_password]);
             $user->password = Hash::make($request->new_password);
             $user->save();
+            session()->forget('userInfo');
+            Auth::logout();
             return response()->json([
                 'status' => 'success',
                 'message' => 'Change password successfully'

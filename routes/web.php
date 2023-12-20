@@ -47,8 +47,6 @@ Route::get('/nav', [AdminPageController::class, 'viewnav'])->name('nav');
 //donatedetail
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate'); //view user
-// Route::get('/donate/{title}', [detaildonateController::class, 'donatepage'])->name('detail.getdonate'); //view user
-
 Route::post('/donate/payment', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
