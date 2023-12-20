@@ -250,7 +250,7 @@
 }
 .profile-popup{
     position:absolute;
-    top: 8%;
+    top: 60px;
     right: 0;
     width: 280px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
