@@ -9,6 +9,19 @@
     <div id="spinner"></div>
 </div>
 {{-- alert --}}
+<div class="container-verify-email-notification {{session('isVerified')?'showAlert':''}}">
+    <div class="verify-email-status-success">
+        <div class="exit-alert-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
+            <p>
+                Verify Email Successfully !
+                <br>
+                Please login and start discover.
+            </p>
+    </div>
+</div>
 <div class="container-register-notification">
     <div class="register-status-success">
         <div class="exit-alert-btn">

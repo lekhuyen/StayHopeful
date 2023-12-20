@@ -82,13 +82,18 @@ exitLogin.addEventListener('click', function () {
 // });
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-alert-btn');
+var verifyEmailSuccess = document.querySelector('.container-verify-email-notification');
 var registerSuccess = document.querySelector(".container-register-notification");
 var loginSuccess = document.querySelector(".container-login-notification");
 var errorAlert = document.querySelector(".container-error-notification");
 exitAlertBtn.addEventListener('click', function () {
+    verifyEmailSuccess.classList.remove("showAlert");
     registerSuccess.classList.remove("showAlert");
     loginSuccess.classList.remove("showAlert");
     errorAlert.classList.remove("showAlert");
+});
+verifyEmailSuccess.addEventListener('click', function () {
+    verifyEmailSuccess.classList.remove("showAlert");
 });
 registerSuccess.addEventListener('click', function () {
     registerSuccess.classList.remove("showAlert");

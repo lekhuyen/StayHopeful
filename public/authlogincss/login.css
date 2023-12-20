@@ -8,7 +8,15 @@
 
 
 /* notification */
-
+.container-verify-email-notification{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    display: none;
+}
 .container-register-notification{
     position:fixed;
     top: 0;
@@ -39,6 +47,7 @@
 .showAlert{
     display: block;
 }
+.verify-email-status-success,
 .register-status-success,
 .login-status-success,
 .status-error{
@@ -52,7 +61,7 @@
     height: 20%;
     overflow: hidden;
 }
-
+.verify-email-status-success p,
 .register-status-success p,
 .login-status-success p{
     position: absolute;
