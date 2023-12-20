@@ -17,20 +17,13 @@ class detaildonateController extends Controller
     public function index()
     {
         $projects = Project::all();
-        $project = null;
-        return view('frontend.detaildonate.donatepage', compact('projects', 'project'));
+        $detail = null;
+        return view('frontend.detaildonate.donatepage', compact('projects', 'detail'));
 
     }
 
 
-    // public function donatepage($title)
-    // {
-    //     $project = Project::where('title',  $title)->select('*')->first();
-    //     $projects = Project::all();
 
-
-    //     return view('frontend.detaildonate.donate_detail', compact('projects', 'project'));
-    // }
     public function viewlistdonate()
     {
         $donateinfo = DonateInfo::orderBy('amount', 'desc')->get();
@@ -41,7 +34,7 @@ class detaildonateController extends Controller
 
     public function payment(Request $request)
     {
-
+        
         $request->validate([
             'amount' => 'required|numeric|min:0',
         ], [
@@ -50,6 +43,7 @@ class detaildonateController extends Controller
         ]);
         $data = $request->all();
         session()->put('infopay', $data);
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -95,12 +89,10 @@ class detaildonateController extends Controller
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $user = Auth::user();
             $userinfo = session()->get('infopay');
-
-
             $tomail = $userinfo['emailget'];
             $message = $userinfo['project'];
             $name = $userinfo['fullname'];
-            Mail::to($tomail)->send(new EmailDonate($message,$name));
+            Mail::to($tomail)->send(new EmailDonate($message, $name));
             if ($user) {
                 $username = "";
                 if ($userinfo['fullname'] == "Anonymous") {
@@ -160,5 +152,6 @@ class detaildonateController extends Controller
             return redirect()->back()->with('error', 'Error');
         }
     }
+
 
 }
