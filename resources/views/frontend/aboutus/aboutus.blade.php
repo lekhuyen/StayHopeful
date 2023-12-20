@@ -118,8 +118,7 @@
                 @endphp
             @endif
         @endforeach
-    
-        <div>
+
             @foreach ($mainPages as $mainitem)
                     @if ($mainitem->section === 'Logo Section')
                         <h1>{{ $mainitem->title }}</h1>
@@ -133,10 +132,6 @@
                         </div>
                     @endif
             @endforeach
-        </div>
-        <br>
-        <div>
-
 
             @foreach ($logoPages as $aboutusmain)
                     <div class="row align-items-center">
@@ -253,6 +248,18 @@
     {{-- Team Section --}}
 
     <div class="container mt-3">
+        @foreach ($mainPages as $mainitem)
+            @if ($mainitem->section === 'Team Section')
+                <h1>{{ $mainitem->title }}</h1>
+                <div class="text-center">
+                    <span>{{ $mainitem->description }}</span>
+                </div>
+                @foreach ($mainitem->images as $image)
+                    <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
+                @endforeach
+            @endif
+        @endforeach
+        <br>
         <div class="row align-items-center">
             <div class="col-lg-4 d-none d-lg-block">
                 @foreach ($teampic1Page as $teampic1)
@@ -292,7 +299,6 @@
     {{-- Accordion sector --}}
     <div class="container mt-3" data-aos="zoom-in">
         @foreach ($mainPages as $mainitem)
-        <div>
             @if ($mainitem->section === 'Question Section')
                 <h1>{{ $mainitem->title }}</h1>
                 <div class="text-center">
@@ -301,11 +307,8 @@
                 @foreach ($mainitem->images as $image)
                     <img src="{{ asset($image->url_image) }}" alt="{{ $mainitem->title }}" class="aboutus-image-main" style="width: 100%; max-width: 800px;">
                 @endforeach
-
             @endif
-        </div>
-        <br>
-    @endforeach
+        @endforeach
 
     {{-- Accordion --}}
     <div class="accordion" id="projectAccordion">

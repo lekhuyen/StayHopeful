@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-auto me-auto">
             <a href="{{ route('aboutusteam.index') }}" class="btn__go_back">
-                GO BACK ABOUT US PAGE <i class="fa fa-long-arrow-left"></i></a>
+                <i class="fa fa-long-arrow-left"></i>GO BACK ABOUT US PAGE</a>
         </div>
         <div class="col-auto">
             <a href="{{ route('aboutusmember.index') }}" class="btn__go_back">

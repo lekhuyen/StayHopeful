@@ -65,6 +65,8 @@ class AboutuspageController extends Controller
             "section" => "required",
             "images" => "nullable|array",
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+        
+        
         ]);
 
         $mainPages = new aboutustitle();
