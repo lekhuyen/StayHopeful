@@ -36,7 +36,8 @@
         <div class="exit-change-password-btn">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
+        <div style="padding-bottom: 30px">
+            <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
             method="POST">
             @csrf
             <h2 class="change-password-form-title">Change Password</h2>
@@ -60,6 +61,7 @@
             </div>
             <button id="btn-change-password" type="submit" class="btn solid btn-change-password">Confirm</button>
         </form>
+        </div>
     </div>
 </div>
 {{-- profile popup dropdown --}}
