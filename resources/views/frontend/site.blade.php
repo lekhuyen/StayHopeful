@@ -15,7 +15,7 @@
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css aboutus --}}
-    <link rel="stylesheet" href="{{ asset('aboutuscss/aboutus.css') }}">
+    <link rel="stylesheet" href="{{asset('aboutuscss/aboutus.css')}}">
     <link rel="stylesheet" href="{{ asset('home/Home_style.css') }}">
     <link rel="stylesheet" href="{{ asset('detaildonate(css)/detailPost/detailpost.css') }}">
     {{-- css contactus --}}

@@ -13,11 +13,11 @@
 
     <h1>Project List</h1>
     <div class="d-flex flex-row-reverse gap-3">
-        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
-        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'deActive') }}">DeActive Event</a>
-        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'finish') }}">Finished</a>
-        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'ongoing') }}">Ongoing</a>
-        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'all') }}">All</a>
+        <a class="btn btn-outline-info btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-outline-dark btn-sm" href="{{ route('projectAd.index_sort', 'deActive') }}">DeActive Event</a>
+        <a class="btn btn-outline-success btn-sm" href="{{ route('projectAd.index_sort', 'finish') }}">Finished</a>
+        <a class="btn btn-outline-danger btn-sm" href="{{ route('projectAd.index_sort', 'ongoing') }}">Ongoing</a>
+        <a class="btn btn-outline-primary btn-sm" href="{{ route('projectAd.index_sort', 'all') }}">All</a>
 
     </div>
     @if (session('success'))
@@ -69,9 +69,9 @@
                     </td>
                     <td>
                         @if ($project->status_event == 1)
-                            <a class="project__volunteer__status"><span class="tbtn btn-primary btn-sm status__project">Active</span></a>
+                            <a class="project__volunteer__status"><span disabled class="tbtn btn-outline-primary btn-sm status__project">Active</span></a>
                         @else
-                            <a class="project__volunteer__status"><span class="btn btn-dark btn-sm status__project">Deactive</span></a>
+                            <a class="project__volunteer__status"><span disabled class="btn btn-outline-info btn-sm status__project">Deactive</span></a>
                         @endif
                     </td>
                     <td>
@@ -84,7 +84,7 @@
                                     class="fa-solid fa-trash-can"></i></button>
                         @endcan
                         {{-- @can('project_active') --}}
-                        @if ($project->status == 1)
+                        @if ($project->money <= $project->donateinfo->sum('amount'))
                             <a class="btn btn-secondary" href="{{ route('projectAd.edit_event', $project->id) }}"><i
                                     class="fas fa-user-edit"></i></a>
                         @endif
