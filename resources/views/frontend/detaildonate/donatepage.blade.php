@@ -106,7 +106,7 @@
                                     <select class="form-select" aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
-                                        <option value="{{ $item->title }}" {{ request('project_id') == $item->id ? 'selected' : '' }}>
+                                        <option value="{{ $item->title }}" {{ request('id') == $item->id ? 'selected' : '' }}>
                                             {{ $item->title }}
                                         </option>
                                         @endforeach

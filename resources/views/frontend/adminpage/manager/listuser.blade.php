@@ -75,7 +75,7 @@
                                             class="badge bg-success rounded-pill change-status">Active</button>
                                     @else
                                         <button data-user-id="{{ $item->id }}" data-status="1"
-                                            class="badge rounded-pill bg-danger change-status">Banned</button>
+                                            class="badge rounded-pill bg-danger change-status">inactive</button>
                                     @endif
                                 </td>
                                 <td style="text-align: center">
