@@ -12,19 +12,34 @@
             <i class="fa fa-long-arrow-left"></i>GO BACK</a>
     </div>
     <br>
-    <div class="card">
-        <div class="card-body text-center">
-            @if ($aboutusmain)
+    @if ($aboutusmain)
+        <div class="card">
+            <div class="card-body text-center">
                 <h5 class="card-title">{{ $aboutusmain->title }}</h5>
                 <p class="card-text">{{ $aboutusmain->description }}</p>
                 @if ($aboutusmain->images->count() > 0)
                     @foreach ($aboutusmain->images as $image)
                         <img src="{{ asset($image->url_image) }}" class="card-img-top img-fluid mx-auto d-block" alt="Image" style="max-width: 30%;">
                     @endforeach
-                @endif
-            @endif
+                @endif    
+            </div>
         </div>
-    </div>
+    @endif
+
+    @if ($aboutustitle)
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ $aboutustitle->title }}</h5>
+                <p class="card-text">{{ $aboutustitle->description }}</p>
+                @if ($aboutustitle->images->count() > 0)
+                    @foreach ($aboutustitle->images as $image)
+                        <img src="{{ asset($image->url_image) }}" class="card-img-top img-fluid mx-auto d-block" alt="Image" style="max-width: 30%;">
+                    @endforeach
+                @endif    
+            </div>
+        </div>
+    @endif
+
 </div>
 
 @include('frontend/login/login')

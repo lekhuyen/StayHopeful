@@ -19,8 +19,8 @@ class AboutusController extends Controller
         $logoPages = aboutuslogo::all();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
-        $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
-        $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
+        $teampic1Page = Aboutuscalltoaction::where('section', 'teampic1')->get();
+        $teampic2Page = Aboutuscalltoaction::where('section', 'teampic2')->get();
         $questionPages = Aboutuspage::where('section', 'question')->get();
         // Pass all variables to the view
         return view("frontend.aboutus.aboutus", compact("mainPages", "aboutUsPages", "logoPages",

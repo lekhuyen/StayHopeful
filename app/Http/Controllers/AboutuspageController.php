@@ -27,8 +27,8 @@ class AboutuspageController extends Controller
         $logoPages = aboutuslogo::all();
         $leftcallPages = aboutuscalltoaction::where('section', 'leftcall')->get();
         $teamPage = Aboutuscalltoaction::where('section', 'team')->get();
-        $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
-        $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
+        $teampic1Page = Aboutuscalltoaction::where('section', 'teampic1')->get();
+        $teampic2Page = Aboutuscalltoaction::where('section', 'teampic2')->get();
         $questionPages = Aboutuspage::where('section', 'question')->get();
 
 
@@ -47,10 +47,10 @@ class AboutuspageController extends Controller
     {
         $aboutusmember = aboutusmember::find($id);
 
-
         return view('frontend.aboutus.aboutus_page_member_detail', compact('aboutusmember'));
     }
 
+    
     //main
     public function aboutus_page_create_main() {
         $mainPages = aboutustitle::all();
@@ -164,14 +164,13 @@ class AboutuspageController extends Controller
     public function Aboutus_page_detail($id)
     {
         $aboutusmain = aboutuspage::find($id);
-
+        $aboutustitle = aboutustitle::find($id);
         if (!$aboutusmain) {
             $aboutusmain = aboutuscalltoaction::find($id);
         }
 
-        return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain'));
+        return view('frontend.aboutus.aboutus_page_detail', compact('aboutusmain', 'aboutustitle'));
     }
-
 
     //about us
     public function aboutus_page_create_aboutus()
@@ -577,7 +576,7 @@ class AboutuspageController extends Controller
 
     //Team pic 1
     public function aboutus_page_create_teampic1() {
-        $teampic1Page = Aboutuspage::where('section', 'teampic1')->get();
+        $teampic1Page = Aboutuscalltoaction::where('section', 'teampic1')->get();
         return view("frontend.aboutus.aboutus_page_create_teampic1", compact("teampic1Page"));
     }
 
@@ -588,7 +587,7 @@ class AboutuspageController extends Controller
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $teampic1Page = new Aboutuspage();
+        $teampic1Page = new Aboutuscalltoaction();
         $teampic1Page->section = 'teampic1';
         $teampic1Page->save();
 
@@ -607,17 +606,17 @@ class AboutuspageController extends Controller
             }
         }
 
-        $mainPages = Aboutuspage::where('section', 'teampic1')->get();
+        $teampic1Page = Aboutuscalltoaction::where('section', 'teampic1')->get();
 
         return redirect()->route('aboutuspage.index')->with('teampic1Page', $teampic1Page)
         ->with("success", "Main page created successfully");
     }
 
-    public function aboutus_page_edit_teampic1(Aboutuspage $teampic1Page) {
+    public function aboutus_page_edit_teampic1(Aboutuscalltoaction $teampic1Page) {
         return view("frontend.aboutus.aboutus_page_edit_teampic1", compact("teampic1Page"));
     }
 
-    public function aboutus_page_update_teampic1(Request $request, Aboutuspage $teampic1Page)
+    public function aboutus_page_update_teampic1(Request $request, Aboutuscalltoaction $teampic1Page)
     {   
         $request->validate([
             "images" => "required",
@@ -660,7 +659,7 @@ class AboutuspageController extends Controller
             ->with("success", "Team picture page updated successfully");
     }
     
-    public function aboutus_page_delete_teampic1(aboutuspage $teampic1Page)
+    public function aboutus_page_delete_teampic1(Aboutuscalltoaction $teampic1Page)
     {
         // Delete related images
         foreach ($teampic1Page->images as $image) {
@@ -678,7 +677,7 @@ class AboutuspageController extends Controller
 
     //Team pic 2
     public function aboutus_page_create_teampic2() {
-        $teampic2Page = Aboutuspage::where('section', 'teampic2')->get();
+        $teampic2Page = Aboutuscalltoaction::where('section', 'teampic2')->get();
         return view("frontend.aboutus.aboutus_page_create_teampic2", compact("teampic2Page"));
     }
 
@@ -689,7 +688,7 @@ class AboutuspageController extends Controller
             "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
         ]);
 
-        $teampic2Page = new Aboutuspage();
+        $teampic2Page = new Aboutuscalltoaction();
         $teampic2Page->section = 'teampic2';
         $teampic2Page->save();
 
@@ -708,17 +707,17 @@ class AboutuspageController extends Controller
             }
         }
 
-        $mainPages = Aboutuspage::where('section', 'teampic2')->get();
+        $teampic2Page = Aboutuscalltoaction::where('section', 'teampic2')->get();
 
         return redirect()->route('aboutuspage.index')->with('teampic2Page', $teampic2Page)
         ->with("success", "Main page created successfully");
     }
 
-    public function aboutus_page_edit_teampic2(Aboutuspage $teampic2Page) {
+    public function aboutus_page_edit_teampic2(Aboutuscalltoaction $teampic2Page) {
         return view("frontend.aboutus.aboutus_page_edit_teampic2", compact("teampic2Page"));
     }
 
-    public function aboutus_page_update_teampic2(Request $request, Aboutuspage $teampic2Page)
+    public function aboutus_page_update_teampic2(Request $request, Aboutuscalltoaction $teampic2Page)
     {   
         $request->validate([
             "images" => "required",
@@ -761,7 +760,7 @@ class AboutuspageController extends Controller
             ->with("success", "Team picture 2 updated successfully");
     }
     
-    public function aboutus_page_delete_teampic2(aboutuspage $teampic2Page)
+    public function aboutus_page_delete_teampic2(Aboutuscalltoaction $teampic2Page)
     {
         // Delete related images
         foreach ($teampic2Page->images as $image) {

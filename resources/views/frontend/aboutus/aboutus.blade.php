@@ -264,7 +264,7 @@
 
     <div class="container mt-3">
         <div class="row align-items-center">
-            <div class="col-lg-3 d-none d-lg-block">
+            <div class="col-lg-4 d-none d-lg-block">
                 @foreach ($teampic1Page as $teampic1)
                     @if ($teampic1->images->count() > 0)
                         <img src="{{ asset($teampic1->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
@@ -272,7 +272,7 @@
                 @endforeach
             </div>
     
-            <div class="col-lg-6 d-flex justify-content-center">
+            <div class="col-lg-4 d-flex justify-content-center">
                 @foreach ($teamPage as $teamitems)
                     <div class="card mb-3 aboutus_card_johndoe">
                         <div class="text-center">
@@ -288,7 +288,7 @@
                 @endforeach
             </div>
     
-            <div class="col-lg-3 d-none d-lg-block">
+            <div class="col-lg-4 d-none d-lg-block">
                 @foreach ($teampic2Page as $teampic2)
                     @if ($teampic2->images->count() > 0)
                         <img src="{{ asset($teampic2->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
@@ -341,8 +341,16 @@
     </div>
 
     <script>
-        // JavaScript script to add 'glowing' class to the first accordion item
-        document.getElementById('accordionItem0').classList.add('glowing');
+        $(document).ready(function () {
+            // Add the glowing effect to the first accordion item
+            $('.accordion-item:first .accordion-button').addClass('glowing-accordion-item');
+    
+            // Remove the glowing effect from other items when an accordion button is clicked
+            $('.accordion-button').on('click', function () {
+                $('.accordion-button').removeClass('glowing-accordion-item');
+                $(this).addClass('glowing-accordion-item');
+            });
+        });
     </script>
 </div>
 
