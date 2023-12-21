@@ -73,8 +73,8 @@ class VolunteerController extends Controller
             'rel_phone.required' => 'The relative phone cannot be blanked',
             'rel_relationship.required' => 'The relative relationship cannot be blanked',
             'rel_name.required' => 'The relative name cannot be blanked',
-            'min' => 'The :attribute at least :min char',
-            'max' => 'The :attribute must greater than :min char',
+            'min' => 'The :attribute must be at least :min characters',
+            'max' => 'The :attribute must greater than :min characters',
 
 
 
