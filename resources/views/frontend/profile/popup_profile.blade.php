@@ -137,7 +137,34 @@
         $('#changePasswordForm').submit(function(e) {
             e.preventDefault();
             let isValid = checkChangePassword();
-            if (isValid) {
+            if (!isValid) {
+                $.ajax({
+                    url: '{{ route('auth.changepassword') }}',
+                    type: 'POST',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        old_password: $('#old-password').val(),
+                        new_password: $('#new-password-change').val()
+                    },
+                    success: function(response) {
+                        if (response.status == 'success') {
+                            changePasswordSuccess.classList.add("showAlert");
+                            popupChangePassword.classList.remove('showChangePassword');
+                            // window.location.href = "{{ route('/') }}";
+                            $('#old-password').val(''),
+                                $('#new-password-change').val('')
+                            $('#confirm-new-password-change').val('')
+                            location.reload();
+                        } else if (response.status == 'error') {
+                            setError(oldPassword, 'Invalid Password');
+                        }
+                    },
+                    error: function(error) {
+                        errorAlert.classList.add("showAlert");
+                        console.log(response.message);
+                    }
+                });
+            }else{
                 $.ajax({
                     url: '{{ route('auth.changepassword') }}',
                     type: 'POST',
