@@ -29,14 +29,15 @@
                                 @endphp
                                 @foreach ($user as $item)
                                     @if (!$check)
-                                        @if ($post->user_id == $item->id)
+                                        @if ($post->user_id == $item->id && $item->avatar != null)
                                             <img src="{{ asset($post->user->avatar) }}" alt="" width="50"
                                                 style=" width: 80px;clip-path: circle(30%);">
                                                 @php
                                                 $check = true;
                                             @endphp
                                         @elseif ($post->user_id == $item->id && $item->avatar == null)
-                                            <img src="{{ asset('img/humanicon.png') }}" alt="">
+                                            <img src="{{ asset('img/humanicon.png') }}" alt="" width="50"
+                                            style=" width: 80px;clip-path: circle(30%);">
                                             @php
                                                 $check = true;
                                             @endphp

@@ -62,7 +62,7 @@ class AuthloginController extends Controller
         $email = $request->email;
         $existingUser = User::where("email", $email)->first();
         if ($existingUser) {
-            return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
+            return response()->json(['status' => 'error', 'message' => 'Email already exists']);
         } else {
             //$password = $request->password;
             $hashPassword = Hash::make($request->password);
@@ -78,7 +78,7 @@ class AuthloginController extends Controller
                 $email->subject('Confirm Register');
                 $email->to($emailUser, $name);
             });
-            return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
+            return response()->json(['status' => 'success', 'message' => 'Sign up successfully! Please verify your email']);
         }
     }
     public function verified_email($verify_token)
@@ -91,19 +91,20 @@ class AuthloginController extends Controller
     }
     public function viewprofile()
     {
+
         $userInfo = session()->get('userInfo');
         $usercheck = Auth::user();
         if ($userInfo && isset($userInfo['id'])) {
-            $user = $userInfo['id'];
-            $userupdate = User::where("id", '=', $user)->select('*')->first();
+            $users = $userInfo['id'];
+            $userupdate = User::where("id", '=', $users)->select('*')->first();
 
             $posts = UserPost::orderBy('id', 'desc')
-                ->where('user_id', $user)
+                ->where('user_id', $users)
                 ->where('status', 0)
                 ->get();
-
+            $user = User::all();
             $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->paginate(5);
-            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate'));
+            return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate', 'user'));
         } else {
             return redirect()->route('/')->with('error', 'You Need to login');
         }
@@ -233,6 +234,8 @@ class AuthloginController extends Controller
             // $user->update(['password' => $request->new_password]);
             $user->password = Hash::make($request->new_password);
             $user->save();
+            session()->forget('userInfo');
+            Auth::logout();
             return response()->json([
                 'status' => 'success',
                 'message' => 'Change password successfully'
@@ -241,7 +244,7 @@ class AuthloginController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Post not Found'
+                'message' => 'Invalid Password'
             ]);
         }
 

@@ -40,6 +40,8 @@
                     <form action="{{ route('detail.payment') }}" method="POST">
                         @csrf
                         <h2 class="form-donate-text">Donate Form</h2>
+                        <input type="hidden" name="project_id" value="{{ request('project_id') }}">
+
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Full Name <span class="req"> *</span> </span>
@@ -94,7 +96,9 @@
                                 </div>
                             </div>
                         </div>
-                       
+                       {{-- @php
+                           dd($detail)
+                       @endphp --}}
                         <div class="form-donate-info">
                             <div class="form-info-detail">
                                 <span class="info-text">Select Project<span class="req"> *</span></span>
@@ -102,7 +106,7 @@
                                     <select class="form-select" aria-label="Floating label select example" name="project">
                                         <option selected>Select Project</option>
                                         @foreach ($projects as $item)
-                                        <option value="{{ $item->title }}" {{ $project && $project->title == $item->title ? 'selected' : '' }}>
+                                        <option value="{{ $item->title }}" {{ request('id') == $item->id ? 'selected' : '' }}>
                                             {{ $item->title }}
                                         </option>
                                         @endforeach
@@ -153,7 +157,7 @@
     </div>
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')
-
+{{-- 
     <script>
         var click = document.getElementById('click-exit');
         var click_ok = document.getElementById('click-exit-ok');
@@ -164,5 +168,6 @@
         click_ok.addEventListener('click', function() {
             popup.classList.add('exit-none');
         });
-    </script>
+    </script> --}}
+    
 @endsection

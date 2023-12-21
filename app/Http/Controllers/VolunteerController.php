@@ -7,7 +7,9 @@ use App\Models\Project;
 use App\Models\User;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class VolunteerController extends Controller
 {
@@ -35,7 +37,7 @@ class VolunteerController extends Controller
         }
         // dd($summedCounts[2]);
         // $summedCounts will contain the summed counts for each project ID
-        $projects = Project::orderBy('id','desc')->paginate(5);
+        $projects = Project::orderBy('id', 'desc')->paginate(5);
         // $projects = Project::paginate(6);
         return view("frontend.volunteer.index", compact('projects', 'summedCounts'));
     }
@@ -51,10 +53,10 @@ class VolunteerController extends Controller
 
     public function store(Request $request)
     {
-        $messages = [
-            "phone.required" => "Please input a valid phone number with at least 10 digits.",
-            "rel_phone.required" => "Please input a valid phone number with at least 10 digits."
-        ];
+        // $messages = [
+        //     "phone.required" => "Please input a valid phone number with at least 10 digits.",
+        //     "rel_phone.required" => "Please input a valid phone number with at least 10 digits."
+        // ];
 
         $request->validate([
             "finding_source" => "required",
@@ -66,11 +68,22 @@ class VolunteerController extends Controller
             "rel_relationship" => "bail|required|min:3|max:10",
             "rel_phone" => 'bail|required|regex:/^(\d{10}$)/',
             "project_id" => "required"
+        ], [
+            'required' => 'The :attribute cannot be blanked',
+            'rel_phone.required' => 'The relative phone cannot be blanked',
+            'rel_relationship.required' => 'The relative relationship cannot be blanked',
+            'rel_name.required' => 'The relative name cannot be blanked',
+            'min' => 'The :attribute at least :min char',
+            'max' => 'The :attribute must greater than :min char',
+
+
+
+
         ]);
         // $userForProject = Volunteer::where(["email","=",$request->email,])->first();
-        $userForProject = Volunteer::where("email","=",$request->email,'and')->where('project_id','=',$request->project_id)->first();
-        if($userForProject != null){
-            return redirect()->back()->with("warning", "ban da tham gia su kien nay roi.Ok");
+        $userForProject = Volunteer::where("email", "=", $request->email, 'and')->where('project_id', '=', $request->project_id)->first();
+        if ($userForProject != null) {
+            return redirect()->back()->with("Warning", "You already registered for this project.");
         }
         Volunteer::create($request->all());
         $project = Project::find($request->project_id);
@@ -78,17 +91,26 @@ class VolunteerController extends Controller
         $findUser =  User::where('email', $request->email)->first();
 
         if ($findUser != null) {
-
             $findUser->is_volunteer = true;
             $findUser->save();
         } else {
+            $verify_token = Str::random(6);
             $userCreate = new User();
             $userCreate->email = $request->email;
             $userCreate->name = $request->name;
-            $userCreate->password = "12345";
+            $hashPassword = Hash::make(12345);
+            $userCreate->password = $hashPassword;
+            $userCreate->verified_token = $verify_token;
             $userCreate->is_volunteer = true;
             $userCreate->save();
+            $name = 'StayHopeful';
+            $emailUser =  $request->email;
+            Mail::send('frontend.login.verified_email', compact('verify_token'), function ($email) use ($name, $emailUser) {
+                $email->subject('Confirm Register');
+                $email->to($emailUser, $name);
+            });
         }
+
         Mail::to($request->email)->send(new VolunteerMail($project));
         return redirect()->back()->with("success", "Thanks for being a part of us.");
     }

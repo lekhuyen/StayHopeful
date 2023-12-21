@@ -40,16 +40,24 @@
                                     <span class="profile-username-text">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="profile-info">
+
+                                   @if (Auth::user()->role == 0)
+                                   <p class="info-text">Role: <span class="info-text-user blinkadmin"
+                                    style="font-weight: 700">Admin</span></p>
+                                    @else
+                                    <p class="info-text">Role: <span class="info-text-user blinkuser"
+                                        style="font-weight: 700">User</span></p>
+                                   @endif
                                     @if (session('userInfo'))
                                         @if ($userupdate->is_sponsor == 1 && $userupdate->is_volunteer != 1)
-                                            <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor</span></p>
+                                            <p class="info-text">Title: <span class="info-text-user blink"
+                                                    style="font-weight: 700">Sponsor</span></p>
                                         @elseif ($userupdate->is_sponsor != 1 && $userupdate->is_volunteer == 1)
-                                            <p class="info-text">Role: <span class="info-text-user blink"
+                                            <p class="info-text">Title: <span class="info-text-user blink"
                                                     style="font-weight: 700">Volunteer</span></p>
                                         @elseif($userupdate->is_sponsor == 1 && $userupdate->is_volunteer == 1)
-                                            <p class="info-text">Role: <span class="info-text-user blink"
-                                                    style="font-weight: 700">Donor<span style="color: black"> and</span>
+                                            <p class="info-text">Title: <span class="info-text-user blink"
+                                                    style="font-weight: 700">Sponsor<span style="color: black"> and</span>
                                                     Volunteer</span></p>
                                         @endif
                                         @if ($userupdate->email != null)
@@ -85,10 +93,13 @@
                                         @endif
                                     @endif
                                 </div>
-                                <button class="profile-edit-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                                    Profile</button>
+                               
                             </div>
                         </div>
+                    </div>
+                    <div class="btn-setprofile">
+                        <button class="profile-edit-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
+                            Profile</button>
                     </div>
                     {{-- <div class="profile-text-listdonate">
                     </div> --}}
@@ -241,6 +252,11 @@
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                name="name" value="{{ $userupdate->name }}">
+                        </div>
+                        <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="text" class="form-control" id="email" placeholder="Enter email"
                                 name="email" value="{{ $userupdate->email }}">
@@ -268,7 +284,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </form>
                 </div>
             </div>

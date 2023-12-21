@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\ProjectImage;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->paginate(4);
+
         return view('frontend.adminpage.projects.index', compact('projects'));
     }
 
@@ -206,8 +208,8 @@ class ProjectController extends Controller
     public function activeEvent(Request $request, Project $project)
     {
         $request->validate([
-            "start_date" => "required|date|before:end_date",
-            "end_date" => "required|date|after:start_date",
+            "start_date" => "required|date|before_or_equal:end_date",
+            "end_date" => "required|date|after_or_equal:start_date",
             "quantity" => "required|numeric|min:2",
             "status_event" => "required",
 
@@ -234,12 +236,19 @@ class ProjectController extends Controller
     }
     public function sortEvent($type)
     {
-        $projects = Project::orderBy('id', 'desc')->paginate(6);
+        $projects = Project::orderBy('id', 'desc')->paginate(4);
 
         if ($type == "active") {
-            $projects = Project::where("status_event", '=', 1)->paginate(6);
+            $projects = Project::where("status_event", '=', 1)->paginate(4);
+        }
+        else if ($type == "deActive") {
+            $projects = Project::where("status_event", '=', 0)->paginate(4);
+        }else if ($type == "finish") {
+            $projects = Project::where("status", '=', 1)->paginate(4);
+        } else if ($type == "ongoing") {
+            $projects = Project::where("status", '=', 0)->paginate(4);
         } else {
-            $projects = Project::where("status_event", '=', 0)->paginate(6);
+            $projects = Project::orderBy('id', 'desc')->paginate(4);
         }
         return view('frontend.adminpage.projects.index', compact('projects'));
     }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\AboutuspageController;
+use App\Http\Controllers\AboutuspageiconController;
 use App\Http\Controllers\AboutusteamController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPermissionsController;
@@ -47,8 +49,6 @@ Route::get('/nav', [AdminPageController::class, 'viewnav'])->name('nav');
 //donatedetail
 
 Route::get('/donate', [detaildonateController::class, 'index'])->name('detail.donate'); //view user
-// Route::get('/donate/{title}', [detaildonateController::class, 'donatepage'])->name('detail.getdonate'); //view user
-
 Route::post('/donate/payment', [detaildonateController::class, 'payment'])->name('detail.payment');
 Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])->name('detail.paymentsuccess');
 
@@ -136,7 +136,81 @@ Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_det
 
 Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
 
+// About Us Page
 
+Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
+
+// About Us main Page
+Route::get('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_create_main'])->name('aboutuspage.create_main');
+Route::post('/aboutus_page_table/create_main', [AboutuspageController::class, 'aboutus_page_store_main'])->name('aboutuspage.store_main');
+Route::get('/aboutus_page_table/edit_main/{mainPages}', [AboutuspageController::class, 'aboutus_page_edit_main'])->name('aboutuspage.edit_main');
+Route::put('/aboutus_page_table/edit_main/{mainPages}', [AboutuspageController::class, 'aboutus_page_update_main'])->name('aboutuspage.update_main');
+Route::delete('/aboutus_page_table/delete/{mainPages}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_main');
+Route::get('/aboutus_page_detail/{id}', [AboutuspageController::class, 'Aboutus_page_detail'])->name('aboutuspage.detail');
+
+// About Us (about us) Page
+Route::get('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_create_aboutus'])->name('aboutuspage.create_aboutus');
+Route::post('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_store_aboutus'])->name('aboutuspage.store_aboutus');
+Route::get('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_edit_aboutus'])->name('aboutuspage.edit_aboutus');
+Route::put('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_update_aboutus'])->name('aboutuspage.update_aboutus');
+Route::delete('/aboutus_page_table/delete_aboutus/{aboutuspage}', [AboutuspageController::class, 'aboutus_page_delete_aboutus'])->name('aboutuspage.delete_aboutus');
+
+// About Us (logo) Page
+Route::get('/aboutus_page_table/create_logo', [AboutuspageController::class, 'aboutus_page_create_logo'])->name('aboutuspage.create_logo');
+Route::post('/aboutus_page_table/create_logo', [AboutuspageController::class, 'aboutus_page_store_logo'])->name('aboutuspage.store_logo');
+Route::get('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_edit_logo'])->name('aboutuspage.edit_logo');
+Route::put('/aboutus_page_table/edit_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_update_logo'])->name('aboutuspage.update_logo');
+Route::delete('/aboutus_page_table/delete_logo/{logoPages}', [AboutuspageController::class, 'aboutus_page_delete_logo'])->name('aboutuspage.delete_logo');
+
+// About Us left call Page
+Route::get('/aboutus_page_table/create_leftcall', [AboutuspageController::class, 'aboutus_page_create_leftcall'])->name('aboutuspage.create_leftcall');
+Route::post('/aboutus_page_table/create_leftcall', [AboutuspageController::class, 'aboutus_page_store_leftcall'])->name('aboutuspage.store_leftcall');
+Route::get('/aboutus_page_table/edit_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_edit_leftcall'])->name('aboutuspage.edit_leftcall');
+Route::put('/aboutus_page_table/edit_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_update_leftcall'])->name('aboutuspage.update_leftcall');
+Route::delete('/aboutus_page_table/delete_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_delete_leftcall'])->name('aboutuspage.delete_leftcall');
+
+// About Us our team Page
+Route::get('/aboutus_page_table/create_team', [AboutuspageController::class, 'aboutus_page_create_team'])->name('aboutuspage.create_team');
+Route::post('/aboutus_page_table/create_team', [AboutuspageController::class, 'aboutus_page_store_team'])->name('aboutuspage.store_team');
+Route::get('/aboutus_page_table/edit_team/{teamPage}', [AboutuspageController::class, 'aboutus_page_edit_team'])->name('aboutuspage.edit_team');
+Route::put('/aboutus_page_table/edit_team/{teamPage}', [AboutuspageController::class, 'aboutus_page_update_team'])->name('aboutuspage.update_team');
+Route::delete('/aboutus_page_table/delete_team/{teamPage}', [AboutuspageController::class, 'aboutus_page_delete_team'])->name('aboutuspage.delete_team');
+
+//About Us our team pic 1 Page
+Route::get('/aboutus_page_table/create_teampic1', [AboutuspageController::class, 'aboutus_page_create_teampic1'])->name('aboutuspage.create_teampic1');
+Route::post('/aboutus_page_table/create_teampic1', [AboutuspageController::class, 'aboutus_page_store_teampic1'])->name('aboutuspage.store_teampic1');
+Route::get('/aboutus_page_table/edit_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_edit_teampic1'])->name('aboutuspage.edit_teampic1');
+Route::put('/aboutus_page_table/edit_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_update_teampic1'])->name('aboutuspage.update_teampic1');
+Route::delete('/aboutus_page_table/delete_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_delete_teampic1'])->name('aboutuspage.delete_teampic1');
+
+//About Us our team pic 2 Page
+Route::get('/aboutus_page_table/create_teampic2', [AboutuspageController::class, 'aboutus_page_create_teampic2'])->name('aboutuspage.create_teampic2');
+Route::post('/aboutus_page_table/create_teampic2', [AboutuspageController::class, 'aboutus_page_store_teampic2'])->name('aboutuspage.store_teampic2');
+Route::get('/aboutus_page_table/edit_teampic2/{teampic2Page}', [AboutuspageController::class, 'aboutus_page_edit_teampic2'])->name('aboutuspage.edit_teampic2');
+Route::put('/aboutus_page_table/edit_teampic2/{teampic2Page}', [AboutuspageController::class, 'aboutus_page_update_teampic2'])->name('aboutuspage.update_teampic2');
+Route::delete('/aboutus_page_table/delete_teampic2/{teampic2Page}', [AboutuspageController::class, 'aboutus_page_delete_teampic2'])->name('aboutuspage.delete_teampic2');
+
+//About Us Question Page
+Route::get('/aboutus_page_table/create_question', [AboutuspageController::class, 'aboutus_page_create_question'])->name('aboutuspage.create_question');
+Route::post('/aboutus_page_table/create_question', [AboutuspageController::class, 'aboutus_page_store_question'])->name('aboutuspage.store_question');
+Route::get('/aboutus_page_table/edit_question/{questionPages}', [AboutuspageController::class, 'aboutus_page_edit_question'])->name('aboutuspage.edit_question');
+Route::put('/aboutus_page_table/edit_question/{questionPages}', [AboutuspageController::class, 'aboutus_page_update_question'])->name('aboutuspage.update_question');
+Route::delete('/aboutus_page_table/delete_question/{questionPages}', [AboutuspageController::class, 'aboutus_page_delete_question'])->name('aboutuspage.delete_question');
+
+//About Us Member Page
+Route::get('/aboutus_page_table/aboutus_member_index', [AboutuspageController::class, 'aboutus_member_index'])->name('aboutusmember.index');
+Route::get('/aboutus_page_main/aboutus_member_index/{id}', [AboutuspageController::class, 'Aboutus_member_main'])->name('aboutus_member_main');
+Route::get('/aboutus_page_main/aboutus_member_index/aboutus_member_detail/{id}', [AboutuspageController::class, 'Aboutus_member_detail'])->name('aboutusmember.detail');
+Route::get('/aboutus/whoweare/member/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
+
+
+//About Us Founder Page
+Route::get('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_create_founder'])->name('aboutusmember.create_founder');
+Route::post('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_store_founder'])->name('aboutusmember.store_founder');
+Route::get('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_edit_founder'])->name('aboutusmember.edit_founder');
+Route::put('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_update_founder'])->name('aboutusmember.update_founder');
+
+Route::delete('/aboutus_page_table/aboutus_member_index/delete_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_delete_founder'])->name('aboutusmember.delete_founder');
 //feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user

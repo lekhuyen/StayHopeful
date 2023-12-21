@@ -14,7 +14,7 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy('id', 'desc')->paginate(2);
+        $posts = UserPost::orderBy('id', 'desc')->paginate(4);
         return view('frontend.adminpage.user_post.index', compact('posts'));
     }
     public function detail_post($id)
@@ -234,11 +234,12 @@ class UserPostController extends Controller
     }
     public function updateprofile(Request $request, $id)
     {
-
+        $name = $request->name;
         $age = $request->age;
         $phone = $request->phone;
         $address = $request->address;
         $user = User::find($id);
+        $user->name = $name;
         $user->age = $age;
         $user->phone = $phone;
         $user->address = $address;

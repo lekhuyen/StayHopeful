@@ -36,7 +36,8 @@
         <div class="exit-change-password-btn">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
+        <div style="padding-bottom: 30px">
+            <form id="changePasswordForm" class="change-password-form" action="{{ route('auth.changepassword') }}"
             method="POST">
             @csrf
             <h2 class="change-password-form-title">Change Password</h2>
@@ -60,6 +61,7 @@
             </div>
             <button id="btn-change-password" type="submit" class="btn solid btn-change-password">Confirm</button>
         </form>
+        </div>
     </div>
 </div>
 {{-- profile popup dropdown --}}
@@ -135,7 +137,7 @@
         $('#changePasswordForm').submit(function(e) {
             e.preventDefault();
             let isValid = checkChangePassword();
-            if (isValid) {
+            if (!isValid) {
                 $.ajax({
                     url: '{{ route('auth.changepassword') }}',
                     type: 'POST',
@@ -152,6 +154,34 @@
                             $('#old-password').val(''),
                                 $('#new-password-change').val('')
                             $('#confirm-new-password-change').val('')
+                            location.reload();
+                        } else if (response.status == 'error') {
+                            setError(oldPassword, 'Invalid Password');
+                        }
+                    },
+                    error: function(error) {
+                        errorAlert.classList.add("showAlert");
+                        console.log(response.message);
+                    }
+                });
+            }else{
+                $.ajax({
+                    url: '{{ route('auth.changepassword') }}',
+                    type: 'POST',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        old_password: $('#old-password').val(),
+                        new_password: $('#new-password-change').val()
+                    },
+                    success: function(response) {
+                        if (response.status == 'success') {
+                            changePasswordSuccess.classList.add("showAlert");
+                            popupChangePassword.classList.remove('showChangePassword');
+                            // window.location.href = "{{ route('/') }}";
+                            $('#old-password').val(''),
+                                $('#new-password-change').val('')
+                            $('#confirm-new-password-change').val('')
+                            location.reload();
                         } else if (response.status == 'error') {
                             setError(oldPassword, 'Invalid Password');
                         }

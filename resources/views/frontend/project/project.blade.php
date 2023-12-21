@@ -16,7 +16,8 @@
             @if ($category->projects->count() > 0)
                 @foreach ($category->projects as $project)
                     <div class="col-xxl-3 col-xl-6" style="margin-bottom: 20px">
-                        <a href="{{ route('detail.post', $project->id) }}" class="a-card">
+                        {{-- [$project->id, Str::slug($project->title) . '.html'] --}}
+                        <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}" class="a-card">
                             <div class="card card_wapper" style="width: 19.5rem;">
                                 @if ($project->status == 0)
                                     <div class="project-status">ON GOING</div>
@@ -43,7 +44,7 @@
                                             {{ number_format($project->money) }}
                                         </span>
                                     </p>
-                                    <a href="{{ route('detail.post', $project->id) }}"
+                                    <a href="{{ route('detail.post', [$project->id, Str::slug($project->title) . '.html']) }}"
                                         class="btn btn-primary btn-primary-1">Details</a>
                                 </div>
                             </div>

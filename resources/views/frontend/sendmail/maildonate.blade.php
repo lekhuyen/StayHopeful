@@ -34,7 +34,6 @@
         </div>
         <div class="container" style="font-weight: bold;">
             
-            <span>November 20,2023</span>
             <p>Dear {!! $fullname !!}</p>
             <p>I am writing to express my heartfelt gratitude for your generous
                 support to our charitable project. Your contribution has played

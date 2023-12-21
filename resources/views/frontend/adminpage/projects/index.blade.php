@@ -13,8 +13,12 @@
 
     <h1>Project List</h1>
     <div class="d-flex flex-row-reverse gap-3">
-        <a class="btn btn-dark btn-sm" href="{{ route('projectAd.index_sort', 'deactive') }}">Deactive Event</a>
-        <a class="btn btn-primary btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-outline-info btn-sm" href="{{ route('projectAd.index_sort', 'active') }}">Active Event</a>
+        <a class="btn btn-outline-dark btn-sm" href="{{ route('projectAd.index_sort', 'deActive') }}">Deactive Event</a>
+        <a class="btn btn-outline-success btn-sm" href="{{ route('projectAd.index_sort', 'finish') }}">Finished</a>
+        <a class="btn btn-outline-danger btn-sm" href="{{ route('projectAd.index_sort', 'ongoing') }}">Ongoing</a>
+        <a class="btn btn-outline-primary btn-sm" href="{{ route('projectAd.index_sort', 'all') }}">All</a>
+
     </div>
     @if (session('success'))
         <div class="alert alert-success">
@@ -52,7 +56,7 @@
                             <img src="{{ asset($project->images[0]->image) }}" width="100">
                         @endif
                     </td>
-                    <td>{{ $project->money2 }}</td>
+                    <td>{{ $project->donateinfo->sum('amount') }}</td>
                     <td>{{ $project->money }}</td>
                     <td>
                         @if ($project->status == 1)
@@ -65,9 +69,11 @@
                     </td>
                     <td>
                         @if ($project->status_event == 1)
-                            <a class="project__volunteer__status"><span class="tbtn btn-primary btn-sm status__project">Active</span></a>
+                            <a class="project__volunteer__status"><span disabled
+                                    class="btn btn-outline-info btn-sm status__project">Active</span></a>
                         @else
-                            <a class="project__volunteer__status"><span class="btn btn-dark btn-sm status__project">Deactive</span></a>
+                            <a class="project__volunteer__status"><span disabled
+                                    class="btn btn-outline-dark btn-sm status__project">Deactive</span></a>
                         @endif
                     </td>
                     <td>
@@ -76,11 +82,13 @@
                                     class="fa-solid fa-pen-to-square"></i></a>
                         @endcan
                         @can('project_delete')
-                            <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
-                                    class="fa-solid fa-trash-can"></i></button>
+                            @if ($project->donateinfo->where('project_id', $project->id)->where('amount', '>', 0)->isEmpty())
+                                <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            @endif
                         @endcan
                         {{-- @can('project_active') --}}
-                        @if ($project->status == 1)
+                        @if ($project->money <= $project->donateinfo->sum('amount'))
                             <a class="btn btn-secondary" href="{{ route('projectAd.edit_event', $project->id) }}"><i
                                     class="fas fa-user-edit"></i></a>
                         @endif
