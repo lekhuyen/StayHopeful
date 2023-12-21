@@ -287,6 +287,12 @@ button.carousel-control-next {
 .card-title-1 {
     font-weight: 700;
     color: #245abe !important;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .card-body p {
