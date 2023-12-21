@@ -72,6 +72,9 @@ Route::post('/change-password', [AuthloginController::class, 'change_password'])
 //forgot password
 Route::post('/send-otp', [OtpController::class, 'sendOtp'])->name('auth.send_otp');
 Route::post('/verify-otp', [OtpController::class, 'verifyOtp'])->name('auth.verify_otp');
+//kiem tra mat khau
+Route::post('/checkpassword', [AuthloginController::class, 'passwordcheck'])->name('auth.checkpassword');
+
 //profile
 Route::get('/profile/css', [AuthloginController::class, 'profilePopupView'])->name('auth.profilecss');
 
