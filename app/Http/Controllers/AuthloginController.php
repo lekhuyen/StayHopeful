@@ -62,7 +62,7 @@ class AuthloginController extends Controller
         $email = $request->email;
         $existingUser = User::where("email", $email)->first();
         if ($existingUser) {
-            return response()->json(['status' => 'error', 'message' => 'Email đã tồn tại']);
+            return response()->json(['status' => 'error', 'message' => 'Email already exists']);
         } else {
             //$password = $request->password;
             $hashPassword = Hash::make($request->password);
@@ -78,7 +78,7 @@ class AuthloginController extends Controller
                 $email->subject('Confirm Register');
                 $email->to($emailUser, $name);
             });
-            return response()->json(['status' => 'success', 'message' => 'Đăng kí thành công! Vui lòng xác nhận email']);
+            return response()->json(['status' => 'success', 'message' => 'Sign up successfully! Please verify your email']);
         }
     }
     public function verified_email($verify_token)
@@ -244,7 +244,7 @@ class AuthloginController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Post not Found'
+                'message' => 'Invalid Password'
             ]);
         }
 
