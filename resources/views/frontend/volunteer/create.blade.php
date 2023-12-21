@@ -27,7 +27,6 @@
     <div class="container__voting">
         <div class="row row__voting">
             <h1 class="h1_title__voting">Volunteer Form</h1>
-            {{-- @dd( $infouser) --}}
             <div class="voting__form">
                 <form action="{{ route('volunteer.store') }}" method="post">
                     @csrf
@@ -106,38 +105,37 @@
                             </div>
                         </div>
                         <div class="container" style="margin-left: -10px; width:103%">
-                                {{-- <div class="form-floating"> --}}
-                                    <label class="form-label" for="votingSelect" style="margin-bottom:5px">Select Project:</label>
-                                    <select class="form-select" id="votingSelect" name="project_id">
-                                        @foreach ($projects as $item)
+                            <label class="form-label" for="votingSelect" style="margin-bottom:5px">Select
+                                Project:</label>
+                            <select class="form-select" id="votingSelect" name="project_id">
+                                @foreach ($projects as $item)
+                                    @php
+                                        $isActive = false;
+                                    @endphp
+                                    @php
+                                        $isActive = false;
+                                        $count = 0;
+                                    @endphp
+                                    @foreach ($volunteers as $itemPro)
+                                        @if ($item->id === $itemPro->project_id)
                                             @php
-                                                $isActive = false; // Khởi tạo biến kiểm tra active
+                                                $count++;
                                             @endphp
-                                            @php
-                                                $isActive = false; // Khởi tạo biến kiểm tra active
-                                                $count = 0;
-                                            @endphp
-                                            @foreach ($volunteers as $itemPro)
-                                                @if ($item->id === $itemPro->project_id)
-                                                    @php
-                                                        $count++;
-                                                    @endphp
-                                                    @if ($count >= $item->quantity)
-                                                        @php
-                                                            $isActive = true; // Nếu có giá trị giống nhau, đặt isActive thành true
-                                                        @endphp
-                                                        {{-- @break --}}
-                                                    @endif
-                                                @endif
-                                            @endforeach
-                                            <option value="{{ $item->id }}"
-                                                {{ $project_id == $item->id ? 'selected' : '' }}
-                                                {{ $isActive ? 'disabled' : '' }}>{{ $item->title }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    {{-- <label class="form-label" for="votingSelect">Select Project</label> --}}
-                                {{-- </div> --}}
+                                            @if ($count >= $item->quantity)
+                                                @php
+                                                    $isActive = true; // If has same value, set isActive as true
+                                                @endphp
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                    @if ($item->status_event == 1)
+                                        <option value="{{ $item->id }}"
+                                            {{ $project_id == $item->id ? 'selected' : '' }}
+                                            {{ $isActive ? 'disabled' : '' }}>{{ $item->title }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                         <div class="description__voting mt-2">
                             <div class="description__voting_detail">
