@@ -135,6 +135,10 @@
         $('#changePasswordForm').submit(function(e) {
             e.preventDefault();
             let isValid = checkChangePassword();
+            if ($('#old-password').val() == '') {
+                setError(oldPassword, 'This field can not be empty');
+                return;
+            }
             $.ajax({
                 url: '{{ route('auth.checkpassword') }}',
                 type: 'POST',
@@ -177,11 +181,11 @@
                             });
                         }
                     } else {
+
                         setError(oldPassword, 'Invalid Password');
                     }
                 },
-                error: function(error) {
-                }
+                error: function(error) {}
             });
         });
     });
