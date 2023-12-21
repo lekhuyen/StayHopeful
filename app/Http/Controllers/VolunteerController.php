@@ -75,10 +75,6 @@ class VolunteerController extends Controller
             'rel_name.required' => 'The relative name cannot be blanked',
             'min' => 'The :attribute must be at least :min characters',
             'max' => 'The :attribute must greater than :min characters',
-
-
-
-
         ]);
         // $userForProject = Volunteer::where(["email","=",$request->email,])->first();
         $userForProject = Volunteer::where("email", "=", $request->email, 'and')->where('project_id', '=', $request->project_id)->first();

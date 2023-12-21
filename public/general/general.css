@@ -37,3 +37,7 @@ h5 {
     text-decoration: none;
     font-style: oblique;
 }
+
+.status__project{
+    width: 70px;
+}
