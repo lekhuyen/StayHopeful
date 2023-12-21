@@ -8,12 +8,18 @@
 
 <div class="container mt-3">
     <h1>About Us Founder Page</h1>
-    <br>
-    <br>
-    <div class="btn__back">
-        <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
-            <i class="fa fa-long-arrow-left"></i>Go Back To About Us Page</a>
+
+    <div class="row">
+        <div class="col-auto me-auto">
+            <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
+                <i class="fa fa-long-arrow-left"></i>Go Back To About Us Main Page</a>
+        </div>
+        <div class="col-auto">
+            <a href="{{ route('aboutusteam.index') }}" class="btn__go_back">
+                Go To About Us Member Page <i class="fa fa-long-arrow-right"></i></a>
+        </div>
     </div>
+    <br>
     <h4>Main Member Sector</h4>
     <a href="{{ route('aboutusmember.create_founder') }}" class="btn btn-primary">Add Founder Section</a>
     <table class="table table-dark mt-3" id="mainTable">
