@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\DonateInfo;
 use App\Models\Project;
 use App\Models\ProjectImage;
 use Illuminate\Http\Request;
