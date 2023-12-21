@@ -261,15 +261,15 @@
         @endforeach
         <br>
         <div class="row align-items-center">
-            <div class="col-lg-4 d-none d-lg-block">
+            <div class="col-lg-4">
                 @foreach ($teampic1Page as $teampic1)
                     @if ($teampic1->images->count() > 0)
-                        <img src="{{ asset($teampic1->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
+                        <img src="{{ asset($teampic1->images[0]->url_image) }}" class="img-thumbnail teampic_image"  style="width: 100%; max-width: 400px;" alt="Image"/>
                     @endif
                 @endforeach
             </div>
     
-            <div class="col-lg-4 d-flex justify-content-center">
+            <div class="col-lg-4 justify-content-center">
                 @foreach ($teamPage as $teamitems)
                     <div class="card mb-3 aboutus_card_johndoe">
                         <div class="text-center">
@@ -285,10 +285,10 @@
                 @endforeach
             </div>
     
-            <div class="col-lg-4 d-none d-lg-block">
+            <div class="col-lg-4">
                 @foreach ($teampic2Page as $teampic2)
                     @if ($teampic2->images->count() > 0)
-                        <img src="{{ asset($teampic2->images[0]->url_image) }}" class="img-thumbnail" alt="Image"/>
+                        <img src="{{ asset($teampic2->images[0]->url_image) }}" class="img-thumbnail teampic_image" style="width: 100%; max-width: 400px;" alt="Image"/>
                     @endif
                 @endforeach
             </div>
