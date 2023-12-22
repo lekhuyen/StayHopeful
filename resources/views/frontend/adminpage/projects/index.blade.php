@@ -69,9 +69,11 @@
                     </td>
                     <td>
                         @if ($project->status_event == 1)
-                            <a class="project__volunteer__status"><span disabled class="btn btn-outline-info btn-sm status__project">Active</span></a>
+                            <a class="project__volunteer__status"><span disabled
+                                    class="btn btn-outline-info btn-sm status__project">Active</span></a>
                         @else
-                            <a class="project__volunteer__status"><span disabled class="btn btn-outline-dark btn-sm status__project">Deactive</span></a>
+                            <a class="project__volunteer__status"><span disabled
+                                    class="btn btn-outline-dark btn-sm status__project">Deactive</span></a>
                         @endif
                     </td>
                     <td>
@@ -80,8 +82,10 @@
                                     class="fa-solid fa-pen-to-square"></i></a>
                         @endcan
                         @can('project_delete')
-                            <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
-                                    class="fa-solid fa-trash-can"></i></button>
+                            @if ($project->donateinfo->where('project_id', $project->id)->where('amount', '>', 0)->isEmpty())
+                                <button class="btn btn-danger delete-project" data-id="{{ $project->id }}"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            @endif
                         @endcan
                         {{-- @can('project_active') --}}
                         @if ($project->money <= $project->donateinfo->sum('amount'))

@@ -161,7 +161,8 @@ body, input{
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(-45deg, #92b7f7, #c6f1ff);
+    /* background: linear-gradient(-45deg, #92b7f7, #c6f1ff); */
+    background: linear-gradient(-45deg, #9dc0fb, #1c5da8);
     top: -10%;
     right: 40%;
     transform: translateY(-50%);
@@ -404,7 +405,8 @@ h2.form-title{
 .panel p{
     font-size: 0.95rem;
     padding: 0.7rem 0;
-    color: purple;
+    /* color: purple; */
+    color: white;
 }
 .btn-login.transparent{
     margin: 0;
