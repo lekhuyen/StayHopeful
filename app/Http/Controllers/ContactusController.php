@@ -11,6 +11,19 @@ class ContactusController extends Controller
         return view("frontend.contact.contact");
     }
     public function create(Request $request){
+        $request->validate([
+            'name' => 'required|string|min:1|max:255',
+            'phone' => 'required|string|min:1|max:20',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ], [
+            'required' => ":attribute cannot be empty.",
+            'min' => ":attribute must have at least :min character.",
+            'max' => ":attribute must have at least :max character.",
+            'email' => ":attribute format must be correct."
+        ]);
+
+
         $name = $request->name;
         $email = $request->email;
         $phone = $request->phone;

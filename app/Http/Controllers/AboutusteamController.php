@@ -11,7 +11,7 @@ class AboutusteamController extends Controller
 {
     public function aboutus_team_index()
     {
-        $aboutusteams = aboutusteam::orderBy('id', 'desc')->paginate(2); // Use paginate for pagination
+        $aboutusteams = aboutusteam::orderBy('id', 'desc')->paginate(5); // Use paginate for pagination
         return view("frontend.aboutusteam.index", compact("aboutusteams"));
     }
 
@@ -40,7 +40,14 @@ class AboutusteamController extends Controller
             "status" => "required|in:0,1",
             "description" => "nullable",
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+
+        ], [
+            'required' => " cannot be empty.",
+            'min' => "Input must have at least :min character.",
+            'max' => "Input must have at least :max character.",
+            'email' => "Input format must be correct."
+        
         ]);
         $aboutus = new aboutusteam();
         $aboutus->name = $request->name;
@@ -88,7 +95,7 @@ class AboutusteamController extends Controller
             "skill" => "required",
             "status" => "required|in:0,1",
             "description" => "nullable", // Making description optional
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
         ]);
 
         $aboutusteam->name = $request->name;
