@@ -64,9 +64,12 @@ class AboutuspageController extends Controller
             "description" => "nullable",
             "section" => "required",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
         
-        
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min.",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $mainPages = new aboutustitle();
@@ -106,10 +109,14 @@ class AboutuspageController extends Controller
             "description" => "nullable",
             "section" => "required",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min.",
+            'max' => "Input must have at least :max.",        
         ]);
 
-        $mainPages->title = $request->title;
+        $mainPages->title = $request->title; 
         $mainPages->description = $request->description;
         $mainPages->section = $request->section;
         $mainPages->save();
@@ -187,7 +194,10 @@ class AboutuspageController extends Controller
 
             "description" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'min' => "Input must have at least :min.",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $aboutuspage = new aboutuspage();
@@ -258,7 +268,10 @@ class AboutuspageController extends Controller
 
             "description" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
     
         $aboutUsPages->description = $request->description;
@@ -308,7 +321,10 @@ class AboutuspageController extends Controller
         $request->validate([
             
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $logoPages = new aboutuslogo();
@@ -341,7 +357,10 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         if ($request->hasFile("images")) {
@@ -404,12 +423,14 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_leftcall(Request $request)
     {
         $request->validate([
-            "lefttitle" => "nullable", 
-            "leftdescription" => "nullable",
-            "middletitle" => "nullable", 
-            "middledescription" => "nullable",
-            "righttitle" => "nullable", 
-            "rightdescription" => "nullable",
+            "lefttitle" => "required", 
+            "leftdescription" => "required",
+            "middletitle" => "required", 
+            "middledescription" => "required",
+            "righttitle" => "required", 
+            "rightdescription" => "required",
+        ], [
+            'required' => "Input cannot be empty.",
         ]);
 
         $leftcallPages = new aboutuscalltoaction();
@@ -439,12 +460,14 @@ class AboutuspageController extends Controller
     {
 
         $request->validate([
-            "lefttitle" => "nullable", 
-            "leftdescription" => "nullable",
-            "middletitle" => "nullable", 
-            "middledescription" => "nullable",
-            "righttitle" => "nullable", 
-            "rightdescription" => "nullable",
+            "lefttitle" => "required", 
+            "leftdescription" => "required",
+            "middletitle" => "required", 
+            "middledescription" => "required",
+            "righttitle" => "required", 
+            "rightdescription" => "required",
+        ], [
+            'required' => "Input cannot be empty.",
         ]);
 
         
@@ -485,7 +508,7 @@ class AboutuspageController extends Controller
             "middletitle" => "nullable",
             "middledescription" => "nullable",
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
         ]);
 
         $teamPage = new aboutuscalltoaction();
@@ -523,7 +546,12 @@ class AboutuspageController extends Controller
             "middletitle" => "nullable",
             "middledescription" => "nullable",
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $teamPage->middletitle = $request->middletitle;
@@ -586,7 +614,11 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "required|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $teampic1Page = new Aboutuscalltoaction();
@@ -622,7 +654,11 @@ class AboutuspageController extends Controller
     {   
         $request->validate([
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $teampic1Page->save();
@@ -687,7 +723,11 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "required|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $teampic2Page = new Aboutuscalltoaction();
@@ -723,7 +763,11 @@ class AboutuspageController extends Controller
     {   
         $request->validate([
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min.",
+            'max' => "Input must have at least :max.",        
         ]);
 
         $teampic2Page->save();
@@ -788,8 +832,12 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_question(Request $request)
     {
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
+            "title" => "required|string|min:1|max:100",
+            "description" => "required|string",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min character.",
+            'max' => "Input must have at least :max character.",        
         ]);
 
 
@@ -818,10 +866,12 @@ class AboutuspageController extends Controller
     {
 
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-
-
+            "title" => "required|string|min:1|max:100",
+            "description" => "required|string",
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min character.",
+            'max' => "Input must have at least :max character.",        
         ]);
 
         $questionPages->title = $request->title;
@@ -851,15 +901,19 @@ class AboutuspageController extends Controller
     public function aboutus_page_store_founder(Request $request)
     {
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-            "leftdescription" => "nullable",
-            "middletitle" => "nullable",
-            "middledescription" => "nullable",
+            "title" => "required|string|min:1|max:100",
+            "description" => "required|string|min:1|max:1000",
+            "leftdescription" => "required|string|min:1|max:1000",
+            "middletitle" => "required|string|min:1|max:100",
+            "middledescription" => "required|string|min:1|max:1000",
             "section" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min character.",
+            'max' => "Input must have at least :max character.",        
         ]);
 
         $ourfounderPages = new aboutusmember();
@@ -917,16 +971,19 @@ class AboutuspageController extends Controller
     public function aboutus_page_update_founder(Request $request, aboutusmember $ourfounderPages)
     {
         $request->validate([
-            "title" => "nullable",
-            "description" => "nullable",
-            "leftdescription" => "nullable",
-            "middletitle" => "nullable",
-            "middledescription" => "nullable",
+            "title" => "required|string|min:1|max:100",
+            "description" => "required|string|min:1|max:1000",
+            "leftdescription" => "required|string|min:1|max:1000",
+            "middletitle" => "required|string|min:1|max:100",
+            "middledescription" => "required|string|min:1|max:1000",
             "section" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
-
+        ], [
+            'required' => "Input cannot be empty.",
+            'min' => "Input must have at least :min character.",
+            'max' => "Input must have at least :max character.",        
         ]);
 
     // Add this line to trim the description before saving

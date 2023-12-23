@@ -17,10 +17,10 @@ class ContactusController extends Controller
             'email' => 'required|email',
             'message' => 'required|string',
         ], [
-            'required' => ":attribute không được bỏ trống.",
-            'min' => ":attribute phải có ít nhất :min ký tự.",
-            'max' => ":attribute phải có nhiều nhất :max ký tự.",
-            'email' => ":attribute phải đúng định dạng email."
+            'required' => ":attribute cannot be empty.",
+            'min' => ":attribute must have at least :min character.",
+            'max' => ":attribute must have at least :max character.",
+            'email' => ":attribute format must be correct."
         ]);
 
 
