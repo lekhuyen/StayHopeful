@@ -29,8 +29,8 @@ class EmailDonate extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from:new Address("vonghung849@gmail.com","StayHopeFull"),
-            subject: 'Thanks To Donate',
+            from:new Address("vonghung849@gmail.com","StayHopeFul"),
+            subject: 'Thanks For Your Donation',
         );
     }
 

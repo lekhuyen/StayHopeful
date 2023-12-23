@@ -38,17 +38,17 @@ class BlogController extends Controller
             ->orderBy('id', 'desc')
             ->limit(5)
             ->get();
-        $volunterCountRegisterByProject = Volunteer::where('project_id',$id)->get();
+        $volunterCountRegisterByProject = Volunteer::where('project_id', $id)->get();
         session()->put("project_id", $id);
         $user = session()->get("userInfo");
         $checkUserProject = 0;
-        if($project->quantity == $volunterCountRegisterByProject->count()){
+        if ($project->quantity == $volunterCountRegisterByProject->count()) {
             $checkUserProject = 1;
         }
 
         if ($user) {
-            $volunteerPersonByProjects = Volunteer::where('email', $user['email'],"and")->where("project_id","=",$project->id)->first();
-             if($volunteerPersonByProjects != null){
+            $volunteerPersonByProjects = Volunteer::where('email', $user['email'], "and")->where("project_id", "=", $project->id)->first();
+            if ($volunteerPersonByProjects != null) {
                 $checkUserProject = 1;
             }
         }
@@ -94,7 +94,8 @@ class BlogController extends Controller
 
 
     //search
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $keywork = $request->keywork;
         // $projects = Project::where('title', 'like','%'.$keywork.'%')->get();
         $projects = Project::where(function ($query) use ($keywork) {
@@ -102,11 +103,10 @@ class BlogController extends Controller
                 ->orWhere('description', 'like', '%' . $keywork . '%');
         })->paginate(8);
 
-        if($projects->count() > 0){
+        if ($projects->count() > 0) {
             return view('frontend.search.index', compact('projects'));
         } else {
             return view('frontend.search.not_result', compact('keywork'));
         }
     }
-
 }
