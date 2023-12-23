@@ -25,16 +25,25 @@
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+      @error('leftdescription')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     </div>
 
     <div class="mb-3">
       <label for="description" class="form-label">Description:</label>
       <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
+      @error('leftdescription')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     </div>
 
     <div class="mb-3">
         <label for="images" class="form-label">Image:</label>
         <input type="file" class="form-control" id="images" multiple name="images[]"/>
+      @error('leftdescription')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     </div>
 
     <div class="mb-3">

@@ -19,41 +19,46 @@
         </div>
         <br>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="mb-3">
             <label for="title" class="form-label">Member Title Name:</label>
             <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+        @error('title')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
     
         <div class="mb-3">
           <label for="description" class="form-label">Member Description:</label>
           <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
+        @error('description')
+          <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="leftdescription" class="form-label">Meet Description:</label>
             <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription"></textarea>
+        @error('leftdescription')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="middletitle" class="form-label">Member Title Info:</label>
             <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle"
                 name="middletitle">
+        @error('middletitle')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="middledescription" class="form-label">Member Description Info:</label>
             <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription"
                 name="middledescription"></textarea>
+            @error('middledescription')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -71,11 +76,17 @@
         <div class="mb-3">
             <label for="images" class="form-label">Image:</label>
             <input type="file" class="form-control" id="images" multiple name="images[]"/>
+        @error('images')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="video" class="form-label">Video:</label>
             <input type="file" class="form-control" id="video" name="video"/>
+        @error('video')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

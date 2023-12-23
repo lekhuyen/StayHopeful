@@ -23,11 +23,17 @@
     <div class="mb-3">
       <label for="description" class="form-label">Description:</label>
       <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
+      @error('description')
+      <span class="text-danger">{{$message}}</span>
+    @enderror
     </div>
 
     <div class="mb-3">
         <label for="images" class="form-label">Image:</label>
         <input type="file" class="form-control" id="images" multiple name="images[]"/>
+        @error('images')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

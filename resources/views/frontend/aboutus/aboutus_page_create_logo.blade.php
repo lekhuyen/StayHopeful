@@ -23,6 +23,9 @@
     <div class="mb-3">
         <label for="images" class="form-label">Image:</label>
         <input type="file" class="form-control" id="images" multiple name="images[]"/>
+      @error('leftdescription')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
