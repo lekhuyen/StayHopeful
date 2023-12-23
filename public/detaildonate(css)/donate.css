@@ -78,6 +78,9 @@
 .background-icon-big{
     position: relative;
 }
+.form-floating{
+    overflow: hidden;
+}
 .background-icon{
     position: absolute;
     display: flex;
@@ -85,7 +88,7 @@
     align-items: center;
     top: 0;
     right: 0;
-    width: 5%;
+    width: 15%;
     height: 100%;
     background-color: #dadde0;
     border-top-right-radius: 4px;
@@ -298,4 +301,16 @@
     color: #fff;
     font-size: 18px;
     font-weight: 700;
+}
+@media (max-width: 568px) {
+    .form-donate{
+        width: 100%;
+    }
+    
+}
+@media (max-width: 360px) {
+    .form-donate{
+        width: 100%;
+    }
+    
 }

@@ -14,7 +14,7 @@ class Aboutusimage extends Model
 
     public function team()
     {
-        return $this->belongsTo(Aboutusteam::class, 'aboutus_id');
+        return $this->belongsTo(aboutusteam::class, 'aboutus_id');
     }
 
     use HasFactory;
