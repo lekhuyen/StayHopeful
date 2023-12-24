@@ -41,13 +41,13 @@
                                 </div>
                                 <div class="profile-info">
 
-                                   @if (Auth::user()->role == 0)
-                                   <p class="info-text">Role: <span class="info-text-user blinkadmin"
-                                    style="font-weight: 700">Admin</span></p>
+                                    @if (Auth::user()->role == 0)
+                                        <p class="info-text">Role: <span class="info-text-user blinkadmin"
+                                                style="font-weight: 700">User</span></p>
                                     @else
-                                    <p class="info-text">Role: <span class="info-text-user blinkuser"
-                                        style="font-weight: 700">User</span></p>
-                                   @endif
+                                        <p class="info-text">Role: <span class="info-text-user blinkuser"
+                                                style="font-weight: 700">Admin</span></p>
+                                    @endif
                                     @if (session('userInfo'))
                                         @if ($userupdate->is_sponsor == 1 && $userupdate->is_volunteer != 1)
                                             <p class="info-text">Title: <span class="info-text-user blink"
@@ -93,7 +93,7 @@
                                         @endif
                                     @endif
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
