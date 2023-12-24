@@ -142,6 +142,27 @@
                 }
             });
         })
+        $('.report__reply').click(function() {
+            var reply_id = $(this).data('id')
+            var _csrf = '{{ csrf_token() }}';
+            var _loginUrl = '{{ route('report-reply', ':id') }}'.replace(':id', reply_id);
+            $.ajax({
+                type: 'POST',
+                url: _loginUrl,
+                data: {
+                    _token: _csrf
+                },
+                success: function(data) {
+                    if(data.status == 'success'){
+                        alert('Report was successfully')
+                    }
+                    
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        })
 
         //delete-comment
         $('.delete_comment-post-user').click(function() {

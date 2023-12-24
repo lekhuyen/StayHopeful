@@ -438,6 +438,8 @@ Route::get('/comments/{postId}', [CommentPostController::class, 'showComments'])
 Route::delete('/delete-comments/{id}', [CommentPostController::class, 'deleteComments'])->name('delete-comment');
 //report-comment
 Route::post('/report-comments/{id}', [CommentPostController::class, 'reportComment'])->name('report-comment');
+//report-reply
+Route::post('/report-reply/{id}', [CommentPostController::class, 'reportReply'])->name('report-reply');
 //delete-reply
 Route::delete('/delete-reply/{id}', [CommentPostController::class, 'deleteReply'])->name('delete-reply');
 //edit comment
@@ -482,3 +484,4 @@ Route::group(['prefix' => 'permissions/'], function () {
 
 //comment
 Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index');
+

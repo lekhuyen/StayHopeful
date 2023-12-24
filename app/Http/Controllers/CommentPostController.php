@@ -205,4 +205,14 @@ class CommentPostController extends Controller
         }
         return response()->json(['error' => "comment not found"]);
     }
+    public function reportReply($comment_id){
+        $reply = ReplyComment::find($comment_id);
+        if($reply) {
+            $reply->update(["status"=>0]);
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+        return response()->json(['error' => "reply not found"]);
+    }
 }
