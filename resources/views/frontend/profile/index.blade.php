@@ -157,9 +157,14 @@
                                                     display: flex;
                                                     align-items:center;">
                                             <a href='#' class="avatar-user-post" style="margin: 10px 0 10px 25px;">
-                                                <img src="{{ asset('https://img.meta.com.vn/Data/image/2021/09/21/anh-meo-cute-hoat-hinh-1.jpg') }}"
-                                                    alt="" width="50"
-                                                    style=" width: 80px;clip-path: circle(30%);">
+
+                                                @if ($post->user->avatar != null)
+                                                    <img src="{{ asset($post->user->avatar) }}" alt="profile picture"
+                                                        width="50">
+                                                @else
+                                                    <img src="{{ asset('img/humanicon.png') }}" alt="profile picture"
+                                                        style=" width: 80px;clip-path: circle(30%);">
+                                                @endif
                                             </a>
                                             <div>
                                                 <p style="margin-bottom: 0; font-size: 20px; font-weight: 500;">
