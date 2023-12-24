@@ -90,4 +90,5 @@
     </div>
 
     @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
 @endsection
