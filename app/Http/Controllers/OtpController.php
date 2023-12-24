@@ -88,11 +88,6 @@ class OtpController extends Controller
             $user->increment('otp_attempts');
             return response()->json(['status' => 'error', 'message' => 'Invalid OTP or OTP has expired']);
         }
-        // if (Carbon::now() > $otpRecord->expired_at) {
-        //     // Nếu hết hạn, tăng số lần thử và trả về thông báo
-        //     $user->increment('otp_attempts');
-        //     return response()->json(['status' => 'expired', 'message' => 'The OTP has expired'], 422);
-        // }
         // Xác nhận OTP thành công, cập nhật mật khẩu người dùng
         $user->update([
             'password' => Hash::make($request->new_password),

@@ -229,7 +229,7 @@
             </div>
         </div>
     </div>
-
+    
     @if (session('isVerified'))
         @include('frontend/login/login', ['isVerified', true])
     @else

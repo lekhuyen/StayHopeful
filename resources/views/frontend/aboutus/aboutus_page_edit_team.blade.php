@@ -56,4 +56,4 @@
 
 
 @include('frontend/login/login')
-@endsection
+    @include('frontend/profile/popup_profile')@endsection

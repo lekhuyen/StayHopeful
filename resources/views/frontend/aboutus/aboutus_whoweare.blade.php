@@ -316,5 +316,5 @@
     <script>
         AOS.init();
     </script>
-    @include('frontend/login/login')
-@endsection
+@include('frontend/login/login')
+@include('frontend/profile/popup_profile')@endsection

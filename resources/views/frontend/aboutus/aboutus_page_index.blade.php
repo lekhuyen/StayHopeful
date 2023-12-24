@@ -170,7 +170,7 @@
 
 
     <div class="container mt-3">
-        <h2>Join Us</h2>
+        <h4>Join Us Section</h4>
         <div class="card" style="padding: 30px; background-color: #e6f7ff">
             <div class="row">
                 <div class="col-auto">
@@ -402,4 +402,5 @@
     </div>
 
     @include('frontend/login/login')
+    @include('frontend/profile/popup_profile')
 @endsection

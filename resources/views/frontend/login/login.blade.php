@@ -63,7 +63,7 @@
 </div>
 
 {{-- login-register-popup --}}
-<div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}}" style="z-index: 10;">
+<div class="container-popup scroll-form-signin-signup {{session('isVerified')?'showLogin':''}} {{session('isLogout')?'showLogin':''}}" style="z-index: 10;">
     <div class="modal-inner">
     </div>
     <div class="container-login" id="form-login" >
@@ -192,9 +192,6 @@
             success: function(response) {
                 $('#spinner-container').hide();
                 if(response.status == 'success'){
-                // Handle the server response
-                // alert(response.message);
-                // window.location.href = "{{route('/')}}"; 
                 registerSuccess.classList.add("showAlert");
                 containerLoginRegister.classList.remove("sign-up-mode");
                 } else if (response.status == 'error'){

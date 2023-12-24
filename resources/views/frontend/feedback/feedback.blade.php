@@ -17,7 +17,7 @@
             <div class="row">
                 <h1 class="feedback-h1">Feedback Form</h1>
                 <div>
-                    <img src="{{ asset('img/logo.png') }}" alt="logo" class="feedback-logo">
+                    <img src="{{ asset('img/logo.PNG') }}" alt="logo" class="feedback-logo">
                 </div>
                 <div class="feedback">
                     <div class="card_rating">

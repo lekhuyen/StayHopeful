@@ -6,14 +6,15 @@
 <div class="container-change-password-notification">
     <div class="change-password-status-success">
         <div class="exit-alert-btn">
-            <i class="fa-solid fa-xmark"></i>
+            <a style="text-decoration: none" href="{{ route('logout.changepass') }}"><i class="fa-solid fa-xmark"></i></a>
         </div>
         <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
         <p>
             Change Password Successfully !
             <br>
-            Please input your new password next time you login.
+            Please login again with your new password.
         </p>
+
     </div>
 </div>
 <div class="container-error-notification">
@@ -128,6 +129,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 <script src="{{ asset('js/popup_profile.js') }}"></script>
 <script>
+    //form login
+    var containerLoginRegister = document.querySelector(".container-login-register");
+
     //alert
     var changePasswordSuccess = document.querySelector(".container-change-password-notification");
     var errorAlert = document.querySelector(".container-error-notification");
@@ -165,10 +169,9 @@
                                             'showChangePassword');
                                         // window.location.href = "{{ route('/') }}";
                                         $('#old-password').val(''),
-                                            $('#new-password-change').val('')
+                                        $('#new-password-change').val('')
                                         $('#confirm-new-password-change').val(
                                             '')
-                                        location.reload();
                                     } else if (response.status == 'error') {
                                         setError(oldPassword,
                                             'Invalid Password');
