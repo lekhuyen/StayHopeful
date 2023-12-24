@@ -250,6 +250,17 @@ class AuthloginController extends Controller
 
 
     }
+    public function passwordcheck(Request $request)
+    {
+        
+        $email = session()->get('userInfo')['email'];
+        $user = User::where("email", $email)->first();
+        if ($user && Hash::check($request->old_password, $user->password)) {
+            return response()->json(['status' => 'success']);
+        } else {
+            return response()->json(['status' => 'error']);
+        }
+    }
 
 
     public function user_profile($postId)

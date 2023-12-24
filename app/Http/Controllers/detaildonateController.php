@@ -36,7 +36,8 @@ class detaildonateController extends Controller
     {
         
         $request->validate([
-            'amount' => 'required|numeric|min:0',
+            
+            'amount' => 'required|numeric|min:1',
         ], [
             'amount.numeric' => 'Please enter a valid number.',
             'amount.min' => 'Please enter a Amount greater than 0.',

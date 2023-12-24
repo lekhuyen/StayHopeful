@@ -31,7 +31,7 @@ class MailReply extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from:new Address("vonghung849@gmail.com","StayHopeFull"),
+            from:new Address("vonghung849@gmail.com","StayHopeFul"),
             subject: $this->subject,
         );
     }
@@ -44,7 +44,7 @@ class MailReply extends Mailable
         return new Content(
             view: 'frontend/sendmail/mailreply',
             with: [
-               'getmessage' => $this->message                 
+               'getmessage' => $this->message
             ]
         );
     }

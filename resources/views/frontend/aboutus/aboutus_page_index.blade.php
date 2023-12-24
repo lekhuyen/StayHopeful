@@ -11,16 +11,16 @@
     <div class="container mt-3">
         <h1>About Us Page</h1>
 
-        <div class="row">
-            <div class="col-auto me-auto">
-                <a href="{{ route('aboutusteam.index') }}" class="btn__go_back">
-                    <i class="fa fa-long-arrow-left"></i>GO BACK </a>
-            </div>
-            <div class="col-auto">
-                <a href="{{ route('aboutusmember.index') }}" class="btn__go_back">
-                    GO TO MEMBER PAGE<i class="fa fa-long-arrow-right"></i></a>
-            </div>
+    <div class="row">
+        <div class="col-auto me-auto">
+            <a href="{{ route('aboutusteam.index') }}" class="btn__go_back">
+                <i class="fa fa-long-arrow-left"></i>Go To About Us Member Page</a>
         </div>
+        <div class="col-auto">
+            <a href="{{ route('aboutusmember.index') }}" class="btn__go_back">
+                Go To About Us Founder Page <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+    </div>
 
         <br>
         <br>
