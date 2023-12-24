@@ -122,6 +122,7 @@ Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'
 Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
 
 // About Us Team admin
+Route::group(["middleware" => "admin_auth"], function () {
 Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
 
 Route::get('/aboutusteam/create', [AboutusTeamController::class, 'aboutus_team_create'])->name('aboutusteam.create');
@@ -141,7 +142,6 @@ Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_det
 Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
 
 // About Us Page
-
 Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
 
 // About Us main Page
@@ -152,12 +152,14 @@ Route::put('/aboutus_page_table/edit_main/{mainPages}', [AboutuspageController::
 Route::delete('/aboutus_page_table/delete/{mainPages}', [AboutuspageController::class, 'aboutus_page_delete_main'])->name('aboutuspage.delete_main');
 Route::get('/aboutus_page_detail/{id}', [AboutuspageController::class, 'Aboutus_page_detail'])->name('aboutuspage.detail');
 
+
 // About Us (about us) Page
 Route::get('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_create_aboutus'])->name('aboutuspage.create_aboutus');
 Route::post('/aboutus_page_table/create_aboutus', [AboutuspageController::class, 'aboutus_page_store_aboutus'])->name('aboutuspage.store_aboutus');
 Route::get('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_edit_aboutus'])->name('aboutuspage.edit_aboutus');
 Route::put('/aboutus_page_table/edit_aboutus/{aboutUsPages}', [AboutuspageController::class, 'aboutus_page_update_aboutus'])->name('aboutuspage.update_aboutus');
 Route::delete('/aboutus_page_table/delete_aboutus/{aboutuspage}', [AboutuspageController::class, 'aboutus_page_delete_aboutus'])->name('aboutuspage.delete_aboutus');
+
 
 // About Us (logo) Page
 Route::get('/aboutus_page_table/create_logo', [AboutuspageController::class, 'aboutus_page_create_logo'])->name('aboutuspage.create_logo');
@@ -173,6 +175,7 @@ Route::get('/aboutus_page_table/edit_leftcall/{leftcallPages}', [AboutuspageCont
 Route::put('/aboutus_page_table/edit_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_update_leftcall'])->name('aboutuspage.update_leftcall');
 Route::delete('/aboutus_page_table/delete_leftcall/{leftcallPages}', [AboutuspageController::class, 'aboutus_page_delete_leftcall'])->name('aboutuspage.delete_leftcall');
 
+
 // About Us our team Page
 Route::get('/aboutus_page_table/create_team', [AboutuspageController::class, 'aboutus_page_create_team'])->name('aboutuspage.create_team');
 Route::post('/aboutus_page_table/create_team', [AboutuspageController::class, 'aboutus_page_store_team'])->name('aboutuspage.store_team');
@@ -186,6 +189,7 @@ Route::post('/aboutus_page_table/create_teampic1', [AboutuspageController::class
 Route::get('/aboutus_page_table/edit_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_edit_teampic1'])->name('aboutuspage.edit_teampic1');
 Route::put('/aboutus_page_table/edit_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_update_teampic1'])->name('aboutuspage.update_teampic1');
 Route::delete('/aboutus_page_table/delete_teampic1/{teampic1Page}', [AboutuspageController::class, 'aboutus_page_delete_teampic1'])->name('aboutuspage.delete_teampic1');
+
 
 //About Us our team pic 2 Page
 Route::get('/aboutus_page_table/create_teampic2', [AboutuspageController::class, 'aboutus_page_create_teampic2'])->name('aboutuspage.create_teampic2');
@@ -213,15 +217,23 @@ Route::get('/aboutus_page_table/aboutus_member_index/create_founder', [Aboutuspa
 Route::post('/aboutus_page_table/aboutus_member_index/create_founder', [AboutuspageController::class, 'aboutus_page_store_founder'])->name('aboutusmember.store_founder');
 Route::get('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_edit_founder'])->name('aboutusmember.edit_founder');
 Route::put('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_update_founder'])->name('aboutusmember.update_founder');
-
 Route::delete('/aboutus_page_table/aboutus_member_index/delete_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_delete_founder'])->name('aboutusmember.delete_founder');
+//end middleware about us
+});
+
+
 //feedback
-Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
+Route::group(["middleware" => "admin_auth"], function () {
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
+    Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
+});
+Route::group(["middleware" => "user_auth"], function () {
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user
 Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store'); //user
-Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
+});
 
 //sensitive admin
+Route::group(["middleware" => "admin_auth"], function () {
 Route::get('/sensitive', [SensitiveController::class, 'index'])->name('sensitive.index');
 Route::get('/sensitive/create', [SensitiveController::class, 'create'])->name('sensitive.create');
 Route::post('/sensitive/create', [SensitiveController::class, 'store'])->name('sensitive.store');
@@ -229,14 +241,17 @@ Route::get('/sensitive/delete/{id}', [SensitiveController::class, 'delete'])->na
 Route::get('/sensitive/edit/{id}', [SensitiveController::class, 'edit'])->name('sensitive.edit');
 Route::put('/sensitive/update/{id}', [SensitiveController::class, 'update'])->name('sensitive.update');
 Route::get('/sensitive/status/{id}', [SensitiveController::class, 'editStatus'])->name('sensitive.status');
-
-
+});
 
 //volunteer form
-Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin
-Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create'); //user
-Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store'); //user
-Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail'); //admin
+Route::group(["middleware" => "admin_auth"], function () {
+    Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin
+    Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail'); //admin
+});
+Route::group(["middleware" => "user_auth"], function () {
+    Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create'); //user
+    Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store'); //user
+});
 
 
 // project
@@ -256,6 +271,7 @@ Route::post('/search', [BlogController::class, 'search'])->name('search_project'
 
 
 //admin
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'admin/'], function () {
     // Route::get('/', [AdminPageController::class, 'viewsidebar'])->name('admin.index');
     Route::get('/', [AdminPageController::class, 'viewdashboard'])->name('admin.dashboard');
@@ -285,8 +301,10 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
     Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
 });
+});
 
 //caregory Admin page
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'category/'], function () {
     Route::get('index', [CategoryController::class, 'index'])->name('category.index')->middleware('can:category_list');
 
@@ -300,8 +318,10 @@ Route::group(['prefix' => 'category/'], function () {
 
     Route::put('update/{id}', [CategoryController::class, 'update'])->name('category.update');
 });
+});
 
 //project admin page
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'project-post/'], function () {
     Route::get('active-event/{id}', [ProjectController::class, 'showEditEvent'])->name('projectAd.edit_event');
     Route::put('active-event/{project}', [ProjectController::class, 'activeEvent'])->name('projectAd.update_event');
@@ -337,8 +357,10 @@ Route::group(['prefix' => 'project-post/'], function () {
     Route::get('project-finish/{id}', [ProjectController::class, 'finish_status'])->name('projectAd.finish');
     Route::get('project-unfinish/{id}', [ProjectController::class, 'unfinish_status'])->name('projectAd.unfinish');
 });
+});
 
 // blog - news
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'news/'], function () {
     Route::get('index', [NewsController::class, 'index'])->name('news.index')->middleware('can:news_list');
 
@@ -368,8 +390,10 @@ Route::group(['prefix' => 'news/'], function () {
     // news-detail
     // Route::get('/news-detail/{id}', [NewsController::class, 'news_detail'])->name('news-detail');
 });
+});
 
 // video-adminpage
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'video-list/'], function () {
     Route::get('index', [VideoController::class, 'index'])->name('video-list.index')->middleware('can:video_list');
 
@@ -388,10 +412,11 @@ Route::group(['prefix' => 'video-list/'], function () {
     Route::get('video_untrash/{id}', [VideoController::class, 'video_untrash'])->name('video-untrash');
     Route::get('video-forcedelete/{id}', [VideoController::class, 'video_forcedelete'])->name('video-forcedelete');
 });
+});
 
 
 //user-post
-
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'post/'], function () {
     Route::get('index', [UserPostController::class, 'index'])->name('post.index');
 
@@ -413,6 +438,8 @@ Route::group(['prefix' => 'post/'], function () {
     Route::get('post_untrash/{id}', [UserPostController::class, 'post_untrash'])->name('post-untrash');
     Route::get('post-forcedelete/{id}', [UserPostController::class, 'post_forcedelete'])->name('post-forcedelete');
 });
+});
+
 //show-post(web)
 Route::get('/post/post-detail', [UserPostController::class, 'show_post_home'])->name('post.detail.web');
 
@@ -424,10 +451,10 @@ Route::group(['middleware' => 'user_auth'], function () {
 
 
 //edit-post(user)
+Route::group(["middleware" => "user_auth"], function () {
 Route::get('/post/delete_image/{id}', [UserPostController::class, 'delete_post_image'])->name('delete.post_image');
 Route::get('/post/delete_post/{id}', [UserPostController::class, 'delete_post_user'])->name('delete.post_user');
 Route::put('/post/edit', [UserPostController::class, 'edit_post'])->name('edit.post');
-
 // comment post-user
 Route::post('/store-comment/{id}', [CommentPostController::class, 'storeComment'])->name('store-comment');
 //reply
@@ -452,10 +479,10 @@ Route::post('/update-comment-reply-post/{id}', [CommentPostController::class, 'u
 Route::get('/more-reply/{id}', [CommentPostController::class, 'moreReply'])->name('more-reply');
 
 Route::get('/post/get-post/{id}',[CommentPostController::class,'get_comment'])->name('show_comment-post');
-
+});
 
 //ds nv
-
+Route::group(["middleware" => "admin_auth"], function () {
 Route::group(['prefix' => 'staff/'], function () {
     Route::get('index', [UserAdminController::class, 'index'])->name('staff.index')->middleware('can:user_list');
     Route::get('create', [UserAdminController::class, 'create'])->name('staff.create')->middleware('can:user_add');
@@ -480,8 +507,10 @@ Route::group(['prefix' => 'permissions/'], function () {
     Route::get('create', [AdminPermissionsController::class, 'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::post('store', [AdminPermissionsController::class, 'store'])->name('permissions.store');
 });
-
+});
 
 //comment
+Route::group(["middleware" => "admin_auth"], function () {
 Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index');
+});
 
