@@ -44,7 +44,7 @@
     <input type="text" class="form-control" value="{{ old('email') }}"
         placeholder="Enter email" name="email">
     @error('email')
-        <span class="text-danger">{{ $message }}</span>
+        <p class="text-danger">{{ $message }}</p>
     @enderror
 
 
@@ -52,7 +52,7 @@
     <textarea class="form-control" type="text" name="content" rows="5" cols="50" placeholder="Write your feedback here">{{ old('content') }}</textarea>
 
     @error('content')
-        <span class="text-danger">{{ $message }}</span>
+        <p class="text-danger">{{ $message }}</p>
     @enderror
 </div>
 

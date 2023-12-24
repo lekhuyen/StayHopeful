@@ -79,7 +79,7 @@ class VolunteerController extends Controller
         // $userForProject = Volunteer::where(["email","=",$request->email,])->first();
         $userForProject = Volunteer::where("email", "=", $request->email, 'and')->where('project_id', '=', $request->project_id)->first();
         if ($userForProject != null) {
-            return redirect()->back()->with("Warning", "You already registered for this project.");
+            return redirect()->back()->with("warning", "You already registered for this project.");
         }
         Volunteer::create($request->all());
         $project = Project::find($request->project_id);
