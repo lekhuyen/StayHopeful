@@ -20,18 +20,27 @@
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
                 value="{{ $aboutusteam->name }}">
+            @error('name')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
 
         <div class="form-group mb-3">
             <label for="age">Age:</label>
             <input type="number" class="form-control" id="age" placeholder="Enter age" name="age"
                 value="{{ $aboutusteam->age }}">
+            @error('age')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
 
         <div class="form-group mb-3 mt-3">
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
                 value="{{ $aboutusteam->email }}">
+            @error('email')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
 
         <div class="form-group mb-3">
@@ -39,8 +48,7 @@
             <select class="form-control" id="skill" name="skill">
                 <option value="Marketing Team" @if ($aboutusteam->skill == 'Marketing Team') selected @endif>Marketing Team</option>
                 <option value="Financial Team" @if ($aboutusteam->skill == 'Financial Team') selected @endif>Financial Team</option>
-                <option value="Lead Developer Team" @if ($aboutusteam->skill == 'Lead Developer Team') selected @endif>Lead Developer
-                    Team</option>
+                <option value="Lead Developer Team" @if ($aboutusteam->skill == 'Lead Developer Team') selected @endif>Lead DeveloperTeam</option>
                 <option value="Creative Team" @if ($aboutusteam->skill == 'Creative Team') selected @endif>Creative Team</option>
                 <option value="Volunteer" @if ($aboutusteam->skill == 'Volunteer Team') selected @endif>Volunteer</option>
             </select>
@@ -49,6 +57,9 @@
         <div class="form-group mb-3">
             <label for="description">Description:</label>
             <textarea type="text" class="form-control" id="description" placeholder="Enter description" name="description">{{ $aboutusteam->description }}</textarea>
+        @error('description')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="form-group mb-3">
@@ -66,6 +77,9 @@
         <div class="form-group mb-3">
             <label for="new_images">New Images:</label>
             <input type="file" class="form-control" id="new_images" multiple name="images[]" />
+        @error('new_images')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="form-group mb-3">

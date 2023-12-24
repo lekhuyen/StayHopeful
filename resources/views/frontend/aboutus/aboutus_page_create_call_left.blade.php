@@ -24,31 +24,49 @@
     <div class="mb-3">
         <label for="lefttitle" class="form-label">Left Title:</label>
         <input type="text" class="form-control" id="lefttitle" placeholder="Enter lefttitle" name="lefttitle">
+        @error('lefttitle')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     </div>
 
     <div class="mb-3">
       <label for="leftdescription" class="form-label">Left Description:</label>
       <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription"></textarea>
+      @error('leftdescription')
+      <span class="text-danger">{{$message}}</span>
+    @enderror
     </div>
 
     <div class="mb-3">
       <label for="middletitle" class="form-label">Middle Title:</label>
       <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle" name="middletitle">
-  </div>
+      @error('middletitle')
+      <span class="text-danger">{{$message}}</span>
+    @enderror
+    </div>
 
   <div class="mb-3">
     <label for="middledescription" class="form-label">Middle Description:</label>
     <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription" name="middledescription"></textarea>
+    @error('middledescription')
+    <span class="text-danger">{{$message}}</span>
+  @enderror
   </div>
 
   <div class="mb-3">
     <label for="righttitle" class="form-label">Right Title:</label>
     <input type="text" class="form-control" id="righttitle" placeholder="Enter righttitle" name="righttitle">
+    @error('righttitle')
+    <span class="text-danger">{{$message}}</span>
+  @enderror
   </div>
 
   <div class="mb-3">
     <label for="rightdescription" class="form-label">Right Description:</label>
     <textarea class="form-control tinymce" id="rightdescription" placeholder="Enter rightdescription" name="rightdescription"></textarea>
+    @error('rightdescription')
+    <span class="text-danger">{{$message}}</span>
+  @enderror
   </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

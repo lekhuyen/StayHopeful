@@ -30,27 +30,40 @@
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" placeholder="Name" name="name"
                                 value="{{ old('name') }}">
+                             @error('name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
+                        
 
                         <div class="mb-3 mt-3">
                             <label for="countryCode">Phone Number:</label>
                             <div class="input-group">
                                 <input type="hidden" name="countryCode" id="hiddenCountryCode" value="+84">
                                 <input type="text" class="form-control rounded-start input-phone-number" id="phoneNumber"
-                                    placeholder="Phone Number" name="phone" value="{{ old('phoneNumber') }}">
+                                    placeholder="Phone Number" name="phone" value="{{ old('phone') }}">
                             </div>
+                            @error('phone')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3 mt-3 contact-input-form">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email"
                                 value="{{ old('email') }}">
+                            @error('email')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="message">Message:</label>
                             <textarea type="text" class="form-control textarea input-phone-number" id="message" placeholder="Message"
                                 name="message">{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary pink-button" style="margin-bottom: 30px">Send</button>
@@ -66,9 +79,7 @@
                     style="text-decoration: none; color: white;">contact@StayHopeful.org</a></p>
             <p>Head Office Address: </p>
             <div class="map-container" style="padding-bottom: 20px">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d823.8609185302755!2d106.70858875101122!3d10.813985461549624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1700053839649!5m2!1sen!2s"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d692.8415149638578!2d106.70265068221642!3d10.78805334576912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b3b357777%3A0x292e9b68d9d46aa6!2zTmd1eeG7hW4gQuG7iW5oIEtoacOqbS8yIFdhcmQsIFN0cmVldCwgUXXhuq1uIDEsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2sus!4v1703076586166!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

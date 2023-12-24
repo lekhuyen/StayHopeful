@@ -238,6 +238,14 @@
     padding: 50px 0;
 }
 
+.teampic_image {
+    border: none; 
+    height: 300px; 
+    object-fit: cover;
+}
+.aboutus_card_johndoe {
+    padding: 20px;
+}
 .aboutus_our_team a {
     margin-left: auto;
 }

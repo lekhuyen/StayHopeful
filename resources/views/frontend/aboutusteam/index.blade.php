@@ -8,11 +8,17 @@
 <div class="container mt-3">
     <h1>Team Member List</h1>
 
-    <div class="btn__back text-end">
-        <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
-            GO TO ABOUT US PAGE <i class="fa fa-long-arrow-right"></i></a>
+    <div class="row">
+        <div class="col-auto me-auto">
+            <a href="{{ route('aboutusmember.index') }}" class="btn__go_back">
+                <i class="fa fa-long-arrow-left"></i>Go To About Us Founder Page</a>
+        </div>
+        <div class="col-auto">
+            <a href="{{ route('aboutuspage.index') }}" class="btn__go_back">
+                Go To About Us Main Page <i class="fa fa-long-arrow-right"></i></a>
+        </div>
     </div>
-
+    <br>
     <div class="d-flex justify-content-center btn__center">
         <a href="{{ route('aboutusteam.create') }}" class="btn btn-primary">Add New Member</a>
     </div>

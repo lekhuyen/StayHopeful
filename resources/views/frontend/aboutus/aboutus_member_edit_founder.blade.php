@@ -23,26 +23,41 @@
         <div class="mb-3">
             <label for="title" class="form-label">Founder Title:</label>
             <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ $ourfounderPages->title }}">
+        @error('title')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
     
         <div class="mb-3">
-          <label for="description" class="form-label">Founder Description:</label>
-          <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $ourfounderPages->description }}</textarea>
+            <label for="description" class="form-label">Founder Description:</label>
+            <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description">{{ $ourfounderPages->description }}</textarea>
+        @error('description')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="leftdescription" class="form-label">Meet Description:</label>
             <textarea class="form-control tinymce" id="leftdescription" placeholder="Enter leftdescription" name="leftdescription">{{ $ourfounderPages->leftdescription }}</textarea>
+        @error('leftdescription')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="middletitle" class="form-label">Founder Title Info:</label>
             <input type="text" class="form-control" id="middletitle" placeholder="Enter middletitle" name="middletitle" value="{{ $ourfounderPages->middletitle }}">
+            @error('middletitle')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
             <label for="middledescription" class="form-label">Founder Description Info:</label>
             <textarea class="form-control tinymce" id="middledescription" placeholder="Enter middledescription" name="middledescription">{{ $ourfounderPages->middledescription }}</textarea>
+            @error('middledescription')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <div class="mb-3">
@@ -63,19 +78,22 @@
             @if ($ourfounderPages->images->count() > 0)
                 @foreach ($ourfounderPages->images as $item)
                     <img src="{{ asset($item->url_image) }}"
-                         class="img-thumbnail"
-                         width="100"
-                         alt="{{ $ourfounderPages->name }}"/>
+                        class="img-thumbnail"
+                        width="100"
+                        alt="{{ $ourfounderPages->name }}"/>
                 @endforeach
             @else
                 <p>No image available</p>
             @endif
-          </div>
+        </div>
       
-          <div class="mb-3">
-              <label for="new_images" class="form-label">New Image:</label>
-              <input type="file" class="form-control" id="new_images" multiple name="images[]"/>
-          </div>
+        <div class="mb-3">
+            <label for="new_images" class="form-label">New Image:</label>
+            <input type="file" class="form-control" id="new_images" multiple name="images[]"/>
+            @error('new_images')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
 
 
         <div class="form-group mb-3">
@@ -93,6 +111,9 @@
         <div class="mb-3">
             <label for="new_video" class="form-label">New Video:</label>
             <input type="file" class="form-control" id="new_video" name="video"/>
+            @error('new_video')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

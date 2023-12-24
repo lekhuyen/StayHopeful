@@ -18,7 +18,7 @@
                             align-items:center;
                             ">
                     <a href="" class="avatar-user-post" style="margin: 10px 0 10px 50px; text-decoration: none;">
-                     
+                    
                         @php
                             $check = false;
                         @endphp
@@ -49,16 +49,23 @@
 
                 </div>
 
-                <div style="text-align:left; margin: 0 50px 20px 50px;">
-                    <span>{{ $post->title }}</span>
-                </div>
-                @if ($post->images->count() > 0)
-                    @foreach ($post->images as $image)
-                        <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px">
-                            <img width="75%" height="400px" src="{{ asset($image->image) }}" alt="">
-                        </div>
-                    @endforeach
+                @if ($post->images->count() == 0)
+                    <div style="text-align:left; margin: 20px 50px 20px 50px; padding-bottom: 20px; height: 100%; display: flex; align-items: center; justify-content: center; transform: translateY(-10%);">
+                        <span>{{ $post->title }}</span>
+                    </div>
+                @else
+                    <div style="text-align:left; margin: 20px 50px 20px 50px; padding-bottom: 20px">
+                        <span>{{ $post->title }}</span>
+                    </div>
+                    @if ($post->images->count() > 0)
+                        @foreach ($post->images as $image)
+                            <div style="margin:10px 0 20px 0; text-align: center; padding-bottom: 20px">
+                                <img width="75%" height="400px" src="{{ asset($image->image) }}" alt="">
+                            </div>
+                        @endforeach
+                    @endif
                 @endif
+                
 
             </div>
 
@@ -421,7 +428,7 @@
                             var html = `<div id="comment_reply-post comment_post" class="reply_comment-post" data-id="${ data[0].id }" style="margin-left: -19px; margin-top: 10px; display: flex">
                                         <a href="">
                                             <img width="60" id="avatar_user"
-                                                src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                                src="{{ asset(auth()->user()->avatar) }}"
                                                 alt="">
                                             
                                         </a>
@@ -518,7 +525,7 @@
                                 var html = `<div id="comment_reply-post comment_post" class="reply_comment-post" data-id="${ data[0].id }" style="margin-left: -19px; margin-top: 10px; display: flex">
                                         <a href="">
                                             <img width="60" id="avatar_user"
-                                                src="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSLvtTEBqZcy2sk3ppPoGeE1gx0FmaiT-1g&usqp=CAU') }}"
+                                                src="{{ asset(auth()->user()->avatar) }}"
                                                 alt="">
                                             
                                         </a>
