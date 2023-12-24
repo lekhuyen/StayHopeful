@@ -64,7 +64,7 @@ class AboutuspageController extends Controller
             "description" => "nullable",
             "section" => "required",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         
         ], [
             'required' => "Input cannot be empty.",
@@ -109,7 +109,7 @@ class AboutuspageController extends Controller
             "description" => "nullable",
             "section" => "required",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'required' => "Input cannot be empty.",
             'min' => "Input must have at least :min.",
@@ -194,7 +194,7 @@ class AboutuspageController extends Controller
 
             "description" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'min' => "Input must have at least :min.",
             'max' => "Input must have at least :max.",        
@@ -268,7 +268,7 @@ class AboutuspageController extends Controller
 
             "description" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'min' => "Input must have at least :min",
             'max' => "Input must have at least :max.",        
@@ -321,7 +321,7 @@ class AboutuspageController extends Controller
         $request->validate([
             
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'min' => "Input must have at least :min",
             'max' => "Input must have at least :max.",        
@@ -357,7 +357,7 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'min' => "Input must have at least :min",
             'max' => "Input must have at least :max.",        
@@ -508,7 +508,7 @@ class AboutuspageController extends Controller
             "middletitle" => "nullable",
             "middledescription" => "nullable",
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ]);
 
         $teamPage = new aboutuscalltoaction();
@@ -546,7 +546,7 @@ class AboutuspageController extends Controller
             "middletitle" => "nullable",
             "middledescription" => "nullable",
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
             
         ], [
             'required' => "Input cannot be empty.",
@@ -614,7 +614,7 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "required|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'required' => "Input cannot be empty.",
             'min' => "Input must have at least :min",
@@ -654,7 +654,7 @@ class AboutuspageController extends Controller
     {   
         $request->validate([
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'required' => "Input cannot be empty.",
             'min' => "Input must have at least :min",
@@ -723,7 +723,7 @@ class AboutuspageController extends Controller
     {
         $request->validate([
             "images" => "required|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'required' => "Input cannot be empty.",
             'min' => "Input must have at least :min",
@@ -763,7 +763,7 @@ class AboutuspageController extends Controller
     {   
         $request->validate([
             "images" => "required",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
         ], [
             'required' => "Input cannot be empty.",
             'min' => "Input must have at least :min.",
@@ -908,7 +908,7 @@ class AboutuspageController extends Controller
             "middledescription" => "required|string|min:1|max:1000",
             "section" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
         ], [
             'required' => "Input cannot be empty.",
@@ -978,7 +978,7 @@ class AboutuspageController extends Controller
             "middledescription" => "required|string|min:1|max:1000",
             "section" => "nullable",
             "images" => "nullable|array",
-            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:4096",
+            "images.*" => "image|mimes:jpeg,png,jpg,bmp,gif,svg, webp|max:20000",
             'video' => 'nullable|mimes:mp4,avi,etc|max:10240',
         ], [
             'required' => "Input cannot be empty.",
