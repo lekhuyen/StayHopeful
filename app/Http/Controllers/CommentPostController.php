@@ -192,4 +192,17 @@ class CommentPostController extends Controller
         
 
     }
+
+
+    //report comment
+    public function reportComment($comment_id){
+        $comment = CommentPost::find($comment_id);
+        if($comment) {
+            $comment->update(["status"=>0]);
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+        return response()->json(['error' => "comment not found"]);
+    }
 }

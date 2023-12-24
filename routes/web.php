@@ -435,6 +435,8 @@ Route::post('/store-comment-reply/{id}', [CommentPostController::class, 'storeCo
 Route::get('/comments/{postId}', [CommentPostController::class, 'showComments'])->name('show-comments');
 //delete -comment
 Route::delete('/delete-comments/{id}', [CommentPostController::class, 'deleteComments'])->name('delete-comment');
+//report-comment
+Route::post('/report-comments/{id}', [CommentPostController::class, 'reportComment'])->name('report-comment');
 //delete-reply
 Route::delete('/delete-reply/{id}', [CommentPostController::class, 'deleteReply'])->name('delete-reply');
 //edit comment
@@ -475,3 +477,7 @@ Route::group(['prefix' => 'permissions/'], function () {
     Route::get('create', [AdminPermissionsController::class, 'create'])->name('permissions.create')->middleware('can:permissions_add');
     Route::post('store', [AdminPermissionsController::class, 'store'])->name('permissions.store');
 });
+
+
+//comment
+Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index');

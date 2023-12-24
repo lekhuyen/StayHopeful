@@ -51,7 +51,7 @@
 
                 @if ($post->images->count() == 0)
                     <div style="text-align:left; margin: 20px 50px 20px 50px; padding-bottom: 20px; height: 100%; display: flex; align-items: center; justify-content: center; transform: translateY(-10%);">
-                        <span>{{ $post->title }}</span>
+                        <span style="font-size:20px">{{ $post->title }}</span>
                     </div>
                 @else
                     <div style="text-align:left; margin: 20px 50px 20px 50px; padding-bottom: 20px">
@@ -119,6 +119,29 @@
         //     })
         // });
 
+
+        //report-commet
+        $('.report__comment').click(function() {
+            var comment_id = $(this).data('id')
+            var _csrf = '{{ csrf_token() }}';
+            var _loginUrl = '{{ route('report-comment', ':id') }}'.replace(':id', comment_id);
+            $.ajax({
+                type: 'POST',
+                url: _loginUrl,
+                data: {
+                    _token: _csrf
+                },
+                success: function(data) {
+                    if(data.status == 'success'){
+                        alert('Report was successfully')
+                    }
+                    
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        })
 
         //delete-comment
         $('.delete_comment-post-user').click(function() {
@@ -363,8 +386,6 @@
             $('#form_comment-texarena').submit(function(e) {
                 e.preventDefault();
                 post_id = $(this).data('id');
-                // var comment_id = $('.input_id-comment').val();
-                // var post_id = $('.input_post-id').val();
 
                 var content = $('.content_comment').val();
                 var _loginUrl = '{{ route('store-comment', ':id') }}'.replace(':id', post_id);

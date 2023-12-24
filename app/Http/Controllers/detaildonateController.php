@@ -19,7 +19,7 @@ class detaildonateController extends Controller
         $projects = Project::all();
         $detail = null;
         return view('frontend.detaildonate.donatepage', compact('projects', 'detail'));
-
+        
     }
 
 

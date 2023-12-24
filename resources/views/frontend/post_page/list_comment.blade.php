@@ -43,6 +43,15 @@
                             <p class="delete_comment-post-user" data-id="{{ $comment->id }}">Delete</p>
                         </div>
                     </div>
+                @else
+                    <div class="delete_comment-post">
+                        <div class="menu-edit-delete">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                        <div class="edit_delete-post" style="display: none" data-id="{{ $comment->id }}">
+                            <p class="report__comment" data-id="{{ $comment->id }}">Report</p>
+                        </div>
+                    </div>
                 @endif
 
             </div>
