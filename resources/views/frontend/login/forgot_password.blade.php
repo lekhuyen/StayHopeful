@@ -25,7 +25,7 @@
 <div class="container-reset-pass-notification">
     <div class="reset-pass-status-success">
         <div class="exit-alert-btn">
-            <i class="fa-solid fa-xmark"></i>
+            <a style="text-decoration: none" href="{{ route('logout.changepass') }}"><i class="fa-solid fa-xmark"></i></a>
         </div>
         <img class="img-alert" src="{{asset('img/logo.svg')}}" alt="">
             <p>
@@ -110,7 +110,7 @@
 <script>
     var sentOtpSuccessfully = document.querySelector('.btn-send-otp-email');
     var resetPasswordForm = document.querySelector('.container-reset-password-form');
-
+    var forgotPasswordEmailForm = document.querySelector('.container-reset-password-email-input');
     //alert
     var sendEmailSuccess = document.querySelector(".container-send-email-notification");
     var resetPassSuccess = document.querySelector(".container-reset-pass-notification");
@@ -188,6 +188,7 @@
                 if(response.status == 'success'){
                     resetPassSuccess.classList.add("showAlert");
                     resetPasswordForm.classList.remove("showFormResetPassword");
+                    forgotPasswordEmailForm.classList.remove("showForgotPassword");
                     $('#reset-password-otp').val(''),
                     $('#new-password-reset').val('')
                      $('#confirm-new-password-reset').val('')

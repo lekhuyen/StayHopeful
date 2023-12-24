@@ -55,7 +55,8 @@ Route::get('/donate/success', [detaildonateController::class, 'paymentsuccess'])
 //listdonate
 Route::get('/listdonate', [detaildonateController::class, 'viewlistdonate'])->name('detail.listdonate');
 
-//login
+//login 
+Route::get('/logout/changepass', [AuthloginController::class, 'logoutWhenChangePass'])->name('logout.changepass');
 Route::get('/logout', [AuthloginController::class, 'logout'])->name('logout');
 Route::post('/login', [AuthloginController::class, 'login'])->name('auth.login');
 Route::post('/register', [AuthloginController::class, 'register'])->name('auth.register');

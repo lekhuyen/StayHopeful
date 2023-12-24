@@ -199,6 +199,13 @@ class AuthloginController extends Controller
             return redirect()->back()->withErrors('Login error');
         }
     }
+    public function logoutWhenChangePass()
+    {
+        session()->forget('userInfo');
+        Auth::logout();
+        return redirect()->route('/')->with("isLogout", true);
+    }
+
     public function logout()
     {
         session()->forget('userInfo');
@@ -226,12 +233,9 @@ class AuthloginController extends Controller
             'old_password' => 'required',
             'new_password' => 'required',
         ]);
-        // $old_password = $request-> old_password;
-        // $new_password = $request-> new_password;
         $email = session()->get('userInfo')['email'];
         $user = User::where("email", $email)->first();
         if (Auth::attempt(['email' => $email, 'password' => $request->old_password])) {
-            // $user->update(['password' => $request->new_password]);
             $user->password = Hash::make($request->new_password);
             $user->save();
             session()->forget('userInfo');

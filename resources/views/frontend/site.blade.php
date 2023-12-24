@@ -88,16 +88,6 @@
                                     <input type="search" placeholder="Search" name="search" id="search"
                                         class="search-home">
                                     <div class="search-ajax" id="search-ajax" style="display: none">
-                                        {{-- <div class="result-search">
-                                            <a href="#">
-                                                <div class="image-search">
-                                                    <img src="{{asset('img/aboutus1.jpg')}}">
-                                                </div>
-                                                <div class="text-result">
-                                                    aa
-                                                </div>
-                                            </a>
-                                        </div> --}}
                                     </div>
 
                                 </div>
@@ -116,7 +106,6 @@
                                 @else
                                     <div class="btn-mobile solid popup-login-responsive">LOGIN</div>
                                 @endif
-                                {{-- <a href="#" class="btn solid">LOGIN</a> --}}
                             </div>
                         </div>
                         <div class="nav-btn">
@@ -209,107 +198,7 @@
                                         <a href="#" class="nav-menu-title">OUR PROJECT<i
                                                 class="fa-solid fa-caret-down"></i></a>
                                         <div class="dropdown">
-                                            {{-- <i class="fas fa-angle-right dropdown"></i> --}}
-                                            {{-- <div class="nav-sub-menu-title"> --}}
-                                            {{-- @if ($categories->count() > 0)
-                        <div class="nav-btn">
-                            <div class="nav-links">
-                                <ul class="ul-mobile">
-                                    <li class="nav-link" style="--i: .6s">
-                                        <a href="{{ route('/') }}" class="nav-menu-title">HOME</a>
-                                    </li>
-                                    <li class="nav-link" style="--i: .85s">
-                                        <a class="nav-menu-title">ABOUT <i class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="dropdown-mobile-ul">
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('aboutus.index') }}">About Us </a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('aboutus.aboutus_whoweare') }}">Our Team</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('contact.index') }}">Location</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-link" style="--i: 1.1s">
-                                        <a class="nav-menu-title">EXPLORE <i class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="dropdown-mobile-ul">
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('project.index', 1) }}">Our Projects</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('detail.listdonate') }}">Donate List</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-link" style="--i: 1.35s">
-                                        <a class="nav-menu-title">SUPPORT <i class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="dropdown-mobile-ul">
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('detail.donate') }}">Donate</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('feedback.create') }}">Feedback</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('volunteer.create') }}">Volunteer</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-link" style="--i: 1.6s">
-                                        <a class="nav-menu-title">RESOURCES <i class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="dropdown-mobile-ul">
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('blog.index') }}">News</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('video.index') }}">Video Gallery</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-link" style="--i: 1.85s">
-                                        <a href="#" class="nav-menu-title">CONTACT <i
-                                                class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            <ul class="dropdown-mobile-ul">
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('contact.index') }}">Contact</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('feedback.create') }}">Feedback</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="{{ route('volunteer.create') }}">Volunteer</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-link" style="--i: 2.1s">
-                                        <a href="#" class="nav-menu-title">OUR PROJECT <i
-                                                class="fa-solid fa-caret-down"></i></a>
-                                        <div class="dropdown">
-                                            {{-- <i class="fas fa-angle-right dropdown"></i> --}}
-                                            {{-- <div class="nav-sub-menu-title"> --}}
-                                            {{-- @if ($categories->count() > 0)
-                                                        @foreach ($categories as $category)
-                                                            <a href="{{ route('project.post', $category->id) }}" class="sub-item">{{ $category->name }}</a>
-                                                        @endforeach
-                                                        @endif --}}
-                                            {{-- </div> --}}
+                                           
                                         </div>
                                     </li>
                                 </ul>
@@ -332,11 +221,7 @@
                                     <a href="#" class="btn-mobile solid popup-login-responsive-mobile"
                                         style="text-decoration: none;">LOGIN</a>
                                 @endif
-                                {{-- <a href="#" class="btn solid">LOGIN</a> --}}
                             </div>
-                            {{-- <div class="log-sign-dropdown" style="--i: 1.8s">
-                                    <a href="#" class="btn-mobile solid popup-login-responsive-mobile" style="text-decoration: none;">LOGIN</a>
-                                </div> --}}
                         </div>
 
                         <div class="hamburger-menu-container">
@@ -448,7 +333,6 @@
                             <li><i class="fa-solid fa-map"></i>No. 22 Ben Nghe Street, Ward 2, District 1, Viet Nam
                             </li>
                             <li><i class="fa-solid fa-phone"></i> Hotline : (84-028) 39107612</li>
-                            {{-- <li><i class="fa-solid fa-fax"></i> Fax : (84-028) 3910 7614</li> --}}
                             <li><i class="fa-solid fa-envelope"></i><a href="{{ route('contact.index') }}">Email:
                                     contact@StayHopeful.org</a></li>
                             <li></li>
@@ -515,78 +399,8 @@
         })
     })
 </script>
-{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 
-{{-- like user post(profile page) --}}
 <script>
-    // $(document).ready(function() {
-    //     $('.like_post_profile').each(function() {
-    //         var postId = $(this).data('post-id');
-
-    //         var likeButton = $('.like_post_profile[data-post-id="' + postId + '"]');
-
-    //         var countElement = $('.count_like[data-post-id="' + postId + '"]');
-
-    //         var like_icons = $('.like_icon[data-post-id="' + postId + '"]');
-
-    //         var dislike_icons = $('.dislike_icon[data-post-id="' + postId + '"]');
-
-    //         var userLikeStatus = localStorage.getItem('likeStatus_' + postId);
-
-
-    //         if (userLikeStatus === 'liked') {
-    //             like_icons.addClass('show');
-    //             dislike_icons.removeClass('show');
-    //         } else if (userLikeStatus === 'disliked') {
-    //             like_icons.removeClass('show');
-    //             dislike_icons.addClass('show');
-    //         }
-
-    //         var likesCount = localStorage.getItem('likesCount_' + postId);
-    //         if (likesCount !== null) {
-    //             if (likesCount == 0) {
-    //                 countElement.text('');
-    //             } else {
-    //                 countElement.text(likesCount);
-    //             }
-    //         }
-
-    //         $(document).on('click', '.like_post_profile[data-post-id="' + postId + '"]', function(e) {
-    //             e.preventDefault();
-    //             var post_id = $(this).data('post-id');
-    //             var _csrf = '{{ csrf_token() }}';
-    //             var _loginUrl = '{{ route('post.like') }}';
-
-    //             $.ajax({
-    //                 url: _loginUrl,
-    //                 type: 'POST',
-    //                 data: {
-    //                     post_id: post_id,
-    //                     _token: _csrf
-    //                 },
-    //                 success: function(data) {
-    //                     if (data.like_user === 1) {
-    //                         like_icons.addClass('show');
-    //                         dislike_icons.removeClass('show');
-    //                         localStorage.setItem('likeStatus_' + post_id, 'liked');
-    //                     } else {
-    //                         like_icons.removeClass('show');
-    //                         dislike_icons.addClass('show');
-
-    //                         localStorage.setItem('likeStatus_' + post_id,
-    //                             'disliked');
-    //                     }
-    //                     if (data.count == 0) {
-    //                         countElement.text('');
-    //                     } else {
-    //                         countElement.text(data.count);
-    //                     }
-    //                     localStorage.setItem('likesCount_' + post_id, data.count);
-    //                 }
-    //             });
-    //         });
-    //     });
-    // });
 
     // like-user
     $(document).ready(function() {
