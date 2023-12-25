@@ -293,15 +293,15 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('listuser/{id}', [AdminPageController::class, 'deleteuser'])->name('admin.deleteuser');
     Route::get('updateuser/{id}', [AdminPageController::class, 'getiduser'])->name('admin.getiduser');
     Route::get('listdonate', [AdminPageController::class, 'viewlistdonate'])->name('admin.listdonate');
-    Route::get('/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
-    Route::get('/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
     Route::get('/searchdashboard', [AdminPageController::class, 'searchdashboard'])->name('admin.searchdashboard');
     Route::get('/searchdesign', [AdminPageController::class, 'searchdesign'])->name('admin.searchdesign');
     Route::get('/searchlistuser', [AdminPageController::class, 'searchlistuser'])->name('admin.searchlistuser');
     Route::get('/searchlistdonate', [AdminPageController::class, 'searchlistdonate'])->name('admin.searchlistdonate');
-    Route::get('/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
 });
 });
+Route::get('/admin/getuserdonate', [AdminPageController::class, 'getdonateuser'])->name('detail.getuserdonate');
+Route::get('/admin/totaldonate', [AdminPageController::class, 'GetTotalAmount'])->name('detail.GetTotalAmount');
+Route::get('/admin/searchhome', [AdminPageController::class, 'searchhome'])->name('admin.searchhome');
 
 //caregory Admin page
 Route::group(["middleware" => "admin_auth"], function () {

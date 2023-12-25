@@ -88,6 +88,18 @@
                                     <input type="search" placeholder="Search" name="search" id="search"
                                         class="search-home">
                                     <div class="search-ajax" id="search-ajax" style="display: none">
+                                        <div class="search-ajax" id="search-ajax" style="display: none">
+                                            {{-- <div class="result-search">
+                                                <a href="#">
+                                                    <div class="image-search">
+                                                        <img src="{{asset('img/aboutus1.jpg')}}">
+                                                    </div>
+                                                    <div class="text-result">
+                                                        aa
+                                                    </div>
+                                                </a>
+                                            </div> --}}
+                                        </div>
                                     </div>
 
                                 </div>

@@ -4,20 +4,19 @@
     {{-- css contactus --}}
     <link rel="stylesheet" href="{{ asset('contactus/contact.css') }}">
     {{-- css contactus --}}
-    @if (session('success'))
-    <div class="container-user-post-notification showAlert">
-        <div class="user-post-status-success">
-            <div class="exit-user-post-alert-btn">
-                <i class="fa-solid fa-xmark"></i>
+@if (session('success'))
+        <div class="container-user-post-notification showAlert">
+            <div class="user-post-status-success">
+                <div class="exit-user-post-alert-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
+                <p style="top: 26%;">
+                    Thanks For Contact Us We Will Reply Soon As Well &#128525;<br>
+                </p>
             </div>
-            <img class="img-alert" src="{{ asset('img/logo.svg') }}" alt="">
-            <p style="top: 26%;">
-                Thanks For Contact Us We Will Reply Soon As Well &#128525;<br>
-            </p>
         </div>
-    </div>
-@endif
-
+    @endif
     <div class="container mt-6">
         <form method="POST" action="{{ route('contact.create') }}">
             @csrf
