@@ -85,17 +85,7 @@
     </div>
 
     </div>
-    <script>
-        var click = document.getElementById('click-exit');
-        var click_ok = document.getElementById('click-exit-ok');
-        var popup = document.querySelector('.pop-background'); // Fixed typo here
-        click.addEventListener('click', function() {
-            popup.classList.add('exit-none');
-        });
-        click_ok.addEventListener('click', function() {
-            popup.classList.add('exit-none');
-        });
-    </script>
+
     @include('frontend/login/login')
     @include('frontend/profile/popup_profile')
 @endsection

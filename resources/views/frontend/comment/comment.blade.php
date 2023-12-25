@@ -5,7 +5,7 @@
 
     @include('frontend.info_donate.info_donate')
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-right: 0; padding-left: 0">
         {{-- post title --}}
         @yield('post-title')
 

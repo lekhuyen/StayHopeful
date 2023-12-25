@@ -1,6 +1,4 @@
 @extends('frontend.adminpage.index')
-@include('frontend/login/login')
-@include('frontend/profile/popup_profile')
 @section('admin_content')
 @section('title','Edit Permission')
     {{-- css --}}
