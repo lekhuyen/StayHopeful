@@ -39,9 +39,15 @@ return [
         'slider_edit'=>'slider_edit',
 
         'permissions_add'=>'permissions_add',
+
+        'comment_list'=>'comment_list',
+        'comment_delete'=>'comment_delete',
+
+        
     ],
     'table_module'=> [
         'Category',
+        'Comment',
         'Project',
         'Post',
         'News',
@@ -54,7 +60,7 @@ return [
         'Dashboard',
         'Feedback',
         'Volunteer',
-        'About'
+        'About',
     ],
 
     'module_children'=> [

@@ -511,6 +511,6 @@ Route::group(['prefix' => 'permissions/'], function () {
 
 //comment
 Route::group(["middleware" => "admin_auth"], function () {
-Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index');
+    Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index')->middleware('can:comment_list');
 });
 

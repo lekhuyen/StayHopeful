@@ -20,8 +20,6 @@
     </div>
     <br>
 
-    
-
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">

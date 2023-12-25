@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->difineGatePermission();
         $this->difineGateVideos();
         $this->difineGateSliders();
+        $this->difineComment();
 
         // Gate::define('post_edit', function ($user) {
         //     return $user->checkPermissionAccess(config('permissions.access.post_edit'));
@@ -82,5 +83,9 @@ class AuthServiceProvider extends ServiceProvider
     }
     public function difineGatePermission(){
         Gate::define('permissions_add', 'App\Policies\PermissionsPolicy@create');
+    }
+    public function difineComment(){
+        Gate::define('comment_list', 'App\Policies\CommentPolicy@view');
+        Gate::define('comment_delete', 'App\Policies\CommentPolicy@delete');
     }
 }

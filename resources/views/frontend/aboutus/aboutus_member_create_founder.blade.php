@@ -28,10 +28,10 @@
         </div>
     
         <div class="mb-3">
-          <label for="description" class="form-label">Member Description:</label>
-          <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
+            <label for="description" class="form-label">Member Description:</label>
+            <textarea class="form-control tinymce" id="description" placeholder="Enter description" name="description"></textarea>
         @error('description')
-          <span class="text-danger">{{$message}}</span>
+            <span class="text-danger">{{$message}}</span>
         @enderror
         </div>
 

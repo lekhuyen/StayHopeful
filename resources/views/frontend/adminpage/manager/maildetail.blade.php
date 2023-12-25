@@ -1,10 +1,8 @@
 @extends('frontend.adminpage.index')
 @section('admin_content')
-<<<<<<< HEAD
 <link rel="stylesheet" href="{{ asset('feedbackcss/sensitive.css') }}">
 <h1>Detail Mail</h1>
     {!! $mail->message !!}
-=======
 @section('title', 'Mail Detail')
 {{-- css --}}
 <link rel="stylesheet" href="{{ asset('general/general.css') }}">
@@ -36,5 +34,4 @@
         </tbody>
     </table>
 </div>
->>>>>>> 99ec9e181caa371ec182815ce6cce04ff10e6fd6
 @endsection

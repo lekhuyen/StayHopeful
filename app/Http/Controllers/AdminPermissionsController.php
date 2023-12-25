@@ -21,7 +21,7 @@ class AdminPermissionsController extends Controller
                 'name'=>$value,
                 'display_name'=>$value,
                 'parent_id'=>$permission->id,
-                'key_code'=>strtolower($request->module_parent.'_'.$value),
+                'key_code'=>strtolower($request->name.'_'.$value),
             ]);
         }
         return redirect()->route('roles.index');

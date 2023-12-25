@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('volunteercss/blog_detail.css') }}">
     {{-- css --}}
 
-    <div class="container-fluid margin-navbar">
+    <div class="container-fluid margin-navbar" style="padding-left: 0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="display: flex; align-items:center">
