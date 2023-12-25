@@ -1,10 +1,7 @@
 @extends('frontend.adminpage.index')
-@include('frontend/login/login')
-@include('frontend/profile/popup_profile')
 @section('admin_content')
 @section('title','Role List')
     {{-- css --}}
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('general/general.css') }}">
     {{-- css --}}
 

@@ -230,10 +230,8 @@ Route::group(["middleware" => "admin_auth"], function () {
     Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index'); //admin
     Route::get('/feedback/detail/{id}', [FeedbackController::class, 'detail'])->name('feedback.detail'); //admin
 });
-Route::group(["middleware" => "user_auth"], function () {
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create'); //user
 Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store'); //user
-});
 
 //sensitive admin
 Route::group(["middleware" => "admin_auth"], function () {
@@ -251,10 +249,8 @@ Route::group(["middleware" => "admin_auth"], function () {
     Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer.index'); //admin
     Route::get('/volunteer/detail/{id}', [VolunteerController::class, 'detail'])->name('volunteer.detail'); //admin
 });
-Route::group(["middleware" => "user_auth"], function () {
     Route::get('/volunteer/create', [VolunteerController::class, 'create'])->name('volunteer.create'); //user
     Route::post('/volunteer/create', [VolunteerController::class, 'store'])->name('volunteer.store'); //user
-});
 
 
 // project

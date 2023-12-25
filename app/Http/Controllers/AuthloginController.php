@@ -106,7 +106,7 @@ class AuthloginController extends Controller
             $userinfo = DonateInfo::where('user_id', $usercheck->id)->select('*')->paginate(5);
             return view('frontend.profile.index', compact('posts', 'userinfo', 'userupdate', 'user'));
         } else {
-            return redirect()->route('/')->with('error', 'You Need to login');
+            return redirect()->route('/');
         }
     }
     //login bằng email
