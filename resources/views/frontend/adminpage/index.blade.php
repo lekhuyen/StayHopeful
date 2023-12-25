@@ -130,7 +130,7 @@
             <div class="container-fluid">
                 <div class="d-flex justify-content-between d-md-none d-block">
                     <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
-                    <a class="navbar-brand fs-4" href="#"><span
+                    <a class="navbar-brand fs-4" href="{{route('/')}}"><span
                             class="bg-dark rounded px-2 py-0 text-white">StayHopeful</span></a>
 
                 </div>
