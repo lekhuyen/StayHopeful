@@ -25,9 +25,9 @@
             @if ($teampic1Page->images->count() > 0)
                 @foreach ($teampic1Page->images as $item)
                     <img src="{{ asset($item->url_image) }}"
-                         class="img-thumbnail"
-                         width="100"
-                         alt="{{ $teampic1Page->name }}"/>
+                        class="img-thumbnail"
+                        width="100"
+                        alt="{{ $teampic1Page->name }}"/>
                 @endforeach
             @else
                 <p>No image available</p>

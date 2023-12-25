@@ -24,12 +24,18 @@ var editPostFormUser = document.querySelectorAll('#edit-post-user')
 //popup alert remove
 var exitAlertBtn = document.querySelector('.exit-user-post-alert-btn');
 var addPostSuccess = document.querySelector(".container-user-post-notification");
-exitAlertBtn.addEventListener('click', function () {
-    addPostSuccess.classList.remove("showAlert");
-});
-addPostSuccess.addEventListener('click', function () {
-    addPostSuccess.classList.remove("showAlert");
-});
+if(exitAlertBtn) {
+    exitAlertBtn.addEventListener('click', function () {
+        addPostSuccess.classList.remove("showAlert");
+    });
+}
+
+if(addPostSuccess){
+    addPostSuccess.addEventListener('click', function () {
+        addPostSuccess.classList.remove("showAlert");
+    });
+}
+
 
 
 editPost.forEach((item, key) => {
@@ -58,8 +64,6 @@ window.addEventListener('click', ()=>{
 })
 
 
-// editPost.addEventListener('click', (e)=>{
-// })
 
 
 if(formPost) {
@@ -89,10 +93,12 @@ if(modelFormPost) {
 
 
 var inputNewPost = document.querySelector('.input_new-post div')
+if(inputNewPost){
+    inputNewPost.addEventListener('click', ()=> {
+        formPostShow.classList.add('show-post-form');
+    })
+}
 
-inputNewPost.addEventListener('click', ()=> {
-    formPostShow.classList.add('show-post-form');
-})
 
 // an model
 if(modalInner) {

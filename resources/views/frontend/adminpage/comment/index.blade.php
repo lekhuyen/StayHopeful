@@ -10,7 +10,9 @@
                 <th>USER</th>
                 <th>CONTENT</th>
                 <th>REPORT</th>
+                @can('comment_delete')
                 <th>Action</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -33,9 +35,11 @@
                         @endif
                     </td>
                     <td>
-                        <button class="btn btn-danger delete-post delete_comment-post-user" data-id="{{ $comment->id }}">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                        @can('comment_delete')
+                            <button class="btn btn-danger delete-post delete_comment-post-user" data-id="{{ $comment->id }}">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        @endcan
                     </td>
                 </tr>
             @empty
@@ -61,7 +65,9 @@
                 <th>USER</th>
                 <th>CONTENT</th>
                 <th>REPORT</th>
+                @can('comment_delete')
                 <th>Action</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -83,13 +89,16 @@
                             </span>
                         @endif
                     </td>
-                    <td>
-                        <button class="btn btn-danger delete-post delete_comment-post-user" data-id="{{ $reply->id }}">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                    </td>
+                    @can('comment_delete')
+                        <td>
+                            
+                            <button class="btn btn-danger delete-post delete_comment-post-user" data-id="{{ $reply->id }}">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    @endcan
                 </tr>
-            @empty
+                @empty
                 <tr>
                     <td colspan="9" style="text-align:center">Empty</td>
                 </tr>
