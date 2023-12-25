@@ -102,23 +102,23 @@
 
                         <div class="mb-3 mt-3">
                             <label for="current-image" class="form-label">Current Image:</label>
-                            <img id="current-image" src="" width="100">
+                            <img id="current-image{{ $slider->id }}" src="" width="100">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="image-change" class="form-label">New Image:</label>
-                            <input type="file" class="form-control" id="image-change" placeholder="Choose New Image"
-                                name="image_update" onchange="previewImage()">
+                            <label for="image-change{{ $slider->id }}" class="form-label">New Image:</label>
+                            <input type="file" class="form-control" id="image-change{{ $slider->id }}" placeholder="Choose New Image" name="image_update" onchange="previewImage({{ $slider->id }})">
+                            
                                 @error('image_update')
                                     <div class="text-danger">{{$message}}</div>
                                 @enderror
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="image-preview">New Image Preview:</label>
-                            <img id="image-preview" src="" width="100">
+                            <img id="image-preview{{ $slider->id }}" src="" width="100">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="name-image-change" class="form-label">Image Name:</label>
-                            <input type="text" class="form-control" id="name-image-change"
+                            <input type="text" class="form-control" id="name-image-change {{$slider->id}}"
                                 placeholder="Enter New Image Name" name="nameimage_update">
                                 @error('nameimage_update')
                                 <div class="text-danger">{{$message}}</div>
@@ -230,8 +230,8 @@
                 url: '/admin/managerdesign/' + id,
                 success: function(response) {
                     console.log(response);
-                    $('#current-image').attr('src', response.url);
-                    $('#name-image-change').val(response.slider_name);
+                    $('#current-image' + id).attr('src', response.url);
+                    $('#name-image-change' + id).val(response.slider_name);
                 },
                 error: function(error) {
                     console.log(error);
@@ -240,22 +240,23 @@
         });
     });
 
-    function previewImage() {
-        var input = document.getElementById('image-change');
-        var preview = document.getElementById('image-preview');
+    function previewImage(sliderId) {
+    var input = document.getElementById('image-change' + sliderId);
+    var preview = document.getElementById('image-preview' + sliderId);
 
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-            };
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
 
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            preview.src = '';
-        }
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        preview.src = '';
     }
+}
+
 
     function previewImage2() {
         var input = document.getElementById('image');

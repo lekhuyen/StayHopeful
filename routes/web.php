@@ -121,6 +121,10 @@ Route::get('/aboutus/whoweare/kaigreene', [AboutUsController::class, 'kaigreene'
 
 Route::get('/aboutus/whoweare/oliverhudson', [AboutUsController::class, 'oliverhudson'])->name('aboutus.oliverhudson');
 
+Route::get('/aboutus/whoweare/member/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
+
+Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
+
 // About Us Team admin
 Route::group(["middleware" => "admin_auth"], function () {
 Route::get('/aboutusteam', [AboutusteamController::class, 'aboutus_team_index'])->name('aboutusteam.index');
@@ -139,7 +143,6 @@ Route::delete('/aboutusteam/delete/{aboutusteam}', [AboutusteamController::class
 
 Route::get('/aboutusteam/{id}', [AboutusteamController::class, 'aboutus_team_detail'])->name('aboutusteam.detail');
 
-Route::get('/aboutus/whoweare/{id}', [AboutUsController::class, 'showTeamMemberDetail'])->name('aboutus.aboutus_whoweare.detail'); //user
 
 // About Us Page
 Route::get('/aboutus_page_table', [AboutuspageController::class, 'aboutus_page_index'])->name('aboutuspage.index');
@@ -209,7 +212,6 @@ Route::delete('/aboutus_page_table/delete_question/{questionPages}', [Aboutuspag
 Route::get('/aboutus_page_table/aboutus_member_index', [AboutuspageController::class, 'aboutus_member_index'])->name('aboutusmember.index');
 Route::get('/aboutus_page_main/aboutus_member_index/{id}', [AboutuspageController::class, 'Aboutus_member_main'])->name('aboutus_member_main');
 Route::get('/aboutus_page_main/aboutus_member_index/aboutus_member_detail/{id}', [AboutuspageController::class, 'Aboutus_member_detail'])->name('aboutusmember.detail');
-Route::get('/aboutus/whoweare/member/{id}', [AboutuspageController::class, 'Aboutus_intro_detail'])->name('aboutusintro.detail');
 
 
 //About Us Founder Page
@@ -220,6 +222,7 @@ Route::put('/aboutus_page_main/aboutus_member_index/edit_founder/{ourfounderPage
 Route::delete('/aboutus_page_table/aboutus_member_index/delete_founder/{ourfounderPages}', [AboutuspageController::class, 'aboutus_page_delete_founder'])->name('aboutusmember.delete_founder');
 //end middleware about us
 });
+
 
 
 //feedback
